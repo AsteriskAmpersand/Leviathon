@@ -23,7 +23,7 @@ Nack files are named after NackDN, human repository of THK files knowledge and d
 
 FExtY files are dynamical language extensions which enable the compiler and decompiler to elegantly resolve THK Function Types into human readable code and viceversa. Their structure is defined on the FExtY Specification File.
 
-FExtY files are named after TDS Fexty, a relative newcommer to Monster AI Editing Research who performed vital decompilation and documentation work of the game internal switch cases functions as well as authored the AI Extension Framework to enable modders to add custom Function Types (which can be compatibilized with this tool through the FExtY files).
+FExtY files are named after Fexty, a relative newcommer to Monster AI Editing Research who performed vital decompilation and documentation work of the game internal switch cases functions as well as authored the AI Extension Framework to enable modders to add custom Function Types (which can be compatibilized with this tool through the FExtY files).
 
 ## Aditional Credits
 Monster THK editing is a rich and storied field which has had numerous contributors, it's almost impossible to provide an extensive listing of findings per credit as the early history is riddled with undocumented findings and oral tradition. In chronological order:
@@ -35,10 +35,10 @@ Monster THK editing is a rich and storied field which has had numerous contribut
 - NackDN
 - AsteriskAmpersand
 - Stracker
-- TDS Fexty
+- Fexty
 
 ## Special Thanks
-Additional credit is given to Fandirus, NackDN, Silvris and TDS Fexty for assisting with the language specification and target feature list.
+Additional credit is given to Fandirus, NackDN, Silvris and Fexty for assisting with the language specification and target feature list.
 
 # The ABC Reference Compiler-Decompiler
 <img src="https://github.com/AsteriskAmpersand/Leviathon/blob/main/CompilerLogo.fw.png?raw=true" alt="Compiler Logot" width=450>
