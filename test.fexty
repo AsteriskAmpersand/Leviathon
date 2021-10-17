@@ -1,0 +1,103 @@
+Use Hex
+3{
+  >targetEnemy
+  parameter1 == 1 : (target_em.random_player_or_cat)
+  parameter1 == 2 : (target_em.closest_entity)
+  parameter1 == 13 : (target_em.last_attacker)
+  parameter1 == 29 : (target_em.any_monster)
+  parameter1 == 41 : (target_em.nearest_monster)
+  parameter1 == 66 : (target_em.last_target)
+}
+4: targetUnknown(parameter1,parameter2)
+5{
+  >targetArea
+  parameter1 == 10 : (target_area.nearest_entrance)
+  parameter1 == 3B : (target_area.next_exit)
+  parameter1 == 12 : (target_area.global_center)
+  parameter1 == 25 : (target_area.area_center)
+  parameter1 == 26 : (target_area.area_aerial_center)
+  parameter1 == 31 : (target_area.nearest_monster_area)  
+  parameter1 == 3D : (target_area.unknown_aerial)
+  parameter1 == 3E : (target_area.unknown_ground)  
+}  
+6: distance_3d_to_target().leq(parameter1)
+7: distance_3d_to_target().gt(parameter1)
+8: distance_2d_to_target().leq(parameter1)
+9: distance_2d_to_target().gt(parameter1)
+A: distance_3d_recalc_to_target().leq(parameter1)
+B: distance_3d_recalc_to_target().gt(parameter1)
+C: distance_2d_recalc_to_target().leq(parameter1)
+D: distance_2d_recalc_to_target().gt(parameter1)
+E: vertical_distance_to_target().leq(parameter1)
+F: vertical_distance_to_target().gt(parameter1)
+10{
+   parameter1 == 0: above_target()
+   parameter1 == 1: below_target()
+}
+13{
+   parameter1 == 0: above_area()
+   parameter1 == 1: below_area()
+}
+14: angle_2d_ccw_between(parameter1,parameter2)
+16: angle_2d_cw_between(parameter1,parameter2)
+18: angular_18(parameter1,parameter2)
+1A: angular_1A(parameter1,parameter2)
+15: angular_15(parameter1,parameter2)
+17: angular_17(parameter1,parameter2)
+19: angular_19(parameter1,parameter2)
+1B: angular_1B(parameter1,parameter2)
+1C: in_combat()
+1D: alert_out_of_combat()
+1E: enraged()
+1F: fatigued()
+20: poisoned()
+21: defense_downed()
+22: miasmaed()
+23: hookable()
+24: target_on_part(parameter1)
+25: mounted()
+26: mount_finisher_ready()
+27: mount_stabbed()
+28: mount_staggered_twice()
+2A: target.pinned()
+2B{
+   parameter1 == 0: enrage_time_left().leq(parameter2)
+   parameter1 == 1: fatigue_time_left().leq(parameter2)
+}
+2C{
+   >hp_percent()
+   parameter1 == 0: leq(parameter2)
+   parameter1 == 2: gt(parameter2)
+}
+2E{
+   >target
+   parameter1 == 5, parameter2 == 3: helpless_0()
+   parameter1 == 6: helpless_1()
+   parameter1 == 12: in_combat()
+   parameter1 == 18: poisoned()
+   parameter1 == 1A: bleed()
+   parameter1 == 1B: blast_blighted()
+   parameter1 == 1C: paralyzed()
+   parameter1 == 1D: stunned_0()
+   parameter1 == 1E: sleeping()
+   parameter1 == 29: stunned_1()
+   parameter1 == 2B: miasmaed()
+   parameter1 == 2D: mudded()
+   otherwise : pass
+}
+2F: target_is({em_enum:parameter1})
+37{
+   parameter1 == 0: quest_id(parameter2)
+}
+70: flying()
+76: part(parameter1).is_broken(parameter2)
+AE: force_area_change()
+B1: force_area_change2()
+B8{
+   >current_quest().is_rank
+   parameter1 == 0: (rank.LR)
+   parameter1 == 1: (rank.HR)
+   parameter1 == 2: (rank.MR)
+   parameter1 == 3: (rank.AT)
+}
+BF: in_map({st_enum:parameter1}).in_area(parameter2)
