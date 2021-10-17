@@ -33,6 +33,7 @@ Monster THK editing is a rich and storied field which has had numerous contribut
 - NekotagaYuhatora
 - NackDN
 - AsteriskAmpersand
+- Stracker
 - TDS Fexty
 
 ## Special Thanks
