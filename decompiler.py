@@ -32,7 +32,7 @@ class DecompilerSettings():
         self.keepVoid = False
         self.keepLast = False
         self.forceIndex = False
-        self.forceId = True
+        self.forceId = False
         self.listCrossreferences = False
         
         self.raiseInvalidReference = False
@@ -136,14 +136,14 @@ class THKLTranspiler(Transpiler):
         for thk in self.thkl:
             if thk.valid:
                 if self.settings.decompiler.functionAsThkName:
-                    partial = Path(thkMap.resolve(thk.index).lower()+".nack")
+                    partial = Path(self.scopeNamer.resolve(thk.index).lower()+".nack")
                 else:
                     try:
                         partial = Path(thk.partialPath).relative_to(self.folder).with_suffix(".nack")
                     except:
                         partial = Path(thk.partialPath).with_suffix(".nack")
                 self.fileNames.append(partial)
-                result += thklSpec.function_str % (thkMap.resolve(thk.index), partial, thk.metadata) + "\n"
+                result += thklSpec.function_str % (self.scopeNamer.resolve(thk.index), partial, thk.metadata) + "\n"
         result += thklSpec.length_str%len(self.thkl)
         return result
     def buildCallResolver(self):
@@ -202,9 +202,9 @@ class THKLTranspiler(Transpiler):
         self.location = self.consensusLocation(self.thkl)
         self.folder = self.consensusFolder(self.thkl)
         self.scopeNamer = thkMap
-        callResolver = self.buildCallResolver() #TODO - Have to build it from the nodes -> THK index to node listing
-        scopeResolver = self.buildScopeResolver()#TODO - Build from nodes
-        registerScheduler = self.buildRegisterScheduler()#TODO - Have to build it gather the register usage and rename them based on compile settings, add register declaration to thkl
+        callResolver = self.buildCallResolver()
+        scopeResolver = self.buildScopeResolver()
+        registerScheduler = self.buildRegisterScheduler()
         if functionResolver is None:
             functionResolver = buildResolver()
         return callResolver,scopeResolver,registerScheduler
@@ -752,8 +752,8 @@ class SegmentTranspiler(Transpiler):
 if __name__ in "__main__":
     inputThk = 0
     chunk = r"D:\Games SSD\MHW\chunk"
-    folder = r"\em\em001\00\data"
-    file = folder + r"\em001_%02d.thk"%inputThk
+    folder = r"\em\em002\01\data"
+    file = folder + r"\em002_%02d.thk"%inputThk
     inputStr = chunk + file
     thkf = THKTranspiler()
     thkf.read(file,inputStr,inputThk)
@@ -761,11 +761,12 @@ if __name__ in "__main__":
             chunk+folder,r"C:\Users\Asterisk\Downloads"
             ),"w") as outf:
         outf.write(thkf.decompile())
-    thkl = chunk + folder + r"\em001.thklst"
-    ts = TranspilerSettings()
-    ts.decompiler.outputPath = r"D:\Games SSD\MHW-AI-Analysis\RathianTest"
-    ts.decompiler.statisticsOutputPath = r"D:\Games SSD\MHW-AI-Analysis\RathianTest"
-    print(THKLTranspiler(ts).read(thkl).decompile())
+    for thkl in Path(chunk+folder).rglob("*.thklst"):
+        #thkl = chunk + folder + r"\em106.thklst"
+        ts = TranspilerSettings()
+        ts.decompiler.outputPath = r"D:\Games SSD\MHW-AI-Analysis\AzureTest"
+        ts.decompiler.statisticsOutputPath = r"D:\Games SSD\MHW-AI-Analysis\AzureTest"
+        THKLTranspiler(ts).read(thkl).writeFile()
     """
     with open(inputStr,"rb") as inthk:        
         thk.read("

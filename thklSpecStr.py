@@ -1,19 +1,21 @@
-location_str = """at %s
-is %s
+import fandLex as fl
+
+location_str = f"""{fl.T_ROOT} %s
+{fl.T_MONSTER} %s
 
 """
-chunk_str = "at %s"
-filepath_str = "through %s"
-monster_str = "is %s"
+chunk_str = f"{fl.T_ROOT} %s"
+filepath_str = f"{fl.T_RELATIVE} %s"
+monster_str = f"{fl.T_MONSTER} %s"
 
-import_str = "uses %s"
-selective_import_str = "from %s uses %s"
-qualified_immport_str = "uses %s as %s"
-function_str = "%s = %s @ %08X"
+import_str = f"{fl.T_QUALIFIED_IMPORT} %s"
+selective_import_str = f"{fl.T_SELECTIVE_IMPORT} %s {fl.T_SELECTION} %s"
+qualified_immport_str = f"{fl.T_QUALIFIED_IMPORT} %s {fl.T_ALIAS} %s"
+function_str = "%s = %s {fl.T_SPECIFIER} %08X"
 
 length_str = """
-has %d entries
+{fl.T_ENTRY_COUNT} %d entries
 """
 
-register_str = "Register %s as %s"
-register_anon_str = "Register %s"
+register_str = f"{fl.T_REGISTER} %s as %s"
+register_anon_str = f"{fl.T_REGISTER} %s"

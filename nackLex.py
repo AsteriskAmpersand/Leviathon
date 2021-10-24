@@ -6,6 +6,29 @@ Created on Sun Oct 10 19:11:45 2021
 """
 from sly import Lexer
 import keywords as key
+import regex
+
+def slyRegex(pattern, *extra):
+    patterns = [pattern, *extra]
+    def decorate(func):
+        pattern = '|'.join(f'({pat})' for pat in patterns )
+        if hasattr(func, 'pattern'):
+            func.pattern = pattern + '|' + func.pattern
+        else:
+            func.pattern = pattern
+        return func
+    return decorate
+
+def atomicCapture(regexp):
+    def inner(f):
+        @slyRegex(regexp)
+        def newfunction(self,t):
+            path = regex.match(regexp,t.value).groups()[0]
+            t.value = path
+            return f(self,t)
+        return newfunction
+    return inner
+
 class NackLexer(Lexer):
     
     literals = { '(', ')', '{', '}', '[', ']',":",".","&"}
@@ -27,28 +50,51 @@ class NackLexer(Lexer):
     COMMENTS = '//.*'
     FUNCTION_START = "self."
     LINECONTINUE = r'\\.*\n'
-    LINESKIP = r';|\n'
     DO_ACTION = key.DO_ACTION
     DO_CALL = key.DO_CALL
     DO_DIRECTIVE = key.DO_DIRECTIVE
     DO_NOTHING = key.DO_NOTHING
     META = key.META
     
+    ignore = ' \t'
+    
     #explicit register
-    REG = r"$[A-T]"
+    @atomicCapture(r"$([A-T])")
+    def REG(self,t): 
+        t.value = ord(t.value) - ord('A')
+        return t
     
     #unsafe
-    UNSAFE = r"%s [\s0-9A-Fa-f]+"%key.UNSAFE
+    @_(r"%s [\s0-9A-Fa-f]+"%key.UNSAFE)
+    def UNSAFE(self,t):
+        match = regex.match(r"%s ([\s0-9A-Fa-f]+)"%key.UNSAFE,t.value).groups()[0]
+        t.value = int(match.replace(" ","").replace("\t",""),16)
+        return t
     
     #number
-    NUMBER = r"[0-9]+"
+    @_(r"[0-9]+")
+    def NUMBER(self,t):
+        t.value = int(t.value)
+        return t
     
     #hexnumber
-    HEXNUMBER = r"0x[0-9A-F]+"
+    @_(r"0x[0-9A-F]+")
+    def HEXNUMBER(self,t):
+        t.value = int(t.value,16)
+        return t
     
-    ACTION = "%s#[0-9a-fA-F]+"%key.ACTION
-    FUNCTION = "%s#[0-9a-fA-F]+"%key.FUNCTION
-    CALL = "%s#[0-9]+"%key.CALL
+    @atomicCapture("%s[#]([0-9a-fA-F]+)"%key.ACTION)
+    def ACTION(self,t): 
+        t.value = int(t.value,16)
+        return t
+    @atomicCapture("%s[#]([0-9a-fA-F]+)"%key.FUNCTION)
+    def FUNCTION(self,t): 
+        t.value = int(t.value,16)
+        return t
+    @atomicCapture("%s[#]([0-9])+"%key.CALL)
+    def CALL(self,t): 
+        t.value = int(t.value,10)
+        return t
     
     #RegisterOperators
     INCREMENT = "\+\+"
@@ -68,6 +114,11 @@ class NackLexer(Lexer):
         t.type = self.id_keywords.get(t.value,'ID')    # Check for reserved words
         return t
     
+    # Line number tracking
+    @_(r';|\n+')
+    def LINESKIP(self, t):
+        self.lineno += t.value.count('\n')
+        return t
     #[RegisterName Comparison/Asignment Value/Variable]
     
 
