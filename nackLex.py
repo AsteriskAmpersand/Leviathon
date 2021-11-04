@@ -31,7 +31,7 @@ def atomicCapture(regexp):
 
 class NackLexer(Lexer):
     
-    literals = { '(', ')', '{', '}', '[', ']',":",".","&"}
+    literals = { '(', ')', '{', '}', '[', ']',":",".",",","&"}
     
     directives = [ key.REGISTER, key.IMPORTACT, key.IMPORTLIB, key.AS ]
     control = [ key.RETURN, key.RESET, key.REPEAT ]
@@ -46,8 +46,12 @@ class NackLexer(Lexer):
               FUNCTION_START,LINECONTINUE,LINESKIP,COMMENTS,DO_ACTION,DO_CALL,DO_DIRECTIVE,DO_NOTHING,
               META,REG,PATH,
               UNSAFE,NUMBER,HEXNUMBER,ACTION,FUNCTION,CALL,ID,
-              INCREMENT,RESET,EQ,LEQ,LT,GEQ,GT,NEQ}
-    COMMENTS = '//.*'
+              INCREMENT,RESET,EQ,LEQ,LT,GEQ,GT,NEQ,
+              ASSIGN}
+    
+    @_('//.*')
+    def COMMENTS(self,t): return
+    
     FUNCTION_START = "self."
     LINECONTINUE = r'\\.*\n'
     DO_ACTION = key.DO_ACTION
@@ -72,7 +76,7 @@ class NackLexer(Lexer):
         return t
     
     #number
-    @_(r"[0-9]+")
+    @_(r"-?[0-9]+")
     def NUMBER(self,t):
         t.value = int(t.value)
         return t
@@ -106,7 +110,7 @@ class NackLexer(Lexer):
     GEQ = ">="
     GT = ">"
     NEQ = "!="
-    
+    ASSIGN = "="
     PATH = r'".*"'
         
     @_(r"[a-zA-Z_][a-zA-Z'_0-9]*")
@@ -121,5 +125,6 @@ class NackLexer(Lexer):
         return t
     #[RegisterName Comparison/Asignment Value/Variable]
     
-
-
+    def error(self, t):
+        print('Line %d: Bad character %r' % (self.lineno, t.value[0]))
+        self.index += 1

@@ -1,4 +1,4 @@
-import fandLex as fl
+import fandLexParse as fl
 
 location_str = f"""{fl.T_ROOT} %s
 {fl.T_MONSTER} %s
@@ -11,9 +11,9 @@ monster_str = f"{fl.T_MONSTER} %s"
 import_str = f"{fl.T_QUALIFIED_IMPORT} %s"
 selective_import_str = f"{fl.T_SELECTIVE_IMPORT} %s {fl.T_SELECTION} %s"
 qualified_immport_str = f"{fl.T_QUALIFIED_IMPORT} %s {fl.T_ALIAS} %s"
-function_str = "%s = %s {fl.T_SPECIFIER} %08X"
+function_str = f"%s = %s {fl.T_SPECIFIER} %08X"
 
-length_str = """
+length_str = f"""
 {fl.T_ENTRY_COUNT} %d entries
 """
 

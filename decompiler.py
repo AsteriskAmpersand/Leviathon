@@ -13,6 +13,7 @@ from fexLayer import buildResolver
 from actionEnum import loadActionMaps,loadTHKMaps
 from monsterEnum import loadEntities
 from codeAnalysis import THKProject, rootMatch, cojoinedMatching
+from transpilerSettings import TranspilerSettings
 import keywords as key
 import thklSpecStr as thklSpec
 #Decompilation
@@ -25,35 +26,7 @@ import thklSpecStr as thklSpec
 #Resolve Calls to Scope + Name or Name if local (Add Comments if a call is void) (Is it just passing a dict with Index -> Scope Name, Node# -> Function Name)
 #Resolve Function Checks through the Specification  (from  the FExtY file)
 
-
-
-class DecompilerSettings():
-    def __init__(self):
-        self.keepVoid = False
-        self.keepLast = False
-        self.forceIndex = False
-        self.forceId = False
-        self.listCrossreferences = False
-        
-        self.raiseInvalidReference = False
-        self.suppressWarnings = False
-        self.keepRegisters = False
-        self.functionAsThkName = False
-    
-        self.runCodeAnalysis = False
-        
-        self.outputPath = None
-        self.statisticsOutputPath = None
-
-class CompilerSettings():
-    pass
-
-class TranspilerSettings():
-    def __init__(self):
-        self.decompiler = DecompilerSettings()
-        self.compiler = CompilerSettings()
-
-class Transpiler():
+class Decompiler():
     def __init__(self,settings = None):
         if settings is None:
             settings = TranspilerSettings()
@@ -67,7 +40,7 @@ class THKLEntry():
         self.partialPath = partialPath
         self.fullPath = fullPath
     
-class THKLTranspiler(Transpiler):
+class THKLDecompiler(Decompiler):
     #functionResolver = buildResolver(r'default.fexty')
     def __init__(self,settings = None):
         super().__init__(settings)
@@ -112,7 +85,7 @@ class THKLTranspiler(Transpiler):
         self.path = Path(path)
         thkl = ThkList.parse_file(path)
         self.thkl = [self.thkPathParse(ix,e.path+".thk" if e.path else "",d) for ix,(e,d) in enumerate(zip(thkl.entries,thkl.data))]
-        self.thkFiles = [THKTranspiler(self.settings).read(thk.partialPath,thk.fullPath,thk.index) for thk in self.thkl if thk.valid]
+        self.thkFiles = [THKDecompiler(self.settings).read(thk.partialPath,thk.fullPath,thk.index) for thk in self.thkl if thk.valid]
         return self
     def thkPathParse(self,ix,thkpath,d):
         if not thkpath:
@@ -360,7 +333,7 @@ class ScopeResolver():
         self.importList.add((scopeValue,scopeTarget))
         return scopeTarget
 
-class THKTranspiler(Transpiler):
+class THKDecompiler(Decompiler):
     #check references on nodes to see if there's any missing index, if there is
     #need to re-enable those function on fixed indices
     
@@ -386,7 +359,7 @@ class THKTranspiler(Transpiler):
         self.globalPath = glb
         self.index = index
         thk = Thk.parse_file(self.globalPath)
-        self.nodes = [NodeTranspiler(ix,self.settings).read(node) for ix,node in enumerate(thk.nodeList)]
+        self.nodes = [NodeDecompiler(ix,self.settings).read(node) for ix,node in enumerate(thk.nodeList)]
         self.monster = thk.header.monsterID
         self.labelNodes()
         return self
@@ -484,7 +457,7 @@ class THKTranspiler(Transpiler):
             outf.write(decompilation)
         
 
-class NodeTranspiler(Transpiler):
+class NodeDecompiler(Decompiler):
     def __init__(self,index = None,settings = None):
         super().__init__(settings)
         self.names = []
@@ -495,7 +468,7 @@ class NodeTranspiler(Transpiler):
         self.node = node
         self.id = node.id
         self.index = node.index if hasattr(node,"index") else self.index
-        self.segments = [SegmentTranspiler(self.settings).read(segment) for segment in self.node.segments]
+        self.segments = [SegmentDecompiler(self.settings).read(segment) for segment in self.node.segments]
         return self
     def label(self,index,name = ""):
         if name:
@@ -536,7 +509,7 @@ def spaceIfOp(string):
         return string
     return string + " "
 
-class SegmentTranspiler(Transpiler):
+class SegmentDecompiler(Decompiler):
     def __init__(self,settings = None):
         super().__init__(settings)
         self.initMembers()
@@ -752,10 +725,10 @@ class SegmentTranspiler(Transpiler):
 if __name__ in "__main__":
     inputThk = 0
     chunk = r"D:\Games SSD\MHW\chunk"
-    folder = r"\em\em002\01\data"
-    file = folder + r"\em002_%02d.thk"%inputThk
+    folder = r"\em\em001\01\data"
+    file = folder + r"\em001_%02d.thk"%inputThk
     inputStr = chunk + file
-    thkf = THKTranspiler()
+    thkf = THKDecompiler()
     thkf.read(file,inputStr,inputThk)
     with open(inputStr.replace(".thk",".nack").replace(
             chunk+folder,r"C:\Users\Asterisk\Downloads"
@@ -764,9 +737,9 @@ if __name__ in "__main__":
     for thkl in Path(chunk+folder).rglob("*.thklst"):
         #thkl = chunk + folder + r"\em106.thklst"
         ts = TranspilerSettings()
-        ts.decompiler.outputPath = r"D:\Games SSD\MHW-AI-Analysis\AzureTest"
-        ts.decompiler.statisticsOutputPath = r"D:\Games SSD\MHW-AI-Analysis\AzureTest"
-        THKLTranspiler(ts).read(thkl).writeFile()
+        ts.decompiler.outputPath = r"D:\Games SSD\MHW-AI-Analysis\RathianTest"
+        ts.decompiler.statisticsOutputPath = r"D:\Games SSD\MHW-AI-Analysis\RathianTest"
+        THKLDecompiler(ts).read(thkl).writeFile()
     """
     with open(inputStr,"rb") as inthk:        
         thk.read("
@@ -774,7 +747,7 @@ if __name__ in "__main__":
         resolver = buildResolver(r'default.fexty')
         for node in thk.nodeList:
             for segment in node.segments:
-                tSeg = SegmentTranspiler()
+                tSeg = SegmentDecompiler()
                 tSeg.read(segment)
                 segfun = tSeg.resolveFunctions(resolver, RegisterScheduler())
                 if segfun: print(segfun)

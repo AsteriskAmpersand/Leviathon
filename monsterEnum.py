@@ -56,6 +56,8 @@ class EntityManager():
         return getattr(self[key],field)
     def getName(self,key):
         return self.get(key,"name")
+    def scope(self):
+        return "em"
 
 def loadEntities(actionMapper = {}):
     pattern = ("(ems|em)([0-9]{3})_([0-9]{2}),([^,]*),([0-9]*),([0-9]*),([^\s])")

@@ -19,7 +19,7 @@ def enumCheck(enum,field):
         if val not in enum:
             return str(val)
         else:
-            return enum.getName(val)
+            return enum.scope() + "." + enum.getName(val)
     return check
 
 def floatCast(field):

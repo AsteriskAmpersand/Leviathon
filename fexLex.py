@@ -203,9 +203,10 @@ Use Hex
 	parameter1 == 0x2D: mudded()
 	otherwise : pass 
 }
+5{parameter1 == 1 : (target_em.random_player_or_cat)}
 '''
-    with open("test.fexty") as inf:
-        data = inf.read()
+    #with open("test.fexty") as inf:
+    #    data = inf.read()
     lexer = FexLexer()
     tokenized = list(lexer.tokenize(data))
     tokens = preproc( [ tok for tok in tokenized])

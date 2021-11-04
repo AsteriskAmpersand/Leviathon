@@ -6,119 +6,62 @@ Created on Mon Oct 11 02:22:25 2021
 """
 from sly import Parser
 from sly.lex import Token
+from pathlib import Path,WindowsPath
 import collections as col
 import logging
 import itertools
+import re
 
 from nackLex import NackLexer
+import nackStructures as abc
+from compilerErrors import SemanticError
 
-class SemanticError(Exception):
-    pass
-
-class NackFile():
-    def __init__(self):
-        self.scopeNames = {}
-        self.actionScopeNames = {}
-    def addNodes(self,nodeList):
-        self.nodes = nodeList
-class ScopeTarget():
-    def __init__(self,target,type):
-        self.target = target
-        self.type = type
-class ActionTarget():
-    def __init__(self,target,typing):
-        self.target = target
-        self.typing = typing
-class Identifier():
-    def __init__(self,identifier):
-        self.id = identifier
-    def __str__(self):
-        return str(self.id)
-class IdentifierRaw():
-    def __init__(self,identifier):
-        self.raw_id = identifier
-class Node():
-    def __init__(self,header,bodylist):
-        self.header = header
-        self.bodylist = bodylist
-class NodeHeader():
-    def __init__(self,aliaslist,index):
-        self.names = aliaslist
-        self.index = index
-class Segment():
-    def __init__(self):
-        self._function = None
-        self._call = None
-        self._directive = None
-        self._flowControl = None
-        self._endRandomType = None
-        self._terminator = None
-    def existingCheck(self,check):
-        if getattr(self,"_"+check) is not None:
-            raise SemanticError("Segment already has been assigned a %s"%check)
-    def addFunction(self,function):
-        self.existingCheck("function")
-        self._function = function
-    def addCall(self,call):
-        self.existingCheck("call")
-        self._call = call
-    def addDirective(self,directive):
-        self.existingCheck("directive")
-        self._directive = directive
-    def startConditional(self):
-        self.existingCheck("flowControl")
-        self._flowControl = "ConditionalStart"
-    def addConditionalBranch(self):
-        self.existingCheck("flowControl")
-        self._flowControl = "ConditionalBranch"
-    def endConditional(self):
-        self.existingCheck("flowControl")
-        self._flowControl = "ConditionalEnd"
-    def addEnd(self):
-        self.existingCheck("terminator")
-        self._terminator = True
-    def addChance(self,chance):
-        self.existingCheck("endRandomType")
-        self._endRandomType = "Chance"
-    def endChance(self):
-        self.existingCheck("flowControl")
-        self._flowControl = "ChanceEnd"
-class Chance():
-    def __init__(self,percentage):
-        self.chance = percentage
-class ChanceHead(Chance):
-    pass
-class ChanceElse(Chance):
-    pass
-class FunctionShell():
-    def __init__(self,string):
-        self.content = string
-class Register():
-    pass
-class RegisterID(Register):
-    def __init__(self,id):
-        self.identifier = id
-class RegisterComparison(Register):
-    def __init__(self,ref,val,comp):
-        self.base = ref
-        self.target = val
-        self.comparison = comp
-class RegisterUnaryOp(Register):
-    def __init__(self,ref,op):
-        self.base = ref
-        self.operator = op
-class Call():
-    pass
-class CallID(Call):
-    def __init__(self,hardId):
-        self.raw_target = hardId
-class ScopedCall(Call):
-    def __init__(self,scope,target):
-        self.scope = scope
-        self.target = target
-class Directive():
-    def __init__(self,command):
-        self.raw_target = {"return":0x8,"repeat":0x4,"reset":0x80}[command]
+class THKModule():
+    def __init__(self,path,thkmap,scope,settings,external = False):
+        self.inlineResolved = False
+        self.settings = settings
+        self.path = Path(path)
+        if external:
+            self.id = -1
+            self.scopeName = None
+            self.inlineCall = True
+            self.decompilable = True
+        else:
+            if scope in thkmap:
+                self.id = thkmap[scope]
+            else:
+                idData = re.match("THK_(\d+)",scope)
+                if not idData:
+                    raise SyntaxError("%s is not a known THK Name or on the indexed format"%scope)
+                index = int(idData.groups()[0])
+                self.id = index
+            self.scopeName = scope
+            self.inlineCall = settings.compiler.foreignGlobal if self.id == 55 else settings.compiler.inlineForeign 
+            self.decompilable = path is not None
+        if self.decompilable:
+            self.structure = self.parse()
+    def parse(self):
+        parsedStructure = None
+        if self.decompilable:
+            parsedStructure = parseNack(self.path)
+        self.parsedStructure = parsedStructure
+        return parsedStructure
+    def resolveInlines(self):
+        if self.decompilable:
+            self.parsedStructure.resolveInlines()
+        else:
+            raise SemanticError("%s [%s] is not decompilable "%(self.scopeName,self.path))
+    def resolveScopeNames(self,root,modules,namedScopes,indexedScopes,settings):
+        if self.decompilable:
+            self.dependencies = self.parsedStructure.resolveScopeNames(root,modules,namedScopes,indexedScopes,settings)
+        else:
+            self.dependencies = []
+    def mapLocalNodeNames(self,errorLog):
+        self.parsedStructure.mapLocalNodeNames(errorLog)
+    def __hash__(self):
+        return hash((self.path.absolute(),-1))
+    def __eq__(self,other):
+        return self.path.absolute() == other.path.absolute()
 
 class NackParser(Parser):
     log = logging.getLogger()
@@ -128,7 +71,7 @@ class NackParser(Parser):
     debugfile = 'nackParser.out'
 
     def parse(self,iterableTokens):
-        self.file = NackFile()
+        self.file = abc.NackFile()
         t = Token()
         t.type = "LINESKIP"
         t.value = '\n'
@@ -140,7 +83,7 @@ class NackParser(Parser):
     # File
     #===================================================
 
-    @_('nackHeader nackBody')
+    @_('nackHeader nackBody','skip nackHeader nackBody')
     def nackFile(self,p):
         #header handed through individual methods
         self.file.addNodes(p.nackBody)
@@ -158,30 +101,37 @@ class NackParser(Parser):
     @_('registerDeclaration nackHeader')
     def nackHeader(self,p):
         pass #handled by register declaration code
+    @_('assignment nackHeader')
+    def nackHeader(self,p):
+        pass #handled by register declaration code
     
     @_('IMPORTLIBRARY PATH AS ID skip')
     def libraryImport(self,p):
-        self.file.scopeNames[p.ID] = ScopeTarget(p.PATH,"path")
+        self.file.scopeNames[p.ID] = abc.ScopeTarget(p.PATH,"path")
     @_('IMPORTLIBRARY ID AS ID skip')
     def libraryImport(self,p):
-        self.file.scopeNames[p.ID0] = ScopeTarget(p.ID1,"id")
+        self.file.scopeNames[p.ID0] = abc.ScopeTarget(p.ID1,"id")
     @_('IMPORTLIBRARY numeric AS ID skip')
     def libraryImport(self,p):
-        self.file.scopeNames[p.numeric] = ScopeTarget(p.ID,"id")
+        self.file.scopeNames[p.numeric] = abc.ScopeTarget(p.ID,"ix")
     
     @_('IMPORTACTIONS PATH AS ID skip')
     def actionImport(self,p):
-        self.file.actionScopeNames[p[3]] = ActionTarget(p[1],"id")
+        self.file.actionScopeNames[p[3]] = abc.ActionTarget(p[1],"id")
     @_('IMPORTACTIONS ID AS ID skip')
     def actionImport(self,p):
-        self.file.actionScopeNames[p[3]] = ActionTarget(p[1],"path")
+        self.file.actionScopeNames[p[3]] = abc.ActionTarget(p[1],"path")
     @_('REGISTER id skip')
     def registerDeclaration(self,p):
         self.file.registerNames[p.id] = None
     @_('REGISTER id AS REG skip')
     def registerDeclaration(self,p):
         self.file.registerNames[p.id] = ord(p.REG[1])-ord('A')
-    
+    @_('id ASSIGN numeric skip')
+    def assignment(self,p):
+        self.file.assignments[p.id] = p.numeric
+
+
     @_('node nackBody')
     def nackBody(self,p):
         p.nackBody.appendleft(p.node)
@@ -189,19 +139,19 @@ class NackParser(Parser):
     @_('empty')
     def nackBody(self,p):
         return col.deque()
-
+    
     #===================================================
     # Node
     #===================================================
     
     @_('defHeader nodeBody nodeEnd')
     def node(self,p):
-        return Node(p.defHeader,p.nodeBody+p.nodeEnd)
+        return abc.Node(p.defHeader,p.nodeBody+p.nodeEnd)
     
     @_('DEF id nodeAlias nodeIndex skip')
     def defHeader(self,p):
         p.nodeAlias.appendleft(p.id)
-        return NodeHeader(p.nodeAlias,p.nodeIndex)
+        return abc.NodeHeader(p.nodeAlias,p.nodeIndex)
     
     @_('"&" id nodeAlias')
     def nodeAlias(self,p):
@@ -251,16 +201,16 @@ class NackParser(Parser):
     @_('CONCLUDE uncontrolledSegment')
     def segment(self,p):
         p.uncontrolledSegment.addConclude()
-        return col.deque([p])
+        return col.deque([p.uncontrolledSegment])
     @_('uncontrolledSegment')
     def segment(self,p):
         return col.deque([p.uncontrolledSegment])
     @_('UNSAFE skip')
     def segment(self,p):
-        return col.deque([UnsafeSegment(p.UNSAFE)])
+        return col.deque([abc.UnsafeSegment(p.UNSAFE)])
     @_('DO_NOTHING skip')
     def segment(self,p):
-        return col.deque([Segment()])
+        return col.deque([abc.Segment()])
 
     #===================================================
     # Chance
@@ -287,7 +237,7 @@ class NackParser(Parser):
     @_("ENDC skip",
        "ENDCHANCE skip")
     def optionalTerminator(self,p):
-        s = Segment()
+        s = abc.Segment()
         s.endChance()
         return s
     @_("ENDCWITH uncontrolledSegment skip",
@@ -300,13 +250,12 @@ class NackParser(Parser):
     @_('CHANCE "(" numeric ")"',
        'CHANCE "(" id ")"')
     def chanceHeader(self,p):
-        return ChanceHead(p[1])
+        return abc.ChanceHead(p[1])
     
     @_('elsechance "(" numeric ")"',
        'elsechance "(" id ")"')
     def chanceBody(self,p):
-        #print(p.numeric.raw_id)
-        return ChanceElse(p[2])
+        return abc.ChanceElse(p[2])
     
     @_('ELSECHANCE','ELSEC')
     def elsechance(self,p):
@@ -329,26 +278,23 @@ class NackParser(Parser):
         s.addFunction(p.functionType)
         s.addConditionalBranch()
         p.nodeBody.appendleft(s)
-        p.nodeBody.append(p.conditionalTerminator)
-        p.nodeBody.append(p.conditionalTerminator)
-        return p.nodeBody
+        return p.nodeBody + p.conditionalTerminator
     @_('ELSE actionTypeStart nodeBody conditionalTerminator')
     def conditionalTerminator(self,p):
         s = p.actionTypeStart
         s.addConditionalBranch()
         p.nodeBody.appendleft(s)
-        p.nodeBody.append(p.conditionalTerminator)
-        return p.nodeBody
+        return p.nodeBody + p.conditionalTerminator
     
     @_('ENDIF skip')
     def conditionalTerminator(self,p):
-        s = Segment()
+        s = abc.Segment()
         s.endConditional()
-        return s
+        return col.deque([s])
     @_('ENDWITH uncontrolledSegment')
     def conditionalTerminator(self,p):
         p.uncontrolledSegment.endConditional()
-        return p.uncontrolledSegment
+        return col.deque([p.uncontrolledSegment])
     
     #===================================================
     #===================================================
@@ -404,7 +350,7 @@ class NackParser(Parser):
         return p[0]
     @_('empty')
     def maybeMetaType(self,p):
-        return Segment()
+        return abc.Segment()
     #===================================================
     #===================================================
     # Basic Types
@@ -433,7 +379,7 @@ class NackParser(Parser):
     # Meta
     @_('META metaparams')
     def metaType(self,p):
-        s = Segment()
+        s = abc.Segment()
         s.addMeta(p.metaparams)
         return s
 
@@ -441,22 +387,27 @@ class NackParser(Parser):
     #===================
     # Function Types
     #===================
+    #Last string issues are here
     @_('FUNCTION_START id')
     def functionName(self,p):
-        return FunctionShell(str(p.id))
+        return abc.FunctionShell(p.id,[])
     @_('FUNCTION_START id parens')
     def functionName(self,p):
-        return FunctionShell(str(p.id)+p.parens)
+        return abc.FunctionShell(p.id,p.parens)
     @_('FUNCTION_START id maybeParens maybeSubFunction')
     def functionName(self,p):
-        return FunctionShell(''.join((str(p[i]) for i in range(1,len(p)))))
+        shell = abc.FunctionShell(p.id,p.maybeParens)
+        shell.extend(p.maybeSubFunction)
+        return shell
     
     @_('"." id maybeParens')
     def maybeSubFunction(self,p):
-        return ''.join(map(str,p))
+        return abc.FunctionShell(p.id,p.maybeParens)
     @_('"." id parens maybeSubFunction')
     def maybeSubFunction(self,p):
-        return ''.join(p)
+        shell = abc.FunctionShell(p.id,p.parens)
+        shell.extend(p.maybeSubFunction)
+        return shell
     
     @_('parens')
     def maybeParens(self,p):
@@ -467,25 +418,22 @@ class NackParser(Parser):
     
     @_('"(" ")"')
     def parens(self,p):
-        return ''.join(p)
+        return col.deque()
     @_('funcParens')
     def parens(self,p):
-        if type(p.funcParens) is str:
-            return "("+p.funcParens+")"
-        else:
-            return "("+','.join(map(str,p.funcParens))+")"
+        return p.funcParens
     
-    @_('FUNCTION maybeFuncParens')
+    @_('FUNCTION maybeFuncLiteralParens')
     def functionLiteral(self,p):
-        if type(p.maybeFuncParens) is str:
-            raise SemanticError("Function literals cannot take hollow literals")
-        FunctionLiteral(p.FUNCTION,p.maybeFuncParens)
-    
+        abc.FunctionLiteral(p.FUNCTION,p.maybeFuncLiteralParens)
     @_('empty')
-    def maybeFuncParens(self,p):
+    def maybeFuncLiteralParens(self,p):
+        return []
+    @_('"(" ")"')
+    def maybeFuncLiteralParens(self,p):
         return []
     @_('funcParens')
-    def maybeFuncParens(self,p):
+    def maybeFuncLiteralParens(self,p):
         return p.funcParens
     
     @_('empty')
@@ -494,10 +442,11 @@ class NackParser(Parser):
     @_('"." id maybeDotID')
     def maybeDotID(self,p):
         return ''.join(map(str,p))
-    
-    @_('"(" id "." id maybeDotID ")"')
+
+    @_('"(" id "." id commaPrefacedId ")"')
     def funcParens(self,p):
-        return ''.join((str(p[i]) for i in range(1,5)))
+        p.commaPrefacedId.appendleft(abc.FunctionScopedId(p.id0,p.id1))
+        return p.commaPrefacedId
     @_('"(" numericSymbol commaPrefacedId ")"')
     def funcParens(self,p):
         p.commaPrefacedId.appendleft(p.numericSymbol)
@@ -506,6 +455,10 @@ class NackParser(Parser):
     @_('empty')
     def commaPrefacedId(self,p):
         return col.deque()
+    @_('"," id "." id commaPrefacedId')
+    def commaPrefacedId(self,p):
+        p.commaPrefacedId.appendleft(abc.MaybeScopedId(p.id0,p.id1))
+        return p.commaPrefacedId
     @_('"," numericSymbol commaPrefacedId')
     def commaPrefacedId(self,p):
         p.commaPrefacedId.appendleft(p.numericSymbol)
@@ -524,7 +477,7 @@ class NackParser(Parser):
         return col.deque()
     @_('numeric maybeMoreActionParams')
     def maybeActionParams(self,p):
-        p.maybeMoreActionParams.appendleft(numeric)
+        p.maybeMoreActionParams.appendleft(p.numeric)
         return p.maybeMoreActionParams
     
     @_('empty')
@@ -532,19 +485,19 @@ class NackParser(Parser):
         return col.deque()
     @_('"," numeric maybeMoreActionParams')
     def maybeMoreActionParams(self,p):
-        p.maybeMoreActionParams.appendleft(numeric)
+        p.maybeMoreActionParams.appendleft(p.numeric)
         return p.maybeMoreActionParams
     
     @_('id "." id')
     def actionName(self,p):
-        return ScopedAction(p[0],p[1])
+        return abc.ScopedAction(p[0],p[1])
     @_("id")
     def actionName(self,p):
-        return ActionID(p.id)
+        return abc.ActionID(p.id)
     
     @_('ACTION')
     def actionLiteral(self,p):
-        return ActionLiteral(p.ACTION)
+        return abc.ActionLiteral(p.ACTION)
 
     #===================
     # Call Types
@@ -552,14 +505,14 @@ class NackParser(Parser):
     
     @_('id "." id', 'id "." CALL')
     def callName(self,p):
-        return ScopedCall(p[0],p[1])
+        return abc.ScopedCall(p[0],p[1])
     
     @_('id')
     def callName(self,p):
-        return CallID(p[0])
+        return abc.CallID(p[0])
     @_("CALL")
     def callName(self,p):
-        return Call(p[0])
+        return abc.Call(p[0])
     
     #===================
     # Directive Types
@@ -567,7 +520,7 @@ class NackParser(Parser):
 
     @_(*list(map(lambda x: x.upper(),NackLexer.control)))
     def directiveName(self,p):
-        return Directive(p[0])
+        return abc.Directive(p[0])
 
     #===================
     # Metaparams Types
@@ -583,7 +536,7 @@ class NackParser(Parser):
     
     @_('id ":" numericSymbol')
     def metaparamPair(self,p):
-        return {TextID(p.id) : p.numericSymbol}
+        return {abc.TextID(p.id) : p.numericSymbol}
 
     #===================
     # Registers
@@ -593,10 +546,10 @@ class NackParser(Parser):
         return p.registerContent
     @_('regRef regOp')
     def registerContent(self,p):
-        return RegisterUnaryOp(p.regRef,p.regOp)
+        return abc.RegisterUnaryOp(p.regRef,p.regOp)
     @_('regRef regComp regVal')
     def registerContent(self,p):
-        return RegisterComparison(p.regRef,p.regVal,p.regComp)
+        return abc.RegisterComparison(p.regRef,p.regVal,p.regComp)
     @_('INCREMENT','RESET')
     def regOp(self,p):
         return p[0]
@@ -606,13 +559,13 @@ class NackParser(Parser):
     
     @_('id')
     def regRef(self,p):
-        return RegisterID(p[0])
+        return abc.RegisterID(p[0])
     @_('REG')
     def regRef(self,p):
-        return RegisterLiteral(p.REG)
+        return abc.RegisterLiteral(p.REG)
     @_('numericSymbol')
     def regVal(self,p):
-        return RegisterID(p.numericSymbol)
+        return p.numericSymbol
     #===================
     
     
@@ -621,10 +574,10 @@ class NackParser(Parser):
         return p[0]
     @_('NUMBER','HEXNUMBER')
     def numeric(self,p):
-        return IdentifierRaw(p[0])
+        return abc.IdentifierRaw(p[0])
     @_('ID')
     def id(self,p):
-        return Identifier(p.ID)
+        return abc.Identifier(p.ID)
     @_('LINESKIP','LINESKIP skip')
     def skip(self,p):
         if hasattr(p,"skip"): return 1+p.skip
@@ -633,11 +586,39 @@ class NackParser(Parser):
     def empty(self, p):
         pass
     #===================================================
-    
-if __name__ == '__main__':
-    with open(r"D:\Games SSD\MHW-AI-Analysis\RathianTest\em001_00.nack") as inf:
-        data = inf.read()
 
+def outputTokenization(tokenized):
+    for t in tokenized:
+        if t.type != "LINESKIP":
+            print(t.type, end=' ')
+        else:
+            print(t.value, end= '')
+            
+def parseNack(file):
+    with open(file,"r") as inf:
+        data = inf.read() + "\n"
+    lexer = NackLexer()
+    tokenized = lexer.tokenize(data)
+    parser = NackParser()
+    parsed = parser.parse(tokenized)
+    return parsed
+
+def moduleParse(path,thkmap,scope,settings):
+    return THKModule(path,thkmap,scope,settings)
+
+if __name__ == '__main__':
+    with open(r"D:\Games SSD\MHW-AI-Analysis\RathianTest\em001_55.nack") as inf:
+        data = inf.read()
+    data2 = """
+def node_040
+	if function#AB() 
+		function#AA() 
+		>> node_039 
+	else 
+	endif 
+	return 
+endf 
+    """
     lexer = NackLexer()
     tokenized = list(lexer.tokenize(data))
     parser = NackParser()

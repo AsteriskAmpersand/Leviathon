@@ -8,6 +8,7 @@ Created on Fri Oct 22 21:00:01 2021
 from sly import Lexer,Parser
 import logging
 import regex as re
+from fandStructure import FandStructure
 
 T_COMMENTS = r'//.*'
 T_ROOT = "at"
@@ -25,7 +26,7 @@ T_SPECIFIER = "@"
 T_NUMERIC = "\d+"
 T_HEXNUMERIC = "[0-9A-Fa-f]*"
 T_ID = r"[a-zA-Z_][a-zA-Z'_0-9]*"
-T_PATH = r"[^\s^@^\n][^@^\n]*[^\s^\n^@][ \t]*"
+T_PATH = r"[^\s^@^\n][^@^\n]*[^\s^\n^@]"
 
 parens = lambda x: "("+x+")"
 
@@ -114,21 +115,6 @@ class FandLexer(Lexer):
         self.lineno += t.value.count('\n')
         return t
 
-class FandStructure():
-    def __init__(self):
-        self.root = None
-        self.relative = None
-        self.monster = None
-        self.registerNames = {}
-        
-        self.unindexedTargets = []
-        self.indexedTargets = {}
-        
-        self.scopeNames = {}
-        
-        self.count = -1
-        
-
 class FandParser(Parser):
     tokens = FandLexer.tokens
     log = logging.getLogger()
@@ -186,11 +172,11 @@ class FandParser(Parser):
     
     @_('REGISTER REGISTER_ALIAS')
     def registerDeclaration(self,p):
-        self.registerNames[p.REGISTER] = ord(p.REGISTER_ALIAS[1].upper()) - ord('A')
+        self.file.registerNames[p.REGISTER] = ord(p.REGISTER_ALIAS[1].upper()) - ord('A')
         return
     @_('REGISTER')
     def registerDeclaration(self,p):
-        self.registerNames[p.REGISTER] = None
+        self.file.registerNames[p.REGISTER] = None
         return
     
     @_('empty')
@@ -215,6 +201,16 @@ class FandParser(Parser):
     def empty(self,p):
         return
     
+def parseFand(file):
+    with open(file,"r") as inf:
+        data = inf.read()+"\n"
+    lexer = FandLexer()
+    tokenized = lexer.tokenize(data)
+    parser = FandParser()
+    parsed = parser.parse(tokenized)
+    return parsed
+    
+
 if __name__ in "__main__":
     with open(r"D:\Games SSD\MHW-AI-Analysis\ZorahTest\em106.fand") as inf:
         data = inf.read()

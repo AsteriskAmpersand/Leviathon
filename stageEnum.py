@@ -36,7 +36,9 @@ class StageManager(dict):
         raise KeyError
     def getName(self,key):
         return self.idToName[key]
-        
+    def scope(self):
+        return "st"
+    
 def loadStages():
     st_enum = StageManager()
     with open("st_enum.csv") as inf:
