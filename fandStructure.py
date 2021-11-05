@@ -83,7 +83,8 @@ class FandStructure():
         for module in self.parsedScopes.values():
             module.resolveScopeNames(root,modules,self.parsedScopes,self.indexedTargets,self.settings)
         self.moduleList = modules
-    def generateDependencyGraph(self,errorHandler):
+    def generateDependencyGraph(self):
+        errorHandler = self.errorHandler
         depGraph = nx.DiGraph()
         for module in self.parsedScopes.values():
             for dependency in module.dependencies.values():
@@ -93,14 +94,21 @@ class FandStructure():
             errorHandler.dependencyCycle()
         self.dependencyGraph = depGraph
         return depGraph
-    def mapLocalNodeNames(self,errorHandler):
+    def mapLocalNodeNames(self):
+        errorHandler = self.errorHandler
         for module in self.moduleList.values():
             module.mapLocalNodeNames(errorHandler)
-    def resolveInlines(self,errorHandler):
+    def resolveNodeInlines(self,node):
+        errorHandler = self.errorHandler
+        for dependency in self.dependencyGraph[node]:
+            self.resolveNodeInLines(dependency)
+        node.resolveInlines()
+    def resolveInlines(self):
+        errorHandler = self.errorHandler
         for module in self.parsedScopes.values():
             if module in self.dependencyGraph:
-                for dependency in self.dependencyGraph[module]:
-                    print(dependency.path)
+                self.resolveNodeInLines(module)
+                
                 #for module in self.dependencyGraph[module]
             
         raise

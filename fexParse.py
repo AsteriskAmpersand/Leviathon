@@ -105,7 +105,37 @@ class Condition():
         return self
     def __hash__(self):
         return hash((self.accessor,self.comparison,self.numeric))
-            
+
+class Condition():
+    def __init__(self,maybeAccessor,comparison,maybeNumeric):
+        if type(maybeAccessor) is Accessor:
+            self.accessor = maybeAccessor
+            self.comparison = comparison
+            self.numeric = maybeNumeric
+        else:
+            self.accessor = maybeNumeric
+            self.comparison = comparison
+            self.numeric = maybeAccessor
+    def __str__(self):
+        return str(self.accessor) + self.comparison + str(self.numeric)
+    def __repr__(self):
+        return str(self)
+    def resolveNumeric(self,hexcoded):
+        if type(self.numeric) is DeferredInt:
+            self.numeric = self.numeric.resolveNumeric(hexcoded)
+        return self
+    def __hash__(self):
+        return hash((self.accessor,self.comparison,self.numeric))
+
+class EnumStruct():
+    def __init__(self,idVal):
+        self.chain = [idVal]
+    def prepend(self,scope):
+        self.chain = [scope] + self.chain
+        return self
+    def __str__(self):
+        return '.'.join(self.chain)
+
 class FexParser(Parser):
     # Get the token list from the lexer (required)
     tokens = FexLexer.tokens
@@ -200,10 +230,10 @@ class FexParser(Parser):
     
     @_('ID')
     def enumable(self, p):
-        return p.ID
+        return EnumStruct(p.ID)
     @_('ID "." enumable')
     def enumable(self, p):
-        return p.ID + "." + p.enumable
+        return p.enumable.prepend(p.ID)
     
     @_('accessor')
     def accessors(self, p):

@@ -50,6 +50,7 @@ class NackFile():
                     dependencies[scopeName] = module
                 except SemanticError as e:
                     pass
+        self.scopeMappings = dependencies
         return dependencies
     def getNodeData(self,errorlog):
         unindexedNodes = []
@@ -84,6 +85,8 @@ class NackFile():
         unindexedNodes,indexedNodes,unidentifiedNodes,names,ids = nodeData
         idSet = set(ids.keys())
         idSet.add(0)
+        self.nodeByName = names
+        self.nodeByIndex = ids
         self.idGen = Autonumber(idSet)
         self.indexGen = Autonumber(indexedNodes.keys())
         self.total = max([max(indexedNodes,default = 0),len(unindexedNodes)+len(indexedNodes)],default = 0)
@@ -95,8 +98,9 @@ class NackFile():
             ids[iD] = node
         for node in self.nodes:
             node.resolveImmediateCalls(indexedNodes,names,variableNames)
-                
-        
+    def resolveInlines(self):
+        for node in self.nodes:
+            node.resolveInlines(self,self.scopeMappings)      
         
 class ScopeTarget():
     def __init__(self,target,type):
@@ -185,7 +189,18 @@ class Node():
             segment.substituteScopes(moduleScopes,actionScopes)
     def resolveImmediateCalls(self,nodeIndex,nodeNames,variableNames):
         for segment in self.bodylist:
-            segment.resolveImmediateCalls(nodeIndex,nodeNames,variableNames)        
+            segment.resolveImmediateCalls(nodeIndex,nodeNames,variableNames)    
+    def resolveInlines(self,controller,scopes):
+        for segment in self.bodylist:
+            inlineCall = segment.inlineCall()
+            if inlineCall:
+                if not controller.hasInlineCall(inlineCall):
+                    controller.importInline(scopes[inlineCall.scope],inlineCall.target)
+                node = controller.getInlineCall(inlineCall)
+                segment.resolveInlineCall(node)
+    def resolveTerminals(self):
+        pass
+                    
 class NodeHeader():
     def __init__(self,aliaslist,index):
         self.names = [str(alias) for alias in aliaslist]
