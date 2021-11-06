@@ -436,12 +436,12 @@ class NackParser(Parser):
     def maybeFuncLiteralParens(self,p):
         return p.funcParens
     
-    @_('empty')
-    def maybeDotID(self,p):
-        return ''
-    @_('"." id maybeDotID')
-    def maybeDotID(self,p):
-        return ''.join(map(str,p))
+    #@_('empty')
+    #def maybeDotID(self,p):
+    #    return ''
+    #@_('"." id maybeDotID')
+    #def maybeDotID(self,p):
+    #    return ''.join(map(str,p))
 
     @_('"(" id "." id commaPrefacedId ")"')
     def funcParens(self,p):
@@ -595,6 +595,7 @@ def outputTokenization(tokenized):
             print(t.value, end= '')
             
 def parseNack(file):
+    print(file)
     with open(file,"r") as inf:
         data = inf.read() + "\n"
     lexer = NackLexer()

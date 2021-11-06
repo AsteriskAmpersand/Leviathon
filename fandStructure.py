@@ -58,9 +58,11 @@ class FandStructure():
                     parsedScope[scope] = moduleParse(None,thkMap,scope,settings)
                     errorlog.log("Hard Path Found on THK Entry %s : %s"%(scope,path))
                 else:
+                    if self.settings.compiler.verbose:
+                        self.settings.compiler.display("Starting Parsing of %s"%path)
                     path = Path(fand).parent / path
                     module = moduleParse(path,thkMap,scope,settings)
-                    module.substituteScopes()
+                    #module.substituteScopes()
                     parsedScope[scope] = module
             except SyntaxError as e:
                 errorlog.thklNameError(e)
@@ -72,9 +74,9 @@ class FandStructure():
             except:
                 raise
         self.parsedScopes = parsedScope
-    def substituteScopes(self):
-        for scope in self.parsedScopes.values():
-            scope.substituteScopes()
+    #def substituteScopes(self):
+    #    for scope in self.parsedScopes.values():
+    #        scope.substituteScopes()
     def resolveScopeNames(self,root):
         """Imports are mapped recursively with a project level cache"""
         #Project keeps track of already loaded thk modules
@@ -101,13 +103,13 @@ class FandStructure():
     def resolveNodeInlines(self,node):
         errorHandler = self.errorHandler
         for dependency in self.dependencyGraph[node]:
-            self.resolveNodeInLines(dependency)
+            self.resolveNodeInlines(dependency)
         node.resolveInlines()
     def resolveInlines(self):
         errorHandler = self.errorHandler
         for module in self.parsedScopes.values():
             if module in self.dependencyGraph:
-                self.resolveNodeInLines(module)
+                self.resolveNodeInlines(module)
                 
                 #for module in self.dependencyGraph[module]
             

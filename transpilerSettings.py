@@ -12,22 +12,29 @@ class DecompilerSettings():
         self.forceIndex = False
         self.forceId = False
         self.listCrossreferences = False
-        
+
         self.raiseInvalidReference = False
         self.suppressWarnings = False
         self.keepRegisters = False
         self.functionAsThkName = False
-    
+
+        self.verbose = False
+        self.display = print
         self.runCodeAnalysis = False
-        
+
         self.outputPath = None
         self.statisticsOutputPath = None
 
+
 class CompilerSettings():
     def __init__(self):
+        self.verbose = False
+        self.display = print
+        
         self.thkMap = None
         self.inlineForeign = False
         self.foreignGlobal = False
+
 
 class TranspilerSettings():
     def __init__(self):

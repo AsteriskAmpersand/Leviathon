@@ -116,6 +116,8 @@ class THKLDecompiler(Decompiler):
                     except:
                         partial = Path(thk.partialPath).with_suffix(".nack")
                 self.fileNames.append(partial)
+                if self.settings.decompiler.verbose:
+                    self.settings.decompiler.display("Decompiling %s -> %s"%(thk.partialPath,partial))
                 result += thklSpec.function_str % (self.scopeNamer.resolve(thk.index), partial, thk.metadata) + "\n"
         result += thklSpec.length_str%len(self.thkl)
         return result
@@ -158,7 +160,7 @@ class THKLDecompiler(Decompiler):
         if self.settings.decompiler.outputPath is None:
             self.settings.decompiler.outputPath = str(Path(self.path).parent)
         if self.settings.decompiler.runCodeAnalysis or True:
-            thkp = THKProject(self.path)
+            thkp = THKProject(self.path,settings = self.settings)
             if self.settings.decompiler.statisticsOutputPath is None:
                 root = self.path.parent
                 self.settings.decompiler.statisticsOutputPath = root
@@ -723,12 +725,19 @@ class SegmentDecompiler(Decompiler):
         return self
 
 if __name__ in "__main__":
-    inputThk = 0
+    inputThk = 55
     chunk = r"D:\Games SSD\MHW\chunk"
-    folder = r"\em\em001\01\data"
+    folder = r"\em\em001\00\data"
     file = folder + r"\em001_%02d.thk"%inputThk
     inputStr = chunk + file
-    thkf = THKDecompiler()
+    ts = TranspilerSettings()
+    #ts.decompiler.forceIndex = True
+    #ts.decompiler.forceId = True
+    #ts.decompiler.keepVoid = True
+    ts.decompiler.verbose = True
+    ts.decompiler.outputPath = r"D:\Games SSD\MHW-AI-Analysis\RathianTest"
+    ts.decompiler.statisticsOutputPath = r"D:\Games SSD\MHW-AI-Analysis\RathianTest"
+    thkf = THKDecompiler(ts)
     thkf.read(file,inputStr,inputThk)
     with open(inputStr.replace(".thk",".nack").replace(
             chunk+folder,r"C:\Users\Asterisk\Downloads"
@@ -736,9 +745,6 @@ if __name__ in "__main__":
         outf.write(thkf.decompile())
     for thkl in Path(chunk+folder).rglob("*.thklst"):
         #thkl = chunk + folder + r"\em106.thklst"
-        ts = TranspilerSettings()
-        ts.decompiler.outputPath = r"D:\Games SSD\MHW-AI-Analysis\RathianTest"
-        ts.decompiler.statisticsOutputPath = r"D:\Games SSD\MHW-AI-Analysis\RathianTest"
         THKLDecompiler(ts).read(thkl).writeFile()
     """
     with open(inputStr,"rb") as inthk:        

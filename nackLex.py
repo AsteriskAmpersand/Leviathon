@@ -111,7 +111,11 @@ class NackLexer(Lexer):
     GT = ">"
     NEQ = "!="
     ASSIGN = "="
-    PATH = r'".*"'
+    
+    @_(r'".*"')
+    def PATH(self,t):
+        t.value = t.value.replace('"',"")
+        return t
         
     @_(r"[a-zA-Z_][a-zA-Z'_0-9]*")
     def ID(self,t):

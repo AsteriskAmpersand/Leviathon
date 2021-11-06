@@ -44,7 +44,7 @@ class NackFile():
                     if path not in modules:
                         module = np.THKModule(path,None,None,settings,external=True)
                         modules[path] = module
-                        module.resolveScopeNames(modules,namedScopes,indexedScopes,settings)
+                        module.resolveScopeNames(root,modules,namedScopes,indexedScopes,settings)
                     else:
                         module = modules[path]
                     dependencies[scopeName] = module
@@ -100,7 +100,7 @@ class NackFile():
             node.resolveImmediateCalls(indexedNodes,names,variableNames)
     def resolveInlines(self):
         for node in self.nodes:
-            node.resolveInlines(self,self.scopeMappings)      
+            node.resolveInlines(self,self.scopeMappings)
         
 class ScopeTarget():
     def __init__(self,target,type):
@@ -272,6 +272,10 @@ class Segment():
             for attr in ["function","call","action","directive","flowControl",
                          "randomType","terminator","metaparams"]
             if getattr(self,"_"+attr) is not None])
+    def inlineCall(self):
+        if self._call:
+            return self._call.inlineCall()
+        return False
 class Chance():
     def __init__(self,percentage):
         self.chance = percentage
@@ -350,14 +354,18 @@ class Call():
         self._immediateResolve(indices = localIndices, names = localNames)
     def _immediateResolve(self,**kwargs):
         if self.target not in kwargs[self.local_scope]:
-            raise SemanticError("Call refers to non-existant memeber of node %s %d"%(self.local_scope,self.target))
+            raise SemanticError("Call refers to non-existant memeber of node %s %s"%(self.local_scope,self.target))
         self.node_target = kwargs[self.local_scope][self.target]
+    def inlineCall(self):
+        return False
 class CallID(Call):
     local_scope = "names"
     def __init__(self,namedId):
         self.target = str(namedId)
     def substituteScope(self,*arg,**kwargs):
         pass
+    def inlineCall(self):
+        return False
 class ScopedCall(Call):
     def __init__(self,scope,target):
         self.scope = str(scope)
@@ -369,6 +377,8 @@ class ScopedCall(Call):
             raise SemanticError("%s is not within the file's import list"%self.scope)
     def immediateResolve(self,*args,**kwargs):
         pass
+    def inlineCall(self):
+        return #TODO
 class Directive():
     def __init__(self,command):
         self.raw_target = {"return":0x8,"repeat":0x4,"reset":0x80}[command]

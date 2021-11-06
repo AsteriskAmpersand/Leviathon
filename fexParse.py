@@ -8,6 +8,7 @@ Created on Sat Oct  9 15:06:26 2021
 from sly import Parser
 from fexLex import FexLexer,preproc
 import logging
+from collections import deque
 
 class EntryStructure(dict):
     def resolveNumeric(self,hexcoded = False):
@@ -35,98 +36,21 @@ class DeferredInt():
     
 class Accessor():
     def __init__(self,field,transformType = None,transformData = None):
-        self.field = [field]
-        self.transformType = [transformType]
-        self.transformData = [transformData]
-        self.string = [""]
-        self.term = ""
+        self.field = field
+        self.transformType = transformType
+        self.transformData = transformData
     def __str__(self):
-        result = ""
-        for s,f,tt,td in zip(self.string,self.field,self.transformType,self.transformData):
-            if tt is not None:
-                result += s + "__{%s:%s}__"%(td,f)
-            else:
-                result += s + "__%s__"%f 
-        return result + self.term
+        if self.transformType is not None:
+            return "__{%s:%s}__"%(self.transformData,self.field)
+        else:
+            return "__%s__"%self.field
     def __repr__(self):
         return str(self)
     def copy(self):
-        a = Accessor(0)
-        a.string = self.string
-        a.field = self.field
-        a.transformType = self.transformType
-        a.transformData = self.transformData
-        a.term = self.term
+        a = Accessor(self.field,self.transformType,self.transformData)
         return a
-    #self + op
-    def __add__(self,op):
-        a = self.copy()
-        if type(op) is str:
-            a.term += op
-        else:
-            a.field += op.field
-            a.transformType += op.transformType
-            a.transformData += op.transformData
-            a.string.append(self.term + op.string[0])
-            a.string += op.string[1:]
-            a.term = op.term
-        return a
-    #op + self
-    def __radd__(self,op):
-        a = self.copy()
-        if type(op) is str:
-            a.string[0] = op + a.string[0]
-        else:
-            raise ValueError("Unsuported Type")
-            #a.field = op.field + a.field
-            #a.transformType = op.transformType + a.transformType
-            #a.transformData = op.transformData + a.transformData
-            #a.string[0] = op.term+a.string[0]
-            #a.string = op.string + a.string
-        return a
-
-class Condition():
-    def __init__(self,maybeAccessor,comparison,maybeNumeric):
-        if type(maybeAccessor) is Accessor:
-            self.accessor = maybeAccessor
-            self.comparison = comparison
-            self.numeric = maybeNumeric
-        else:
-            self.accessor = maybeNumeric
-            self.comparison = comparison
-            self.numeric = maybeAccessor
-    def __str__(self):
-        return str(self.accessor) + self.comparison + str(self.numeric)
-    def __repr__(self):
-        return str(self)
-    def resolveNumeric(self,hexcoded):
-        if type(self.numeric) is DeferredInt:
-            self.numeric = self.numeric.resolveNumeric(hexcoded)
-        return self
-    def __hash__(self):
-        return hash((self.accessor,self.comparison,self.numeric))
-
-class Condition():
-    def __init__(self,maybeAccessor,comparison,maybeNumeric):
-        if type(maybeAccessor) is Accessor:
-            self.accessor = maybeAccessor
-            self.comparison = comparison
-            self.numeric = maybeNumeric
-        else:
-            self.accessor = maybeNumeric
-            self.comparison = comparison
-            self.numeric = maybeAccessor
-    def __str__(self):
-        return str(self.accessor) + self.comparison + str(self.numeric)
-    def __repr__(self):
-        return str(self)
-    def resolveNumeric(self,hexcoded):
-        if type(self.numeric) is DeferredInt:
-            self.numeric = self.numeric.resolveNumeric(hexcoded)
-        return self
-    def __hash__(self):
-        return hash((self.accessor,self.comparison,self.numeric))
-
+    def split(self):
+        return self.field,self.transformType,self.transformData
 class EnumStruct():
     def __init__(self,idVal):
         self.chain = [idVal]
@@ -135,6 +59,83 @@ class EnumStruct():
         return self
     def __str__(self):
         return '.'.join(self.chain)
+class Empty():
+    def __str__(self):
+        return ""
+class Target(deque):
+    def __init__(self):
+        self.types = deque()
+        super().__init__()        
+    def prepend(self,data,typing):
+        self.types.appendleft(typing)
+        self.appendleft(data)
+        return self
+    def functionalStructure(self):
+        previous = ""
+        fields = []
+        dataTypes = []
+        dataIndices = []
+        strCumul = []
+        cumulative = ""
+        for typing,data in zip(self.types,self):
+            if typing == "literal":
+                if previous not in {"literal","enum"}:
+                    cumulative = ""
+                if previous:
+                    cumulative += "."
+                cumulative += str(data)
+            elif typing == "accessors":
+                field,dtt,dti = map(list,zip(*map(lambda x: x.split(), data)))
+                fields.append(field)
+                dataTypes.append(dtt)
+                dataIndices.append(dti)
+                strCumul.append(cumulative)   
+                cumulative = ""
+            elif typing == "enum":
+                cumulative += "(" + str(data) + ")"
+            previous = typing
+        return fields,dataTypes,dataIndices,strCumul,cumulative
+class Condition():
+    def __init__(self,maybeAccessor,comparison,maybeNumeric):
+        if type(maybeAccessor) is Accessor:
+            self.accessor = maybeAccessor
+            self.comparison = comparison
+            self.numeric = maybeNumeric
+        else:
+            self.accessor = maybeNumeric
+            self.comparison = comparison
+            self.numeric = maybeAccessor
+    def __str__(self):
+        return str(self.accessor) + self.comparison + str(self.numeric)
+    def __repr__(self):
+        return str(self)
+    def resolveNumeric(self,hexcoded):
+        if type(self.numeric) is DeferredInt:
+            self.numeric = self.numeric.resolveNumeric(hexcoded)
+        return self
+    def __hash__(self):
+        return hash((self.accessor,self.comparison,self.numeric))
+
+class Condition():
+    def __init__(self,maybeAccessor,comparison,maybeNumeric):
+        if type(maybeAccessor) is Accessor:
+            self.accessor = maybeAccessor
+            self.comparison = comparison
+            self.numeric = maybeNumeric
+        else:
+            self.accessor = maybeNumeric
+            self.comparison = comparison
+            self.numeric = maybeAccessor
+    def __str__(self):
+        return str(self.accessor) + self.comparison + str(self.numeric)
+    def __repr__(self):
+        return str(self)
+    def resolveNumeric(self,hexcoded):
+        if type(self.numeric) is DeferredInt:
+            self.numeric = self.numeric.resolveNumeric(hexcoded)
+        return self
+    def __hash__(self):
+        return hash((self.accessor,self.comparison,self.numeric))
 
 class FexParser(Parser):
     # Get the token list from the lexer (required)
@@ -204,29 +205,31 @@ class FexParser(Parser):
     #Target
     @_('ID')
     def target(self, p):
-        return p
+        t = Target()
+        return t.prepend(p.ID,"literal")
     #Target
     @_('ID "." target')
     def target(self, p):
-        return p.ID+"."+p.target    
+        return p.target.prepend(p.ID,"literal")  
     #Target
     @_('ID parens')
     def target(self, p):
-        return p.ID+p.parens
+        t = Target()
+        return t.prepend(*p.parens).prepend(p.ID,"literal")
     #Target
     @_('ID parens "." target')
     def target(self, p):
-        return p.ID + p.parens+"."+p.target
+        return p.target.prepend(*p.parens).prepend(p.ID,"literal")
     
     @_('"(" ")"')
     def parens(self, p):
-        return "()"
+        return (Empty(),"enum")
     @_('"(" enumable ")"')
     def parens(self, p):
-        return "(" + p.enumable + ")"
+        return (p.enumable,"enum")
     @_('"(" accessors ")"')
     def parens(self, p):
-        return "(" + p.accessors + ")"    
+        return (p.accessors,"accessors")
     
     @_('ID')
     def enumable(self, p):
@@ -237,10 +240,10 @@ class FexParser(Parser):
     
     @_('accessor')
     def accessors(self, p):
-        return p.accessor
+        return [p.accessor]
     @_('accessor "," accessors')
     def accessors(self, p):
-        return p.accessor + p.accessors
+        return [p.accessor] + p.accessors
 
     @_('EQ')
     def comparison(self, p):
@@ -250,7 +253,7 @@ class FexParser(Parser):
     @_('"{" MONSTER_ENUM ":" raw_accessor "}"',
        '"{" STAGE_ENUM ":" raw_accessor "}"')
     def enum(self, p):
-        return Accessor(p.raw_accessor.field[0],"ENUM",p[1])
+        return Accessor(p.raw_accessor.field,"ENUM",p[1])
     
     
     @_('PREFACEDHEX')
@@ -267,7 +270,7 @@ class FexParser(Parser):
     # Cast
     @_('"{" FLOAT_CAST ":" raw_accessor "}"')
     def cast(self, p):
-        return Accessor(p.raw_accessor.field[0],"CAST","float")
+        return Accessor(p.raw_accessor.field,"CAST","float")
 
     @_("raw_accessor","cast","enum")
     def accessor(self, p):
@@ -298,7 +301,7 @@ def buildParser(path):
     return parsed
 
 if __name__ == '__main__':
-    with open("test.fexty") as inf:
+    with open("default.fexty") as inf:
         data = inf.read()
     lexer = FexLexer()
     tokenized = list(lexer.tokenize(data))
@@ -318,6 +321,7 @@ if __name__ == '__main__':
             g[t.lineno] = []
         g[t.lineno].append(t)
     for t in tokens:
-        print(t)
+        pass
+        #print(t)
     #raise
     parsed = parser.parse(iter(tokens))

@@ -45,6 +45,7 @@ class ForkEntry():
         self.accessorCons = []
         self.fallthrough = False
         self.conditionCheck = self.functionalizeConditions(condition)
+        self.target = target
         self.consequenceGenerate = self.functionalizeTarget(target)
         #inversibility conditions for compilation
         self.verify()
@@ -60,19 +61,35 @@ class ForkEntry():
         if not conditions:
             self.fallthrough = True
         for cond in conditions:
-                field = cond.accessor.field[0]
+                field = cond.accessor.field
                 if field in self.accessorCond:
                     raise ParametrizationError("Accessor used multiple times in condition")
                 self.accessorCond.append(field)
         def acceptSegment(x):
             for cond in conditions:
-                field = cond.accessor.field[0]
+                field = cond.accessor.field
                 op = {"==": eq}[cond.comparison]
                 target = cond.numeric
                 if not op(getattr(x,field),target):
                     return False
             return True
         return acceptSegment
+    
+    def parseField(self,field,dataType,dataIndex,mappings):
+        if dataType is None:
+             mappings.append(segmentGet(field))
+             return "%d"
+        else:
+            if dataType == "CAST":
+                mappings.append(floatCast(field))
+                return "%f"
+            elif dataType == "ENUM":
+                if dataIndex == "st_enum":
+                    enum = st_enum
+                elif dataIndex == "em_enum":
+                    enum = em_enum
+                mappings.append(enumCheck(enum,field))
+                return "%s"
     
     def functionalizeTarget(self,consequence):
         c = consequence
@@ -81,26 +98,17 @@ class ForkEntry():
         else:
             formatString = ""
             mappings = []
-            for field,dataType,dataIndex,strCumul in zip(c.field,c.transformType,c.transformData,c.string):
-                if field in self.accessorCons:
-                    raise ParametrizationError("Accessor used multiple times in target")
-                self.accessorCons.append(field)
+            fieldSets,dataTypesSets,dataIndicesSets,cumulatives,term = c.functionalStructure()
+            for fields,dataTypes,dataIndices,strCumul in zip(fieldSets,dataTypesSets,dataIndicesSets,cumulatives):
+                for field in fields:
+                    if field in self.accessorCons:
+                        raise ParametrizationError("Accessor used multiple times in target")
+                    self.accessorCons.append(field)
                 formatString += strCumul
-                if dataType is None:
-                     formatString += "%d"
-                     mappings.append(segmentGet(field))
-                else:
-                    if dataType == "CAST":
-                        mappings.append(floatCast(field))
-                        formatString += "%f"
-                    elif dataType == "ENUM":
-                        if dataIndex == "st_enum":
-                            enum = st_enum
-                        elif dataIndex == "em_enum":
-                            enum = em_enum
-                        mappings.append(enumCheck(enum,field))
-                        formatString += "%s"
-            formatString += c.term
+                formatString += "("
+                formatString += ','.join([self.parseField(field,dtt,dti,mappings) for field,dtt,dti in zip(fields,dataTypes,dataIndices)])
+                formatString += ")"
+            formatString += term
             def stringFunction(segment):
                 return formatString%tuple(f(segment) for f in mappings) 
             return stringFunction

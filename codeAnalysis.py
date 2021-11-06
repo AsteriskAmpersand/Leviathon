@@ -85,7 +85,8 @@ class THKNode():
     
 class THKFile(RawParser):
     rawStructure = Thk
-    def __init__(self,index=0,metaHash=0,data = None,fullpath = None):
+    def __init__(self,index=0,metaHash=0,data = None,fullpath = None,settings = None):
+        self.print = settings.decompiler.display if settings is not None else print
         self.populated = False
         self.thk = None
         self.nodes = []
@@ -136,7 +137,7 @@ class THKFile(RawParser):
             return usage
         else:
             if index < 0:
-                print("Invalid Index %d Used to Access Global THK"%abs(index))
+                self.print("Invalid Node ID %d Used to Access Global THK"%abs(index))
                 return set()
             return self.nodes[index].getActions()
     def getRegisterUsage(self,index = None):
@@ -147,7 +148,7 @@ class THKFile(RawParser):
             return usage
         else:
             if index < 0:
-                print("Invalid Index %d Used to Access Global THK"%abs(index))
+                self.print("Invalid Node ID %d Used to Access Global THK"%abs(index))
                 return set()
             return self.nodes[index].getRegisterUsage()
     
@@ -323,7 +324,8 @@ defaultEnums = ae.DefaultDataEnum()
 
 class THKProject(RawParser):
     rawStructure = ThkList
-    def __init__(self,data = None,dataEnums = defaultEnums):
+    def __init__(self,data = None,dataEnums = defaultEnums, settings = None):
+        self.settings = settings
         self.cache_trace = None
         self.path = None
         self.type = None
@@ -363,10 +365,10 @@ class THKProject(RawParser):
         self.thkl = [self.thkPathParse(ix,e.path+".thk" if e.path else "",d) for ix,(e,d) in enumerate(zip(thkl.entries,thkl.data))]
     def thkPathParse(self,ix,thkpath,d):
         if not thkpath:
-            return THKFile(ix,d)
+            return THKFile(ix,d,settings=self.settings)
         matchedthkpath = Path(thkpath)
         matchedthkpath = cojoinedMatching(self.path,matchedthkpath)
-        return THKFile(ix,d,thkpath,matchedthkpath)
+        return THKFile(ix,d,thkpath,matchedthkpath,settings=self.settings)
     def traceGraph(self):
         if self.cache_trace is not None:
             return self.cache_trace
@@ -453,9 +455,11 @@ class THKParser():
                 self.fileAnalysis(thkpath)
     def codeAnalysis(self,file):
         pass
-    def directoryAnalysis(self,folder):
+    def directoryAnalysis(self,folder,settings = None):
         for header in folder.rglob("*.thklist"):
-            project = THKProject(header)
+            if settings is not None:
+                settings.decompiler.display()
+            project = THKProject(header,settings=settings)
             summary = project.dataSummary()
             print(summary)
 

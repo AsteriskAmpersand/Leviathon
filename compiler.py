@@ -87,5 +87,6 @@ def fandCompile(fand,settings,output = print):
     
 if __name__ in "__main__":
     settings = TranspilerSettings()
+    settings.compiler.verbose = True
     populateDefaultSettings(settings)
-    fandCompile(r"D:\Games SSD\MHW-AI-Analysis\RathianTest\em001.fand",settings)
+    fandCompile(r"D:\Games SSD\MHW-AI-Analysis\InlineTest\em001.fand",settings)
