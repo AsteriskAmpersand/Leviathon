@@ -55,6 +55,8 @@ class CompilationError(Exception):
 
 def fandCompile(fand,settings,output = print):
     errorHandler = ErrorHandler(settings)
+    def report(text):
+        if settings.compiler.verbose:settings.compiler.display(text)
     def wrapCall(*outputs):
         if not errorHandler.proceed():
             errorHandler.report()
@@ -63,22 +65,33 @@ def fandCompile(fand,settings,output = print):
     project = parseFand(fand)
     project.compilerInit(settings,errorHandler)
     thkMap = settings.compiler.thkMap
+    report("Enumerating Scopes")
     wrapCall(project.mapScope(fand,thkMap))
+    report("Resolving Scopes")
     wrapCall(project.resolveScopeNames(Path(fand).absolute().parent))
+    report("Generating Dependency Graph")
     graph = wrapCall(project.generateDependencyGraph())
+    report("Mapping Local Namespaces")
     wrapCall(project.mapLocalNodeNames())
+    report("Resolving Inline Invocations")
     wrapCall(project.resolveInlines())
     wrapCall(project.resolveTerminals())
     #TODO
+    report("Resolving Calls")
     project.resolveNodeNames()
     #project.resolveIdentifiers()#No way of actually resolving the notion of variables
     project.resolveCalls()
+    report("Resolving Actions")
     project.resolveActions()
+    report("Resolving Register Names")
     project.resolveRegisters()
+    report("Resolving Function Names")
     project.resolveFunctions()#God have mercy
+    report("Compiling to Binary")
     project.resolveSegments()
     project.resolveNodes()
     project.serialize()
+    report("Project Compilation Complete")
     return
     
     
