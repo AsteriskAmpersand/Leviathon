@@ -116,9 +116,9 @@ class THKLDecompiler(Decompiler):
                     except:
                         partial = Path(thk.partialPath).with_suffix(".nack")
                 self.fileNames.append(partial)
-                if self.settings.decompiler.verbose:
-                    self.settings.decompiler.display("Decompiling %s -> %s"%(thk.partialPath,partial))
                 result += thklSpec.function_str % (self.scopeNamer.resolve(thk.index), partial, thk.metadata) + "\n"
+        if self.settings.decompiler.verbose:
+            self.settings.decompiler.display("")                
         result += thklSpec.length_str%len(self.thkl)
         return result
     def buildCallResolver(self):
@@ -139,7 +139,7 @@ class THKLDecompiler(Decompiler):
         registers = set()
         for thk in self.thkFiles:
             registers = registers.union(thk.registerUsage())
-        regSched = RegisterScheduler()
+        regSched = RegisterScheduler(self.settings.decompiler.forceRegisters)
         for ix,register in enumerate(sorted(registers)):
             regSched.label(register,"RegisterVar%d"%ix)
         self.registerScheduler = regSched
@@ -152,10 +152,18 @@ class THKLDecompiler(Decompiler):
         return
     def writeThks(self,*args,**kwargs):
         folder = self.settings.decompiler.outputPath
+        prev = set()
         for name,thk in zip(self.fileNames,self.thkFiles):
-            filedata = thk.decompile(*args,**kwargs)
-            with open((Path(folder)/name).with_suffix(".nack"),'w') as outf:
-                outf.write(filedata)
+            if name in prev:
+                continue
+            else:
+                output = (Path(folder)/name).with_suffix(".nack")
+                if self.settings.decompiler.verbose:
+                    self.settings.decompiler.display("Decompiling %s"%(name))
+                filedata = thk.decompile(*args,**kwargs)
+                with open(output,'w') as outf:
+                    outf.write(filedata)
+                prev.add(name)
     def setupStructures(self,entityMap=None,thkMap=None,functionResolver=None):
         if self.settings.decompiler.outputPath is None:
             self.settings.decompiler.outputPath = str(Path(self.path).parent)
@@ -288,8 +296,9 @@ class CallResolver(dict):
             return None,""
 
 class RegisterScheduler():
-    def __init__(self):
+    def __init__(self,force=False):
         self.mappings = {}
+        self.force = force
     def defaultName(self,registerIndex):
         return "$"+chr(ord("A")+registerIndex)
     def addEntries(self,entries):
@@ -298,7 +307,7 @@ class RegisterScheduler():
     def label(self,index,name):
         self.mappings[index] = name
     def resolve(self,registerIndex):
-        if registerIndex in self.mappings:
+        if registerIndex in self.mappings and not self.force:
             return self.mappings[registerIndex]
         else:
             return self.defaultName(registerIndex) 
@@ -424,7 +433,7 @@ class THKDecompiler(Decompiler):
             callResolver = CallResolver({55:NodeListing(), self.index : self.nodeListing})
         callResolver.setLocal(self.index)
         if registerScheduler is None:
-            registerScheduler = RegisterScheduler()
+            registerScheduler = RegisterScheduler(self.settings.decompiler.forceRegisters)
         if functionResolver is None:
             functionResolver = buildResolver()
         if scopeResolver is None:

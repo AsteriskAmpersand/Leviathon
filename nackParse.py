@@ -15,12 +15,15 @@ import re
 from nackLex import NackLexer
 import nackStructures as abc
 from compilerErrors import SemanticError
+from errorHandler import ErrorManaged
 
-class THKModule():
-    def __init__(self,path,thkmap,scope,settings,external = False):
+class THKModule(ErrorManaged):
+    def __init__(self,path,thkmap,scope,settings,external = False,parent = None):
+        self.subfields = []
         self.inlineResolved = False
         self.settings = settings
         self.path = Path(path)
+        self.tag = "THK Module [%s]"%self.path.stem
         if external:
             self.id = -1
             self.scopeName = None
@@ -37,27 +40,53 @@ class THKModule():
                 self.id = index
             self.scopeName = scope
             self.inlineCall = settings.compiler.foreignGlobal if self.id == 55 else settings.compiler.inlineForeign 
+            #print("InlineCall Status",path,self.inlineCall)
             self.decompilable = path is not None
+        self.parent = parent
         if self.decompilable:
-            self.structure = self.parse()
+            if self.parent is not None:
+                self.parent.inheritChildren(self)
+            self.parse()
     def parse(self):
         parsedStructure = None
         if self.decompilable:
             parsedStructure = parseNack(self.path)
         self.parsedStructure = parsedStructure
+        self.parsedStructure.parent = self
+        self.subfields = ["parsedStructure"]
+        self.inherit()
         return parsedStructure
+    def returnInline(self,functionName):
+        return self.parsedStructure.returnInLine(functionName)
+    def substituteScopes(self):
+        if self.decompilable:
+            self.parsedStructure.substituteScopes()
     def resolveInlines(self):
         if self.decompilable:
-            self.parsedStructure.resolveInlines()
+            if not self.inlineResolved:
+                self.parsedStructure.resolveInlines()
         else:
             raise SemanticError("%s [%s] is not decompilable "%(self.scopeName,self.path))
-    def resolveScopeNames(self,root,modules,namedScopes,indexedScopes,settings):
+        self.inlineResolved = True
+    def resolveTerminals(self):
         if self.decompilable:
-            self.dependencies = self.parsedStructure.resolveScopeNames(root,modules,namedScopes,indexedScopes,settings)
+            self.parsedStructure.resolveTerminals()
+    def scopeStringToScopeObject(self,root,modules,namedScopes,indexedScopes):
+        if self.decompilable:
+            self.dependencies = self.parsedStructure.scopeStringToScopeObject(root,modules,namedScopes,indexedScopes)
         else:
             self.dependencies = []
-    def mapLocalNodeNames(self,errorLog):
-        self.parsedStructure.mapLocalNodeNames(errorLog)
+    def resolveScopeToModule(self,modulemap):
+        if self.decompilable:
+            self.parsedStructure.resolveScopeToModule(modulemap)
+    def mapLocalNodeNames(self):
+        self.parsedStructure.mapLocalNodeNames()
+    def resolveActions(self,entityMap,monster):
+        self.parsedStructure.resolveActions(entityMap,monster)
+    def resolveCalls(self):
+        self.parsedStructure.resolveCalls()
+    def getNodeIndexByName(self,name):
+        return self.parsedStructure.nodeByName[name]
     def __hash__(self):
         return hash((self.path.absolute(),-1))
     def __eq__(self,other):
@@ -117,10 +146,10 @@ class NackParser(Parser):
     
     @_('IMPORTACTIONS PATH AS ID skip')
     def actionImport(self,p):
-        self.file.actionScopeNames[p[3]] = abc.ActionTarget(p[1],"id")
+        self.file.actionScopeNames[p[3]] = abc.ActionTarget(p[1],"path")
     @_('IMPORTACTIONS ID AS ID skip')
     def actionImport(self,p):
-        self.file.actionScopeNames[p[3]] = abc.ActionTarget(p[1],"path")
+        self.file.actionScopeNames[p[3]] = abc.ActionTarget(p[1],"id")
     @_('REGISTER id skip')
     def registerDeclaration(self,p):
         self.file.registerNames[p.id] = None
@@ -151,7 +180,7 @@ class NackParser(Parser):
     @_('DEF id nodeAlias nodeIndex skip')
     def defHeader(self,p):
         p.nodeAlias.appendleft(p.id)
-        return abc.NodeHeader(p.nodeAlias,p.nodeIndex)
+        return abc.NodeHeader(p.nodeAlias,p.nodeIndex,p.lineno)
     
     @_('"&" id nodeAlias')
     def nodeAlias(self,p):
@@ -250,7 +279,7 @@ class NackParser(Parser):
     @_('CHANCE "(" numeric ")"',
        'CHANCE "(" id ")"')
     def chanceHeader(self,p):
-        return abc.ChanceHead(p[1])
+        return abc.ChanceHead(p[2])
     
     @_('elsechance "(" numeric ")"',
        'elsechance "(" id ")"')
@@ -503,9 +532,12 @@ class NackParser(Parser):
     # Call Types
     #===================
     
-    @_('id "." id', 'id "." CALL')
+    @_('id "." id')
     def callName(self,p):
-        return abc.ScopedCall(p[0],p[1])
+        return abc.ScopedCallID(p[0],p[2])
+    @_('id "." CALL')
+    def callName(self,p):
+        return abc.ScopedCall(p[0],p[2])
     
     @_('id')
     def callName(self,p):
@@ -595,7 +627,7 @@ def outputTokenization(tokenized):
             print(t.value, end= '')
             
 def parseNack(file):
-    print(file)
+    #print('parseNack',file)
     with open(file,"r") as inf:
         data = inf.read() + "\n"
     lexer = NackLexer()
@@ -604,8 +636,8 @@ def parseNack(file):
     parsed = parser.parse(tokenized)
     return parsed
 
-def moduleParse(path,thkmap,scope,settings):
-    return THKModule(path,thkmap,scope,settings)
+def moduleParse(path,thkmap,scope,settings,parent = None):
+    return THKModule(path,thkmap,scope,settings,parent = parent)
 
 if __name__ == '__main__':
     with open(r"D:\Games SSD\MHW-AI-Analysis\RathianTest\em001_55.nack") as inf:

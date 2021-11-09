@@ -16,6 +16,7 @@ class DecompilerSettings():
         self.raiseInvalidReference = False
         self.suppressWarnings = False
         self.keepRegisters = False
+        self.forceRegisters = False
         self.functionAsThkName = False
 
         self.verbose = False
@@ -31,6 +32,8 @@ class CompilerSettings():
         self.verbose = False
         self.display = print
         
+        self.entityMap = None
+        self.root = None
         self.thkMap = None
         self.inlineForeign = False
         self.foreignGlobal = False

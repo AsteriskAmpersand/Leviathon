@@ -14,26 +14,31 @@ class MonsterActions():
         self.actionDict = actionDict
         self.nameDict = nameDict
 
-def loadActionMaps():
-    filenamePattern = r".*em([0-9]*)_([0-9]*).txt"
+def parseActionFile(filePath):
     pattern = r".*Group:[0-9]* ID:([0-9]*) Name:ACTION::([^\s]*)"
     action = regex.compile(pattern)
+    actionDict = {}
+    nameDict = {}
+    with open(filePath,"r") as file:
+        for actionEntry in file:
+            g = action.match(actionEntry)
+            if g:
+                id,name = g.groups()
+                name = name.lower()
+                actionDict[int(id)] = name
+                nameDict[name] = int(id)
+                #print(id,name)
+        return nameDict,actionDict
+
+def loadActionMaps():
+    filenamePattern = r".*em([0-9]*)_([0-9]*).txt"
     monster = regex.compile(filenamePattern)
     monsterDB = {}
     for file in Path("./ActionDumps").rglob("*.txt"):
         g = monster.match(str(file))
         if g:
             monId,monSpecies = map(int,g.groups())
-            actionDict = {}
-            nameDict = {}
-            for actionEntry in file.open():
-                g = action.match(actionEntry)
-                if g:
-                    id,name = g.groups()
-                    name = name.lower()
-                    actionDict[int(id)] = name
-                    nameDict[name] = int(id)
-                    #print(id,name)
+            nameDict,actionDict = parseActionFile(file)
             monsterDB[(monId,monSpecies)] = nameDict,actionDict
     return monsterDB
 

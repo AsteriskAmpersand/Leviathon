@@ -6,8 +6,10 @@ Created on Sun Oct 31 03:02:28 2021
 """
 
 from nackParse import moduleParse
+from nackStructures import ActionTarget
 from pathlib import Path
 from compilerErrors import SemanticError
+from errorHandler import ErrorManaged
 from sly.lex import LexError
 import networkx as nx
 
@@ -18,7 +20,8 @@ def hasCycles(g):
         return False
     return True
 
-class FandStructure():
+class FandStructure(ErrorManaged):
+    tag = "FandFile"
     def __init__(self):
         self.root = None
         self.relative = None
@@ -29,9 +32,9 @@ class FandStructure():
         self.scopeNames = {}
         self.count = -1
     def compilerInit(self,settings,errorLog):
-        self.settings = settings
-        self.errorHandler = errorLog
+        settings.compiler.root = self.root
         self.performIndexation()
+        self.inherit(settings,errorLog)
     def performIndexation(self):
         if self.count == -1:
             self.count = self.calculateSize()
@@ -48,7 +51,7 @@ class FandStructure():
         return max(len(self.unindexedTargets) + len(self.indexedTargets),max(self.indexedTargets)) 
     def mapScope(self,fand,thkMap):
         """Map every import to an actual THK Module"""
-        parsedScope = {}
+        parsedScope = {}        
         errorlog = self.errorHandler
         settings = self.settings
         for scope,path in self.scopeNames.items():
@@ -61,8 +64,8 @@ class FandStructure():
                     if self.settings.compiler.verbose:
                         self.settings.compiler.display("Starting Parsing of %s"%path)
                     path = Path(fand).parent / path
-                    module = moduleParse(path,thkMap,scope,settings)
-                    #module.substituteScopes()
+                    #TODO - Try Except on Parses
+                    module = moduleParse(path,thkMap,scope,settings,parent = self)
                     parsedScope[scope] = module
             except SyntaxError as e:
                 errorlog.thklNameError(e)
@@ -74,23 +77,24 @@ class FandStructure():
             except:
                 raise
         self.parsedScopes = parsedScope
-    #def substituteScopes(self):
-    #    for scope in self.parsedScopes.values():
-    #        scope.substituteScopes()
-    def resolveScopeNames(self,root):
+    def resolveScopeToModule(self):
+        for module in self.moduleList.values():
+            module.substituteScopes()
+            module.resolveScopeToModule(self.moduleList)
+    def scopeStringToScopeObject(self,root):
         """Imports are mapped recursively with a project level cache"""
         #Project keeps track of already loaded thk modules
         #Each file keeps track of it's file dependencies
-        modules = {module.path.absolute() : module for module in self.parsedScopes.values()}
+        modules = {str(module.path.absolute()) : module for module in self.parsedScopes.values()}
         for module in self.parsedScopes.values():
-            module.resolveScopeNames(root,modules,self.parsedScopes,self.indexedTargets,self.settings)
+            module.scopeStringToScopeObject(root,modules,self.parsedScopes,self.indexedTargets)
         self.moduleList = modules
     def generateDependencyGraph(self):
         errorHandler = self.errorHandler
         depGraph = nx.DiGraph()
-        for module in self.parsedScopes.values():
+        for module in self.moduleList.values():
             for dependency in module.dependencies.values():
-                if not dependency.inlineCall:
+                if dependency.inlineCall:
                     depGraph.add_edge(module, dependency)
         if hasCycles(depGraph):
             errorHandler.dependencyCycle()
@@ -99,22 +103,41 @@ class FandStructure():
     def mapLocalNodeNames(self):
         errorHandler = self.errorHandler
         for module in self.moduleList.values():
-            module.mapLocalNodeNames(errorHandler)
-    def resolveNodeInlines(self,node):
+            module.mapLocalNodeNames()
+    def resolveModuleInlines(self,module):
         errorHandler = self.errorHandler
-        for dependency in self.dependencyGraph[node]:
-            self.resolveNodeInlines(dependency)
-        node.resolveInlines()
+        self.settings.compiler.display("\tAnalyzing: "+str(module.path.absolute()))
+        for dependency in self.dependencyGraph[module]:
+            self.resolveModuleInlines(dependency)
+        self.settings.compiler.display("\tInlining: "+str(module.path.absolute()))
+        module.resolveInlines()
     def resolveInlines(self):
+        #for module in self.dependencyGraph[module]
+        #Resolve immediate variable names on each of the modules
+        #If graph is non-cyclical we start from the bottom of dependencies
+        #with inline operation resolution
         errorHandler = self.errorHandler
         for module in self.parsedScopes.values():
             if module in self.dependencyGraph:
-                self.resolveNodeInlines(module)
-                
-                #for module in self.dependencyGraph[module]
-            
-        raise
-        #TODO
-        #Resolve immediate variable names on each of the modules
-    #If graph is non-cyclical we start from the bottom of dependencies
-    #with inline operation resolution
+                self.resolveModuleInlines(module)
+    def resolveTerminals(self):
+        errorHandler = self.errorHandler
+        for module in self.parsedScopes.values():
+            if module in self.dependencyGraph:
+                module.resolveTerminals()
+    def resolveCalls(self):
+        for module in self.parsedScopes.values():
+            if module in self.dependencyGraph:
+                module.resolveCalls()
+    def resolveActions(self,entityMap):
+        projectMonster = self.inheritChildren(ActionTarget(self.monster,"project"))
+        projectMonster.resolve(entityMap)
+        for module in self.parsedScopes.values():
+            module.resolveActions(entityMap,projectMonster)
+    def collectRegisters(self):
+        registerNames = []
+        for module in self.parsedScopes.values():
+            registerNames += module.collectRegisters()
+        return registerNames
+    def resolveRegisters(self):
+        registerNames = self.collectRegisters()

@@ -12,6 +12,8 @@ from fandLexParse import parseFand
 from nackParse import parseNack
 from compilerErrors import SemanticError
 from actionEnum import loadActionMaps,loadTHKMaps
+from monsterEnum import loadEntities
+from errorHandler import ErrorHandler,ErrorManaged
 
 import re
 
@@ -26,23 +28,7 @@ import re
 #         self.scopeNames = {}        
 #         self.count = -1            
 
-class ErrorHandler():
-    def __init__(self,settings):
-        self.settings = settings
-        self.mark = False
-        self.trace = []
-        self.errorlog = []
-    def thklNameError(self,exception):
-        pass
-    def thkParseError(self,exception):
-        pass
-    def proceed(self):
-        return not self.mark
-    def log(self,string):
-        self.log.append(string)
-    def report(self):
-        for entry in self.errorlog:
-            print(entry)
+
 
 #incompleteSpecification()
 #thkMap
@@ -54,6 +40,14 @@ class CompilationError(Exception):
     pass
 
 def fandCompile(fand,settings,output = print):
+    #TODO - Remove after testing, the settings parser should take care of this
+    if settings.compiler.entityMap is None:
+        actionResolver = loadActionMaps()
+        entityResolver = loadEntities(actionResolver)
+        settings.compiler.entityMap = entityResolver
+    #
+    
+    
     errorHandler = ErrorHandler(settings)
     def report(text):
         if settings.compiler.verbose:settings.compiler.display(text)
@@ -68,7 +62,8 @@ def fandCompile(fand,settings,output = print):
     report("Enumerating Scopes")
     wrapCall(project.mapScope(fand,thkMap))
     report("Resolving Scopes")
-    wrapCall(project.resolveScopeNames(Path(fand).absolute().parent))
+    wrapCall(project.scopeStringToScopeObject(Path(fand).absolute().parent))
+    wrapCall(project.resolveScopeToModule())
     report("Generating Dependency Graph")
     graph = wrapCall(project.generateDependencyGraph())
     report("Mapping Local Namespaces")
@@ -76,16 +71,14 @@ def fandCompile(fand,settings,output = print):
     report("Resolving Inline Invocations")
     wrapCall(project.resolveInlines())
     wrapCall(project.resolveTerminals())
-    #TODO
     report("Resolving Calls")
-    project.resolveNodeNames()
-    #project.resolveIdentifiers()#No way of actually resolving the notion of variables
     project.resolveCalls()
     report("Resolving Actions")
-    project.resolveActions()
+    project.resolveActions(settings.compiler.entityMap)
     report("Resolving Register Names")
     project.resolveRegisters()
     report("Resolving Function Names")
+    #TODO
     project.resolveFunctions()#God have mercy
     report("Compiling to Binary")
     project.resolveSegments()
@@ -95,7 +88,7 @@ def fandCompile(fand,settings,output = print):
     return
     
     
-    #project.substituteScopes()
+    #
     project.resolveInlines()
     
 if __name__ in "__main__":

@@ -52,6 +52,8 @@ class EntityManager():
         if key in self.byGameID: return self.byGameID[key]
         if key in self.byName: return self.byName[key]
         raise KeyError
+    def actionsByName(self,name):
+        return self.byName[name].nameToAction,self.byName[name].actionToName
     def get(self,key,field):
         return getattr(self[key],field)
     def getName(self,key):
