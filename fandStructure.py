@@ -10,6 +10,8 @@ from nackStructures import ActionTarget
 from pathlib import Path
 from compilerErrors import SemanticError
 from errorHandler import ErrorManaged
+from compilerUtils import Autonumber
+
 from sly.lex import LexError
 import networkx as nx
 
@@ -135,9 +137,26 @@ class FandStructure(ErrorManaged):
         for module in self.parsedScopes.values():
             module.resolveActions(entityMap,projectMonster)
     def collectRegisters(self):
-        registerNames = []
+        registerNames = set()
         for module in self.parsedScopes.values():
-            registerNames += module.collectRegisters()
+            registerNames = registerNames.union(module.collectRegisters())
         return registerNames
     def resolveRegisters(self):
         registerNames = self.collectRegisters()
+        indexedRegisters = [r for r in registerNames if r is int]
+        namedRegisters = [r for r in registerNames if r is str and r not in self.registerNames]
+        for v in self.registerNames.values():
+            if v is not None:
+                indexedRegisters.append(v)
+        indices = sorted(list(set(indexedRegisters)))
+        autoReg = Autonumber(indices)
+        ix = 0
+        for ix,name in zip(autoReg,namedRegisters):
+            self.registerNames[name] = ix
+        mix = max(indices, default = 0)
+        if mix > 19 or ix > 19:
+            self.errorHandler.registryCountExceeded(max(mix,ix))
+            return
+        for module in self.parsedScopes.values():
+            module.resolveRegisters(self.registerNames)
+        

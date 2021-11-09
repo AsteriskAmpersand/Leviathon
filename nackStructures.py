@@ -10,6 +10,7 @@ from pathlib import Path
 from compilerErrors import SemanticError
 from errorHandler import ErrorManaged
 from actionEnum import parseActionFile
+from compilerUtils import Autonumber
 import nackParse as np
 
 def copy(self):
@@ -23,13 +24,6 @@ def copy(self):
         return self
     else:
         return self.copy().copyMetadataFrom(self)
-    
-def Autonumber(reserved=set()):
-    i = 0
-    while True:
-        while i in reserved: i+=1
-        yield i
-        i+=1
 
 class NackFile(ErrorManaged):
     tag = "Nack File"
@@ -189,6 +183,14 @@ class NackFile(ErrorManaged):
                     node.errorHandler.missingAnyActionScope()
                 else:
                     raise
+    def collectRegisters(self):
+        registerListing = set()
+        for node in self.nodes:
+            registerListing = registerListing.union(set(node.collectRegisters()))
+        return registerListing
+    def resolveRegisters(self,namespace):
+        for node in self.nodes:
+            node.resolveRegisters(namespace)
         
     
 class ScopeTarget(ErrorManaged):
@@ -337,7 +339,14 @@ class Node(ErrorManaged):
     def resolveActions(self,actionScopes):
         for segment in self.bodylist:
             segment.resolveActions(actionScopes)
-            
+    def collectRegisters(self):
+        registers = set()
+        for segment in self.bodylist:
+            registers = registers.union(segment.collectRegisters())
+        return registers
+    def resolveRegisters(self,namespace):
+        for segment in self.bodylist:
+            segment.resolveRegisters(namespace)
 class NodeHeader(ErrorManaged):
     subfields = []
     def __init__(self,aliaslist,index,lineno):
@@ -356,6 +365,7 @@ class Segment(ErrorManaged):
     tag = "Node Segment"
     def __init__(self):
         self._function = None
+        self._functionTyping = None
         self._call = None
         self._directive = None
         self._action = None
@@ -373,9 +383,10 @@ class Segment(ErrorManaged):
     def existingCheck(self,check):
         if getattr(self,"_"+check) is not None:
             raise SemanticError("Segment already has been assigned a %s"%check)
-    def addFunction(self,function):
+    def addFunction(self,function,typing):
         self.existingCheck("function")
         self._function = function
+        self._functionTyping = typing
     def addAction(self,action):
         self.existingCheck("action")
         self._action = action
@@ -463,6 +474,14 @@ class Segment(ErrorManaged):
     def resolveActions(self,actionScopes):
         if self._action:
             self._action.resolveAction(actionScopes)
+    def collectRegisters(self):
+        if self._functionTyping == "register": #else function
+            return self._function.collectRegisters()
+        else:
+            return []
+    def resolveRegisters(self,namespace):
+        if self._functionTyping == "register": #else function
+            return self._function.resolveName(namespace)
 class Chance(ErrorManaged):
     subfields = ["chance"]
     def __init__(self,percentage):
@@ -542,16 +561,47 @@ class Register():
         pass
     def resolveTerminalId(self,varNames):
         pass
-
+    def resolveName(self,namespace):
+        if hasattr(self,"raw_id"):
+            return
+        if self.identifier not in namespace:
+            self.errorHandler.missingRegisterName(self.identifier)
+        else:
+            self.raw_id = namespace[self.identifier]
+    def collectRegisters(self):
+        if hasattr(self,"raw_id"):
+            return [self.raw_id]
+        else:
+            return [str(self.identifier)]
 class RegisterID(Register,ErrorManaged):
     tag = "Register ID"
-    subfields = ["id"]
+    subfields = ["identifier"]
     def __init__(self,id):
         self.tag = "Register ID [%s]"%(id)
         self.identifier = id
     def copy(self):
         return RegisterID(copy(self.identifier))
-class RegisterComparison(Register,ErrorManaged):
+class RegisterLiteral(Register,ErrorManaged):
+    tag = "Register Literal"
+    subfields = ["identifier"]
+    def __init__(self,id):
+        self.tag = "Register ID [%s]"%(id)
+        self.identifier = id
+        self.raw_id = id
+    def copy(self):
+        return RegisterID(copy(self.identifier))
+class RegisterOp():
+    def resolveImmediateId(self,varNames):
+        pass
+    def resolveLocalId(self,varNames):
+        pass
+    def resolveTerminalId(self,varNames):
+        pass
+    def resolveName(self,namespace):
+        self.base.resolveName(namespace)    
+    def collectRegisters(self):
+        return self.base.collectRegisters()
+class RegisterComparison(RegisterOp,ErrorManaged):
     subfields = ["base","target","comparison"]
     def __init__(self,ref,val,comp):
         self.tag = "Register Comparison [%s %s %s]"%(ref,comp,val)
@@ -570,7 +620,7 @@ class RegisterComparison(Register,ErrorManaged):
         self.parameterResolution(varNames,"resolveLocalId")
     def resolveTerminalId(self,varNames):
         self.parameterResolution(varNames,"resolveTerminalId") 
-class RegisterUnaryOp(Register,ErrorManaged):
+class RegisterUnaryOp(RegisterOp,ErrorManaged):
     tag = "Register Unary Operator"
     subfields = ["base","operator"]
     def __init__(self,ref,op):

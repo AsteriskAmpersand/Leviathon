@@ -87,6 +87,10 @@ class THKModule(ErrorManaged):
         self.parsedStructure.resolveCalls()
     def getNodeIndexByName(self,name):
         return self.parsedStructure.nodeByName[name]
+    def collectRegisters(self):
+        return self.parsedStructure.collectRegisters()
+    def resolveRegisters(self,namespace):
+        return self.parsedStructure.resolveRegisters(namespace)
     def __hash__(self):
         return hash((self.path.absolute(),-1))
     def __eq__(self,other):
@@ -332,7 +336,7 @@ class NackParser(Parser):
     @_('maybeFunctionType actionTypeStart')
     def uncontrolledSegment(self,p):
         if p.maybeFunctionType:
-            p.actionTypeStart.addFunction(p.maybeFunctionType)
+            p.actionTypeStart.addFunction(*p.maybeFunctionType)
         return p.actionTypeStart
     @_('directiveName maybeMetaType skip')
     def uncontrolledSegment(self,p):
@@ -341,7 +345,7 @@ class NackParser(Parser):
     @_('maybeActionType maybeCallType maybeDirectiveType maybeMetaType skip')
     def actionTypeStart(self,p):
         s = p.maybeMetaType
-        if p.maybeActionType: s.addAction(p.maybeActionType)
+        if p.maybeActionType: s.addAction(*p.maybeActionType)
         if p.maybeCallType: s.addCall(p.maybeCallType)
         if p.maybeDirectiveType: s.addDirective(p.maybeDirectiveType)
         return s
@@ -385,9 +389,12 @@ class NackParser(Parser):
     # Basic Types
     #===================================================
     # Function
-    @_('functionName','functionLiteral','registerType')
+    @_('functionName','functionLiteral')
     def functionType(self,p):
-        return p[0]
+        return (p[0],"function")
+    @_('registerType')
+    def functionType(self,p):
+        return (p[0],"register")
     
     # Action
     @_('DO_ACTION actionName actionParens','DO_ACTION actionLiteral actionParens')
