@@ -649,6 +649,7 @@ class SegmentDecompiler(Decompiler):
                 self.flow = key.CHANCE+" (%d)" % segment.parameter1 
                 self.addIndent = chanceIndent
             else:
+                #0xC0 Chance, 0x80 Last Chance
                 self.removeIndent = chanceIndent
                 self.addIndent = chanceIndent
                 self.flow = key.ELSEC+" (%d)" % segment.parameter1 
@@ -742,7 +743,7 @@ if __name__ in "__main__":
     ts = TranspilerSettings()
     #ts.decompiler.forceIndex = True
     #ts.decompiler.forceId = True
-    #ts.decompiler.keepVoid = True
+    ts.decompiler.keepVoid = True
     ts.decompiler.verbose = True
     ts.decompiler.outputPath = r"D:\Games SSD\MHW-AI-Analysis\RathianTest"
     ts.decompiler.statisticsOutputPath = r"D:\Games SSD\MHW-AI-Analysis\RathianTest"

@@ -11,6 +11,7 @@ from compilerErrors import SemanticError
 from errorHandler import ErrorManaged
 from actionEnum import parseActionFile
 from compilerUtils import Autonumber
+from thk import Segment as THKSegment
 import nackParse as np
 
 def copy(self):
@@ -166,15 +167,15 @@ class NackFile(ErrorManaged):
             node.resolveCalls()
     def resolveActions(self,entityManager,projectMonster = None):
         if len(self.actionScopeNames) == 0:
-            self.actionScopeNames["monster"] = projectMonster
+            fileMonster = projectMonster
         elif len(self.actionScopeNames) == 1:
             monsterTarget = next(iter(self.actionScopeNames.values()))
             fileMonster = monsterTarget.resolve(entityManager)
-            self.actionScopeNames["monster"] = fileMonster
         elif len(self.actinoScopeNames) >= 2:
             monsterTarget = [self.actionScopeNames[scope] for scope in self.actionScopeNames if scope != "generic"][0]
             fileMonster = monsterTarget.resolve(entityManager)
-            self.actionScopeNames["monster"] = fileMonster
+        self.actionScopeNames["monster"] = fileMonster
+        self.monsterID = fileMonster.monsterID if fileMonster else 0
         for node in self.nodes:
             try:
                 node.resolveActions(self.actionScopeNames)
@@ -191,7 +192,41 @@ class NackFile(ErrorManaged):
     def resolveRegisters(self,namespace):
         for node in self.nodes:
             node.resolveRegisters(namespace)
-        
+    def compileProperties(self):
+        indexGen = Autonumber()
+        visited = 0
+        realCount = len(self.nodeByIndex)
+        serialNodes = []
+        while visited < realCount:
+            index = next(indexGen)
+            if index in self.nodeByIndex:
+                node = self.nodeByIndex[index]
+                visited += 1
+            else:
+                header = NodeHeader(["Dummy::Node_%03d"%index], (0,index), -1)
+                s = Segment()
+                s.addEnd()
+                bodylist = [s]
+                node = Node(header,bodylist)
+                self.inheritChildren(node)
+                node.inherit()
+                self.nodeByIndex[index] = node   
+                self.nodes.append(node)
+                for name in node.names:
+                    self.nodeByName[name] = node
+            node.compileProperties()
+            serialNodes.append(node)
+        headerSize = 0x20
+        baseOffset = 0x10+len(serialNodes)+headerSize
+        offset = baseOffset
+        for node in serialNodes:
+            node["offset"] = offset
+            offset += node["count"]*0x80
+        self.dataSerialNodes = serialNodes
+        self.dataHeader = {"signature":"THK\x00".encode("utf-8"), "formatVersion":40,
+                             "headerSize":headerSize,"isPalico":"otomo" in self.actionScopeNames,
+                             "monsterID":self.monsterID,"unknownHash":314159,
+                             "structCount":len(serialNodes)}
     
 class ScopeTarget(ErrorManaged):
     subfields = []
@@ -209,15 +244,13 @@ class ScopeTarget(ErrorManaged):
         elif self.type == "id":
             if self.target not in namedScopes:
                 settings.compiler.missingScope(self.target)
-                raise SemanticError("%s is not a scope defined within the project"%self.target)
             path = namedScopes[self.target].path
         elif self.type == "ix":
             if self.target > len(indexedScopes):
                 settings.compiler.indexOverflow(self.target)
                 raise SemanticError("%d exceedsd the number of thk indices"%self.target)
             if indexedScopes[self.target][0] == "":#TODO - Encapsulate the indexed scopes into objects instead of tuples
-                settings.compiler.emptyScope(self.target)    
-                raise SemanticError("%d is an unspecified THK on the project"%self.target)
+                settings.compiler.emptyScope(self.target)
             path = indexedScopes[self.target]
         else:
             raise SemanticError("Local and Terminal Local cannot resolve to paths.")
@@ -246,10 +279,13 @@ class ActionTarget(ErrorManaged):
         if self.typing == "id":
             try:
                 self.nameToId,self.idToName = entityManager.actionsByName(self.target)
+                self.monsterID = entityManager[self.target].gameID
             except:
                 self.errorHandler.invalidMonsterName(self.target)
                 self.nameToId,self.idToName = {},{}
+                self.monsterID = -1
         elif self.typing == "path":
+            self.monsterID = -1
             path = Path(self.target)
             if not path.is_absolute():
                 path = self.settings.compiler.root/path
@@ -347,6 +383,14 @@ class Node(ErrorManaged):
     def resolveRegisters(self,namespace):
         for segment in self.bodylist:
             segment.resolveRegisters(namespace)
+    def compileProperties(self):
+        segmentList = []
+        for segment in self.bodyList:
+            dataSegment = segment.compileProperties
+            if dataSegment: segmentList.append(dataSegment)
+        self.binaryStructure = {"offset":0,"count":len(segmentList),"id":self.getId(),
+                                "segments":segmentList}
+        return self.binaryStructure
 class NodeHeader(ErrorManaged):
     subfields = []
     def __init__(self,aliaslist,index,lineno):
@@ -358,21 +402,34 @@ class NodeHeader(ErrorManaged):
         return "def " + ' & '.join(map(str,self.names)) + ":"
     def copy(self):
         return NodeHeader(self.names,(self.id,self.index),self.lineno)
+class TypeNub(ErrorManaged):
+    def __init__(self,propName,raw_id):
+        self.propName = propName
+        self.tag = propName
+        self.raw_id
+    def resolveProperties(self,storage):
+        storage(self.propName,self.raw_id)
+class ChanceNub(TypeNub):
+    def resolveProperties(self,storage):
+        super().resolveProperties(storage)
+        storage("functionID",0)
+class DeferredNub(TypeNub):
+    def resolveProperties(self,storage):
+        storage(self.propName,self.raw_id())
 class Segment(ErrorManaged):
-    memberList = ["function","call","directive","action","flowControl","randomType",
+    memberList = ["function","call","directive","action","branchingControl","randomType",
                   "terminator","metaparams","chance"]
     subfields = ["_"+m for m in memberList]
     tag = "Node Segment"
     def __init__(self):
         self._function = None
-        self._functionTyping = None
         self._call = None
         self._directive = None
         self._action = None
-        self._flowControl = None
+        self._branchingControl = None
         self._randomType = None
         self._terminator = None
-        self._metaparams = None
+        self._metaparams = {}
         self._chance = None
     def copy(self):
         s = Segment()
@@ -383,10 +440,9 @@ class Segment(ErrorManaged):
     def existingCheck(self,check):
         if getattr(self,"_"+check) is not None:
             raise SemanticError("Segment already has been assigned a %s"%check)
-    def addFunction(self,function,typing):
+    def addFunction(self,function):
         self.existingCheck("function")
         self._function = function
-        self._functionTyping = typing
     def addAction(self,action):
         self.existingCheck("action")
         self._action = action
@@ -397,29 +453,31 @@ class Segment(ErrorManaged):
         self.existingCheck("directive")
         self._directive = directive
     def startConditional(self):
-        self.existingCheck("flowControl")
-        self._flowControl = "ConditionalStart"
+        self.existingCheck("branchingControl")
+        self._branchingControl = TypeNub("branchingControl",0x2)
     def addConditionalBranch(self):
-        self.existingCheck("flowControl")
-        self._flowControl = "ConditionalBranch"
+        self.existingCheck("branchingControl")
+        self._branchingControl = TypeNub("branchingControl",0x4)
     def endConditional(self):
-        self.existingCheck("flowControl")
-        self._flowControl = "ConditionalEnd"
-    def addEnd(self):
-        self.existingCheck("terminator")
-        self._terminator = True
+        self.existingCheck("branchingControl")
+        self._branchingControl = TypeNub("branchingControl",0x8)
+    def addEndNode(self):
+        self.existingCheck("randomType")
+        self._chance = TypeNub("endRandom",0x1)
+        self._terminator = DeferredNub("nodeEndingData",self.getNodeId)
     def addChance(self,chance):
         self.existingCheck("randomType")
-        self._endRandomType = "Chance"
         self._chance = chance
     def endChance(self):
-        self.existingCheck("flowControl")
-        self._flowControl = "ChanceEnd"
+        self.existingCheck("branchingControl")
+        self._branchingControl = ChanceNub("branchingControl",0x1)
     def addConclude(self):
-        self.existingCheck("flowControl")
-        self._flowControl = "Conclude"
+        self.existingCheck("branchingControl")
+        self._branchingControl = TypeNub("branchingControl",0x10)
     def addMeta(self,params):
         self._metaparams = params
+    def getNodeId(self):
+        return self.parent.getId()
     def substituteScopes(self,moduleScopes,actionScopes):
         for member in ["call","action"]:
             value = getattr(self,"_"+member)
@@ -446,8 +504,8 @@ class Segment(ErrorManaged):
     def inlinedLocalCallScopeResolution(self,namespace):        
         self._resolutionOperator({},namespace,{},"inlinedLocalCallScopeResolution","")
     def __str__(self):
-        return ','.join([attr if not attr == "flowControl" else self._flowControl
-            for attr in ["function","call","action","directive","flowControl",
+        return ','.join([attr if not attr == "branchingControl" else self._branchingControl
+            for attr in ["function","call","action","directive","branchingControl",
                          "randomType","terminator","metaparams"]
             if getattr(self,"_"+attr) is not None])
     def internalCall(self):
@@ -475,13 +533,34 @@ class Segment(ErrorManaged):
         if self._action:
             self._action.resolveAction(actionScopes)
     def collectRegisters(self):
-        if self._functionTyping == "register": #else function
+        if self._function and self._function.typing == "register": #else function
             return self._function.collectRegisters()
         else:
             return []
     def resolveRegisters(self,namespace):
-        if self._functionTyping == "register": #else function
+        if self._function and self._function.typing == "register": #else function
             return self._function.resolveName(namespace)
+    def compileProperties(self):
+        dataSegment = {}
+        def testAdd(propertyName,propertyValue):
+            if propertyName in dataSegment:
+                self.errorHandler.repeatedProperty(propertyName)
+            dataSegment[propertyName] = propertyValue
+        for member in self.memberList:
+            var = getattr(self,"_"+member)
+            if member == "metaparams":
+                pass
+            else:
+                if var: var.compileProperties(testAdd)
+        for key,val in self._metaparams.items():
+            if hasattr(val,"raw_id"): testAdd(key,val)
+            else: val.erroHandler.unresolvedIdentifier()
+        dataSegment["functionID"] = 0x2
+        for field in THKSegment.subcons:
+            name = field.name
+            if field.name not in dataSegment:
+                dataSegment[field.name] = 0
+        return dataSegment
 class Chance(ErrorManaged):
     subfields = ["chance"]
     def __init__(self,percentage):
@@ -497,11 +576,25 @@ class Chance(ErrorManaged):
         self.resolveIds(variableNames,"resolveLocalId")
     def resolveTerminalId(self,variableNames):
         self.resolveIds(variableNames,"resolveTerminalId")
+    def resolveProperties(self,storage):
+        storage("parameter1",self.chance)
+        storage("functionID",0)
 class ChanceHead(Chance):
-    pass
+    def resolveProperties(self,storage):
+        storage("endRandom",0x40)
+        super().resolveProperties(storage)        
 class ChanceElse(Chance):
-    pass
+    def last(self):
+        return ChanceLast(self.chance)
+    def resolveProperties(self,storage):
+        storage("endRandom",0xC0)
+        super().resolveProperties(storage)    
+class ChanceLast(Chance):
+    def resolveProperties(self,storage):
+        storage("endRandom",0x80)
+        super().resolveProperties(storage)    
 class FunctionShell(ErrorManaged):
+    typing = "function"
     subfields = ["sections","params"]
     def __init__(self,id=None,params=None):
         if id is None:
@@ -533,11 +626,17 @@ class FunctionShell(ErrorManaged):
         shell.sections = [copy(id) for id in self.sections]
         shell.params = [[copy(p) for p in params] for params in self.params]
         return shell
+    def resolveProperties(self,storage):
+        storage("functionType",self.raw_id)
+        for field,parameterValue in self.functionParamPairs:
+            storage(field,parameterValue)
 class FunctionLiteral(ErrorManaged):
+    typing = "function"
     subfields = ["function","arguments"]
     def __init__(self,function,arguments):
         self.tag = "Function Call Literal [%X]"%function
         self.function = function
+        self.raw_id = function
         self.arguments = arguments
     def copy(self):
         return FunctionLiteral(copy(self.function),[copy(arg) for arg in self.arguments])
@@ -553,7 +652,14 @@ class FunctionLiteral(ErrorManaged):
     def resolveLocalId(self,varNames):
         self.parameterResolution(varNames,"resolveLocalId")
     def resolveTerminalId(self,varNames):
-        self.parameterResolution(varNames,"resolveTerminalId") 
+        self.parameterResolution(varNames,"resolveTerminalId")
+    def resolveProperties(self,storage):
+        storage("functionType",self.raw_id)
+        for field,parameterObj in zip(["parameter1","parameter2"],self.arguments):
+            if not hasattr(parameterObj,"raw_id"):
+                self.errorHandler.unresolvedParameter()
+            else:
+                storage(field,parameterObj.raw_id)
 class Register():
     def resolveImmediateId(self,varNames):
         pass
@@ -591,6 +697,7 @@ class RegisterLiteral(Register,ErrorManaged):
     def copy(self):
         return RegisterID(copy(self.identifier))
 class RegisterOp():
+    typing = "register"
     def resolveImmediateId(self,varNames):
         pass
     def resolveLocalId(self,varNames):
@@ -601,6 +708,9 @@ class RegisterOp():
         self.base.resolveName(namespace)    
     def collectRegisters(self):
         return self.base.collectRegisters()
+    
+regSymbols = ["==","<=" ,"<" ,">=" ,">" ,"!="]
+regComps = {regSymbols[i]:i for i in range(len(regSymbols))}
 class RegisterComparison(RegisterOp,ErrorManaged):
     subfields = ["base","target","comparison"]
     def __init__(self,ref,val,comp):
@@ -619,7 +729,17 @@ class RegisterComparison(RegisterOp,ErrorManaged):
     def resolveLocalId(self,varNames):
         self.parameterResolution(varNames,"resolveLocalId")
     def resolveTerminalId(self,varNames):
-        self.parameterResolution(varNames,"resolveTerminalId") 
+        self.parameterResolution(varNames,"resolveTerminalId")
+    def resolveProperties(self,storage):
+        if not hasattr(self.base,"raw_id"):
+            self.errorHandler.unresolvedIdentifier(str(self.base))
+        elif not hasattr(self.target,"raw_id"):
+            self.errorHandler.unresolvedIdentifier(str(self.target))
+        else:
+            storage("functionType",0x94+self.base.raw_id)
+            storage("parameter1",regComps[self.comparison])
+            storage("parameter2",self.target.raw_id)
+unaryOps = {"++":0,"|-":1}
 class RegisterUnaryOp(RegisterOp,ErrorManaged):
     tag = "Register Unary Operator"
     subfields = ["base","operator"]
@@ -628,6 +748,12 @@ class RegisterUnaryOp(RegisterOp,ErrorManaged):
         self.operator = op
     def copy(self):
         return RegisterUnaryOp(copy(self.base),copy(self.operator))
+    def resolveProperties(self,storage):
+        if not hasattr(self.base,"raw_id"):
+            self.errorHandler.unresolvedIdentifier(str(self.base))
+        else:
+            storage("functionType",0x94+self.base.raw_id)
+            storage("parameter1",unaryOps[self.operator])
 class Action(ErrorManaged):
     tag = "Action"
     subfields = ["parameters"]
@@ -651,7 +777,16 @@ class Action(ErrorManaged):
     def legalIndex(self,actionMap,id):
         if not any((mapping.checkIndex(id) for mapping in actionMap)):
             self.errorHandler.illegalActionIndex(id)
-        
+    def resolveProperties(self,storage):
+        if not hasattr(self,"raw_id"):
+            self.errorHandler.unresolvedIdentifier()
+        else:
+            storage("actionID",self.raw_id)
+            for ix,param in enumerate(self.parameters):
+                if hasattr(param,"raw_id"):
+                    storage("actionUnkn%d"%ix,param.rawID)
+                else:
+                    param.errorHandler.unresolvedIdentifier()
 class ActionLiteral(Action):
     def __init__(self,id):
         tag = "Action Literal [%d]"%id
@@ -731,6 +866,18 @@ class Call(ErrorManaged):
         if hasattr(self,"node_target"):
             c.node_target = self.node_target
         return c
+    def resolveProperties(self,storage):
+        if not hasattr(self,"raw_target"):
+            self.errorHandler.unresolvedIdentifier()
+        else:
+            if self.external == -1:
+                storage("extRefThkID",self.external)
+                storage("extRefNodeID",self.external)
+                storage("localRefNodeID",self.raw_target)
+            else:
+                storage("extRefThkID",self.external)
+                storage("extRefNodeID",self.raw_target)
+                storage("localRefNodeID",-1)                
 class CallID(Call):
     local_scope = "names"
     def __init__(self,namedId):
@@ -827,7 +974,9 @@ class Directive(ErrorManaged):
         self.raw_target = fDirectiveMap[command]
     def copy(self):
         return Directive(bDirectiveMap[self.raw_target])
-
+    def resolveProperties(self,storage):
+        storage("flowControl",self.raw_target)
+                 
 class Identifier(ErrorManaged):
     subfields = ["id"]
     def __init__(self,identifier):

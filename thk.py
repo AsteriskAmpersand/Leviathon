@@ -14,13 +14,13 @@ from itertools import groupby
 #conn = sqlite3.connect(':memory:')
 
 Header = c.Struct(
-        "signature" / c.Byte[4],
-        "formatVersion" / c.Int16sl,
+        "signature" / c.Const([84,72,75,0],c.Byte[4]),
+        "formatVersion" / c.Const(40,c.Int16sl),
         "structCount" / c.Int16sl,
         "unknownHash" / c.Int32ub,
         "isPalico" / c.Int32sl,
         "monsterID" / c.Int64sl,
-        "headerSize" / c.Int64sl
+        "headerSize" / c.Const(32,c.Int64sl)
         )
 
 Segment = c.Struct(
@@ -102,9 +102,14 @@ if __name__ in "__main__":
     whole = []
     
     flowControls = {}
+    #from collections import defaultdict
+    #hashes = defaultdict(set)
     for kx,thk in enumerate(chunk.rglob("*.thk")):#[Path(r"E:\MHW\chunkG0\otomo\ot210\data\ot210_31.thk")]:#
         file = Thk.parse_stream(thk.open("rb"))
         relative = thk.relative_to(chunk)
+        #hashes["%08X"%file.header.unknownHash].add(relative)
+        #continue
+        raise
         pathing = [relative,relative.parts[0],relative.parts[1],relative.parts[2],relative.stem]
         fileEntry = (kx,*pathing)
         files.append(fileEntry)
@@ -120,7 +125,10 @@ if __name__ in "__main__":
                 segments.append(segmentEntry)
                 wholeEntry = (*pathing,ix,jx,*nodeFields,*segmentFields)
                 whole.append(wholeEntry)
-    
+    #for hashing in hashes:
+    #    print(hashing)
+    #    print('\n'.join(["\t"+str(h) for h in sorted(hashes[hashing])]))
+    #raise
     f = pd.DataFrame(data = files, columns = fileColumns)
     n = pd.DataFrame(data = nodes, columns = nodeColumns)
     s = pd.DataFrame(data = segments, columns = segmentColumns)

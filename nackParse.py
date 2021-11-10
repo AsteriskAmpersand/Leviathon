@@ -219,7 +219,7 @@ class NackParser(Parser):
        'ENDFUNCTION maybeMetaType skip')
     def nodeEnd(self,p):
         s = p.maybeMetaType
-        s.addEnd()
+        s.addEndNode()
         return col.deque([s])
 
     #===================================================
@@ -256,11 +256,14 @@ class NackParser(Parser):
         p.uncontrolledSegment.addChance(p.chanceBody)
         p.nodeBody1.appendleft(p.uncontrolledSegment)
         return p.nodeBody0 + p.nodeBody1 + p.optionalChance
-    
+
+
     @_('chanceBody actionTypeStart nodeBody optionalChance')
     def optionalChance(self,p):
         s = p.actionTypeStart
-        s.addChance(p.chanceBody)
+        bd = p.chanceBody
+        if len(p.optionalChance)==1: bd = bd.last()
+        s.addChance(bd)
         p.nodeBody.appendleft(s)
         return p.nodeBody + p.optionalChance
     @_('optionalTerminator')
@@ -336,7 +339,7 @@ class NackParser(Parser):
     @_('maybeFunctionType actionTypeStart')
     def uncontrolledSegment(self,p):
         if p.maybeFunctionType:
-            p.actionTypeStart.addFunction(*p.maybeFunctionType)
+            p.actionTypeStart.addFunction(p.maybeFunctionType)
         return p.actionTypeStart
     @_('directiveName maybeMetaType skip')
     def uncontrolledSegment(self,p):
@@ -345,7 +348,7 @@ class NackParser(Parser):
     @_('maybeActionType maybeCallType maybeDirectiveType maybeMetaType skip')
     def actionTypeStart(self,p):
         s = p.maybeMetaType
-        if p.maybeActionType: s.addAction(*p.maybeActionType)
+        if p.maybeActionType: s.addAction(p.maybeActionType)
         if p.maybeCallType: s.addCall(p.maybeCallType)
         if p.maybeDirectiveType: s.addDirective(p.maybeDirectiveType)
         return s
@@ -391,10 +394,10 @@ class NackParser(Parser):
     # Function
     @_('functionName','functionLiteral')
     def functionType(self,p):
-        return (p[0],"function")
+        return p[0]
     @_('registerType')
     def functionType(self,p):
-        return (p[0],"register")
+        return p[0]
     
     # Action
     @_('DO_ACTION actionName actionParens','DO_ACTION actionLiteral actionParens')

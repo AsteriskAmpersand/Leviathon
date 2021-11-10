@@ -111,7 +111,7 @@ class FandStructure(ErrorManaged):
         self.settings.compiler.display("\tAnalyzing: "+str(module.path.absolute()))
         for dependency in self.dependencyGraph[module]:
             self.resolveModuleInlines(dependency)
-        self.settings.compiler.display("\tInlining: "+str(module.path.absolute()))
+        self.settings.compiler.display("\tResolving Inlines: "+str(module.path.absolute()))
         module.resolveInlines()
     def resolveInlines(self):
         #for module in self.dependencyGraph[module]
@@ -159,4 +159,6 @@ class FandStructure(ErrorManaged):
             return
         for module in self.parsedScopes.values():
             module.resolveRegisters(self.registerNames)
-        
+    def compileProperties(self):
+        for module in self.parsedScopes.values():
+            module.compileProperties()

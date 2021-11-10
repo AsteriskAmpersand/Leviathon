@@ -72,18 +72,18 @@ def fandCompile(fand,settings,output = print):
     wrapCall(project.resolveInlines())
     wrapCall(project.resolveTerminals())
     report("Resolving Calls")
-    project.resolveCalls()
+    wrapCall(project.resolveCalls())
     report("Resolving Actions")
-    project.resolveActions(settings.compiler.entityMap)
+    wrapCall(project.resolveActions(settings.compiler.entityMap))
     report("Resolving Register Names")
-    project.resolveRegisters()
+    wrapCall(project.resolveRegisters())
     report("Resolving Function Names")
     #TODO
-    project.resolveFunctions()#God have mercy
+    wrapCall(project.resolveFunctions())#God have mercy
+    #TODO
     report("Compiling to Binary")
-    project.resolveSegments()
-    project.resolveNodes()
-    project.serialize()
+    wrapCall(project.compileProperties())
+    wrapCall(project.serialize())
     report("Project Compilation Complete")
     return
     
