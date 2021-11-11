@@ -80,12 +80,13 @@ class THKModule(ErrorManaged):
         if self.decompilable:
             self.parsedStructure.resolveScopeToModule(modulemap)
     def mapLocalNodeNames(self):
+        print(self.path)
         self.parsedStructure.mapLocalNodeNames()
     def resolveActions(self,entityMap,monster):
         self.parsedStructure.resolveActions(entityMap,monster)
     def resolveCalls(self):
         self.parsedStructure.resolveCalls()
-    def getNodeIndexByName(self,name):
+    def getNodeByName(self,name):
         return self.parsedStructure.nodeByName[name]
     def collectRegisters(self):
         return self.parsedStructure.collectRegisters()

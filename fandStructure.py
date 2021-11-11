@@ -98,6 +98,8 @@ class FandStructure(ErrorManaged):
         for module in self.rootLevelModules.values():
             module.scopeStringToScopeObject(root,modules,self.parsedScopes,self.indexedTargets)
         self.moduleList = modules
+        for module in self.moduleList:
+            self.inheritChildren(module)
     def generateDependencyGraph(self):
         errorHandler = self.errorHandler
         depGraph = nx.DiGraph()
@@ -185,7 +187,7 @@ class FandStructure(ErrorManaged):
             module.serialize(outRoot,Path(path).with_suffix(".thk").stem)
         count = len(self.indexedTargets)
         header = {"signature":thklist.signature,"count":count}
-        data = [self.indexedTargets[i][1] for i in range(count) ]
+        data = [self.indexedTargets[i][1] for i in range(count)]
         entries = [self.buildEntry(*self.indexTargets[i][0]) for i in range(count)]
         binaryData = thklist.ThkList.build({"header":header,"data":data,"entries":entries})
         with open(outRoot/(self.compiler.thklistPath+".thk")) as outf:

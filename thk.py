@@ -23,7 +23,8 @@ Header = c.Struct(
         "headerSize" / c.Const(32,c.Int64sl)
         )
 
-Segment = c.Struct(
+
+_Segment = c.Struct(
         "endRandom" / c.Byte,#if 0x40 checkFunction is 0
         "flowControl" / c.Byte,
         "branchingControl" / c.Byte,
@@ -54,11 +55,11 @@ Segment = c.Struct(
         "actionUnkn4" / c.Int32sl,
         "unknExtra0" / c.Int32sl,  
         "unknExtra1" / c.Int32sl,  
-        "unknExtra2" / c.Int32sl,  
-        "padding" / c.Optional(c.Byte[12]),
+        "unknExtra2" / c.Int32sl,
         "monsterID" / c.Computed(lambda this : this._._.header.monsterID),
         "isPalico" / c.Computed(lambda this : this._._.header.isPalico),
         )
+Segment = c.Aligned(0x8,_Segment)
 #Equip segments with is otomo, monster ID for checks
 
 #Node ends are always of the form of all values nulled except endRandom at 1 and the nodeEndingData being set at the appropiate value
@@ -92,7 +93,7 @@ if __name__ in "__main__":
     fileColumns = ("fileId","path","type","subtype","subspecies","file")
     nodeNames = [f.name for f in Node.subcons[:-1]]
     nodeColumns = ("nodeId","fileId",*nodeNames)
-    segmentNames = [f.name for f in Segment.subcons[:-1]]
+    segmentNames = [f.name for f in _Segment.subcons[:-1]]
     segmentColumns = ("segmentId","fileId","nodeId",*segmentNames)
     wholeColumns = ("path","type","subtype","subspecies","file","node","segment",*nodeNames,*segmentNames)
     

@@ -177,7 +177,6 @@ class CheckCompiler():
         compoundReverseMapper = defaultdict(lambda: defaultdict(list))
         for functionID,conditions in parserResult.items():
             for parameters,target in conditions.items():
-                print(target.signature(),target.literalSignature(),target)
                 functionData = [(param.accessor,param.numeric) for param in parameters]
                 functionData.append(("functionID",functionID))
                 compoundReverseMapper[target.signature()][target.literalSignature()].append((target,functionData))

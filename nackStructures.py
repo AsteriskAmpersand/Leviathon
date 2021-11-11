@@ -112,15 +112,18 @@ class NackFile(ErrorManaged):
         idSet = set(ids.keys())
         idSet.add(0)
         self.nodeByName = names
-        self.nodeByIndex = ids
-        self.idGen = Autonumber(idSet)
-        self.indexGen = Autonumber(indexedNodes.keys())
-        for index,node in zip(self.indexGen,unindexedNodes):
+        self.nodeByIndex = indexedNodes
+        self.nodeById = ids
+        self.idGen = Autonumber(set(idSet))
+        self.indexGen = Autonumber(set(indexedNodes.keys()))
+        for node in unindexedNodes:
+            index = next(self.indexGen)
             node.setIndex(index)
-            indexedNodes[index] = node
-        for iD,node in zip(self.idGen,unidentifiedNodes):
+            self.nodeByIndex[index] = node
+        for node in unidentifiedNodes:
+            iD = next(self.idGen)
             node.setId(iD)
-            ids[iD] = node
+            self.nodeById[iD] = node
         for node in self.nodes:
             node.resolveImmediateCalls(indexedNodes,names,variableNames)
     def resolveInlines(self):
@@ -130,7 +133,6 @@ class NackFile(ErrorManaged):
             node.resolveInlines(self,self.dependencyPath)
         self.inlineCleanup()
     def hasInlineCall(self,scope_n_name):
-        #print("hasInlineCall",scope_n_name)
         scope,name = scope_n_name
         if scope in self.inlineNamespace:
             return name in self.inlineNamespace[scope]
@@ -154,15 +156,23 @@ class NackFile(ErrorManaged):
             inline_namespace = self.inlineNamespace[path]
             additions = self.inlineAdditions[path]
             for node in additions:
-                node.setIndex(next(indexGen))
-                node.setId(next(idGen))
+                ix = next(indexGen)
+                id = next(idGen)
+                node.setIndex(ix)
+                node.setId(id)
                 node.renameToScope(path)
                 node.resolveImmediateCalls({},inline_namespace,{})
                 for name in node.names():
                     self.nodeByName[name] = node
-                self.nodeByIndex[node.getIndex()] = node       
+                self.nodeByIndex[node.getIndex()] = node    
+                self.nodeById[node.getId()] = node    
                 node.resolveLocal(self.nodeByName,self.assignments)
                 self.nodes.append(node)
+        for index in sorted(self.nodeByIndex):
+            print("="*15)
+            print(index,self.nodeByIndex[index].getIndex())
+            print(self.nodeByIndex[index])
+            print("="*15)
         for node in self.nodes:
             node.inlinedLocalCallScopeResolution(self.inlineNamespace)
         return
@@ -229,12 +239,12 @@ class NackFile(ErrorManaged):
             node["offset"] = offset
             offset += node["count"]*0x80
         self.dataSerialNodes = serialNodes
-        self.dataHeader = {"signature":"THK\x00".encode("utf-8"), "formatVersion":40,
+        self.dataHeader = {"signature":list("THK\x00".encode("utf-8")), "formatVersion":40,
                              "headerSize":headerSize,"isPalico":"otomo" in self.actionScopeNames,
                              "monsterID":self.monsterID,"unknownHash":314159,
                              "structCount":len(serialNodes)}
     def serialize(self):
-        return thk.Thk.build({"header":self.dataHeader,"nodelist":self.dataSerialNodes})+compilerSignature
+        return thk.Thk.build({"header":self.dataHeader,"nodeList":self.dataSerialNodes})+compilerSignature
     
 class ScopeTarget(ErrorManaged):
     subfields = []
@@ -267,7 +277,6 @@ class ScopeTarget(ErrorManaged):
     def resolveScopeToModule(self,modulemap):
         if self.type not in ["local","terminal_local"]:
             self.module = modulemap[str(self.path.absolute())]
-            #print("rstm-st",self.module)
             return self.module
     def __str__(self):
         return str(self.target)
@@ -315,7 +324,6 @@ class Node(ErrorManaged):
     def __init__(self,header,bodylist):
         self.header = header
         self.bodylist = bodylist
-        #print(self.header.lineno)
         self.tag = "Node [%s] at line %d"%(self.names()[0],self.header.lineno)
     def indexed(self):
         return self.header.index is not None
@@ -395,9 +403,12 @@ class Node(ErrorManaged):
         for segment in self.bodylist:
             segment.resolveFunctions(functionResolver)
     def compileProperties(self):
+        print("Node",self.getId())
         segmentList = []
-        for segment in self.bodylist:
-            dataSegment = segment.compileProperties
+        for ix,segment in enumerate(self.bodylist):
+            print("Segment",ix)
+            segment.parent = self
+            dataSegment = segment.compileProperties()
             if dataSegment: segmentList.append(dataSegment)
         self.binaryStructure = {"offset":0,"count":len(segmentList),"id":self.getId(),
                                 "segments":segmentList}
@@ -422,12 +433,10 @@ class TypeNub(ErrorManaged):
         storage(self.propName,self.raw_id)
     def copy(self):
         return type(self)(self.propName,self.raw_id)
-class ChanceNub(TypeNub):
-    def resolveProperties(self,storage):
-        super().resolveProperties(storage)
-class DeferredNub(TypeNub):
-    def resolveProperties(self,storage):
-        storage(self.propName,self.raw_id())
+    def __str__(self):
+        return self.propName
+    def __repr__(self):
+        return str(self)
 class Segment(ErrorManaged):
     memberList = ["function","call","directive","action","branchingControl","randomType",
                   "terminator","metaparams","chance"]
@@ -476,13 +485,13 @@ class Segment(ErrorManaged):
     def addEndNode(self):
         self.existingCheck("randomType")
         self._randomType = TypeNub("endRandom",0x1)
-        self._terminator = DeferredNub("nodeEndingData",self.getNodeId)
+        self._terminator = TypeNub("nodeEndingData",10000)
     def addChance(self,chance):
         self.existingCheck("chance")
         self._chance = chance
     def endChance(self):
         self.existingCheck("branchingControl")
-        self._branchingControl = ChanceNub("branchingControl",0x1)
+        self._branchingControl = TypeNub("branchingControl",0x1)
     def addConclude(self):
         self.existingCheck("branchingControl")
         self._branchingControl = TypeNub("branchingControl",0x10)
@@ -516,7 +525,7 @@ class Segment(ErrorManaged):
     def inlinedLocalCallScopeResolution(self,namespace):        
         self._resolutionOperator({},namespace,{},"inlinedLocalCallScopeResolution","")
     def __str__(self):
-        return ','.join([attr if not attr == "branchingControl" else self._branchingControl
+        return ','.join([attr
             for attr in ["function","call","action","directive","branchingControl",
                          "randomType","terminator","metaparams"]
             if getattr(self,"_"+attr) is not None])
@@ -566,17 +575,21 @@ class Segment(ErrorManaged):
             if member == "metaparams":
                 pass
             else:
-                if var: var.compileProperties(testAdd)
+                if var: var.resolveProperties(testAdd)
         for key,val in self._metaparams.items():
             if hasattr(val,"raw_id"): testAdd(key,val)
             else: val.erroHandler.unresolvedIdentifier()
+        if "nodeEndingData" in dataSegment:
+            dataSegment["nodeEndingData"] += self.parent.getId()
         if "functionID" not in dataSegment: 
             default = 0 if "endChance" in dataSegment else 2
             dataSegment["functionID"] = default
-        for field in thk.Segment.subcons:
+        for field in thk._Segment.subcons:
             name = field.name
-            if field.name not in dataSegment:
-                dataSegment[field.name] = 0
+            if name not in dataSegment:
+                dataSegment[name] = 0
+            if name == "padding":
+                dataSegment["padding"] = [0]*12
         return dataSegment
 class Chance(ErrorManaged):
     subfields = ["chance"]
@@ -643,7 +656,6 @@ class FunctionShell(ErrorManaged):
         shell.params = [[copy(p) for p in params] for params in self.params]
         return shell
     def resolveProperties(self,storage):
-        storage("functionType",self.raw_id)
         for field,parameterValue in self.functionParamPairs:
             storage(field,parameterValue)
     def resolveFunctions(self,functionResolver):
@@ -653,7 +665,7 @@ class FunctionShell(ErrorManaged):
                 self.errorHandler.repeatedProperty(propertyName)
             parameters[propertyName] = propertyValue
         functionResolver(self,testAdd)
-        self.functionParamPairse = list(parameters.items())
+        self.functionParamPairs = list(parameters.items())
     def signature(self):
         sig = []
         for literal,param in zip (self.sections,self.params):
@@ -899,7 +911,7 @@ class Call(ErrorManaged):
     def resolveScopeToModule(self,modulelist):
         pass
     def copy(self):
-        c = Call(copy(self.raw_target),copy(self.target))
+        c = Call(copy(self.target))
         if hasattr(self,"node_target"):
             c.node_target = self.node_target
         return c
@@ -947,6 +959,9 @@ class ScopedCallID(Call):
             #raise SemanticError("%s is not within the file's import list"%self.scope)
     def immediateResolve(self,*args,**kwargs):
         pass
+    def copy(self):
+        c = super().copy()
+        c.module = self.module
     def scopeResolve(self,localIndices,localNames,typing):
         if self.scope.type == typing:
             if self.target in localNames: self.node_target = localNames[self.target]
@@ -958,18 +973,17 @@ class ScopedCallID(Call):
     def resolveScopeToModule(self,modulelist):
         module = self.scope.resolveScopeToModule(modulelist)
         self.module = module
-    def inlinedCallScopeResolution(self,indices,namespaces,typing):
-        if self.scope.type ==typing:
-            if self.module.inlineCall:
-                path = str(self.module.path)
-                if path in namespaces:
-                    module = namespaces[str(self.module.path)]
-                    if self.target in module:
-                        self.node_target = module[self.target]
-                    else:
-                        self.errorHandler.missingNodeName(self.target,module.scopeName if module.scopeName else path)
+    def inlinedLocalCallScopeResolution(self,indices,namespaces):
+        if self.module.inlineCall:
+            path = str(self.module.path)
+            if path in namespaces:
+                module = namespaces[str(self.module.path)]
+                if self.target in module:
+                    self.node_target = module[self.target]
                 else:
-                    self.errorHandler.missingModule(path)
+                    self.errorHandler.missingNodeName(self.target,module.scopeName if module.scopeName else path)
+            else:
+                self.errorHandler.missingModule(path)
     def internalCall(self):
         return False
     def inlineCall(self):
@@ -987,7 +1001,7 @@ class ScopedCallID(Call):
         if hasattr(self,"raw_target"):
             return
         try:
-            self.raw_target = self.module.getNodeIndexByName(self.target)
+            self.raw_target = self.module.getNodeByName(self.target).getId()
         except:
             self.errorHandler.missingNodeName(self.target)
         self.external = self.module.id
@@ -996,10 +1010,7 @@ class ScopedCall(ScopedCallID):
     def resolveCalls(self):
         if hasattr(self,"raw_target"):
             return
-        try:
-            self.raw_target = self.module.getNodeIndexByIndex(self.target)
-        except:
-            self.errorHandler.getNodeIndexByIndex(self.target)
+        self.raw_target = self.target
         self.external = self.module.id
         
 fDirectiveMap = {"return":0x8,"repeat":0x4,"reset":0x80}
