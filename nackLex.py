@@ -45,7 +45,7 @@ class NackLexer(Lexer):
     tokens = {*id_keywords.values(),
               FUNCTION_START,LINECONTINUE,LINESKIP,COMMENTS,DO_ACTION,DO_CALL,DO_DIRECTIVE,DO_NOTHING,
               META,REG,PATH,
-              UNSAFE,NUMBER,HEXNUMBER,ACTION,FUNCTION,CALL,ID,
+              UNSAFE,FLOAT,NUMBER,HEXNUMBER,ACTION,FUNCTION,CALL,ID,
               INCREMENT,RESET,EQ,LEQ,LT,GEQ,GT,NEQ,
               ASSIGN}
     
@@ -75,6 +75,11 @@ class NackLexer(Lexer):
         t.value = int(match.replace(" ","").replace("\t",""),16)
         return t
     
+    #number
+    @_(r"-?[0-9]+\.[0-9]+")
+    def FLOAT(self,t):
+        t.value = float(t.value)
+        return t
     #number
     @_(r"-?[0-9]+")
     def NUMBER(self,t):

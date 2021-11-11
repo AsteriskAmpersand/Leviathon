@@ -7,12 +7,14 @@ Created on Fri Oct 29 12:23:10 2021
 from collections import defaultdict
 from pathlib import Path
 
+from signatures import compilerSignature
 from compilerErrors import SemanticError
 from errorHandler import ErrorManaged
 from actionEnum import parseActionFile
 from compilerUtils import Autonumber
-from thk import Segment as THKSegment
+import thk
 import nackParse as np
+
 
 def copy(self):
     if type(self) is int:
@@ -23,6 +25,8 @@ def copy(self):
         return self
     elif type(self) is bool:
         return self
+    elif type(self) is dict:
+        return {copy(key):copy(val) for key,val in self.items()}
     else:
         return self.copy().copyMetadataFrom(self)
 
@@ -189,6 +193,9 @@ class NackFile(ErrorManaged):
         for node in self.nodes:
             registerListing = registerListing.union(set(node.collectRegisters()))
         return registerListing
+    def resolveFunctions(self,functionResolver):
+        for node in self.nodes:
+            node.resolveFunctions(functionResolver)
     def resolveRegisters(self,namespace):
         for node in self.nodes:
             node.resolveRegisters(namespace)
@@ -205,17 +212,16 @@ class NackFile(ErrorManaged):
             else:
                 header = NodeHeader(["Dummy::Node_%03d"%index], (0,index), -1)
                 s = Segment()
-                s.addEnd()
+                s.addEndNode()
                 bodylist = [s]
                 node = Node(header,bodylist)
                 self.inheritChildren(node)
                 node.inherit()
                 self.nodeByIndex[index] = node   
                 self.nodes.append(node)
-                for name in node.names:
+                for name in node.names():
                     self.nodeByName[name] = node
-            node.compileProperties()
-            serialNodes.append(node)
+            serialNodes.append(node.compileProperties())
         headerSize = 0x20
         baseOffset = 0x10+len(serialNodes)+headerSize
         offset = baseOffset
@@ -227,6 +233,8 @@ class NackFile(ErrorManaged):
                              "headerSize":headerSize,"isPalico":"otomo" in self.actionScopeNames,
                              "monsterID":self.monsterID,"unknownHash":314159,
                              "structCount":len(serialNodes)}
+    def serialize(self):
+        return thk.Thk.build({"header":self.dataHeader,"nodelist":self.dataSerialNodes})+compilerSignature
     
 class ScopeTarget(ErrorManaged):
     subfields = []
@@ -383,9 +391,12 @@ class Node(ErrorManaged):
     def resolveRegisters(self,namespace):
         for segment in self.bodylist:
             segment.resolveRegisters(namespace)
+    def resolveFunctions(self,functionResolver):
+        for segment in self.bodylist:
+            segment.resolveFunctions(functionResolver)
     def compileProperties(self):
         segmentList = []
-        for segment in self.bodyList:
+        for segment in self.bodylist:
             dataSegment = segment.compileProperties
             if dataSegment: segmentList.append(dataSegment)
         self.binaryStructure = {"offset":0,"count":len(segmentList),"id":self.getId(),
@@ -406,13 +417,14 @@ class TypeNub(ErrorManaged):
     def __init__(self,propName,raw_id):
         self.propName = propName
         self.tag = propName
-        self.raw_id
+        self.raw_id = raw_id
     def resolveProperties(self,storage):
         storage(self.propName,self.raw_id)
+    def copy(self):
+        return type(self)(self.propName,self.raw_id)
 class ChanceNub(TypeNub):
     def resolveProperties(self,storage):
         super().resolveProperties(storage)
-        storage("functionID",0)
 class DeferredNub(TypeNub):
     def resolveProperties(self,storage):
         storage(self.propName,self.raw_id())
@@ -463,10 +475,10 @@ class Segment(ErrorManaged):
         self._branchingControl = TypeNub("branchingControl",0x8)
     def addEndNode(self):
         self.existingCheck("randomType")
-        self._chance = TypeNub("endRandom",0x1)
+        self._randomType = TypeNub("endRandom",0x1)
         self._terminator = DeferredNub("nodeEndingData",self.getNodeId)
     def addChance(self,chance):
-        self.existingCheck("randomType")
+        self.existingCheck("chance")
         self._chance = chance
     def endChance(self):
         self.existingCheck("branchingControl")
@@ -540,6 +552,9 @@ class Segment(ErrorManaged):
     def resolveRegisters(self,namespace):
         if self._function and self._function.typing == "register": #else function
             return self._function.resolveName(namespace)
+    def resolveFunctions(self,functionResolver):
+        if self._function:
+            self._function.resolveFunctions(functionResolver)
     def compileProperties(self):
         dataSegment = {}
         def testAdd(propertyName,propertyValue):
@@ -555,8 +570,10 @@ class Segment(ErrorManaged):
         for key,val in self._metaparams.items():
             if hasattr(val,"raw_id"): testAdd(key,val)
             else: val.erroHandler.unresolvedIdentifier()
-        dataSegment["functionID"] = 0x2
-        for field in THKSegment.subcons:
+        if "functionID" not in dataSegment: 
+            default = 0 if "endChance" in dataSegment else 2
+            dataSegment["functionID"] = default
+        for field in thk.Segment.subcons:
             name = field.name
             if field.name not in dataSegment:
                 dataSegment[field.name] = 0
@@ -578,7 +595,6 @@ class Chance(ErrorManaged):
         self.resolveIds(variableNames,"resolveTerminalId")
     def resolveProperties(self,storage):
         storage("parameter1",self.chance)
-        storage("functionID",0)
 class ChanceHead(Chance):
     def resolveProperties(self,storage):
         storage("endRandom",0x40)
@@ -630,6 +646,22 @@ class FunctionShell(ErrorManaged):
         storage("functionType",self.raw_id)
         for field,parameterValue in self.functionParamPairs:
             storage(field,parameterValue)
+    def resolveFunctions(self,functionResolver):
+        parameters = {}
+        def testAdd(propertyName,propertyValue):
+            if propertyName in parameters:
+                self.errorHandler.repeatedProperty(propertyName)
+            parameters[propertyName] = propertyValue
+        functionResolver(self,testAdd)
+        self.functionParamPairse = list(parameters.items())
+    def signature(self):
+        sig = []
+        for literal,param in zip (self.sections,self.params):
+            sig.append(-1)
+            sig.append(len(param))
+        return tuple(sig)
+    def literalSignature(self):
+        return tuple(map(str,self.sections))
 class FunctionLiteral(ErrorManaged):
     typing = "function"
     subfields = ["function","arguments"]
@@ -660,6 +692,8 @@ class FunctionLiteral(ErrorManaged):
                 self.errorHandler.unresolvedParameter()
             else:
                 storage(field,parameterObj.raw_id)
+    def resolveFunctions(self,_):
+        pass
 class Register():
     def resolveImmediateId(self,varNames):
         pass
@@ -783,6 +817,9 @@ class Action(ErrorManaged):
         else:
             storage("actionID",self.raw_id)
             for ix,param in enumerate(self.parameters):
+                if ix >= 5:
+                    param.errorHandler.actionParameterCountExceeded(ix)
+                    continue
                 if hasattr(param,"raw_id"):
                     storage("actionUnkn%d"%ix,param.rawID)
                 else:
@@ -994,6 +1031,8 @@ class Identifier(ErrorManaged):
         self.raw_id = variableNames[self.id]
     def copy(self):
         return Identifier(copy(self.id))
+    def verifyEnum(self,_):
+        return False
 class IdentifierRaw(ErrorManaged):
     subfields = ["raw_id"]
     def __init__(self,identifier):
@@ -1009,6 +1048,10 @@ class IdentifierRaw(ErrorManaged):
         return str(self.raw_id)
     def copy(self):
         return IdentifierRaw(copy(self.raw_id))
+    def verifyEnum(self,enumManager):
+        return self.raw_id in enumManager
+    def accessEnum(self,enumManager):
+        return self.raw_id
 class FunctionScopedId(ErrorManaged):
     tag = "Function Scoped ID"
     subfields = ["target","scope"]
@@ -1031,6 +1074,10 @@ class FunctionScopedId(ErrorManaged):
         return
     def copy(self):
         return FunctionScopedId(copy(self.scope),copy(self.target))
+    def verifyEnum(self,enumManager):
+        return str(self.scope) == enumManager.scope and str(self.target) in enumManager
+    def accessEnum(self,enumManager):
+        return enumManager[str(self.target)]
 class TextID(str,ErrorManaged):
     tag = "Text ID"
     subfields = []

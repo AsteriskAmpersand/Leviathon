@@ -9,6 +9,13 @@ from sly import Parser
 from fexLex import FexLexer,preproc
 import logging
 from collections import deque
+import struct
+
+from stageEnum import loadStages
+from monsterEnum import loadEntities
+
+st_enum = loadStages()
+em_enum = loadEntities()
 
 class EntryStructure(dict):
     def resolveNumeric(self,hexcoded = False):
@@ -33,7 +40,17 @@ class DeferredInt():
         return str(self.value)
     def __hash__(self):
         return hash(self.intstring)
-    
+
+castOperators = {"float_cast":lambda x: struct.unpack('<i', struct.pack('<f', x))[0]}
+#TODO - Import names from actual scope
+#and find a better resolution mechanism
+enumScopes = {"em_enum":em_enum,"st_enum":st_enum}
+
+class Accessors(deque):
+    def match(self,target):
+        return all([accessor.match(var) for accessor,var in zip(self,target)])
+    def parse(self,target):
+        return [(accessor.field,accessor.parse(var)) for accessor,var in zip(self,target)]
 class Accessor():
     def __init__(self,field,transformType = None,transformData = None):
         self.field = field
@@ -51,6 +68,23 @@ class Accessor():
         return a
     def split(self):
         return self.field,self.transformType,self.transformData
+    def match(self,var):
+        #"ENUM", "CAST", None, 
+        #float_cast em_enum st_enum
+        if self.transformType is None:
+            return hasattr(var,"raw_id")
+        if self.transformType == "CAST":
+            return hasattr(var,"raw_id")
+        if self.transformType == "ENUM":
+            return var.verifyEnum(enumScopes[self.transformData])
+    def parse(self,var):
+        if self.transformType is None:
+            return var.raw_id
+        if self.transformType == "CAST":
+            return castOperators[self.transformData](var.raw_id)
+        if self.transformType == "ENUM":
+            return var.accessEnum(enumScopes[self.transformData])
+        
 class EnumStruct():
     def __init__(self,idVal):
         self.chain = [idVal]
@@ -59,9 +93,25 @@ class EnumStruct():
         return self
     def __str__(self):
         return '.'.join(self.chain)
+    def __repr__(self):
+        return str(self)
+    def __len__(self):
+        return 1
+    def match(self,target):
+        return str(self) == '.'.join(map(str,target))
+    def parse(self,target):
+        return []
 class Empty():
     def __str__(self):
         return ""
+    def __len__(self):
+        return 0
+    def __repr__(self):
+        return str(self)
+    def match(self,target):
+        return not target
+    def parse(self,target):
+        return []
 class Target(deque):
     def __init__(self):
         self.types = deque()
@@ -95,6 +145,23 @@ class Target(deque):
                 cumulative += "(" + str(data) + ")"
             previous = typing
         return fields,dataTypes,dataIndices,strCumul,cumulative
+    def signature(self):
+        return tuple([-1 if t == "literal" else len(data) for t,data in zip(self.types,self) ])
+    def literalSignature(self):
+        return tuple([str(data) for t,data in zip(self.types,self) if t == "literal"])
+    def exactMatch(self,target):
+        args = [(typing,data) for typing,data in zip(self.types,self) if typing != "literal"]
+        for t,(typing,data) in zip(target.params,args):
+            if not data.match(t):
+                return False
+        return True#
+    def parse(self,target):
+        result = []
+        args = [(typing,data) for typing,data in zip(self.types,self) if typing != "literal"]
+        for t,(typing,data) in zip(target.params,args):
+            result += data.parse(t)
+        return result
+            
 class Condition():
     def __init__(self,maybeAccessor,comparison,maybeNumeric):
         if type(maybeAccessor) is Accessor:
@@ -240,10 +307,11 @@ class FexParser(Parser):
     
     @_('accessor')
     def accessors(self, p):
-        return [p.accessor]
+        return Accessors([p.accessor])
     @_('accessor "," accessors')
     def accessors(self, p):
-        return [p.accessor] + p.accessors
+        p.accessors.appendleft(p.accessor)
+        return p.accessors
 
     @_('EQ')
     def comparison(self, p):

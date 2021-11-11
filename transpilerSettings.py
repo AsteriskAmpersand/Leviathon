@@ -33,11 +33,14 @@ class CompilerSettings():
         self.display = print
         
         self.entityMap = None
+        self.functionResolver = None
         self.root = None
         self.thkMap = None
         self.inlineForeign = False
         self.foreignGlobal = False
-
+        
+        self.thklistPath = "em000.thklist"
+        self.outputRoot = ""
 
 class TranspilerSettings():
     def __init__(self):

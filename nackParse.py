@@ -91,6 +91,14 @@ class THKModule(ErrorManaged):
         return self.parsedStructure.collectRegisters()
     def resolveRegisters(self,namespace):
         return self.parsedStructure.resolveRegisters(namespace)
+    def resolveFunctions(self,functionResolver):
+        self.parsedStructure.resolveFunctions(functionResolver)
+    def compileProperties(self):
+        self.parsedStructure.compileProperties()
+    def serialize(self,outputRoot,outputName):
+        self.binfile = self.parsedStructure.serialize()
+        with open(outputRoot/outputName,"wb") as outf:
+            outf.write(self.binfile)
     def __hash__(self):
         return hash((self.path.absolute(),-1))
     def __eq__(self,other):
@@ -486,9 +494,9 @@ class NackParser(Parser):
     def funcParens(self,p):
         p.commaPrefacedId.appendleft(abc.FunctionScopedId(p.id0,p.id1))
         return p.commaPrefacedId
-    @_('"(" numericSymbol commaPrefacedId ")"')
+    @_('"(" floatNumericSymbol commaPrefacedId ")"')
     def funcParens(self,p):
-        p.commaPrefacedId.appendleft(p.numericSymbol)
+        p.commaPrefacedId.appendleft(p.floatNumericSymbol)
         return p.commaPrefacedId
     
     @_('empty')
@@ -498,9 +506,9 @@ class NackParser(Parser):
     def commaPrefacedId(self,p):
         p.commaPrefacedId.appendleft(abc.MaybeScopedId(p.id0,p.id1))
         return p.commaPrefacedId
-    @_('"," numericSymbol commaPrefacedId')
+    @_('"," floatNumericSymbol commaPrefacedId')
     def commaPrefacedId(self,p):
-        p.commaPrefacedId.appendleft(p.numericSymbol)
+        p.commaPrefacedId.appendleft(p.floatNumericSymbol)
         return p.commaPrefacedId
 
     #===================
@@ -614,6 +622,12 @@ class NackParser(Parser):
     @_('id','numeric')
     def numericSymbol(self,p):
         return p[0]
+    @_('id','numeric','float')
+    def floatNumericSymbol(self,p):
+        return p[0]
+    @_('FLOAT')
+    def float(self,p):
+        return abc.IdentifierRaw(p[0])
     @_('NUMBER','HEXNUMBER')
     def numeric(self,p):
         return abc.IdentifierRaw(p[0])

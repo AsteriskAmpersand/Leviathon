@@ -10,6 +10,7 @@ from pathlib import Path
 from transpilerSettings import TranspilerSettings
 from fandLexParse import parseFand
 from nackParse import parseNack
+from fexLayer import buildCompiler
 from compilerErrors import SemanticError
 from actionEnum import loadActionMaps,loadTHKMaps
 from monsterEnum import loadEntities
@@ -45,6 +46,10 @@ def fandCompile(fand,settings,output = print):
         actionResolver = loadActionMaps()
         entityResolver = loadEntities(actionResolver)
         settings.compiler.entityMap = entityResolver
+    if settings.compiler.functionResolver is None:
+        settings.compiler.functionResolver = buildCompiler().resolve
+        #TODO - Parse Fexxty file and obtain the resolution object
+        #Should bedone by the settings parser as well
     #
     
     
@@ -78,21 +83,17 @@ def fandCompile(fand,settings,output = print):
     report("Resolving Register Names")
     wrapCall(project.resolveRegisters())
     report("Resolving Function Names")
-    #TODO
-    wrapCall(project.resolveFunctions())#God have mercy
-    #TODO
+    wrapCall(project.resolveFunctions(settings.compiler.functionResolver))
     report("Compiling to Binary")
     wrapCall(project.compileProperties())
-    wrapCall(project.serialize())
+    wrapCall(project.serialize(Path(settings.compiler.outputRoot)))
     report("Project Compilation Complete")
     return
-    
-    
-    #
-    project.resolveInlines()
     
 if __name__ in "__main__":
     settings = TranspilerSettings()
     settings.compiler.verbose = True
+    settings.compiler.thklistPath = r"test.thklist"
+    settings.compiler.outputRoot = r"D:\Games SSD\MHW-AI-Analysis\TestOutput"
     populateDefaultSettings(settings)
     fandCompile(r"D:\Games SSD\MHW-AI-Analysis\InlineTest\em001.fand",settings)

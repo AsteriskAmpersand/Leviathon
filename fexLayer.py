@@ -8,7 +8,9 @@ from fexParse import buildParser
 from stageEnum import loadStages
 from monsterEnum import loadEntities
 import keywords as key
+
 import struct
+from collections import defaultdict
 
 st_enum = loadStages()
 em_enum = loadEntities()
@@ -169,7 +171,32 @@ class ForkResolve():
         if self.fallthrough:
             return self.entries[:-1]
         return self.entries
-        
+
+class CheckCompiler():
+    def __init__(self,parserResult):
+        compoundReverseMapper = defaultdict(lambda: defaultdict(list))
+        for functionID,conditions in parserResult.items():
+            for parameters,target in conditions.items():
+                print(target.signature(),target.literalSignature(),target)
+                functionData = [(param.accessor,param.numeric) for param in parameters]
+                functionData.append(("functionID",functionID))
+                compoundReverseMapper[target.signature()][target.literalSignature()].append((target,functionData))
+        self.compoundReverseMapper = compoundReverseMapper        
+    def resolve(self,functionData,storage):
+        sig = functionData.signature()
+        if sig not in self.compoundReverseMapper: raise KeyError("Missing Signature")
+        subChoices = self.compoundReverseMapper[sig]
+        subsig = functionData.literalSignature()
+        if subsig not in subChoices: raise KeyError("Missing Literal Signatures")
+        targets = subChoices[subsig]
+        for t,functionInfo in targets:
+            if t.exactMatch(functionData):
+                for varName,varVal in functionInfo:
+                    storage(varName,varVal)
+                for varName,varVal in t.parse(functionData):
+                    storage(varName,varVal)
+                return
+        raise KeyError("Missing Exact Match")
     
 class CheckResolver():
     def __init__(self,parserResult):
@@ -204,7 +231,11 @@ class CheckResolver():
         return self
     def keys(self):
         return self.functionTable.keys()
-    
+
+def buildCompiler(path = None):
+    if path is None: path = "default.fexty"
+    return CheckCompiler(buildParser(path))
+
 def buildResolver(path = None):
     if path is None: path = "default.fexty"
     return CheckResolver(buildParser(path))

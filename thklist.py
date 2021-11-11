@@ -18,6 +18,10 @@ Entry = c.Struct(
         "path" / c.IfThenElse(lambda this: this.rThinkTableHash,c.CString("utf8"),c.Computed(lambda this: ""))        
         )
 
+signature = 86302593025
+thinkTableDataHash = 1598592894 
+thinkTableHash = 1655080001
+
 ThkList = c.Struct(
     "header" / Header,
     "entries" / Entry[c.this.header.count],
