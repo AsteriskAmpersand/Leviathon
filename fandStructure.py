@@ -15,6 +15,7 @@ import thklist
 
 from sly.lex import LexError
 import networkx as nx
+import queue
 
 def hasCycles(g):
     try:
@@ -51,45 +52,53 @@ class FandStructure(ErrorManaged):
         for index in missingIterator:
             self.indexedTargets[index] = ("",0)
     def calculateSize(self):
-        return max(len(self.unindexedTargets) + len(self.indexedTargets),max(self.indexedTargets)) 
-    def mapScope(self,fand,thkMap):
-        """Map every import to an actual THK Module"""
-        parsedScope = {}
-        uniqueModules = {}
-        errorlog = self.errorHandler
-        settings = self.settings
-        for scope,path in self.scopeNames.items():
-            try:
-                if Path(path).suffix != ".nack":
-                    settings.compiler.incompleteSpecification()
-                    parsedScope[scope] = moduleParse(None,thkMap,scope,settings)
-                    errorlog.log("Hard Path Found on THK Entry %s : %s"%(scope,path))
-                else:
-                    if self.settings.compiler.verbose:
-                        self.settings.compiler.display("Starting Parsing of %s"%path)
-                    path = Path(fand).parent / path
-                    #TODO - Try Except on Parses
-                    if str(path) not in uniqueModules:
-                        module = moduleParse(path,thkMap,scope,settings,parent = self)
-                        uniqueModules[str(path)] = module
-                    else:
-                        module = uniqueModules[str(path)]
-                    parsedScope[scope] = module
-            except SyntaxError as e:
-                errorlog.thklNameError(e)
-            except SemanticError as e:
-                errorlog.thkParseError(e)
-            except LexError as e:
-                print(path,e)
-                raise
-            except:
-                raise
-        self.parsedScopes = parsedScope
-        self.rootLevelModules = uniqueModules
+        return max(len(self.unindexedTargets) + len(self.indexedTargets),max(self.indexedTargets))
+    def parseModule(self,path,scope,thkMap):
+        if self.settings.compiler.verbose:
+            self.settings.compiler.display("Starting Parsing of %s"%path)
+        if str(path) not in self.modules:
+            module = moduleParse(path,thkMap,scope,self.settings,parent = self,external = not bool(scope))
+            self.modules[str(path)] = module
+            self.inheritChildren(module)
+        else:
+            module = self.modules[str(path)]
+        if scope:
+            self.parsedScopes[scope] = module
+        return module
+    def initializeModules(self,fand,thkMap):
+        """Map every import to an actual THK Module"""        
+        self.parsedScopes = {}
+        self.modules = {}
+        self.rootFolder = Path(fand).absolute().parent
+        moduleParsingQueue = queue.Queue()
+        for scope,path in self.scopeNames.items(): moduleParsingQueue.put((scope,path))
+        while not moduleParsingQueue.empty():
+            scope,path = moduleParsingQueue.get()
+            print(scope,path)
+            if Path(path).suffix != ".nack":
+                self.settings.compiler.incompleteSpecification()
+                module = self.parsedScope[scope] = moduleParse(None,thkMap,scope,self.settings)
+                self.errorHandler.compiledModule(scope,path)
+            else:
+                path = Path(fand).parent / path
+                module = self.parseModule(path,scope,thkMap)
+                for dependency in module.externalDependencies():
+                    dependencyPath = str(self.rootFolder/dependency)
+                    if dependencyPath not in self.modules:
+                        moduleParsingQueue.put(("",dependencyPath))
+    def createSymbolsTables(self,root):
+        for module in self.modules.values():
+            module.createSymbolsTable(root,self.parsedScopes,self.modules,self.indexedTargets)
+    def resolveImmediates(self):
+        for module in self.modules.values():
+            module.resolveImmediates(self.parsedSscopes)
     def resolveScopeToModule(self):
-        for module in self.moduleList.values():
+        for module in self.modules.values():
             module.substituteScopes()
-            module.resolveScopeToModule(self.moduleList)
+            module.resolveScopeToModule(self.modules)
+    def resolveLocal(self):
+        for module in self.modules.values():
+            module.resolveLocal()
     def scopeStringToScopeObject(self,root):
         """Imports are mapped recursively with a project level cache"""
         #Project keeps track of already loaded thk modules

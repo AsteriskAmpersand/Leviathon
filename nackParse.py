@@ -17,7 +17,16 @@ import nackStructures as abc
 from compilerErrors import SemanticError
 from errorHandler import ErrorManaged
 
+
+
+def callPassing(method):
+    def substructuralCall(self,*args,**kwargs):
+        po = getattr(self,self.passthroughObject)
+        return getattr(po,method.__name__)(*args,**kwargs)
+    return substructuralCall
+        
 class THKModule(ErrorManaged):
+    passthroughObject = "parsedStructure"
     def __init__(self,path,thkmap,scope,settings,external = False,parent = None):
         self.subfields = []
         self.inlineResolved = False
@@ -56,11 +65,16 @@ class THKModule(ErrorManaged):
         self.subfields = ["parsedStructure"]
         self.inherit()
         return parsedStructure
-    def returnInline(self,functionName):
-        return self.parsedStructure.returnInLine(functionName)
-    def substituteScopes(self):
-        if self.decompilable:
-            self.parsedStructure.substituteScopes()
+    @callPassing
+    def externalDependencies(self):pass
+    @callPassing
+    def returnInline(self,functionName):pass
+    @callPassing
+    def substituteScopes(self):pass
+    @callPassing
+    def createSymbolsTable(self,parsedScopes):pass
+    @callPassing
+    def resolveLocal(self):pass
     def resolveInlines(self):
         if self.decompilable:
             if not self.inlineResolved:
@@ -107,7 +121,7 @@ class THKModule(ErrorManaged):
 
 class NackParser(Parser):
     log = logging.getLogger()
-    #log.setLevel(logging.ERROR)
+    log.setLevel(logging.ERROR)
     # Get the token list from the lexer (required)
     tokens = NackLexer.tokens
     debugfile = 'nackParser.out'
@@ -493,7 +507,7 @@ class NackParser(Parser):
 
     @_('"(" id "." id commaPrefacedId ")"')
     def funcParens(self,p):
-        p.commaPrefacedId.appendleft(abc.FunctionScopedId(p.id0,p.id1))
+        p.commaPrefacedId.appendleft(abc.IdentifierScoped(p.id0,p.id1))
         return p.commaPrefacedId
     @_('"(" floatNumericSymbol commaPrefacedId ")"')
     def funcParens(self,p):
@@ -538,7 +552,7 @@ class NackParser(Parser):
     
     @_('id "." id')
     def actionName(self,p):
-        return abc.ScopedAction(p[0],p[1])
+        return abc.ScopedAction(abc.IdentifierScoped(p[0],p[1]))
     @_("id")
     def actionName(self,p):
         return abc.ActionID(p.id)
@@ -553,7 +567,7 @@ class NackParser(Parser):
     
     @_('id "." id')
     def callName(self,p):
-        return abc.ScopedCallID(p[0],p[2])
+        return abc.ScopedCallID(abc.IdentifierScoped(p[0],p[2]))
     @_('id "." CALL')
     def callName(self,p):
         return abc.ScopedCall(p[0],p[2])
@@ -661,8 +675,8 @@ def parseNack(file):
     parsed = parser.parse(tokenized)
     return parsed
 
-def moduleParse(path,thkmap,scope,settings,parent = None):
-    return THKModule(path,thkmap,scope,settings,parent = parent)
+def moduleParse(path,thkmap,scope,settings,parent = None,external = False):
+    return THKModule(path,thkmap,scope,settings,parent = parent,external = external)
 
 if __name__ == '__main__':
     with open(r"D:\Games SSD\MHW-AI-Analysis\RathianTest\em001_55.nack") as inf:

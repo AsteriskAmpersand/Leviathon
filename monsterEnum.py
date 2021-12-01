@@ -76,5 +76,5 @@ def loadEntities(actionMapper = {}):
                     aToN,nToA = actionMapper[(monsterID,speciesID)]
                 entity = EntityData(monsterKind,monsterID,speciesID,monsterBase,gameID,nToA,aToN)
                 entities.append(entity)
-        entities.append(EntityData("otomo",0,0,"Palico",0,{},{}))
+        #entities.append(EntityData("otomo",0,0,"Palico",0,{},{}))
     return entities

@@ -64,6 +64,7 @@ def fandCompile(fand,settings,output = print):
     project = parseFand(fand)
     project.compilerInit(settings,errorHandler)
     thkMap = settings.compiler.thkMap
+    """
     report("Enumerating Scopes")
     wrapCall(project.mapScope(fand,thkMap))
     report("Resolving Scopes")
@@ -73,6 +74,15 @@ def fandCompile(fand,settings,output = print):
     graph = wrapCall(project.generateDependencyGraph())
     report("Mapping Local Namespaces")
     wrapCall(project.mapLocalNodeNames())
+    """
+    report("Gathering and Initializing Project Files")
+    wrapCall(project.initializeModules(fand,thkMap))
+    report("Create Symbols Tables")
+    wrapCall(project.createSymbolsTables(Path(fand).absolute().parent))
+    #report("Resolve Non-Inlinable Modules")
+    #wrapCall(project.resolveNonInlinables())
+    report("Resolving Local Namespaces")
+    wrapCall(project.resolveLocal())#())
     report("Resolving Inline Invocations")
     wrapCall(project.resolveInlines())
     wrapCall(project.resolveTerminals())

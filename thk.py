@@ -24,7 +24,7 @@ Header = c.Struct(
         )
 
 
-_Segment = c.Struct(
+Segment = c.Struct(
         "endRandom" / c.Byte,#if 0x40 checkFunction is 0
         "flowControl" / c.Byte,
         "branchingControl" / c.Byte,
@@ -56,10 +56,11 @@ _Segment = c.Struct(
         "unknExtra0" / c.Int32sl,  
         "unknExtra1" / c.Int32sl,  
         "unknExtra2" / c.Int32sl,
+        "padding" / c.Optional(c.Byte[12]),
         "monsterID" / c.Computed(lambda this : this._._.header.monsterID),
         "isPalico" / c.Computed(lambda this : this._._.header.isPalico),
         )
-Segment = c.Aligned(0x8,_Segment)
+#Segment = c.Aligned(0x8,_Segment)
 #Equip segments with is otomo, monster ID for checks
 
 #Node ends are always of the form of all values nulled except endRandom at 1 and the nodeEndingData being set at the appropiate value

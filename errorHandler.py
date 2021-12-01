@@ -5,7 +5,21 @@ Created on Mon Nov  8 21:50:22 2021
 @author: Asterisk
 """
 from collections.abc import Iterable
-    
+
+def copy(self):
+    if type(self) is int:
+        return self
+    elif type(self) is str:
+        return self
+    elif type(self) is type(None):
+        return self
+    elif type(self) is bool:
+        return self
+    elif type(self) is dict:
+        return {copy(key):copy(val) for key,val in self.items()}
+    else:
+        return self.copy().copyMetadataFrom(self)
+
 class ErrorManaged():
     subfields = []
     tag = None

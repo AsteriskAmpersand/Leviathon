@@ -1,0 +1,38 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Nov 25 04:40:09 2021
+
+@author: Asterisk
+"""
+from errorHandler import ErrorManaged,copy
+
+class Chance(ErrorManaged):
+    subfields = ["chance"]
+    def __init__(self,percentage):
+        self.tag = "Stochastic Choice [%s]"%percentage
+        print(type(percentage))
+        self.chance = percentage
+    def copy(self):
+        return Chance(self.chance)
+    def resolveLocal(self,symbolsTable):
+        self.chance.resoslveLocal(symbolsTable)
+    def resolveCaller(self,symbolsTable):
+        self.chance.resolveCaller(symbolsTable)
+    def resolveTerminal(self,symbolsTable):
+        self.chance.resolveTerminal(symbolsTable)
+    def resolveProperties(self,storage):
+        storage("parameter1",self.chance)
+class ChanceHead(Chance):
+    def resolveProperties(self,storage):
+        storage("endRandom",0x40)
+        super().resolveProperties(storage)        
+class ChanceElse(Chance):
+    def last(self):
+        return ChanceLast(self.chance)
+    def resolveProperties(self,storage):
+        storage("endRandom",0xC0)
+        super().resolveProperties(storage)    
+class ChanceLast(Chance):
+    def resolveProperties(self,storage):
+        storage("endRandom",0x80)
+        super().resolveProperties(storage)  

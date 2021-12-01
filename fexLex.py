@@ -9,11 +9,11 @@ Created on Fri Oct  8 17:44:24 2021
 
 from sly import Lexer
 from sly.lex import Token
-from thk import _Segment
+from thk import Segment
 
 
 class FexLexer(Lexer):
-    accessor = {c.name:c.name.upper() for c in _Segment.subcons}
+    accessor = {c.name:c.name.upper() for c in Segment.subcons}
     enums = {'st_enum' : "STAGE_ENUM",
              'em_enum' : "MONSTER_ENUM",
              'float_cast' : "FLOAT_CAST"}
