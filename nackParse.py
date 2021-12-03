@@ -556,7 +556,7 @@ class NackParser(Parser):
     
     @_('id "." id')
     def actionName(self,p):
-        return abc.ScopedAction(abc.IdentifierScoped(p[0].id,p[1].id))
+        return abc.ScopedAction(abc.IdentifierScoped(p[0].id,p[2].id))
     @_("id")
     def actionName(self,p):
         return abc.ActionID(p.id)

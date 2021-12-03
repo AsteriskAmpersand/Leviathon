@@ -29,13 +29,15 @@ class Call(ErrorManaged):
         return self
     
     def resolveTerminal(self, symbolsTable):
+        if self.node_target is not None or self.raw_target is not None: return
         self.resolveNames("resolveTerminal", symbolsTable)
+        return self
 
     def resolveCalls(self):
-        if hasattr(self, "raw_target"):
-            return
+        if self.raw_target: return self.raw_target
         self.raw_target = getattr(self.node_target,self.local_scope)()
         self.external = -1
+        self.target.raw_id = self.raw_target
 
     def reconnectChain(self,target):
         self.node_target = target
@@ -68,12 +70,12 @@ class Call(ErrorManaged):
                 storage("extRefNodeID", self.raw_target)
                 storage("localRefNodeID", -1)
 
-    def __str__(self):
-        return "<Call> " + str(self.target)
+    def __repr__(self):
+        return "<Call> " + repr(self.target)
 
 
 class CallID(Call):
-    local_scope = "getID"
+    local_scope = "getIndex"
 
     def __init__(self, namedId):
         self.tag = "Call ID [%s]" % namedId
@@ -118,10 +120,10 @@ class ScopedCallID(Call):
         self.external = self.target.module.id
         
     def retarget(self,name,target):
-        cnid = CallID(name)
+        cnid = Call(name)
         cnid.target.node_target = target
         cnid.node_target = target
-        cnid.external = --1
+        cnid.external = -1
         cnid.raw_target = self.raw_target
         return cnid
         

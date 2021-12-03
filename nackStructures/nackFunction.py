@@ -42,8 +42,8 @@ class FunctionLiteral(ErrorManaged):
     def resolveTerminal(self, symbolsTable):
         self.resolveNames("resolveTerminal", symbolsTable)
         
-    def __str__(self):
-        return "<FuncL> %s (%s)"%(self.function,', '.join(map(str,self.arguments)))
+    def __repr__(self):
+        return "<FuncL> %s (%s)"%(self.function,', '.join(map(repr,self.arguments)))
 
 
 class FunctionShell(FunctionLiteral, ErrorManaged):
@@ -93,6 +93,6 @@ class FunctionShell(FunctionLiteral, ErrorManaged):
     def literalSignature(self):
         return tuple(map(str, self.sections))
 
-    def __str__(self):
-        return "<Func> %s (%s)" % (' || '.join(map(str,self.sections)),
-                                 ' || '.join(map(lambda x: ','.join(map(str,x)),self.params)))
+    def __repr__(self):
+        return "<Func> %s (%s)" % (' || '.join(map(repr,self.sections)),
+                                 ' || '.join(map(lambda x: ','.join(map(repr,x)),self.params)))

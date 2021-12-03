@@ -127,8 +127,9 @@ class ActionTarget(ErrorManaged):
             except:
                 self.errorHandler.invalidActionFile(path)         
                 self.nameToId,self.idToName = {},{}
+        return self
     def resolveAction(self,actionName):
-        if actionName in self.resolutions:
+        if actionName in self.nameToId:
             return self.nameToId[actionName]
         else:
             self.errorHandler.missingActionName(actionName)
@@ -148,11 +149,11 @@ class NackFile(ErrorManaged):
         #resolvable monster scope
     def addNodes(self,nodeList):
         self.nodes = nodeList
-    def __str__(self):
+    def __repr__(self):
         result = ""
-        result += ''.join(("%s -> %s\n"%(item,str(value)) for item, value in self.scopeNames.items()))
-        result += ''.join(("%s -> %s\n"%(item,str(value.target)) for item, value in self.actionScopeNames.items()))
-        result += '\n'.join(map(lambda x: str(x), self.nodes))
+        result += ''.join(("%s -> %s\n"%(item,repr(value)) for item, value in self.scopeNames.items()))
+        result += ''.join(("%s -> %s\n"%(item,repr(value.target)) for item, value in self.actionScopeNames.items()))
+        result += '\n'.join(map(repr, self.nodes))
         return result
     def dependencies(self):
         return [self.symbolsTable.resolveScope(target)

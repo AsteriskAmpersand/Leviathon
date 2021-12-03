@@ -28,8 +28,8 @@ class Register():
         else:
             return [str(self.identifier)]
         
-    def __str__(self):
-        ide = str(self.identifier)
+    def __repr__(self):
+        ide = repr(self.identifier)
         return "<Reg> %s"%ide
 
 class RegisterID(Register, ErrorManaged):
@@ -111,8 +111,10 @@ class RegisterComparison(RegisterOp, ErrorManaged):
         storage("parameter1", regComps[self.comparison])
         storage("parameter2", self.target.getRaw())
 
-    def __str__(self):
-        return "<RegComp> %s %s %s"%(self.base,self.comparison,self.target)
+    def __repr__(self):
+        return "<RegComp> %s %s %s"%tuple(map(repr,(self.base,
+                                                    self.comparison,
+                                                    self.target)))
 
 unaryOps = {"++": 0, "|-": 1}
 
@@ -136,5 +138,7 @@ class RegisterUnaryOp(RegisterOp, ErrorManaged):
             storage("functionType", 0x94+self.base.raw_id)
             storage("parameter1", unaryOps[self.operator])
 
-    def __str__(self):
-        return "<RegComp> %s %s %s"%(self.base,self.comparison,self.target)
+    def __repr__(self):
+        return "<RegComp> %s %s %s"%tuple(map(repr,(self.base,
+                                                    self.comparison,
+                                                    self.target)))

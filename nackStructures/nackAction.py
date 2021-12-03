@@ -36,7 +36,6 @@ class Action(ErrorManaged):
 
     def resolveTerminal(self, symbolsTable):
         self.resolveNames("resolveTerminal", symbolsTable)
-        self.raw_id = self.id.resolveTerminal(symbolsTable,"action")
 
     def legalIndex(self, actionMap, id):
         if not any((mapping.checkIndex(id) for mapping in actionMap)):
@@ -56,10 +55,14 @@ class Action(ErrorManaged):
                 else:
                     param.errorHandler.unresolvedIdentifier()
 
-    def __str__(self):
-        return "<Action> %s"%self.id+"("+\
-                ','.join(map(str,self.parameters))+")"
+    def resolved(self,resolution):
+        self.raw_id = resolution
+        self.id.raw_id = resolution
+        return resolution
 
+    def __repr__(self):
+        return "<Action> %s"%self.id+"("+\
+                ','.join(map(repr,self.parameters))+")"
 
 class ActionLiteral(Action):
     def __init__(self, id):
@@ -67,6 +70,10 @@ class ActionLiteral(Action):
         self.id = id
         self.raw_id = id
         super().__init__()
+
+    def resolveAction(self, _):
+        super.resolved(self.raw_id)
+        return self.raw_id
 
     def copy(self):
         return super().copy(copy(self.raw_id))
@@ -81,7 +88,20 @@ class ActionID(Action):
         self.raw_id = None
         super().__init__()
 
+    def resolveAction(self, actionScopes):
+        resolution = actionScopes["monster"].resolveAction(self.id.id)
+        super().resolved(resolution)
+        return resolution
+
     def copy(self):
         return super().copy(copy(self.id))
 
-ScopedAction = ActionID
+class ScopedAction(ActionID):
+    def resolveAction(self, actionScopes):
+        if self.id.scope not in actionScopes:
+            self.errorHandler.missingActionScope(self.id.scope)
+            resolution = -1
+        else:
+            resolution = actionScopes[self.id.scope].resolveAction(self.id.target)
+        super().resolved(resolution)
+        return resolution

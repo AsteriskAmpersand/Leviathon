@@ -18,5 +18,5 @@ class Directive(ErrorManaged):
         return Directive(bDirectiveMap[self.raw_target])
     def resolveProperties(self,storage):
         storage("flowControl",self.raw_target)
-    def __str__(self):
+    def __repr__(self):
         return "<Dir> " + self.target

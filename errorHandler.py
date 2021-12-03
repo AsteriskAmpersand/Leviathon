@@ -47,6 +47,8 @@ class ErrorManaged():
         return self
     def __repr__(self):
         return str(self)
+    def __str__(self):
+        return self.tag
 
 class ErrorHandler():
     def __init__(self,settings):

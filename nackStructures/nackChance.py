@@ -30,8 +30,8 @@ class Chance(ErrorManaged):
     def resolveProperties(self, storage):
         storage("parameter1", self.chance.getRaw())
 
-    def __str__(self):
-        return "<Chance> " + str(self.chance)
+    def __repr__(self):
+        return "<Chance> " + repr(self.chance)
 
 
 class ChanceHead(Chance):

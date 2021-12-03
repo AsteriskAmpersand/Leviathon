@@ -28,10 +28,10 @@ class Node(ErrorManaged):
         return self.header.names
     def renameToScope(self,scope):
         self.header.names = [scope+"::"+n for n in self.header.names]
-    def __str__(self):
+    def __repr__(self):
         result = ""
-        result += str(self.header) + "\n"
-        result += ''.join((str(b) + '\n' for b in self.segments))
+        result += repr(self.header) + "\n"
+        result += ''.join((repr(b) + '\n' for b in self.segments))
         return result
     def resolveScopeToModule(self,modulemap):
         for segment in self.segments:
@@ -111,6 +111,8 @@ class NodeHeader(ErrorManaged):
         self.id,self.index  = index
         self.lineno = lineno
         self.tag = "Node Header [%s]"%self.names[0]
+    def __repr__(self):
+        return str(self)
     def __str__(self):
         return "def " + ' & '.join(map(str,self.names))
     def copy(self):

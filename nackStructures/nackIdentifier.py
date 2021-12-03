@@ -14,6 +14,11 @@ from errorHandler import ErrorManaged, copy
 
 
 class IdClass():
+    def getRaw(self):
+        if self.raw_id is None:
+            self.errorHandler.unresolvedIdentifier(self.id)
+        return self.raw_id
+    
     def resolveLocal(self, symbolsTable, typing):
         if typing != "node":
             if self.raw_id is not None:
@@ -30,23 +35,25 @@ class IdClass():
         return self.raw_id
 
     def resolveTerminal(self, symbolsTable, typing):
-        if typing == "node" and self.raw_id is None and self.node_target:
-            self.resolveLocal(symbolsTable,typing)
-        if typing == "node":
-            if not self.node_target:
-                self.error.missingCallTarget(self.id)
-                return -1
-            return self.node_target.getIndex()
-        else:
-            return self.raw_id
+        return self
     
     def __str__(self):
+        if self.raw_id is not None: return self.raw_id
+        return self.id
+    
+    def __repr__(self):
         status = "<ID> " + str(self.id)
         if self.raw_id is not None:
             status = "<R-ID> " + str(self.id) + " [" + str(self.raw_id) + "]"
         if self.node_target is not None:
             status += " {-> %s}"%(self.node_target.names()[0])
         return status
+    
+    def literal(self):
+        if self.raw_id:
+            return str(self.raw_id)
+        else:
+            return self.id
         
 # self.errorHandler.missingVariableName(self.id)
 
@@ -113,9 +120,12 @@ class IdentifierScoped(IdClass, ErrorManaged):
 
     def resolveCaller(self, namespaces, variables, typing):
         if typing != "node":
+            if self.raw_id is not None: 
+                return self.raw_id
             if self.scope in namespaces:
                 if self.target in variables:
                     self.raw_id = variables[self.target]
+                    return self.raw_id
         else:
             if self.scope in namespaces:
                 namespace = namespaces[self.scope]
@@ -124,12 +134,16 @@ class IdentifierScoped(IdClass, ErrorManaged):
                     return self.node_target
 
     def resolveTerminal(self, symbolsTable, typing):
+        if self.raw_id is not None: return self.raw_id
+        if self.node_target is not None: return self.node_target
         if self.scope == "Terminal":
             resolution = symbolsTable.resolve(self.target,typing)
             if typing == "node":
                 self.node_target = resolution
+                return self.node_target
             else:
                 self.raw_id = resolution
+                return self.raw_id
                 #TODO
         #super().resolveTerminal(self,symbolsTable,typing)
         return 
@@ -148,15 +162,21 @@ class IdentifierScoped(IdClass, ErrorManaged):
     def accessEnum(self, enumManager):
         return enumManager[str(self.target)]
     
-    def __str__(self):
+    def __repr__(self):
         sol = self.scope + "." + self.target
         status = "<SID> " + sol
         if self.raw_id is not None:
             status = "<R-SID> " + sol + " [" + str(self.raw_id) + "]"
         if self.node_target is not None:
-            status += " {->}"
+            status += " {-> %s}"%self.node_target.names()[0]
         return status
 
+
+    def __str__(self):
+        if self.raw_id:
+            return str(self.raw_id)
+        else:
+            return self.scope + "." + self.target
 
 class TextID(str, IdClass, ErrorManaged):
     tag = "Text ID"
@@ -164,3 +184,6 @@ class TextID(str, IdClass, ErrorManaged):
 
     def copy(self):
         return TextID(self)
+    
+    def __str__(self):
+        return self

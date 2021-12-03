@@ -212,8 +212,8 @@ class Segment(SegmentInit, SegmentFinalResolution, ErrorManaged):
             return self._call.node_target
         self.errorHandler.missingCallTarget()
 
-    def __str__(self):
-        return ' '.join([str(getattr(self,"_"+m)) for m in self.memberList
+    def __repr__(self):
+        return ' '.join([repr(getattr(self,"_"+m)) for m in self.memberList
                          if getattr(self,"_"+m) is not None])
                 
 
