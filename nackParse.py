@@ -75,16 +75,20 @@ class THKModule(ErrorManaged):
     def createSymbolsTable(self,parsedScopes):pass
     @callPassing
     def resolveLocal(self):pass
+    def dependencies(self):
+        return self.parsedStructure.dependencies()
     def resolveInlines(self):
+        for dependency in self.dependencies():
+            dependency.resolveInlines()
         if self.decompilable:
             if not self.inlineResolved:
                 self.parsedStructure.resolveInlines()
         else:
             raise SemanticError("%s [%s] is not decompilable "%(self.scopeName,self.path))
         self.inlineResolved = True
-    def resolveTerminals(self):
+    def resolveTerminal(self):
         if self.decompilable:
-            self.parsedStructure.resolveTerminals()
+            self.parsedStructure.resolveTerminal()
     def scopeStringToScopeObject(self,root,modules,namedScopes,indexedScopes):
         if self.decompilable:
             self.dependencies = self.parsedStructure.scopeStringToScopeObject(root,modules,namedScopes,indexedScopes)
@@ -94,22 +98,19 @@ class THKModule(ErrorManaged):
         if self.decompilable:
             self.parsedStructure.resolveScopeToModule(modulemap)
     def mapLocalNodeNames(self):
-        print(self.path)
         self.parsedStructure.mapLocalNodeNames()
-    def resolveActions(self,entityMap,monster):
-        self.parsedStructure.resolveActions(entityMap,monster)
-    def resolveCalls(self):
-        self.parsedStructure.resolveCalls()
-    def getNodeByName(self,name):
-        return self.parsedStructure.nodeByName[name]
-    def collectRegisters(self):
-        return self.parsedStructure.collectRegisters()
-    def resolveRegisters(self,namespace):
-        return self.parsedStructure.resolveRegisters(namespace)
-    def resolveFunctions(self,functionResolver):
-        self.parsedStructure.resolveFunctions(functionResolver)
-    def compileProperties(self):
-        self.parsedStructure.compileProperties()
+    @callPassing
+    def resolveActions(self,entityMap,monster):pass
+    @callPassing
+    def resolveCalls(self):pass
+    @callPassing
+    def collectRegisters(self):pass
+    @callPassing
+    def resolveRegisters(self,namespace):pass
+    @callPassing
+    def resolveFunctions(self,functionResolver):pass
+    @callPassing
+    def compileProperties(self):pass
     def serialize(self,outputRoot,outputName):
         self.binfile = self.parsedStructure.serialize()
         with open(outputRoot/outputName,"wb") as outf:
@@ -118,6 +119,8 @@ class THKModule(ErrorManaged):
         return hash((self.path.absolute(),-1))
     def __eq__(self,other):
         return self.path.absolute() == other.path.absolute()
+    def __str__(self):
+        return str(self.parsedStructure)
 
 class NackParser(Parser):
     log = logging.getLogger()
@@ -185,7 +188,7 @@ class NackParser(Parser):
         self.file.registerNames[p.id] = ord(p.REG[1])-ord('A')
     @_('id ASSIGN numeric skip')
     def assignment(self,p):
-        self.file.assignments[p.id] = p.numeric
+        self.file.assignments[p.id.id] = p.numeric.id
 
 
     @_('node nackBody')
@@ -207,7 +210,8 @@ class NackParser(Parser):
     @_('DEF id nodeAlias nodeIndex skip')
     def defHeader(self,p):
         p.nodeAlias.appendleft(p.id)
-        return abc.NodeHeader(p.nodeAlias,p.nodeIndex,p.lineno)
+        return abc.NodeHeader(list(map(lambda x: x.id,p.nodeAlias)),
+                              p.nodeIndex,p.lineno)
     
     @_('"&" id nodeAlias')
     def nodeAlias(self,p):
@@ -507,7 +511,7 @@ class NackParser(Parser):
 
     @_('"(" id "." id commaPrefacedId ")"')
     def funcParens(self,p):
-        p.commaPrefacedId.appendleft(abc.IdentifierScoped(p.id0,p.id1))
+        p.commaPrefacedId.appendleft(abc.IdentifierScoped(p.id0.id,p.id1.id))
         return p.commaPrefacedId
     @_('"(" floatNumericSymbol commaPrefacedId ")"')
     def funcParens(self,p):
@@ -552,7 +556,7 @@ class NackParser(Parser):
     
     @_('id "." id')
     def actionName(self,p):
-        return abc.ScopedAction(abc.IdentifierScoped(p[0],p[1]))
+        return abc.ScopedAction(abc.IdentifierScoped(p[0].id,p[1].id))
     @_("id")
     def actionName(self,p):
         return abc.ActionID(p.id)
@@ -567,7 +571,7 @@ class NackParser(Parser):
     
     @_('id "." id')
     def callName(self,p):
-        return abc.ScopedCallID(abc.IdentifierScoped(p[0],p[2]))
+        return abc.ScopedCallID(abc.IdentifierScoped(p[0].id,p[2].id))
     @_('id "." CALL')
     def callName(self,p):
         return abc.ScopedCall(p[0],p[2])

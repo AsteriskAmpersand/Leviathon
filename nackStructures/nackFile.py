@@ -18,12 +18,15 @@ from pathlib import Path
 from collections import defaultdict
 
 class SymbolsTable():
-    def __init__(self):
+    def __init__(self,parent):
+        self.parent = parent
         self.namespaces = {}
         self.nodes = {}
         self.nodeIndices = {}
         self.nodeIds = {}
         self.vars = {}
+        self.registers = {}
+        self.actions = {}
     def addNamespace(self,scope,target):
         self.namespaces[scope] = target
     def addNode(self,nodeNames,nodeIndex,nodeId,nodeObject):
@@ -31,18 +34,38 @@ class SymbolsTable():
             self.nodes[nodeName] = nodeObject
         self.nodeIndices[nodeIndex] = nodeObject
         self.nodeIndices[nodeId] = nodeObject
-    def addVar(self,key,val):
+    def addVariable(self,key,val):
         self.vars[key] = val
-    
+    def addRegister(self,name,register):
+        self.registers[name] = register
+    #typing = var, node, register
+    def resolve(self,key,typing):
+        structure = {"node":self.nodes,"var":self.vars,"register":self.registers}[typing]
+        if key in structure:
+            return structure[key]
+        return None
+    def resolveAction(self,actor,action):
+        if actor in self.actions:
+            if action in self.actions[actor]:
+                return self.actions[actor][action]
+    def resolveScope(self,scope):
+        if scope == "Caller" or scope == "Terminal":
+            return self.parent
+        else:
+            if scope in self.namespaces:
+                return self.namespaces[scope]
+            else:
+                return None
+            
 class ScopeTarget(ErrorManaged):
     subfields = []
     def __init__(self,target,type):
-        tag = "Module Scope Namespace [%s -> %s]"%(str(target),type)
+        self.tag = "Module Scope Namespace [%s -> %s]"%(str(target),type)
         self.target = str(target)
         self.type = type
         #path,id,ix,local,terminal_local
     def isModule(self):
-        return self.type not in ["caller","terminal_caller"]
+        return self.type not in ["caller","terminal"]
     def resolve(self,root,modules,namedScopes,indexedScopes):
         settings = self.settings
         if self.type == "path":
@@ -59,12 +82,15 @@ class ScopeTarget(ErrorManaged):
                 settings.compiler.emptyScope(self.target)
             path = indexedScopes[self.target]
         else:
+            self.path = None
+            self.module = None
             return
             #raise SemanticError("Caller and Terminal Caller cannot resolve to paths.")
-        self.path = path
+        self.path = str(path)
+        self.module = modules[self.path]
         return path
     def resolveScopeToModule(self,modulemap):
-        if self.type not in ["caller","terminal_caller"]:
+        if self.type not in ["caller","terminal"]:
             self.module = modulemap[str(self.path.absolute())]
             return self.module
     def __str__(self):
@@ -115,7 +141,7 @@ class NackFile(ErrorManaged):
     subfields = ["nodes","scopeNames","actionScopeNames"]
     def __init__(self,parent = None):
         self.scopeNames = {"Caller":ScopeTarget(Identifier("Caller"),"caller"),
-                           "Terminal_Caller":ScopeTarget(Identifier("Terminal_Caller"),"terminal_caller")}
+                           "Terminal":ScopeTarget(Identifier("Terminal"),"terminal")}
         self.actionScopeNames = {}#Need to specify and deal with this with a generic
         self.assignments = {}
         self.parent = parent
@@ -128,11 +154,15 @@ class NackFile(ErrorManaged):
         result += ''.join(("%s -> %s\n"%(item,str(value.target)) for item, value in self.actionScopeNames.items()))
         result += '\n'.join(map(lambda x: str(x), self.nodes))
         return result
-    def createSymbolsTable(self,root,scopeMappings, pathToModule, indexedScopes):
-        self.symbolsTable = SymbolsTable()
+    def dependencies(self):
+        return [self.symbolsTable.resolveScope(target)
+                for target in self.scopeNames 
+                if self.scopeNames[target].isModule()]
+    def createSymbolsTable(self,root, scopeMappings, pathToModule, indexedScopes):
+        self.symbolsTable = SymbolsTable(self)
         for scopeName,scopeTarget in self.scopeNames.items():
             scopeTarget.resolve(root,pathToModule,scopeMappings,indexedScopes)
-            self.symbolsTable.addNamespace(scopeName,scopeTarget)
+            self.symbolsTable.addNamespace(scopeName,scopeTarget.module)
 
         nodeData = self.getNodeData()
         unindexedNodes,nodeByIndex,unidentifiedNodes,nodeByName,nodeById = nodeData
@@ -152,9 +182,6 @@ class NackFile(ErrorManaged):
             self.symbolsTable.addNode(node.names(),node.getIndex(),node.getId(),node)
         for key,val in self.assignments.items():
             self.symbolsTable.addVariable(key,val)
-    def resolveLocal(self):
-        for node in self.nodes:
-            node.resolveLocal(self.symbolsTable)
     def externalDependencies(self):
         return [scopeTarget.target 
                  for scopeTarget in self.scopeNames.values() 
@@ -162,35 +189,9 @@ class NackFile(ErrorManaged):
     def resolveLocal(self):
         for node in self.nodes:
             node.resolveLocal(self.symbolsTable)
-    def substituteScopes(self):
-        moduleScopes = self.scopeNames
-        actionScopes = self.actionScopeNames
+    def resolveTerminal(self):
         for node in self.nodes:
-            node.substituteScopes(moduleScopes,actionScopes)
-    def resolveScopeToModule(self, modulemap):
-        for node in self.nodes:
-            node.resolveScopeToModule(modulemap)
-    def resolveTerminals(self):
-        for node in self.nodes:
-            node.resolveTerminals(self.nodeByName,self.assignments)
-    def scopeStringToScopeObject(self,root,modules,namedScopes,indexedScopes):
-        dependencies = {}
-        inverseDependencies = {}
-        for scopeName,scope in self.scopeNames.items():
-            if scope.isModule():
-                path = str(scope.resolve(root,modules,namedScopes,indexedScopes).absolute())
-                if path not in modules:
-                    module = np.THKModule(path,None,None,self.settings,external=True,
-                                          parent = self.parent.parent if self.parent else None)
-                    modules[path] = module
-                    module.scopeStringToScopeObject(root,modules,namedScopes,indexedScopes)
-                else:
-                    module = modules[path]
-                dependencies[scopeName] = module
-                inverseDependencies[str(module.path)] = module
-        self.scopeMappings = dependencies
-        self.dependencyPath = inverseDependencies
-        return dependencies
+            node.resolveTerminal(self.symbolsTable)
     def getNodeData(self):
         errorlog = self.errorHandler
         unindexedNodes = []
@@ -223,30 +224,30 @@ class NackFile(ErrorManaged):
         self.inlineNamespace = defaultdict(dict)
         self.inlineAdditions = defaultdict(list)
         for node in self.nodes:
-            node.resolveInlines(self,self.dependencyPath)
+            node.resolveInlines(self,self.symbolsTable)
         self.inlineCleanup()
-    def hasInlineCall(self,scope_n_name):
-        scope,name = scope_n_name
+        pass
+    def hasInlineCall(self,scope,name):
         if scope in self.inlineNamespace:
             return name in self.inlineNamespace[scope]
         return False
-    def importInline(self,module,function):
-        path = str(module.path)
+    def retrieveInlineCall(self,scope,name):
+        return self.inlineNamespace[scope][name]
+    def importInline(self,module,scopename,target):
+        function = target.target
         nodecopies = module.returnInline(function)
         for node in nodecopies:
-            if not any((name in self.inlineNamespace[path] for name in node.names())):
+            if not any((name in self.inlineNamespace[scopename] for name in node.names())):
                 for name in node.names():
-                    self.inlineNamespace[path][name] = node
-                self.inlineAdditions[path].append(node)
-                node.resolveCaller(self.nodeByName,self.assignments)
-    def returnInLine(self,functionName):
-        node = self.nodeByName[functionName]
-        return node.chainedCopy(set())
+                    self.inlineNamespace[scopename][name] = node
+                self.inlineAdditions[scopename].append(node)
+    def returnInline(self,functionName):
+        node = self.symbolsTable.resolve(functionName,"node")
+        return node.chainedCopy(dict())
     def inlineCleanup(self):
         indexGen = self.indexGen
         idGen = self.idGen
         for path in self.inlineNamespace:
-            inline_namespace = self.inlineNamespace[path]
             additions = self.inlineAdditions[path]
             for node in additions:
                 ix = next(indexGen)
@@ -254,20 +255,9 @@ class NackFile(ErrorManaged):
                 node.setIndex(ix)
                 node.setId(id)
                 node.renameToScope(path)
-                node.resolveImmediateCalls({},inline_namespace,{})
-                for name in node.names():
-                    self.nodeByName[name] = node
-                self.nodeByIndex[node.getIndex()] = node    
-                self.nodeById[node.getId()] = node    
-                node.resolveCaller(self.nodeByName,self.assignments)
+                self.symbolsTable.addNode(node.names(),node.getIndex(),node.getId(),node)
                 self.nodes.append(node)
-        for index in sorted(self.nodeByIndex):
-            print("="*15)
-            print(index,self.nodeByIndex[index].getIndex())
-            print(self.nodeByIndex[index])
-            print("="*15)
-        for node in self.nodes:
-            node.inlinedCallerCallScopeResolution(self.inlineNamespace)
+                node.resolveCaller({"Caller":self.symbolsTable.nodes},self.symbolsTable.vars)
         return
     def resolveCalls(self):
         for node in self.nodes:
@@ -305,12 +295,12 @@ class NackFile(ErrorManaged):
     def compileProperties(self):
         indexGen = Autonumber()
         visited = 0
-        realCount = len(self.nodeByIndex)
+        realCount = len(self.nodes)
         serialNodes = []
         while visited < realCount:
             index = next(indexGen)
-            if index in self.nodeByIndex:
-                node = self.nodeByIndex[index]
+            if index in self.symbolsTable.nodeIndices:
+                node = self.symbolsTable.nodeIndices[index]
                 visited += 1
             else:
                 header = NodeHeader(["Dummy::Node_%03d"%index], (0,index), -1)
@@ -320,10 +310,8 @@ class NackFile(ErrorManaged):
                 node = Node(header,bodylist)
                 self.inheritChildren(node)
                 node.inherit()
-                self.nodeByIndex[index] = node   
+                self.symbolsTable.addNode(node.names(),0,node)
                 self.nodes.append(node)
-                for name in node.names():
-                    self.nodeByName[name] = node
             serialNodes.append(node.compileProperties())
         headerSize = 0x20
         baseOffset = 0x10+len(serialNodes)+headerSize

@@ -45,6 +45,8 @@ class ErrorManaged():
         self.settings = original.settings
         self.errorHandler = original.errorHandler
         return self
+    def __repr__(self):
+        return str(self)
 
 class ErrorHandler():
     def __init__(self,settings):

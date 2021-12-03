@@ -99,64 +99,28 @@ class FandStructure(ErrorManaged):
     def resolveLocal(self):
         for module in self.modules.values():
             module.resolveLocal()
-    def scopeStringToScopeObject(self,root):
-        """Imports are mapped recursively with a project level cache"""
-        #Project keeps track of already loaded thk modules
-        #Each file keeps track of it's file dependencies
-        modules = {str(module.path.absolute()) : module for module in self.rootLevelModules.values()}
-        for module in self.rootLevelModules.values():
-            module.scopeStringToScopeObject(root,modules,self.parsedScopes,self.indexedTargets)
-        self.moduleList = modules
-        for module in self.moduleList:
-            self.inheritChildren(module)
-    def generateDependencyGraph(self):
-        errorHandler = self.errorHandler
-        depGraph = nx.DiGraph()
-        for module in self.moduleList.values():
-            for dependency in module.dependencies.values():
-                if dependency.inlineCall:
-                    depGraph.add_edge(module, dependency)
-        if hasCycles(depGraph):
-            errorHandler.dependencyCycle()
-        self.dependencyGraph = depGraph
-        return depGraph
-    def mapLocalNodeNames(self):
-        errorHandler = self.errorHandler
-        for module in self.moduleList.values():
-            module.mapLocalNodeNames()
-    def resolveModuleInlines(self,module):
-        errorHandler = self.errorHandler
-        self.settings.compiler.display("\tAnalyzing: "+str(module.path.absolute()))
-        for dependency in self.dependencyGraph[module]:
-            self.resolveModuleInlines(dependency)
-        self.settings.compiler.display("\tResolving Inlines: "+str(module.path.absolute()))
-        module.resolveInlines()
     def resolveInlines(self):
         #for module in self.dependencyGraph[module]
         #Resolve immediate variable names on each of the modules
         #If graph is non-cyclical we start from the bottom of dependencies
         #with inline operation resolution
-        errorHandler = self.errorHandler
-        for module in self.rootLevelModules.values():
-            if module in self.dependencyGraph:
-                self.resolveModuleInlines(module)
-    def resolveTerminals(self):
-        errorHandler = self.errorHandler
-        for module in self.rootLevelModules.values():
-            if module in self.dependencyGraph:
-                module.resolveTerminals()
+        for module in self.parsedScopes.values():
+            self.settings.compiler.display("\tResolving Inlines: "+str(module.path.absolute()))
+            module.resolveInlines()
+    def resolveTerminal(self):
+        for module in self.parsedScopes.values():
+            module.resolveTerminal()
     def resolveCalls(self):
-        for module in self.rootLevelModules.values():
-            if module in self.dependencyGraph:
-                module.resolveCalls()
+        for module in self.parsedScopes.values():
+            module.resolveCalls()
     def resolveActions(self,entityMap):
         projectMonster = self.inheritChildren(ActionTarget(self.monster,"project"))
         projectMonster.resolve(entityMap)
-        for module in self.rootLevelModules.values():
+        for module in self.parsedScopes.values():
             module.resolveActions(entityMap,projectMonster)
     def collectRegisters(self):
         registerNames = set()
-        for module in self.rootLevelModules.values():
+        for module in self.parsedScopes.values():
             registerNames = registerNames.union(module.collectRegisters())
         return registerNames
     def resolveRegisters(self):
@@ -175,13 +139,13 @@ class FandStructure(ErrorManaged):
         if mix > 19 or ix > 19:
             self.errorHandler.registryCountExceeded(max(mix,ix))
             return
-        for module in self.rootLevelModules.values():
+        for module in self.parsedScopes.values():
             module.resolveRegisters(self.registerNames)
     def resolveFunctions(self,functionResolver):
-        for module in self.rootLevelModules.values():
+        for module in self.parsedScopes.values():
             module.resolveFunctions(functionResolver)
     def compileProperties(self):
-        for module in self.rootLevelModules.values():
+        for module in self.parsedScopes.values():
             module.compileProperties()
     def buildEntry(self,moduleName):
         tTDH = thklist.thinkTableDataHash
@@ -192,7 +156,7 @@ class FandStructure(ErrorManaged):
             outpath = (self.relative + "\\" + str(Path(moduleName).with_suffix(".thk"))).replace("/","\\")
         return {"thinkTableDataHash":tTDH,"rThinkTableHash":tth,"path":outpath}
     def serialize(self,outRoot):
-        for path,module in self.rootLevelModules.items():
+        for path,module in self.parsedScopes.items():
             module.serialize(outRoot,Path(path).with_suffix(".thk").stem)
         count = len(self.indexedTargets)
         header = {"signature":thklist.signature,"count":count}
@@ -201,3 +165,6 @@ class FandStructure(ErrorManaged):
         binaryData = thklist.ThkList.build({"header":header,"data":data,"entries":entries})
         with open(outRoot/(self.compiler.thklistPath+".thk")) as outf:
             outf.write(binaryData)
+    def __str__(self):
+        spacer = '\n======================================\n\n'
+        return spacer.join((str(m.parsedStructure) for m in self.modules.values()))

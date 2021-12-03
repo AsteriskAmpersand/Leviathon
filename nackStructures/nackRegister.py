@@ -4,99 +4,137 @@ Created on Thu Nov 25 04:42:16 2021
 
 @author: Asterisk
 """
-from errorHandler import ErrorManaged,copy
+from errorHandler import ErrorManaged, copy
+
 
 class Register():
-    def resolveLocal(self,symbolsTable):
+    def resolveLocal(self, symbolsTable):
         pass
-    def resolveCaller(self,symbolsTable):
+
+    def resolveCaller(self, namespace, assignments, typing):
         pass
-    def resolveTerminal(self,symbolsTable):
+
+    def resolveTerminal(self, symbolsTable):
         pass
-    def resolveName(self,namespace):
-        if hasattr(self,"raw_id"):
+
+    def resolveName(self, symbolsTable):
+        if hasattr(self, "raw_id"):
             return
-        if self.identifier not in namespace:
-            self.errorHandler.missingRegisterName(self.identifier)
-        else:
-            self.raw_id = namespace[self.identifier]
+        self.raw_id = self.identifier.resolve(symbolsTable, "register")
+
     def collectRegisters(self):
-        if hasattr(self,"raw_id"):
+        if hasattr(self, "raw_id"):
             return [self.raw_id]
         else:
             return [str(self.identifier)]
-class RegisterID(Register,ErrorManaged):
+        
+    def __str__(self):
+        ide = str(self.identifier)
+        return "<Reg> %s"%ide
+
+class RegisterID(Register, ErrorManaged):
     tag = "Register ID"
     subfields = ["identifier"]
-    def __init__(self,id):
-        self.tag = "Register ID [%s]"%(id)
+
+    def __init__(self, id):
+        self.tag = "Register ID [%s]" % (id)
         self.identifier = id
+
     def copy(self):
         return RegisterID(copy(self.identifier))
-class RegisterLiteral(Register,ErrorManaged):
+
+
+class RegisterLiteral(Register, ErrorManaged):
     tag = "Register Literal"
     subfields = ["identifier"]
-    def __init__(self,id):
-        self.tag = "Register ID [%s]"%(id)
+
+    def __init__(self, id):
+        self.tag = "Register ID [%s]" % (id)
         self.identifier = id
         self.raw_id = id
+
     def copy(self):
         return RegisterID(copy(self.identifier))
+
+
 class RegisterOp():
     typing = "register"
-    def resolveImmediateId(self,varNames):
+
+    def resolveImmediateId(self, varNames):
         pass
-    def resolveCallerId(self,varNames):
+
+    def resolveCaller(self, namespace, assignments, typing):
         pass
-    def resolveTerminalId(self,varNames):
+
+    def resolveTerminalId(self, symbolsTable):
         pass
-    def resolveName(self,namespace):
-        self.base.resolveName(namespace)    
+
+    def resolveName(self, namespace):
+        self.base.resolveName(namespace)
+
     def collectRegisters(self):
         return self.base.collectRegisters()
-    
-regSymbols = ["==","<=" ,"<" ,">=" ,">" ,"!="]
-regComps = {regSymbols[i]:i for i in range(len(regSymbols))}
-class RegisterComparison(RegisterOp,ErrorManaged):
-    subfields = ["base","target","comparison"]
-    def __init__(self,ref,val,comp):
-        self.tag = "Register Comparison [%s %s %s]"%(ref,comp,val)
+
+
+regSymbols = ["==", "<=", "<", ">=", ">", "!="]
+regComps = {regSymbols[i]: i for i in range(len(regSymbols))}
+
+
+class RegisterComparison(RegisterOp, ErrorManaged):
+    subfields = ["base", "target", "comparison"]
+
+    def __init__(self, ref, val, comp):
+        self.tag = "Register Comparison [%s %s %s]" % (ref, comp, val)
         self.base = ref
         self.target = val
         self.comparison = comp
+
     def copy(self):
         return RegisterComparison(copy(self.base),
                                   copy(self.target),
                                   copy(self.comparison))
-    def resolveNames(self,symbolsTable,operator):
-        getattr(self.target,operator)(symbolsTable)
-    def resolveLocal(self,symbolsTable):
-        self.resolveNames(symbolsTable,"resolveLocal")
-    def resolveCaller(self,symbolsTable):
-        self.resolveNames(symbolsTable,"resolveCaller")
-    def resolveTerminal(self,symbolsTable):
-        self.resolveNames(symbolsTable,"resolveTerminal")
-    def resolveProperties(self,storage):
-        if not hasattr(self.base,"raw_id"):
-            self.errorHandler.unresolvedIdentifier(str(self.base))
-        elif not hasattr(self.target,"raw_id"):
-            self.errorHandler.unresolvedIdentifier(str(self.target))
-        else:
-            storage("functionType",0x94+self.base.raw_id)
-            storage("parameter1",regComps[self.comparison])
-            storage("parameter2",self.target.raw_id)
-unaryOps = {"++":0,"|-":1}
-class RegisterUnaryOp(RegisterOp,ErrorManaged):
+
+    def resolveNames(self, operator, *args):
+        getattr(self.target, operator)(*args, "var")
+
+    def resolveLocal(self, symbolsTable):
+        self.resolveNames("resolveLocal",symbolsTable)
+
+    def resolveCaller(self, namespace, assignments):
+        self.resolveNames("resolveCaller",namespace,assignments)
+
+    def resolveTerminal(self, symbolsTable):
+        self.resolveNames("resolveTerminal",symbolsTable)
+
+    def resolveProperties(self, storage):
+        storage("functionType", 0x94+self.base.getRaw())
+        storage("parameter1", regComps[self.comparison])
+        storage("parameter2", self.target.getRaw())
+
+    def __str__(self):
+        return "<RegComp> %s %s %s"%(self.base,self.comparison,self.target)
+
+unaryOps = {"++": 0, "|-": 1}
+
+
+class RegisterUnaryOp(RegisterOp, ErrorManaged):
     tag = "Register Unary Operator"
-    subfields = ["base","operator"]
-    def __init__(self,ref,op):
+    subfields = ["base", "operator"]
+
+    def __init__(self, ref, op):
+        self.tag = "Register Unary [%s %s]"%(ref,op)
         self.base = ref
         self.operator = op
+
     def copy(self):
-        return RegisterUnaryOp(copy(self.base),copy(self.operator))
-    def resolveProperties(self,storage):
-        if not hasattr(self.base,"raw_id"):
+        return RegisterUnaryOp(copy(self.base), copy(self.operator))
+
+    def resolveProperties(self, storage):
+        if not hasattr(self.base, "raw_id"):
             self.errorHandler.unresolvedIdentifier(str(self.base))
         else:
-            storage("functionType",0x94+self.base.raw_id)
-            storage("parameter1",unaryOps[self.operator])
+            storage("functionType", 0x94+self.base.raw_id)
+            storage("parameter1", unaryOps[self.operator])
+
+    def __str__(self):
+        return "<RegComp> %s %s %s"%(self.base,self.comparison,self.target)
