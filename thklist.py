@@ -8,7 +8,7 @@ import construct as c
 from pathlib import Path
 
 Header = c.Struct(
-        "signature" / c.Byte[8],
+        "signature" / c.Int64ul,
         "count" / c.Int32sl,
         )
 

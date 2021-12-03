@@ -29,7 +29,7 @@ class Call(ErrorManaged):
         return self
     
     def resolveTerminal(self, symbolsTable):
-        if self.node_target is not None or self.raw_target is not None: return
+        if self.node_target is not None or self.raw_target is not None: return self
         self.resolveNames("resolveTerminal", symbolsTable)
         return self
 
@@ -87,6 +87,7 @@ class CallID(Call):
 
 class ScopedCallID(Call):
     subfields = ["target"]
+    local_scope = "getId"
 
     def __init__(self, target):
         self.tag = "Call Scoped ID [%s]" % (target)
@@ -111,10 +112,10 @@ class ScopedCallID(Call):
         return sc
 
     def resolveCalls(self):
-        if hasattr(self, "raw_target"):
-            return
+        if self.raw_target is not None: return self.raw_target
         try:
-            self.raw_target = self.module.getNodeByName(self.target).getId()
+            self.raw_target = self.node_target.getId()
+            self.target.raw_id = self.raw_target
         except:
             self.errorHandler.missingNodeName(self.target)
         self.external = self.target.module.id
@@ -131,6 +132,16 @@ class ScopedCallID(Call):
         return self.retarget(self.target.sequelize(),target)
         
     def resolveCaller(self, namespace, assignments):
+        if self.node_target or self.raw_target: return self
+        newTarget = self.target.resolveCaller(namespace,assignments,"node")
+        if self.target.scope in namespace and newTarget:
+            return self.retarget(self.target.sequelize(omit=True),newTarget)
+        else:
+            return self
+        
+    def resolveTerminal(self,symbolsTable):
+        namespace = {"Terminal":symbolsTable.nodes}
+        assignments = symbolsTable.vars
         if self.node_target or self.raw_target: return self
         newTarget = self.target.resolveCaller(namespace,assignments,"node")
         if self.target.scope in namespace and newTarget:

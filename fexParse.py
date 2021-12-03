@@ -57,12 +57,13 @@ class Accessor():
         self.transformType = transformType
         self.transformData = transformData
     def __str__(self):
+        return self.field if self.transformType is None\
+            else self.transformData+"."+self.field
+    def __repr__(self):
         if self.transformType is not None:
             return "__{%s:%s}__"%(self.transformData,self.field)
         else:
             return "__%s__"%self.field
-    def __repr__(self):
-        return str(self)
     def copy(self):
         a = Accessor(self.field,self.transformType,self.transformData)
         return a

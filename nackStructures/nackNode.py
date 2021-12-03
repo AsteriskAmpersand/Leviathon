@@ -92,10 +92,10 @@ class Node(ErrorManaged):
         for segment in self.segments:
             segment.resolveFunctions(functionResolver)
     def compileProperties(self):
-        print("Node",self.getId())
+        #print("Node",self.getId())
         segmentList = []
         for ix,segment in enumerate(self.segments):
-            print("Segment",ix)
+            #print("Segment",ix)
             segment.parent = self
             dataSegment = segment.compileProperties()
             if dataSegment: segmentList.append(dataSegment)

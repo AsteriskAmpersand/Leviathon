@@ -221,6 +221,8 @@ class NackFile(ErrorManaged):
             else:
                 unidentified.append(node)
         return unindexedNodes,indexedNodes,unidentified,names,ids
+    def resolveFunction(self,name):
+        return self.symbolsTable.resolve(name,"node")
     def resolveInlines(self):
         self.inlineNamespace = defaultdict(dict)
         self.inlineAdditions = defaultdict(list)
@@ -269,7 +271,7 @@ class NackFile(ErrorManaged):
         elif len(self.actionScopeNames) == 1:
             monsterTarget = next(iter(self.actionScopeNames.values()))
             fileMonster = monsterTarget.resolve(entityManager)
-        elif len(self.actinoScopeNames) >= 2:
+        elif len(self.actionScopeNames) >= 2:
             monsterTarget = [self.actionScopeNames[scope] for scope in self.actionScopeNames if scope != "generic"][0]
             fileMonster = monsterTarget.resolve(entityManager)
         self.actionScopeNames["monster"] = fileMonster

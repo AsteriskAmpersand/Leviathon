@@ -61,8 +61,10 @@ class Action(ErrorManaged):
         return resolution
 
     def __repr__(self):
-        return "<Action> %s"%self.id+"("+\
+        identifier = self.id if self.raw_id is None else self.raw_id
+        return "<Action> [%s]"%repr(identifier)+"("+\
                 ','.join(map(repr,self.parameters))+")"
+
 
 class ActionLiteral(Action):
     def __init__(self, id):

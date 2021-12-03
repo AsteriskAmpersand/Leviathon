@@ -100,6 +100,8 @@ class THKModule(ErrorManaged):
     def mapLocalNodeNames(self):
         self.parsedStructure.mapLocalNodeNames()
     @callPassing
+    def resolveFunction(self,functionName): pass
+    @callPassing
     def resolveActions(self,entityMap,monster):pass
     @callPassing
     def resolveCalls(self):pass
@@ -119,8 +121,8 @@ class THKModule(ErrorManaged):
         return hash((self.path.absolute(),-1))
     def __eq__(self,other):
         return self.path.absolute() == other.path.absolute()
-    def __str__(self):
-        return str(self.parsedStructure)
+    def __repr__(self):
+        return repr(self.parsedStructure)
 
 class NackParser(Parser):
     log = logging.getLogger()

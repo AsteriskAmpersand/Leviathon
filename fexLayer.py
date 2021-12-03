@@ -191,9 +191,9 @@ class CheckCompiler():
         for t,functionInfo in targets:
             if t.exactMatch(functionData):
                 for varName,varVal in functionInfo:
-                    storage(varName,varVal)
+                    storage(str(varName),varVal)
                 for varName,varVal in t.parse(functionData):
-                    storage(varName,varVal)
+                    storage(str(varName),varVal)
                 return
         raise KeyError("Missing Exact Match")
     

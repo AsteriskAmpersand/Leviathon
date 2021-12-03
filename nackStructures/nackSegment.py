@@ -24,7 +24,7 @@ class TypeNub(ErrorManaged):
         return self.propName
 
     def __repr__(self):
-        return str(self)
+        return "<%s [%d]>"%(str(self),self.raw_id)
 
 
 class SegmentInit():
@@ -190,8 +190,11 @@ class Segment(SegmentInit, SegmentFinalResolution, ErrorManaged):
             self._call = self._call.resolveCaller(namespaces,var)
             self.inheritChildren(self._call)
 
-    @resolutionOp()
-    def resolveTerminal(self, symbolsTable): pass
+    @resolutionOp(resolveCall = False)
+    def resolveTerminal(self, symbolsTable): 
+        if self._call is not None:
+            self._call = self._call.resolveTerminal(symbolsTable)
+            self.inheritChildren(self._call)
 
     def reconnectChain(self,node_target):
         self._call = self._call.reconnectChain(node_target)

@@ -47,7 +47,8 @@ class FandStructure(ErrorManaged):
             if index not in self.indexedTargets:
                  missing.append(index)
         missingIterator = iter(missing)
-        for index,module in zip(missingIterator,self.unindexedTargets):
+        for module in self.unindexedTargets:
+            index = next(missingIterator)
             self.indexedTargets[index] = module
         for index in missingIterator:
             self.indexedTargets[index] = ("",0)
@@ -133,7 +134,8 @@ class FandStructure(ErrorManaged):
         indices = sorted(list(set(indexedRegisters)))
         autoReg = Autonumber(indices)
         ix = 0
-        for ix,name in zip(autoReg,namedRegisters):
+        for name in namedRegisters:
+            ix = next(autoReg)
             self.registerNames[name] = ix
         mix = max(indices, default = 0)
         if mix > 19 or ix > 19:
@@ -157,14 +159,15 @@ class FandStructure(ErrorManaged):
         return {"thinkTableDataHash":tTDH,"rThinkTableHash":tth,"path":outpath}
     def serialize(self,outRoot):
         for path,module in self.parsedScopes.items():
-            module.serialize(outRoot,Path(path).with_suffix(".thk").stem)
+            outpath = Path(path).stem + ".thk"
+            module.serialize(outRoot,outpath)
         count = len(self.indexedTargets)
         header = {"signature":thklist.signature,"count":count}
         data = [self.indexedTargets[i][1] for i in range(count)]
-        entries = [self.buildEntry(*self.indexTargets[i][0]) for i in range(count)]
+        entries = [self.buildEntry(self.indexedTargets[i][0]) for i in range(count)]
         binaryData = thklist.ThkList.build({"header":header,"data":data,"entries":entries})
-        with open(outRoot/(self.compiler.thklistPath+".thk")) as outf:
+        with open(outRoot/(self.settings.compiler.thklistPath),'wb') as outf:
             outf.write(binaryData)
-    def __str__(self):
+    def __repr__(self):
         spacer = '\n======================================\n\n'
-        return spacer.join((str(m.parsedStructure) for m in self.modules.values()))
+        return spacer.join((repr(m.parsedStructure) for m in self.modules.values()))

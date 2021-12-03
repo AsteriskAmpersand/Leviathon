@@ -115,8 +115,11 @@ class IdentifierScoped(IdClass, ErrorManaged):
 
     def resolveLocal(self, symbolsTable, typing):
         if self.scope not in ["Caller", "Terminal"]:
-            self.module = symbolsTable.resolveScope(self.scope)
-            return self.module
+            result= symbolsTable.resolveScope(self.scope)
+            if typing == "node" and result:
+                self.module = result
+                return self.resolveCall()
+            return result
 
     def resolveCaller(self, namespaces, variables, typing):
         if typing != "node":
@@ -140,6 +143,7 @@ class IdentifierScoped(IdClass, ErrorManaged):
             resolution = symbolsTable.resolve(self.target,typing)
             if typing == "node":
                 self.node_target = resolution
+                self.module = symbolsTable.parent
                 return self.node_target
             else:
                 self.raw_id = resolution
@@ -147,7 +151,9 @@ class IdentifierScoped(IdClass, ErrorManaged):
                 #TODO
         #super().resolveTerminal(self,symbolsTable,typing)
         return 
-        
+    
+    def resolveCall(self):
+        return self.module.resolveFunction(self.target)
 
     def copy(self):
         nid = IdentifierScoped(copy(self.scope), copy(self.target))
