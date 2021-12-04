@@ -183,10 +183,12 @@ class CheckCompiler():
         self.compoundReverseMapper = compoundReverseMapper        
     def resolve(self,functionData,storage):
         sig = functionData.signature()
-        if sig not in self.compoundReverseMapper: raise KeyError("Missing Signature")
+        if sig not in self.compoundReverseMapper: 
+            raise KeyError("Missing Signature")
         subChoices = self.compoundReverseMapper[sig]
         subsig = functionData.literalSignature()
-        if subsig not in subChoices: raise KeyError("Missing Literal Signatures")
+        if subsig not in subChoices: 
+            raise KeyError("Missing Literal Signatures")
         targets = subChoices[subsig]
         for t,functionInfo in targets:
             if t.exactMatch(functionData):
@@ -240,4 +242,11 @@ def buildResolver(path = None):
     return CheckResolver(buildParser(path))
 
 if __name__ in "__main__":
+    import thk
+    class DebugSegment():
+        def __init__(self):
+            for attr in thk.Segment.subcons:
+                setattr(self,attr.name,0)
+        def log(self,*args):
+            pass
     resolver = buildResolver("default.fexty")

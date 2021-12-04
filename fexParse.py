@@ -73,9 +73,9 @@ class Accessor():
         #"ENUM", "CAST", None, 
         #float_cast em_enum st_enum
         if self.transformType is None:
-            return hasattr(var,"raw_id")
+            return hasattr(var,"raw_id") and var.raw_id is not None
         if self.transformType == "CAST":
-            return hasattr(var,"raw_id")
+            return hasattr(var,"raw_id") and var.raw_id is not None
         if self.transformType == "ENUM":
             return var.verifyEnum(enumScopes[self.transformData])
     def parse(self,var):

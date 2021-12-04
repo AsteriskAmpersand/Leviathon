@@ -114,13 +114,15 @@ class SegmentFinalResolution():
             return self._function.resolveName(namespace)
 
     def resolveFunctions(self, functionResolver):
-        if self._function:
+        if self._function and self._function.typing != "register":
             self._function.resolveFunctions(functionResolver)
 
     def compileProperties(self):
         dataSegment = {}
 
         def testAdd(propertyName, propertyValue):
+            if type(propertyValue) is not int:
+                self.errorHandler.resolutionError(propertyName)
             if propertyName in dataSegment:
                 self.errorHandler.repeatedProperty(propertyName)
             dataSegment[propertyName] = propertyValue
@@ -132,8 +134,8 @@ class SegmentFinalResolution():
                 if var:
                     var.resolveProperties(testAdd)
         for key, val in self._metaparams.items():
-            if hasattr(val, "raw_id"):
-                testAdd(key, val)
+            if val.raw_id is not None:
+                testAdd(key, val.getRaw())
             else:
                 val.erroHandler.unresolvedIdentifier()
         if "nodeEndingData" in dataSegment:

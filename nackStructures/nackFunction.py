@@ -87,7 +87,8 @@ class FunctionShell(FunctionLiteral, ErrorManaged):
         sig = []
         for literal, param in zip(self.sections, self.params):
             sig.append(-1)
-            sig.append(len(param))
+            if type(param) is not str:
+                sig.append(len(param))
         return tuple(sig)
 
     def literalSignature(self):

@@ -29,8 +29,6 @@ class Call(ErrorManaged):
         return self
     
     def resolveTerminal(self, symbolsTable):
-        if self.node_target is not None or self.raw_target is not None: return self
-        self.resolveNames("resolveTerminal", symbolsTable)
         return self
 
     def resolveCalls(self):
@@ -149,11 +147,19 @@ class ScopedCallID(Call):
         else:
             return self
 
-class ScopedCall(ScopedCallID):
-    tag = "Call Scoped Literal"
-
-    def resolveCalls(self):
-        if hasattr(self, "raw_target"):
-            return
-        self.raw_target = self.target
+class ScopedCall(Call):
+    def __init__(self, scope,literalTarget):
+        self.tag = "Call Scoped Literal [%s.%d]"%(scope,literalTarget)
+        self.target = scope
+        self.node_target = None
+        self.raw_target = literalTarget
+        self.external = None
+        
+    def resolveLocal(self,symbolsTable):
+        self.module = symbolsTable.resolveScope(self.target)
+        if self.module is None:
+            self.errorHandler.missingScope(self.target)
         self.external = self.module.id
+
+    def __repr__(self):
+        return "<Call> " + repr(self.target) + " [%d]"%self.raw_target

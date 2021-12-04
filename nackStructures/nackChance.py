@@ -11,15 +11,14 @@ class Chance(ErrorManaged):
     subfields = ["chance"]
 
     def __init__(self, percentage):
-        self.tag = "Stochastic Choice [%s]" % percentage
-        print(type(percentage))
+        self.tag = "Stochastic Choice [%s]" % str(percentage)
         self.chance = percentage
 
     def copy(self):
         return Chance(self.chance)
 
     def resolveLocal(self, symbolsTable):
-        self.chance.resoslveLocal(symbolsTable,"var")
+        self.chance.resolveLocal(symbolsTable,"var")
 
     def resolveCaller(self, namespace, assignments):
         self.chance.resolveCaller(namespace, assignments,"var")

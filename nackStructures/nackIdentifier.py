@@ -38,8 +38,8 @@ class IdClass():
         return self
     
     def __str__(self):
-        if self.raw_id is not None: return self.raw_id
-        return self.id
+        if self.raw_id is not None: return str(self.raw_id)
+        return str(self.id)
     
     def __repr__(self):
         status = "<ID> " + str(self.id)
@@ -163,10 +163,10 @@ class IdentifierScoped(IdClass, ErrorManaged):
         return nid
 
     def verifyEnum(self, enumManager):
-        return str(self.scope) == enumManager.scope and str(self.target) in enumManager
+        return str(self.scope) == enumManager.scope() and str(self.target) in enumManager
 
     def accessEnum(self, enumManager):
-        return enumManager[str(self.target)]
+        return enumManager[str(self.target)].getId()
     
     def __repr__(self):
         sol = self.scope + "." + self.target

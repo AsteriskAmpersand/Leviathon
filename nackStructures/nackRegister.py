@@ -6,24 +6,24 @@ Created on Thu Nov 25 04:42:16 2021
 """
 from errorHandler import ErrorManaged, copy
 
-
+        
 class Register():
     def resolveLocal(self, symbolsTable):
         pass
-
+        
     def resolveCaller(self, namespace, assignments, typing):
         pass
 
     def resolveTerminal(self, symbolsTable):
         pass
 
-    def resolveName(self, symbolsTable):
-        if hasattr(self, "raw_id"):
+    def resolveName(self, registerNamespace):
+        if self.raw_id is not None:
             return
-        self.raw_id = self.identifier.resolve(symbolsTable, "register")
+        self.raw_id = registerNamespace[self.identifier]
 
     def collectRegisters(self):
-        if hasattr(self, "raw_id"):
+        if self.raw_id is not None:
             return [self.raw_id]
         else:
             return [str(self.identifier)]
@@ -39,6 +39,7 @@ class RegisterID(Register, ErrorManaged):
     def __init__(self, id):
         self.tag = "Register ID [%s]" % (id)
         self.identifier = id
+        self.raw_id = None 
 
     def copy(self):
         return RegisterID(copy(self.identifier))
@@ -60,13 +61,13 @@ class RegisterLiteral(Register, ErrorManaged):
 class RegisterOp():
     typing = "register"
 
-    def resolveImmediateId(self, varNames):
+    def resolveLocal(self, varNames):
         pass
 
     def resolveCaller(self, namespace, assignments, typing):
         pass
 
-    def resolveTerminalId(self, symbolsTable):
+    def resolveTerminal(self, symbolsTable):
         pass
 
     def resolveName(self, namespace):
@@ -107,7 +108,9 @@ class RegisterComparison(RegisterOp, ErrorManaged):
         self.resolveNames("resolveTerminal",symbolsTable)
 
     def resolveProperties(self, storage):
-        storage("functionType", 0x94+self.base.getRaw())
+        if self.base.raw_id is None:
+            self.errorHandler.unresolvedIdentifier(str(self.base))
+        storage("functionType", 0x94+self.base.raw_id)
         storage("parameter1", regComps[self.comparison])
         storage("parameter2", self.target.getRaw())
 
@@ -132,13 +135,12 @@ class RegisterUnaryOp(RegisterOp, ErrorManaged):
         return RegisterUnaryOp(copy(self.base), copy(self.operator))
 
     def resolveProperties(self, storage):
-        if not hasattr(self.base, "raw_id"):
+        if self.base.raw_id is None:
             self.errorHandler.unresolvedIdentifier(str(self.base))
         else:
             storage("functionType", 0x94+self.base.raw_id)
             storage("parameter1", unaryOps[self.operator])
 
     def __repr__(self):
-        return "<RegComp> %s %s %s"%tuple(map(repr,(self.base,
-                                                    self.comparison,
-                                                    self.target)))
+        return "<RegComp> %s %s"%tuple(map(repr,(self.base,
+                                                    self.operator,)))

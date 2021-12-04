@@ -93,4 +93,4 @@ if __name__ in "__main__":
     settings.compiler.thklistPath = r"test.thklist"
     settings.compiler.outputRoot = r"D:\Games SSD\MHW-AI-Analysis\TestOutput"
     populateDefaultSettings(settings)
-    fandCompile(r"D:\Games SSD\MHW-AI-Analysis\InlineTest\em001.fand",settings)
+    fandCompile(r"D:\Games SSD\MHW-AI-Analysis\RathianTest\em001.fand",settings)

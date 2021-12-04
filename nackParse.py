@@ -312,8 +312,10 @@ class NackParser(Parser):
         s.endChance()
         return s
     
-    @_('CHANCE "(" numeric ")"',
-       'CHANCE "(" id ")"')
+    @_('CHANCE "(" numeric ")"')
+    def chanceHeader(self,p):
+        return abc.ChanceHead(p[2])
+    @_('CHANCE "(" id ")"')
     def chanceHeader(self,p):
         return abc.ChanceHead(p[2])
     
@@ -576,7 +578,7 @@ class NackParser(Parser):
         return abc.ScopedCallID(abc.IdentifierScoped(p[0].id,p[2].id))
     @_('id "." CALL')
     def callName(self,p):
-        return abc.ScopedCall(p[0],p[2])
+        return abc.ScopedCall(p[0].id,p[2])
     
     @_('id')
     def callName(self,p):
@@ -630,7 +632,7 @@ class NackParser(Parser):
     
     @_('id')
     def regRef(self,p):
-        return abc.RegisterID(p[0])
+        return abc.RegisterID(p[0].id)
     @_('REG')
     def regRef(self,p):
         return abc.RegisterLiteral(p.REG)
@@ -697,6 +699,7 @@ def node_040
 	return 
 endf 
     """
+    data = """self.target.helpless_0()"""
     lexer = NackLexer()
     tokenized = list(lexer.tokenize(data))
     parser = NackParser()

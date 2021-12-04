@@ -738,16 +738,16 @@ class SegmentDecompiler(Decompiler):
 if __name__ in "__main__":
     inputThk = 55
     chunk = r"D:\Games SSD\MHW\chunk"
-    folder = r"\em\em024\00\data"
-    file = folder + r"\em024_%02d.thk"%inputThk
+    folder = r"\em\em001\00\data"
+    file = folder + r"\em001_%02d.thk"%inputThk
     inputStr = chunk + file
     ts = TranspilerSettings()
     #ts.decompiler.forceIndex = True
     #ts.decompiler.forceId = True
     ts.decompiler.keepVoid = True
     ts.decompiler.verbose = True
-    ts.decompiler.outputPath = r"D:\Games SSD\MHW-AI-Analysis\KushalaTest"
-    ts.decompiler.statisticsOutputPath = r"D:\Games SSD\MHW-AI-Analysis\KushalaTest"
+    ts.decompiler.outputPath = r"D:\Games SSD\MHW-AI-Analysis\RathianTest"
+    ts.decompiler.statisticsOutputPath = r"D:\Games SSD\MHW-AI-Analysis\RathianTest"
     thkf = THKDecompiler(ts)
     thkf.read(file,inputStr,inputThk)
     with open(inputStr.replace(".thk",".nack").replace(

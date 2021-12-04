@@ -125,9 +125,10 @@ class FandStructure(ErrorManaged):
             registerNames = registerNames.union(module.collectRegisters())
         return registerNames
     def resolveRegisters(self):
-        registerNames = self.collectRegisters()
-        indexedRegisters = [r for r in registerNames if r is int]
-        namedRegisters = [r for r in registerNames if r is str and r not in self.registerNames]
+        registerNames = list(sorted(self.collectRegisters()))
+        indexedRegisters = [r for r in registerNames if type(r) is int]
+        namedRegisters = [r for r in registerNames if type(r) is str and 
+                          not (r in self.registerNames and self.registerNames[r] is not None)]
         for v in self.registerNames.values():
             if v is not None:
                 indexedRegisters.append(v)

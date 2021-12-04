@@ -23,6 +23,8 @@ class EntityData():
             return self.scopeName+"."+self.actionToName[actionIndex]
         else:
             return "%s#%02X"%(key.ACTION, actionIndex)
+    def getId(self):
+        return self.gameID
     
 class EntityManager():
     kindmap = {"em":"Monster","ems":"Small Monster","otomo":"Otomo"}

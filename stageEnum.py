@@ -15,27 +15,29 @@ class StageData():
         self.index = int(index)
         self.name = name
         self.abbreviation = abbreviate(name)
+    def getId(self):
+        return self.index
 
 stageTuple = regex.compile("(\d+),(.*)")
 
 class StageManager(dict):
     def __init__(self):
-        self.idToName = {}
-        self.nameToId = {}
-        self.abbreviateToId = {}
+        self.byID = {}
+        self.byName = {}
+        self.byAbbreviation = {}
     def append(self,entity):
-        self.idToName[entity.index] = entity.name
-        self.nameToId[entity.name] = entity.index
-        self.abbreviateToId[abbreviate(entity.name)] = entity.index
+        self.byID[entity.index] = entity
+        self.byName[entity.name] = entity
+        self.byAbbreviation[abbreviate(entity.name)] = entity
     def __contains__(self,key):
-        return key in self.idToName or key in self.nameToId
+        return key in self.byID or key in self.byName
     def __getitem__(self,key):
-        if key in self.idToName: return self.idToName[key]
-        if key in self.nameToId: return self.nameToId[key]
-        if key in self.abbreviateToId: return self.abbreviateToId[key]
+        if key in self.byID: return self.byID[key]
+        if key in self.byName: return self.byName[key]
+        if key in self.byAbbreviation: return self.byAbbreviation[key]
         raise KeyError
     def getName(self,key):
-        return self.idToName[key]
+        return self.byID[key].name
     def scope(self):
         return "st"
     
