@@ -33,6 +33,10 @@ def generateArgParse():
                         help='Use Direct Reference to Foreign Imports instead of inlining')
     parser.add_argument('-inlineGlobal', action="store_true",
                         help='Inline Global Functions')
+    parser.add_argument('-projectNames', type=str, default='index',
+                        choices=["function","nackfile","index"])
+    #parser.add_argument('-deduplicate', action="store_true",
+    #                    help='Export each scope as a separate file')
     
     parser.add_argument('-preprocessor', type=bool, default = False,
                         help='[Non-Standard] Run the macro prepropcessor')
@@ -45,9 +49,9 @@ def generateArgParse():
                         help='Error level for repeated properties [Warning,Error,CriticalError]')
 
 
-    parser.add_argument('-outputName', type=str,  default = "em000",
+    parser.add_argument('-outputName', type=str,  default = "em000.thklst",
                         help='Output THKList Name')
-    parser.add_argument('-outputRoot', type=str, default = "",
+    parser.add_argument('-outputRoot', type=str, default = None,
                         help='Output Folder')
     return parser
 
@@ -57,10 +61,11 @@ def buildSettings(args):
                      "monLib":"entityMap" , 
                      "fexty": "functionResolver" , 'thkNames':"thkMap", 
                      "directForeign":"inlineForeign", "inlineGlobal":"foreignGlobal" ,
+                     "projectNames":"projectNames",#"deduplicate":"deduplicateModules",
                      "preprocessor":"preprocessor" , 
                      "forceCritical":"forceCritical" , "forceError":"forceError" ,
                      "repeatedProperty": 'repeatedProperty', 
-                     "outputName":"thklistPath" , "outputRoot":"outputRoot"                     
+                     "outputName":"thklistPath" , "outputRoot":"outputRoot",
                      }
     for setting in settingsRemap:
         setattr(settings,settingsRemap[setting],getattr(args,setting))
@@ -74,7 +79,7 @@ def pickCompiler(inputFile,settings):
     comp = compilers[extension]
     return comp
 
-def populateSettings(settings):
+def populateSettings(settings,inputF):
     if settings.entityMap is None:
         actionResolver = loadActionMaps()
     else:
@@ -89,13 +94,16 @@ def populateSettings(settings):
         settings.thkMap = loadTHKMaps().moduleToThk
     else:
         settings.thkMap = loadTHKMaps(settings.thkMap).moduleToThk
+    if settings.outputRoot is None:
+        settings.outputRoot = Path(inputF).parent/"compiled"
+    settings.outputRoot.mkdir(parents=True, exist_ok=True)
 
 def main(arglist):
     parser = generateArgParse()    
     args = parser.parse_args(arglist)
     args.input = args.input[0]
     settings = buildSettings(args)
-    populateSettings(settings)
+    populateSettings(settings,args.input)
     compiler = pickCompiler(args.input,settings)
     compiler(args.input,settings)
     

@@ -52,5 +52,5 @@ def main(arglist):
     mode(arglist)
     
 if __name__ in "__main__":
-    #main(["D:\Games SSD\MHW-AI-Analysis\InlineTest\em001.fand", "-verbose"])
+    main(["D:\Games SSD\MHW-AI-Analysis\InlineTest\em001.fand", "-verbose"])
     main(sys.argv[1:])

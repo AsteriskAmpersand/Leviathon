@@ -163,12 +163,12 @@ class FandParser(Parser):
     @_('ASSIGN maybeSpecifier skip body')
     def body(self,p):
         self.file.scopeNames[p.ASSIGN[0]] = p.ASSIGN[1]
-        self.file.unindexedTargets.append((p.ASSIGN[1],p.maybeSpecifier))
+        self.file.unindexedTargets[p.ASSIGN[0]] = (p.ASSIGN[0],p.ASSIGN[1],p.maybeSpecifier)
         return
     @_('ASSIGN INDEXER maybeSpecifier skip body')
     def body(self,p):
         self.file.scopeNames[p.ASSIGN[0]] = p.ASSIGN[1]
-        self.file.indexedTargets[p.INDEXER] = (p.ASSIGN[1],p.maybeSpecifier)    
+        self.file.indexedTargets[p.INDEXER] = (p.ASSIGN[0],p.ASSIGN[1],p.maybeSpecifier)    
         return
     
     @_('REGISTER REGISTER_ALIAS')

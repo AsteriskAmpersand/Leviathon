@@ -9,6 +9,8 @@ class CompilerSettings():
         self.thkMap = None
         self.inlineForeign = True
         self.foreignGlobal = False
+        self.projectNames = "index"
+        #self.deduplicateModules = False
         
         self.preprocessor = False
         

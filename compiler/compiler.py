@@ -12,6 +12,10 @@ from compiler.fandLexParse import parseFand
 from compiler.errorHandler import ErrorHandler
 
 from common.actionEnum import loadTHKMaps
+from common.fexLayer import buildCompiler
+from common.actionEnum import loadActionMaps
+from common.monsterEnum import loadEntities
+
 
 # class FandStructure():
 #     def __init__(self):
@@ -29,6 +33,16 @@ from common.actionEnum import loadTHKMaps
 #incompleteSpecification()
 #thkMap
 def populateDefaultSettings(settings):
+    if settings.entityMap is None:
+        actionResolver = loadActionMaps()
+    else:
+        actionResolver = loadActionMaps(settings.entityMap)
+    entityResolver = loadEntities(actionResolver)
+    settings.entityMap = entityResolver
+    if settings.functionResolver is None:
+        settings.functionResolver = buildCompiler().resolve    
+    else:
+        settings.functionResolver = buildCompiler(settings.functionResolver).resolve        
     if settings.thkMap is None:
         settings.thkMap = loadTHKMaps().moduleToThk
 
@@ -84,4 +98,4 @@ if __name__ in "__main__":
     settings.thklistPath = r"test.thklist"
     settings.outputRoot = r"D:\Games SSD\MHW-AI-Analysis\TestOutput"
     populateDefaultSettings(settings)
-    fandCompile(r"D:\Games SSD\MHW-AI-Analysis\RathianTest\em001.fand",settings)
+    fandCompile(r"D:\Games SSD\MHW-AI-Analysis\InlineTest\em001.fand",settings)
