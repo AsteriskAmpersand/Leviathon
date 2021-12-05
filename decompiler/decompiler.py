@@ -98,7 +98,7 @@ class THKLDecompiler(Decompiler):
         result = ""
         if self.location:
             result += (thklSpec.chunk_str%self.location) + "\n"
-        if self.folder:
+        if self.folder is not None:
             result += (thklSpec.filepath_str%self.folder) + "\n"
         if self.monster:
             result += thklSpec.monster_str % self.monster + "\n"

@@ -687,19 +687,8 @@ def moduleParse(path,thkmap,scope,settings,parent = None,external = False):
     return THKModule(path,thkmap,scope,settings,parent = parent,external = external)
 
 if __name__ == '__main__':
-    with open(r"D:\Games SSD\MHW-AI-Analysis\RathianTest\em001_55.nack") as inf:
+    with open(r"D:\Games SSD\MHW-AI-Analysis\Leviathon\tests\ingameFiles\em007_00_data\em007_36.nack") as inf:
         data = inf.read()
-    data2 = """
-def node_040
-	if function#AB() 
-		function#AA() 
-		>> node_039 
-	else 
-	endif 
-	return 
-endf 
-    """
-    data = """self.target.helpless_0()"""
     lexer = NackLexer()
     tokenized = list(lexer.tokenize(data))
     parser = NackParser()

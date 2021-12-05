@@ -213,7 +213,7 @@ def parseFand(file):
     
 
 if __name__ in "__main__":
-    with open(r"D:\Games SSD\MHW-AI-Analysis\ZorahTest\em106.fand") as inf:
+    with open(r"D:\Games SSD\MHW-AI-Analysis\Leviathon\tests\ingameFiles\ems062_02_data\ems062.fand") as inf:
         data = inf.read()
     lexer = FandLexer()
     tokenized = list(lexer.tokenize(data))
