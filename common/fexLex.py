@@ -9,7 +9,7 @@ Created on Fri Oct  8 17:44:24 2021
 
 from sly import Lexer
 from sly.lex import Token
-from Leviathon.common.thk import Segment
+from common.thk import Segment
 
 
 class FexLexer(Lexer):

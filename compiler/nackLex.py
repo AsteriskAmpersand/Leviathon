@@ -6,7 +6,7 @@ Created on Sun Oct 10 19:11:45 2021
 """
 from sly import Lexer
 import regex
-import Leviathon.common.keywords as key
+import common.keywords as key
 
 def slyRegex(pattern, *extra):
     patterns = [pattern, *extra]

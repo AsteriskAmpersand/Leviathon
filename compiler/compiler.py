@@ -7,11 +7,11 @@ Created on Sun Oct 31 01:45:42 2021
 
 from pathlib import Path
 
-from Leviathon.compiler.compilerSettings import CompilerSettings
-from Leviathon.compiler.fandLexParse import parseFand
-from Leviathon.compiler.errorHandler import ErrorHandler
+from compiler.compilerSettings import CompilerSettings
+from compiler.fandLexParse import parseFand
+from compiler.errorHandler import ErrorHandler
 
-from Leviathon.common.actionEnum import loadTHKMaps
+from common.actionEnum import loadTHKMaps
 
 # class FandStructure():
 #     def __init__(self):
@@ -72,8 +72,10 @@ def fandCompile(fand,settings,output = print):
         wrapCall(project.compileProperties())
         wrapCall(project.serialize(Path(settings.outputRoot)))
         report("Project Compilation Complete")
-    except:
+    except CompilationError:
         pass
+    except:
+        raise
     return
     
 if __name__ in "__main__":

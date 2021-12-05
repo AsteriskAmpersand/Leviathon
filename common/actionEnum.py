@@ -7,7 +7,7 @@ Created on Mon Sep 20 03:41:45 2021
 
 import regex
 from pathlib import Path
-from Leviathon.common.monsterEnum import loadEntities
+from common.monsterEnum import loadEntities
 
 import os
 from pathlib import Path
@@ -60,12 +60,12 @@ class THKContextResolver():
         else:
             return "THK_%02d"%key
 
-def loadTHKMaps():
+def loadTHKMaps(mappingFile = currentFile/"thkIndices.txt"):
     pattern = r"\s*([0-9]+)\s*([^\s]+)"
     thkMapping = regex.compile(pattern)
     thkMap = {}
     thkUnMap = {}
-    with open(currentFile/"thkIndices.txt") as inf:
+    with open(mappingFile) as inf:
         for line in inf:
             match = thkMapping.match(line)
             if match:

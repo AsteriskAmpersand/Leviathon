@@ -7,15 +7,15 @@ Created on Mon Oct 11 18:25:32 2021
 from pathlib import Path
 from collections import Counter
 
-from Leviathon.common.thk import Thk, Node, Segment, Header 
-from Leviathon.common.thklist import ThkList
-from Leviathon.common.fexLayer import buildResolver
-from Leviathon.common.actionEnum import loadActionMaps,loadTHKMaps
-from Leviathon.common.monsterEnum import loadEntities
-from Leviathon.common import keywords as key
-from Leviathon.common import thklSpecStr as thklSpec
-from Leviathon.decompiler.codeAnalysis import THKProject, rootMatch, cojoinedMatching
-from Leviathon.decompiler.decompilerSettings import DecompilerSettings
+from common.thk import Thk, Node, Segment, Header 
+from common.thklist import ThkList
+from common.fexLayer import buildResolver
+from common.actionEnum import loadActionMaps,loadTHKMaps
+from common.monsterEnum import loadEntities
+from common import keywords as key
+from common import thklSpecStr as thklSpec
+from decompiler.codeAnalysis import THKProject, rootMatch, cojoinedMatching
+from decompiler.decompilerSettings import DecompilerSettings
 #Decompilation
 
 #Load THKL

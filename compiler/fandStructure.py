@@ -5,11 +5,11 @@ Created on Sun Oct 31 03:02:28 2021
 @author: Asterisk
 """
 
-from Leviathon.compiler.nackParse import moduleParse
-from Leviathon.compiler.nackStructures import ActionTarget
-from Leviathon.compiler.errorHandler import ErrorManaged
-from Leviathon.compiler.compilerUtils import Autonumber
-from Leviathon.common import thklist
+from compiler.nackParse import moduleParse
+from compiler.nackStructures import ActionTarget
+from compiler.errorHandler import ErrorManaged
+from compiler.compilerUtils import Autonumber
+from common import thklist
 
 from pathlib import Path
 import networkx as nx

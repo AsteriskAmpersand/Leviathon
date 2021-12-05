@@ -8,7 +8,7 @@ import regex
 import os
 from dataclasses import dataclass
 from pathlib import Path
-import Leviathon.common.keywords as key
+import common.keywords as key
 
 if "__file__" in locals():
     currentFile = Path(os.path.realpath(__file__)).parent

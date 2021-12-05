@@ -1,4 +1,4 @@
-import Leviathon.compiler.fandLexParse as fl
+import compiler.fandLexParse as fl
 
 location_str = f"""{fl.T_ROOT} %s
 {fl.T_MONSTER} %s

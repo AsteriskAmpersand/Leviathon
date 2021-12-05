@@ -4,16 +4,16 @@ Created on Thu Nov 25 04:52:08 2021
 
 @author: Asterisk
 """
-import Leviathon.common.thk as thk
+import common.thk as thk
 
-from Leviathon.common.actionEnum import parseActionFile
-from Leviathon.compiler.signatures import compilerSignature
-from Leviathon.compiler.errorHandler import ErrorManaged,copy
+from common.actionEnum import parseActionFile
+from compiler.signatures import compilerSignature
+from compiler.errorHandler import ErrorManaged,copy
 
-from Leviathon.compiler.nackStructures.nackIdentifier import Identifier
-from Leviathon.compiler.nackStructures.nackNode import NodeHeader,Node
-from Leviathon.compiler.nackStructures.nackSegment import Segment
-from Leviathon.compiler.compilerUtils import Autonumber
+from compiler.nackStructures.nackIdentifier import Identifier
+from compiler.nackStructures.nackNode import NodeHeader,Node
+from compiler.nackStructures.nackSegment import Segment
+from compiler.compilerUtils import Autonumber
 
 from pathlib import Path
 from collections import defaultdict

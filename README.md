@@ -43,6 +43,8 @@ Additional credit is given to Fandirus, NackDN, Silvris and Fexty for assisting 
 # The ABC Reference Compiler-Decompiler
 <img src="https://github.com/AsteriskAmpersand/Leviathon/blob/main/CompilerLogo.fw.png?raw=true" alt="Compiler Logot" width=450>
 
-A reference Compiler-Decompiler which implements the Leviathon Specification is provided for actual practical usage. At the time only decompilation is implemented.
+A reference Compiler-Decompiler which implements the Leviathon Specification is provided for actual practical usage. 
 
 The decompiler is written in Python using the Construct library for binary parsing. 
+
+

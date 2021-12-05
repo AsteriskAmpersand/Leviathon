@@ -4,8 +4,8 @@ Created on Thu Nov 25 04:46:27 2021
 
 @author: Asterisk
 """
-from Leviathon.compiler.errorHandler import ErrorManaged, copy
-import Leviathon.common.thk as thk
+from compiler.errorHandler import ErrorManaged, copy
+import common.thk as thk
 
 
 class TypeNub(ErrorManaged):

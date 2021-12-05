@@ -4,10 +4,10 @@ Created on Tue Oct 12 03:03:27 2021
 
 @author: Asterisk
 """
-from Leviathon.common.fexParse import buildParser
-from Leviathon.common.stageEnum import loadStages
-from Leviathon.common.monsterEnum import loadEntities
-import Leviathon.common.keywords as keyw
+from common.fexParse import buildParser
+from common.stageEnum import loadStages
+from common.monsterEnum import loadEntities
+import common.keywords as keyw
 
 import struct
 from collections import defaultdict

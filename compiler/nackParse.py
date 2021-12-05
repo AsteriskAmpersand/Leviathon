@@ -12,10 +12,10 @@ import logging
 import itertools
 import re
 
-from Leviathon.compiler.nackLex import NackLexer
-from Leviathon.compiler import nackStructures as abc
-from Leviathon.compiler.errorHandler import ErrorManaged
-from Leviathon.compiler.compilerErrors import SemanticError
+from compiler.nackLex import NackLexer
+from compiler import nackStructures as abc
+from compiler.errorHandler import ErrorManaged
+from compiler.compilerErrors import SemanticError
 
 
 

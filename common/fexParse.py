@@ -10,9 +10,9 @@ import logging
 from collections import deque
 import struct
 
-from Leviathon.common.fexLex import FexLexer,preproc
-from Leviathon.common.stageEnum import loadStages
-from Leviathon.common.monsterEnum import loadEntities
+from common.fexLex import FexLexer,preproc
+from common.stageEnum import loadStages
+from common.monsterEnum import loadEntities
 
 st_enum = loadStages()
 em_enum = loadEntities()

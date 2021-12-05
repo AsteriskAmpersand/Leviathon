@@ -4,7 +4,7 @@ Created on Thu Nov 25 04:45:36 2021
 
 @author: Asterisk
 """
-from Leviathon.compiler.errorHandler import ErrorManaged, copy
+from compiler.errorHandler import ErrorManaged, copy
 
 # if not hasattr(self.id, "raw_id"):
 #    self.errorHandler.unresolvedIdentifier(self.id)

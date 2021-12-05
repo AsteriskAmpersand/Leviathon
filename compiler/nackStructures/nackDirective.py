@@ -4,7 +4,7 @@ Created on Thu Nov 25 04:45:06 2021
 
 @author: Asterisk
 """
-from Leviathon.compiler.errorHandler import ErrorManaged,copy
+from compiler.errorHandler import ErrorManaged,copy
 
 fDirectiveMap = {"return":0x8,"repeat":0x4,"reset":0x80}
 bDirectiveMap = {v:k for k,v in fDirectiveMap.items()}

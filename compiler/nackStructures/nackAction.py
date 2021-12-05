@@ -5,7 +5,7 @@ Created on Thu Nov 25 04:36:58 2021
 @author: Asterisk
 """
 
-from Leviathon.compiler.errorHandler import ErrorManaged, copy
+from compiler.errorHandler import ErrorManaged, copy
 
 
 class Action(ErrorManaged):

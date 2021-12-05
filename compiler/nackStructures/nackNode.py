@@ -4,7 +4,7 @@ Created on Fri Oct 29 12:23:10 2021
 
 @author: Asterisk
 """
-from Leviathon.compiler.errorHandler import ErrorManaged,copy
+from compiler.errorHandler import ErrorManaged,copy
     
 class Node(ErrorManaged):
     subfields = ["segments","header"]

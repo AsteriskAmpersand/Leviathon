@@ -9,11 +9,11 @@ from collections import Counter
 import regex
 import networkx as nx
 
-from Leviathon.common.thk import Thk
-from Leviathon.common.thklist import ThkList
-from Leviathon.common import thklSpecStr as thklStr
+from common.thk import Thk
+from common.thklist import ThkList
+from common import thklSpecStr as thklStr
 
-from Leviathon.common import actionEnum as ae
+from common import actionEnum as ae
 
 #Code Analysis
 #Make a directed graph of the entire folder of thk

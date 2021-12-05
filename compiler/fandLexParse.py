@@ -9,7 +9,7 @@ Created on Fri Oct 22 21:00:01 2021
 import logging
 import regex as re
 from sly import Lexer,Parser
-from Leviathon.compiler.fandStructure import FandStructure
+from compiler.fandStructure import FandStructure
 
 T_COMMENTS = r'//.*'
 T_ROOT = "at"
