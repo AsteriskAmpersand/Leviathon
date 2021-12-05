@@ -1,6 +1,6 @@
 importactions Glavenus as glavenus
 
-def node_000
+def node_000 : 1
 	self.targetEnemy(target_em.closest_entity) 
 	if self.target_is(em.Rathalos) 
 		>> node_001 
@@ -26,7 +26,7 @@ def node_000
 	conclude 
 endf 
 
-def node_001
+def node_001 : 2
 	if self.distance_2d_to_target().gt(1900) 
 		-> glavenus.dash(6,0,0,1800) 
 	endif 
@@ -39,7 +39,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 3
 	if self.distance_2d_to_target().gt(1800) 
 		-> glavenus.dash(6,0,0,1770) 
 	endif 
@@ -53,7 +53,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 4
 	if self.distance_2d_to_target().gt(1600) 
 		-> glavenus.dash(6,0,0,1500) 
 	endif 
@@ -61,7 +61,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 5
 	if self.distance_3d_to_target().gt(1600) 
 		-> glavenus.dash(1,0,0,1500) 
 	endif 
@@ -69,7 +69,7 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 6
 	if self.distance_2d_to_target().gt(1600) 
 		-> glavenus.dash(6,0,0,1500) 
 	endif 

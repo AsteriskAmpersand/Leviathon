@@ -1,14 +1,14 @@
 importactions Alatreon as alatreon
 importlibrary Global as Global
 
-def node_000
+def node_000 : 7
 	>> node_001 
 	>> node_002 
 	>> node_003 
 	reset 
 endf 
 
-def node_001
+def node_001 : 90
 	if [RegisterVar11 < 0] 
 		[RegisterVar11 |-] 
 		>> Global.node_258 
@@ -17,7 +17,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 85
 	[RegisterVar10 |-] 
 	random (35) 
 				self.targetEnemy(50) 
@@ -27,7 +27,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 88
 	>> Global.node_195 
 	>> Global.node_359 
 	>> Global.node_202 
@@ -42,7 +42,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 86
 	if [RegisterVar10 < 0] 
 		[RegisterVar10 |-] 
 	else 

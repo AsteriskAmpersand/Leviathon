@@ -1,6 +1,6 @@
 importactions Raging_Brachydios as raging_brachydios
 
-def node_000
+def node_000 : 1
 	self.targetEnemy(target_em.closest_entity) 
 	if self.target_is(em.Zinogre) 
 		>> node_001 
@@ -20,7 +20,7 @@ def node_000
 	conclude 
 endf 
 
-def node_001
+def node_001 : 3
 	if self.distance_3d_to_target().gt(1600) 
 		-> raging_brachydios.dash(1,0,0,1500) 
 	endif 
@@ -28,7 +28,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 4
 	if self.distance_3d_to_target().gt(1500) 
 		-> raging_brachydios.dash(1,0,0,1450) 
 	else 
@@ -37,7 +37,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 5
 	if self.distance_3d_to_target().gt(1600) 
 		-> raging_brachydios.dash(1,0,0,1500) 
 	endif 
@@ -45,7 +45,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 6
 	if self.distance_2d_to_target().gt(1900) 
 		-> raging_brachydios.dash() 
 	else 

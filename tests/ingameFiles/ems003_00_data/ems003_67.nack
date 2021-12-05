@@ -1,6 +1,6 @@
 importactions Kelbi as kelbi
 
-def node_000
+def node_000 : 20
 	>> node_030 
 	if [RegisterVar0 <= 1] 
 		>> node_002 
@@ -12,10 +12,10 @@ def node_000
 	reset 
 endf 
 
-def node_001
+def node_001 : 56
 endf 
 
-def node_002
+def node_002 : 25
 	self.targetUnknown(48,0) 
 	if self.target(20) 
 		self.targetUnknown(0,0) 
@@ -29,7 +29,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 37
 	function#DD(600) 
 	function#DE(2500) 
 	function#E2(2) 
@@ -40,7 +40,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 53
 	function#DD(600) 
 	function#DE(5000) 
 	function#E2(2) 
@@ -52,7 +52,7 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 47
 	function#E2() 
 	function#EC(3) 
 	if function#D2(11) 
@@ -62,7 +62,7 @@ def node_005
 	return 
 endf 
 
-def node_006
+def node_006 : 38
 	>> node_030 
 	>> node_036 
 	if self.distance_3d_to_target().leq(300) 
@@ -77,7 +77,7 @@ def node_006
 	return 
 endf 
 
-def node_007
+def node_007 : 48
 	>> node_030 
 	>> node_041 
 	if self.distance_3d_to_target().leq(300) 
@@ -90,23 +90,23 @@ def node_007
 	return 
 endf 
 
-def node_008
+def node_008 : 64
 	>> node_050 
 	return 
 endf 
 
-def node_009
+def node_009 : 65
 	>> node_034 
 	>> node_056 
 	return 
 endf 
 
-def node_010
+def node_010 : 66
 	>> node_051 
 	return 
 endf 
 
-def node_011
+def node_011 : 42
 	if [RegisterVar5 > 1] 
 		random (2) >> node_016 
 		elser (4) >> node_017 
@@ -117,7 +117,7 @@ def node_011
 	return 
 endf 
 
-def node_012
+def node_012 : 51
 	if [RegisterVar5 < 0] 
 		>> node_015 
 	elif function#3C(1) 
@@ -128,7 +128,7 @@ def node_012
 	return 
 endf 
 
-def node_013
+def node_013 : 68
 	random (5) >> node_017 
 	elser (20) >> node_021 
 	elser (5) >> node_016 
@@ -137,7 +137,7 @@ def node_013
 	return 
 endf 
 
-def node_014
+def node_014 : 69
 	random (5) >> node_017 
 	elser (5) >> node_018 
 	elser (5) >> node_016 
@@ -146,63 +146,63 @@ def node_014
 	return 
 endf 
 
-def node_015
+def node_015 : 41
 	random (75) >> node_020 
 	elser (25) >> node_019 
 	endr 
 	return 
 endf 
 
-def node_016
+def node_016 : 43
 	>> node_033 
 	>> node_053 
 	[RegisterVar5 ++] 
 	return 
 endf 
 
-def node_017
+def node_017 : 44
 	>> node_033 
 	>> node_055 
 	[RegisterVar5 ++] 
 	return 
 endf 
 
-def node_018
+def node_018 : 45
 	>> node_033 
 	>> node_054 
 	[RegisterVar5 ++] 
 	return 
 endf 
 
-def node_019
+def node_019 : 46
 	>> node_033 
 	>> node_059 
 	return 
 endf 
 
-def node_020
+def node_020 : 50
 	>> node_033 
 	>> node_057 
 	return 
 endf 
 
-def node_021
+def node_021 : 52
 	>> node_033 
 	>> node_058 
 	return 
 endf 
 
-def node_022
+def node_022 : 57
 endf 
 
-def node_023
+def node_023 : 34
 	>> node_030 
 	>> node_024 
 	>> node_026 
 	reset 
 endf 
 
-def node_024
+def node_024 : 35
 	function#DE(3000) 
 	function#E2(2) 
 	function#EA(3) 
@@ -213,7 +213,7 @@ def node_024
 	return 
 endf 
 
-def node_025
+def node_025 : 55
 	function#E2() 
 	if function#D2(4) 
 	else 
@@ -226,7 +226,7 @@ def node_025
 	return 
 endf 
 
-def node_026
+def node_026 : 18
 	>> node_030 
 	>> node_036 
 	if self.distance_3d_to_target().leq(150) 
@@ -241,28 +241,28 @@ def node_026
 	return 
 endf 
 
-def node_027
+def node_027 : 70
 endf 
 
-def node_028
+def node_028 : 36
 	>> node_047 
 	reset 
 endf 
 
-def node_029
+def node_029 : 61
 endf 
 
-def node_030
+def node_030 : 62
 	if function#FA() 
 		>> node_047 
 	endif 
 	return 
 endf 
 
-def node_031
+def node_031 : 59
 endf 
 
-def node_032
+def node_032 : 21
 	if function#46() @ unknExtra2:1 
 		>> node_048 
 		function#DA() 
@@ -272,29 +272,29 @@ def node_032
 	reset 
 endf 
 
-def node_033
+def node_033 : 39
 	if function#45() 
 		>> node_062 
 	endif 
 	return 
 endf 
 
-def node_034
+def node_034 : 49
 	if function#45() 
 		>> node_063 
 	endif 
 	return 
 endf 
 
-def node_035
+def node_035 : 71
 endf 
 
-def node_036
+def node_036 : 72
 	>> node_037 
 	return 
 endf 
 
-def node_037
+def node_037 : 73
 	function#DE(3500) 
 	function#EB(2000) 
 	function#DF(80) 
@@ -305,14 +305,14 @@ def node_037
 	return 
 endf 
 
-def node_038
+def node_038 : 74
 	if function#D8() 
 		>> node_039 
 	endif 
 	return 
 endf 
 
-def node_039
+def node_039 : 75
 	>> node_033 
 	if self.angle_2d_ccw_between(90,0) 
 		>> node_064 
@@ -325,7 +325,7 @@ def node_039
 	return 
 endf 
 
-def node_040
+def node_040 : 82
 	if self.distance_3d_to_target().leq(3500) 
 		>> node_060 
 	else 
@@ -334,12 +334,12 @@ def node_040
 	return 
 endf 
 
-def node_041
+def node_041 : 81
 	>> node_042 
 	return 
 endf 
 
-def node_042
+def node_042 : 80
 	function#DE(3500) 
 	function#EB(2000) 
 	function#DF(80) 
@@ -350,14 +350,14 @@ def node_042
 	return 
 endf 
 
-def node_043
+def node_043 : 79
 	if function#D8() 
 		>> node_044 
 	endif 
 	return 
 endf 
 
-def node_044
+def node_044 : 78
 	>> node_034 
 	if self.angle_2d_ccw_between(90,0) 
 		>> node_064 
@@ -370,7 +370,7 @@ def node_044
 	return 
 endf 
 
-def node_045
+def node_045 : 83
 	if self.distance_3d_to_target().leq(3500) 
 		>> node_060 
 	else 
@@ -379,102 +379,102 @@ def node_045
 	return 
 endf 
 
-def node_046
+def node_046 : 67
 endf 
 
-def node_047
+def node_047 : 58
 	>> node_060 
 	return 
 endf 
 
-def node_048
+def node_048 : 63
 	>> node_061 
 	return 
 endf 
 
-def node_049
+def node_049 : 60
 endf 
 
-def node_050
+def node_050 : 5
 	-> action#08(2,1,0,300,300) 
 	>> node_032 
 	return 
 endf 
 
-def node_051
+def node_051 : 6
 	-> action#09(2,1,0,500,500) 
 	>> node_032 
 	return 
 endf 
 
-def node_052
+def node_052 : 8
 	-> action#0B(6,0,0,500) 
 	>> node_032 
 	return 
 endf 
 
-def node_053
+def node_053 : 1
 	-> action#02() 
 	return 
 endf 
 
-def node_054
+def node_054 : 2
 	-> action#03() 
 	return 
 endf 
 
-def node_055
+def node_055 : 3
 	-> action#04() 
 	return 
 endf 
 
-def node_056
+def node_056 : 4
 	-> action#06() 
 	return 
 endf 
 
-def node_057
+def node_057 : 11
 	-> action#1F() 
 	-> action#20() 
 	return 
 endf 
 
-def node_058
+def node_058 : 10
 	-> action#1D() 
 	return 
 endf 
 
-def node_059
+def node_059 : 12
 	-> action#25() 
 	return 
 endf 
 
-def node_060
+def node_060 : 13
 	-> action#26() 
 	return 
 endf 
 
-def node_061
+def node_061 : 14
 	-> action#27() 
 	return 
 endf 
 
-def node_062
+def node_062 : 40
 	-> action#28() 
 	return 
 endf 
 
-def node_063
+def node_063 : 9
 	-> action#0D() 
 	return 
 endf 
 
-def node_064
+def node_064 : 76
 	-> action#07() 
 	return 
 endf 
 
-def node_065
+def node_065 : 77
 	-> action#23() 
 	return 
 endf 

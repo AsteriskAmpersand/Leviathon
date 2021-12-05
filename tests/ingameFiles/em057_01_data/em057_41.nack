@@ -1,13 +1,13 @@
 importactions Stygian_Zinogre as stygian_zinogre
 
-def node_000
+def node_000 : 1
 	function#103() 
 	self.targetArea(20) 
 	>> node_001 
 	conclude 
 endf 
 
-def node_001
+def node_001 : 3
 	if self.distance_3d_to_target().gt(1000) 
 		-> stygian_zinogre.dash(2,1,0,3000,600) 
 		repeat 

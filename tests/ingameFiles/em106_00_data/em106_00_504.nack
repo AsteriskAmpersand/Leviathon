@@ -1,7 +1,7 @@
 importactions Zorah_Magdaros as zorah_magdaros
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	if function#106() 
 		if function#B0(1) 
 			function#105() 
@@ -36,7 +36,7 @@ def node_000
 	reset 
 endf 
 
-def node_001
+def node_001 : 36
 	if function#102() 
 		function#101() 
 		repeat 
@@ -60,7 +60,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 41
 	if function#102() 
 		function#104(3,6) 
 		>> node_003 
@@ -88,7 +88,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 42
 	if self.distance_2d_to_target().leq(3000) 
 		function#101() 
 		>> Global.node_034 
@@ -100,21 +100,21 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 50
 	-> zorah_magdaros.wait_long_4leg() 
 	-> zorah_magdaros.shake_4leg() 
 	-> zorah_magdaros.wait_long_4leg() 
 	return 
 endf 
 
-def node_005
+def node_005 : 43
 	-> zorah_magdaros.lava_cannon_4leg() 
 	function#108(1) 
 	-> zorah_magdaros.wait_short_4leg() 
 	return 
 endf 
 
-def node_006
+def node_006 : 19
 	function#104(3,1) 
 	if function#10B() 
 		function#105() 
@@ -129,7 +129,7 @@ def node_006
 	return 
 endf 
 
-def node_007
+def node_007 : 26
 	if function#102() 
 		>> Global.node_034 
 		function#101() 
@@ -168,7 +168,7 @@ def node_007
 	return 
 endf 
 
-def node_008
+def node_008 : 44
 	random (70) -> zorah_magdaros.wait_nav_const_2leg() 
 	elser (30) 
 	endr 
@@ -188,7 +188,7 @@ def node_008
 	return 
 endf 
 
-def node_009
+def node_009 : 53
 	if function#36(1,2350) 
 		-> zorah_magdaros.wait_item_drop_4leg() 
 		function#10C() 
@@ -198,7 +198,7 @@ def node_009
 	return 
 endf 
 
-def node_010
+def node_010 : 54
 	if function#36(1,2350) 
 		if function#10A(1) 
 			-> zorah_magdaros.wait_nav_const_2leg() 
@@ -213,7 +213,7 @@ def node_010
 	return 
 endf 
 
-def node_011
+def node_011 : 59
 	if function#102() 
 		>> Global.node_034 
 		function#101() 
@@ -250,7 +250,7 @@ def node_011
 	return 
 endf 
 
-def node_012
+def node_012 : 61
 	if [RegisterVar4 <= 4] 
 		function#101() 
 		-> zorah_magdaros.wait_nav_const_2leg() 
@@ -296,7 +296,7 @@ def node_012
 	return 
 endf 
 
-def node_013
+def node_013 : 62
 	self.targetUnknown(50,0) 
 	if self.distance_2d_to_target().leq(3500) 
 		random (50) -> zorah_magdaros.lava_back_breath_nav_const_2leg_l() 
@@ -312,7 +312,7 @@ def node_013
 	return 
 endf 
 
-def node_014
+def node_014 : 63
 	if self.hp_percent().gt(60) 
 		-> zorah_magdaros.wait_recovering_nav_const_2leg() 
 	else 
@@ -322,7 +322,7 @@ def node_014
 	return 
 endf 
 
-def node_015
+def node_015 : 45
 	if function#102() 
 		function#10C() 
 		>> node_027 
@@ -346,7 +346,7 @@ def node_015
 	return 
 endf 
 
-def node_016
+def node_016 : 22
 	>> Global.node_027 
 	function#104(3,2) 
 	if function#10B() 
@@ -360,7 +360,7 @@ def node_016
 	return 
 endf 
 
-def node_017
+def node_017 : 47
 	>> Global.node_028 
 	function#104(3,5) 
 	if function#10B() 
@@ -373,7 +373,7 @@ def node_017
 	return 
 endf 
 
-def node_018
+def node_018 : 46
 	function#104(3,8) 
 	>> Global.node_000 
 	random (0) 
@@ -390,7 +390,7 @@ def node_018
 	return 
 endf 
 
-def node_019
+def node_019 : 48
 	if [RegisterVar0 <= 4] 
 		[RegisterVar0 |-] 
 		>> node_023 
@@ -414,7 +414,7 @@ def node_019
 	return 
 endf 
 
-def node_020
+def node_020 : 65
 	if [RegisterVar0 == 0] 
 		>> node_023 
 		[RegisterVar0 ++] 
@@ -440,7 +440,7 @@ def node_020
 	return 
 endf 
 
-def node_021
+def node_021 : 56
 	self.targetUnknown(50,0) 
 	-> zorah_magdaros.chance_wait_short_2leg() 
 	if self.angle_2d_cw_between(45,320) 
@@ -451,7 +451,7 @@ def node_021
 	return 
 endf 
 
-def node_022
+def node_022 : 52
 	[RegisterVar2 ++] 
 	if [RegisterVar2 == 1] 
 		function#104(3,9) 
@@ -465,7 +465,7 @@ def node_022
 	return 
 endf 
 
-def node_023
+def node_023 : 51
 	[RegisterVar1 |-] 
 	if function#109() 
 		[RegisterVar1 ++] 
@@ -476,7 +476,7 @@ def node_023
 	return 
 endf 
 
-def node_024
+def node_024 : 49
 	if function#102() 
 		function#104(3,12) 
 		>> Global.node_003 
@@ -490,13 +490,13 @@ def node_024
 	return 
 endf 
 
-def node_025
+def node_025 : 55
 	function#104(3,12) 
 	-> zorah_magdaros.walk_no_navi_4leg(2,0,0,10000) 
 	return 
 endf 
 
-def node_026
+def node_026 : 57
 	if function#109() 
 	else 
 		function#103(1,1) 
@@ -505,7 +505,7 @@ def node_026
 	return 
 endf 
 
-def node_027
+def node_027 : 58
 	if [RegisterVar3 <= 1] 
 		function#103(1) 
 		[RegisterVar3 |-] 

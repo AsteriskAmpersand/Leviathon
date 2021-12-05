@@ -1,7 +1,7 @@
 importactions Deviljho as deviljho
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	>> Global.node_120 
 	>> Global.node_121 
 	if function#41() 
@@ -19,7 +19,7 @@ def node_000
 	reset 
 endf 
 
-def node_001
+def node_001 : 2
 	self.targetEnemy(48) 
 	if self.in_map(st.Challenge_Arena).in_area(-1) 
 		>> node_004 
@@ -31,7 +31,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 3
 	>> Global.node_015 
 	if self.fatigued() 
 		-> deviljho.tired() 
@@ -43,7 +43,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 4
 	if self.targetEnemy(target_em.any_monster) 
 		random (20) >> Global.node_012 
 		elser (80) 
@@ -59,7 +59,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 23
 	>> Global.node_012 
 	random (30) -> deviljho.wait() 
 	elser (25) -> deviljho.sniff_s() 

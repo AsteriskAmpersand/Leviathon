@@ -1,7 +1,7 @@
 importactions Diablos as diablos
 importlibrary Global as Global
 
-def node_000
+def node_000 : 12
 	>> Global.node_007 
 	self.targetEnemy(13) 
 	if self.target(4) 
@@ -20,7 +20,7 @@ def node_000
 	conclude 
 endf 
 
-def node_001
+def node_001 : 10
 	if self.distance_2d_to_target().leq(800) 
 		return 
 	else 
@@ -29,7 +29,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 16
 	if self.distance_2d_to_target().leq(800) 
 		return 
 	else 
@@ -38,7 +38,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 15
 	self.targetEnemy(48) 
 	if self.target(10) 
 		>> node_006 
@@ -56,13 +56,13 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 13
 	-> diablos.sniff_s() 
 	>> Global.node_027 
 	return 
 endf 
 
-def node_005
+def node_005 : 14
 	if function#5F() 
 		>> Global.node_026 
 	else 
@@ -71,7 +71,7 @@ def node_005
 	return 
 endf 
 
-def node_006
+def node_006 : 17
 	self.targetEnemy(9) @ parameter2:1000 
 	random (50) >> Global.node_071 
 	elser (25) >> Global.node_058 

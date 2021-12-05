@@ -1,7 +1,7 @@
 importactions TzitziYaKu as tzitziyaku
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	if self.fatigued() 
 		random (40) >> node_018 
 		elser (60) >> Global.node_039 
@@ -20,7 +20,7 @@ def node_000
 	reset 
 endf 
 
-def node_001
+def node_001 : 33
 	>> node_026 
 	function#A8() 
 	self.targetEnemy(target_em.random_player_or_cat) 
@@ -39,7 +39,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 36
 	>> node_026 
 	function#A8() 
 	self.targetEnemy(target_em.random_player_or_cat) 
@@ -57,7 +57,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 2
 	if self.mounted() 
 		>> node_010 
 	else 
@@ -66,7 +66,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 3
 	if self.mounted() 
 		>> node_012 
 	else 
@@ -75,7 +75,7 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 38
 	if self.mounted() 
 		>> node_006 
 	else 
@@ -84,7 +84,7 @@ def node_005
 	return 
 endf 
 
-def node_006
+def node_006 : 11
 	if function#29() 
 		self.targetArea(7) 
 		>> node_016 
@@ -99,7 +99,7 @@ def node_006
 	return 
 endf 
 
-def node_007
+def node_007 : 12
 	if function#29() 
 		self.targetArea(7) 
 		>> node_016 
@@ -113,7 +113,7 @@ def node_007
 	return 
 endf 
 
-def node_008
+def node_008 : 41
 	if self.mounted() 
 		>> node_017 
 	else 
@@ -121,38 +121,38 @@ def node_008
 	return 
 endf 
 
-def node_009
+def node_009 : 49
 endf 
 
-def node_010
+def node_010 : 24
 	-> tzitziyaku.ride_rage_head() 
 	return 
 endf 
 
-def node_011
+def node_011 : 25
 	>> node_019 
 	-> tzitziyaku.ride_rage_crash_head() 
 	return 
 endf 
 
-def node_012
+def node_012 : 26
 	>> node_019 
 	>> Global.node_060 
 	return 
 endf 
 
-def node_013
+def node_013 : 27
 	-> tzitziyaku.ride_rage_body() 
 	return 
 endf 
 
-def node_014
+def node_014 : 30
 	>> node_019 
 	-> tzitziyaku.ride_rage_crash_body_lv2() 
 	return 
 endf 
 
-def node_015
+def node_015 : 45
 	>> Global.node_054 
 	random (50) >> Global.node_057 
 	elser (50) >> Global.node_060 
@@ -160,7 +160,7 @@ def node_015
 	return 
 endf 
 
-def node_016
+def node_016 : 23
 	if self.fatigued() 
 		-> tzitziyaku.tired_dash(1,2,0,600,3000) 
 	else 
@@ -169,17 +169,17 @@ def node_016
 	return 
 endf 
 
-def node_017
+def node_017 : 37
 	-> tzitziyaku.wait() 
 	return 
 endf 
 
-def node_018
+def node_018 : 31
 	-> tzitziyaku.tired() 
 	return 
 endf 
 
-def node_019
+def node_019 : 42
 	random (20) >> node_020 
 	elser (80) >> node_021 
 	endr 
@@ -187,39 +187,39 @@ def node_019
 	return 
 endf 
 
-def node_020
+def node_020 : 43
 	self.targetEnemy(21) @ parameter2:1000 
 	return 
 endf 
 
-def node_021
+def node_021 : 44
 	self.targetEnemy(22) @ parameter2:1000 
 	return 
 endf 
 
-def node_022
+def node_022 : 17
 	random (48) >> node_023 
 	elser (52) >> node_024 
 	endr 
 	return 
 endf 
 
-def node_023
+def node_023 : 18
 	self.targetEnemy(12) @ parameter2:1000 
 	return 
 endf 
 
-def node_024
+def node_024 : 19
 	self.targetEnemy(11) @ parameter2:1000 
 	return 
 endf 
 
-def node_025
+def node_025 : 32
 	>> Global.node_053 
 	return 
 endf 
 
-def node_026
+def node_026 : 21
 	if function#3B() 
 		if self.mount_staggered_twice() 
 			>> node_027 
@@ -251,7 +251,7 @@ def node_026
 	return 
 endf 
 
-def node_027
+def node_027 : 22
 	-> tzitziyaku.ride_tired() 
 	return 
 endf 

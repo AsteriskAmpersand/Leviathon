@@ -1,7 +1,7 @@
 importactions Kirin as kirin
 importlibrary Global as Global
 
-def node_000
+def node_000 : 14
 	if [RegisterVar0 <= 15] 
 		[RegisterVar0 |-] 
 		conclude 
@@ -13,7 +13,7 @@ def node_000
 	conclude 
 endf 
 
-def node_001
+def node_001 : 15
 	>> Global.node_062 
 	self.targetEnemy(48) 
 	if self.distance_3d_to_target().leq(3500) 
@@ -24,13 +24,13 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 16
 	>> Global.node_057 
 	-> kirin.sniff_s() 
 	return 
 endf 
 
-def node_003
+def node_003 : 17
 	self.targetEnemy(58) 
 	random (10) >> Global.node_114 
 	elser (90) 

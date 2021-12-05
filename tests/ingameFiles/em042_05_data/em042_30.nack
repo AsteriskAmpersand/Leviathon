@@ -1,14 +1,14 @@
 importactions Frostfang_Barioth as frostfang_barioth
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	self.targetEnemy(target_em.closest_entity) 
 	>> node_003 
 	>> node_001 
 	reset 
 endf 
 
-def node_001
+def node_001 : 8
 	if self.distance_3d_to_target().leq(5000) 
 		>> node_002 
 	else 
@@ -17,7 +17,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 9
 	self.targetEnemy(target_em.closest_entity) 
 	if self.target(11) 
 		>> Global.node_012 
@@ -34,7 +34,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 10
 	if self.target_is(em.Aptonoth) 
 	elif self.target_is(em.Popo) 
 	else 

@@ -1,10 +1,10 @@
 importactions Wulg as wulg
 
-def node_000
+def node_000 : 1
 	conclude 
 endf 
 
-def node_001
+def node_001 : 18
 	if self.distance_3d_to_target().leq(500) 
 	else 
 		>> node_098 
@@ -13,7 +13,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 142
 	if self.distance_3d_to_target().leq(500) 
 	else 
 		>> node_098 
@@ -37,7 +37,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 159
 	if self.distance_2d_to_target().leq(750) 
 	else 
 		>> node_098 
@@ -61,7 +61,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 161
 	if self.distance_3d_to_target().leq(500) 
 	else 
 		>> node_098 
@@ -110,7 +110,7 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 162
 	if function#40() 
 		-> wulg.fox_walk() 
 	else 
@@ -124,12 +124,12 @@ def node_005
 	return 
 endf 
 
-def node_006
+def node_006 : 154
 	>> node_132 
 	return 
 endf 
 
-def node_007
+def node_007 : 6
 	if self.angle_2d_cw_between(15,345) 
 		>> node_132 
 	else 
@@ -137,7 +137,7 @@ def node_007
 	return 
 endf 
 
-def node_008
+def node_008 : 4
 	if self.angle_2d_cw_between(30,330) 
 		>> node_132 
 	else 
@@ -145,7 +145,7 @@ def node_008
 	return 
 endf 
 
-def node_009
+def node_009 : 7
 	if self.angle_2d_cw_between(45,315) 
 		>> node_132 
 	else 
@@ -153,7 +153,7 @@ def node_009
 	return 
 endf 
 
-def node_010
+def node_010 : 5
 	if self.angle_2d_cw_between(60,300) 
 		>> node_132 
 	else 
@@ -161,7 +161,7 @@ def node_010
 	return 
 endf 
 
-def node_011
+def node_011 : 8
 	if self.angle_2d_cw_between(90,270) 
 		>> node_132 
 	else 
@@ -169,13 +169,13 @@ def node_011
 	return 
 endf 
 
-def node_012
+def node_012 : 9
 	>> node_008 
 	>> node_083 
 	return 
 endf 
 
-def node_013
+def node_013 : 136
 	if self.angle_2d_cw_between(0,180) 
 		>> node_128 
 	else 
@@ -184,7 +184,7 @@ def node_013
 	return 
 endf 
 
-def node_014
+def node_014 : 137
 	if self.angle_2d_cw_between(330,30) 
 		>> node_012 
 	elif self.angle_2d_cw_between(210,150) 
@@ -195,26 +195,26 @@ def node_014
 	return 
 endf 
 
-def node_015
+def node_015 : 10
 	>> node_008 
 	>> node_084 
 	return 
 endf 
 
-def node_016
+def node_016 : 11
 	random (65) >> node_014 
 	elser (35) >> node_015 
 	endr 
 	return 
 endf 
 
-def node_017
+def node_017 : 12
 	>> node_008 
 	>> node_016 
 	return 
 endf 
 
-def node_018
+def node_018 : 13
 	if self.angle_2d_cw_between(330,30) 
 		>> node_016 
 	elif self.angle_2d_cw_between(270,90) 
@@ -225,13 +225,13 @@ def node_018
 	return 
 endf 
 
-def node_019
+def node_019 : 14
 	>> node_010 
 	>> node_130 
 	return 
 endf 
 
-def node_020
+def node_020 : 16
 	if self.angle_2d_cw_between(0,180) 
 		>> node_122 
 	else 
@@ -240,7 +240,7 @@ def node_020
 	return 
 endf 
 
-def node_021
+def node_021 : 17
 	if self.angle_2d_cw_between(315,45) 
 		>> node_121 
 	elif self.angle_2d_cw_between(0,180) 
@@ -251,13 +251,13 @@ def node_021
 	return 
 endf 
 
-def node_022
+def node_022 : 117
 	>> node_011 
 	>> node_121 
 	return 
 endf 
 
-def node_023
+def node_023 : 152
 	if self.angle_2d_cw_between(0,180) 
 		>> node_123 
 	else 
@@ -266,7 +266,7 @@ def node_023
 	return 
 endf 
 
-def node_024
+def node_024 : 160
 	random (40) >> node_121 
 	elser (30) >> node_122 
 	elser (30) >> node_123 
@@ -274,7 +274,7 @@ def node_024
 	return 
 endf 
 
-def node_025
+def node_025 : 116
 	if self.distance_3d_to_target().leq(600) 
 		self.targetEnemy(target_em.random_player_or_cat) @ unkn3:2097152, unkn12:4, unknExtra1:500 
 	elif self.distance_3d_to_target().leq(700) 
@@ -290,7 +290,7 @@ def node_025
 	return 
 endf 
 
-def node_026
+def node_026 : 155
 	>> node_006 
 	if function#40() 
 		-> wulg.threat_short(0,2,0,0,300) 
@@ -300,13 +300,13 @@ def node_026
 	return 
 endf 
 
-def node_027
+def node_027 : 120
 	self.targetEnemy(target_em.random_player_or_cat) @ unkn3:2097152, unkn12:4, unknExtra1:500 
 	>> node_143 
 	return 
 endf 
 
-def node_028
+def node_028 : 156
 	>> node_006 
 	if function#40() 
 		-> wulg.threat_big(0,2,0,0,600) 
@@ -316,7 +316,7 @@ def node_028
 	return 
 endf 
 
-def node_029
+def node_029 : 121
 	if function#62(330,30) 
 		>> node_121 
 	elif function#62(30,180) 
@@ -327,7 +327,7 @@ def node_029
 	return 
 endf 
 
-def node_030
+def node_030 : 122
 	if function#67(0,2) 
 	else 
 		self.targetArea(26) @ parameter2:500 
@@ -336,7 +336,7 @@ def node_030
 	return 
 endf 
 
-def node_031
+def node_031 : 107
 	if self.distance_3d_to_target().leq(500) 
 	else 
 		>> node_088 
@@ -345,13 +345,13 @@ def node_031
 	return 
 endf 
 
-def node_032
+def node_032 : 108
 	>> node_093 
 	>> node_033 
 	return 
 endf 
 
-def node_033
+def node_033 : 150
 	if self.distance_3d_to_target().leq(350) 
 	else 
 		>> node_098 
@@ -360,7 +360,7 @@ def node_033
 	return 
 endf 
 
-def node_034
+def node_034 : 109
 	if self.distance_3d_to_target().leq(400) 
 	else 
 		if function#40() 
@@ -388,7 +388,7 @@ def node_034
 	return 
 endf 
 
-def node_035
+def node_035 : 132
 	if self.distance_2d_to_target().leq(600) 
 	else 
 		>> node_100 
@@ -404,7 +404,7 @@ def node_035
 	return 
 endf 
 
-def node_036
+def node_036 : 144
 	if self.distance_3d_to_target().leq(1300) 
 	else 
 		>> node_101 
@@ -413,7 +413,7 @@ def node_036
 	return 
 endf 
 
-def node_037
+def node_037 : 166
 	if self.distance_3d_to_target().leq(400) 
 	else 
 		-> wulg.dying_walk(2,0,0,400) 
@@ -426,7 +426,7 @@ def node_037
 	return 
 endf 
 
-def node_038
+def node_038 : 169
 	if self.angle_2d_cw_between(30,330) 
 		>> node_131 
 	else 
@@ -434,7 +434,7 @@ def node_038
 	return 
 endf 
 
-def node_039
+def node_039 : 103
 	if self.angle_2d_cw_between(45,315) 
 		>> node_131 
 	else 
@@ -442,7 +442,7 @@ def node_039
 	return 
 endf 
 
-def node_040
+def node_040 : 104
 	if self.angle_2d_cw_between(90,270) 
 		>> node_131 
 	else 
@@ -450,7 +450,7 @@ def node_040
 	return 
 endf 
 
-def node_041
+def node_041 : 125
 	if self.angle_2d_cw_between(30,330) 
 		>> node_085 
 	else 
@@ -458,7 +458,7 @@ def node_041
 	return 
 endf 
 
-def node_042
+def node_042 : 105
 	if self.angle_2d_cw_between(45,315) 
 		>> node_085 
 	else 
@@ -466,7 +466,7 @@ def node_042
 	return 
 endf 
 
-def node_043
+def node_043 : 106
 	if self.angle_2d_cw_between(90,270) 
 		>> node_085 
 	else 
@@ -474,18 +474,18 @@ def node_043
 	return 
 endf 
 
-def node_044
+def node_044 : 92
 	>> node_074 
 	return 
 endf 
 
-def node_045
+def node_045 : 93
 	>> node_075 
 	>> node_107 
 	return 
 endf 
 
-def node_046
+def node_046 : 94
 	if function#101() 
 		>> node_077 
 	else 
@@ -494,12 +494,12 @@ def node_046
 	return 
 endf 
 
-def node_047
+def node_047 : 95
 	>> node_114 
 	return 
 endf 
 
-def node_048
+def node_048 : 146
 	if self.distance_3d_to_target().leq(750) 
 		>> node_022 
 	else 
@@ -509,7 +509,7 @@ def node_048
 	return 
 endf 
 
-def node_049
+def node_049 : 145
 	if self.distance_3d_to_target().leq(750) 
 		>> node_022 
 		>> node_008 
@@ -522,23 +522,23 @@ def node_049
 	return 
 endf 
 
-def node_050
+def node_050 : 88
 	>> node_082 
 	return 
 endf 
 
-def node_051
+def node_051 : 89
 	>> node_111 
 	return 
 endf 
 
-def node_052
+def node_052 : 90
 	>> node_075 
 	>> node_107 
 	return 
 endf 
 
-def node_053
+def node_053 : 91
 	if self.distance_3d_to_target().leq(1600) 
 		>> node_022 
 		>> node_050 
@@ -548,12 +548,12 @@ def node_053
 	return 
 endf 
 
-def node_054
+def node_054 : 126
 	>> node_111 
 	return 
 endf 
 
-def node_055
+def node_055 : 147
 	if function#51(0,2000) 
 		>> node_057 
 		reset 
@@ -562,7 +562,7 @@ def node_055
 	return 
 endf 
 
-def node_056
+def node_056 : 151
 	if function#51(0,1500) 
 		>> node_057 
 		conclude 
@@ -571,7 +571,7 @@ def node_056
 	return 
 endf 
 
-def node_057
+def node_057 : 148
 	if self.distance_3d_to_target().leq(800) 
 		>> node_011 
 		>> node_022 
@@ -582,7 +582,7 @@ def node_057
 	return 
 endf 
 
-def node_058
+def node_058 : 141
 	if function#6B(4000) 
 		[RegisterVar0 ++] 
 		self.targetEnemy(26) @ unkn3:2097152, unkn12:4, unknExtra1:75 
@@ -594,7 +594,7 @@ def node_058
 	return 
 endf 
 
-def node_059
+def node_059 : 138
 	if self.distance_3d_to_target().leq(500) 
 	else 
 		>> node_098 
@@ -603,13 +603,13 @@ def node_059
 	return 
 endf 
 
-def node_060
+def node_060 : 139
 	>> node_008 
 	>> node_046 
 	return 
 endf 
 
-def node_061
+def node_061 : 140
 	[RegisterVar0 |-] 
 	if self.in_combat() 
 		self.targetEnemy(target_em.random_player_or_cat) 
@@ -620,37 +620,37 @@ def node_061
 	return 
 endf 
 
-def node_062
+def node_062 : 124
 	>> node_119 
 	return 
 endf 
 
-def node_063
+def node_063 : 130
 	>> node_147 
 	return 
 endf 
 
-def node_064
+def node_064 : 85
 	>> node_078 
 	return 
 endf 
 
-def node_065
+def node_065 : 128
 	>> node_079 
 	return 
 endf 
 
-def node_066
+def node_066 : 86
 	>> node_079 
 	return 
 endf 
 
-def node_067
+def node_067 : 87
 	>> node_080 
 	return 
 endf 
 
-def node_068
+def node_068 : 163
 	if self.distance_2d_to_target().leq(1500) 
 		if self.angle_2d_cw_between(15,345) 
 			-> wulg.die_down() 
@@ -663,13 +663,13 @@ def node_068
 	return 
 endf 
 
-def node_069
+def node_069 : 164
 	-> wulg.die_down() 
 	-> wulg.tail_swing() 
 	return 
 endf 
 
-def node_070
+def node_070 : 165
 	if self.distance_2d_to_target().leq(400) 
 		if self.angle_2d_cw_between(90,270) 
 			-> wulg.die_down() 
@@ -705,7 +705,7 @@ def node_070
 	return 
 endf 
 
-def node_071
+def node_071 : 167
 	if self.distance_3d_to_target().leq(900) 
 	else 
 		-> wulg.die_water_slide(2,6,0,300,800) 
@@ -714,7 +714,7 @@ def node_071
 	return 
 endf 
 
-def node_072
+def node_072 : 168
 	if self.distance_3d_to_target().leq(1000) 
 		-> wulg.hook_right() 
 	else 
@@ -724,13 +724,13 @@ def node_072
 	return 
 endf 
 
-def node_073
+def node_073 : 170
 	function#11A() 
 	-> wulg.sleep_end() 
 	return 
 endf 
 
-def node_074
+def node_074 : 72
 	if function#33(0,2) 
 		>> node_102 
 	else 
@@ -739,7 +739,7 @@ def node_074
 	return 
 endf 
 
-def node_075
+def node_075 : 73
 	if function#33(0,2) 
 		>> node_105 
 	else 
@@ -748,7 +748,7 @@ def node_075
 	return 
 endf 
 
-def node_076
+def node_076 : 74
 	if function#33(0,2) 
 		>> node_108 
 	else 
@@ -757,7 +757,7 @@ def node_076
 	return 
 endf 
 
-def node_077
+def node_077 : 153
 	if function#33(0,2) 
 		-> wulg.predator_walk_r() 
 	else 
@@ -766,7 +766,7 @@ def node_077
 	return 
 endf 
 
-def node_078
+def node_078 : 84
 	if function#33(0,2) 
 		>> node_136 
 	else 
@@ -775,7 +775,7 @@ def node_078
 	return 
 endf 
 
-def node_079
+def node_079 : 75
 	if function#33(0,2) 
 		>> node_112 
 	else 
@@ -784,7 +784,7 @@ def node_079
 	return 
 endf 
 
-def node_080
+def node_080 : 77
 	if function#33(0,2) 
 		>> node_141 
 	else 
@@ -793,7 +793,7 @@ def node_080
 	return 
 endf 
 
-def node_081
+def node_081 : 76
 	if function#33(0,2) 
 		>> node_120 
 	else 
@@ -802,7 +802,7 @@ def node_081
 	return 
 endf 
 
-def node_082
+def node_082 : 78
 	if function#33(0,2) 
 		>> node_138 
 	else 
@@ -811,7 +811,7 @@ def node_082
 	return 
 endf 
 
-def node_083
+def node_083 : 79
 	if function#33(0,2) 
 		>> node_124 
 	else 
@@ -820,7 +820,7 @@ def node_083
 	return 
 endf 
 
-def node_084
+def node_084 : 80
 	if self.angle_2d_cw_between(0,180) 
 		>> node_126 
 	else 
@@ -829,7 +829,7 @@ def node_084
 	return 
 endf 
 
-def node_085
+def node_085 : 82
 	if function#33(0,2) 
 		>> node_133 
 	else 
@@ -838,7 +838,7 @@ def node_085
 	return 
 endf 
 
-def node_086
+def node_086 : 20
 	if function#40() 
 		-> wulg.walk() 
 	else 
@@ -847,7 +847,7 @@ def node_086
 	return 
 endf 
 
-def node_087
+def node_087 : 21
 	if function#40() 
 		-> wulg.threat_short() 
 	else 
@@ -856,7 +856,7 @@ def node_087
 	return 
 endf 
 
-def node_088
+def node_088 : 96
 	if function#40() 
 		-> wulg.threat_short(2,0,0,600) 
 	else 
@@ -865,7 +865,7 @@ def node_088
 	return 
 endf 
 
-def node_089
+def node_089 : 22
 	if function#40() 
 		-> wulg.threat_2hand_reload() 
 	else 
@@ -874,7 +874,7 @@ def node_089
 	return 
 endf 
 
-def node_090
+def node_090 : 97
 	if function#40() 
 		-> wulg.threat_2hand_reload(2,0,0,300) 
 	else 
@@ -883,7 +883,7 @@ def node_090
 	return 
 endf 
 
-def node_091
+def node_091 : 23
 	if function#40() 
 		-> wulg.anger_voice() 
 	else 
@@ -892,7 +892,7 @@ def node_091
 	return 
 endf 
 
-def node_092
+def node_092 : 98
 	if function#40() 
 		-> wulg.anger_voice(2,0,0,500) 
 	else 
@@ -901,7 +901,7 @@ def node_092
 	return 
 endf 
 
-def node_093
+def node_093 : 149
 	if function#40() 
 		-> wulg.anger_voice(2,0,0,1500) 
 	else 
@@ -910,7 +910,7 @@ def node_093
 	return 
 endf 
 
-def node_094
+def node_094 : 24
 	if function#40() 
 		-> wulg.threat_big() 
 	else 
@@ -919,7 +919,7 @@ def node_094
 	return 
 endf 
 
-def node_095
+def node_095 : 99
 	if function#40() 
 		-> wulg.threat_big(2,0,0,1000) 
 	else 
@@ -928,7 +928,7 @@ def node_095
 	return 
 endf 
 
-def node_096
+def node_096 : 110
 	if function#40() 
 		-> wulg.threat_big(0,1,0,0,800) 
 	else 
@@ -937,7 +937,7 @@ def node_096
 	return 
 endf 
 
-def node_097
+def node_097 : 25
 	if function#40() 
 		-> wulg.threat_big() 
 	else 
@@ -946,7 +946,7 @@ def node_097
 	return 
 endf 
 
-def node_098
+def node_098 : 100
 	if function#40() 
 		-> wulg.threat_big(2,0,0,1000) 
 	else 
@@ -955,7 +955,7 @@ def node_098
 	return 
 endf 
 
-def node_099
+def node_099 : 131
 	if function#40() 
 		-> wulg.threat_big(2,0,0,1500) 
 	else 
@@ -964,7 +964,7 @@ def node_099
 	return 
 endf 
 
-def node_100
+def node_100 : 133
 	if function#40() 
 		-> wulg.threat_big(2,3,0,1000,5) 
 	else 
@@ -973,7 +973,7 @@ def node_100
 	return 
 endf 
 
-def node_101
+def node_101 : 143
 	if function#40() 
 		-> wulg.threat_big(2,1,0,1000,1000) 
 	else 
@@ -982,7 +982,7 @@ def node_101
 	return 
 endf 
 
-def node_102
+def node_102 : 26
 	if function#40() 
 		-> wulg.fox_walk() 
 	else 
@@ -991,7 +991,7 @@ def node_102
 	return 
 endf 
 
-def node_103
+def node_103 : 27
 	if function#40() 
 		-> wulg.fox_walk() 
 	else 
@@ -1000,7 +1000,7 @@ def node_103
 	return 
 endf 
 
-def node_104
+def node_104 : 28
 	if function#40() 
 		-> wulg.fox_walk() 
 	else 
@@ -1009,7 +1009,7 @@ def node_104
 	return 
 endf 
 
-def node_105
+def node_105 : 29
 	if function#40() 
 		-> wulg.fox_walk() 
 	else 
@@ -1018,7 +1018,7 @@ def node_105
 	return 
 endf 
 
-def node_106
+def node_106 : 30
 	if function#40() 
 		-> wulg.fox_walk() 
 	else 
@@ -1027,7 +1027,7 @@ def node_106
 	return 
 endf 
 
-def node_107
+def node_107 : 31
 	if function#40() 
 		-> wulg.fox_walk() 
 	else 
@@ -1036,7 +1036,7 @@ def node_107
 	return 
 endf 
 
-def node_108
+def node_108 : 32
 	if function#40() 
 		-> wulg.fox_walk() 
 	else 
@@ -1045,7 +1045,7 @@ def node_108
 	return 
 endf 
 
-def node_109
+def node_109 : 33
 	if function#40() 
 		-> wulg.fox_walk() 
 	else 
@@ -1054,7 +1054,7 @@ def node_109
 	return 
 endf 
 
-def node_110
+def node_110 : 34
 	if function#40() 
 		-> wulg.fox_walk() 
 	else 
@@ -1063,7 +1063,7 @@ def node_110
 	return 
 endf 
 
-def node_111
+def node_111 : 35
 	if function#40() 
 		-> wulg.fox_walk() 
 	else 
@@ -1072,7 +1072,7 @@ def node_111
 	return 
 endf 
 
-def node_112
+def node_112 : 36
 	if function#40() 
 		-> wulg.fox_walk() 
 	else 
@@ -1081,7 +1081,7 @@ def node_112
 	return 
 endf 
 
-def node_113
+def node_113 : 37
 	if function#40() 
 		-> wulg.fox_walk() 
 	else 
@@ -1090,7 +1090,7 @@ def node_113
 	return 
 endf 
 
-def node_114
+def node_114 : 38
 	if function#40() 
 		-> wulg.fox_walk() 
 	else 
@@ -1099,7 +1099,7 @@ def node_114
 	return 
 endf 
 
-def node_115
+def node_115 : 39
 	if function#40() 
 		-> wulg.fox_walk() 
 	else 
@@ -1108,7 +1108,7 @@ def node_115
 	return 
 endf 
 
-def node_116
+def node_116 : 40
 	if function#40() 
 		-> wulg.threat_short() 
 	else 
@@ -1117,7 +1117,7 @@ def node_116
 	return 
 endf 
 
-def node_117
+def node_117 : 101
 	if function#40() 
 		-> wulg.threat_short(2,0,0,500) 
 	else 
@@ -1126,7 +1126,7 @@ def node_117
 	return 
 endf 
 
-def node_118
+def node_118 : 41
 	if function#40() 
 		-> wulg.threat_2hand_reload() 
 	else 
@@ -1135,7 +1135,7 @@ def node_118
 	return 
 endf 
 
-def node_119
+def node_119 : 102
 	if function#40() 
 		-> wulg.threat_2hand_reload(2,0,0,500) 
 	else 
@@ -1144,7 +1144,7 @@ def node_119
 	return 
 endf 
 
-def node_120
+def node_120 : 42
 	if function#40() 
 		-> wulg.refresh() 
 	else 
@@ -1153,7 +1153,7 @@ def node_120
 	return 
 endf 
 
-def node_121
+def node_121 : 43
 	if function#40() 
 		-> wulg.threat_big() 
 	else 
@@ -1162,7 +1162,7 @@ def node_121
 	return 
 endf 
 
-def node_122
+def node_122 : 44
 	if function#40() 
 		-> wulg.threat_big() 
 	else 
@@ -1171,7 +1171,7 @@ def node_122
 	return 
 endf 
 
-def node_123
+def node_123 : 45
 	if function#40() 
 		-> wulg.threat_big() 
 	else 
@@ -1180,7 +1180,7 @@ def node_123
 	return 
 endf 
 
-def node_124
+def node_124 : 47
 	if function#40() 
 		-> wulg.climb_move() 
 	else 
@@ -1189,7 +1189,7 @@ def node_124
 	return 
 endf 
 
-def node_125
+def node_125 : 48
 	if function#40() 
 		-> wulg.climb_move() 
 	else 
@@ -1198,7 +1198,7 @@ def node_125
 	return 
 endf 
 
-def node_126
+def node_126 : 49
 	if function#40() 
 		-> wulg.climb_move() 
 	else 
@@ -1207,7 +1207,7 @@ def node_126
 	return 
 endf 
 
-def node_127
+def node_127 : 50
 	if function#40() 
 		-> wulg.climb_move() 
 	else 
@@ -1216,7 +1216,7 @@ def node_127
 	return 
 endf 
 
-def node_128
+def node_128 : 134
 	if function#40() 
 		-> wulg.climb_move() 
 	else 
@@ -1225,7 +1225,7 @@ def node_128
 	return 
 endf 
 
-def node_129
+def node_129 : 135
 	if function#40() 
 		-> wulg.climb_move() 
 	else 
@@ -1234,7 +1234,7 @@ def node_129
 	return 
 endf 
 
-def node_130
+def node_130 : 51
 	if function#40() 
 		-> wulg.climb_move() 
 	else 
@@ -1243,7 +1243,7 @@ def node_130
 	return 
 endf 
 
-def node_131
+def node_131 : 52
 	if function#40() 
 		-> wulg.climb_end_jump() 
 	else 
@@ -1252,7 +1252,7 @@ def node_131
 	return 
 endf 
 
-def node_132
+def node_132 : 54
 	if function#40() 
 		-> wulg.double_floor_jump_up() 
 	else 
@@ -1261,7 +1261,7 @@ def node_132
 	return 
 endf 
 
-def node_133
+def node_133 : 55
 	if function#40() 
 		-> wulg.climb_end_jump() 
 	else 
@@ -1270,7 +1270,7 @@ def node_133
 	return 
 endf 
 
-def node_134
+def node_134 : 56
 	if function#40() 
 		-> wulg.climb_end_jump() 
 	else 
@@ -1279,7 +1279,7 @@ def node_134
 	return 
 endf 
 
-def node_135
+def node_135 : 57
 	if function#40() 
 		-> wulg.damage_high() 
 	else 
@@ -1288,7 +1288,7 @@ def node_135
 	return 
 endf 
 
-def node_136
+def node_136 : 58
 	if function#40() 
 		-> wulg.damage_high() 
 	else 
@@ -1297,7 +1297,7 @@ def node_136
 	return 
 endf 
 
-def node_137
+def node_137 : 59
 	if function#40() 
 		-> wulg.damage_high() 
 	else 
@@ -1306,7 +1306,7 @@ def node_137
 	return 
 endf 
 
-def node_138
+def node_138 : 60
 	if function#40() 
 		-> wulg.damage_high() 
 	else 
@@ -1315,7 +1315,7 @@ def node_138
 	return 
 endf 
 
-def node_139
+def node_139 : 61
 	if function#40() 
 		-> wulg.damage_high() 
 	else 
@@ -1324,7 +1324,7 @@ def node_139
 	return 
 endf 
 
-def node_140
+def node_140 : 62
 	if function#40() 
 		-> wulg.damage_high() 
 	else 
@@ -1333,7 +1333,7 @@ def node_140
 	return 
 endf 
 
-def node_141
+def node_141 : 63
 	if function#40() 
 		-> wulg.damage_high() 
 	else 
@@ -1342,7 +1342,7 @@ def node_141
 	return 
 endf 
 
-def node_142
+def node_142 : 64
 	if function#40() 
 		-> wulg.damage_high() 
 	else 
@@ -1351,7 +1351,7 @@ def node_142
 	return 
 endf 
 
-def node_143
+def node_143 : 67
 	if function#40() 
 		-> wulg.threat_big() 
 	else 
@@ -1360,7 +1360,7 @@ def node_143
 	return 
 endf 
 
-def node_144
+def node_144 : 68
 	if function#40() 
 		-> wulg.threat_2hand_reload() 
 	else 
@@ -1369,7 +1369,7 @@ def node_144
 	return 
 endf 
 
-def node_145
+def node_145 : 70
 	if function#40() 
 		-> wulg.threat_big() 
 	else 
@@ -1378,7 +1378,7 @@ def node_145
 	return 
 endf 
 
-def node_146
+def node_146 : 71
 	if function#40() 
 		-> wulg.threat_big() 
 	else 
@@ -1387,7 +1387,7 @@ def node_146
 	return 
 endf 
 
-def node_147
+def node_147 : 129
 	if function#40() 
 		-> wulg.damage_high() 
 	else 

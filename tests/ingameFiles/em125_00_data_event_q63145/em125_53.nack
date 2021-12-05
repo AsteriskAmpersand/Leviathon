@@ -1,7 +1,7 @@
 importactions Namielle as namielle
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	self.targetArea(9) @ parameter2:1 
 	>> Global.node_069 
 	self.targetArea(51) 
@@ -9,7 +9,7 @@ def node_000
 	conclude 
 endf 
 
-def node_001
+def node_001 : 3
 	if function#AD() 
 		>> node_002 
 	else 
@@ -18,19 +18,19 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 4
 	>> Global.node_069 
 	>> Global.node_097 
 	return 
 endf 
 
-def node_003
+def node_003 : 5
 	>> node_004 
 	>> node_005 
 	return 
 endf 
 
-def node_004
+def node_004 : 6
 	if self.flying() 
 		self.targetArea(target_area.area_aerial_center) 
 		>> Global.node_098 
@@ -43,14 +43,14 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 7
 	>> Global.node_069 
 	self.targetArea(51) 
 	>> Global.node_096 
 	return 
 endf 
 
-def node_006
+def node_006 : 8
 	if self.flying() 
 		self.targetArea(target_area.area_center) 
 		>> Global.node_068 
@@ -59,7 +59,7 @@ def node_006
 	return 
 endf 
 
-def node_007
+def node_007 : 9
 	if self.flying() 
 		>> Global.node_101 
 	else 

@@ -1,7 +1,7 @@
 importactions Fatalis as fatalis
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	>> Global.node_017 
 	if function#101(1) 
 		>> Global.node_016 
@@ -19,7 +19,7 @@ def node_000
 	reset 
 endf 
 
-def node_001
+def node_001 : 3
 	>> node_015 
 	function#A8() 
 	self.targetEnemy(target_em.random_player_or_cat) 
@@ -41,7 +41,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 4
 	>> node_015 
 	function#A8() 
 	self.targetEnemy(target_em.random_player_or_cat) 
@@ -71,7 +71,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 5
 	if self.mounted() 
 		random (50) >> node_007 
 		elser (50) >> node_008 
@@ -84,7 +84,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 6
 	if self.mounted() 
 		random (50) >> node_010 
 		elser (50) >> node_010 
@@ -97,7 +97,7 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 7
 	if self.mounted() 
 		random (50) >> node_011 
 		elser (50) >> node_012 
@@ -110,7 +110,7 @@ def node_005
 	return 
 endf 
 
-def node_006
+def node_006 : 11
 	if self.mounted() 
 		>> node_014 
 	else 
@@ -118,54 +118,54 @@ def node_006
 	return 
 endf 
 
-def node_007
+def node_007 : 12
 	-> fatalis.l2_line_fire_shoot() 
 	>> node_017 
 	return 
 endf 
 
-def node_008
+def node_008 : 13
 	-> fatalis.l2_ride_rage_head() 
 	>> node_017 
 	return 
 endf 
 
-def node_009
+def node_009 : 14
 	-> fatalis.l2_ride_rage_body() 
 	>> node_017 
 	return 
 endf 
 
-def node_010
+def node_010 : 15
 	-> fatalis.l2_ride_rage_body() 
 	>> node_017 
 	return 
 endf 
 
-def node_011
+def node_011 : 16
 	-> fatalis.l2_tail_swing() 
 	>> node_017 
 	return 
 endf 
 
-def node_012
+def node_012 : 17
 	-> fatalis.l2_ride_rage_tail() 
 	>> node_017 
 	return 
 endf 
 
-def node_013
+def node_013 : 18
 	-> fatalis.l2_rush_start() 
 	>> node_017 
 	return 
 endf 
 
-def node_014
+def node_014 : 22
 	>> Global.node_013 
 	return 
 endf 
 
-def node_015
+def node_015 : 31
 	if self.mount_stabbed() 
 		if self.mounted() 
 			random (35) >> node_016 
@@ -181,13 +181,13 @@ def node_015
 	return 
 endf 
 
-def node_016
+def node_016 : 32
 	-> fatalis.l2_ride_tired() 
 	-> fatalis.l2_ride_finish_bind_voice() 
 	return 
 endf 
 
-def node_017
+def node_017 : 33
 	[RegisterVar12 ++] 
 	if [RegisterVar12 <= 12] 
 		[RegisterVar12 |-] 

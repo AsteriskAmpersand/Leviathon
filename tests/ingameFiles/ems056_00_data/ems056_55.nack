@@ -1,15 +1,15 @@
 importactions Girros as girros
 
-def node_000
+def node_000 : 1
 	conclude 
 endf 
 
-def node_001
+def node_001 : 153
 	-> action#04(2,0,0,1000) 
 	return 
 endf 
 
-def node_002
+def node_002 : 18
 	if self.distance_3d_to_target().leq(500) 
 	else 
 		>> node_001 
@@ -18,7 +18,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 142
 	if self.distance_3d_to_target().leq(500) 
 	else 
 		>> node_001 
@@ -42,7 +42,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 176
 	if self.distance_2d_to_target().leq(750) 
 	else 
 		>> node_001 
@@ -66,7 +66,7 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 175
 	if self.distance_3d_to_target().leq(400) 
 	else 
 		-> action#04(1,2,0,300,1500) 
@@ -82,7 +82,7 @@ def node_005
 	return 
 endf 
 
-def node_006
+def node_006 : 178
 	if self.distance_3d_to_target().leq(500) 
 	else 
 		>> node_001 
@@ -131,7 +131,7 @@ def node_006
 	return 
 endf 
 
-def node_007
+def node_007 : 180
 	random (0) -> action#01() 
 	elser (50) -> action#19() 
 	elser (50) -> action#1A() 
@@ -141,7 +141,7 @@ def node_007
 	return 
 endf 
 
-def node_008
+def node_008 : 154
 	if self.in_combat() 
 		-> action#0B() 
 	else 
@@ -150,7 +150,7 @@ def node_008
 	return 
 endf 
 
-def node_009
+def node_009 : 6
 	if self.angle_2d_cw_between(15,345) 
 		>> node_008 
 	else 
@@ -158,7 +158,7 @@ def node_009
 	return 
 endf 
 
-def node_010
+def node_010 : 4
 	if self.angle_2d_cw_between(30,330) 
 		>> node_008 
 	else 
@@ -166,7 +166,7 @@ def node_010
 	return 
 endf 
 
-def node_011
+def node_011 : 7
 	if self.angle_2d_cw_between(45,315) 
 		>> node_008 
 	else 
@@ -174,7 +174,7 @@ def node_011
 	return 
 endf 
 
-def node_012
+def node_012 : 5
 	if self.angle_2d_cw_between(60,300) 
 		>> node_008 
 	else 
@@ -182,7 +182,7 @@ def node_012
 	return 
 endf 
 
-def node_013
+def node_013 : 8
 	if self.angle_2d_cw_between(90,270) 
 		>> node_008 
 	else 
@@ -190,22 +190,22 @@ def node_013
 	return 
 endf 
 
-def node_014
+def node_014 : 171
 	-> action#29() 
 	return 
 endf 
 
-def node_015
+def node_015 : 157
 	-> action#2A() 
 	return 
 endf 
 
-def node_016
+def node_016 : 158
 	-> action#2B() 
 	return 
 endf 
 
-def node_017
+def node_017 : 16
 	if self.angle_2d_cw_between(0,180) 
 		-> action#15() 
 	else 
@@ -214,7 +214,7 @@ def node_017
 	return 
 endf 
 
-def node_018
+def node_018 : 17
 	if self.angle_2d_cw_between(315,45) 
 		-> action#14() 
 	elif self.angle_2d_cw_between(0,180) 
@@ -225,7 +225,7 @@ def node_018
 	return 
 endf 
 
-def node_019
+def node_019 : 172
 	if self.angle_2d_cw_between(0,180) 
 		-> action#16() 
 	else 
@@ -234,13 +234,13 @@ def node_019
 	return 
 endf 
 
-def node_020
+def node_020 : 117
 	>> node_013 
 	-> action#14() 
 	return 
 endf 
 
-def node_021
+def node_021 : 177
 	random (50) 
 	elser (20) -> action#14() 
 	elser (15) -> action#15() 
@@ -249,7 +249,7 @@ def node_021
 	return 
 endf 
 
-def node_022
+def node_022 : 116
 	if function#BB() 
 		if self.distance_3d_to_target().leq(600) 
 			self.targetEnemy(target_em.random_player_or_cat) @ unkn3:16777216, unkn12:4, unknExtra1:500 
@@ -277,13 +277,13 @@ def node_022
 	return 
 endf 
 
-def node_023
+def node_023 : 173
 	>> node_008 
 	-> action#02(0,2,0,0,300) 
 	return 
 endf 
 
-def node_024
+def node_024 : 120
 	if function#BB() 
 		self.targetEnemy(target_em.random_player_or_cat) @ unkn3:16777216, unkn12:4, unknExtra1:600 
 	else 
@@ -295,13 +295,13 @@ def node_024
 	return 
 endf 
 
-def node_025
+def node_025 : 174
 	>> node_008 
 	-> action#04(0,2,0,0,600) 
 	return 
 endf 
 
-def node_026
+def node_026 : 121
 	if function#62(330,30) 
 		-> action#14() 
 	elif function#62(30,180) 
@@ -312,12 +312,12 @@ def node_026
 	return 
 endf 
 
-def node_027
+def node_027 : 107
 	-> action#02(2,0,0,1000) 
 	return 
 endf 
 
-def node_028
+def node_028 : 155
 	if self.distance_3d_to_target().leq(500) 
 	else 
 		>> node_027 
@@ -326,12 +326,12 @@ def node_028
 	return 
 endf 
 
-def node_029
+def node_029 : 156
 	-> action#04(2,3,0,1000,3) 
 	return 
 endf 
 
-def node_030
+def node_030 : 132
 	if self.distance_2d_to_target().leq(600) 
 		return 
 	else 
@@ -350,37 +350,37 @@ def node_030
 	return 
 endf 
 
-def node_031
+def node_031 : 92
 	-> action#2D() 
 	return 
 endf 
 
-def node_032
+def node_032 : 93
 	>> node_034 
 	return 
 endf 
 
-def node_033
+def node_033 : 94
 	-> action#2C() 
 	return 
 endf 
 
-def node_034
+def node_034 : 95
 	-> action#18() 
 	return 
 endf 
 
-def node_035
+def node_035 : 159
 	-> action#21() 
 	return 
 endf 
 
-def node_036
+def node_036 : 160
 	-> action#24() 
 	return 
 endf 
 
-def node_037
+def node_037 : 165
 	random (35) -> action#1C() 
 	elser (35) -> action#1D() 
 	elser (30) -> action#17() 
@@ -388,7 +388,7 @@ def node_037
 	return 
 endf 
 
-def node_038
+def node_038 : 161
 	random (30) -> action#1E() 
 	elser (30) -> action#1F() 
 	elser (40) -> action#22() 
@@ -396,33 +396,33 @@ def node_038
 	return 
 endf 
 
-def node_039
+def node_039 : 166
 	random (50) -> action#19() 
 	elser (50) -> action#1B() 
 	endr 
 	return 
 endf 
 
-def node_040
+def node_040 : 162
 	-> action#20() 
 	return 
 endf 
 
-def node_041
+def node_041 : 163
 	random (50) -> action#23() 
 	elser (50) -> action#24() 
 	endr 
 	return 
 endf 
 
-def node_042
+def node_042 : 164
 	random (50) -> action#27() 
 	elser (50) -> action#28() 
 	endr 
 	return 
 endf 
 
-def node_043
+def node_043 : 85
 	random (35) -> action#1C() 
 	elser (35) -> action#1D() 
 	elser (30) -> action#17() 
@@ -430,7 +430,7 @@ def node_043
 	return 
 endf 
 
-def node_044
+def node_044 : 128
 	random (35) -> action#19() 
 	elser (35) -> action#1B() 
 	elser (30) -> action#1A() 
@@ -438,59 +438,59 @@ def node_044
 	return 
 endf 
 
-def node_045
+def node_045 : 86
 	random (50) -> action#19() 
 	elser (50) -> action#1A() 
 	endr 
 	return 
 endf 
 
-def node_046
+def node_046 : 87
 	random (50) -> action#25() 
 	elser (50) -> action#26() 
 	endr 
 	return 
 endf 
 
-def node_047
+def node_047 : 167
 	random (50) -> action#23() 
 	elser (50) -> action#24() 
 	endr 
 	return 
 endf 
 
-def node_048
+def node_048 : 88
 	random (50) -> action#27() 
 	elser (50) -> action#28() 
 	endr 
 	return 
 endf 
 
-def node_049
+def node_049 : 89
 	random (50) -> action#19() 
 	elser (50) -> action#20() 
 	endr 
 	return 
 endf 
 
-def node_050
+def node_050 : 90
 	random (50) -> action#18() 
 	elser (50) -> action#24() 
 	endr 
 	return 
 endf 
 
-def node_051
+def node_051 : 91
 	>> node_047 
 	return 
 endf 
 
-def node_052
+def node_052 : 126
 	-> action#19() 
 	return 
 endf 
 
-def node_053
+def node_053 : 147
 	if function#51(0,2000) 
 		>> node_055 
 		reset 
@@ -499,7 +499,7 @@ def node_053
 	return 
 endf 
 
-def node_054
+def node_054 : 151
 	if function#51(0,2000) 
 		>> node_055 
 		conclude 
@@ -508,7 +508,7 @@ def node_054
 	return 
 endf 
 
-def node_055
+def node_055 : 148
 	if self.distance_3d_to_target().leq(800) 
 		>> node_013 
 		>> node_020 
@@ -519,7 +519,7 @@ def node_055
 	return 
 endf 
 
-def node_056
+def node_056 : 141
 	if function#6B(4000) 
 		[RegisterVar0 ++] 
 		self.targetEnemy(26) @ unkn3:2097152, unkn12:4, unknExtra1:75 
@@ -531,7 +531,7 @@ def node_056
 	return 
 endf 
 
-def node_057
+def node_057 : 138
 	if self.distance_3d_to_target().leq(500) 
 	else 
 		>> node_001 
@@ -540,13 +540,13 @@ def node_057
 	return 
 endf 
 
-def node_058
+def node_058 : 139
 	>> node_010 
 	>> node_033 
 	return 
 endf 
 
-def node_059
+def node_059 : 140
 	[RegisterVar0 |-] 
 	if self.in_combat() 
 		self.targetEnemy(target_em.random_player_or_cat) 
@@ -557,44 +557,44 @@ def node_059
 	return 
 endf 
 
-def node_060
+def node_060 : 124
 	random (50) -> action#1A() 
 	elser (50) -> action#21() 
 	endr 
 	return 
 endf 
 
-def node_061
+def node_061 : 130
 	-> action#33() 
 	return 
 endf 
 
-def node_062
+def node_062 : 181
 	-> action#2D() 
 	return 
 endf 
 
-def node_063
+def node_063 : 182
 	-> action#2E() 
 	return 
 endf 
 
-def node_064
+def node_064 : 183
 	-> action#2F() 
 	return 
 endf 
 
-def node_065
+def node_065 : 168
 	-> action#30() 
 	return 
 endf 
 
-def node_066
+def node_066 : 169
 	-> action#31() 
 	return 
 endf 
 
-def node_067
+def node_067 : 170
 	-> action#32() 
 	return 
 endf 

@@ -1,7 +1,7 @@
 importactions Shamos as shamos
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	>> Global.node_048 
 	>> node_020 
 	>> node_013 
@@ -13,7 +13,7 @@ def node_000
 	reset 
 endf 
 
-def node_001
+def node_001 : 20
 	>> Global.node_055 
 	>> node_002 
 	-> action#02(2,1,0,500,500) 
@@ -24,7 +24,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 38
 	if function#3C(1) 
 		function#52(4) 
 	else 
@@ -34,7 +34,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 3
 	if function#5A() 
 		>> node_004 
 	elif function#5A(1) 
@@ -49,14 +49,14 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 4
 	>> Global.node_040 
 	>> Global.node_040 
 	>> Global.node_040 
 	return 
 endf 
 
-def node_005
+def node_005 : 5
 	if function#3C() 
 		random (35) >> Global.node_037 
 		elser (65) >> Global.node_038 
@@ -67,7 +67,7 @@ def node_005
 	return 
 endf 
 
-def node_006
+def node_006 : 6
 	if function#3C() 
 		random (65) >> Global.node_037 
 		elser (35) >> Global.node_038 
@@ -78,7 +78,7 @@ def node_006
 	return 
 endf 
 
-def node_007
+def node_007 : 23
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.target(20) 
 		>> Global.node_096 
@@ -93,19 +93,19 @@ def node_007
 	return 
 endf 
 
-def node_008
+def node_008 : 22
 	self.targetEnemy(target_em.random_player_or_cat) 
 	>> Global.node_032 
 	>> Global.node_040 
 	return 
 endf 
 
-def node_009
+def node_009 : 21
 	>> Global.node_040 
 	return 
 endf 
 
-def node_010
+def node_010 : 25
 	function#4B() 
 	if self.target(20) 
 	else 
@@ -118,7 +118,7 @@ def node_010
 	return 
 endf 
 
-def node_011
+def node_011 : 26
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.target(20) 
 		>> node_012 
@@ -127,14 +127,14 @@ def node_011
 	return 
 endf 
 
-def node_012
+def node_012 : 27
 	self.targetEnemy(target_em.random_player_or_cat) @ unkn3:2097152, unkn12:4, unknExtra1:200 
 	>> Global.node_001 
 	>> node_004 
 	reset 
 endf 
 
-def node_013
+def node_013 : 28
 	if function#31(47,2000) 
 		>> node_014 
 		reset 
@@ -143,13 +143,13 @@ def node_013
 	return 
 endf 
 
-def node_014
+def node_014 : 31
 	self.targetEnemy(target_em.closest_entity) 
 	>> node_015 
 	return 
 endf 
 
-def node_015
+def node_015 : 29
 	>> Global.node_031 
 	>> Global.node_041 
 	>> Global.node_042 
@@ -159,7 +159,7 @@ def node_015
 	return 
 endf 
 
-def node_016
+def node_016 : 30
 	function#52() 
 	self.targetArea(target_area.nearest_entrance) 
 	>> Global.node_001 
@@ -167,7 +167,7 @@ def node_016
 	return 
 endf 
 
-def node_017
+def node_017 : 39
 	-> action#02(2,1,0,500,500) 
 	if self.distance_3d_to_target().gt(600) 
 		repeat 
@@ -176,7 +176,7 @@ def node_017
 	return 
 endf 
 
-def node_018
+def node_018 : 41
 	-> action#05(2,1,0,500,500) 
 	if self.distance_3d_to_target().gt(600) 
 		repeat 
@@ -185,7 +185,7 @@ def node_018
 	return 
 endf 
 
-def node_019
+def node_019 : 40
 	if function#47() 
 		function#52() 
 		self.targetArea(target_area.nearest_entrance) @ unkn3:2097152, unkn12:4, unknExtra1:300 
@@ -196,7 +196,7 @@ def node_019
 	return 
 endf 
 
-def node_020
+def node_020 : 42
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.target(7) 
 	elif self.target(10) 

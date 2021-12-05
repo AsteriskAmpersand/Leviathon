@@ -1,7 +1,7 @@
 importactions Black_Diablos as black_diablos
 importlibrary Global as Global
 
-def node_000
+def node_000 : 12
 	>> Global.node_007 
 	>> Global.node_019 
 	>> Global.node_103 
@@ -9,7 +9,7 @@ def node_000
 	reset 
 endf 
 
-def node_001
+def node_001 : 13
 	self.targetEnemy(48) 
 	if self.in_map(st.Challenge_Arena).in_area(-1) 
 		>> node_004 
@@ -21,7 +21,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 14
 	if self.fatigued() 
 		>> Global.node_031 
 	else 
@@ -35,7 +35,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 15
 	if self.targetEnemy(target_em.any_monster) 
 		random (20) >> Global.node_029 
 		elser (80) 
@@ -46,7 +46,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 16
 	>> Global.node_056 
 	random (55) >> Global.node_106 
 	elser (35) >> Global.node_029 

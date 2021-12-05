@@ -1,12 +1,12 @@
 importactions Fulgur_Anjanath as fulgur_anjanath
 
-def node_000
+def node_000 : 1
 	self.targetEnemy(target_em.closest_entity) 
 	>> node_001 
 	conclude 
 endf 
 
-def node_001
+def node_001 : 3
 	if self.target_is(em.Diablos) 
 		-> fulgur_anjanath.grapple_with_em007_mediation() 
 	elif self.target_is(em.Black_Diablos) 

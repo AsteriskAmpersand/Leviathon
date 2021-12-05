@@ -1,7 +1,7 @@
 importactions KuluYaKu as kuluyaku
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	if [RegisterVar0 <= 15] 
 		[RegisterVar0 |-] 
 		conclude 
@@ -13,7 +13,7 @@ def node_000
 	conclude 
 endf 
 
-def node_001
+def node_001 : 2
 	>> Global.node_024 
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.distance_3d_to_target().leq(3500) 
@@ -24,7 +24,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 3
 	>> Global.node_069 
 	if self.enraged() 
 		>> Global.node_063 
@@ -36,7 +36,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 4
 	self.targetEnemy(58) 
 	random (10) >> node_004 
 	elser (90) 
@@ -51,7 +51,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 23
 	if function#101(3) 
 		if self.fatigued() 
 			-> kuluyaku.carry_tired_walk(2,1,0,1500,800) 

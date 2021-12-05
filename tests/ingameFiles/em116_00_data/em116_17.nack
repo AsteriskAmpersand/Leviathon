@@ -1,7 +1,7 @@
 importactions Dodogama as dodogama
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	self.targetArea(14) 
 	if function#AB() 
 		function#AA() 
@@ -12,12 +12,12 @@ def node_000
 	conclude 
 endf 
 
-def node_001
+def node_001 : 3
 	>> node_002 
 	return 
 endf 
 
-def node_002
+def node_002 : 6
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		>> Global.node_259 
@@ -26,7 +26,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 7
 	self.targetEnemy(target_em.random_player_or_cat) 
 	>> Global.node_034 
 	return 

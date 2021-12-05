@@ -1,7 +1,7 @@
 importactions Stygian_Zinogre as stygian_zinogre
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	function#103() 
 	>> Global.node_006 
 	>> node_021 
@@ -24,53 +24,53 @@ def node_000
 	reset 
 endf 
 
-def node_001
+def node_001 : 3
 	>> node_013 
 	return 
 endf 
 
-def node_002
+def node_002 : 4
 	>> node_010 
 	return 
 endf 
 
-def node_003
+def node_003 : 5
 	random (70) >> node_010 
 	elser (30) >> node_011 
 	endr 
 	return 
 endf 
 
-def node_004
+def node_004 : 6
 	>> node_013 
 	return 
 endf 
 
-def node_005
+def node_005 : 7
 	>> node_010 
 	return 
 endf 
 
-def node_006
+def node_006 : 8
 	random (30) >> node_010 
 	elser (70) >> node_011 
 	endr 
 	return 
 endf 
 
-def node_007
+def node_007 : 9
 	>> node_013 
 	return 
 endf 
 
-def node_008
+def node_008 : 10
 	random (80) >> node_010 
 	elser (20) >> Global.node_217 
 	endr 
 	return 
 endf 
 
-def node_009
+def node_009 : 11
 	random (70) >> node_010 
 	elser (10) >> node_012 
 	elser (20) >> Global.node_217 
@@ -78,28 +78,28 @@ def node_009
 	return 
 endf 
 
-def node_010
+def node_010 : 12
 	self.targetArea(4) 
 	>> node_019 
 	>> node_017 
 	return 
 endf 
 
-def node_011
+def node_011 : 13
 	self.targetArea(6) 
 	>> node_020 
 	>> node_017 
 	return 
 endf 
 
-def node_012
+def node_012 : 14
 	self.targetArea(21) @ parameter2:1000 
 	>> Global.node_023 
 	>> node_018 
 	return 
 endf 
 
-def node_013
+def node_013 : 15
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.target(7) 
 		>> node_015 
@@ -111,22 +111,22 @@ def node_013
 	return 
 endf 
 
-def node_014
+def node_014 : 16
 	>> Global.node_082 
 	return 
 endf 
 
-def node_015
+def node_015 : 17
 	>> Global.node_201 
 	return 
 endf 
 
-def node_016
+def node_016 : 18
 	>> Global.node_200 
 	return 
 endf 
 
-def node_017
+def node_017 : 19
 	>> Global.node_253 @ unkn6:65536 
 	if self.distance_3d_to_target().leq(800) 
 	else 
@@ -135,22 +135,22 @@ def node_017
 	return 
 endf 
 
-def node_018
+def node_018 : 20
 	>> Global.node_205 
 	return 
 endf 
 
-def node_019
+def node_019 : 21
 	>> Global.node_213 
 	return 
 endf 
 
-def node_020
+def node_020 : 22
 	>> Global.node_214 
 	return 
 endf 
 
-def node_021
+def node_021 : 23
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.target(10) 
 		if self.distance_3d_to_target().leq(1500) 

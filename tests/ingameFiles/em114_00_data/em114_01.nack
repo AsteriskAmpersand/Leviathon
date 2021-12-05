@@ -1,7 +1,7 @@
 importactions Radobaan as radobaan
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	>> Global.node_008 
 	>> Global.node_001 
 	self.targetEnemy(target_em.random_player_or_cat) 
@@ -25,53 +25,53 @@ def node_000
 	reset 
 endf 
 
-def node_001
+def node_001 : 2
 	>> node_013 
 	return 
 endf 
 
-def node_002
+def node_002 : 3
 	>> node_010 
 	return 
 endf 
 
-def node_003
+def node_003 : 4
 	random (70) >> node_010 
 	elser (30) >> node_011 
 	endr 
 	return 
 endf 
 
-def node_004
+def node_004 : 5
 	>> node_013 
 	return 
 endf 
 
-def node_005
+def node_005 : 6
 	>> node_010 
 	return 
 endf 
 
-def node_006
+def node_006 : 7
 	random (30) >> node_010 
 	elser (70) >> node_011 
 	endr 
 	return 
 endf 
 
-def node_007
+def node_007 : 8
 	>> node_013 
 	return 
 endf 
 
-def node_008
+def node_008 : 9
 	random (80) >> node_010 
 	elser (20) >> node_018 
 	endr 
 	return 
 endf 
 
-def node_009
+def node_009 : 10
 	random (70) >> node_010 
 	elser (10) >> node_012 
 	elser (20) >> node_018 
@@ -79,28 +79,28 @@ def node_009
 	return 
 endf 
 
-def node_010
+def node_010 : 11
 	self.targetArea(4) 
 	>> node_020 
 	>> node_017 
 	return 
 endf 
 
-def node_011
+def node_011 : 12
 	self.targetArea(6) 
 	>> node_021 
 	>> node_017 
 	return 
 endf 
 
-def node_012
+def node_012 : 13
 	self.targetArea(21) @ parameter2:1000 
 	-> radobaan.quick_turn() @ unkn6:65536 
 	>> node_019 
 	return 
 endf 
 
-def node_013
+def node_013 : 14
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.target(7) 
 		>> node_015 
@@ -113,7 +113,7 @@ def node_013
 	return 
 endf 
 
-def node_014
+def node_014 : 15
 	if self.angle_2d_cw_between(60,300) 
 		-> radobaan.quick_turn() 
 	else 
@@ -128,7 +128,7 @@ def node_014
 	return 
 endf 
 
-def node_015
+def node_015 : 16
 	if self.distance_3d_to_target().leq(550) 
 		-> radobaan.back_turn() @ comboSetting:2, unkn6:65536 
 	else 
@@ -141,7 +141,7 @@ def node_015
 	return 
 endf 
 
-def node_016
+def node_016 : 17
 	if self.distance_3d_to_target().leq(550) 
 		-> radobaan.back_turn() @ comboSetting:2, unkn6:65536 
 	else 
@@ -154,7 +154,7 @@ def node_016
 	return 
 endf 
 
-def node_017
+def node_017 : 18
 	if self.enraged() 
 		-> radobaan.walk(2,1,5,2000,800) @ comboSetting:2, unkn6:65536 
 	else 
@@ -169,12 +169,12 @@ def node_017
 	return 
 endf 
 
-def node_018
+def node_018 : 19
 	-> radobaan.tired() @ unkn6:65536 
 	return 
 endf 
 
-def node_019
+def node_019 : 20
 	if self.enraged() 
 		-> radobaan.anger_search() @ unkn6:65536 
 	else 
@@ -183,7 +183,7 @@ def node_019
 	return 
 endf 
 
-def node_020
+def node_020 : 21
 	if self.enraged() 
 		-> radobaan.sniff_s() @ unkn6:65536 
 	else 
@@ -192,7 +192,7 @@ def node_020
 	return 
 endf 
 
-def node_021
+def node_021 : 22
 	if self.enraged() 
 		-> radobaan.sniff_l() @ unkn6:65536 
 	else 

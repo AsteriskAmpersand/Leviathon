@@ -1,7 +1,7 @@
 importactions Raging_Brachydios as raging_brachydios
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	>> Global.node_001 
 	>> Global.node_150 
 	if self.in_map(st.Guiding_Lands).in_area(14) >> node_005 
@@ -10,7 +10,7 @@ def node_000
 	reset 
 endf 
 
-def node_001
+def node_001 : 3
 	self.targetEnemy(48) 
 	if self.in_map(st.Special_Arena).in_area(-1) >> node_004 
 	elif self.distance_3d_to_target().leq(3500) >> node_002 
@@ -19,7 +19,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 5
 	>> Global.node_120 
 	if self.fatigued() -> raging_brachydios.tired_idle() 
 	else 
@@ -30,7 +30,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 6
 	random (35) -> raging_brachydios.combat_search() 
 	elser (45) -> raging_brachydios.anger_search() 
 	elser (20) -> raging_brachydios.wait() 
@@ -38,7 +38,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 4
 	>> Global.node_120 
 	random (35) -> raging_brachydios.combat_search() 
 	elser (20) -> raging_brachydios.anger_search() 
@@ -47,7 +47,7 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 7
 	>> Global.node_181 
 	>> Global.node_183 
 	self.targetEnemy(48) 

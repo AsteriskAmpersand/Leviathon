@@ -1,7 +1,7 @@
 importactions Kirin as kirin
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	>> Global.node_062 
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.target(10) 
@@ -26,62 +26,62 @@ def node_000
 	reset 
 endf 
 
-def node_001
+def node_001 : 2
 	>> node_010 
 	return 
 endf 
 
-def node_002
+def node_002 : 3
 	>> node_007 
 	return 
 endf 
 
-def node_003
+def node_003 : 4
 	random (70) >> node_007 
 	elser (30) >> node_008 
 	endr 
 	return 
 endf 
 
-def node_004
+def node_004 : 5
 	>> node_010 
 	return 
 endf 
 
-def node_005
+def node_005 : 6
 	>> node_007 
 	return 
 endf 
 
-def node_006
+def node_006 : 7
 	random (30) >> node_007 
 	elser (70) >> node_008 
 	endr 
 	return 
 endf 
 
-def node_007
+def node_007 : 11
 	self.targetArea(4) 
 	>> node_016 
 	>> node_014 
 	return 
 endf 
 
-def node_008
+def node_008 : 12
 	self.targetArea(6) 
 	>> node_017 
 	>> node_014 
 	return 
 endf 
 
-def node_009
+def node_009 : 13
 	self.targetArea(21) @ parameter2:1000 
 	>> Global.node_056 @ unkn6:65536 
 	>> node_015 
 	return 
 endf 
 
-def node_010
+def node_010 : 14
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.target(7) 
 		>> node_012 
@@ -93,7 +93,7 @@ def node_010
 	return 
 endf 
 
-def node_011
+def node_011 : 15
 	if self.angle_2d_cw_between(60,300) 
 		>> Global.node_056 
 	else 
@@ -108,7 +108,7 @@ def node_011
 	return 
 endf 
 
-def node_012
+def node_012 : 16
 	if self.distance_3d_to_target().leq(100) 
 		-> kirin.back_step() @ unkn6:65536 
 	else 
@@ -124,7 +124,7 @@ def node_012
 	return 
 endf 
 
-def node_013
+def node_013 : 17
 	if self.distance_3d_to_target().leq(550) 
 		-> kirin.search_life() @ unkn6:65536 
 	else 
@@ -137,7 +137,7 @@ def node_013
 	return 
 endf 
 
-def node_014
+def node_014 : 18
 	if self.enraged() 
 		-> kirin.walk(1,5,0,800) @ comboSetting:2, unkn6:65536 
 	else 
@@ -158,7 +158,7 @@ def node_014
 	return 
 endf 
 
-def node_015
+def node_015 : 20
 	if self.enraged() 
 		-> kirin.search_half_lost_flont() @ unkn6:65536 
 	else 
@@ -167,7 +167,7 @@ def node_015
 	return 
 endf 
 
-def node_016
+def node_016 : 21
 	if self.enraged() 
 		-> kirin.sniff_s() @ unkn6:65536 
 	else 
@@ -176,7 +176,7 @@ def node_016
 	return 
 endf 
 
-def node_017
+def node_017 : 22
 	if self.enraged() 
 		-> kirin.sniff_l() @ unkn6:65536 
 	else 

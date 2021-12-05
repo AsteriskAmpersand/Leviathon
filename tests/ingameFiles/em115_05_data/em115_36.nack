@@ -1,7 +1,7 @@
 importactions Blackveil_Vaal_Hazak as blackveil_vaal_hazak
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	>> Global.node_042 
 	>> node_003 
 	self.enraged() >> node_001 => reset 
@@ -10,7 +10,7 @@ def node_000
 	reset 
 endf 
 
-def node_001
+def node_001 : 2
 	random (20) >> Global.node_019 
 	elser (15) >> Global.node_021 
 	elser (25) >> Global.node_020 
@@ -21,7 +21,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 3
 	random (20) >> Global.node_019 
 	elser (15) >> Global.node_021 
 	elser (25) >> Global.node_020 
@@ -32,7 +32,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 5
 	if self.target_on_part(0) -> blackveil_vaal_hazak.ride_tired() 
 		-> blackveil_vaal_hazak.ride_rage_head() => reset 
 	elif self.target_on_part(1) -> blackveil_vaal_hazak.ride_tired() 

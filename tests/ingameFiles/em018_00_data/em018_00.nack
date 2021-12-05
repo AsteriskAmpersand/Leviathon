@@ -1,14 +1,14 @@
 importactions Yian_Garuga as yian_garuga
 importlibrary Global as Global
 
-def node_000
+def node_000 : 33
 	>> node_002 
 	>> node_003 
 	>> node_004 
 	reset 
 endf 
 
-def node_001
+def node_001 : 71
 	>> node_002 
 	>> node_003 
 	>> Global.node_035 
@@ -16,7 +16,7 @@ def node_001
 	reset 
 endf 
 
-def node_002
+def node_002 : 35
 	if function#45() 
 	else 
 		>> Global.node_163 
@@ -25,7 +25,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 64
 	if self.target(4) 
 		>> Global.node_282 => reset 
 	elif self.target(3) 
@@ -45,7 +45,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 36
 	>> Global.node_296 
 	if self.distance_3d_to_target().leq(300) 
 		self.enraged() >> node_011 => reset 
@@ -75,7 +75,7 @@ def node_004
 	reset 
 endf 
 
-def node_005
+def node_005 : 65
 	[RegisterVar5 ++] 
 	if [RegisterVar5 <= 2] 
 		[RegisterVar5 |-] 
@@ -107,18 +107,18 @@ def node_005
 	return 
 endf 
 
-def node_006
+def node_006 : 52
 	>> node_005 
 	return 
 endf 
 
-def node_007
+def node_007 : 53
 	>> Global.node_022 
 	>> node_005 
 	return 
 endf 
 
-def node_008
+def node_008 : 54
 	random (10) >> Global.node_055 
 	elser (10) >> Global.node_056 
 	elser (20) >> Global.node_057 
@@ -130,12 +130,12 @@ def node_008
 	return 
 endf 
 
-def node_009
+def node_009 : 55
 	>> node_008 
 	return 
 endf 
 
-def node_010
+def node_010 : 68
 	if self.flying() 
 		>> Global.node_231 
 	else 
@@ -144,67 +144,67 @@ def node_010
 	return 
 endf 
 
-def node_011
+def node_011 : 66
 	>> node_005 
 	return 
 endf 
 
-def node_012
+def node_012 : 56
 	>> node_006 
 	return 
 endf 
 
-def node_013
+def node_013 : 57
 	>> node_007 
 	return 
 endf 
 
-def node_014
+def node_014 : 58
 	>> node_008 
 	return 
 endf 
 
-def node_015
+def node_015 : 59
 	>> node_009 
 	return 
 endf 
 
-def node_016
+def node_016 : 69
 	>> node_010 
 	return 
 endf 
 
-def node_017
+def node_017 : 67
 	>> Global.node_140 
 	>> node_005 
 	return 
 endf 
 
-def node_018
+def node_018 : 60
 	>> Global.node_140 
 	>> node_006 
 	return 
 endf 
 
-def node_019
+def node_019 : 61
 	>> Global.node_140 
 	>> node_007 
 	return 
 endf 
 
-def node_020
+def node_020 : 62
 	>> Global.node_140 
 	>> node_008 
 	return 
 endf 
 
-def node_021
+def node_021 : 63
 	>> Global.node_140 
 	>> node_009 
 	return 
 endf 
 
-def node_022
+def node_022 : 70
 	>> Global.node_140 
 	>> node_010 
 	return 

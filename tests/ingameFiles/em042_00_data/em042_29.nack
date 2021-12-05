@@ -1,14 +1,14 @@
 importactions Barioth as barioth
 importlibrary Global as Global
 
-def node_000
+def node_000 : 8
 	>> Global.node_194 
 	>> Global.node_109 
 	-> barioth.life_search() >> node_001 
 	reset 
 endf 
 
-def node_001
+def node_001 : 12
 	self.targetEnemy(48) 
 	if self.in_map(st.Challenge_Arena).in_area(-1) 
 		>> node_004 
@@ -20,7 +20,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 10
 	>> Global.node_003 
 	>> Global.node_008 
 	if self.fatigued() 
@@ -33,7 +33,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 11
 	>> Global.node_003 
 	if self.targetEnemy(target_em.any_monster) 
 		random (20) >> Global.node_008 
@@ -47,7 +47,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 13
 	>> Global.node_003 
 	>> Global.node_008 
 	random (50) -> barioth.intimidation() 

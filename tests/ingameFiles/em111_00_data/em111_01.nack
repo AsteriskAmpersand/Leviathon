@@ -1,7 +1,7 @@
 importactions Legiana as legiana
 importlibrary Global as Global
 
-def node_000
+def node_000 : 51
 	>> Global.node_340 
 	>> node_001 
 	self.targetEnemy(target_em.random_player_or_cat) 
@@ -13,7 +13,7 @@ def node_000
 	reset 
 endf 
 
-def node_001
+def node_001 : 69
 	if self.fatigued() 
 		>> Global.node_001 
 	else 
@@ -21,7 +21,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 61
 	if self.distance_2d_to_target().leq(700) 
 		if self.vertical_distance_to_target().leq(750) 
 			if self.enraged() >> node_007 
@@ -55,7 +55,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 62
 	>> node_001 
 	if self.distance_2d_to_target().leq(850) 
 		if self.vertical_distance_to_target().leq(1200) 
@@ -85,7 +85,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 52
 	if self.target(7) 
 		>> Global.node_309 
 		>> Global.node_235 
@@ -95,19 +95,19 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 53
 	>> Global.node_233 
 	>> Global.node_231 
 	return 
 endf 
 
-def node_006
+def node_006 : 54
 	>> Global.node_234 
 	>> Global.node_232 
 	return 
 endf 
 
-def node_007
+def node_007 : 55
 	if self.target(7) 
 		>> Global.node_309 
 		>> Global.node_235 
@@ -117,19 +117,19 @@ def node_007
 	return 
 endf 
 
-def node_008
+def node_008 : 56
 	>> Global.node_233 
 	>> Global.node_231 
 	return 
 endf 
 
-def node_009
+def node_009 : 57
 	>> Global.node_234 
 	>> Global.node_232 
 	return 
 endf 
 
-def node_010
+def node_010 : 58
 	if self.target(7) 
 		>> Global.node_309 
 		>> Global.node_235 
@@ -139,7 +139,7 @@ def node_010
 	return 
 endf 
 
-def node_011
+def node_011 : 59
 	random (70) 
 				>> Global.node_233 
 				>> Global.node_231 
@@ -149,7 +149,7 @@ def node_011
 	return 
 endf 
 
-def node_012
+def node_012 : 60
 	random (70) 
 				>> Global.node_234 
 				>> Global.node_232 
@@ -159,7 +159,7 @@ def node_012
 	return 
 endf 
 
-def node_013
+def node_013 : 63
 	if self.target(7) 
 		>> Global.node_244 
 	else 
@@ -168,19 +168,19 @@ def node_013
 	return 
 endf 
 
-def node_014
+def node_014 : 64
 	>> Global.node_242 
 	>> Global.node_240 
 	return 
 endf 
 
-def node_015
+def node_015 : 65
 	>> Global.node_243 
 	>> Global.node_241 
 	return 
 endf 
 
-def node_016
+def node_016 : 66
 	if self.target(7) 
 		>> Global.node_244 
 	else 
@@ -189,13 +189,13 @@ def node_016
 	return 
 endf 
 
-def node_017
+def node_017 : 67
 	>> Global.node_242 
 	>> Global.node_240 
 	return 
 endf 
 
-def node_018
+def node_018 : 68
 	>> Global.node_243 
 	>> Global.node_241 
 	return 

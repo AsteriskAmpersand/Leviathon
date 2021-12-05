@@ -1,6 +1,6 @@
 importactions Blackveil_Vaal_Hazak as blackveil_vaal_hazak
 
-def node_000
+def node_000 : 1
 	self.targetEnemy(target_em.closest_entity) 
 	if self.target_is(em.Savage_Deviljho) 
 		>> node_001 
@@ -12,7 +12,7 @@ def node_000
 	conclude 
 endf 
 
-def node_001
+def node_001 : 2
 	if self.distance_3d_to_target().gt(1800) 
 		-> blackveil_vaal_hazak.dash(1,0,0,1800) 
 	else 
@@ -22,7 +22,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 3
 	if self.distance_3d_to_target().leq(400) 
 		-> blackveil_vaal_hazak.step_back() 
 	else 

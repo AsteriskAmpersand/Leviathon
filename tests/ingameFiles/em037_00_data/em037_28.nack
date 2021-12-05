@@ -1,7 +1,7 @@
 importactions Nargacuga as nargacuga
 importlibrary Global as Global
 
-def node_000
+def node_000 : 8
 	>> Global.node_120 
 	if [RegisterVar0 <= 15] 
 		[RegisterVar0 |-] 
@@ -14,7 +14,7 @@ def node_000
 	conclude 
 endf 
 
-def node_001
+def node_001 : 9
 	>> Global.node_134 
 	self.targetEnemy(48) 
 	if self.distance_3d_to_target().leq(3500) 
@@ -25,13 +25,13 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 10
 	>> Global.node_002 
 	-> nargacuga.sniff_s() 
 	return 
 endf 
 
-def node_003
+def node_003 : 11
 	self.targetEnemy(58) 
 	random (10) >> Global.node_176 
 	elser (90) 

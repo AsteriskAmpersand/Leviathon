@@ -1,10 +1,10 @@
 importactions Raging_Brachydios as raging_brachydios
 
-def node_000
+def node_000 : 1
 	conclude 
 endf 
 
-def node_001
+def node_001 : 20
 	if self.in_combat() 
 		if function#45() 
 			return 
@@ -24,7 +24,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 21
 	if function#30(2) >> node_003 
 	elif function#30() >> node_004 
 	else >> node_005 
@@ -32,7 +32,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 27
 	random (0) >> node_010 
 	elser (10) >> node_011 
 	elser (55) >> node_012 
@@ -41,7 +41,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 28
 	random (0) >> node_010 
 	elser (50) >> node_011 
 	elser (0) >> node_012 
@@ -51,7 +51,7 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 29
 	random (10) >> node_010 
 	elser (55) >> node_011 
 	elser (0) >> node_012 
@@ -60,7 +60,7 @@ def node_005
 	return 
 endf 
 
-def node_006
+def node_006 : 22
 	if function#30(2) >> node_007 
 	elif function#30() >> node_008 
 	else >> node_009 
@@ -68,7 +68,7 @@ def node_006
 	return 
 endf 
 
-def node_007
+def node_007 : 30
 	random (35) >> node_010 
 	elser (0) >> node_011 
 	elser (55) >> node_012 
@@ -77,7 +77,7 @@ def node_007
 	return 
 endf 
 
-def node_008
+def node_008 : 31
 	random (55) >> node_010 
 	elser (10) >> node_011 
 	elser (0) >> node_012 
@@ -86,7 +86,7 @@ def node_008
 	return 
 endf 
 
-def node_009
+def node_009 : 32
 	random (55) >> node_010 
 	elser (10) >> node_011 
 	elser (0) >> node_012 
@@ -95,7 +95,7 @@ def node_009
 	return 
 endf 
 
-def node_010
+def node_010 : 23
 	>> node_120 
 	if [RegisterVar2 < 0] >> node_112 
 		>> node_177 
@@ -105,7 +105,7 @@ def node_010
 	return 
 endf 
 
-def node_011
+def node_011 : 26
 	if self.distance_2d_to_target().gt(750) >> node_037 
 	else 
 		random (50) >> node_019 
@@ -116,7 +116,7 @@ def node_011
 	return 
 endf 
 
-def node_012
+def node_012 : 25
 	if [RegisterVar2 <= 2] 
 		>> node_177 
 		self.force_area_change2() 
@@ -128,45 +128,45 @@ def node_012
 	return 
 endf 
 
-def node_013
+def node_013 : 24
 	>> node_073 
 	>> node_111 
 	return 
 endf 
 
-def node_014
+def node_014 : 115
 	>> node_011 
 	>> node_012 
 	return 
 endf 
 
-def node_015
+def node_015 : 33
 	function#31(49,1000) 
 	self.targetEnemy(target_em.closest_entity) 
 	>> node_005 
 	return 
 endf 
 
-def node_016
+def node_016 : 3
 	if self.angle_2d_cw_between(0,180) >> node_017 
 	else >> node_018 
 	endif 
 	return 
 endf 
 
-def node_017
+def node_017 : 99
 	-> raging_brachydios.hook_right_2() 
 	>> node_170 
 	return 
 endf 
 
-def node_018
+def node_018 : 100
 	-> raging_brachydios.hook_left_2() 
 	>> node_171 
 	return 
 endf 
 
-def node_019
+def node_019 : 4
 	if self.distance_2d_to_target().leq(750) >> node_032 
 	elif self.distance_2d_to_target().leq(1600) >> node_026 
 	else >> node_037 
@@ -174,7 +174,7 @@ def node_019
 	return 
 endf 
 
-def node_020
+def node_020 : 5
 	>> node_123 
 	>> node_168 
 	random (80) 
@@ -189,7 +189,7 @@ def node_020
 	return 
 endf 
 
-def node_021
+def node_021 : 6
 	>> node_168 
 	random (80) 
 				if self.angle_2d_cw_between(0,180) >> node_025 
@@ -203,31 +203,31 @@ def node_021
 	return 
 endf 
 
-def node_022
+def node_022 : 101
 	-> raging_brachydios.arm_slammed_r() 
 	>> node_170 
 	return 
 endf 
 
-def node_023
+def node_023 : 102
 	-> raging_brachydios.arm_slammed_l() 
 	>> node_171 
 	return 
 endf 
 
-def node_024
+def node_024 : 103
 	-> raging_brachydios.arm_slammed_long_r() 
 	>> node_170 
 	return 
 endf 
 
-def node_025
+def node_025 : 104
 	-> raging_brachydios.arm_slammed_long_l() 
 	>> node_171 
 	return 
 endf 
 
-def node_026
+def node_026 : 149
 	if function#107() 
 		if self.enraged() >> node_103 
 		elif self.angle_2d_cw_between(0,180) >> node_028 
@@ -239,31 +239,31 @@ def node_026
 	return 
 endf 
 
-def node_027
+def node_027 : 140
 	-> raging_brachydios.arm_slammed_r_2() 
 	return 
 endf 
 
-def node_028
+def node_028 : 141
 	-> raging_brachydios.arm_slammed_l_2() 
 	return 
 endf 
 
-def node_029
+def node_029 : 64
 	if self.distance_2d_to_target().leq(350) >> node_057 
 	else >> node_030 
 	endif 
 	return 
 endf 
 
-def node_030
+def node_030 : 51
 	>> node_167 
 	>> node_167 
 	-> raging_brachydios.short_head_atk() 
 	return 
 endf 
 
-def node_031
+def node_031 : 93
 	>> node_030 
 	if self.target.blast_blighted() 
 		random (50) >> node_019 
@@ -273,7 +273,7 @@ def node_031
 	return 
 endf 
 
-def node_032
+def node_032 : 128
 	if self.angle_2d_cw_between(120,240) >> node_044 
 	else 
 		random (70) >> node_033 
@@ -283,21 +283,21 @@ def node_032
 	return 
 endf 
 
-def node_033
+def node_033 : 14
 	>> node_168 
 	-> raging_brachydios.head_atk() 
 	>> node_169 
 	return 
 endf 
 
-def node_034
+def node_034 : 9
 	if self.distance_2d_to_target().leq(750) >> node_035 
 	else >> node_036 
 	endif 
 	return 
 endf 
 
-def node_035
+def node_035 : 7
 	>> node_168 
 	if function#105() 
 	else >> node_123 
@@ -307,68 +307,68 @@ def node_035
 	return 
 endf 
 
-def node_036
+def node_036 : 8
 	>> node_168 
 	-> raging_brachydios.linear_explosion_2() 
 	>> node_169 
 	return 
 endf 
 
-def node_037
+def node_037 : 57
 	if self.distance_3d_to_target().leq(2500) >> node_038 
 	else >> node_039 
 	endif 
 	return 
 endf 
 
-def node_038
+def node_038 : 87
 	>> node_168 
 	-> raging_brachydios.jump_head_atk_direct() 
 	>> node_173 
 	return 
 endf 
 
-def node_039
+def node_039 : 88
 	>> node_168 
 	-> raging_brachydios.jump_head_atk_long_direct() 
 	>> node_173 
 	return 
 endf 
 
-def node_040
+def node_040 : 10
 	>> node_168 
 	>> node_175 
 	-> raging_brachydios.jump_head_atk_start() 
 	return 
 endf 
 
-def node_041
+def node_041 : 56
 	>> node_168 
 	>> node_175 
 	-> raging_brachydios.jump_head_atk_long_start() 
 	return 
 endf 
 
-def node_042
+def node_042 : 11
 	>> node_168 
 	-> raging_brachydios.countinuos_attack_start() 
 	>> node_172 
 	return 
 endf 
 
-def node_043
+def node_043 : 12
 	>> node_168 
 	-> raging_brachydios.tail_swing() 
 	return 
 endf 
 
-def node_044
+def node_044 : 124
 	>> node_168 
 	-> raging_brachydios.tail_stomp() 
 	return 
 endf 
 
-def node_045
+def node_045 : 69
 	if self.enraged() >> node_046 
 	else >> node_047 
 	endif 
@@ -376,7 +376,7 @@ def node_045
 	return 
 endf 
 
-def node_046
+def node_046 : 67
 	>> node_167 
 	>> node_167 
 	-> raging_brachydios.dash_punch_step_turn_r_2() 
@@ -384,7 +384,7 @@ def node_046
 	return 
 endf 
 
-def node_047
+def node_047 : 68
 	>> node_167 
 	>> node_167 
 	-> raging_brachydios.dash_punch_step_turn_l_2() 
@@ -392,7 +392,7 @@ def node_047
 	return 
 endf 
 
-def node_048
+def node_048 : 153
 	if self.distance_2d_to_target().leq(1200) 
 		if self.angle_2d_cw_between(0,180) >> node_050 
 		else >> node_049 
@@ -405,7 +405,7 @@ def node_048
 	return 
 endf 
 
-def node_049
+def node_049 : 155
 	if function#107() 
 		if self.enraged() -> raging_brachydios.smash_arm_two_start_r() 
 		else -> raging_brachydios.smash_arm_one_start_r() 
@@ -424,7 +424,7 @@ def node_049
 	return 
 endf 
 
-def node_050
+def node_050 : 154
 	if function#107() 
 		if self.enraged() -> raging_brachydios.smash_arm_two_start_l() 
 		else -> raging_brachydios.smash_arm_one_start_l() 
@@ -443,34 +443,34 @@ def node_050
 	return 
 endf 
 
-def node_051
+def node_051 : 196
 	>> node_183 
 	-> raging_brachydios.three_point_explosion() 
 	return 
 endf 
 
-def node_052
+def node_052 : 151
 	-> raging_brachydios.death_match_field_start_punch() 
 	return 
 endf 
 
-def node_053
+def node_053 : 200
 	-> raging_brachydios.death_match_explosion_omen_start() 
 	return 
 endf 
 
-def node_054
+def node_054 : 150
 	>> node_181 
 	-> raging_brachydios.death_match_explosion_voice() 
 	return 
 endf 
 
-def node_055
+def node_055 : 73
 	-> raging_brachydios.predator_attack() 
 	return 
 endf 
 
-def node_056
+def node_056 : 77
 	>> node_167 
 	if self.angle_2d_cw_between(0,90) -> raging_brachydios.side_step_left() 
 	elif self.angle_2d_cw_between(270,360) -> raging_brachydios.side_step_right() 
@@ -479,7 +479,7 @@ def node_056
 	return 
 endf 
 
-def node_057
+def node_057 : 13
 	>> node_167 
 	if self.angle_2d_cw_between(0,90) -> raging_brachydios.side_step_right() 
 	elif self.angle_2d_cw_between(270,360) -> raging_brachydios.side_step_left() 
@@ -488,7 +488,7 @@ def node_057
 	return 
 endf 
 
-def node_058
+def node_058 : 78
 	>> node_123 
 	random (50) -> raging_brachydios.stamp_turn_l() 
 	elser (50) -> raging_brachydios.stamp_turn_r() 
@@ -496,7 +496,7 @@ def node_058
 	return 
 endf 
 
-def node_059
+def node_059 : 18
 	>> node_167 
 	if self.angle_2d_cw_between(0,180) >> node_061 
 	else >> node_062 
@@ -504,7 +504,7 @@ def node_059
 	return 
 endf 
 
-def node_060
+def node_060 : 76
 	>> node_167 
 	if self.angle_2d_cw_between(0,180) >> node_061 
 	else >> node_062 
@@ -512,19 +512,19 @@ def node_060
 	return 
 endf 
 
-def node_061
+def node_061 : 110
 	-> raging_brachydios.stamp_turn_r() 
 	>> node_170 
 	return 
 endf 
 
-def node_062
+def node_062 : 111
 	-> raging_brachydios.stamp_turn_l() 
 	>> node_171 
 	return 
 endf 
 
-def node_063
+def node_063 : 89
 	>> node_059 
 	if self.distance_2d_to_target().gt(500) 
 		if self.distance_2d_to_target().leq(850) >> node_089 
@@ -533,7 +533,7 @@ def node_063
 	return 
 endf 
 
-def node_064
+def node_064 : 70
 	>> node_167 
 	if self.angle_2d_cw_between(0,180) >> node_067 
 	else >> node_068 
@@ -541,7 +541,7 @@ def node_064
 	return 
 endf 
 
-def node_065
+def node_065 : 19
 	>> node_167 
 	if self.angle_2d_cw_between(0,180) >> node_067 
 	else >> node_068 
@@ -549,7 +549,7 @@ def node_065
 	return 
 endf 
 
-def node_066
+def node_066 : 71
 	if self.angle_2d_cw_between(0,180) >> node_068 
 	else >> node_067 
 	endif 
@@ -560,19 +560,19 @@ def node_066
 	return 
 endf 
 
-def node_067
+def node_067 : 112
 	-> raging_brachydios.stamp_turn_long_r() 
 	>> node_170 
 	return 
 endf 
 
-def node_068
+def node_068 : 113
 	-> raging_brachydios.stamp_turn_long_l() 
 	>> node_171 
 	return 
 endf 
 
-def node_069
+def node_069 : 90
 	>> node_064 
 	if self.distance_2d_to_target().gt(500) 
 		if self.distance_2d_to_target().leq(850) >> node_089 
@@ -581,24 +581,24 @@ def node_069
 	return 
 endf 
 
-def node_070
+def node_070 : 125
 	if self.angle_2d_cw_between(0,180) >> node_072 
 	else >> node_071 
 	endif 
 	return 
 endf 
 
-def node_071
+def node_071 : 126
 	-> raging_brachydios.stamp_turn_short_r() 
 	return 
 endf 
 
-def node_072
+def node_072 : 127
 	-> raging_brachydios.stamp_turn_short_l() 
 	return 
 endf 
 
-def node_073
+def node_073 : 62
 	if function#107() -> raging_brachydios.back_turn() 
 	else 
 		random (50) >> node_076 
@@ -609,7 +609,7 @@ def node_073
 	return 
 endf 
 
-def node_074
+def node_074 : 137
 	if function#107() -> raging_brachydios.back_turn() 
 	else 
 		if function#105(1) 
@@ -630,7 +630,7 @@ def node_074
 	return 
 endf 
 
-def node_075
+def node_075 : 60
 	>> node_175 
 	>> node_167 
 	-> raging_brachydios.back_step_l_hand_reload_2() 
@@ -638,7 +638,7 @@ def node_075
 	return 
 endf 
 
-def node_076
+def node_076 : 59
 	>> node_175 
 	>> node_167 
 	-> raging_brachydios.back_step_r_hand_reload_2() 
@@ -646,7 +646,7 @@ def node_076
 	return 
 endf 
 
-def node_077
+def node_077 : 61
 	>> node_175 
 	>> node_167 
 	-> raging_brachydios.back_step_2hand_reload_2() 
@@ -655,7 +655,7 @@ def node_077
 	return 
 endf 
 
-def node_078
+def node_078 : 138
 	>> node_061 
 	if self.distance_2d_to_target().leq(1300) >> node_018 
 	elif self.distance_2d_to_target().leq(2500) >> node_048 
@@ -664,7 +664,7 @@ def node_078
 	return 
 endf 
 
-def node_079
+def node_079 : 139
 	>> node_062 
 	if self.distance_2d_to_target().leq(1300) >> node_017 
 	elif self.distance_2d_to_target().leq(2500) >> node_048 
@@ -673,7 +673,7 @@ def node_079
 	return 
 endf 
 
-def node_080
+def node_080 : 143
 	>> node_059 
 	if self.distance_2d_to_target().leq(1300) >> node_030 
 		>> node_033 
@@ -682,21 +682,21 @@ def node_080
 	return 
 endf 
 
-def node_081
+def node_081 : 142
 	>> node_083 
 	>> node_016 
 	>> node_026 
 	return 
 endf 
 
-def node_082
+def node_082 : 144
 	random (50) >> node_048 
 	elser (50) >> node_019 
 	endr 
 	return 
 endf 
 
-def node_083
+def node_083 : 145
 	if self.distance_2d_to_target().leq(750) >> node_070 
 	elif self.distance_2d_to_target().leq(1600) >> node_059 
 	elif self.distance_2d_to_target().leq(2500) >> node_064 
@@ -705,7 +705,7 @@ def node_083
 	return 
 endf 
 
-def node_084
+def node_084 : 148
 	>> node_083 
 	if self.distance_2d_to_target().leq(1300) >> node_031 
 	else >> node_019 
@@ -713,13 +713,13 @@ def node_084
 	return 
 endf 
 
-def node_085
+def node_085 : 199
 	>> node_030 
 	>> node_019 
 	return 
 endf 
 
-def node_086
+def node_086 : 146
 	>> node_083 
 	if self.distance_2d_to_target().leq(1200) >> node_016 
 	elif self.distance_2d_to_target().leq(1600) >> node_048 
@@ -728,20 +728,20 @@ def node_086
 	return 
 endf 
 
-def node_087
+def node_087 : 147
 	>> node_083 
 	>> node_048 
 	return 
 endf 
 
-def node_088
+def node_088 : 195
 	-> raging_brachydios.continue_head_rash_long_start() 
 	-> raging_brachydios.continue_head_rash_short_start() 
 	-> raging_brachydios.continue_head_rash_finish_start() 
 	return 
 endf 
 
-def node_089
+def node_089 : 79
 	>> node_168 
 	if self.target.blast_blighted() 
 		if self.distance_2d_to_target().gt(550) 
@@ -765,7 +765,7 @@ def node_089
 	return 
 endf 
 
-def node_090
+def node_090 : 166
 	if function#105(1) >> node_091 
 	elif function#105(2) >> node_092 
 	elif self.angle_2d_cw_between(0,180) >> node_091 
@@ -774,19 +774,19 @@ def node_090
 	return 
 endf 
 
-def node_091
+def node_091 : 167
 	-> raging_brachydios.hook_right_2() @ comboSetting:1 
 	-> raging_brachydios.arm_slammed_l_2() @ comboSetting:1 
 	return 
 endf 
 
-def node_092
+def node_092 : 168
 	-> raging_brachydios.hook_left_2() @ comboSetting:1 
 	-> raging_brachydios.arm_slammed_r_2() @ comboSetting:1 
 	return 
 endf 
 
-def node_093
+def node_093 : 186
 	if self.angle_2d_cw_between(0,180) >> node_095 
 	else >> node_094 
 	endif 
@@ -794,7 +794,7 @@ def node_093
 	return 
 endf 
 
-def node_094
+def node_094 : 184
 	if self.distance_2d_to_target().leq(750) 
 		-> raging_brachydios.stamp_turn_short_r() 
 		-> raging_brachydios.short_head_atk() 
@@ -808,7 +808,7 @@ def node_094
 	return 
 endf 
 
-def node_095
+def node_095 : 185
 	if self.distance_2d_to_target().leq(750) 
 		-> raging_brachydios.side_step_left() 
 		-> raging_brachydios.short_head_atk() 
@@ -822,7 +822,7 @@ def node_095
 	return 
 endf 
 
-def node_096
+def node_096 : 187
 	if self.angle_2d_cw_between(0,180) >> node_098 
 	else >> node_097 
 	endif 
@@ -830,7 +830,7 @@ def node_096
 	return 
 endf 
 
-def node_097
+def node_097 : 182
 	if self.distance_2d_to_target().leq(750) 
 		-> raging_brachydios.side_step_left() 
 		-> raging_brachydios.hook_left_2() 
@@ -844,7 +844,7 @@ def node_097
 	return 
 endf 
 
-def node_098
+def node_098 : 183
 	if self.distance_2d_to_target().leq(750) 
 		-> raging_brachydios.side_step_right() 
 		-> raging_brachydios.hook_right_2() 
@@ -858,51 +858,51 @@ def node_098
 	return 
 endf 
 
-def node_099
+def node_099 : 171
 	if self.angle_2d_cw_between(0,180) >> node_100 
 	else >> node_101 
 	endif 
 	return 
 endf 
 
-def node_100
+def node_100 : 169
 	-> raging_brachydios.hook_right_2() @ comboSetting:1 
 	-> raging_brachydios.smash_arm_one_start_l() @ comboSetting:1 
 	return 
 endf 
 
-def node_101
+def node_101 : 170
 	-> raging_brachydios.hook_left_2() @ comboSetting:1 
 	-> raging_brachydios.smash_arm_one_start_r() @ comboSetting:1 
 	return 
 endf 
 
-def node_102
+def node_102 : 172
 	-> raging_brachydios.short_head_atk() @ comboSetting:1 
 	-> raging_brachydios.head_atk() @ comboSetting:1 
 	return 
 endf 
 
-def node_103
+def node_103 : 188
 	if self.angle_2d_cw_between(0,180) >> node_105 
 	else >> node_104 
 	endif 
 	return 
 endf 
 
-def node_104
+def node_104 : 189
 	-> raging_brachydios.arm_slammed_r_2() @ comboSetting:1 
 	-> raging_brachydios.arm_slammed_l_2() @ comboSetting:1 
 	return 
 endf 
 
-def node_105
+def node_105 : 190
 	-> raging_brachydios.arm_slammed_l_2() @ comboSetting:1 
 	-> raging_brachydios.arm_slammed_r_2() @ comboSetting:1 
 	return 
 endf 
 
-def node_106
+def node_106 : 181
 	if self.distance_2d_to_target().leq(1200) 
 		if self.angle_2d_cw_between(0,180) >> node_107 
 		else >> node_108 
@@ -915,40 +915,40 @@ def node_106
 	return 
 endf 
 
-def node_107
+def node_107 : 176
 	>> node_181 
 	-> raging_brachydios.smash_arm_one_start_l() @ comboSetting:1 
 	-> raging_brachydios.death_match_explosion_voice() @ comboSetting:1 
 	return 
 endf 
 
-def node_108
+def node_108 : 180
 	>> node_181 
 	-> raging_brachydios.smash_arm_one_start_r() @ comboSetting:1 
 	-> raging_brachydios.death_match_explosion_voice() @ comboSetting:1 
 	return 
 endf 
 
-def node_109
+def node_109 : 177
 	>> node_181 
 	-> raging_brachydios.linear_explosion_2() @ comboSetting:1 
 	-> raging_brachydios.death_match_explosion_voice() @ comboSetting:1 
 	return 
 endf 
 
-def node_110
+def node_110 : 178
 	>> node_181 
 	-> raging_brachydios.large_explosion() @ comboSetting:1 
 	-> raging_brachydios.death_match_explosion_voice() @ comboSetting:1 
 	return 
 endf 
 
-def node_111
+def node_111 : 96
 	-> raging_brachydios.threat_big() 
 	return 
 endf 
 
-def node_112
+def node_112 : 58
 	>> node_122 
 	>> node_175 
 	>> node_167 
@@ -958,17 +958,17 @@ def node_112
 	return 
 endf 
 
-def node_113
+def node_113 : 40
 	>> node_112 
 	return 
 endf 
 
-def node_114
+def node_114 : 85
 	-> raging_brachydios.combat_search() 
 	return 
 endf 
 
-def node_115
+def node_115 : 50
 	if self.target_on_part(0) >> node_116 
 	elif self.target_on_part(1) >> node_117 
 	elif self.target_on_part(2) >> node_118 
@@ -976,42 +976,42 @@ def node_115
 	return 
 endf 
 
-def node_116
+def node_116 : 44
 	if self.mounted() -> raging_brachydios.ride_rage_head() 
 	else -> raging_brachydios.ride_rage_head() 
 	endif 
 	return 
 endf 
 
-def node_117
+def node_117 : 45
 	if self.mounted() -> raging_brachydios.ride_rage_body() 
 	else -> raging_brachydios.ride_rage_body() 
 	endif 
 	return 
 endf 
 
-def node_118
+def node_118 : 46
 	if self.mounted() -> raging_brachydios.ride_rage_tail() 
 	else -> raging_brachydios.ride_rage_tail() 
 	endif 
 	return 
 endf 
 
-def node_119
+def node_119 : 15
 	if self.in_combat() -> raging_brachydios.quick_turn() 
 	else -> raging_brachydios.normal_turn() 
 	endif 
 	return 
 endf 
 
-def node_120
+def node_120 : 41
 	if self.distance_2d_to_target().leq(750) -> raging_brachydios.back_turn() 
 	endif 
 	>> node_122 
 	return 
 endf 
 
-def node_121
+def node_121 : 42
 	self.targetEnemy(22) @ parameter2:2000 
 	random (40) >> node_119 
 	elser (60) 
@@ -1019,47 +1019,47 @@ def node_121
 	return 
 endf 
 
-def node_122
+def node_122 : 16
 	if self.angular_15(30,0) >> node_119 
 	endif 
 	return 
 endf 
 
-def node_123
+def node_123 : 91
 	if self.angular_15(60,0) >> node_119 
 	endif 
 	return 
 endf 
 
-def node_124
+def node_124 : 92
 	if self.fatigued() -> raging_brachydios.tired_walk(0,1,5,0,800) 
 	else -> raging_brachydios.walk(0,1,5,0,800) 
 	endif 
 	return 
 endf 
 
-def node_125
+def node_125 : 43
 	if self.fatigued() -> raging_brachydios.tired_walk(2,1,5,1500,800) 
 	else -> raging_brachydios.walk(2,1,5,1500,800) 
 	endif 
 	return 
 endf 
 
-def node_126
+def node_126 : 52
 	if self.fatigued() -> raging_brachydios.tired_walk(2,1,5,3000,600) 
 	else -> raging_brachydios.walk(2,1,5,3000,600) 
 	endif 
 	return 
 endf 
 
-def node_127
+def node_127 : 54
 	if self.fatigued() -> raging_brachydios.tired_walk(2,1,5,4000,600) 
 	else -> raging_brachydios.walk(2,1,5,4000,600) 
 	endif 
 	return 
 endf 
 
-def node_128
+def node_128 : 72
 	>> node_119 
 	random (45) -> raging_brachydios.predator_walk_l() 
 	elser (55) -> raging_brachydios.predator_walk_r() 
@@ -1067,56 +1067,56 @@ def node_128
 	return 
 endf 
 
-def node_129
+def node_129 : 74
 	if self.in_combat() -> raging_brachydios.dash() 
 	else -> raging_brachydios.fox_walk(2,0,0,2000) 
 	endif 
 	return 
 endf 
 
-def node_130
+def node_130 : 39
 	if self.fatigued() -> raging_brachydios.tired_dash(0,1,5,0,800) 
 	else -> raging_brachydios.dash(0,1,5,0,800) 
 	endif 
 	return 
 endf 
 
-def node_131
+def node_131 : 114
 	if self.fatigued() -> raging_brachydios.tired_dash(0,6,0,0,300) 
 	else -> raging_brachydios.dash(0,6,0,0,300) 
 	endif 
 	return 
 endf 
 
-def node_132
+def node_132 : 37
 	if self.fatigued() -> raging_brachydios.tired_dash(2,1,5,1500,800) 
 	else -> raging_brachydios.dash(2,1,5,1500,800) 
 	endif 
 	return 
 endf 
 
-def node_133
+def node_133 : 35
 	if self.fatigued() -> raging_brachydios.tired_dash(2,1,5,3000,800) 
 	else -> raging_brachydios.dash(2,1,5,3000,800) 
 	endif 
 	return 
 endf 
 
-def node_134
+def node_134 : 53
 	if self.alert_out_of_combat() >> node_135 
 	else -> raging_brachydios.tired_dash(2,1,5,3000,800) 
 	endif 
 	return 
 endf 
 
-def node_135
+def node_135 : 75
 	>> node_167 
 	>> node_167 
 	-> raging_brachydios.dash(6,2,0,750,1500) 
 	return 
 endf 
 
-def node_136
+def node_136 : 80
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if function#5C() 
 		function#5E() 
@@ -1129,7 +1129,7 @@ def node_136
 	return 
 endf 
 
-def node_137
+def node_137 : 81
 	if function#107() 
 		if function#10B() 
 			if function#10D() 
@@ -1151,7 +1151,7 @@ def node_137
 	return 
 endf 
 
-def node_138
+def node_138 : 82
 	self.targetArea(19) 
 	if self.distance_3d_to_target().gt(1000) 
 		>> node_135 
@@ -1167,25 +1167,25 @@ def node_138
 	reset 
 endf 
 
-def node_139
+def node_139 : 83
 	>> node_143 
 	return 
 endf 
 
-def node_140
+def node_140 : 84
 	>> node_135 
 	>> node_037 
 	return 
 endf 
 
-def node_141
+def node_141 : 201
 	if self.distance_2d_to_target().leq(3000) >> node_037 
 	else >> node_142 
 	endif 
 	return 
 endf 
 
-def node_142
+def node_142 : 116
 	if self.distance_3d_to_target().leq(400) 
 	else 
 		-> raging_brachydios.dash(6,2,0,300,1500) 
@@ -1201,7 +1201,7 @@ def node_142
 	return 
 endf 
 
-def node_143
+def node_143 : 202
 	if self.distance_3d_to_target().leq(400) 
 	else 
 		-> raging_brachydios.dash(1,2,0,300,1500) 
@@ -1221,7 +1221,7 @@ def node_143
 	return 
 endf 
 
-def node_144
+def node_144 : 120
 	if self.distance_2d_to_target().gt(1200) >> node_037 
 	endif 
 	random (50) >> node_029 
@@ -1230,7 +1230,7 @@ def node_144
 	return 
 endf 
 
-def node_145
+def node_145 : 121
 	if self.above_target() 
 		if self.distance_2d_to_target().gt(3000) 
 			-> raging_brachydios.dash(6,0,0,2500) 
@@ -1250,14 +1250,14 @@ def node_145
 	return 
 endf 
 
-def node_146
+def node_146 : 47
 	random (40) >> node_147 
 	elser (60) >> node_148 
 	endr 
 	return 
 endf 
 
-def node_147
+def node_147 : 48
 	random (0) 
 				self.targetArea(21) @ parameter2:500 
 	elser (40) 
@@ -1270,7 +1270,7 @@ def node_147
 	return 
 endf 
 
-def node_148
+def node_148 : 49
 	random (0) 
 				self.targetArea(22) @ parameter2:500 
 	elser (40) 
@@ -1283,7 +1283,7 @@ def node_148
 	return 
 endf 
 
-def node_149
+def node_149 : 34
 	self.targetArea(14) 
 	if self.distance_3d_to_target().gt(600) >> node_133 
 		repeat 
@@ -1291,7 +1291,7 @@ def node_149
 	return 
 endf 
 
-def node_150
+def node_150 : 36
 	self.targetArea(19) 
 	if self.distance_3d_to_target().gt(1000) >> node_132 
 		repeat 
@@ -1299,7 +1299,7 @@ def node_150
 	return 
 endf 
 
-def node_151
+def node_151 : 162
 	function#52(160,2) 
 	self.targetArea(target_area.nearest_entrance) 
 	if self.distance_3d_to_target().gt(600) >> node_133 
@@ -1309,7 +1309,7 @@ def node_151
 	return 
 endf 
 
-def node_152
+def node_152 : 163
 	function#52(132,2) 
 	self.targetArea(target_area.nearest_entrance) 
 	if self.distance_3d_to_target().gt(600) >> node_133 
@@ -1319,7 +1319,7 @@ def node_152
 	return 
 endf 
 
-def node_153
+def node_153 : 164
 	function#52(384,2) 
 	self.targetArea(target_area.nearest_entrance) 
 	if self.distance_3d_to_target().gt(600) >> node_133 
@@ -1329,7 +1329,7 @@ def node_153
 	return 
 endf 
 
-def node_154
+def node_154 : 175
 	function#52(160,3) 
 	self.targetArea(target_area.nearest_entrance) 
 	if self.distance_3d_to_target().gt(600) >> node_133 
@@ -1339,7 +1339,7 @@ def node_154
 	return 
 endf 
 
-def node_155
+def node_155 : 165
 	function#52(132,3) 
 	self.targetArea(target_area.nearest_entrance) 
 	if self.distance_3d_to_target().gt(600) >> node_133 
@@ -1349,7 +1349,7 @@ def node_155
 	return 
 endf 
 
-def node_156
+def node_156 : 191
 	if function#10C(0,30) 
 		>> node_157 
 		>> node_154 
@@ -1387,7 +1387,7 @@ def node_156
 	return 
 endf 
 
-def node_157
+def node_157 : 192
 	if function#AB() 
 		function#AA() 
 		-> raging_brachydios.threat_big() 
@@ -1395,7 +1395,7 @@ def node_157
 	return 
 endf 
 
-def node_158
+def node_158 : 193
 	if function#AB() 
 		function#AA() 
 		-> raging_brachydios.threat_short() 
@@ -1403,7 +1403,7 @@ def node_158
 	return 
 endf 
 
-def node_159
+def node_159 : 194
 	if function#AB() 
 		function#AA() 
 		-> raging_brachydios.anger_voice() 
@@ -1411,14 +1411,14 @@ def node_159
 	return 
 endf 
 
-def node_160
+def node_160 : 38
 	if function#41() >> node_132 
 		repeat 
 	endif 
 	return 
 endf 
 
-def node_161
+def node_161 : 136
 	if function#106() 
 		return 
 	elif function#106(1) 
@@ -1431,27 +1431,27 @@ def node_161
 	return 
 endf 
 
-def node_162
+def node_162 : 129
 	function#106() 
 	return 
 endf 
 
-def node_163
+def node_163 : 130
 	function#106(2) 
 	return 
 endf 
 
-def node_164
+def node_164 : 131
 	function#106(1) 
 	return 
 endf 
 
-def node_165
+def node_165 : 132
 	function#106(3) 
 	return 
 endf 
 
-def node_166
+def node_166 : 157
 	if function#10C(0,30) 
 		if function#107() 
 		elif self.in_map(st.Guiding_Lands).in_area(14) 
@@ -1475,35 +1475,35 @@ def node_166
 	return 
 endf 
 
-def node_167
+def node_167 : 94
 	[RegisterVar0 ++] 
 	return 
 endf 
 
-def node_168
+def node_168 : 95
 	[RegisterVar0 |-] 
 	return 
 endf 
 
-def node_169
+def node_169 : 105
 	if function#101() >> node_174 
 	endif 
 	return 
 endf 
 
-def node_170
+def node_170 : 106
 	if function#102() >> node_174 
 	endif 
 	return 
 endf 
 
-def node_171
+def node_171 : 107
 	if function#103() >> node_174 
 	endif 
 	return 
 endf 
 
-def node_172
+def node_172 : 109
 	if function#102() >> node_174 
 		return 
 	elif function#103() >> node_174 
@@ -1512,7 +1512,7 @@ def node_172
 	return 
 endf 
 
-def node_173
+def node_173 : 108
 	if function#101() >> node_174 
 		return 
 	elif function#102() >> node_174 
@@ -1523,52 +1523,52 @@ def node_173
 	return 
 endf 
 
-def node_174
+def node_174 : 97
 	[RegisterVar1 ++] 
 	return 
 endf 
 
-def node_175
+def node_175 : 98
 	[RegisterVar1 |-] 
 	return 
 endf 
 
-def node_176
+def node_176 : 118
 	[RegisterVar2 ++] 
 	return 
 endf 
 
-def node_177
+def node_177 : 119
 	[RegisterVar2 |-] 
 	return 
 endf 
 
-def node_178
+def node_178 : 160
 	[RegisterVar3 ++] 
 	return 
 endf 
 
-def node_179
+def node_179 : 161
 	[RegisterVar3 |-] 
 	return 
 endf 
 
-def node_180
+def node_180 : 158
 	[RegisterVar4 ++] 
 	return 
 endf 
 
-def node_181
+def node_181 : 159
 	[RegisterVar4 |-] 
 	return 
 endf 
 
-def node_182
+def node_182 : 197
 	[RegisterVar5 ++] 
 	return 
 endf 
 
-def node_183
+def node_183 : 198
 	[RegisterVar5 |-] 
 	return 
 endf 

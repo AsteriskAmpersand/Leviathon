@@ -1,7 +1,7 @@
 importactions Namielle as namielle
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	function#52() 
 	>> node_001 
 	function#54() 
@@ -9,7 +9,7 @@ def node_000
 	reset 
 endf 
 
-def node_001
+def node_001 : 18
 	self.targetArea(target_area.nearest_entrance) 
 	if function#57(1) 
 		>> node_002 
@@ -25,12 +25,12 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 42
 	>> Global.node_121 
 	return 
 endf 
 
-def node_003
+def node_003 : 19
 	self.targetArea(17) 
 	if function#57(1) >> node_005 
 	elif function#57(5) >> node_006 
@@ -42,7 +42,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 43
 	self.targetEnemy(17) 
 	if function#5A() >> Global.node_176 
 	elif function#5A(1) >> Global.node_177 
@@ -52,25 +52,25 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 45
 	random (50) >> Global.node_176 
 	elser (50) >> Global.node_178 
 	endr 
 	return 
 endf 
 
-def node_006
+def node_006 : 47
 	>> Global.node_179 
 	return 
 endf 
 
-def node_007
+def node_007 : 49
 	>> Global.node_176 
 	>> Global.node_181 
 	return 
 endf 
 
-def node_008
+def node_008 : 51
 	>> Global.node_180 
 	return 
 endf 

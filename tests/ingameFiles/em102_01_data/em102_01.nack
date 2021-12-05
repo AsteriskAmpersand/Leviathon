@@ -1,7 +1,7 @@
 importactions Coral_PukeiPukei as coral_pukeipukei
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	>> Global.node_039 
 	>> Global.node_085 
 	self.targetEnemy(target_em.random_player_or_cat) 
@@ -30,7 +30,7 @@ def node_000
 	reset 
 endf 
 
-def node_001
+def node_001 : 14
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.target(7) 
 		>> node_003 
@@ -42,7 +42,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 15
 	if self.angle_2d_cw_between(60,300) 
 		>> Global.node_053 
 	else 
@@ -57,7 +57,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 16
 	if self.distance_3d_to_target().leq(100) 
 		>> Global.node_079 @ comboSetting:2, unkn6:65536 
 	else 
@@ -70,7 +70,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 17
 	if self.distance_3d_to_target().leq(550) 
 		>> Global.node_079 @ comboSetting:2, unkn6:65536 
 	else 
@@ -83,53 +83,53 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 2
 	>> node_001 
 	return 
 endf 
 
-def node_006
+def node_006 : 3
 	>> node_014 
 	return 
 endf 
 
-def node_007
+def node_007 : 4
 	random (70) >> node_014 
 	elser (30) >> node_015 
 	endr 
 	return 
 endf 
 
-def node_008
+def node_008 : 5
 	>> node_001 
 	return 
 endf 
 
-def node_009
+def node_009 : 6
 	>> node_014 
 	return 
 endf 
 
-def node_010
+def node_010 : 7
 	random (30) >> node_014 
 	elser (70) >> node_015 
 	endr 
 	return 
 endf 
 
-def node_011
+def node_011 : 8
 	>> node_001 
 	return 
 endf 
 
-def node_012
+def node_012 : 9
 	random (80) >> node_014 
 	elser (20) >> Global.node_105 
 	endr 
 	return 
 endf 
 
-def node_013
+def node_013 : 10
 	random (70) >> node_014 
 	elser (10) >> node_016 
 	elser (20) >> Global.node_105 
@@ -137,28 +137,28 @@ def node_013
 	return 
 endf 
 
-def node_014
+def node_014 : 11
 	self.targetArea(4) 
 	>> node_019 
 	>> node_017 
 	return 
 endf 
 
-def node_015
+def node_015 : 12
 	self.targetArea(6) 
 	>> node_020 
 	>> node_017 
 	return 
 endf 
 
-def node_016
+def node_016 : 13
 	self.targetArea(21) @ parameter2:1000 
 	>> Global.node_075 @ unkn6:65536 
 	>> node_018 
 	return 
 endf 
 
-def node_017
+def node_017 : 18
 	if self.enraged() 
 		-> coral_pukeipukei.walk(1,5,0,600) @ comboSetting:2, unkn6:65536 
 	else 
@@ -177,7 +177,7 @@ def node_017
 	return 
 endf 
 
-def node_018
+def node_018 : 20
 	>> Global.node_001 
 	if self.enraged() 
 		-> coral_pukeipukei.half_lost_search_front() @ unkn6:65536 
@@ -187,7 +187,7 @@ def node_018
 	return 
 endf 
 
-def node_019
+def node_019 : 21
 	>> Global.node_001 
 	if self.enraged() 
 		-> coral_pukeipukei.sniff_s() @ unkn6:65536 
@@ -197,7 +197,7 @@ def node_019
 	return 
 endf 
 
-def node_020
+def node_020 : 22
 	>> Global.node_001 
 	if self.enraged() 
 		-> coral_pukeipukei.sniff_l() @ unkn6:65536 

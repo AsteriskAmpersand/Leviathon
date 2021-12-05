@@ -1,7 +1,7 @@
 importactions Dodogama as dodogama
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	self.targetEnemy(13) 
 	if self.target(4) 
 		>> Global.node_002 
@@ -11,14 +11,14 @@ def node_000
 	conclude @ comboSetting:256 
 endf 
 
-def node_001
+def node_001 : 10
 	>> Global.node_134 
 	>> Global.node_132 
 	>> node_002 
 	return 
 endf 
 
-def node_002
+def node_002 : 11
 	self.targetEnemy(48) 
 	if self.target(7) 
 		>> node_004 
@@ -34,7 +34,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 14
 	if function#5F() 
 		-> dodogama.search() 
 	else 
@@ -43,12 +43,12 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 15
 	-> dodogama.search() 
 	return 
 endf 
 
-def node_005
+def node_005 : 13
 	>> Global.node_106 
 	return 
 endf 

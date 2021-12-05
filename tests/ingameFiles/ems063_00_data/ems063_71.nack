@@ -1,6 +1,6 @@
 importactions Wulg as wulg
 
-def node_000
+def node_000 : 1
 	>> node_003 
 	if function#F9(800) 
 		>> node_001 
@@ -10,7 +10,7 @@ def node_000
 	reset 
 endf 
 
-def node_001
+def node_001 : 3
 	random (90) >> node_008 
 	elser (2) >> node_007 
 	elser (8) >> node_006 
@@ -18,7 +18,7 @@ def node_001
 	reset 
 endf 
 
-def node_002
+def node_002 : 2
 	random (20) >> node_006 
 	elser (20) >> node_008 
 	elser (20) >> node_005 
@@ -29,7 +29,7 @@ def node_002
 	reset 
 endf 
 
-def node_003
+def node_003 : 15
 	function#EB(1000) 
 	function#DE(2000) 
 	if function#D2(8) 
@@ -55,32 +55,32 @@ def node_003
 	reset 
 endf 
 
-def node_004
+def node_004 : 4
 	-> wulg.idle() 
 	return 
 endf 
 
-def node_005
+def node_005 : 5
 	-> wulg.sniffs_l() 
 	return 
 endf 
 
-def node_006
+def node_006 : 6
 	-> wulg.wait() 
 	return 
 endf 
 
-def node_007
+def node_007 : 11
 	-> wulg.back_step_2hand_reload() 
 	return 
 endf 
 
-def node_008
+def node_008 : 14
 	-> wulg.side_step_left() 
 	return 
 endf 
 
-def node_009
+def node_009 : 16
 	if self.angle_2d_cw_between(90,270) 
 		-> wulg.in_ground() 
 	elif self.angle_2d_cw_between(20,340) 
@@ -89,7 +89,7 @@ def node_009
 	return 
 endf 
 
-def node_010
+def node_010 : 17
 	-> wulg.damage_head_low() 
 	return 
 endf 

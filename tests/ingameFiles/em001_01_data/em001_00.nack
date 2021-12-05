@@ -1,7 +1,7 @@
 importactions Pink_Rathian as pink_rathian
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	if self.current_quest().is_rank(rank.MR) 
 		>> node_002 
 	else 
@@ -10,7 +10,7 @@ def node_000
 	reset 
 endf 
 
-def node_001
+def node_001 : 132
 	>> node_003 
 	>> Global.node_255 
 	>> node_004 
@@ -24,7 +24,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 133
 	>> node_003 
 	>> Global.node_255 
 	>> node_004 
@@ -37,7 +37,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 131
 	if [RegisterVar0 <= 1] 
 		[RegisterVar0 |-] 
 		>> Global.node_001 
@@ -46,7 +46,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 125
 	if self.fatigued() 
 		if self.flying() 
 			>> Global.node_001 
@@ -57,7 +57,7 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 128
 	if self.targetEnemy(43) 
 		>> Global.node_267 
 	else 
@@ -67,10 +67,10 @@ def node_005
 	return 
 endf 
 
-def node_006
+def node_006 : 124
 endf 
 
-def node_007
+def node_007 : 106
 	if self.distance_2d_to_target().leq(350) 
 		if self.enraged() >> node_013 
 		elif self.fatigued() >> node_018 
@@ -100,7 +100,7 @@ def node_007
 	return 
 endf 
 
-def node_008
+def node_008 : 101
 	random (10) >> Global.node_169 
 	elser (15) >> Global.node_199 
 	elser (30) >> Global.node_196 
@@ -113,7 +113,7 @@ def node_008
 	return 
 endf 
 
-def node_009
+def node_009 : 102
 	random (10) >> Global.node_169 
 	elser (15) >> Global.node_199 
 	elser (30) >> Global.node_196 
@@ -126,7 +126,7 @@ def node_009
 	return 
 endf 
 
-def node_010
+def node_010 : 103
 	random (10) >> Global.node_169 
 	elser (15) >> Global.node_199 
 	elser (30) >> Global.node_011 
@@ -140,7 +140,7 @@ def node_010
 	return 
 endf 
 
-def node_011
+def node_011 : 104
 	random (30) >> Global.node_171 
 	elser (30) >> Global.node_011 
 				>> Global.node_196 
@@ -152,7 +152,7 @@ def node_011
 	return 
 endf 
 
-def node_012
+def node_012 : 105
 	random (75) >> Global.node_011 
 				>> node_009 
 	elser (25) >> Global.node_172 
@@ -160,7 +160,7 @@ def node_012
 	return 
 endf 
 
-def node_013
+def node_013 : 109
 	random (0) >> Global.node_169 
 	elser (25) >> Global.node_196 
 				>> Global.node_201 
@@ -173,7 +173,7 @@ def node_013
 	return 
 endf 
 
-def node_014
+def node_014 : 110
 	random (10) >> Global.node_169 
 	elser (20) >> Global.node_196 
 				>> Global.node_201 
@@ -186,7 +186,7 @@ def node_014
 	return 
 endf 
 
-def node_015
+def node_015 : 111
 	random (10) >> Global.node_169 
 	elser (20) >> Global.node_011 
 				>> Global.node_196 
@@ -200,7 +200,7 @@ def node_015
 	return 
 endf 
 
-def node_016
+def node_016 : 112
 	random (40) >> Global.node_171 
 	elser (40) >> Global.node_012 
 				>> Global.node_196 
@@ -211,7 +211,7 @@ def node_016
 	return 
 endf 
 
-def node_017
+def node_017 : 113
 	random (100) >> Global.node_012 
 				>> node_014 
 	elser (0) >> Global.node_172 
@@ -219,7 +219,7 @@ def node_017
 	return 
 endf 
 
-def node_018
+def node_018 : 114
 	random (25) >> Global.node_169 
 	elser (25) >> Global.node_174 
 	elser (20) >> Global.node_182 
@@ -229,7 +229,7 @@ def node_018
 	return 
 endf 
 
-def node_019
+def node_019 : 115
 	random (25) >> Global.node_169 
 	elser (25) >> Global.node_174 
 	elser (20) >> Global.node_182 
@@ -239,7 +239,7 @@ def node_019
 	return 
 endf 
 
-def node_020
+def node_020 : 116
 	random (25) >> Global.node_169 
 	elser (25) >> Global.node_011 
 				>> Global.node_174 
@@ -251,7 +251,7 @@ def node_020
 	return 
 endf 
 
-def node_021
+def node_021 : 117
 	random (25) >> Global.node_011 
 				>> Global.node_169 
 	elser (25) >> Global.node_011 
@@ -264,7 +264,7 @@ def node_021
 	return 
 endf 
 
-def node_022
+def node_022 : 118
 	random (70) >> Global.node_011 
 				>> node_019 
 	elser (20) >> Global.node_164 
@@ -274,7 +274,7 @@ def node_022
 	return 
 endf 
 
-def node_023
+def node_023 : 134
 	if self.distance_2d_to_target().leq(350) 
 		if self.enraged() >> node_029 
 		elif self.fatigued() >> node_034 
@@ -304,7 +304,7 @@ def node_023
 	return 
 endf 
 
-def node_024
+def node_024 : 135
 	random (5) >> Global.node_169 
 	elser (15) >> Global.node_199 
 	elser (25) >> Global.node_196 
@@ -318,7 +318,7 @@ def node_024
 	return 
 endf 
 
-def node_025
+def node_025 : 136
 	random (10) >> Global.node_169 
 	elser (15) >> Global.node_199 
 	elser (25) >> Global.node_196 
@@ -332,7 +332,7 @@ def node_025
 	return 
 endf 
 
-def node_026
+def node_026 : 137
 	random (10) >> Global.node_169 
 	elser (10) >> Global.node_199 
 	elser (25) >> Global.node_011 
@@ -347,7 +347,7 @@ def node_026
 	return 
 endf 
 
-def node_027
+def node_027 : 138
 	random (20) >> Global.node_171 
 	elser (20) >> Global.node_011 
 				>> Global.node_196 
@@ -360,7 +360,7 @@ def node_027
 	return 
 endf 
 
-def node_028
+def node_028 : 139
 	random (75) >> Global.node_011 
 				>> node_025 
 	elser (25) >> Global.node_172 
@@ -368,7 +368,7 @@ def node_028
 	return 
 endf 
 
-def node_029
+def node_029 : 140
 	random (0) >> Global.node_169 
 	elser (20) >> Global.node_196 
 				>> Global.node_206 
@@ -382,7 +382,7 @@ def node_029
 	return 
 endf 
 
-def node_030
+def node_030 : 141
 	random (10) >> Global.node_169 
 	elser (20) >> Global.node_196 
 				>> Global.node_206 
@@ -396,7 +396,7 @@ def node_030
 	return 
 endf 
 
-def node_031
+def node_031 : 142
 	random (10) >> Global.node_169 
 	elser (20) >> Global.node_011 
 				>> Global.node_196 
@@ -412,7 +412,7 @@ def node_031
 	return 
 endf 
 
-def node_032
+def node_032 : 143
 	random (40) >> Global.node_171 
 	elser (20) >> Global.node_012 
 				>> Global.node_196 
@@ -426,7 +426,7 @@ def node_032
 	return 
 endf 
 
-def node_033
+def node_033 : 144
 	random (100) >> Global.node_012 
 				>> node_030 
 	elser (0) >> Global.node_172 
@@ -434,7 +434,7 @@ def node_033
 	return 
 endf 
 
-def node_034
+def node_034 : 145
 	random (25) >> Global.node_169 
 	elser (25) >> Global.node_174 
 	elser (20) >> Global.node_182 
@@ -444,7 +444,7 @@ def node_034
 	return 
 endf 
 
-def node_035
+def node_035 : 146
 	random (25) >> Global.node_169 
 	elser (25) >> Global.node_174 
 	elser (20) >> Global.node_182 
@@ -454,7 +454,7 @@ def node_035
 	return 
 endf 
 
-def node_036
+def node_036 : 147
 	random (25) >> Global.node_169 
 	elser (25) >> Global.node_011 
 				>> Global.node_174 
@@ -466,7 +466,7 @@ def node_036
 	return 
 endf 
 
-def node_037
+def node_037 : 148
 	random (25) >> Global.node_011 
 				>> Global.node_169 
 	elser (25) >> Global.node_011 
@@ -479,7 +479,7 @@ def node_037
 	return 
 endf 
 
-def node_038
+def node_038 : 149
 	random (70) >> Global.node_011 
 				>> node_035 
 	elser (20) >> Global.node_164 
@@ -489,7 +489,7 @@ def node_038
 	return 
 endf 
 
-def node_039
+def node_039 : 95
 	[RegisterVar0 ++] 
 	if self.distance_2d_to_target().leq(300) 
 		if self.enraged() >> node_045 
@@ -516,7 +516,7 @@ def node_039
 	return 
 endf 
 
-def node_040
+def node_040 : 96
 	random (50) >> Global.node_222 
 				>> Global.node_239 
 	elser (50) >> Global.node_237 
@@ -525,7 +525,7 @@ def node_040
 	return 
 endf 
 
-def node_041
+def node_041 : 97
 	random (50) >> Global.node_222 
 				>> Global.node_239 
 	elser (50) >> Global.node_237 
@@ -534,7 +534,7 @@ def node_041
 	return 
 endf 
 
-def node_042
+def node_042 : 98
 	random (35) >> Global.node_033 
 				>> Global.node_239 
 	elser (65) >> Global.node_229 
@@ -543,7 +543,7 @@ def node_042
 	return 
 endf 
 
-def node_043
+def node_043 : 99
 	random (35) >> Global.node_033 
 				>> Global.node_239 
 	elser (65) >> Global.node_229 
@@ -552,13 +552,13 @@ def node_043
 	return 
 endf 
 
-def node_044
+def node_044 : 100
 	>> Global.node_033 
 	>> node_041 
 	return 
 endf 
 
-def node_045
+def node_045 : 119
 	random (20) >> Global.node_220 
 				>> Global.node_225 
 				>> Global.node_241 
@@ -569,7 +569,7 @@ def node_045
 	return 
 endf 
 
-def node_046
+def node_046 : 120
 	random (20) >> Global.node_220 
 				>> Global.node_225 
 				>> Global.node_241 
@@ -580,7 +580,7 @@ def node_046
 	return 
 endf 
 
-def node_047
+def node_047 : 121
 	random (20) >> Global.node_033 
 				>> Global.node_239 
 	elser (40) >> Global.node_220 
@@ -592,7 +592,7 @@ def node_047
 	return 
 endf 
 
-def node_048
+def node_048 : 122
 	random (20) >> Global.node_033 
 				>> Global.node_239 
 	elser (40) >> Global.node_220 
@@ -604,7 +604,7 @@ def node_048
 	return 
 endf 
 
-def node_049
+def node_049 : 123
 	>> Global.node_033 
 	>> node_046 
 	return 

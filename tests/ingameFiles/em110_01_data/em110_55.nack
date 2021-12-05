@@ -1,10 +1,10 @@
 importactions Nightshade_Paolumu as nightshade_paolumu
 
-def node_000
+def node_000 : 1
 	conclude 
 endf 
 
-def node_001
+def node_001 : 164
 	>> node_005 
 	if self.flying() 
 		if function#AF(5000) 
@@ -17,7 +17,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 165
 	if function#101() 
 		if self.flying() 
 		else 
@@ -28,7 +28,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 166
 	self.targetArea(target_area.area_aerial_center) 
 	>> node_159 
 	self.targetArea(target_area.area_center) 
@@ -36,14 +36,14 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 325
 	>> node_001 
 	-> nightshade_paolumu.take_off_switch_pattern_by_dist() 
 	>> node_151 
 	return 
 endf 
 
-def node_005
+def node_005 : 185
 	if self.flying() 
 		if function#101(1) -> nightshade_paolumu.max_spitting_air_fly() 
 		else 
@@ -53,7 +53,7 @@ def node_005
 	return 
 endf 
 
-def node_006
+def node_006 : 184
 	if self.flying() 
 		if function#101(1) -> nightshade_paolumu.max_spitting_air_fly() 
 			repeat 
@@ -64,7 +64,7 @@ def node_006
 	return 
 endf 
 
-def node_007
+def node_007 : 282
 	if function#101(1) 
 	else 
 		if self.fatigued() 
@@ -85,7 +85,7 @@ def node_007
 	return 
 endf 
 
-def node_008
+def node_008 : 342
 	if function#101(1) 
 	else 
 		if self.fatigued() 
@@ -106,7 +106,7 @@ def node_008
 	return 
 endf 
 
-def node_009
+def node_009 : 475
 	if function#101(1) 
 	else 
 		if self.flying() 
@@ -122,28 +122,28 @@ def node_009
 	return 
 endf 
 
-def node_010
+def node_010 : 410
 	>> node_001 
 	-> nightshade_paolumu.suck_sleep_area_single_takeoff() 
 	>> node_222 
 	return 
 endf 
 
-def node_011
+def node_011 : 409
 	>> node_002 
 	-> nightshade_paolumu.suck_sleep_area_single_transfly() 
 	>> node_222 
 	return 
 endf 
 
-def node_012
+def node_012 : 411
 	>> node_002 
 	-> nightshade_paolumu.suck_sleep_area_multi_transfly() 
 	>> node_222 
 	return 
 endf 
 
-def node_013
+def node_013 : 457
 	if function#101(1) 
 		[RegisterVar5 ++] 
 		if [RegisterVar5 <= 4] 
@@ -169,7 +169,7 @@ def node_013
 	return 
 endf 
 
-def node_014
+def node_014 : 452
 	if function#101(1) 
 		if [RegisterVar4 <= 6] 
 			[RegisterVar4 |-] 
@@ -199,7 +199,7 @@ def node_014
 	return 
 endf 
 
-def node_015
+def node_015 : 455
 	if [RegisterVar4 >= 1] 
 		>> node_016 
 	elif [RegisterVar4 == 2] 
@@ -219,7 +219,7 @@ def node_015
 	return 
 endf 
 
-def node_016
+def node_016 : 456
 	if self.distance_2d_to_target().leq(500) 
 		random (15) >> node_037 
 		elser (70) >> node_036 
@@ -233,7 +233,7 @@ def node_016
 	reset 
 endf 
 
-def node_017
+def node_017 : 449
 	if function#101(1) 
 		[RegisterVar3 |-] 
 	elif self.fatigued() 
@@ -276,7 +276,7 @@ def node_017
 	return 
 endf 
 
-def node_018
+def node_018 : 450
 	[RegisterVar3 ++] 
 	[RegisterVar3 ++] 
 	[RegisterVar3 ++] 
@@ -300,7 +300,7 @@ def node_018
 	return 
 endf 
 
-def node_019
+def node_019 : 451
 	if [RegisterVar3 >= 1] 
 	elif [RegisterVar3 == 2] 
 		>> node_020 
@@ -331,7 +331,7 @@ def node_019
 	return 
 endf 
 
-def node_020
+def node_020 : 421
 	if self.flying() 
 		if self.enraged() 
 			>> node_022 
@@ -343,19 +343,19 @@ def node_020
 	return 
 endf 
 
-def node_021
+def node_021 : 407
 	>> node_002 
 	-> nightshade_paolumu.suck_sleep_area_single_fly() 
 	return 
 endf 
 
-def node_022
+def node_022 : 408
 	>> node_002 
 	-> nightshade_paolumu.suck_sleep_area_multi_fly() 
 	return 
 endf 
 
-def node_023
+def node_023 : 414
 	>> node_002 
 	>> node_049 
 	if self.angle_2d_cw_between(90,270) 
@@ -366,31 +366,31 @@ def node_023
 	return 
 endf 
 
-def node_024
+def node_024 : 445
 	>> node_059 
 	>> node_023 
 	return 
 endf 
 
-def node_025
+def node_025 : 433
 	>> node_051 
 	>> node_023 
 	return 
 endf 
 
-def node_026
+def node_026 : 434
 	>> node_054 
 	>> node_023 
 	return 
 endf 
 
-def node_027
+def node_027 : 435
 	>> node_055 
 	>> node_023 
 	return 
 endf 
 
-def node_028
+def node_028 : 416
 	>> node_002 
 	>> node_216 
 	if self.above_area() 
@@ -401,43 +401,43 @@ def node_028
 	return 
 endf 
 
-def node_029
+def node_029 : 446
 	>> node_059 
 	>> node_028 
 	return 
 endf 
 
-def node_030
+def node_030 : 436
 	>> node_051 
 	>> node_028 
 	return 
 endf 
 
-def node_031
+def node_031 : 437
 	>> node_054 
 	>> node_028 
 	return 
 endf 
 
-def node_032
+def node_032 : 438
 	>> node_055 
 	>> node_028 
 	return 
 endf 
 
-def node_033
+def node_033 : 418
 	>> node_002 
 	-> nightshade_paolumu.tail_punch_balloon() 
 	return 
 endf 
 
-def node_034
+def node_034 : 439
 	>> node_052 
 	>> node_033 
 	return 
 endf 
 
-def node_035
+def node_035 : 168
 	if self.distance_2d_to_target().leq(1200) 
 		-> nightshade_paolumu.air_breath_fly() 
 	else 
@@ -446,19 +446,19 @@ def node_035
 	return 
 endf 
 
-def node_036
+def node_036 : 454
 	>> node_059 
 	>> node_035 
 	return 
 endf 
 
-def node_037
+def node_037 : 443
 	>> node_052 
 	>> node_035 
 	return 
 endf 
 
-def node_038
+def node_038 : 263
 	>> node_223 
 	if self.distance_2d_to_target().leq(1200) 
 		-> nightshade_paolumu.air_breath_fly() 
@@ -468,60 +468,60 @@ def node_038
 	return 
 endf 
 
-def node_039
+def node_039 : 444
 	>> node_052 
 	>> node_038 
 	return 
 endf 
 
-def node_040
+def node_040 : 412
 	>> node_002 
 	-> nightshade_paolumu.special_spin_rush() 
 	return 
 endf 
 
-def node_041
+def node_041 : 402
 	>> node_002 
 	-> nightshade_paolumu.sleep_breath_large() 
 	return 
 endf 
 
-def node_042
+def node_042 : 447
 	>> node_059 
 	>> node_041 
 	return 
 endf 
 
-def node_043
+def node_043 : 440
 	>> node_051 
 	>> node_041 
 	return 
 endf 
 
-def node_044
+def node_044 : 441
 	>> node_054 
 	>> node_041 
 	return 
 endf 
 
-def node_045
+def node_045 : 442
 	>> node_055 
 	>> node_041 
 	return 
 endf 
 
-def node_046
+def node_046 : 292
 	>> node_216 
 	-> nightshade_paolumu.balloon_mid_dist_rush() 
 	return 
 endf 
 
-def node_047
+def node_047 : 294
 	-> nightshade_paolumu.balloon_check_tail_mini() 
 	return 
 endf 
 
-def node_048
+def node_048 : 293
 	if self.distance_3d_to_target().leq(750) 
 		>> node_100 
 	else 
@@ -535,7 +535,7 @@ def node_048
 	return 
 endf 
 
-def node_049
+def node_049 : 286
 	if self.distance_2d_to_target().leq(750) 
 		return 
 	elif self.distance_2d_to_target().gt(3000) 
@@ -550,7 +550,7 @@ def node_049
 	return 
 endf 
 
-def node_050
+def node_050 : 310
 	>> node_002 
 	>> node_223 
 	if self.below_target() 
@@ -561,7 +561,7 @@ def node_050
 	return 
 endf 
 
-def node_051
+def node_051 : 177
 	>> node_002 
 	>> node_167 
 	if self.flying() 
@@ -573,7 +573,7 @@ def node_051
 	return 
 endf 
 
-def node_052
+def node_052 : 176
 	>> node_002 
 	>> node_165 
 	if self.flying() 
@@ -585,7 +585,7 @@ def node_052
 	return 
 endf 
 
-def node_053
+def node_053 : 175
 	>> node_002 
 	>> node_167 
 	if self.flying() 
@@ -597,7 +597,7 @@ def node_053
 	return 
 endf 
 
-def node_054
+def node_054 : 284
 	>> node_002 
 	>> node_167 
 	>> node_218 
@@ -605,14 +605,14 @@ def node_054
 	return 
 endf 
 
-def node_055
+def node_055 : 295
 	>> node_002 
 	>> node_162 
 	-> nightshade_paolumu.balloon_idle_over_the_player() 
 	return 
 endf 
 
-def node_056
+def node_056 : 298
 	>> node_002 
 	if self.below_target() 
 		if self.vertical_distance_to_target().leq(500) 
@@ -626,17 +626,17 @@ def node_056
 	return 
 endf 
 
-def node_057
+def node_057 : 307
 	-> nightshade_paolumu.max_short_up_step_fly() 
 	return 
 endf 
 
-def node_058
+def node_058 : 308
 	-> nightshade_paolumu.max_short_down_step_fly() 
 	return 
 endf 
 
-def node_059
+def node_059 : 237
 	>> node_002 
 	if self.angle_2d_cw_between(0,180) 
 		>> node_061 
@@ -646,7 +646,7 @@ def node_059
 	return 
 endf 
 
-def node_060
+def node_060 : 232
 	if function#101() 
 	else 
 		-> nightshade_paolumu.balloon_idle_move_left() 
@@ -654,7 +654,7 @@ def node_060
 	return 
 endf 
 
-def node_061
+def node_061 : 234
 	if function#101() 
 	else 
 		-> nightshade_paolumu.balloon_idle_move_right() 
@@ -662,7 +662,7 @@ def node_061
 	return 
 endf 
 
-def node_062
+def node_062 : 413
 	>> node_002 
 	>> node_162 
 	>> node_002 
@@ -674,7 +674,7 @@ def node_062
 	return 
 endf 
 
-def node_063
+def node_063 : 415
 	>> node_002 
 	>> node_161 
 	>> node_002 
@@ -683,7 +683,7 @@ def node_063
 	return 
 endf 
 
-def node_064
+def node_064 : 417
 	>> node_002 
 	>> node_166 
 	>> node_002 
@@ -691,26 +691,26 @@ def node_064
 	return 
 endf 
 
-def node_065
+def node_065 : 226
 	>> node_002 
 	>> node_216 
 	-> nightshade_paolumu.bite_fly() 
 	return 
 endf 
 
-def node_066
+def node_066 : 304
 	>> node_002 
 	-> nightshade_paolumu.mid_dist_kick_fly() 
 	return 
 endf 
 
-def node_067
+def node_067 : 229
 	>> node_002 
 	-> nightshade_paolumu.glide_attack_short() 
 	return 
 endf 
 
-def node_068
+def node_068 : 312
 	>> node_002 
 	if self.distance_3d_to_target().leq(750) 
 		>> node_069 
@@ -720,7 +720,7 @@ def node_068
 	return 
 endf 
 
-def node_069
+def node_069 : 313
 	>> node_002 
 	if self.angle_2d_cw_between(90,270) 
 		-> nightshade_paolumu.quick_turn_fly() 
@@ -734,7 +734,7 @@ def node_069
 	return 
 endf 
 
-def node_070
+def node_070 : 400
 	>> node_001 
 	>> node_133 
 	if self.angle_2d_cw_between(90,270) 
@@ -745,7 +745,7 @@ def node_070
 	return 
 endf 
 
-def node_071
+def node_071 : 401
 	>> node_001 
 	>> node_134 
 	>> node_218 
@@ -753,7 +753,7 @@ def node_071
 	return 
 endf 
 
-def node_072
+def node_072 : 143
 	>> node_001 
 	>> node_132 
 	if self.angle_2d_cw_between(0,180) 
@@ -764,14 +764,14 @@ def node_072
 	return 
 endf 
 
-def node_073
+def node_073 : 225
 	>> node_001 
 	>> node_132 
 	-> nightshade_paolumu.stamp() 
 	return 
 endf 
 
-def node_074
+def node_074 : 144
 	>> node_001 
 	>> node_137 
 	>> node_216 
@@ -779,7 +779,7 @@ def node_074
 	return 
 endf 
 
-def node_075
+def node_075 : 139
 	>> node_001 
 	>> node_132 
 	>> node_217 
@@ -787,13 +787,13 @@ def node_075
 	return 
 endf 
 
-def node_076
+def node_076 : 303
 	>> node_001 
 	-> nightshade_paolumu.mid_dist_kick_ground() 
 	return 
 endf 
 
-def node_077
+def node_077 : 465
 	>> node_002 
 	if self.angle_2d_cw_between(90,270) 
 		-> nightshade_paolumu.sub_max_tail_attack_back_slap() 
@@ -803,7 +803,7 @@ def node_077
 	return 
 endf 
 
-def node_078
+def node_078 : 467
 	>> node_002 
 	if self.angle_2d_cw_between(90,270) 
 		-> nightshade_paolumu.sub_tail_attack_back_slap() 
@@ -813,20 +813,20 @@ def node_078
 	return 
 endf 
 
-def node_079
+def node_079 : 468
 	>> node_002 
 	>> node_218 
 	-> nightshade_paolumu.sub_short_dist_tail_attack() 
 	return 
 endf 
 
-def node_080
+def node_080 : 469
 	>> node_002 
 	-> nightshade_paolumu.tail_punch() 
 	return 
 endf 
 
-def node_081
+def node_081 : 470
 	>> node_001 
 	if self.angle_2d_cw_between(90,270) 
 		-> nightshade_paolumu.sub_ground_tail_attack_back_slap() 
@@ -836,20 +836,20 @@ def node_081
 	return 
 endf 
 
-def node_082
+def node_082 : 471
 	>> node_001 
 	>> node_218 
 	-> nightshade_paolumu.sub_ground_tail_strike() 
 	return 
 endf 
 
-def node_083
+def node_083 : 472
 	>> node_001 
 	-> nightshade_paolumu.stamp() 
 	return 
 endf 
 
-def node_084
+def node_084 : 419
 	if function#101(1) 
 		if function#C8(51) 
 			if self.target(4) 
@@ -902,7 +902,7 @@ def node_084
 	return 
 endf 
 
-def node_085
+def node_085 : 354
 	if function#101(1) 
 		if self.target(51) 
 			if self.enraged() 
@@ -961,19 +961,19 @@ def node_085
 	return 
 endf 
 
-def node_086
+def node_086 : 40
 	random (50) 
 	elser (50) >> node_114 
 	endr 
 	return 
 endf 
 
-def node_087
+def node_087 : 68
 	>> node_114 
 	return 
 endf 
 
-def node_088
+def node_088 : 41
 	if function#5A() 
 		>> node_001 
 		>> node_114 
@@ -1056,28 +1056,28 @@ def node_088
 	return 
 endf 
 
-def node_089
+def node_089 : 43
 	>> node_001 
 	>> node_096 
 	-> nightshade_paolumu.eat_ant() 
 	return 
 endf 
 
-def node_090
+def node_090 : 44
 	>> node_001 
 	>> node_097 
 	-> nightshade_paolumu.sleep() 
 	return 
 endf 
 
-def node_091
+def node_091 : 42
 	>> node_001 
 	>> node_097 
 	-> nightshade_paolumu.drink() 
 	return 
 endf 
 
-def node_092
+def node_092 : 47
 	>> node_001 
 	>> node_097 
 	if function#3C(1) 
@@ -1088,7 +1088,7 @@ def node_092
 	return 
 endf 
 
-def node_093
+def node_093 : 220
 	>> node_096 
 	if function#110() 
 		-> nightshade_paolumu.eat_ant_stamina() 
@@ -1098,17 +1098,17 @@ def node_093
 	return 
 endf 
 
-def node_094
+def node_094 : 338
 	[RegisterVar2 ++] 
 	return 
 endf 
 
-def node_095
+def node_095 : 339
 	[RegisterVar2 |-] 
 	return 
 endf 
 
-def node_096
+def node_096 : 33
 	if self.flying() 
 		if function#101(1) -> nightshade_paolumu.quick_turn_fly() 
 		else -> nightshade_paolumu.quick_turn_fly() 
@@ -1119,7 +1119,7 @@ def node_096
 	return 
 endf 
 
-def node_097
+def node_097 : 31
 	if self.angle_2d_cw_between(30,330) 
 		if self.flying() 
 			if function#101(1) -> nightshade_paolumu.quick_turn_fly() 
@@ -1133,7 +1133,7 @@ def node_097
 	return 
 endf 
 
-def node_098
+def node_098 : 32
 	if self.angle_2d_cw_between(80,280) 
 		if self.flying() 
 			if function#101(1) -> nightshade_paolumu.quick_turn_fly() 
@@ -1147,7 +1147,7 @@ def node_098
 	return 
 endf 
 
-def node_099
+def node_099 : 66
 	if self.distance_3d_to_target().leq(500) 
 		>> node_100 
 	elif self.angle_2d_cw_between(30,330) 
@@ -1157,7 +1157,7 @@ def node_099
 	return 
 endf 
 
-def node_100
+def node_100 : 45
 	if self.flying() 
 		if function#101(1) -> nightshade_paolumu.back_turn_fly() 
 		else -> nightshade_paolumu.back_turn_fly() 
@@ -1168,7 +1168,7 @@ def node_100
 	return 
 endf 
 
-def node_101
+def node_101 : 10
 	if self.targetEnemy(target_em.any_monster) 
 		if self.target(13) 
 		else 
@@ -1201,7 +1201,7 @@ def node_101
 	return 
 endf 
 
-def node_102
+def node_102 : 289
 	if self.in_map(st.Special_Arena).in_area(-1) 
 	elif self.in_map(st.Challenge_Arena).in_area(-1) 
 	else 
@@ -1227,7 +1227,7 @@ def node_102
 	return 
 endf 
 
-def node_103
+def node_103 : 288
 	if self.in_map(st.Special_Arena).in_area(-1) 
 	elif self.in_map(st.Challenge_Arena).in_area(-1) 
 	else 
@@ -1253,7 +1253,7 @@ def node_103
 	return 
 endf 
 
-def node_104
+def node_104 : 291
 	if self.target(39) 
 		>> node_102 
 	else 
@@ -1272,19 +1272,19 @@ def node_104
 	return 
 endf 
 
-def node_105
+def node_105 : 287
 	[RegisterVar1 ++] 
 	return 
 endf 
 
-def node_106
+def node_106 : 80
 	[RegisterVar1 ++] 
 	>> node_215 
 	>> node_124 
 	return 
 endf 
 
-def node_107
+def node_107 : 83
 	if self.flying() 
 		>> node_166 
 	else 
@@ -1315,7 +1315,7 @@ def node_107
 	return 
 endf 
 
-def node_108
+def node_108 : 473
 	if self.distance_3d_to_target().gt(1500) 
 		if self.flying() 
 			>> node_162 
@@ -1356,13 +1356,13 @@ def node_108
 	return 
 endf 
 
-def node_109
+def node_109 : 82
 	[RegisterVar1 |-] 
 	self.force_area_change2() 
 	return 
 endf 
 
-def node_110
+def node_110 : 464
 	[RegisterVar1 ++] 
 	[RegisterVar1 ++] 
 	[RegisterVar1 ++] 
@@ -1373,7 +1373,7 @@ def node_110
 	return 
 endf 
 
-def node_111
+def node_111 : 460
 	if function#101(1) 
 	else 
 		[RegisterVar6 ++] 
@@ -1390,7 +1390,7 @@ def node_111
 	return 
 endf 
 
-def node_112
+def node_112 : 474
 	if [RegisterVar6 <= 1] 
 		[RegisterVar6 |-] 
 		>> node_005 
@@ -1399,7 +1399,7 @@ def node_112
 	return 
 endf 
 
-def node_113
+def node_113 : 461
 	[RegisterVar1 ++] 
 	[RegisterVar1 ++] 
 	[RegisterVar1 ++] 
@@ -1413,7 +1413,7 @@ def node_113
 	return 
 endf 
 
-def node_114
+def node_114 : 54
 	random (50) 
 				>> node_115 
 	elser (50) 
@@ -1422,7 +1422,7 @@ def node_114
 	return 
 endf 
 
-def node_115
+def node_115 : 239
 	if function#3C() 
 		if self.flying() 
 			-> nightshade_paolumu.life_search_fly2() 
@@ -1439,7 +1439,7 @@ def node_115
 	return 
 endf 
 
-def node_116
+def node_116 : 463
 	random (50) 
 				>> node_115 
 	elser (50) 
@@ -1448,7 +1448,7 @@ def node_116
 	return 
 endf 
 
-def node_117
+def node_117 : 462
 	if self.flying() 
 		-> nightshade_paolumu.life_search_fly5() 
 	else 
@@ -1457,7 +1457,7 @@ def node_117
 	return 
 endf 
 
-def node_118
+def node_118 : 55
 	if self.flying() 
 		if self.enraged() 
 			if function#101(1) -> nightshade_paolumu.max_half_lost_search_front_fly() 
@@ -1478,7 +1478,7 @@ def node_118
 	return 
 endf 
 
-def node_119
+def node_119 : 56
 	if self.flying() 
 		if function#101(1) 
 			random (50) -> nightshade_paolumu.max_half_lost_search_front_fly() 
@@ -1493,7 +1493,7 @@ def node_119
 	return 
 endf 
 
-def node_120
+def node_120 : 254
 	if self.flying() 
 		-> nightshade_paolumu.life_search_fly4() 
 	else 
@@ -1502,7 +1502,7 @@ def node_120
 	return 
 endf 
 
-def node_121
+def node_121 : 320
 	if self.flying() 
 		-> nightshade_paolumu.life_search_fly5() 
 	else 
@@ -1511,7 +1511,7 @@ def node_121
 	return 
 endf 
 
-def node_122
+def node_122 : 53
 	if self.flying() 
 		if function#101(1) -> nightshade_paolumu.max_refresh_fly() 
 		else -> nightshade_paolumu.refresh_fly() 
@@ -1522,7 +1522,7 @@ def node_122
 	return 
 endf 
 
-def node_123
+def node_123 : 52
 	>> node_001 
 	if self.in_combat() 
 		-> nightshade_paolumu.idle_tired_combat() 
@@ -1532,7 +1532,7 @@ def node_123
 	return 
 endf 
 
-def node_124
+def node_124 : 23
 	if self.flying() 
 		if function#101(1) -> nightshade_paolumu.max_intimidation_fly() 
 		else -> nightshade_paolumu.intimidation_fly() 
@@ -1543,7 +1543,7 @@ def node_124
 	return 
 endf 
 
-def node_125
+def node_125 : 50
 	if self.flying() 
 		if function#101(1) -> nightshade_paolumu.max_threat_fly_short() 
 		else -> nightshade_paolumu.threat_fly_short() 
@@ -1554,7 +1554,7 @@ def node_125
 	return 
 endf 
 
-def node_126
+def node_126 : 20
 	if self.flying() 
 		if function#101(1) -> nightshade_paolumu.max_threat_fly() 
 		else -> nightshade_paolumu.threat_fly() 
@@ -1565,7 +1565,7 @@ def node_126
 	return 
 endf 
 
-def node_127
+def node_127 : 85
 	if self.distance_3d_to_target().leq(500) 
 		return 
 	else 
@@ -1574,7 +1574,7 @@ def node_127
 	return 
 endf 
 
-def node_128
+def node_128 : 88
 	if self.fatigued() 
 		-> nightshade_paolumu.tired_walk(2,1,5,1500,450) 
 	else 
@@ -1593,7 +1593,7 @@ def node_128
 	return 
 endf 
 
-def node_129
+def node_129 : 186
 	if self.distance_3d_to_target().leq(500) 
 		return 
 	else 
@@ -1606,7 +1606,7 @@ def node_129
 	repeat 
 endf 
 
-def node_130
+def node_130 : 46
 	if self.distance_3d_to_target().leq(650) 
 		return 
 	else 
@@ -1625,7 +1625,7 @@ def node_130
 	return 
 endf 
 
-def node_131
+def node_131 : 87
 	if self.fatigued() 
 		-> nightshade_paolumu.dash_tired(2,1,0,1500,550) 
 	else 
@@ -1634,7 +1634,7 @@ def node_131
 	return 
 endf 
 
-def node_132
+def node_132 : 423
 	if self.distance_3d_to_target().leq(550) 
 		return 
 	else 
@@ -1653,7 +1653,7 @@ def node_132
 	return 
 endf 
 
-def node_133
+def node_133 : 36
 	if self.distance_3d_to_target().leq(600) 
 		return 
 	else 
@@ -1672,7 +1672,7 @@ def node_133
 	return 
 endf 
 
-def node_134
+def node_134 : 424
 	if self.distance_3d_to_target().leq(850) 
 		return 
 	else 
@@ -1691,7 +1691,7 @@ def node_134
 	return 
 endf 
 
-def node_135
+def node_135 : 98
 	if self.distance_3d_to_target().leq(1050) 
 		return 
 	else 
@@ -1710,7 +1710,7 @@ def node_135
 	return 
 endf 
 
-def node_136
+def node_136 : 448
 	if self.distance_3d_to_target().leq(1850) 
 		return 
 	else 
@@ -1729,7 +1729,7 @@ def node_136
 	return 
 endf 
 
-def node_137
+def node_137 : 425
 	if self.distance_3d_to_target().leq(2550) 
 		return 
 	else 
@@ -1748,7 +1748,7 @@ def node_137
 	return 
 endf 
 
-def node_138
+def node_138 : 251
 	if self.distance_2d_to_target().leq(2550) 
 		return 
 	else 
@@ -1767,7 +1767,7 @@ def node_138
 	return 
 endf 
 
-def node_139
+def node_139 : 94
 	if self.distance_3d_to_target().leq(550) 
 		return 
 	else 
@@ -1780,7 +1780,7 @@ def node_139
 	repeat 
 endf 
 
-def node_140
+def node_140 : 396
 	if self.distance_3d_to_target().leq(750) 
 		return 
 	else 
@@ -1793,7 +1793,7 @@ def node_140
 	repeat 
 endf 
 
-def node_141
+def node_141 : 479
 	-> nightshade_paolumu.dash_combat(2,6,0,800,1000) 
 	if self.distance_2d_to_target().leq(1000) 
 		return 
@@ -1808,7 +1808,7 @@ def node_141
 	return 
 endf 
 
-def node_142
+def node_142 : 481
 	if self.distance_3d_to_target().leq(600) 
 		return 
 	else 
@@ -1827,7 +1827,7 @@ def node_142
 	return 
 endf 
 
-def node_143
+def node_143 : 145
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		if function#7D() 
@@ -1840,7 +1840,7 @@ def node_143
 	return 
 endf 
 
-def node_144
+def node_144 : 148
 	if self.distance_2d_to_target().leq(600) 
 	else 
 		if function#7D() 
@@ -1853,7 +1853,7 @@ def node_144
 	return 
 endf 
 
-def node_145
+def node_145 : 149
 	if self.distance_2d_to_target().leq(1000) 
 	else 
 		if function#7D() 
@@ -1866,7 +1866,7 @@ def node_145
 	return 
 endf 
 
-def node_146
+def node_146 : 146
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		if function#7D() 
@@ -1879,7 +1879,7 @@ def node_146
 	return 
 endf 
 
-def node_147
+def node_147 : 147
 	if self.distance_3d_to_target().leq(1000) 
 	else 
 		if function#7D() 
@@ -1892,7 +1892,7 @@ def node_147
 	return 
 endf 
 
-def node_148
+def node_148 : 150
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> nightshade_paolumu.glide(2,1,0,3000,500) 
@@ -1902,7 +1902,7 @@ def node_148
 	return 
 endf 
 
-def node_149
+def node_149 : 153
 	if self.distance_2d_to_target().leq(600) 
 	else 
 		-> nightshade_paolumu.glide_combat(2,1,0,3000,500) 
@@ -1912,7 +1912,7 @@ def node_149
 	return 
 endf 
 
-def node_150
+def node_150 : 154
 	if self.distance_2d_to_target().leq(1000) 
 	else 
 		-> nightshade_paolumu.glide_combat(2,1,0,3000,900) 
@@ -1922,7 +1922,7 @@ def node_150
 	return 
 endf 
 
-def node_151
+def node_151 : 151
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> nightshade_paolumu.glide_direct_move(2,1,0,3000,500) 
@@ -1932,7 +1932,7 @@ def node_151
 	return 
 endf 
 
-def node_152
+def node_152 : 152
 	if self.distance_3d_to_target().leq(1000) 
 	else 
 		-> nightshade_paolumu.glide_direct_move(2,1,0,3000,900) 
@@ -1942,7 +1942,7 @@ def node_152
 	return 
 endf 
 
-def node_153
+def node_153 : 155
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		if function#101(1) -> nightshade_paolumu.max_glide(2,1,0,3000,500) 
@@ -1953,7 +1953,7 @@ def node_153
 	return 
 endf 
 
-def node_154
+def node_154 : 158
 	if self.distance_2d_to_target().leq(600) 
 	else 
 		if function#101(1) -> nightshade_paolumu.max_glide_combat(2,1,0,3000,500) 
@@ -1964,7 +1964,7 @@ def node_154
 	return 
 endf 
 
-def node_155
+def node_155 : 159
 	if self.distance_2d_to_target().leq(1000) 
 	else 
 		if function#101(1) -> nightshade_paolumu.max_glide_combat(2,1,0,3000,900) 
@@ -1975,7 +1975,7 @@ def node_155
 	return 
 endf 
 
-def node_156
+def node_156 : 332
 	if self.distance_2d_to_target().leq(2000) 
 	else 
 		if function#101(1) -> nightshade_paolumu.max_glide_combat(2,1,0,3000,1900) 
@@ -1986,7 +1986,7 @@ def node_156
 	return 
 endf 
 
-def node_157
+def node_157 : 333
 	if self.distance_2d_to_target().leq(3000) 
 	else 
 		if function#101(1) -> nightshade_paolumu.max_glide_combat(2,1,0,3000,2900) 
@@ -1997,7 +1997,7 @@ def node_157
 	return 
 endf 
 
-def node_158
+def node_158 : 426
 	if self.distance_3d_to_target().leq(550) 
 		return 
 	else 
@@ -2022,7 +2022,7 @@ def node_158
 	return 
 endf 
 
-def node_159
+def node_159 : 156
 	if self.distance_3d_to_target().leq(650) 
 		return 
 	else 
@@ -2047,7 +2047,7 @@ def node_159
 	return 
 endf 
 
-def node_160
+def node_160 : 427
 	if self.distance_3d_to_target().leq(750) 
 		return 
 	else 
@@ -2072,7 +2072,7 @@ def node_160
 	return 
 endf 
 
-def node_161
+def node_161 : 428
 	if self.distance_3d_to_target().leq(800) 
 		return 
 	else 
@@ -2097,7 +2097,7 @@ def node_161
 	return 
 endf 
 
-def node_162
+def node_162 : 309
 	if self.distance_3d_to_target().leq(850) 
 		return 
 	else 
@@ -2122,7 +2122,7 @@ def node_162
 	return 
 endf 
 
-def node_163
+def node_163 : 157
 	if self.distance_3d_to_target().leq(1050) 
 		return 
 	else 
@@ -2147,7 +2147,7 @@ def node_163
 	return 
 endf 
 
-def node_164
+def node_164 : 429
 	if self.distance_3d_to_target().leq(1450) 
 		return 
 	else 
@@ -2172,7 +2172,7 @@ def node_164
 	return 
 endf 
 
-def node_165
+def node_165 : 253
 	if self.distance_3d_to_target().leq(1550) 
 		return 
 	else 
@@ -2197,7 +2197,7 @@ def node_165
 	return 
 endf 
 
-def node_166
+def node_166 : 430
 	if self.distance_3d_to_target().leq(2650) 
 		return 
 	else 
@@ -2222,7 +2222,7 @@ def node_166
 	return 
 endf 
 
-def node_167
+def node_167 : 431
 	if self.distance_3d_to_target().leq(3050) 
 		return 
 	else 
@@ -2247,7 +2247,7 @@ def node_167
 	return 
 endf 
 
-def node_168
+def node_168 : 160
 	if self.vertical_distance_to_target().leq(1200) 
 		return 
 	else 
@@ -2286,7 +2286,7 @@ def node_168
 	return 
 endf 
 
-def node_169
+def node_169 : 161
 	if self.distance_2d_to_target().leq(1000) 
 		return 
 	else 
@@ -2325,7 +2325,7 @@ def node_169
 	return 
 endf 
 
-def node_170
+def node_170 : 162
 	if self.flying() 
 	else 
 		-> nightshade_paolumu.sudden_rise() 
@@ -2333,7 +2333,7 @@ def node_170
 	return 
 endf 
 
-def node_171
+def node_171 : 163
 	>> node_002 
 	if self.flying() 
 		if function#101(1) -> nightshade_paolumu.sudden_drop() 
@@ -2344,13 +2344,13 @@ def node_171
 	return 
 endf 
 
-def node_172
+def node_172 : 198
 	self.targetArea(target_area.nearest_entrance) 
 	>> node_173 
 	return 
 endf 
 
-def node_173
+def node_173 : 197
 	if function#5A(20) 
 		>> node_174 
 	elif function#5A(21) 
@@ -2381,7 +2381,7 @@ def node_173
 	return 
 endf 
 
-def node_174
+def node_174 : 196
 	if self.distance_3d_to_target().leq(12000) 
 		>> node_001 
 		>> node_177 
@@ -2391,7 +2391,7 @@ def node_174
 	return 
 endf 
 
-def node_175
+def node_175 : 195
 	if self.distance_3d_to_target().leq(12000) 
 		>> node_002 
 		>> node_177 
@@ -2401,7 +2401,7 @@ def node_175
 	return 
 endf 
 
-def node_176
+def node_176 : 194
 	if function#AD() 
 		>> node_177 
 	else 
@@ -2410,7 +2410,7 @@ def node_176
 	return 
 endf 
 
-def node_177
+def node_177 : 193
 	if function#5A(10) 
 		>> node_002 
 	elif function#5A(11) 
@@ -2446,7 +2446,7 @@ def node_177
 	return 
 endf 
 
-def node_178
+def node_178 : 192
 	>> node_179 
 	>> node_181 
 	>> node_182 
@@ -2454,7 +2454,7 @@ def node_178
 	return 
 endf 
 
-def node_179
+def node_179 : 191
 	self.targetArea(target_area.area_aerial_center) 
 	if self.flying() 
 		>> node_152 
@@ -2464,7 +2464,7 @@ def node_179
 	return 
 endf 
 
-def node_180
+def node_180 : 326
 	self.targetArea(target_area.area_center) 
 	>> node_127 
 	self.targetArea(target_area.area_aerial_center) 
@@ -2472,7 +2472,7 @@ def node_180
 	return 
 endf 
 
-def node_181
+def node_181 : 190
 	self.targetArea(target_area.nearest_entrance) 
 	if self.flying() 
 		self.targetArea(40) 
@@ -2484,7 +2484,7 @@ def node_181
 	return 
 endf 
 
-def node_182
+def node_182 : 189
 	if function#5A(10) 
 	elif function#5A(11) 
 	elif function#5A(12) 
@@ -2507,7 +2507,7 @@ def node_182
 	return 
 endf 
 
-def node_183
+def node_183 : 188
 	self.targetArea(target_area.nearest_entrance) 
 	if self.flying() 
 		>> node_151 
@@ -2517,13 +2517,13 @@ def node_183
 	return 
 endf 
 
-def node_184
+def node_184 : 319
 	self.targetArea(target_area.nearest_entrance) 
 	>> node_181 
 	return 
 endf 
 
-def node_185
+def node_185 : 205
 	self.targetArea(14) 
 	if function#AD() 
 		>> node_186 
@@ -2534,7 +2534,7 @@ def node_185
 	return 
 endf 
 
-def node_186
+def node_186 : 204
 	if self.flying() 
 		self.targetArea(40) 
 		>> node_163 
@@ -2544,13 +2544,13 @@ def node_186
 	return 
 endf 
 
-def node_187
+def node_187 : 203
 	>> node_188 
 	>> node_190 
 	return 
 endf 
 
-def node_188
+def node_188 : 202
 	self.targetArea(target_area.area_aerial_center) 
 	if self.flying() 
 		>> node_152 
@@ -2560,7 +2560,7 @@ def node_188
 	return 
 endf 
 
-def node_189
+def node_189 : 327
 	self.targetArea(target_area.area_center) 
 	>> node_139 
 	self.targetArea(target_area.area_aerial_center) 
@@ -2568,7 +2568,7 @@ def node_189
 	return 
 endf 
 
-def node_190
+def node_190 : 201
 	self.targetArea(14) 
 	if self.flying() 
 		self.targetArea(40) 
@@ -2579,7 +2579,7 @@ def node_190
 	return 
 endf 
 
-def node_191
+def node_191 : 200
 	self.targetArea(target_area.area_center) 
 	if self.flying() 
 		if self.fatigued() 
@@ -2592,7 +2592,7 @@ def node_191
 	return 
 endf 
 
-def node_192
+def node_192 : 199
 	if self.vertical_distance_to_target().leq(1000) 
 	else 
 		-> nightshade_paolumu.short_down_step_fly() 
@@ -2601,7 +2601,7 @@ def node_192
 	return 
 endf 
 
-def node_193
+def node_193 : 212
 	self.targetArea(24) 
 	if function#AD() 
 		>> node_194 
@@ -2611,7 +2611,7 @@ def node_193
 	return 
 endf 
 
-def node_194
+def node_194 : 211
 	if function#5A(10) 
 		>> node_002 
 	elif function#5A(11) 
@@ -2633,7 +2633,7 @@ def node_194
 	return 
 endf 
 
-def node_195
+def node_195 : 210
 	>> node_196 
 	>> node_197 
 	>> node_198 
@@ -2641,7 +2641,7 @@ def node_195
 	return 
 endf 
 
-def node_196
+def node_196 : 209
 	if self.flying() 
 		self.targetArea(target_area.area_aerial_center) 
 		>> node_146 
@@ -2654,7 +2654,7 @@ def node_196
 	return 
 endf 
 
-def node_197
+def node_197 : 208
 	self.targetArea(24) 
 	if self.flying() 
 		if function#5A(10) 
@@ -2672,7 +2672,7 @@ def node_197
 	return 
 endf 
 
-def node_198
+def node_198 : 207
 	if function#5A(10) 
 	elif function#5A(11) 
 	elif function#5A(12) 
@@ -2688,7 +2688,7 @@ def node_198
 	return 
 endf 
 
-def node_199
+def node_199 : 206
 	if self.flying() 
 	else 
 		self.targetArea(24) 
@@ -2697,7 +2697,7 @@ def node_199
 	return 
 endf 
 
-def node_200
+def node_200 : 219
 	if function#AD() 
 		>> node_201 
 	else 
@@ -2706,7 +2706,7 @@ def node_200
 	return 
 endf 
 
-def node_201
+def node_201 : 218
 	if self.flying() 
 		>> node_155 
 	else 
@@ -2719,14 +2719,14 @@ def node_201
 	return 
 endf 
 
-def node_202
+def node_202 : 217
 	>> node_204 
 	>> node_205 
 	>> node_206 
 	return 
 endf 
 
-def node_203
+def node_203 : 213
 	if self.flying() 
 		>> node_155 
 	else 
@@ -2739,7 +2739,7 @@ def node_203
 	return 
 endf 
 
-def node_204
+def node_204 : 216
 	if self.flying() 
 		self.targetArea(target_area.area_aerial_center) 
 		>> node_152 
@@ -2756,7 +2756,7 @@ def node_204
 	return 
 endf 
 
-def node_205
+def node_205 : 215
 	if self.flying() 
 		self.targetArea(40) 
 		>> node_153 
@@ -2771,7 +2771,7 @@ def node_205
 	return 
 endf 
 
-def node_206
+def node_206 : 214
 	if self.flying() 
 		self.targetArea(target_area.area_center) 
 		>> node_001 
@@ -2780,7 +2780,7 @@ def node_206
 	return 
 endf 
 
-def node_207
+def node_207 : 24
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.target.mudded() 
 		if self.flying() >> node_165 
@@ -2800,7 +2800,7 @@ def node_207
 	return 
 endf 
 
-def node_208
+def node_208 : 25
 	if self.angle_2d_cw_between(90,270) 
 		>> node_210 
 	elif self.distance_3d_to_target().gt(3000) 
@@ -2811,7 +2811,7 @@ def node_208
 	return 
 endf 
 
-def node_209
+def node_209 : 26
 	if self.flying() 
 		if function#101(1) -> nightshade_paolumu.max_half_lost_search_front_fly() 
 		else -> nightshade_paolumu.half_lost_search_front_fly() 
@@ -2822,7 +2822,7 @@ def node_209
 	return 
 endf 
 
-def node_210
+def node_210 : 27
 	if self.flying() 
 		if function#101(1) -> nightshade_paolumu.max_half_lost_search_back_fly() 
 		else -> nightshade_paolumu.half_lost_search_back_fly() 
@@ -2833,7 +2833,7 @@ def node_210
 	return 
 endf 
 
-def node_211
+def node_211 : 277
 	if function#101(1) 
 		>> node_028 
 	else 
@@ -2846,7 +2846,7 @@ def node_211
 	return 
 endf 
 
-def node_212
+def node_212 : 278
 	if function#101(1) 
 		>> node_033 
 	else 
@@ -2859,7 +2859,7 @@ def node_212
 	return 
 endf 
 
-def node_213
+def node_213 : 30
 	self.targetArea(19) 
 	if self.distance_2d_to_target().gt(1000) 
 		if self.flying() 
@@ -2875,14 +2875,14 @@ def node_213
 	return 
 endf 
 
-def node_214
+def node_214 : 29
 	self.targetEnemy(target_em.random_player_or_cat) 
 	>> node_097 
 	>> node_238 
 	return 
 endf 
 
-def node_215
+def node_215 : 9
 	if self.flying() 
 		if function#101(1) >> node_059 
 		else >> node_220 
@@ -2893,7 +2893,7 @@ def node_215
 	return 
 endf 
 
-def node_216
+def node_216 : 34
 	if self.angle_2d_cw_between(30,330) 
 		if self.flying() 
 			if function#101(1) >> node_059 
@@ -2907,7 +2907,7 @@ def node_216
 	return 
 endf 
 
-def node_217
+def node_217 : 35
 	if self.angle_2d_cw_between(60,300) 
 		if self.flying() 
 			if function#101(1) >> node_059 
@@ -2921,7 +2921,7 @@ def node_217
 	return 
 endf 
 
-def node_218
+def node_218 : 86
 	if self.angle_2d_cw_between(90,270) 
 		if self.flying() 
 			if function#101(1) >> node_059 
@@ -2935,7 +2935,7 @@ def node_218
 	return 
 endf 
 
-def node_219
+def node_219 : 283
 	if self.angle_2d_cw_between(0,30) 
 	elif self.angle_2d_cw_between(150,210) 
 	elif self.angle_2d_cw_between(330,360) 
@@ -2951,7 +2951,7 @@ def node_219
 	return 
 endf 
 
-def node_220
+def node_220 : 230
 	>> node_002 
 	if self.angle_2d_cw_between(0,180) 
 		-> nightshade_paolumu.turn_step_fly_l() 
@@ -2961,7 +2961,7 @@ def node_220
 	return 
 endf 
 
-def node_221
+def node_221 : 340
 	>> node_002 
 	random (50) -> nightshade_paolumu.turn_step_fly_l() 
 	elser (50) -> nightshade_paolumu.turn_step_fly_r() 
@@ -2969,7 +2969,7 @@ def node_221
 	return 
 endf 
 
-def node_222
+def node_222 : 224
 	if function#101() 
 	else 
 		-> nightshade_paolumu.balloon_idle1() 
@@ -2977,7 +2977,7 @@ def node_222
 	return 
 endf 
 
-def node_223
+def node_223 : 223
 	if function#101() 
 	else 
 		-> nightshade_paolumu.balloon_idle2() 
@@ -2985,7 +2985,7 @@ def node_223
 	return 
 endf 
 
-def node_224
+def node_224 : 233
 	if function#101() 
 	else 
 		-> nightshade_paolumu.balloon_idle3() 
@@ -2993,7 +2993,7 @@ def node_224
 	return 
 endf 
 
-def node_225
+def node_225 : 477
 	if self.flying() 
 		if function#101(1) 
 			-> nightshade_paolumu.balloon_idle1() 
@@ -3006,7 +3006,7 @@ def node_225
 	return 
 endf 
 
-def node_226
+def node_226 : 478
 	if self.flying() 
 		if function#101(1) 
 			-> nightshade_paolumu.balloon_idle1() 
@@ -3019,7 +3019,7 @@ def node_226
 	return 
 endf 
 
-def node_227
+def node_227 : 248
 	if self.flying() >> node_159 
 	else >> node_133 
 	endif 
@@ -3027,7 +3027,7 @@ def node_227
 	return 
 endf 
 
-def node_228
+def node_228 : 249
 	if self.target(0) @ parameter2:1 
 		>> node_229 
 	elif self.target(0) 
@@ -3040,7 +3040,7 @@ def node_228
 	return 
 endf 
 
-def node_229
+def node_229 : 243
 	if self.flying() 
 		>> node_231 
 		if self.distance_2d_to_target().leq(1000) 
@@ -3074,7 +3074,7 @@ def node_229
 	return 
 endf 
 
-def node_230
+def node_230 : 330
 	if self.flying() 
 		>> node_231 
 		if self.distance_2d_to_target().leq(1000) 
@@ -3109,7 +3109,7 @@ def node_230
 	return 
 endf 
 
-def node_231
+def node_231 : 334
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		if function#101(1) -> nightshade_paolumu.max_glide_direct_move(2,1,0,500,500) 
@@ -3119,7 +3119,7 @@ def node_231
 	return 
 endf 
 
-def node_232
+def node_232 : 480
 	if self.target.helpless_0() 
 	else 
 		if self.flying() 
@@ -3144,7 +3144,7 @@ def node_232
 	return 
 endf 
 
-def node_233
+def node_233 : 250
 	if self.flying() 
 		>> node_159 
 	else 
@@ -3154,7 +3154,7 @@ def node_233
 	return 
 endf 
 
-def node_234
+def node_234 : 420
 	if function#101(1) 
 		random (55) >> node_033 
 		elser (35) >> node_028 
@@ -3176,7 +3176,7 @@ def node_234
 	return 
 endf 
 
-def node_235
+def node_235 : 476
 	if self.flying() 
 		if function#101(1) 
 			random (30) >> node_077 
@@ -3198,7 +3198,7 @@ def node_235
 	return 
 endf 
 
-def node_236
+def node_236 : 314
 	self.targetArea(19) 
 	if self.distance_3d_recalc_to_target().gt(1000) 
 		if self.flying() 
@@ -3212,7 +3212,7 @@ def node_236
 	return 
 endf 
 
-def node_237
+def node_237 : 315
 	if self.flying() 
 		if function#101(1) 
 			random (30) -> nightshade_paolumu.balloon_idle1() 
@@ -3240,7 +3240,7 @@ def node_237
 	return 
 endf 
 
-def node_238
+def node_238 : 316
 	if self.flying() 
 		if function#101(1) 
 			random (37) -> nightshade_paolumu.balloon_idle1() 
@@ -3261,7 +3261,7 @@ def node_238
 	return 
 endf 
 
-def node_239
+def node_239 : 317
 	if self.flying() 
 		if function#101(1) 
 			-> nightshade_paolumu.balloon_idle1() 
@@ -3274,7 +3274,7 @@ def node_239
 	return 
 endf 
 
-def node_240
+def node_240 : 318
 	if self.flying() 
 		if function#101(1) 
 			>> node_059 
@@ -3291,7 +3291,7 @@ def node_240
 	return 
 endf 
 
-def node_241
+def node_241 : 422
 	if self.flying() 
 		if self.target(52) 
 			>> node_159 

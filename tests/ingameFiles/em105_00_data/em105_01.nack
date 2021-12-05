@@ -1,7 +1,7 @@
 importactions Xeno'jiiva as xeno'jiiva
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	self.targetEnemy(target_em.random_player_or_cat) 
 	>> node_001 
 	if self.target(10) 
@@ -29,7 +29,7 @@ def node_000
 	reset 
 endf 
 
-def node_001
+def node_001 : 23
 	if self.flying() 
 		if self.enraged() 
 			>> Global.node_001 
@@ -41,53 +41,53 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 2
 	>> node_014 
 	return 
 endf 
 
-def node_003
+def node_003 : 3
 	>> node_011 
 	return 
 endf 
 
-def node_004
+def node_004 : 4
 	random (70) >> node_011 
 	elser (30) >> node_012 
 	endr 
 	return 
 endf 
 
-def node_005
+def node_005 : 5
 	>> node_014 
 	return 
 endf 
 
-def node_006
+def node_006 : 6
 	>> node_011 
 	return 
 endf 
 
-def node_007
+def node_007 : 7
 	random (30) >> node_011 
 	elser (70) >> node_012 
 	endr 
 	return 
 endf 
 
-def node_008
+def node_008 : 8
 	>> node_014 
 	return 
 endf 
 
-def node_009
+def node_009 : 9
 	random (80) >> node_011 
 	elser (20) >> node_017 
 	endr 
 	return 
 endf 
 
-def node_010
+def node_010 : 10
 	random (70) >> node_011 
 	elser (10) >> node_013 
 	elser (20) >> node_017 
@@ -95,28 +95,28 @@ def node_010
 	return 
 endf 
 
-def node_011
+def node_011 : 11
 	self.targetArea(4) 
 	>> node_019 
 	>> node_016 
 	return 
 endf 
 
-def node_012
+def node_012 : 12
 	self.targetArea(6) 
 	>> node_020 
 	>> node_016 
 	return 
 endf 
 
-def node_013
+def node_013 : 13
 	self.targetArea(21) @ parameter2:1000 
 	>> Global.node_074 
 	>> node_018 
 	return 
 endf 
 
-def node_014
+def node_014 : 14
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.target(7) 
 		>> node_015 
@@ -128,7 +128,7 @@ def node_014
 	return 
 endf 
 
-def node_015
+def node_015 : 15
 	if self.distance_3d_to_target().leq(700) 
 		>> Global.node_011 
 	else 
@@ -140,7 +140,7 @@ def node_015
 	return 
 endf 
 
-def node_016
+def node_016 : 18
 	if self.enraged() 
 		>> Global.node_015 
 	else 
@@ -150,12 +150,12 @@ def node_016
 	return 
 endf 
 
-def node_017
+def node_017 : 19
 	>> Global.node_072 
 	return 
 endf 
 
-def node_018
+def node_018 : 20
 	if self.enraged() 
 		>> Global.node_065 
 	else 
@@ -164,12 +164,12 @@ def node_018
 	return 
 endf 
 
-def node_019
+def node_019 : 21
 	>> Global.node_063 
 	return 
 endf 
 
-def node_020
+def node_020 : 22
 	if self.enraged() 
 		>> Global.node_065 
 	else 

@@ -1,6 +1,6 @@
 importactions Viper_TobiKadachi as viper_tobikadachi
 
-def node_000
+def node_000 : 1
 	if self.target_is(em.Fulgur_Anjanath) 
 		>> node_001 
 	elif self.target_is(em.Anjanath) 
@@ -9,7 +9,7 @@ def node_000
 	conclude 
 endf 
 
-def node_001
+def node_001 : 8
 	if self.vertical_distance_to_target().gt(1000) 
 		-> viper_tobikadachi.dash(1,0,0,1000) 
 	endif 
@@ -17,7 +17,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 9
 	if self.vertical_distance_to_target().gt(1000) 
 		-> viper_tobikadachi.dash(1,0,0,1000) 
 	endif 

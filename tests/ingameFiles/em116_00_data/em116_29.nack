@@ -1,14 +1,14 @@
 importactions Dodogama as dodogama
 importlibrary Global as Global
 
-def node_000
+def node_000 : 14
 	>> Global.node_003 
 	>> Global.node_002 
 	>> node_001 => reset 
 	reset 
 endf 
 
-def node_001
+def node_001 : 15
 	self.targetEnemy(48) 
 	if self.in_map(st.Challenge_Arena).in_area(-1) 
 		>> node_004 
@@ -20,7 +20,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 16
 	if self.target(7) 
 	elif self.target(10) 
 	else 
@@ -42,7 +42,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 17
 	if self.targetEnemy(target_em.any_monster) 
 		random (20) >> Global.node_034 
 		elser (80) 
@@ -58,7 +58,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 18
 	>> Global.node_034 
 	random (35) -> dodogama.wait() 
 	elser (25) -> dodogama.anger_search() 

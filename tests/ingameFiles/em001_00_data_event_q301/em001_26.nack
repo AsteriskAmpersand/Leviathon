@@ -1,7 +1,7 @@
 importactions Rathian as rathian
 importlibrary Global as Global
 
-def node_000
+def node_000 : 23
 	>> Global.node_047 
 	self.targetEnemy(34) 
 	>> node_001 
@@ -11,7 +11,7 @@ def node_000
 	conclude 
 endf 
 
-def node_001
+def node_001 : 24
 	if function#AD() 
 	else 
 		>> node_003 
@@ -19,7 +19,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 25
 	if self.flying() 
 		>> Global.node_031 
 	else 
@@ -28,13 +28,13 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 26
 	>> node_004 
 	>> node_005 
 	return 
 endf 
 
-def node_004
+def node_004 : 27
 	if self.flying() 
 		self.targetArea(target_area.area_aerial_center) 
 		>> Global.node_028 
@@ -47,7 +47,7 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 28
 	self.targetEnemy(34) 
 	if self.flying() 
 		self.targetArea(40) 
@@ -59,7 +59,7 @@ def node_005
 	return 
 endf 
 
-def node_006
+def node_006 : 29
 	if self.flying() 
 		self.targetArea(target_area.area_center) 
 		>> Global.node_001 
@@ -68,7 +68,7 @@ def node_006
 	return 
 endf 
 
-def node_007
+def node_007 : 30
 	if self.flying() 
 		>> Global.node_031 
 	else 

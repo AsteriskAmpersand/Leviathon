@@ -1,7 +1,7 @@
 importactions Radobaan as radobaan
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	>> Global.node_008 
 	>> Global.node_001 
 	>> Global.node_010 
@@ -9,7 +9,7 @@ def node_000
 	reset 
 endf 
 
-def node_001
+def node_001 : 2
 	self.targetEnemy(48) 
 	if self.in_map(st.Challenge_Arena).in_area(-1) 
 		>> node_004 
@@ -21,7 +21,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 3
 	>> node_005 
 	if self.enraged() 
 		-> radobaan.combat_search() 
@@ -35,7 +35,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 4
 	if self.targetEnemy(target_em.any_monster) 
 		random (20) >> node_005 
 		elser (80) 
@@ -66,7 +66,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 23
 	>> node_005 
 	if self.fatigued() 
 		random (35) -> radobaan.tired() 
@@ -82,7 +82,7 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 5
 	if self.distance_3d_to_target().leq(800) 
 		-> radobaan.back_turn() 
 	elif self.angle_2d_cw_between(50,310) 
@@ -93,7 +93,7 @@ def node_005
 	return 
 endf 
 
-def node_006
+def node_006 : 6
 	if self.angle_2d_cw_between(120,240) 
 		-> radobaan.quick_turn() 
 	else 

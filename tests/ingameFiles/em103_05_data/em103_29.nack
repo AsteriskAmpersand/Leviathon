@@ -1,7 +1,7 @@
 importactions Ruiner_Nergigante as ruiner_nergigante
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	if self.in_map(st.Everstream).in_area(-1) 
 		>> node_005 
 	elif self.in_map(st.Great_Ravine).in_area(-1) 
@@ -14,7 +14,7 @@ def node_000
 	reset 
 endf 
 
-def node_001
+def node_001 : 2
 	self.targetEnemy(48) 
 	if self.in_map(st.Challenge_Arena).in_area(0) 
 		>> node_004 
@@ -32,13 +32,13 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 3
 	>> Global.node_018 
 	>> Global.node_058 
 	return 
 endf 
 
-def node_003
+def node_003 : 4
 	if self.targetEnemy(target_em.any_monster) 
 		random (20) >> Global.node_024 
 		elser (80) 
@@ -52,7 +52,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 23
 	>> Global.node_024 
 	random (40) >> Global.node_058 
 	elser (30) >> Global.node_052 
@@ -62,7 +62,7 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 24
 	>> Global.node_063 
 	random (40) >> Global.node_056 
 	elser (25) >> Global.node_030 

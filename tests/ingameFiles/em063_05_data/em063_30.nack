@@ -1,14 +1,14 @@
 importactions Raging_Brachydios as raging_brachydios
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	self.targetEnemy(target_em.closest_entity) 
 	>> node_003 
 	>> node_001 
 	reset 
 endf 
 
-def node_001
+def node_001 : 4
 	if self.distance_3d_to_target().leq(500) >> node_002 
 	elif self.distance_3d_to_target().leq(3000) >> Global.node_132 
 	else 
@@ -20,7 +20,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 5
 	if self.target(11) 
 		>> Global.node_119 
 		>> Global.node_019 
@@ -33,7 +33,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 3
 	if self.target_is(em.Gastodon) 
 	else 
 		conclude 

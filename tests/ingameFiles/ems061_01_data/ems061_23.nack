@@ -1,7 +1,7 @@
 importactions Boaboa as boaboa
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	self.targetEnemy(target_em.closest_entity) 
 	if self.target.helpless_0() 
 		>> node_001 
@@ -16,7 +16,7 @@ def node_000
 	conclude 
 endf 
 
-def node_001
+def node_001 : 15
 	if self.vertical_distance_to_target().leq(1000) 
 		>> node_003 
 	else 
@@ -25,7 +25,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 19
 	if self.vertical_distance_to_target().leq(1000) 
 		>> node_004 
 	else 
@@ -34,7 +34,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 18
 	if function#B0(4) 
 		>> node_005 
 	elif function#B0(5) 
@@ -49,7 +49,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 20
 	if function#B0(4) 
 		>> node_006 
 	elif function#B0(5) 
@@ -64,7 +64,7 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 27
 	if self.distance_3d_recalc_to_target().leq(800) 
 		>> Global.node_035 
 	elif self.distance_3d_recalc_to_target().leq(3000) 
@@ -85,7 +85,7 @@ def node_005
 	return 
 endf 
 
-def node_006
+def node_006 : 21
 	if function#3F() 
 		>> Global.node_038 
 	else 
@@ -108,13 +108,13 @@ def node_006
 	return 
 endf 
 
-def node_007
+def node_007 : 16
 	self.targetEnemy(33) 
 	>> node_008 
 	return 
 endf 
 
-def node_008
+def node_008 : 25
 	if function#B0() 
 		>> node_009 
 	elif function#B0(1) 
@@ -143,7 +143,7 @@ def node_008
 	return 
 endf 
 
-def node_009
+def node_009 : 23
 	self.targetEnemy(33) 
 	if self.distance_2d_to_target().leq(500) 
 		random (35) >> Global.node_060 
@@ -184,7 +184,7 @@ def node_009
 	return 
 endf 
 
-def node_010
+def node_010 : 24
 	self.targetEnemy(33) 
 	if self.distance_3d_to_target().leq(100) 
 		random (50) >> Global.node_024 
@@ -228,7 +228,7 @@ def node_010
 	return 
 endf 
 
-def node_011
+def node_011 : 26
 	if self.distance_3d_to_target().leq(100) 
 		random (50) >> Global.node_024 
 		elser (20) >> Global.node_023 
@@ -270,7 +270,7 @@ def node_011
 	return 
 endf 
 
-def node_012
+def node_012 : 17
 	if function#3F() 
 		>> Global.node_038 
 	else 

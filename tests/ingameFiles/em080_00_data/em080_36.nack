@@ -1,7 +1,7 @@
 importactions Glavenus as glavenus
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	self.targetEnemy(21) @ parameter2:700 
 	function#41() >> Global.node_020 => reset 
 	self.enraged() >> node_002 => reset 
@@ -9,7 +9,7 @@ def node_000
 	>> node_001 => reset 
 endf 
 
-def node_001
+def node_001 : 2
 	if self.target_on_part(0) 
 		random (42) >> node_011 
 		elser (33) >> node_012 
@@ -35,7 +35,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 3
 	if self.target_on_part(0) 
 		random (47) >> node_011 
 		elser (38) >> node_012 
@@ -62,7 +62,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 4
 	if self.target_on_part(0) 
 		random (37) >> node_011 
 		elser (28) >> node_012 
@@ -89,10 +89,10 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 11
 endf 
 
-def node_005
+def node_005 : 5
 	random (10) -> glavenus.dash_bite() 
 	elser (30) -> glavenus.nagiharai() 
 	elser (30) -> glavenus.tail_fire_attack_back() 
@@ -102,70 +102,70 @@ def node_005
 	return 
 endf 
 
-def node_006
+def node_006 : 6
 	-> glavenus.threat() 
 	return 
 endf 
 
-def node_007
+def node_007 : 7
 	-> glavenus.combat_search() 
 	return 
 endf 
 
-def node_008
+def node_008 : 8
 	-> glavenus.turn_tail_attack_l() 
 	return 
 endf 
 
-def node_009
+def node_009 : 9
 	-> glavenus.turn() 
 	-> glavenus.jump_tail_attack() 
 	return 
 endf 
 
-def node_010
+def node_010 : 10
 	-> glavenus.tired_wait() 
 	return 
 endf 
 
-def node_011
+def node_011 : 12
 	-> glavenus.ride_rage_head() 
 	return 
 endf 
 
-def node_012
+def node_012 : 13
 	>> node_018 
 	-> glavenus.ride_rage_head() 
 	return 
 endf 
 
-def node_013
+def node_013 : 14
 	>> node_018 
 	-> glavenus.turn_tail_attack_l() 
 	return 
 endf 
 
-def node_014
+def node_014 : 19
 	-> glavenus.ride_rage_body() 
 	return 
 endf 
 
-def node_015
+def node_015 : 20
 	-> glavenus.ride_rage_tail() 
 	return 
 endf 
 
-def node_016
+def node_016 : 21
 	-> glavenus.ride_rage_tail_lv2() 
 	return 
 endf 
 
-def node_017
+def node_017 : 18
 	-> glavenus.wait() 
 	return 
 endf 
 
-def node_018
+def node_018 : 15
 	random (55) >> node_019 
 	elser (45) >> node_020 
 	endr 
@@ -176,12 +176,12 @@ def node_018
 	return 
 endf 
 
-def node_019
+def node_019 : 16
 	self.targetEnemy(21) @ parameter2:1000 
 	return 
 endf 
 
-def node_020
+def node_020 : 17
 	self.targetEnemy(22) @ parameter2:1000 
 	return 
 endf 

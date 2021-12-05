@@ -1,7 +1,7 @@
 importactions Jagras as jagras
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	>> Global.node_054 
 	>> Global.node_057 
 	>> node_001 
@@ -17,7 +17,7 @@ def node_000
 	reset 
 endf 
 
-def node_001
+def node_001 : 61
 	if function#7B() 
 		>> node_005 
 		repeat 
@@ -26,7 +26,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 57
 	if function#4B() 
 	else 
 		return 
@@ -51,7 +51,7 @@ def node_002
 	reset 
 endf 
 
-def node_003
+def node_003 : 4
 	if self.distance_3d_to_target().leq(350) 
 		>> node_012 
 		@ unkn3:4194304 
@@ -70,7 +70,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 5
 	if self.distance_3d_to_target().leq(400) 
 		>> node_017 
 	elif self.distance_3d_to_target().leq(900) 
@@ -85,7 +85,7 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 62
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.distance_3d_to_target().leq(750) 
 		*&
@@ -98,30 +98,30 @@ def node_005
 	return 
 endf 
 
-def node_006
+def node_006 : 63
 	>> Global.node_008 
 	return 
 endf 
 
-def node_007
+def node_007 : 64
 	self.targetArea(1) @ unkn3:2097152, actionUnkn0:4, actionUnkn3:400 
 	>> Global.node_082 
 	return 
 endf 
 
-def node_008
+def node_008 : 66
 	self.targetArea(1) @ unkn3:2097152, actionUnkn0:4, actionUnkn3:400 
 	>> Global.node_001 
 	return 
 endf 
 
-def node_009
+def node_009 : 58
 	>> node_010 
 	>> node_011 
 	return 
 endf 
 
-def node_010
+def node_010 : 59
 	function#54() 
 	function#52(50,2) 
 	self.targetArea(target_area.nearest_entrance) 
@@ -133,14 +133,14 @@ def node_010
 	return 
 endf 
 
-def node_011
+def node_011 : 60
 	self.targetEnemy(target_em.random_player_or_cat) 
 	>> Global.node_008 
 	>> Global.node_049 
 	return 
 endf 
 
-def node_012
+def node_012 : 6
 	random (75) >> Global.node_018 
 	elser (25) >> Global.node_021 
 				>> Global.node_019 
@@ -148,7 +148,7 @@ def node_012
 	return 
 endf 
 
-def node_013
+def node_013 : 7
 	random (75) >> Global.node_018 
 	elser (25) >> Global.node_021 
 				>> Global.node_019 
@@ -156,7 +156,7 @@ def node_013
 	return 
 endf 
 
-def node_014
+def node_014 : 8
 	random (75) >> Global.node_019 
 	elser (25) >> Global.node_001 
 				>> Global.node_018 
@@ -164,42 +164,42 @@ def node_014
 	return 
 endf 
 
-def node_015
+def node_015 : 9
 	>> Global.node_001 
 	>> Global.node_018 
 	return 
 endf 
 
-def node_016
+def node_016 : 10
 	>> Global.node_001 
 	>> Global.node_018 
 	return 
 endf 
 
-def node_017
+def node_017 : 11
 	random (65) >> Global.node_022 
 	elser (35) >> Global.node_021 
 	endr 
 	return 
 endf 
 
-def node_018
+def node_018 : 12
 	>> Global.node_025 
 	return 
 endf 
 
-def node_019
+def node_019 : 13
 	>> Global.node_027 
 	return 
 endf 
 
-def node_020
+def node_020 : 14
 	self.targetEnemy(target_em.random_player_or_cat) @ unkn3:8388608, actionUnkn0:4, actionUnkn3:700 
 	>> Global.node_001 
 	return 
 endf 
 
-def node_021
+def node_021 : 15
 	self.targetEnemy(target_em.random_player_or_cat) @ unkn3:8388608, actionUnkn0:4, actionUnkn3:700 
 	>> Global.node_001 
 	return 

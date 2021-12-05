@@ -1,7 +1,7 @@
 importactions PukeiPukei as pukeipukei
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	>> node_007 
 	self.targetEnemy(51) 
 	>> node_001 
@@ -11,7 +11,7 @@ def node_000
 	conclude 
 endf 
 
-def node_001
+def node_001 : 3
 	if function#AD() 
 	else 
 		>> node_003 
@@ -19,19 +19,19 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 4
 	>> Global.node_001 
 	>> Global.node_009 
 	return 
 endf 
 
-def node_003
+def node_003 : 5
 	>> node_004 
 	>> node_005 
 	return 
 endf 
 
-def node_004
+def node_004 : 6
 	if self.flying() 
 	else 
 		>> Global.node_002 
@@ -41,7 +41,7 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 7
 	if self.flying() 
 	else 
 		>> Global.node_002 
@@ -52,7 +52,7 @@ def node_005
 	return 
 endf 
 
-def node_006
+def node_006 : 8
 	if self.flying() 
 	else 
 		>> Global.node_002 
@@ -61,7 +61,7 @@ def node_006
 	return 
 endf 
 
-def node_007
+def node_007 : 9
 	if function#3A() 
 		>> Global.node_001 
 		-> pukeipukei.refresh() 

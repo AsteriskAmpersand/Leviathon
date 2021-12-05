@@ -1,7 +1,7 @@
 importactions Lavasioth as lavasioth
 importlibrary Global as Global
 
-def node_000
+def node_000 : 84
 	if self.current_quest().is_rank(rank.MR) 
 		>> node_001 
 	else 
@@ -10,7 +10,7 @@ def node_000
 	reset 
 endf 
 
-def node_001
+def node_001 : 83
 	self.targetEnemy(21) @ parameter2:750 
 	>> node_007 
 	if self.enraged() >> node_013 
@@ -20,7 +20,7 @@ def node_001
 	reset 
 endf 
 
-def node_002
+def node_002 : 73
 	self.targetEnemy(21) @ parameter2:750 
 	>> node_007 
 	if self.enraged() >> node_004 
@@ -30,7 +30,7 @@ def node_002
 	reset 
 endf 
 
-def node_003
+def node_003 : 74
 	random (35) >> node_006 
 	elser (10) >> Global.node_069 
 	elser (25) >> Global.node_070 
@@ -40,7 +40,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 75
 	random (30) >> node_006 
 	elser (10) >> Global.node_069 
 	elser (25) >> Global.node_070 
@@ -50,7 +50,7 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 76
 	random (35) >> node_006 
 	elser (10) >> Global.node_069 
 	elser (25) >> Global.node_070 
@@ -60,20 +60,20 @@ def node_005
 	return 
 endf 
 
-def node_006
+def node_006 : 77
 	if function#101() >> Global.node_033 
 	else >> Global.node_058 
 	endif 
 	return 
 endf 
 
-def node_007
+def node_007 : 78
 	self.target_on_part(0) >> node_008 => reset 
 	self.target_on_part(1) >> node_009 => reset 
 	return 
 endf 
 
-def node_008
+def node_008 : 79
 	if self.mounted() -> lavasioth.ride_rage_head() 
 	elif self.mounted() -> lavasioth.ride_rage_head() @ parameter1:1 
 	endif 
@@ -81,7 +81,7 @@ def node_008
 	return 
 endf 
 
-def node_009
+def node_009 : 80
 	if self.mounted() -> lavasioth.ride_rage_body() 
 	elif self.mounted() -> lavasioth.ride_rage_body_lv2() @ parameter1:1 
 	endif 
@@ -89,7 +89,7 @@ def node_009
 	return 
 endf 
 
-def node_010
+def node_010 : 81
 	if function#3B() 
 		if self.mount_staggered_twice() >> node_011 
 		endif 
@@ -103,13 +103,13 @@ def node_010
 	return 
 endf 
 
-def node_011
+def node_011 : 82
 	if self.mounted() -> lavasioth.ride_tired() @ parameter1:1 
 	endif 
 	return 
 endf 
 
-def node_012
+def node_012 : 85
 	random (45) >> node_006 
 	elser (5) >> Global.node_069 
 	elser (35) >> Global.node_070 
@@ -119,7 +119,7 @@ def node_012
 	return 
 endf 
 
-def node_013
+def node_013 : 86
 	random (40) >> node_006 
 	elser (0) >> Global.node_069 
 	elser (35) >> Global.node_070 
@@ -129,7 +129,7 @@ def node_013
 	return 
 endf 
 
-def node_014
+def node_014 : 87
 	random (55) >> node_006 
 	elser (10) >> Global.node_069 
 	elser (35) >> Global.node_070 

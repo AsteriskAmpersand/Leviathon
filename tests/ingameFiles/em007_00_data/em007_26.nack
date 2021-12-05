@@ -1,7 +1,7 @@
 importactions Diablos as diablos
 importlibrary Global as Global
 
-def node_000
+def node_000 : 8
 	>> Global.node_007 
 	self.targetEnemy(34) 
 	if function#57(1) 
@@ -13,12 +13,12 @@ def node_000
 	conclude 
 endf 
 
-def node_001
+def node_001 : 9
 	>> Global.node_029 
 	return 
 endf 
 
-def node_002
+def node_002 : 10
 	if self.distance_2d_to_target().gt(8000) 
 		>> node_005 
 		repeat 
@@ -36,7 +36,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 11
 	if self.distance_2d_to_target().leq(1000) 
 	else 
 		-> diablos.walk(2,1,0,1500,1000) 
@@ -44,7 +44,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 13
 	if self.distance_2d_to_target().leq(3000) 
 	else 
 		-> diablos.dash_tired(2,1,0,1500,3000) 
@@ -52,7 +52,7 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 17
 	if self.distance_2d_to_target().leq(8000) 
 		return 
 	else 
@@ -62,7 +62,7 @@ def node_005
 	repeat 
 endf 
 
-def node_006
+def node_006 : 16
 	if function#3F() 
 	else 
 		-> diablos.dive_to_ground() 
@@ -70,7 +70,7 @@ def node_006
 	return 
 endf 
 
-def node_007
+def node_007 : 15
 	if self.distance_2d_to_target().leq(8000) 
 		-> diablos.appear_attack_vertical() 
 		return 
@@ -80,7 +80,7 @@ def node_007
 	repeat 
 endf 
 
-def node_008
+def node_008 : 12
 	>> Global.node_053 
 	>> Global.node_033 
 	return 

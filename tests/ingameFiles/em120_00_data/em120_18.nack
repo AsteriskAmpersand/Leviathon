@@ -1,7 +1,7 @@
 importactions TzitziYaKu as tzitziyaku
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	self.targetEnemy(13) 
 	if self.target(4) 
 		>> Global.node_013 
@@ -15,14 +15,14 @@ def node_000
 	conclude 
 endf 
 
-def node_001
+def node_001 : 2
 	>> node_002 
 	>> node_003 
 	>> node_004 
 	return 
 endf 
 
-def node_002
+def node_002 : 3
 	if self.distance_3d_to_target().leq(500) 
 		>> Global.node_051 
 	else 
@@ -31,17 +31,17 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 5
 	>> Global.node_075 
 	return 
 endf 
 
-def node_004
+def node_004 : 9
 	>> node_005 
 	return 
 endf 
 
-def node_005
+def node_005 : 12
 	self.targetEnemy(13) 
 	if self.target(7) 
 		>> node_007 
@@ -57,7 +57,7 @@ def node_005
 	return 
 endf 
 
-def node_006
+def node_006 : 10
 	if function#5F() 
 		>> Global.node_044 
 	else 
@@ -66,12 +66,12 @@ def node_006
 	return 
 endf 
 
-def node_007
+def node_007 : 11
 	>> Global.node_041 
 	return 
 endf 
 
-def node_008
+def node_008 : 13
 	>> node_002 
 	if self.target(10) 
 		if self.distance_2d_to_target().leq(500) 

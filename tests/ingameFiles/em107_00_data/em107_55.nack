@@ -1,10 +1,10 @@
 importactions KuluYaKu as kuluyaku
 
-def node_000
+def node_000 : 1
 	conclude 
 endf 
 
-def node_001
+def node_001 : 52
 	if function#101(2) 
 		>> node_003 
 	elif function#101(1) 
@@ -15,7 +15,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 192
 	if self.fatigued() 
 		-> kuluyaku.tired_dash(6,2,0,350,1500) 
 	else 
@@ -28,7 +28,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 194
 	if self.fatigued() 
 		-> kuluyaku.carry_tired_dash(6,2,0,350,1500) 
 	else 
@@ -41,7 +41,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 212
 	if self.fatigued() 
 		-> kuluyaku.carry_tired_dash(6,2,0,350,1500) 
 	else 
@@ -54,7 +54,7 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 217
 	if function#101(2) 
 		>> node_003 
 	elif function#101(1) 
@@ -65,7 +65,7 @@ def node_005
 	return 
 endf 
 
-def node_006
+def node_006 : 273
 	-> kuluyaku.carry_dash(6,2,0,800,1500) 
 	if self.distance_2d_to_target().leq(850) 
 	else 
@@ -74,7 +74,7 @@ def node_006
 	return 
 endf 
 
-def node_007
+def node_007 : 251
 	if function#101(2) 
 		>> node_009 
 	elif function#101(1) 
@@ -85,7 +85,7 @@ def node_007
 	return 
 endf 
 
-def node_008
+def node_008 : 252
 	if self.fatigued() 
 		-> kuluyaku.tired_dash(6,2,0,400,1500) 
 	else 
@@ -98,7 +98,7 @@ def node_008
 	return 
 endf 
 
-def node_009
+def node_009 : 253
 	if self.fatigued() 
 		-> kuluyaku.carry_tired_dash(6,2,0,400,1500) 
 	else 
@@ -111,7 +111,7 @@ def node_009
 	return 
 endf 
 
-def node_010
+def node_010 : 254
 	if self.fatigued() 
 		-> kuluyaku.carry_tired_dash(6,2,0,400,1500) 
 	else 
@@ -124,7 +124,7 @@ def node_010
 	return 
 endf 
 
-def node_011
+def node_011 : 255
 	if function#101(2) 
 		>> node_009 
 	elif function#101(1) 
@@ -135,7 +135,7 @@ def node_011
 	return 
 endf 
 
-def node_012
+def node_012 : 185
 	function#52() 
 	self.targetEnemy(16) 
 	if function#101(3) 
@@ -146,7 +146,7 @@ def node_012
 	return 
 endf 
 
-def node_013
+def node_013 : 209
 	if function#101() 
 		-> kuluyaku.walk(2,6,0,1500,400) 
 	else 
@@ -159,7 +159,7 @@ def node_013
 	return 
 endf 
 
-def node_014
+def node_014 : 210
 	>> node_042 
 	-> kuluyaku.carry_walk(2,6,0,1500,350) 
 	if self.distance_2d_to_target().leq(400) 
@@ -169,7 +169,7 @@ def node_014
 	return 
 endf 
 
-def node_015
+def node_015 : 186
 	if function#101(3) 
 		>> node_016 
 	else 
@@ -178,7 +178,7 @@ def node_015
 	return 
 endf 
 
-def node_016
+def node_016 : 221
 	if self.distance_2d_to_target().leq(500) 
 	else 
 		if self.fatigued() 
@@ -192,7 +192,7 @@ def node_016
 	return 
 endf 
 
-def node_017
+def node_017 : 222
 	if self.distance_2d_to_target().leq(500) 
 	else 
 		if self.fatigued() 
@@ -206,7 +206,7 @@ def node_017
 	return 
 endf 
 
-def node_018
+def node_018 : 242
 	if function#101(3) 
 		>> node_019 
 	else 
@@ -215,7 +215,7 @@ def node_018
 	return 
 endf 
 
-def node_019
+def node_019 : 243
 	if self.fatigued() 
 		-> kuluyaku.carry_tired() 
 		repeat 
@@ -225,7 +225,7 @@ def node_019
 	return 
 endf 
 
-def node_020
+def node_020 : 244
 	if self.fatigued() 
 		-> kuluyaku.tired() 
 		repeat 
@@ -235,7 +235,7 @@ def node_020
 	return 
 endf 
 
-def node_021
+def node_021 : 187
 	if function#101(3) 
 		-> kuluyaku.carry_dying_walk(2,1,0,3000,500) 
 	else 
@@ -244,7 +244,7 @@ def node_021
 	return 
 endf 
 
-def node_022
+def node_022 : 172
 	self.targetArea(14) 
 	if self.distance_2d_to_target().gt(600) 
 		>> node_001 
@@ -254,7 +254,7 @@ def node_022
 	return 
 endf 
 
-def node_023
+def node_023 : 241
 	self.targetArea(19) 
 	if self.distance_2d_to_target().gt(1000) 
 		if self.fatigued() 
@@ -276,7 +276,7 @@ def node_023
 	return 
 endf 
 
-def node_024
+def node_024 : 12
 	if self.current_quest().is_rank(rank.MR) 
 		>> node_113 
 	else 
@@ -301,7 +301,7 @@ def node_024
 	return 
 endf 
 
-def node_025
+def node_025 : 232
 	if function#45() 
 	else 
 		>> node_024 
@@ -309,14 +309,14 @@ def node_025
 	return 
 endf 
 
-def node_026
+def node_026 : 48
 	if function#30(2) >> node_027 
 	else >> node_028 
 	endif 
 	return 
 endf 
 
-def node_027
+def node_027 : 227
 	if function#101(1) 
 		-> kuluyaku.surprise_drop_egg() 
 	else 
@@ -382,7 +382,7 @@ def node_027
 	return 
 endf 
 
-def node_028
+def node_028 : 228
 	[RegisterVar1 ++] 
 	if function#101(4) 
 		if [RegisterVar1 < 30] 
@@ -422,7 +422,7 @@ def node_028
 	return 
 endf 
 
-def node_029
+def node_029 : 247
 	[RegisterVar1 ++] 
 	random (0) 
 	elser (10) >> node_044 
@@ -433,7 +433,7 @@ def node_029
 	return 
 endf 
 
-def node_030
+def node_030 : 274
 	[RegisterVar1 ++] 
 	if self.distance_2d_to_target().leq(1000) 
 		random (0) 
@@ -465,14 +465,14 @@ def node_030
 	return 
 endf 
 
-def node_031
+def node_031 : 58
 	if function#30(2) >> node_032 
 	else >> node_033 
 	endif 
 	return 
 endf 
 
-def node_032
+def node_032 : 229
 	if function#101(1) 
 		-> kuluyaku.surprise_drop_egg() 
 	else 
@@ -539,7 +539,7 @@ def node_032
 	return 
 endf 
 
-def node_033
+def node_033 : 230
 	[RegisterVar1 ++] 
 	if function#101(4) 
 		if [RegisterVar1 < 30] 
@@ -580,7 +580,7 @@ def node_033
 	return 
 endf 
 
-def node_034
+def node_034 : 250
 	[RegisterVar1 ++] 
 	random (0) 
 	elser (15) >> node_044 
@@ -591,7 +591,7 @@ def node_034
 	return 
 endf 
 
-def node_035
+def node_035 : 277
 	[RegisterVar1 ++] 
 	if self.distance_2d_to_target().leq(1000) 
 		random (0) 
@@ -621,7 +621,7 @@ def node_035
 	return 
 endf 
 
-def node_036
+def node_036 : 223
 	if function#31(9,2000) 
 		>> node_046 
 		reset 
@@ -633,7 +633,7 @@ def node_036
 	return 
 endf 
 
-def node_037
+def node_037 : 202
 	function#52(0,1) 
 	self.targetEnemy(16) 
 	>> node_001 
@@ -642,7 +642,7 @@ def node_037
 	return 
 endf 
 
-def node_038
+def node_038 : 204
 	if self.in_map(st.Special_Arena).in_area(-1) 
 		if function#101(3) 
 			-> kuluyaku.carry_quick_search2() 
@@ -673,7 +673,7 @@ def node_038
 	return 
 endf 
 
-def node_039
+def node_039 : 225
 	if self.in_map(st.Special_Arena).in_area(-1) 
 		if function#101(3) 
 			-> kuluyaku.carry_quick_search2() 
@@ -698,7 +698,7 @@ def node_039
 	return 
 endf 
 
-def node_040
+def node_040 : 207
 	>> node_041 
 	if function#31(40,1000) 
 		>> node_072 
@@ -714,7 +714,7 @@ def node_040
 	return 
 endf 
 
-def node_041
+def node_041 : 208
 	self.targetEnemy(target_em.closest_entity) 
 	if self.angle_2d_cw_between(20,340) 
 		if function#101(3) 
@@ -727,7 +727,7 @@ def node_041
 	return 
 endf 
 
-def node_042
+def node_042 : 213
 	if function#31(40,1000) 
 		if [RegisterVar4 <= 1] 
 		else 
@@ -743,7 +743,7 @@ def node_042
 	return 
 endf 
 
-def node_043
+def node_043 : 215
 	self.targetArea(20) 
 	if function#101(1) 
 		>> node_057 
@@ -762,20 +762,20 @@ def node_043
 	return 
 endf 
 
-def node_044
+def node_044 : 74
 	>> node_041 
 	>> node_057 
 	return 
 endf 
 
-def node_045
+def node_045 : 245
 	>> node_041 
 	>> node_094 
 	>> node_057 
 	return 
 endf 
 
-def node_046
+def node_046 : 71
 	>> node_069 
 	if function#101(4) 
 		>> node_006 
@@ -788,7 +788,7 @@ def node_046
 	return 
 endf 
 
-def node_047
+def node_047 : 248
 	if function#101(2) 
 		-> kuluyaku.rock_rush() 
 		[RegisterVar3 ++] 
@@ -798,7 +798,7 @@ def node_047
 	return 
 endf 
 
-def node_048
+def node_048 : 249
 	if function#101(2) 
 		-> kuluyaku.rock_rush() >> node_084 
 		[RegisterVar3 ++] 
@@ -808,7 +808,7 @@ def node_048
 	return 
 endf 
 
-def node_049
+def node_049 : 72
 	>> node_041 
 	>> node_095 
 	random (60) >> node_095 
@@ -821,7 +821,7 @@ def node_049
 	return 
 endf 
 
-def node_050
+def node_050 : 246
 	>> node_095 
 	random (70) >> node_095 
 	elser (30) 
@@ -836,7 +836,7 @@ def node_050
 	return 
 endf 
 
-def node_051
+def node_051 : 275
 	>> node_069 
 	>> node_006 
 	>> node_071 
@@ -848,7 +848,7 @@ def node_051
 	return 
 endf 
 
-def node_052
+def node_052 : 276
 	>> node_094 
 	>> node_071 
 	if function#101(3) 
@@ -859,21 +859,21 @@ def node_052
 	return 
 endf 
 
-def node_053
+def node_053 : 175
 	random (50) >> node_046 
 	elser (50) >> node_049 
 	endr 
 	return 
 endf 
 
-def node_054
+def node_054 : 176
 	random (50) >> node_044 
 	elser (50) >> node_049 
 	endr 
 	return 
 endf 
 
-def node_055
+def node_055 : 201
 	>> node_041 
 	if function#101(1) 
 		-> kuluyaku.surprise_drop_egg() 
@@ -886,7 +886,7 @@ def node_055
 	return 
 endf 
 
-def node_056
+def node_056 : 180
 	if function#101(3) 
 		-> kuluyaku.carry_threat() 
 	else 
@@ -895,7 +895,7 @@ def node_056
 	return 
 endf 
 
-def node_057
+def node_057 : 181
 	if function#101(3) 
 		-> kuluyaku.carry_threat_short() 
 	else 
@@ -904,7 +904,7 @@ def node_057
 	return 
 endf 
 
-def node_058
+def node_058 : 80
 	if function#101(3) 
 		-> kuluyaku.carry_sniff_l() 
 	else 
@@ -913,7 +913,7 @@ def node_058
 	return 
 endf 
 
-def node_059
+def node_059 : 79
 	if function#101(3) 
 		-> kuluyaku.carry_quick_search() 
 	else 
@@ -922,7 +922,7 @@ def node_059
 	return 
 endf 
 
-def node_060
+def node_060 : 81
 	if function#101(3) 
 		-> kuluyaku.carry_lost_search() 
 	else 
@@ -931,7 +931,7 @@ def node_060
 	return 
 endf 
 
-def node_061
+def node_061 : 184
 	if function#101(3) 
 		-> kuluyaku.carry_peep_grass_search() 
 	else 
@@ -940,7 +940,7 @@ def node_061
 	return 
 endf 
 
-def node_062
+def node_062 : 188
 	if function#101(3) 
 		-> kuluyaku.carry_sniff_s() 
 	else 
@@ -949,7 +949,7 @@ def node_062
 	return 
 endf 
 
-def node_063
+def node_063 : 189
 	if function#101(3) 
 		-> kuluyaku.carry_sniff_l() 
 	else 
@@ -958,7 +958,7 @@ def node_063
 	return 
 endf 
 
-def node_064
+def node_064 : 190
 	if function#101(3) 
 		-> kuluyaku.carry_anger_search_walk() 
 	else 
@@ -967,7 +967,7 @@ def node_064
 	return 
 endf 
 
-def node_065
+def node_065 : 83
 	if function#101(3) 
 		-> kuluyaku.carry_reflesh() 
 	else 
@@ -976,7 +976,7 @@ def node_065
 	return 
 endf 
 
-def node_066
+def node_066 : 182
 	if function#101(3) 
 		-> kuluyaku.carry_wait() 
 	else 
@@ -985,7 +985,7 @@ def node_066
 	return 
 endf 
 
-def node_067
+def node_067 : 85
 	if function#101(3) 
 		-> kuluyaku.carry_tired() 
 	else 
@@ -994,7 +994,7 @@ def node_067
 	return 
 endf 
 
-def node_068
+def node_068 : 183
 	if function#101(3) 
 		-> kuluyaku.carry_back_turn() 
 	else 
@@ -1003,7 +1003,7 @@ def node_068
 	return 
 endf 
 
-def node_069
+def node_069 : 179
 	if self.angle_2d_cw_between(10,350) 
 		if function#101(3) 
 			-> kuluyaku.carry_quick_turn() 
@@ -1015,7 +1015,7 @@ def node_069
 	return 
 endf 
 
-def node_070
+def node_070 : 156
 	if self.angle_2d_cw_between(30,330) 
 		if function#101(3) 
 			-> kuluyaku.carry_quick_turn() 
@@ -1027,7 +1027,7 @@ def node_070
 	return 
 endf 
 
-def node_071
+def node_071 : 157
 	if self.angle_2d_cw_between(90,270) 
 		if function#101(3) 
 			-> kuluyaku.carry_quick_turn() 
@@ -1039,7 +1039,7 @@ def node_071
 	return 
 endf 
 
-def node_072
+def node_072 : 197
 	if function#101(3) 
 		-> kuluyaku.surprise_drop_egg() 
 		[RegisterVar4 |-] 
@@ -1048,7 +1048,7 @@ def node_072
 	return 
 endf 
 
-def node_073
+def node_073 : 164
 	if function#101(3) 
 		>> node_069 
 		-> kuluyaku.carry_peck_attack() 
@@ -1061,7 +1061,7 @@ def node_073
 	return 
 endf 
 
-def node_074
+def node_074 : 226
 	if function#101(3) 
 		>> node_069 
 		-> kuluyaku.carry_tired_peck_attack() 
@@ -1074,10 +1074,10 @@ def node_074
 	return 
 endf 
 
-def node_075
+def node_075 : 191
 endf 
 
-def node_076
+def node_076 : 158
 	>> node_071 
 	if function#101(3) 
 		-> kuluyaku.step_back() 
@@ -1088,7 +1088,7 @@ def node_076
 	return 
 endf 
 
-def node_077
+def node_077 : 155
 	>> node_071 
 	if function#101(3) 
 		-> kuluyaku.step_back() 
@@ -1104,17 +1104,17 @@ def node_077
 	return 
 endf 
 
-def node_078
+def node_078 : 234
 	return 
 endf 
 
-def node_079
+def node_079 : 170
 	>> node_071 
 	-> kuluyaku.rock_throw() 
 	return 
 endf 
 
-def node_080
+def node_080 : 173
 	>> node_071 
 	if function#101(3) 
 		-> kuluyaku.rock_slam() 
@@ -1124,7 +1124,7 @@ def node_080
 	return 
 endf 
 
-def node_081
+def node_081 : 174
 	if function#101(3) 
 		-> kuluyaku.step_back() 
 	else 
@@ -1134,7 +1134,7 @@ def node_081
 	return 
 endf 
 
-def node_082
+def node_082 : 236
 	if function#101(3) 
 		-> kuluyaku.carry_low_jump_attack() 
 	else 
@@ -1144,7 +1144,7 @@ def node_082
 	return 
 endf 
 
-def node_083
+def node_083 : 159
 	if self.vertical_distance_to_target().leq(500) 
 		if function#101(3) 
 			-> kuluyaku.carry_jump_attack() 
@@ -1159,7 +1159,7 @@ def node_083
 	return 
 endf 
 
-def node_084
+def node_084 : 237
 	if self.distance_2d_to_target().leq(600) 
 		>> node_095 
 		>> node_083 
@@ -1173,7 +1173,7 @@ def node_084
 	return 
 endf 
 
-def node_085
+def node_085 : 178
 	if function#101(3) 
 		>> node_068 
 		-> kuluyaku.rock_guard() 
@@ -1184,7 +1184,7 @@ def node_085
 	return 
 endf 
 
-def node_086
+def node_086 : 214
 	>> node_070 
 	if function#101(4) 
 		random (50) >> node_087 
@@ -1202,7 +1202,7 @@ def node_086
 	return 
 endf 
 
-def node_087
+def node_087 : 224
 	if function#101(3) 
 		if [RegisterVar3 < 2] 
 			>> node_084 
@@ -1219,7 +1219,7 @@ def node_087
 	return 
 endf 
 
-def node_088
+def node_088 : 240
 	if function#101(3) 
 		if [RegisterVar3 < 2] 
 			>> node_084 
@@ -1235,7 +1235,7 @@ def node_088
 	return 
 endf 
 
-def node_089
+def node_089 : 238
 	if function#101(3) 
 		-> kuluyaku.rock_rush() 
 		[RegisterVar3 ++] 
@@ -1245,7 +1245,7 @@ def node_089
 	return 
 endf 
 
-def node_090
+def node_090 : 233
 	if self.vertical_distance_to_target().leq(3500) 
 		if function#101(3) 
 			-> kuluyaku.carry_jump_attack_high() 
@@ -1260,7 +1260,7 @@ def node_090
 	return 
 endf 
 
-def node_091
+def node_091 : 257
 	*&
 	if function#101(3) 
 		-> kuluyaku.carry_jump_attack_wall_down() 
@@ -1271,7 +1271,7 @@ def node_091
 	return 
 endf 
 
-def node_092
+def node_092 : 256
 	>> node_070 
 	if function#101(4) 
 		>> node_090 
@@ -1286,7 +1286,7 @@ def node_092
 	return 
 endf 
 
-def node_093
+def node_093 : 160
 	>> node_070 
 	if function#101(3) 
 		if self.distance_3d_to_target().leq(1000) 
@@ -1304,7 +1304,7 @@ def node_093
 	return 
 endf 
 
-def node_094
+def node_094 : 161
 	>> node_070 
 	if function#101(3) 
 		random (60) -> kuluyaku.carry_step_left() 
@@ -1318,7 +1318,7 @@ def node_094
 	return 
 endf 
 
-def node_095
+def node_095 : 162
 	if function#101(3) 
 		-> kuluyaku.carry_step_back() 
 	else 
@@ -1327,7 +1327,7 @@ def node_095
 	return 
 endf 
 
-def node_096
+def node_096 : 163
 	if function#101(3) 
 		-> kuluyaku.carry_dash(1,2,0,500,800) 
 	else 
@@ -1336,7 +1336,7 @@ def node_096
 	return 
 endf 
 
-def node_097
+def node_097 : 171
 	if function#101(3) 
 		-> kuluyaku.carry_dash(0,2,1,0,1000) @ unknExtra0:200 
 	else 
@@ -1345,7 +1345,7 @@ def node_097
 	return 
 endf 
 
-def node_098
+def node_098 : 177
 	if function#101(3) 
 	else 
 		if function#44() 
@@ -1371,7 +1371,7 @@ def node_098
 	return 
 endf 
 
-def node_099
+def node_099 : 218
 	if function#101(3) 
 	else 
 		if [RegisterVar2 <= 6] 
@@ -1399,7 +1399,7 @@ def node_099
 	return 
 endf 
 
-def node_100
+def node_100 : 219
 	if function#101(3) 
 	else 
 		if [RegisterVar2 <= 5] >> node_081 
@@ -1427,7 +1427,7 @@ def node_100
 	return 
 endf 
 
-def node_101
+def node_101 : 220
 	if function#101(3) 
 	else 
 		if self.distance_3d_to_target().leq(800) 
@@ -1451,7 +1451,7 @@ def node_101
 	return 
 endf 
 
-def node_102
+def node_102 : 196
 	if self.enraged() 
 		>> node_104 
 	elif self.fatigued() 
@@ -1461,7 +1461,7 @@ def node_102
 	return 
 endf 
 
-def node_103
+def node_103 : 199
 	if self.target.helpless_0() 
 		if self.distance_2d_to_target().leq(600) 
 			random (40) >> node_095 
@@ -1496,7 +1496,7 @@ def node_103
 	return 
 endf 
 
-def node_104
+def node_104 : 200
 	if self.target.helpless_0() 
 		if self.distance_2d_to_target().leq(600) 
 			random (70) >> node_095 
@@ -1537,7 +1537,7 @@ def node_104
 	return 
 endf 
 
-def node_105
+def node_105 : 279
 	if function#101(3) 
 	else 
 		if function#44() 
@@ -1563,7 +1563,7 @@ def node_105
 	return 
 endf 
 
-def node_106
+def node_106 : 280
 	if function#101(3) 
 	else 
 		if [RegisterVar2 <= 5] 
@@ -1591,7 +1591,7 @@ def node_106
 	return 
 endf 
 
-def node_107
+def node_107 : 281
 	if function#101(3) 
 	else 
 		if [RegisterVar2 <= 4] 
@@ -1619,7 +1619,7 @@ def node_107
 	return 
 endf 
 
-def node_108
+def node_108 : 282
 	if function#101(3) 
 	else 
 		if self.distance_3d_to_target().leq(800) 
@@ -1643,7 +1643,7 @@ def node_108
 	return 
 endf 
 
-def node_109
+def node_109 : 278
 	if function#101(3) 
 		-> kuluyaku.step_back() 
 	else 
@@ -1657,7 +1657,7 @@ def node_109
 	return 
 endf 
 
-def node_110
+def node_110 : 258
 	if self.in_map(st.Ancient_Forest).in_area(2) 
 		>> node_112 
 	elif self.in_map(st.Ancient_Forest).in_area(5) 
@@ -1682,7 +1682,7 @@ def node_110
 	return 
 endf 
 
-def node_111
+def node_111 : 259
 	random (20) -> kuluyaku.pick_rock() 
 	elser (0) -> kuluyaku.pick_rock_bomb() 
 	elser (80) -> kuluyaku.pick_rock_hard() 
@@ -1690,7 +1690,7 @@ def node_111
 	return 
 endf 
 
-def node_112
+def node_112 : 260
 	random (15) -> kuluyaku.pick_rock() 
 	elser (50) -> kuluyaku.pick_rock_bomb() 
 	elser (35) -> kuluyaku.pick_rock_hard() 
@@ -1698,7 +1698,7 @@ def node_112
 	return 
 endf 
 
-def node_113
+def node_113 : 283
 	if self.targetEnemy(target_em.any_monster) 
 		if self.target(13) 
 		else 
@@ -1719,7 +1719,7 @@ def node_113
 	return 
 endf 
 
-def node_114
+def node_114 : 284
 	if function#45() 
 	else 
 		>> node_113 
@@ -1727,7 +1727,7 @@ def node_114
 	return 
 endf 
 
-def node_115
+def node_115 : 285
 	if function#30(2) 
 		>> node_116 
 	else 
@@ -1736,7 +1736,7 @@ def node_115
 	return 
 endf 
 
-def node_116
+def node_116 : 261
 	if function#101(1) 
 		-> kuluyaku.surprise_drop_egg() 
 	else 
@@ -1787,7 +1787,7 @@ def node_116
 	return 
 endf 
 
-def node_117
+def node_117 : 262
 	[RegisterVar1 ++] 
 	if [RegisterVar1 < 5] 
 		random (30) 
@@ -1808,7 +1808,7 @@ def node_117
 	return 
 endf 
 
-def node_118
+def node_118 : 263
 	[RegisterVar1 ++] 
 	random (0) 
 	elser (5) >> node_044 
@@ -1821,7 +1821,7 @@ def node_118
 	return 
 endf 
 
-def node_119
+def node_119 : 286
 	if function#30(2) 
 		>> node_120 
 	else 
@@ -1830,7 +1830,7 @@ def node_119
 	return 
 endf 
 
-def node_120
+def node_120 : 264
 	if function#101(1) 
 		-> kuluyaku.surprise_drop_egg() 
 	else 
@@ -1881,7 +1881,7 @@ def node_120
 	return 
 endf 
 
-def node_121
+def node_121 : 265
 	[RegisterVar1 ++] 
 	if [RegisterVar1 < 5] 
 		random (10) 
@@ -1903,7 +1903,7 @@ def node_121
 	return 
 endf 
 
-def node_122
+def node_122 : 266
 	[RegisterVar1 ++] 
 	random (0) 
 	elser (5) >> node_044 
@@ -1916,7 +1916,7 @@ def node_122
 	return 
 endf 
 
-def node_123
+def node_123 : 272
 	if function#101(2) 
 		>> node_080 
 		[RegisterVar3 ++] 

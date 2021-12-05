@@ -1,7 +1,7 @@
 importactions Noios as noios
 importlibrary Global as Global
 
-def node_000
+def node_000 : 41
 	>> Global.node_014 
 	>> Global.node_007 
 	>> node_010 
@@ -15,7 +15,7 @@ def node_000
 	reset 
 endf 
 
-def node_001
+def node_001 : 44
 	if function#58(0,50) 
 		>> node_009 
 		return 
@@ -26,14 +26,14 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 50
 	>> node_004 
 	if function#5A(1) >> Global.node_002 
 	endif 
 	return 
 endf 
 
-def node_003
+def node_003 : 51
 	if [RegisterVar0 == 0] 
 		random (70) >> node_004 
 		elser (30) >> node_005 
@@ -45,7 +45,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 45
 	-> action#10(2,1,0,1500,500) 
 	if self.distance_2d_to_target().leq(700) 
 		return 
@@ -55,7 +55,7 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 52
 	if function#102() 
 		function#103() 
 		>> node_006 
@@ -72,13 +72,13 @@ def node_005
 	return 
 endf 
 
-def node_006
+def node_006 : 53
 	-> action#10(1,0,0,1000) 
 	-> action#18(1,0,0,300) 
 	return 
 endf 
 
-def node_007
+def node_007 : 54
 	>> Global.node_004 
 	random (70) >> Global.node_002 
 	elser (30) >> Global.node_004 
@@ -86,7 +86,7 @@ def node_007
 	return 
 endf 
 
-def node_008
+def node_008 : 42
 	if self.distance_2d_to_target().leq(1500) 
 		-> action#11() 
 	else 
@@ -100,13 +100,13 @@ def node_008
 	return 
 endf 
 
-def node_009
+def node_009 : 47
 	>> node_008 
 	>> Global.node_005 
 	return 
 endf 
 
-def node_010
+def node_010 : 36
 	if function#51(0,2000) 
 		>> Global.node_010 
 	else 
@@ -114,20 +114,20 @@ def node_010
 	return 
 endf 
 
-def node_011
+def node_011 : 48
 	if function#58(1,100) 
 		>> Global.node_012 
 	endif 
 	return 
 endf 
 
-def node_012
+def node_012 : 49
 	>> node_008 
 	>> Global.node_002 
 	return 
 endf 
 
-def node_013
+def node_013 : 46
 	>> node_008 
 	>> Global.node_004 
 	return 

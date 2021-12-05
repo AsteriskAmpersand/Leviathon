@@ -1,7 +1,7 @@
 importactions Dodogama as dodogama
 importlibrary Global as Global
 
-def node_000
+def node_000 : 21
 	>> node_001 
 	self.targetEnemy(34) 
 	if function#57(1) 
@@ -14,12 +14,12 @@ def node_000
 	conclude @ comboSetting:256 
 endf 
 
-def node_001
+def node_001 : 31
 	>> Global.node_125 
 	return 
 endf 
 
-def node_002
+def node_002 : 32
 	if self.distance_2d_to_target().leq(1000) 
 		>> Global.node_040 
 	elif self.distance_2d_to_target().leq(1500) 
@@ -31,7 +31,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 33
 	if self.distance_2d_to_target().leq(500) 
 	else 
 		-> dodogama.walk(2,1,0,1500,500) 
@@ -39,7 +39,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 34
 	>> Global.node_033 
 	>> Global.node_122 
 	return 

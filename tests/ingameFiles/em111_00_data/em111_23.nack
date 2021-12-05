@@ -1,7 +1,7 @@
 importactions Legiana as legiana
 importlibrary Global as Global
 
-def node_000
+def node_000 : 34
 	self.targetEnemy(target_em.closest_entity) 
 	if self.target_is(em.Shrieking_Legiana) 
 	else 
@@ -23,28 +23,28 @@ def node_000
 	conclude 
 endf 
 
-def node_001
+def node_001 : 33
 	>> Global.node_002 
 	>> Global.node_226 
 	-> legiana.grapple_mediation_threat_fly() 
 	return 
 endf 
 
-def node_002
+def node_002 : 36
 	>> Global.node_002 
 	>> Global.node_226 
 	-> legiana.grapple_with_em042_mediation() 
 	return 
 endf 
 
-def node_003
+def node_003 : 37
 	>> Global.node_002 
 	>> Global.node_226 
 	-> legiana.grapple_with_em113_mediation() 
 	return 
 endf 
 
-def node_004
+def node_004 : 1
 	self.targetEnemy(target_em.closest_entity) 
 	if self.target_is(em.Anjanath) 
 		>> node_005 
@@ -54,14 +54,14 @@ def node_004
 	conclude 
 endf 
 
-def node_005
+def node_005 : 9
 	>> Global.node_002 
 	>> Global.node_226 
 	-> legiana.die_fly() 
 	return 
 endf 
 
-def node_006
+def node_006 : 24
 	>> Global.node_226 
 	>> Global.node_037 
 	>> Global.node_228 

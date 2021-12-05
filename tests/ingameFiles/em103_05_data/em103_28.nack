@@ -1,7 +1,7 @@
 importactions Ruiner_Nergigante as ruiner_nergigante
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	if [RegisterVar2 <= 15] 
 		[RegisterVar2 |-] 
 		conclude 
@@ -13,7 +13,7 @@ def node_000
 	conclude 
 endf 
 
-def node_001
+def node_001 : 2
 	>> Global.node_105 
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.distance_3d_to_target().leq(3500) 
@@ -24,13 +24,13 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 3
 	>> Global.node_018 
 	>> Global.node_053 
 	return 
 endf 
 
-def node_003
+def node_003 : 4
 	self.targetEnemy(22) @ parameter2:2000 
 	random (40) >> Global.node_020 
 	elser (60) 

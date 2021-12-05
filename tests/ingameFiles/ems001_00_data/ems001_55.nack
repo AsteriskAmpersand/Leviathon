@@ -1,6 +1,6 @@
 importactions Aptonoth as aptonoth
 
-def node_000
+def node_000 : 8
 	if self.angle_2d_cw_between(30,330) 
 		-> aptonoth.take_off_switch_pattern_adjust() 
 	else 
@@ -8,7 +8,7 @@ def node_000
 	return 
 endf 
 
-def node_001
+def node_001 : 10
 	if self.distance_2d_to_target().leq(500) 
 	else 
 		-> aptonoth.idle_r(2,6,0,800,500) 
@@ -16,7 +16,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 11
 	-> aptonoth.take_off_switch_pattern_adjust() 
 	if self.distance_2d_to_target().leq(500) 
 	else 
@@ -25,7 +25,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 5
 	if self.distance_3d_to_target().leq(3000) 
 		>> node_000 
 	else 
@@ -42,7 +42,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 6
 	if function#B0() 
 		if self.distance_3d_to_target().leq(1500) 
 			-> aptonoth.walk_tired() 
@@ -63,7 +63,7 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 7
 	if [RegisterVar2 <= 5] 
 		[RegisterVar2 |-] 
 		return 
@@ -102,7 +102,7 @@ def node_005
 	return 
 endf 
 
-def node_006
+def node_006 : 9
 	if self.distance_3d_to_target().leq(300) 
 		-> aptonoth.dash_no_hit() 
 	else 
@@ -118,7 +118,7 @@ def node_006
 	return 
 endf 
 
-def node_007
+def node_007 : 12
 	>> node_000 
 	>> node_002 
 	-> aptonoth.fox_walk() 

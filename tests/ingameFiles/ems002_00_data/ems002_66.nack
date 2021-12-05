@@ -1,21 +1,21 @@
 importactions Apceros as apceros
 
-def node_000
+def node_000 : 1
 	>> node_002 
 	>> node_005 
 	conclude 
 endf 
 
-def node_001
+def node_001 : 20
 endf 
 
-def node_002
+def node_002 : 21
 	function#54() 
 	>> node_003 
 	return 
 endf 
 
-def node_003
+def node_003 : 22
 	function#E4(4) 
 	function#E4(1) 
 	function#E4(2) 
@@ -29,10 +29,10 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 19
 endf 
 
-def node_005
+def node_005 : 18
 	if [RegisterVar1 <= 1] 
 		>> node_006 
 	else 
@@ -42,7 +42,7 @@ def node_005
 	return 
 endf 
 
-def node_006
+def node_006 : 29
 	if [RegisterVar8 <= 2] 
 		>> node_016 
 		>> node_008 
@@ -55,10 +55,10 @@ def node_006
 	return 
 endf 
 
-def node_007
+def node_007 : 37
 endf 
 
-def node_008
+def node_008 : 38
 	self.targetEnemy(48) 
 	>> node_010 
 	if self.distance_3d_to_target().leq(500) 
@@ -76,7 +76,7 @@ def node_008
 	repeat 
 endf 
 
-def node_009
+def node_009 : 44
 	if self.vertical_distance_to_target().gt(800) 
 		>> node_017 
 		>> node_033 
@@ -91,7 +91,7 @@ def node_009
 	return 
 endf 
 
-def node_010
+def node_010 : 45
 	if [RegisterVar10 <= 5] 
 		>> node_035 
 		>> node_020 
@@ -104,10 +104,10 @@ def node_010
 	return 
 endf 
 
-def node_011
+def node_011 : 41
 endf 
 
-def node_012
+def node_012 : 40
 	if function#46() 
 		>> node_026 
 		conclude 
@@ -117,32 +117,32 @@ def node_012
 	reset 
 endf 
 
-def node_013
+def node_013 : 16
 endf 
 
-def node_014
+def node_014 : 5
 	self.targetEnemy(48) 
 	>> node_022 
 	return 
 endf 
 
-def node_015
+def node_015 : 34
 	>> node_023 
 	return 
 endf 
 
-def node_016
+def node_016 : 33
 	self.targetEnemy(48) 
 	>> node_024 
 	return 
 endf 
 
-def node_017
+def node_017 : 15
 	>> node_026 
 	return 
 endf 
 
-def node_018
+def node_018 : 35
 	if self.angle_2d_cw_between(30,330) 
 		>> node_025 
 	else 
@@ -150,85 +150,85 @@ def node_018
 	return 
 endf 
 
-def node_019
+def node_019 : 39
 	>> node_027 
 	>> node_012 
 	>> node_032 
 	return 
 endf 
 
-def node_020
+def node_020 : 49
 	>> node_028 
 	return 
 endf 
 
-def node_021
+def node_021 : 17
 endf 
 
-def node_022
+def node_022 : 7
 	-> apceros.dash_tunnel() 
 	return 
 endf 
 
-def node_023
+def node_023 : 26
 	-> apceros.dash_tight() 
 	return 
 endf 
 
-def node_024
+def node_024 : 27
 	-> apceros.fox_walk() 
 	return 
 endf 
 
-def node_025
+def node_025 : 28
 	-> apceros.landing() 
 	return 
 endf 
 
-def node_026
+def node_026 : 14
 	-> apceros.glide_combat_no_use_flyway() 
 	return 
 endf 
 
-def node_027
+def node_027 : 36
 	-> apceros.idle_fly(1,0,0,300) 
 	return 
 endf 
 
-def node_028
+def node_028 : 48
 	-> apceros.sudden_rise() 
 	return 
 endf 
 
-def node_029
+def node_029 : 30
 endf 
 
-def node_030
+def node_030 : 31
 	[RegisterVar8 ++] 
 	return 
 endf 
 
-def node_031
+def node_031 : 32
 	[RegisterVar8 |-] 
 	return 
 endf 
 
-def node_032
+def node_032 : 42
 	[RegisterVar9 ++] 
 	return 
 endf 
 
-def node_033
+def node_033 : 43
 	[RegisterVar9 |-] 
 	return 
 endf 
 
-def node_034
+def node_034 : 46
 	[RegisterVar10 ++] 
 	return 
 endf 
 
-def node_035
+def node_035 : 47
 	[RegisterVar10 |-] 
 	return 
 endf 

@@ -1,7 +1,7 @@
 importactions Coral_PukeiPukei as coral_pukeipukei
 importlibrary Global as Global
 
-def node_000
+def node_000 : 12
 	>> Global.node_039 
 	self.targetArea(21) @ parameter2:700 
 	if self.target_on_part(0) >> node_002 
@@ -13,7 +13,7 @@ def node_000
 	reset 
 endf 
 
-def node_001
+def node_001 : 9
 	>> Global.node_001 
 	if self.in_combat() 
 		random (0) >> Global.node_106 
@@ -31,7 +31,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 33
 	>> Global.node_001 
 	function#A8() 
 	self.targetEnemy(target_em.random_player_or_cat) 
@@ -54,7 +54,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 32
 	if self.mounted() 
 		>> node_004 
 	else 
@@ -63,19 +63,19 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 31
 	>> Global.node_001 
 	-> coral_pukeipukei.tongue_slap() 
 	return 
 endf 
 
-def node_005
+def node_005 : 30
 	>> Global.node_001 
 	-> coral_pukeipukei.ride_rage_head_lv2() 
 	return 
 endf 
 
-def node_006
+def node_006 : 29
 	if self.mounted() 
 		>> node_007 
 	else 
@@ -84,19 +84,19 @@ def node_006
 	return 
 endf 
 
-def node_007
+def node_007 : 28
 	>> Global.node_001 
 	-> coral_pukeipukei.ride_rage_body() 
 	return 
 endf 
 
-def node_008
+def node_008 : 27
 	>> Global.node_001 
 	-> coral_pukeipukei.ride_rage_body_lv2() 
 	return 
 endf 
 
-def node_009
+def node_009 : 35
 	if self.mounted() 
 		>> node_010 
 	else 
@@ -105,26 +105,26 @@ def node_009
 	return 
 endf 
 
-def node_010
+def node_010 : 36
 	>> Global.node_001 
 	-> coral_pukeipukei.turn_tail_attack_l() 
 	return 
 endf 
 
-def node_011
+def node_011 : 37
 	>> Global.node_001 
 	-> coral_pukeipukei.ride_rage_tail_lv2() 
 	return 
 endf 
 
-def node_012
+def node_012 : 26
 	>> Global.node_001 
 	>> node_021 
 	-> coral_pukeipukei.water_bomb_backjump() 
 	return 
 endf 
 
-def node_013
+def node_013 : 25
 	if function#3B() 
 		if self.mount_staggered_twice() 
 			>> node_014 
@@ -157,12 +157,12 @@ def node_013
 	return 
 endf 
 
-def node_014
+def node_014 : 24
 	-> coral_pukeipukei.ride_tired() 
 	return 
 endf 
 
-def node_015
+def node_015 : 23
 	if self.mounted() 
 		>> node_016 
 	else 
@@ -170,12 +170,12 @@ def node_015
 	return 
 endf 
 
-def node_016
+def node_016 : 22
 	-> coral_pukeipukei.ride_wait() 
 	return 
 endf 
 
-def node_017
+def node_017 : 21
 	random (20) >> node_018 
 	elser (80) >> node_019 
 	endr 
@@ -183,34 +183,34 @@ def node_017
 	return 
 endf 
 
-def node_018
+def node_018 : 20
 	self.targetEnemy(21) @ parameter2:1000 
 	return 
 endf 
 
-def node_019
+def node_019 : 19
 	self.targetEnemy(22) @ parameter2:1000 
 	return 
 endf 
 
-def node_020
+def node_020 : 18
 	random (48) >> node_021 
 	elser (52) >> node_022 
 	endr 
 	return 
 endf 
 
-def node_021
+def node_021 : 17
 	self.targetEnemy(12) @ parameter2:1000 
 	return 
 endf 
 
-def node_022
+def node_022 : 16
 	self.targetEnemy(11) @ parameter2:1000 
 	return 
 endf 
 
-def node_023
+def node_023 : 15
 	if self.angular_17(300,60) 
 		>> Global.node_053 
 	else 

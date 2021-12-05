@@ -1,13 +1,13 @@
 importactions Girros as girros
 importlibrary Global as Global
 
-def node_000
+def node_000 : 26
 	>> node_001 
 	>> node_002 
 	reset 
 endf 
 
-def node_001
+def node_001 : 22
 	random (50) 
 				self.targetArea(21) @ parameter2:300 
 	elser (50) 
@@ -16,20 +16,20 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 25
 	random (50) >> node_003 
 	elser (50) >> node_004 
 	endr 
 	return 
 endf 
 
-def node_003
+def node_003 : 23
 	>> Global.node_009 
 	>> Global.node_043 
 	return 
 endf 
 
-def node_004
+def node_004 : 24
 	>> Global.node_009 
 	>> Global.node_044 
 	return 

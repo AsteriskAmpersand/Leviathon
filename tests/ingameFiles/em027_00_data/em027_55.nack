@@ -1,10 +1,10 @@
 importactions Teostra as teostra
 
-def node_000
+def node_000 : 37
 	conclude 
 endf 
 
-def node_001
+def node_001 : 222
 	if self.flying() 
 		if function#AF(5000) 
 			-> teostra.landing() 
@@ -16,7 +16,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 223
 	if self.flying() 
 	else 
 		-> teostra.take_off() 
@@ -24,7 +24,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 632
 	if self.flying() 
 	else 
 		-> teostra.take_off(7,0,0,600) 
@@ -32,7 +32,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 411
 	self.targetArea(target_area.area_aerial_center) 
 	>> node_133 
 	self.targetArea(target_area.area_center) 
@@ -40,7 +40,7 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 613
 	if function#102(0,3) 
 		>> node_006 
 	elif function#102(2) 
@@ -51,13 +51,13 @@ def node_005
 	return 
 endf 
 
-def node_006
+def node_006 : 612
 	>> node_001 
 	-> teostra.dust_explosion3() 
 	return 
 endf 
 
-def node_007
+def node_007 : 611
 	>> node_001 
 	-> teostra.dust_explosion_acting3() 
 	-> teostra.jump_attack() 
@@ -65,19 +65,19 @@ def node_007
 	return 
 endf 
 
-def node_008
+def node_008 : 626
 	>> node_009 
 	>> node_010 
 	return 
 endf 
 
-def node_009
+def node_009 : 606
 	>> node_001 
 	-> teostra.reset_hot_air() 
 	return 
 endf 
 
-def node_010
+def node_010 : 627
 	if function#102(0,2) 
 		if self.distance_2d_to_target().leq(500) 
 			random (35) >> node_057 
@@ -138,7 +138,7 @@ def node_010
 	return 
 endf 
 
-def node_011
+def node_011 : 610
 	>> node_001 
 	if function#102(0,3) 
 		-> teostra.small_nova() 
@@ -148,19 +148,19 @@ def node_011
 	return 
 endf 
 
-def node_012
+def node_012 : 616
 	>> node_013 
 	>> node_014 
 	return 
 endf 
 
-def node_013
+def node_013 : 609
 	>> node_001 
 	-> teostra.dust_sprinkle_back() 
 	return 
 endf 
 
-def node_014
+def node_014 : 615
 	if function#102(1,2) 
 		if self.distance_2d_to_target().leq(700) 
 			random (50) >> node_057 
@@ -194,13 +194,13 @@ def node_014
 	return 
 endf 
 
-def node_015
+def node_015 : 631
 	>> node_087 
 	>> node_085 
 	return 
 endf 
 
-def node_016
+def node_016 : 630
 	if function#102(1,4) 
 		if self.distance_2d_to_target().leq(800) 
 			if function#11(500) 
@@ -231,7 +231,7 @@ def node_016
 	return 
 endf 
 
-def node_017
+def node_017 : 614
 	if function#102(2,2) 
 		[RegisterVar1 ++] 
 		if [RegisterVar1 <= 13] 
@@ -272,7 +272,7 @@ def node_017
 	return 
 endf 
 
-def node_018
+def node_018 : 629
 	if self.distance_2d_to_target().leq(800) 
 	else 
 		>> node_082 
@@ -291,26 +291,26 @@ def node_018
 	return 
 endf 
 
-def node_019
+def node_019 : 628
 	>> node_001 
 	>> node_118 
 	>> node_051 
 	return 
 endf 
 
-def node_020
+def node_020 : 617
 	>> node_080 
 	>> node_050 
 	return 
 endf 
 
-def node_021
+def node_021 : 618
 	>> node_080 
 	>> node_025 
 	return 
 endf 
 
-def node_022
+def node_022 : 619
 	>> node_080 
 	if self.distance_2d_to_target().leq(1000) 
 		if function#102(2,1) 
@@ -329,7 +329,7 @@ def node_022
 	return 
 endf 
 
-def node_023
+def node_023 : 624
 	>> node_033 
 	if self.distance_2d_to_target().leq(1000) 
 		>> node_021 
@@ -338,7 +338,7 @@ def node_023
 	return 
 endf 
 
-def node_024
+def node_024 : 625
 	>> node_043 
 	if self.distance_2d_to_target().leq(1000) 
 		>> node_021 
@@ -347,7 +347,7 @@ def node_024
 	return 
 endf 
 
-def node_025
+def node_025 : 620
 	if function#102(0,4) 
 		>> node_027 
 	elif function#102(1,4) 
@@ -358,7 +358,7 @@ def node_025
 	return 
 endf 
 
-def node_026
+def node_026 : 621
 	if self.distance_2d_to_target().leq(600) 
 		random (50) >> node_056 
 		elser (15) >> node_075 
@@ -391,7 +391,7 @@ def node_026
 	return 
 endf 
 
-def node_027
+def node_027 : 622
 	if function#102(0,2) 
 		if self.distance_2d_to_target().leq(600) 
 			random (55) >> node_057 
@@ -451,7 +451,7 @@ def node_027
 	return 
 endf 
 
-def node_028
+def node_028 : 623
 	if function#102(1,2) 
 		if self.distance_2d_to_target().leq(650) 
 			random (80) >> node_035 
@@ -492,7 +492,7 @@ def node_028
 	return 
 endf 
 
-def node_029
+def node_029 : 601
 	if function#102(1,4) 
 		if self.distance_2d_to_target().leq(800) 
 			random (5) -> teostra.step_back() 
@@ -505,13 +505,13 @@ def node_029
 	return 
 endf 
 
-def node_030
+def node_030 : 583
 	>> node_033 
 	>> node_050 
 	return 
 endf 
 
-def node_031
+def node_031 : 587
 	>> node_001 
 	if self.angle_2d_cw_between(15,80) 
 		-> teostra.quick_dust_blast() 
@@ -523,14 +523,14 @@ def node_031
 	return 
 endf 
 
-def node_032
+def node_032 : 591
 	>> node_001 
 	>> node_118 
 	>> node_031 
 	return 
 endf 
 
-def node_033
+def node_033 : 584
 	>> node_001 
 	if self.angle_2d_cw_between(345,35) 
 	else 
@@ -540,7 +540,7 @@ def node_033
 	return 
 endf 
 
-def node_034
+def node_034 : 598
 	>> node_033 
 	if self.distance_2d_to_target().leq(1000) 
 		>> node_064 
@@ -549,7 +549,7 @@ def node_034
 	return 
 endf 
 
-def node_035
+def node_035 : 588
 	>> node_001 
 	if self.angle_2d_cw_between(15,80) 
 		-> teostra.quick_dust_blast() 
@@ -561,14 +561,14 @@ def node_035
 	return 
 endf 
 
-def node_036
+def node_036 : 592
 	>> node_001 
 	>> node_118 
 	>> node_035 
 	return 
 endf 
 
-def node_037
+def node_037 : 575
 	random (75) >> node_043 
 	elser (25) >> node_041 
 	endr 
@@ -576,7 +576,7 @@ def node_037
 	return 
 endf 
 
-def node_038
+def node_038 : 595
 	>> node_001 
 	if self.angle_2d_cw_between(15,80) 
 		-> teostra.quick_dust_blast() 
@@ -588,13 +588,13 @@ def node_038
 	return 
 endf 
 
-def node_039
+def node_039 : 586
 	>> node_041 
 	>> node_050 
 	return 
 endf 
 
-def node_040
+def node_040 : 589
 	>> node_001 
 	if self.angle_2d_cw_between(15,80) 
 		-> teostra.quick_dust_blast() 
@@ -606,7 +606,7 @@ def node_040
 	return 
 endf 
 
-def node_041
+def node_041 : 562
 	>> node_001 
 	if self.angle_2d_cw_between(345,45) 
 		-> teostra.front_scratch() 
@@ -623,7 +623,7 @@ def node_041
 	return 
 endf 
 
-def node_042
+def node_042 : 574
 	>> node_001 
 	if self.angle_2d_cw_between(300,60) 
 		-> teostra.turn_reversal_combat() 
@@ -634,7 +634,7 @@ def node_042
 	return 
 endf 
 
-def node_043
+def node_043 : 563
 	if self.distance_2d_to_target().leq(200) 
 		>> node_041 
 	else 
@@ -647,7 +647,7 @@ def node_043
 	return 
 endf 
 
-def node_044
+def node_044 : 600
 	>> node_043 
 	if self.distance_2d_to_target().leq(1000) 
 		>> node_064 
@@ -656,7 +656,7 @@ def node_044
 	return 
 endf 
 
-def node_045
+def node_045 : 590
 	>> node_001 
 	if self.angle_2d_cw_between(15,80) 
 		-> teostra.quick_dust_blast() 
@@ -668,13 +668,13 @@ def node_045
 	return 
 endf 
 
-def node_046
+def node_046 : 596
 	>> node_047 
 	>> node_050 
 	return 
 endf 
 
-def node_047
+def node_047 : 597
 	>> node_001 
 	if self.angle_2d_cw_between(90,270) 
 	else 
@@ -684,7 +684,7 @@ def node_047
 	return 
 endf 
 
-def node_048
+def node_048 : 593
 	>> node_088 
 	if self.distance_2d_to_target().leq(650) 
 		>> node_051 
@@ -702,7 +702,7 @@ def node_048
 	return 
 endf 
 
-def node_049
+def node_049 : 594
 	>> node_083 
 	if self.distance_2d_to_target().leq(650) 
 		>> node_051 
@@ -720,7 +720,7 @@ def node_049
 	return 
 endf 
 
-def node_050
+def node_050 : 585
 	if self.current_quest().is_rank(rank.AT) 
 		if self.distance_2d_to_target().leq(650) 
 			random (75) >> node_057 
@@ -771,7 +771,7 @@ def node_050
 	return 
 endf 
 
-def node_051
+def node_051 : 582
 	if self.distance_2d_to_target().leq(350) 
 		>> node_052 
 	else 
@@ -780,7 +780,7 @@ def node_051
 	return 
 endf 
 
-def node_052
+def node_052 : 580
 	if self.angle_2d_cw_between(270,90) 
 		-> teostra.side_bite() 
 	else 
@@ -789,7 +789,7 @@ def node_052
 	return 
 endf 
 
-def node_053
+def node_053 : 581
 	if self.angle_2d_cw_between(315,25) 
 		-> teostra.bite_attack() 
 	elif self.angle_2d_cw_between(45,110) 
@@ -805,21 +805,21 @@ def node_053
 	return 
 endf 
 
-def node_054
+def node_054 : 573
 	>> node_001 
 	>> node_118 
 	>> node_056 
 	return 
 endf 
 
-def node_055
+def node_055 : 577
 	>> node_001 
 	>> node_118 
 	>> node_057 
 	return 
 endf 
 
-def node_056
+def node_056 : 564
 	>> node_001 
 	if self.distance_2d_to_target().leq(150) 
 		>> node_057 
@@ -833,7 +833,7 @@ def node_056
 	return 
 endf 
 
-def node_057
+def node_057 : 561
 	if self.distance_2d_to_target().leq(350) 
 		>> node_058 
 	else 
@@ -842,7 +842,7 @@ def node_057
 	return 
 endf 
 
-def node_058
+def node_058 : 559
 	>> node_001 
 	if function#102(2,4) 
 		if self.angle_2d_cw_between(270,90) 
@@ -860,7 +860,7 @@ def node_058
 	return 
 endf 
 
-def node_059
+def node_059 : 560
 	>> node_001 
 	if function#102(2,4) 
 		if self.angle_2d_cw_between(15,80) 
@@ -896,7 +896,7 @@ def node_059
 	return 
 endf 
 
-def node_060
+def node_060 : 572
 	>> node_001 
 	if self.angle_2d_cw_between(315,25) 
 	else 
@@ -906,7 +906,7 @@ def node_060
 	return 
 endf 
 
-def node_061
+def node_061 : 570
 	if self.current_quest().is_rank(rank.MR) 
 		>> node_005 
 	else 
@@ -921,7 +921,7 @@ def node_061
 	return 
 endf 
 
-def node_062
+def node_062 : 571
 	>> node_001 
 	if self.distance_2d_to_target().leq(1000) 
 		-> teostra.dust_explosion() 
@@ -933,19 +933,19 @@ def node_062
 	return 
 endf 
 
-def node_063
+def node_063 : 578
 	>> node_080 
 	>> node_050 
 	return 
 endf 
 
-def node_064
+def node_064 : 599
 	>> node_080 
 	>> node_066 
 	return 
 endf 
 
-def node_065
+def node_065 : 565
 	>> node_080 
 	if self.distance_2d_to_target().leq(1000) 
 		if function#102(2,1) 
@@ -964,7 +964,7 @@ def node_065
 	return 
 endf 
 
-def node_066
+def node_066 : 566
 	if function#102(0,4) 
 		>> node_068 
 	elif function#102(1,4) 
@@ -975,7 +975,7 @@ def node_066
 	return 
 endf 
 
-def node_067
+def node_067 : 567
 	if self.distance_2d_to_target().leq(600) 
 		random (50) >> node_056 
 		elser (15) >> node_075 
@@ -1008,7 +1008,7 @@ def node_067
 	return 
 endf 
 
-def node_068
+def node_068 : 568
 	if function#102(0,2) 
 		if self.distance_2d_to_target().leq(600) 
 			random (75) >> node_057 
@@ -1064,7 +1064,7 @@ def node_068
 	return 
 endf 
 
-def node_069
+def node_069 : 569
 	if function#102(1,2) 
 		if self.distance_2d_to_target().leq(650) 
 			random (80) >> node_035 
@@ -1104,14 +1104,14 @@ def node_069
 	return 
 endf 
 
-def node_070
+def node_070 : 508
 	random (70) >> node_071 
 	elser (30) >> node_072 
 	endr 
 	return 
 endf 
 
-def node_071
+def node_071 : 475
 	>> node_001 
 	if self.angle_2d_cw_between(315,45) 
 		-> teostra.front_scratch() 
@@ -1123,7 +1123,7 @@ def node_071
 	return 
 endf 
 
-def node_072
+def node_072 : 503
 	>> node_001 
 	if self.angle_2d_cw_between(300,60) 
 		-> teostra.turn_reversal_combat() 
@@ -1136,14 +1136,14 @@ def node_072
 	return 
 endf 
 
-def node_073
+def node_073 : 512
 	>> node_001 
 	>> node_082 
 	>> node_070 
 	return 
 endf 
 
-def node_074
+def node_074 : 505
 	>> node_001 
 	>> node_247 
 	-> teostra.front_scratch() 
@@ -1154,7 +1154,7 @@ def node_074
 	return 
 endf 
 
-def node_075
+def node_075 : 481
 	>> node_001 
 	if self.angle_2d_cw_between(90,270) 
 	else 
@@ -1168,7 +1168,7 @@ def node_075
 	return 
 endf 
 
-def node_076
+def node_076 : 474
 	>> node_001 
 	if self.angle_2d_cw_between(310,50) 
 		-> teostra.bite_attack() 
@@ -1180,14 +1180,14 @@ def node_076
 	return 
 endf 
 
-def node_077
+def node_077 : 504
 	>> node_001 
 	>> node_082 
 	>> node_076 
 	return 
 endf 
 
-def node_078
+def node_078 : 507
 	>> node_001 
 	if self.angle_2d_cw_between(310,50) 
 		-> teostra.bite_attack() 
@@ -1199,70 +1199,70 @@ def node_078
 	return 
 endf 
 
-def node_079
+def node_079 : 514
 	>> node_001 
 	>> node_082 
 	>> node_078 
 	return 
 endf 
 
-def node_080
+def node_080 : 476
 	>> node_001 
 	-> teostra.diagonal_bite() 
 	return 
 endf 
 
-def node_081
+def node_081 : 477
 	>> node_001 
 	-> teostra.jump_attack() 
 	return 
 endf 
 
-def node_082
+def node_082 : 491
 	>> node_001 
 	-> teostra.dash(1,2,0,600,2000) 
 	return 
 endf 
 
-def node_083
+def node_083 : 478
 	>> node_001 
 	>> node_250 
 	-> teostra.rush() 
 	return 
 endf 
 
-def node_084
+def node_084 : 494
 	>> node_001 
 	-> teostra.reversal_take_off() 
 	return 
 endf 
 
-def node_085
+def node_085 : 489
 	>> node_001 
 	-> teostra.detonation_short() 
 	return 
 endf 
 
-def node_086
+def node_086 : 490
 	>> node_001 
 	-> teostra.detonation_long() 
 	return 
 endf 
 
-def node_087
+def node_087 : 479
 	>> node_001 
 	-> teostra.close_breath_l() 
 	return 
 endf 
 
-def node_088
+def node_088 : 480
 	>> node_001 
 	>> node_247 
 	-> teostra.hosha_breath() 
 	return 
 endf 
 
-def node_089
+def node_089 : 500
 	if self.current_quest().is_rank(rank.MR) 
 		>> node_005 
 	else 
@@ -1277,7 +1277,7 @@ def node_089
 	return 
 endf 
 
-def node_090
+def node_090 : 482
 	>> node_001 
 	if self.distance_2d_to_target().leq(1000) 
 		random (80) -> teostra.dust_explosion() 
@@ -1291,7 +1291,7 @@ def node_090
 	return 
 endf 
 
-def node_091
+def node_091 : 499
 	>> node_001 
 	-> teostra.dust_explosion_acting() 
 	-> teostra.jump_attack() 
@@ -1299,7 +1299,7 @@ def node_091
 	return 
 endf 
 
-def node_092
+def node_092 : 483
 	>> node_001 
 	if function#102(0,3) 
 		-> teostra.small_nova() 
@@ -1309,7 +1309,7 @@ def node_092
 	return 
 endf 
 
-def node_093
+def node_093 : 497
 	if self.distance_2d_to_target().leq(800) 
 	else 
 		>> node_082 
@@ -1320,7 +1320,7 @@ def node_093
 	return 
 endf 
 
-def node_094
+def node_094 : 492
 	>> node_070 
 	if self.distance_2d_to_target().leq(650) 
 		random (85) >> node_076 
@@ -1338,7 +1338,7 @@ def node_094
 	return 
 endf 
 
-def node_095
+def node_095 : 513
 	>> node_073 
 	if self.distance_2d_to_target().leq(650) 
 		random (85) >> node_076 
@@ -1356,7 +1356,7 @@ def node_095
 	return 
 endf 
 
-def node_096
+def node_096 : 511
 	>> node_088 
 	if self.distance_2d_to_target().leq(650) 
 		>> node_076 
@@ -1372,7 +1372,7 @@ def node_096
 	return 
 endf 
 
-def node_097
+def node_097 : 495
 	>> node_083 
 	if self.distance_2d_to_target().leq(650) 
 		>> node_076 
@@ -1388,13 +1388,13 @@ def node_097
 	return 
 endf 
 
-def node_098
+def node_098 : 493
 	>> node_080 
 	>> node_099 
 	return 
 endf 
 
-def node_099
+def node_099 : 509
 	if function#102(0,3) 
 		>> node_100 
 	else 
@@ -1403,7 +1403,7 @@ def node_099
 	return 
 endf 
 
-def node_100
+def node_100 : 516
 	if function#102(0,1) 
 		if self.distance_2d_to_target().leq(600) 
 			>> node_076 
@@ -1461,7 +1461,7 @@ def node_100
 	return 
 endf 
 
-def node_101
+def node_101 : 517
 	if function#102(1,1) 
 		if self.distance_2d_to_target().leq(600) 
 			>> node_076 
@@ -1518,20 +1518,20 @@ def node_101
 	return 
 endf 
 
-def node_102
+def node_102 : 510
 	>> node_103 
 	>> node_104 
 	return 
 endf 
 
-def node_103
+def node_103 : 501
 	>> node_001 
 	>> node_083 
 	-> teostra.reversal_take_off() 
 	return 
 endf 
 
-def node_104
+def node_104 : 502
 	if self.distance_2d_to_target().leq(300) 
 		>> node_105 
 	elif self.distance_2d_to_target().leq(1850) 
@@ -1545,32 +1545,32 @@ def node_104
 	return 
 endf 
 
-def node_105
+def node_105 : 486
 	>> node_002 
 	-> teostra.tail_attack_fly() 
 	return 
 endf 
 
-def node_106
+def node_106 : 487
 	>> node_002 
 	-> teostra.radiation_breath_fly() 
 	return 
 endf 
 
-def node_107
+def node_107 : 488
 	>> node_002 
 	-> teostra.rush_to_landing() 
 	return 
 endf 
 
-def node_108
+def node_108 : 484
 	>> node_002 
 	-> teostra.super_nova() 
 	>> node_001 
 	return 
 endf 
 
-def node_109
+def node_109 : 496
 	if function#102(2,2) 
 	else 
 		[RegisterVar0 ++] 
@@ -1583,7 +1583,7 @@ def node_109
 	return 
 endf 
 
-def node_110
+def node_110 : 498
 	if function#102(2,2) 
 		[RegisterVar1 ++] 
 		if [RegisterVar1 <= 13] 
@@ -1596,7 +1596,7 @@ def node_110
 	return 
 endf 
 
-def node_111
+def node_111 : 515
 	if self.hp_percent().gt(30) 
 		if function#102(0,3) 
 			function#103(0,30) 
@@ -1615,7 +1615,7 @@ def node_111
 	return 
 endf 
 
-def node_112
+def node_112 : 198
 	if self.distance_3d_to_target().leq(700) 
 	else 
 		-> teostra.walk(1,2,5,600,1500) 
@@ -1624,7 +1624,7 @@ def node_112
 	return 
 endf 
 
-def node_113
+def node_113 : 444
 	>> node_251 
 	self.targetArea(target_area.nearest_entrance) 
 	if self.distance_3d_to_target().leq(700) 
@@ -1635,7 +1635,7 @@ def node_113
 	return 
 endf 
 
-def node_114
+def node_114 : 445
 	>> node_251 
 	self.targetArea(target_area.area_center) 
 	if self.distance_3d_to_target().leq(700) 
@@ -1646,7 +1646,7 @@ def node_114
 	return 
 endf 
 
-def node_115
+def node_115 : 446
 	>> node_251 
 	self.targetArea(39) 
 	if self.distance_3d_to_target().leq(700) 
@@ -1657,7 +1657,7 @@ def node_115
 	return 
 endf 
 
-def node_116
+def node_116 : 356
 	if self.distance_3d_to_target().leq(700) 
 	else 
 		-> teostra.dying_walk(1,2,0,600,1500) 
@@ -1666,7 +1666,7 @@ def node_116
 	return 
 endf 
 
-def node_117
+def node_117 : 194
 	if self.distance_3d_to_target().leq(700) 
 	else 
 		-> teostra.dash(1,2,0,600,1500) 
@@ -1675,7 +1675,7 @@ def node_117
 	return 
 endf 
 
-def node_118
+def node_118 : 272
 	if self.distance_3d_to_target().leq(700) 
 	else 
 		-> teostra.dash(1,2,0,600,1500) 
@@ -1691,7 +1691,7 @@ def node_118
 	return 
 endf 
 
-def node_119
+def node_119 : 529
 	if self.distance_3d_to_target().leq(700) 
 	else 
 		-> teostra.dash(1,2,0,600,1500) 
@@ -1715,7 +1715,7 @@ def node_119
 	return 
 endf 
 
-def node_120
+def node_120 : 530
 	if self.distance_2d_to_target().leq(700) 
 	else 
 		-> teostra.dash(1,2,0,600,1500) 
@@ -1731,7 +1731,7 @@ def node_120
 	return 
 endf 
 
-def node_121
+def node_121 : 531
 	if self.distance_2d_to_target().leq(700) 
 	else 
 		-> teostra.dash(1,2,0,600,1500) 
@@ -1755,7 +1755,7 @@ def node_121
 	return 
 endf 
 
-def node_122
+def node_122 : 343
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> teostra.dying_walk_fly(2,1,5,3000,500) 
@@ -1764,7 +1764,7 @@ def node_122
 	return 
 endf 
 
-def node_123
+def node_123 : 344
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> teostra.dying_glide_direct_move(2,1,5,3000,500) 
@@ -1773,7 +1773,7 @@ def node_123
 	return 
 endf 
 
-def node_124
+def node_124 : 345
 	if self.distance_3d_to_target().leq(1000) 
 	else 
 		-> teostra.dying_glide_direct_move(2,1,5,3000,900) 
@@ -1782,7 +1782,7 @@ def node_124
 	return 
 endf 
 
-def node_125
+def node_125 : 346
 	if self.distance_2d_to_target().leq(600) 
 	else 
 		-> teostra.glide_combat(2,1,5,3000,500) 
@@ -1791,7 +1791,7 @@ def node_125
 	return 
 endf 
 
-def node_126
+def node_126 : 347
 	if self.distance_2d_to_target().leq(1000) 
 	else 
 		-> teostra.glide_combat(2,1,5,3000,900) 
@@ -1800,7 +1800,7 @@ def node_126
 	return 
 endf 
 
-def node_127
+def node_127 : 401
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> teostra.glide(2,1,5,3000,500) 
@@ -1809,7 +1809,7 @@ def node_127
 	return 
 endf 
 
-def node_128
+def node_128 : 402
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> teostra.glide_direct_move(2,1,5,3000,500) 
@@ -1818,7 +1818,7 @@ def node_128
 	return 
 endf 
 
-def node_129
+def node_129 : 403
 	if self.distance_3d_to_target().leq(1000) 
 	else 
 		-> teostra.glide_direct_move(2,1,5,3000,900) 
@@ -1827,7 +1827,7 @@ def node_129
 	return 
 endf 
 
-def node_130
+def node_130 : 404
 	if self.distance_2d_to_target().leq(600) 
 	else 
 		-> teostra.glide_combat(2,1,5,3000,500) 
@@ -1836,7 +1836,7 @@ def node_130
 	return 
 endf 
 
-def node_131
+def node_131 : 405
 	if self.distance_2d_to_target().leq(1000) 
 	else 
 		-> teostra.glide_combat(2,1,5,3000,900) 
@@ -1845,7 +1845,7 @@ def node_131
 	return 
 endf 
 
-def node_132
+def node_132 : 196
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> teostra.glide(2,1,0,3000,500) 
@@ -1854,7 +1854,7 @@ def node_132
 	return 
 endf 
 
-def node_133
+def node_133 : 195
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> teostra.glide_direct_move(2,1,0,3000,500) 
@@ -1863,7 +1863,7 @@ def node_133
 	return 
 endf 
 
-def node_134
+def node_134 : 279
 	if self.distance_3d_to_target().leq(1000) 
 	else 
 		-> teostra.glide_direct_move(2,1,0,3000,900) 
@@ -1872,7 +1872,7 @@ def node_134
 	return 
 endf 
 
-def node_135
+def node_135 : 532
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> teostra.glide_direct_move(2,1,0,1500,500) 
@@ -1888,7 +1888,7 @@ def node_135
 	return 
 endf 
 
-def node_136
+def node_136 : 197
 	if self.distance_2d_to_target().leq(600) 
 	else 
 		-> teostra.glide_combat(2,1,0,3000,500) 
@@ -1897,7 +1897,7 @@ def node_136
 	return 
 endf 
 
-def node_137
+def node_137 : 280
 	if self.distance_2d_to_target().leq(1000) 
 	else 
 		-> teostra.glide_combat(2,1,0,3000,900) 
@@ -1906,7 +1906,7 @@ def node_137
 	return 
 endf 
 
-def node_138
+def node_138 : 533
 	if self.distance_2d_to_target().leq(600) 
 	else 
 		-> teostra.glide_combat(2,1,0,1500,500) 
@@ -1922,7 +1922,7 @@ def node_138
 	return 
 endf 
 
-def node_139
+def node_139 : 257
 	if self.distance_3d_to_target().leq(1000) 
 	else 
 		-> teostra.glide_direct_move(2,1,0,1500,700) 
@@ -1946,7 +1946,7 @@ def node_139
 	return 
 endf 
 
-def node_140
+def node_140 : 256
 	if self.distance_2d_to_target().leq(1000) 
 	else 
 		-> teostra.glide_combat(2,0,0,1500) 
@@ -1970,26 +1970,26 @@ def node_140
 	return 
 endf 
 
-def node_141
+def node_141 : 552
 	>> node_001 
 	-> teostra.take_off_switch_pattern_by_dist() 
 	>> node_134 
 	return 
 endf 
 
-def node_142
+def node_142 : 398
 	>> node_001 
 	-> teostra.sudden_rise() 
 	return 
 endf 
 
-def node_143
+def node_143 : 400
 	>> node_002 
 	-> teostra.sudden_drop() 
 	return 
 endf 
 
-def node_144
+def node_144 : 324
 	if self.flying() 
 		-> teostra.discover_fly() 
 	else 
@@ -1998,7 +1998,7 @@ def node_144
 	return 
 endf 
 
-def node_145
+def node_145 : 526
 	if self.flying() 
 		-> teostra.barrier_up_fly() 
 		-> teostra.chance_fly() 
@@ -2009,7 +2009,7 @@ def node_145
 	return 
 endf 
 
-def node_146
+def node_146 : 325
 	if self.flying() 
 		-> teostra.threat_short_fly() 
 	else 
@@ -2018,7 +2018,7 @@ def node_146
 	return 
 endf 
 
-def node_147
+def node_147 : 556
 	if function#AB() 
 		function#AA() 
 		>> node_146 
@@ -2027,7 +2027,7 @@ def node_147
 	return 
 endf 
 
-def node_148
+def node_148 : 328
 	if self.flying() 
 		-> teostra.fly_battle_search() 
 	else 
@@ -2036,7 +2036,7 @@ def node_148
 	return 
 endf 
 
-def node_149
+def node_149 : 330
 	if self.flying() 
 		-> teostra.fly_battle_search() 
 	else 
@@ -2045,7 +2045,7 @@ def node_149
 	return 
 endf 
 
-def node_150
+def node_150 : 329
 	if self.flying() 
 		-> teostra.fly_battle_search() 
 	else 
@@ -2054,19 +2054,19 @@ def node_150
 	return 
 endf 
 
-def node_151
+def node_151 : 336
 	>> node_001 
 	-> teostra.tired() 
 	return 
 endf 
 
-def node_152
+def node_152 : 337
 	>> node_001 
 	-> teostra.refresh() 
 	return 
 endf 
 
-def node_153
+def node_153 : 369
 	>> node_001 
 	if self.in_combat() 
 		-> teostra.lost_search() 
@@ -2076,13 +2076,13 @@ def node_153
 	return 
 endf 
 
-def node_154
+def node_154 : 370
 	>> node_001 
 	-> teostra.lost_search() 
 	return 
 endf 
 
-def node_155
+def node_155 : 457
 	if self.flying() 
 		-> teostra.threat_short_fly() 
 	else 
@@ -2091,7 +2091,7 @@ def node_155
 	return 
 endf 
 
-def node_156
+def node_156 : 485
 	if self.flying() 
 		-> teostra.barrier_up_fly() 
 		-> teostra.chance_fly() 
@@ -2102,13 +2102,13 @@ def node_156
 	return 
 endf 
 
-def node_157
+def node_157 : 206
 	self.targetArea(target_area.nearest_entrance) 
 	>> node_158 
 	return 
 endf 
 
-def node_158
+def node_158 : 424
 	if function#5A(20) 
 		>> node_159 
 	elif function#5A(21) 
@@ -2139,7 +2139,7 @@ def node_158
 	return 
 endf 
 
-def node_159
+def node_159 : 425
 	if self.distance_3d_to_target().leq(15000) 
 		>> node_001 
 		>> node_162 
@@ -2149,7 +2149,7 @@ def node_159
 	return 
 endf 
 
-def node_160
+def node_160 : 426
 	if self.distance_3d_to_target().leq(15000) 
 		>> node_002 
 		>> node_162 
@@ -2159,7 +2159,7 @@ def node_160
 	return 
 endf 
 
-def node_161
+def node_161 : 427
 	if function#AD() 
 		>> node_162 
 	else 
@@ -2168,7 +2168,7 @@ def node_161
 	return 
 endf 
 
-def node_162
+def node_162 : 207
 	if function#5A(10) 
 		>> node_002 
 	elif function#5A(11) 
@@ -2204,7 +2204,7 @@ def node_162
 	return 
 endf 
 
-def node_163
+def node_163 : 208
 	>> node_164 
 	>> node_165 
 	>> node_166 
@@ -2212,7 +2212,7 @@ def node_163
 	return 
 endf 
 
-def node_164
+def node_164 : 209
 	if self.flying() 
 		self.targetArea(target_area.area_aerial_center) 
 		>> node_129 
@@ -2225,7 +2225,7 @@ def node_164
 	return 
 endf 
 
-def node_165
+def node_165 : 210
 	self.targetArea(target_area.nearest_entrance) 
 	if self.flying() 
 		self.targetArea(40) 
@@ -2237,7 +2237,7 @@ def node_165
 	return 
 endf 
 
-def node_166
+def node_166 : 205
 	if function#5A(10) 
 	elif function#5A(11) 
 	elif function#5A(12) 
@@ -2260,7 +2260,7 @@ def node_166
 	return 
 endf 
 
-def node_167
+def node_167 : 278
 	self.targetArea(target_area.nearest_entrance) 
 	if self.flying() 
 		>> node_128 
@@ -2270,7 +2270,7 @@ def node_167
 	return 
 endf 
 
-def node_168
+def node_168 : 199
 	if function#C2() 
 		self.targetArea(target_area.next_exit) 
 	else 
@@ -2285,7 +2285,7 @@ def node_168
 	return 
 endf 
 
-def node_169
+def node_169 : 200
 	if self.flying() 
 		self.targetArea(40) 
 		>> node_133 
@@ -2295,13 +2295,13 @@ def node_169
 	return 
 endf 
 
-def node_170
+def node_170 : 201
 	>> node_171 
 	>> node_173 
 	return 
 endf 
 
-def node_171
+def node_171 : 553
 	if self.flying() 
 		self.targetArea(target_area.area_aerial_center) 
 		>> node_134 
@@ -2312,7 +2312,7 @@ def node_171
 	return 
 endf 
 
-def node_172
+def node_172 : 554
 	self.targetArea(target_area.area_center) 
 	>> node_117 
 	self.targetArea(target_area.area_aerial_center) 
@@ -2320,7 +2320,7 @@ def node_172
 	return 
 endf 
 
-def node_173
+def node_173 : 203
 	if function#C2() 
 		self.targetArea(target_area.next_exit) 
 	else 
@@ -2335,7 +2335,7 @@ def node_173
 	return 
 endf 
 
-def node_174
+def node_174 : 204
 	self.targetArea(target_area.area_center) 
 	if self.flying() 
 		if self.fatigued() 
@@ -2348,7 +2348,7 @@ def node_174
 	return 
 endf 
 
-def node_175
+def node_175 : 349
 	self.targetArea(24) 
 	if function#AD() 
 		>> node_176 
@@ -2358,14 +2358,14 @@ def node_175
 	return 
 endf 
 
-def node_176
+def node_176 : 350
 	>> node_001 
 	self.targetArea(24) 
 	>> node_116 
 	return 
 endf 
 
-def node_177
+def node_177 : 351
 	>> node_178 
 	>> node_179 
 	>> node_180 
@@ -2373,7 +2373,7 @@ def node_177
 	return 
 endf 
 
-def node_178
+def node_178 : 352
 	if self.flying() 
 		self.targetArea(target_area.area_aerial_center) 
 		>> node_124 
@@ -2386,7 +2386,7 @@ def node_178
 	return 
 endf 
 
-def node_179
+def node_179 : 353
 	self.targetArea(24) 
 	if self.flying() 
 		self.targetArea(40) 
@@ -2398,7 +2398,7 @@ def node_179
 	return 
 endf 
 
-def node_180
+def node_180 : 354
 	if self.flying() 
 		self.targetArea(target_area.area_center) 
 		>> node_001 
@@ -2407,7 +2407,7 @@ def node_180
 	return 
 endf 
 
-def node_181
+def node_181 : 355
 	if self.flying() 
 	else 
 		self.targetArea(24) 
@@ -2416,7 +2416,7 @@ def node_181
 	return 
 endf 
 
-def node_182
+def node_182 : 362
 	if function#AD() 
 		>> node_183 
 	else 
@@ -2425,7 +2425,7 @@ def node_182
 	return 
 endf 
 
-def node_183
+def node_183 : 363
 	if self.flying() 
 		>> node_137 
 	else 
@@ -2438,14 +2438,14 @@ def node_183
 	return 
 endf 
 
-def node_184
+def node_184 : 364
 	>> node_185 
 	>> node_186 
 	>> node_187 
 	return 
 endf 
 
-def node_185
+def node_185 : 365
 	if self.flying() 
 		self.targetArea(target_area.area_aerial_center) 
 		>> node_133 
@@ -2462,7 +2462,7 @@ def node_185
 	return 
 endf 
 
-def node_186
+def node_186 : 366
 	if self.flying() 
 		self.targetArea(40) 
 		>> node_132 
@@ -2477,7 +2477,7 @@ def node_186
 	return 
 endf 
 
-def node_187
+def node_187 : 367
 	if self.flying() 
 		self.targetArea(target_area.area_center) 
 		>> node_001 
@@ -2486,7 +2486,7 @@ def node_187
 	return 
 endf 
 
-def node_188
+def node_188 : 557
 	self.targetArea(target_area.area_center) 
 	if self.flying() 
 		if self.fatigued() 
@@ -2499,7 +2499,7 @@ def node_188
 	return 
 endf 
 
-def node_189
+def node_189 : 368
 	if self.flying() 
 		>> node_137 
 	else 
@@ -2512,7 +2512,7 @@ def node_189
 	return 
 endf 
 
-def node_190
+def node_190 : 309
 	if self.flying() 
 		-> teostra.turn_fly() 
 	else 
@@ -2521,7 +2521,7 @@ def node_190
 	return 
 endf 
 
-def node_191
+def node_191 : 310
 	if self.angle_2d_cw_between(15,345) 
 		>> node_190 
 	else 
@@ -2529,7 +2529,7 @@ def node_191
 	return 
 endf 
 
-def node_192
+def node_192 : 311
 	if self.angle_2d_cw_between(30,330) 
 		>> node_190 
 	else 
@@ -2537,7 +2537,7 @@ def node_192
 	return 
 endf 
 
-def node_193
+def node_193 : 312
 	if self.angle_2d_cw_between(60,300) 
 		>> node_190 
 	else 
@@ -2545,7 +2545,7 @@ def node_193
 	return 
 endf 
 
-def node_194
+def node_194 : 313
 	if self.angle_2d_cw_between(90,270) 
 		>> node_190 
 	else 
@@ -2553,7 +2553,7 @@ def node_194
 	return 
 endf 
 
-def node_195
+def node_195 : 357
 	if self.flying() 
 		>> node_264 
 	else 
@@ -2562,7 +2562,7 @@ def node_195
 	return 
 endf 
 
-def node_196
+def node_196 : 358
 	if self.angle_2d_cw_between(15,345) 
 		>> node_195 
 	else 
@@ -2570,7 +2570,7 @@ def node_196
 	return 
 endf 
 
-def node_197
+def node_197 : 359
 	if self.angle_2d_cw_between(30,330) 
 		>> node_195 
 	else 
@@ -2578,7 +2578,7 @@ def node_197
 	return 
 endf 
 
-def node_198
+def node_198 : 360
 	if self.angle_2d_cw_between(60,300) 
 		>> node_195 
 	else 
@@ -2586,7 +2586,7 @@ def node_198
 	return 
 endf 
 
-def node_199
+def node_199 : 361
 	if self.angle_2d_cw_between(90,270) 
 		>> node_195 
 	else 
@@ -2594,19 +2594,19 @@ def node_199
 	return 
 endf 
 
-def node_200
+def node_200 : 226
 	>> node_001 
 	-> teostra.lost_search() 
 	return 
 endf 
 
-def node_201
+def node_201 : 227
 	>> node_001 
 	-> teostra.lost_search() 
 	return 
 endf 
 
-def node_202
+def node_202 : 228
 	>> node_001 
 	random (50) -> teostra.combat_search() 
 	elser (50) -> teostra.lost_search() 
@@ -2614,7 +2614,7 @@ def node_202
 	return 
 endf 
 
-def node_203
+def node_203 : 229
 	>> node_001 
 	random (50) -> teostra.combat_search() 
 	elser (50) -> teostra.lost_search() 
@@ -2622,19 +2622,19 @@ def node_203
 	return 
 endf 
 
-def node_204
+def node_204 : 230
 	>> node_001 
 	-> teostra.dash(2,1,0,1000,750) 
 	return 
 endf 
 
-def node_205
+def node_205 : 231
 	>> node_001 
 	-> teostra.dash(2,1,0,2000,750) 
 	return 
 endf 
 
-def node_206
+def node_206 : 232
 	>> node_001 
 	if self.distance_2d_to_target().leq(900) 
 		random (65) >> node_076 
@@ -2650,7 +2650,7 @@ def node_206
 	return 
 endf 
 
-def node_207
+def node_207 : 233
 	>> node_001 
 	if self.target(10) 
 		-> teostra.dash(2,0,0,1000) 
@@ -2664,13 +2664,13 @@ def node_207
 	return 
 endf 
 
-def node_208
+def node_208 : 242
 	>> node_001 
 	-> teostra.tired() 
 	return 
 endf 
 
-def node_209
+def node_209 : 282
 	if self.distance_3d_to_target().leq(900) 
 		>> node_239 
 	elif self.distance_3d_to_target().leq(1350) 
@@ -2680,7 +2680,7 @@ def node_209
 	return 
 endf 
 
-def node_210
+def node_210 : 289
 	if self.distance_2d_to_target().leq(900) 
 	else 
 		-> teostra.dash(2,0,0,1500) 
@@ -2696,13 +2696,13 @@ def node_210
 	return 
 endf 
 
-def node_211
+def node_211 : 292
 	>> node_001 
 	-> teostra.lost_search() 
 	return 
 endf 
 
-def node_212
+def node_212 : 295
 	>> node_001 
 	>> node_192 
 	-> teostra.life_search() 
@@ -2719,7 +2719,7 @@ def node_212
 	return 
 endf 
 
-def node_213
+def node_213 : 300
 	>> node_001 
 	self.targetArea(17) 
 	>> node_192 
@@ -2727,7 +2727,7 @@ def node_213
 	return 
 endf 
 
-def node_214
+def node_214 : 307
 	>> node_001 
 	self.targetArea(17) 
 	random (75) >> node_212 
@@ -2737,7 +2737,7 @@ def node_214
 	return 
 endf 
 
-def node_215
+def node_215 : 303
 	>> node_001 
 	self.targetArea(17) 
 	>> node_192 
@@ -2745,14 +2745,14 @@ def node_215
 	return 
 endf 
 
-def node_216
+def node_216 : 305
 	>> node_001 
 	>> node_191 
 	-> teostra.life_search() 
 	return 
 endf 
 
-def node_217
+def node_217 : 306
 	>> node_001 
 	self.targetArea(17) 
 	>> node_192 
@@ -2760,49 +2760,49 @@ def node_217
 	return 
 endf 
 
-def node_218
+def node_218 : 296
 	>> node_002 
 	>> node_192 
 	-> teostra.fly_battle_search() 
 	return 
 endf 
 
-def node_219
+def node_219 : 301
 	>> node_002 
 	>> node_192 
 	-> teostra.chance_fly() 
 	return 
 endf 
 
-def node_220
+def node_220 : 308
 	>> node_002 
 	>> node_192 
 	-> teostra.fly_battle_search() 
 	return 
 endf 
 
-def node_221
+def node_221 : 299
 	>> node_002 
 	>> node_191 
 	-> teostra.fly_battle_search() 
 	return 
 endf 
 
-def node_222
+def node_222 : 297
 	>> node_002 
 	>> node_192 
 	-> teostra.fly_battle_search() 
 	return 
 endf 
 
-def node_223
+def node_223 : 534
 	>> node_002 
 	self.targetEnemy(17) 
 	-> teostra.sudden_drop() 
 	return 
 endf 
 
-def node_224
+def node_224 : 348
 	>> node_001 
 	>> node_192 
 	if function#C9() 
@@ -2813,7 +2813,7 @@ def node_224
 	return 
 endf 
 
-def node_225
+def node_225 : 422
 	if self.distance_2d_to_target().leq(500) 
 	else 
 		-> teostra.glide_direct_move(1,2,0,400,1500) 
@@ -2822,38 +2822,38 @@ def node_225
 	return 
 endf 
 
-def node_226
+def node_226 : 385
 	>> node_002 
 	self.targetArea(22) @ parameter2:500 
 	-> teostra.quick_turn_fly() 
 	return 
 endf 
 
-def node_227
+def node_227 : 527
 	>> node_002 
 	-> teostra.ride_rage_head() 
 	return 
 endf 
 
-def node_228
+def node_228 : 386
 	>> node_002 
 	-> teostra.ride_rage_head_lv2() 
 	return 
 endf 
 
-def node_229
+def node_229 : 528
 	>> node_002 
 	-> teostra.ride_rage_body() 
 	return 
 endf 
 
-def node_230
+def node_230 : 387
 	>> node_002 
 	-> teostra.ride_rage_body_lv2() 
 	return 
 endf 
 
-def node_231
+def node_231 : 394
 	>> node_002 
 	if self.distance_2d_to_target().leq(600) 
 		>> node_259 
@@ -2864,7 +2864,7 @@ def node_231
 	return 
 endf 
 
-def node_232
+def node_232 : 551
 	if function#11(1000) 
 	else 
 		if self.above_area() 
@@ -2876,49 +2876,49 @@ def node_232
 	return 
 endf 
 
-def node_233
+def node_233 : 388
 	>> node_002 
 	-> teostra.ride_rage_crash_head() 
 	return 
 endf 
 
-def node_234
+def node_234 : 389
 	>> node_002 
 	-> teostra.ride_rage_crash_head_lv2() 
 	return 
 endf 
 
-def node_235
+def node_235 : 390
 	>> node_002 
 	-> teostra.ride_rage_crash_body() 
 	return 
 endf 
 
-def node_236
+def node_236 : 391
 	>> node_002 
 	-> teostra.ride_rage_crash_body_lv2() 
 	return 
 endf 
 
-def node_237
+def node_237 : 393
 	>> node_002 
 	-> teostra.ride_rage_threat() 
 	return 
 endf 
 
-def node_238
+def node_238 : 392
 	>> node_002 
 	-> teostra.ride_tired() 
 	return 
 endf 
 
-def node_239
+def node_239 : 275
 	>> node_001 
 	-> teostra.back_turn() 
 	return 
 endf 
 
-def node_240
+def node_240 : 284
 	if self.angle_2d_cw_between(15,345) 
 		>> node_239 
 	else 
@@ -2926,7 +2926,7 @@ def node_240
 	return 
 endf 
 
-def node_241
+def node_241 : 285
 	if self.angle_2d_cw_between(30,330) 
 		>> node_239 
 	else 
@@ -2934,7 +2934,7 @@ def node_241
 	return 
 endf 
 
-def node_242
+def node_242 : 286
 	if self.angle_2d_cw_between(45,315) 
 		>> node_239 
 	else 
@@ -2942,7 +2942,7 @@ def node_242
 	return 
 endf 
 
-def node_243
+def node_243 : 287
 	if self.angle_2d_cw_between(60,300) 
 		>> node_239 
 	else 
@@ -2950,7 +2950,7 @@ def node_243
 	return 
 endf 
 
-def node_244
+def node_244 : 288
 	if self.angle_2d_cw_between(90,270) 
 		>> node_239 
 	else 
@@ -2958,13 +2958,13 @@ def node_244
 	return 
 endf 
 
-def node_245
+def node_245 : 271
 	>> node_001 
 	-> teostra.quick_turn() 
 	return 
 endf 
 
-def node_246
+def node_246 : 212
 	if self.angle_2d_cw_between(15,345) 
 		>> node_245 
 	else 
@@ -2972,7 +2972,7 @@ def node_246
 	return 
 endf 
 
-def node_247
+def node_247 : 213
 	if self.angle_2d_cw_between(30,330) 
 		>> node_245 
 	else 
@@ -2980,7 +2980,7 @@ def node_247
 	return 
 endf 
 
-def node_248
+def node_248 : 214
 	if self.angle_2d_cw_between(45,315) 
 		>> node_245 
 	else 
@@ -2988,7 +2988,7 @@ def node_248
 	return 
 endf 
 
-def node_249
+def node_249 : 216
 	if self.angle_2d_cw_between(60,300) 
 		>> node_245 
 	else 
@@ -2996,7 +2996,7 @@ def node_249
 	return 
 endf 
 
-def node_250
+def node_250 : 215
 	if self.angle_2d_cw_between(90,270) 
 		>> node_245 
 	else 
@@ -3004,7 +3004,7 @@ def node_250
 	return 
 endf 
 
-def node_251
+def node_251 : 458
 	if self.targetEnemy(target_em.any_monster) 
 		if self.target(13) 
 		else 
@@ -3049,17 +3049,17 @@ def node_251
 	return 
 endf 
 
-def node_252
+def node_252 : 459
 	return 
 endf 
 
-def node_253
+def node_253 : 460
 	>> node_197 
 	>> node_155 
 	return 
 endf 
 
-def node_254
+def node_254 : 461
 	>> node_253 
 	if self.flying() 
 		if self.distance_2d_to_target().leq(750) 
@@ -3073,12 +3073,12 @@ def node_254
 	return 
 endf 
 
-def node_255
+def node_255 : 462
 	self.force_area_change2() 
 	return 
 endf 
 
-def node_256
+def node_256 : 397
 	random (35) 
 				self.targetArea(21) @ parameter2:300 
 	elser (35) 
@@ -3091,7 +3091,7 @@ def node_256
 	return 
 endf 
 
-def node_257
+def node_257 : 535
 	if self.current_quest().is_rank(rank.AT) 
 	elif self.current_quest().is_rank(rank.MR) 
 		random (5) 
@@ -3115,7 +3115,7 @@ def node_257
 	return 
 endf 
 
-def node_258
+def node_258 : 536
 	if self.flying() 
 		-> teostra.chance_fly() 
 	else 
@@ -3124,13 +3124,13 @@ def node_258
 	return 
 endf 
 
-def node_259
+def node_259 : 464
 	>> node_002 
 	-> teostra.fly_back_step() 
 	return 
 endf 
 
-def node_260
+def node_260 : 465
 	if self.angle_2d_cw_between(15,345) 
 		>> node_259 
 	else 
@@ -3138,7 +3138,7 @@ def node_260
 	return 
 endf 
 
-def node_261
+def node_261 : 466
 	if self.angle_2d_cw_between(30,330) 
 		>> node_259 
 	else 
@@ -3146,7 +3146,7 @@ def node_261
 	return 
 endf 
 
-def node_262
+def node_262 : 467
 	if self.angle_2d_cw_between(45,315) 
 		>> node_259 
 	else 
@@ -3154,7 +3154,7 @@ def node_262
 	return 
 endf 
 
-def node_263
+def node_263 : 468
 	if self.angle_2d_cw_between(90,270) 
 		>> node_259 
 	else 
@@ -3162,7 +3162,7 @@ def node_263
 	return 
 endf 
 
-def node_264
+def node_264 : 469
 	if self.angle_2d_cw_between(0,180) 
 		-> teostra.quick_turn_fly() 
 	else 
@@ -3171,7 +3171,7 @@ def node_264
 	return 
 endf 
 
-def node_265
+def node_265 : 470
 	if self.angle_2d_cw_between(15,345) 
 		>> node_264 
 	else 
@@ -3179,7 +3179,7 @@ def node_265
 	return 
 endf 
 
-def node_266
+def node_266 : 471
 	if self.angle_2d_cw_between(30,330) 
 		>> node_264 
 	else 
@@ -3187,7 +3187,7 @@ def node_266
 	return 
 endf 
 
-def node_267
+def node_267 : 472
 	if self.angle_2d_cw_between(45,315) 
 		>> node_264 
 	else 
@@ -3195,7 +3195,7 @@ def node_267
 	return 
 endf 
 
-def node_268
+def node_268 : 473
 	if self.angle_2d_cw_between(90,270) 
 		>> node_264 
 	else 
@@ -3203,7 +3203,7 @@ def node_268
 	return 
 endf 
 
-def node_269
+def node_269 : 518
 	>> node_001 
 	>> node_197 
 	if self.flying() 
@@ -3214,7 +3214,7 @@ def node_269
 	return 
 endf 
 
-def node_270
+def node_270 : 519
 	>> node_001 
 	if self.targetEnemy(target_em.any_monster) 
 		random (20) >> node_197 
@@ -3229,7 +3229,7 @@ def node_270
 	return 
 endf 
 
-def node_271
+def node_271 : 520
 	>> node_001 
 	>> node_197 
 	random (40) -> teostra.chance() 
@@ -3240,14 +3240,14 @@ def node_271
 	return 
 endf 
 
-def node_272
+def node_272 : 521
 	>> node_001 
 	>> node_192 
 	-> teostra.life_search() 
 	return 
 endf 
 
-def node_273
+def node_273 : 522
 	>> node_001 
 	self.targetEnemy(58) 
 	random (0) >> node_274 
@@ -3263,17 +3263,17 @@ def node_273
 	return 
 endf 
 
-def node_274
+def node_274 : 523
 	-> teostra.walk(1,2,0,600,1500) 
 	return 
 endf 
 
-def node_275
+def node_275 : 524
 	-> teostra.glide_combat(1,2,0,600,2000) 
 	return 
 endf 
 
-def node_276
+def node_276 : 525
 	if self.fatigued() 
 		>> node_001 
 	else 
@@ -3281,7 +3281,7 @@ def node_276
 	return 
 endf 
 
-def node_277
+def node_277 : 537
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if function#5D() 
 		>> node_280 
@@ -3322,7 +3322,7 @@ def node_277
 	return 
 endf 
 
-def node_278
+def node_278 : 633
 	if self.vertical_distance_to_target().leq(450) 
 	else 
 		>> node_289 
@@ -3330,7 +3330,7 @@ def node_278
 	return 
 endf 
 
-def node_279
+def node_279 : 538
 	if [RegisterVar3 <= 10] 
 		[RegisterVar3 |-] 
 	elif [RegisterVar3 <= 1] 
@@ -3340,7 +3340,7 @@ def node_279
 	return 
 endf 
 
-def node_280
+def node_280 : 539
 	if self.distance_2d_to_target().leq(1500) 
 		if self.angle_2d_cw_between(300,60) 
 		else 
@@ -3359,13 +3359,13 @@ def node_280
 	return 
 endf 
 
-def node_281
+def node_281 : 540
 	>> node_282 
 	>> node_283 
 	reset 
 endf 
 
-def node_282
+def node_282 : 331
 	self.targetArea(19) 
 	if self.distance_2d_to_target().leq(900) 
 	else 
@@ -3378,14 +3378,14 @@ def node_282
 	return 
 endf 
 
-def node_283
+def node_283 : 335
 	self.targetEnemy(target_em.random_player_or_cat) 
 	>> node_001 
 	-> teostra.lost_search() 
 	return 
 endf 
 
-def node_284
+def node_284 : 541
 	if self.flying() 
 		>> node_290 
 	else 
@@ -3405,7 +3405,7 @@ def node_284
 	return 
 endf 
 
-def node_285
+def node_285 : 542
 	if self.flying() 
 		>> node_290 
 	else 
@@ -3427,7 +3427,7 @@ def node_285
 	return 
 endf 
 
-def node_286
+def node_286 : 543
 	if self.flying() 
 		>> node_290 
 	else 
@@ -3447,7 +3447,7 @@ def node_286
 	return 
 endf 
 
-def node_287
+def node_287 : 544
 	if self.flying() 
 		>> node_293 
 	else 
@@ -3456,7 +3456,7 @@ def node_287
 	return 
 endf 
 
-def node_288
+def node_288 : 545
 	if self.distance_2d_to_target().leq(600) 
 		if self.vertical_distance_to_target().leq(1500) 
 		else 
@@ -3484,7 +3484,7 @@ def node_288
 	return 
 endf 
 
-def node_289
+def node_289 : 546
 	if self.distance_3d_to_target().leq(400) 
 	else 
 		-> teostra.dash(1,2,0,300,1500) 
@@ -3500,7 +3500,7 @@ def node_289
 	return 
 endf 
 
-def node_290
+def node_290 : 547
 	if self.distance_2d_to_target().leq(300) 
 		if self.vertical_distance_to_target().leq(1000) 
 		else 
@@ -3529,7 +3529,7 @@ def node_290
 	return 
 endf 
 
-def node_291
+def node_291 : 548
 	if self.above_target() 
 		random (0) >> node_264 
 		elser (50) >> node_262 
@@ -3547,13 +3547,13 @@ def node_291
 	return 
 endf 
 
-def node_292
+def node_292 : 549
 	>> node_002 
 	-> teostra.short_up_fly() 
 	return 
 endf 
 
-def node_293
+def node_293 : 550
 	if self.distance_3d_to_target().leq(300) 
 	else 
 		-> teostra.glide_direct_move(1,2,0,200,1500) 
@@ -3569,14 +3569,14 @@ def node_293
 	return 
 endf 
 
-def node_294
+def node_294 : 643
 	>> node_001 
 	>> node_295 
 	>> node_296 
 	reset 
 endf 
 
-def node_295
+def node_295 : 644
 	if self.distance_3d_to_target().leq(1500) 
 	else 
 		-> teostra.dash(1,2,0,1400,2000) 
@@ -3592,7 +3592,7 @@ def node_295
 	return 
 endf 
 
-def node_296
+def node_296 : 645
 	random (20) >> node_081 
 	elser (10) >> node_080 
 	elser (20) >> node_083 
@@ -3602,10 +3602,10 @@ def node_296
 	return 
 endf 
 
-def node_297
+def node_297 : 646
 endf 
 
-def node_298
+def node_298 : 602
 	if self.targetEnemy(target_em.any_monster) 
 		if self.target_is(em.Lunastra) @ parameter2:1 
 		elif self.target(13) 
@@ -3622,7 +3622,7 @@ def node_298
 	return 
 endf 
 
-def node_299
+def node_299 : 603
 	if self.targetEnemy(target_em.any_monster) 
 		if self.target_is(em.Lunastra) @ parameter2:1 
 		elif self.target(13) 
@@ -3641,7 +3641,7 @@ def node_299
 	return 
 endf 
 
-def node_300
+def node_300 : 604
 	if [RegisterVar2 == 0] 
 		if self.hp_percent().gt(50) 
 			function#C3(100) 
@@ -3651,7 +3651,7 @@ def node_300
 	return 
 endf 
 
-def node_301
+def node_301 : 605
 	if function#C2() 
 		self.targetEnemy(59) 
 		>> node_001 
@@ -3665,7 +3665,7 @@ def node_301
 	return 
 endf 
 
-def node_302
+def node_302 : 634
 	if self.targetEnemy(target_em.any_monster) 
 		if self.target_is(em.Lunastra) @ parameter2:1 
 		elif self.target(13) 
@@ -3730,7 +3730,7 @@ def node_302
 	return 
 endf 
 
-def node_303
+def node_303 : 635
 	if self.targetEnemy(target_em.any_monster) 
 		if self.target_is(em.Lunastra) @ parameter2:1 
 		elif self.target(13) 
@@ -3795,11 +3795,11 @@ def node_303
 	return 
 endf 
 
-def node_304
+def node_304 : 636
 	return 
 endf 
 
-def node_305
+def node_305 : 637
 	self.targetEnemy(target_em.closest_entity) 
 	>> node_197 
 	if self.in_combat() 
@@ -3814,7 +3814,7 @@ def node_305
 	return 
 endf 
 
-def node_306
+def node_306 : 638
 	self.targetEnemy(target_em.closest_entity) 
 	if self.flying() 
 		>> node_107 
@@ -3842,7 +3842,7 @@ def node_306
 	return 
 endf 
 
-def node_307
+def node_307 : 639
 	>> node_306 
 	>> node_306 
 	random (70) 
@@ -3858,7 +3858,7 @@ def node_307
 	return 
 endf 
 
-def node_308
+def node_308 : 640
 	if self.in_map(st.Special_Arena).in_area(-1) 
 		>> node_306 
 	elif self.in_map(st.Challenge_Arena).in_area(-1) 
@@ -3900,7 +3900,7 @@ def node_308
 	return 
 endf 
 
-def node_309
+def node_309 : 641
 	if self.defense_downed() 
 		if function#31(49,3000) 
 			self.targetEnemy(target_em.closest_entity) 
@@ -3915,7 +3915,7 @@ def node_309
 	return 
 endf 
 
-def node_310
+def node_310 : 642
 	self.targetEnemy(target_em.closest_entity) 
 	if self.distance_3d_to_target().leq(1000) 
 		random (50) >> node_239 

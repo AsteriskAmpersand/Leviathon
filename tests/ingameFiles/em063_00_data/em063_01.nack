@@ -1,7 +1,7 @@
 importactions Brachydios as brachydios
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	>> Global.node_103 
 	>> Global.node_001 
 	self.targetEnemy(target_em.random_player_or_cat) 
@@ -14,20 +14,20 @@ def node_000
 	reset 
 endf 
 
-def node_001
+def node_001 : 5
 	>> Global.node_072 
 	>> node_009 
 	>> Global.node_019 
 	return 
 endf 
 
-def node_002
+def node_002 : 6
 	>> node_007 
 	>> node_010 
 	return 
 endf 
 
-def node_003
+def node_003 : 9
 	if self.enraged() >> node_005 
 	elif self.fatigued() >> node_006 
 	else >> node_004 
@@ -35,21 +35,21 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 12
 	random (70) >> node_010 
 	elser (30) >> node_011 
 	endr 
 	return 
 endf 
 
-def node_005
+def node_005 : 14
 	random (30) >> node_010 
 	elser (70) >> node_011 
 	endr 
 	return 
 endf 
 
-def node_006
+def node_006 : 15
 	random (70) >> node_010 
 	elser (20) -> brachydios.tired_idle() 
 	elser (10) >> node_014 
@@ -57,7 +57,7 @@ def node_006
 	return 
 endf 
 
-def node_007
+def node_007 : 11
 	if self.fatigued() 
 		random (80) 
 		elser (20) 
@@ -68,7 +68,7 @@ def node_007
 	return 
 endf 
 
-def node_008
+def node_008 : 3
 	if self.target(10) 
 		if self.distance_3d_to_target().leq(2200) 
 			>> Global.node_072 
@@ -79,7 +79,7 @@ def node_008
 	return 
 endf 
 
-def node_009
+def node_009 : 4
 	if self.target(7) 
 		if self.enraged() >> Global.node_019 
 		else -> brachydios.peep_grass_search() 
@@ -89,7 +89,7 @@ def node_009
 	return 
 endf 
 
-def node_010
+def node_010 : 10
 	self.targetArea(4) 
 	if self.enraged() -> brachydios.sniffs_s() 
 	else -> brachydios.quick_search() 
@@ -98,7 +98,7 @@ def node_010
 	return 
 endf 
 
-def node_011
+def node_011 : 13
 	self.targetArea(6) 
 	if self.enraged() -> brachydios.sniffs_l() 
 	else -> brachydios.sniffs_l() 
@@ -107,7 +107,7 @@ def node_011
 	return 
 endf 
 
-def node_012
+def node_012 : 7
 	if self.enraged() -> brachydios.anger_search_walk(2,1,5,2000,800) 
 	else -> brachydios.fox_walk(2,1,5,2000,800) 
 	endif 
@@ -119,14 +119,14 @@ def node_012
 	return 
 endf 
 
-def node_013
+def node_013 : 8
 	if self.enraged() -> brachydios.anger_search() 
 	else -> brachydios.quick_search() 
 	endif 
 	return 
 endf 
 
-def node_014
+def node_014 : 16
 	self.targetArea(21) @ parameter2:1000 
 	>> Global.node_072 
 	>> node_013 

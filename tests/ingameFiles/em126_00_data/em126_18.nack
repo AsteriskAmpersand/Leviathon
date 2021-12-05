@@ -1,7 +1,7 @@
 importactions Shara_Ishvalda as shara_ishvalda
 importlibrary Global as Global
 
-def node_000
+def node_000 : 12
 	self.targetEnemy(13) 
 	if self.target(4) 
 		>> Global.node_196 
@@ -12,7 +12,7 @@ def node_000
 	conclude 
 endf 
 
-def node_001
+def node_001 : 10
 	if self.distance_2d_to_target().leq(1200) 
 		return 
 	else 
@@ -21,7 +21,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 15
 	self.targetEnemy(48) 
 	if self.target(7) 
 		>> node_003 
@@ -35,12 +35,12 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 13
 	>> Global.node_128 
 	return 
 endf 
 
-def node_004
+def node_004 : 14
 	if function#5F() 
 		>> Global.node_128 
 	else 

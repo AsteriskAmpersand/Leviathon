@@ -1,7 +1,7 @@
 importactions TobiKadachi as tobikadachi
 importlibrary Global as Global
 
-def node_000
+def node_000 : 12
 	self.targetEnemy(13) 
 	if self.target(4) 
 		>> Global.node_003 
@@ -11,14 +11,14 @@ def node_000
 	conclude 
 endf 
 
-def node_001
+def node_001 : 13
 	>> node_007 
 	>> node_002 
 	>> node_003 
 	return 
 endf 
 
-def node_002
+def node_002 : 14
 	self.targetEnemy(13) 
 	if self.distance_2d_to_target().leq(1000) 
 		return 
@@ -38,7 +38,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 15
 	self.targetEnemy(48) 
 	if self.target(7) 
 		>> node_005 
@@ -54,7 +54,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 16
 	>> Global.node_077 
 	if function#5F() 
 		>> Global.node_081 
@@ -65,18 +65,18 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 17
 	>> Global.node_081 
 	return 
 endf 
 
-def node_006
+def node_006 : 18
 	>> Global.node_077 
 	>> Global.node_059 
 	return 
 endf 
 
-def node_007
+def node_007 : 19
 	if self.distance_3d_to_target().leq(600) 
 		>> Global.node_047 
 	else 

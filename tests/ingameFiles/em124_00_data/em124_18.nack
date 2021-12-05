@@ -1,7 +1,7 @@
 importactions Velkhana as velkhana
 importlibrary Global as Global
 
-def node_000
+def node_000 : 36
 	>> Global.node_046 
 	self.targetEnemy(13) 
 	if self.target(4) 
@@ -15,21 +15,21 @@ def node_000
 	conclude 
 endf 
 
-def node_001
+def node_001 : 22
 	>> Global.node_334 
 	>> Global.node_335 
 	>> node_003 
 	return 
 endf 
 
-def node_002
+def node_002 : 24
 	>> Global.node_334 
 	>> Global.node_335 
 	>> node_003 
 	return 
 endf 
 
-def node_003
+def node_003 : 38
 	if self.target(10) 
 		>> node_005 
 	else 
@@ -56,12 +56,12 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 39
 	>> Global.node_336 
 	return 
 endf 
 
-def node_005
+def node_005 : 41
 	-> velkhana.straight_breath() 
 	return 
 endf 

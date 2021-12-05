@@ -1,7 +1,7 @@
 importactions Brute_Tigrex as brute_tigrex
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	>> Global.node_020 
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if function#41() 
@@ -16,17 +16,17 @@ def node_000
 	conclude 
 endf 
 
-def node_001
+def node_001 : 32
 	>> Global.node_021 
 	return 
 endf 
 
-def node_002
+def node_002 : 33
 	-> brute_tigrex.roar() 
 	return 
 endf 
 
-def node_003
+def node_003 : 34
 	if self.angle_2d_cw_between(30,330) 
 		-> brute_tigrex.quick_turn() 
 	else 

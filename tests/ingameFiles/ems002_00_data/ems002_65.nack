@@ -1,23 +1,23 @@
 importactions Apceros as apceros
 
-def node_000
+def node_000 : 7
 	>> node_002 
 	>> node_020 
 	>> node_006 
 	conclude 
 endf 
 
-def node_001
+def node_001 : 52
 endf 
 
-def node_002
+def node_002 : 24
 	function#54() 
 	>> node_003 
 	>> node_004 
 	return 
 endf 
 
-def node_003
+def node_003 : 5
 	function#E4(4) 
 	function#E4(1) 
 	function#E4(2) 
@@ -37,23 +37,23 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 23
 	>> node_025 
 	return 
 endf 
 
-def node_005
+def node_005 : 53
 endf 
 
-def node_006
+def node_006 : 6
 	>> node_008 
 	return 
 endf 
 
-def node_007
+def node_007 : 84
 endf 
 
-def node_008
+def node_008 : 43
 	if [RegisterVar0 == 1] >> node_012 
 	else 
 		if [RegisterVar2 >= 1] >> node_009 
@@ -65,53 +65,53 @@ def node_008
 	return 
 endf 
 
-def node_009
+def node_009 : 45
 	random (95) >> node_014 
 	elser (5) >> node_017 
 	endr 
 	return 
 endf 
 
-def node_010
+def node_010 : 44
 	random (85) >> node_014 
 	elser (15) >> node_017 
 	endr 
 	return 
 endf 
 
-def node_011
+def node_011 : 9
 	random (80) >> node_014 
 	elser (20) >> node_017 
 	endr 
 	return 
 endf 
 
-def node_012
+def node_012 : 66
 	random (0) >> node_014 
 	elser (100) >> node_017 
 	endr 
 	return 
 endf 
 
-def node_013
+def node_013 : 54
 endf 
 
-def node_014
+def node_014 : 11
 	>> node_024 
 	>> node_015 
 	conclude 
 endf 
 
-def node_015
+def node_015 : 22
 	>> node_026 
 	>> node_033 
 	return 
 endf 
 
-def node_016
+def node_016 : 86
 endf 
 
-def node_017
+def node_017 : 10
 	>> node_027 
 	if [RegisterVar0 == 0] 
 		*&
@@ -126,79 +126,79 @@ def node_017
 	conclude 
 endf 
 
-def node_018
+def node_018 : 42
 	>> node_032 
 	>> node_031 
 	return 
 endf 
 
-def node_019
+def node_019 : 89
 endf 
 
-def node_020
+def node_020 : 88
 	if function#FA() 
 		>> node_033 
 	endif 
 	return 
 endf 
 
-def node_021
+def node_021 : 56
 endf 
 
-def node_022
+def node_022 : 90
 	[RegisterVar0 ++] 
 	return 
 endf 
 
-def node_023
+def node_023 : 91
 	[RegisterVar0 |-] 
 	return 
 endf 
 
-def node_024
+def node_024 : 31
 	[RegisterVar1 ++] 
 	return 
 endf 
 
-def node_025
+def node_025 : 4
 	[RegisterVar1 |-] 
 	return 
 endf 
 
-def node_026
+def node_026 : 46
 	[RegisterVar2 ++] 
 	return 
 endf 
 
-def node_027
+def node_027 : 47
 	[RegisterVar2 |-] 
 	return 
 endf 
 
-def node_028
+def node_028 : 93
 	[RegisterVar6 |-] 
 	return 
 endf 
 
-def node_029
+def node_029 : 92
 	[RegisterVar7 |-] 
 	return 
 endf 
 
-def node_030
+def node_030 : 57
 endf 
 
-def node_031
+def node_031 : 14
 	-> apceros.glide_combat_no_use_flyway() 
 	return 
 endf 
 
-def node_032
+def node_032 : 1
 	-> apceros.step_front_fly_short() 
 	return 
 endf 
 
-def node_033
+def node_033 : 8
 	-> apceros.glide_use_ground_navimesh() 
 	return 
 endf 

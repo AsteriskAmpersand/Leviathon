@@ -75,20 +75,23 @@ class THKModule(ErrorManaged):
     def createSymbolsTable(self,parsedScopes):pass
     @callPassing
     def resolveLocal(self):pass
-    def dependencies(self):
-        return self.parsedStructure.dependencies()
+    @callPassing
+    def dependencies(self):pass
     def resolveInlines(self):
+        if self.inlineResolved:
+            return
         for dependency in self.dependencies():
-            dependency.resolveInlines()
+            if dependency.inlineCall:
+                dependency.resolveInlines()
         if self.decompilable:
-            if not self.inlineResolved:
-                self.parsedStructure.resolveInlines()
+            self.parsedStructure.resolveInlines()
         else:
             raise SemanticError("%s [%s] is not decompilable "%(self.scopeName,self.path))
         self.inlineResolved = True
     def resolveTerminal(self):
         if self.decompilable:
             self.parsedStructure.resolveTerminal()
+    """
     def scopeStringToScopeObject(self,root,modules,namedScopes,indexedScopes):
         if self.decompilable:
             self.dependencies = self.parsedStructure.scopeStringToScopeObject(root,modules,namedScopes,indexedScopes)
@@ -97,6 +100,7 @@ class THKModule(ErrorManaged):
     def resolveScopeToModule(self,modulemap):
         if self.decompilable:
             self.parsedStructure.resolveScopeToModule(modulemap)
+    """
     def mapLocalNodeNames(self):
         self.parsedStructure.mapLocalNodeNames()
     @callPassing
@@ -225,13 +229,13 @@ class NackParser(Parser):
 
     @_('":" numeric')
     def nodeIndex(self,p):
-        return p.numeric,None
+        return p.numeric.id,None
     @_('":" numeric META numeric')
     def nodeIndex(self,p):
-        return p.numeric0,p.numeric1
+        return p.numeric0.id,p.numeric1.id
     @_('META numeric')
     def nodeIndex(self,p):
-        return None,p.numeric
+        return None,p.numeric.id
     @_('empty')
     def nodeIndex(self,p):
         return None,None
@@ -681,10 +685,12 @@ def parseNack(file):
     tokenized = lexer.tokenize(data)
     parser = NackParser()
     parsed = parser.parse(tokenized)
+    parser.log.debug("")
     return parsed
 
 def moduleParse(path,thkmap,scope,settings,parent = None,external = False):
-    return THKModule(path,thkmap,scope,settings,parent = parent,external = external)
+    module = THKModule(path,thkmap,scope,settings,parent = parent,external = external)
+    return module
 
 if __name__ == '__main__':
     with open(r"D:\Games SSD\MHW-AI-Analysis\Leviathon\tests\ingameFiles\em007_00_data\em007_36.nack") as inf:

@@ -1,7 +1,7 @@
 importactions Great_Jagras as great_jagras
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	function#52() 
 	>> node_001 
 	self.targetArea(target_area.nearest_entrance) 
@@ -11,7 +11,7 @@ def node_000
 	reset @ comboSetting:256 
 endf 
 
-def node_001
+def node_001 : 40
 	if function#57(4) 
 		if function#5A(20) 
 			function#54() 
@@ -24,7 +24,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 2
 	>> Global.node_001 
 	self.targetArea(target_area.nearest_entrance) 
 	if function#57(1) 
@@ -48,7 +48,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 7
 	self.targetArea(target_area.nearest_entrance) 
 	if function#57(1) 
 		>> Global.node_174 

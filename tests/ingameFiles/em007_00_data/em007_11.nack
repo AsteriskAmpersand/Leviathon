@@ -1,7 +1,7 @@
 importactions Diablos as diablos
 importlibrary Global as Global
 
-def node_000
+def node_000 : 36
 	>> Global.node_007 
 	if self.fatigued() 
 		random (30) >> Global.node_029 
@@ -21,7 +21,7 @@ def node_000
 	reset 
 endf 
 
-def node_001
+def node_001 : 35
 	>> node_017 
 	function#A8() 
 	self.targetEnemy(target_em.random_player_or_cat) 
@@ -46,7 +46,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 34
 	>> node_017 
 	function#A8() 
 	self.targetEnemy(target_em.random_player_or_cat) 
@@ -69,7 +69,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 33
 	if self.mounted() 
 		>> node_004 
 	else 
@@ -78,17 +78,17 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 32
 	-> diablos.corner_swing_attack() 
 	return 
 endf 
 
-def node_005
+def node_005 : 31
 	-> diablos.ride_rage_head() 
 	return 
 endf 
 
-def node_006
+def node_006 : 30
 	if self.mounted() 
 		>> node_007 
 	else 
@@ -97,17 +97,17 @@ def node_006
 	return 
 endf 
 
-def node_007
+def node_007 : 29
 	-> diablos.ride_rage_body() 
 	return 
 endf 
 
-def node_008
+def node_008 : 28
 	-> diablos.ride_rage_body_lv2() 
 	return 
 endf 
 
-def node_009
+def node_009 : 27
 	if self.mounted() 
 		>> node_010 
 	else 
@@ -116,17 +116,17 @@ def node_009
 	return 
 endf 
 
-def node_010
+def node_010 : 26
 	-> diablos.tail_strike() 
 	return 
 endf 
 
-def node_011
+def node_011 : 25
 	-> diablos.ride_rage_tail() 
 	return 
 endf 
 
-def node_012
+def node_012 : 24
 	if self.mounted() 
 		>> node_013 
 	else 
@@ -135,7 +135,7 @@ def node_012
 	return 
 endf 
 
-def node_013
+def node_013 : 23
 	if function#29() 
 		self.targetArea(7) 
 		>> node_016 
@@ -151,7 +151,7 @@ def node_013
 	return 
 endf 
 
-def node_014
+def node_014 : 22
 	if function#29() 
 		self.targetArea(7) 
 		>> node_016 
@@ -165,13 +165,13 @@ def node_014
 	return 
 endf 
 
-def node_015
+def node_015 : 21
 	>> node_021 
 	-> diablos.rush_headbutt() 
 	return 
 endf 
 
-def node_016
+def node_016 : 20
 	if self.distance_3d_to_target().leq(1000) 
 		-> diablos.short_back_step() 
 	else 
@@ -184,7 +184,7 @@ def node_016
 	return 
 endf 
 
-def node_017
+def node_017 : 18
 	if function#3B() 
 		if self.mount_staggered_twice() 
 			>> node_018 
@@ -217,12 +217,12 @@ def node_017
 	return 
 endf 
 
-def node_018
+def node_018 : 17
 	-> diablos.ride_tired() 
 	return 
 endf 
 
-def node_019
+def node_019 : 16
 	if self.mounted() 
 		>> node_020 
 	else 
@@ -230,12 +230,12 @@ def node_019
 	return 
 endf 
 
-def node_020
+def node_020 : 15
 	-> diablos.wait() 
 	return 
 endf 
 
-def node_021
+def node_021 : 14
 	random (20) >> node_022 
 	elser (80) >> node_023 
 	endr 
@@ -243,34 +243,34 @@ def node_021
 	return 
 endf 
 
-def node_022
+def node_022 : 13
 	self.targetEnemy(21) @ parameter2:1000 
 	return 
 endf 
 
-def node_023
+def node_023 : 12
 	self.targetEnemy(22) @ parameter2:1000 
 	return 
 endf 
 
-def node_024
+def node_024 : 11
 	random (48) >> node_025 
 	elser (52) >> node_026 
 	endr 
 	return 
 endf 
 
-def node_025
+def node_025 : 10
 	self.targetEnemy(12) @ parameter2:1000 
 	return 
 endf 
 
-def node_026
+def node_026 : 9
 	self.targetEnemy(11) @ parameter2:1000 
 	return 
 endf 
 
-def node_027
+def node_027 : 8
 	if self.angular_17(300,60) 
 		-> diablos.quick_turn() 
 	else 

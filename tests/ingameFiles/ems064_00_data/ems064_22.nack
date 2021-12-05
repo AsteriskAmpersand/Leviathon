@@ -1,7 +1,7 @@
 importactions Cortos as cortos
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	>> Global.node_009 
 	if function#77() >> node_005 
 	else 
@@ -15,7 +15,7 @@ def node_000
 	reset 
 endf 
 
-def node_001
+def node_001 : 51
 	>> Global.node_009 
 	if function#77() >> node_005 
 	elif function#B0(1) >> node_011 
@@ -24,7 +24,7 @@ def node_001
 	reset 
 endf 
 
-def node_002
+def node_002 : 37
 	function#54() 
 	function#52(2,4) 
 	self.targetEnemy(16) 
@@ -34,7 +34,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 50
 	function#52(2,6) 
 	self.targetEnemy(16) 
 	>> node_013 
@@ -42,14 +42,14 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 38
 	random (80) 
 	elser (20) >> Global.node_002 
 	endr 
 	return 
 endf 
 
-def node_005
+def node_005 : 39
 	-> action#1D() 
 	self.targetEnemy(33) 
 	>> Global.node_006 
@@ -57,7 +57,7 @@ def node_005
 	return 
 endf 
 
-def node_006
+def node_006 : 47
 	if function#31(32,30000) >> node_002 
 	else 
 		>> Global.node_025 
@@ -68,7 +68,7 @@ def node_006
 	return 
 endf 
 
-def node_007
+def node_007 : 41
 	self.targetEnemy(33) 
 	if self.target(20) 
 		if self.target_is(em.Vaal_Hazak) >> node_009 
@@ -83,7 +83,7 @@ def node_007
 	return 
 endf 
 
-def node_008
+def node_008 : 42
 	if function#3A() >> Global.node_036 
 	elif self.target(7) >> Global.node_036 
 	else 
@@ -97,7 +97,7 @@ def node_008
 	return 
 endf 
 
-def node_009
+def node_009 : 44
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.target(4) 
 	elif self.target(20) 
@@ -111,7 +111,7 @@ def node_009
 	return 
 endf 
 
-def node_010
+def node_010 : 46
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.distance_2d_to_target().leq(800) 
 		-> action#18() 
@@ -127,7 +127,7 @@ def node_010
 	return 
 endf 
 
-def node_011
+def node_011 : 48
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.target(4) >> node_013 
 	elif self.target(20) >> node_012 
@@ -136,7 +136,7 @@ def node_011
 	return 
 endf 
 
-def node_012
+def node_012 : 49
 	if function#3A() >> Global.node_036 
 	elif self.target(7) >> Global.node_036 
 	elif self.target(20) 
@@ -152,7 +152,7 @@ def node_012
 	return 
 endf 
 
-def node_013
+def node_013 : 53
 	>> Global.node_009 
 	function#54() 
 	function#52(2,6) 

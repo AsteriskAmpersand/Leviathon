@@ -1,7 +1,7 @@
 importactions Azure_Rathalos as azure_rathalos
 importlibrary Global as Global
 
-def node_000
+def node_000 : 48
 	self.targetEnemy(target_em.closest_entity) 
 	>> node_001 
 	>> node_002 
@@ -25,7 +25,7 @@ def node_000
 	conclude 
 endf 
 
-def node_001
+def node_001 : 49
 	if self.distance_3d_to_target().leq(2000) 
 	else 
 		>> Global.node_135 
@@ -34,7 +34,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 50
 	if self.target(11) 
 		>> Global.node_137 
 		conclude 

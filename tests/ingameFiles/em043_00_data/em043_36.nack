@@ -1,7 +1,7 @@
 importactions Deviljho as deviljho
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	>> Global.node_120 
 	>> Global.node_121 
 	self.targetEnemy(21) @ parameter2:700 
@@ -12,7 +12,7 @@ def node_000
 	>> node_001 => reset 
 endf 
 
-def node_001
+def node_001 : 2
 	if self.target_on_part(0) 
 		random (42) >> node_005 
 		elser (33) >> node_006 
@@ -38,7 +38,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 3
 	if self.target_on_part(0) 
 		random (47) >> node_005 
 		elser (38) >> node_006 
@@ -65,7 +65,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 4
 	if self.target_on_part(0) 
 		random (37) >> node_005 
 		elser (28) >> node_006 
@@ -91,47 +91,47 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 11
 endf 
 
-def node_005
+def node_005 : 12
 	-> deviljho.side_bite() 
 	return 
 endf 
 
-def node_006
+def node_006 : 13
 	>> node_012 
 	-> deviljho.ride_rage_head() 
 	return 
 endf 
 
-def node_007
+def node_007 : 14
 	>> node_012 
 	>> Global.node_061 
 	return 
 endf 
 
-def node_008
+def node_008 : 19
 	-> deviljho.ride_rage_body() 
 	return 
 endf 
 
-def node_009
+def node_009 : 20
 	-> deviljho.ride_rage_tail() 
 	return 
 endf 
 
-def node_010
+def node_010 : 21
 	-> deviljho.ride_rage_tail_lv2() 
 	return 
 endf 
 
-def node_011
+def node_011 : 18
 	-> deviljho.wait() 
 	return 
 endf 
 
-def node_012
+def node_012 : 15
 	random (55) >> node_013 
 	elser (45) >> node_014 
 	endr 
@@ -142,12 +142,12 @@ def node_012
 	return 
 endf 
 
-def node_013
+def node_013 : 16
 	self.targetEnemy(21) @ parameter2:1000 
 	return 
 endf 
 
-def node_014
+def node_014 : 17
 	self.targetEnemy(22) @ parameter2:1000 
 	return 
 endf 

@@ -1,7 +1,7 @@
 importactions Azure_Rathalos as azure_rathalos
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	if self.current_quest().is_rank(rank.MR) 
 		>> node_002 
 	else 
@@ -10,7 +10,7 @@ def node_000
 	conclude 
 endf 
 
-def node_001
+def node_001 : 3
 	function#C3(50) 
 	>> Global.node_037 
 	self.targetEnemy(50) 
@@ -26,7 +26,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 4
 	function#C3(50) 
 	>> Global.node_037 
 	self.targetEnemy(50) 

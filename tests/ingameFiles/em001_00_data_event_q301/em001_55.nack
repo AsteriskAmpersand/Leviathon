@@ -1,10 +1,10 @@
 importactions Rathian as rathian
 
-def node_000
+def node_000 : 37
 	conclude 
 endf 
 
-def node_001
+def node_001 : 222
 	if self.flying() 
 		if function#AF(5000) 
 			-> rathian.landing() 
@@ -16,7 +16,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 223
 	if self.flying() 
 	else 
 		-> rathian.take_off() 
@@ -24,7 +24,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 463
 	if self.flying() 
 	else 
 		>> node_177 
@@ -33,7 +33,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 540
 	if self.distance_2d_to_target().leq(350) 
 		>> node_002 
 	else 
@@ -42,7 +42,7 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 441
 	self.targetArea(target_area.area_aerial_center) 
 	>> node_027 
 	self.targetArea(target_area.area_center) 
@@ -50,7 +50,7 @@ def node_005
 	return 
 endf 
 
-def node_006
+def node_006 : 198
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		if self.fatigued() 
@@ -63,7 +63,7 @@ def node_006
 	return 
 endf 
 
-def node_007
+def node_007 : 459
 	>> node_241 
 	self.targetArea(target_area.nearest_entrance) 
 	if self.distance_3d_to_target().leq(600) 
@@ -78,7 +78,7 @@ def node_007
 	return 
 endf 
 
-def node_008
+def node_008 : 460
 	>> node_241 
 	self.targetArea(target_area.area_center) 
 	if self.distance_3d_to_target().leq(600) 
@@ -93,7 +93,7 @@ def node_008
 	return 
 endf 
 
-def node_009
+def node_009 : 461
 	>> node_241 
 	self.targetArea(39) 
 	if self.distance_3d_to_target().leq(600) 
@@ -108,7 +108,7 @@ def node_009
 	return 
 endf 
 
-def node_010
+def node_010 : 356
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> rathian.dying_walk(2,0,0,1500) 
@@ -117,7 +117,7 @@ def node_010
 	return 
 endf 
 
-def node_011
+def node_011 : 194
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		if self.fatigued() 
@@ -130,7 +130,7 @@ def node_011
 	return 
 endf 
 
-def node_012
+def node_012 : 272
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		if self.fatigued() 
@@ -158,7 +158,7 @@ def node_012
 	return 
 endf 
 
-def node_013
+def node_013 : 510
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		if self.fatigued() 
@@ -202,7 +202,7 @@ def node_013
 	return 
 endf 
 
-def node_014
+def node_014 : 511
 	if self.distance_2d_to_target().leq(600) 
 	else 
 		if self.fatigued() 
@@ -230,7 +230,7 @@ def node_014
 	return 
 endf 
 
-def node_015
+def node_015 : 512
 	if self.distance_2d_to_target().leq(600) 
 	else 
 		if self.fatigued() 
@@ -274,7 +274,7 @@ def node_015
 	return 
 endf 
 
-def node_016
+def node_016 : 343
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> rathian.dying_walk_fly(2,1,5,3000,500) 
@@ -283,7 +283,7 @@ def node_016
 	return 
 endf 
 
-def node_017
+def node_017 : 344
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> rathian.dying_glide_direct_move(2,1,5,3000,500) 
@@ -292,7 +292,7 @@ def node_017
 	return 
 endf 
 
-def node_018
+def node_018 : 345
 	if self.distance_3d_to_target().leq(1000) 
 	else 
 		-> rathian.dying_glide_direct_move(2,1,5,3000,900) 
@@ -301,7 +301,7 @@ def node_018
 	return 
 endf 
 
-def node_019
+def node_019 : 346
 	if self.distance_2d_to_target().leq(600) 
 	else 
 		-> rathian.glide_combat(2,1,5,3000,500) 
@@ -310,7 +310,7 @@ def node_019
 	return 
 endf 
 
-def node_020
+def node_020 : 347
 	if self.distance_2d_to_target().leq(1000) 
 	else 
 		-> rathian.glide_combat(2,1,5,3000,900) 
@@ -319,7 +319,7 @@ def node_020
 	return 
 endf 
 
-def node_021
+def node_021 : 410
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> rathian.glide(2,1,5,3000,500) 
@@ -328,7 +328,7 @@ def node_021
 	return 
 endf 
 
-def node_022
+def node_022 : 411
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> rathian.glide_direct_move(2,1,5,3000,500) 
@@ -337,7 +337,7 @@ def node_022
 	return 
 endf 
 
-def node_023
+def node_023 : 412
 	if self.distance_3d_to_target().leq(1000) 
 	else 
 		-> rathian.glide_direct_move(2,1,5,3000,900) 
@@ -346,7 +346,7 @@ def node_023
 	return 
 endf 
 
-def node_024
+def node_024 : 413
 	if self.distance_2d_to_target().leq(600) 
 	else 
 		-> rathian.glide_combat(2,1,5,3000,500) 
@@ -355,7 +355,7 @@ def node_024
 	return 
 endf 
 
-def node_025
+def node_025 : 414
 	if self.distance_2d_to_target().leq(1000) 
 	else 
 		-> rathian.glide_combat(2,1,5,3000,900) 
@@ -364,7 +364,7 @@ def node_025
 	return 
 endf 
 
-def node_026
+def node_026 : 196
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> rathian.glide(2,1,0,3000,500) 
@@ -373,7 +373,7 @@ def node_026
 	return 
 endf 
 
-def node_027
+def node_027 : 195
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> rathian.glide_direct_move(2,1,0,3000,500) 
@@ -382,7 +382,7 @@ def node_027
 	return 
 endf 
 
-def node_028
+def node_028 : 279
 	if self.distance_3d_to_target().leq(1000) 
 	else 
 		-> rathian.glide_direct_move(2,1,0,3000,900) 
@@ -391,7 +391,7 @@ def node_028
 	return 
 endf 
 
-def node_029
+def node_029 : 513
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> rathian.glide_direct_move(2,1,0,1500,500) 
@@ -407,7 +407,7 @@ def node_029
 	return 
 endf 
 
-def node_030
+def node_030 : 197
 	if self.distance_2d_to_target().leq(600) 
 	else 
 		-> rathian.glide_combat(2,1,0,3000,500) 
@@ -416,7 +416,7 @@ def node_030
 	return 
 endf 
 
-def node_031
+def node_031 : 280
 	if self.distance_2d_to_target().leq(1000) 
 	else 
 		-> rathian.glide_combat(2,1,0,3000,900) 
@@ -425,7 +425,7 @@ def node_031
 	return 
 endf 
 
-def node_032
+def node_032 : 514
 	if self.distance_2d_to_target().leq(600) 
 	else 
 		-> rathian.glide_combat(2,1,0,1500,500) 
@@ -441,7 +441,7 @@ def node_032
 	return 
 endf 
 
-def node_033
+def node_033 : 257
 	if self.distance_3d_to_target().leq(1000) 
 	else 
 		-> rathian.glide_direct_move(2,1,0,3000,700) 
@@ -465,7 +465,7 @@ def node_033
 	return 
 endf 
 
-def node_034
+def node_034 : 256
 	if self.distance_2d_to_target().leq(1000) 
 	else 
 		-> rathian.glide_combat(2,0,0,3000) 
@@ -489,14 +489,14 @@ def node_034
 	return 
 endf 
 
-def node_035
+def node_035 : 492
 	>> node_001 
 	-> rathian.take_off_switch_pattern_by_dist() 
 	>> node_028 
 	return 
 endf 
 
-def node_036
+def node_036 : 415
 	if self.flying() 
 		-> rathian.sudden_rise_from_fly() 
 	else 
@@ -505,13 +505,13 @@ def node_036
 	return 
 endf 
 
-def node_037
+def node_037 : 416
 	>> node_002 
 	-> rathian.sudden_drop() 
 	return 
 endf 
 
-def node_038
+def node_038 : 324
 	if self.flying() 
 		-> rathian.threat_fly() 
 	else 
@@ -520,7 +520,7 @@ def node_038
 	return 
 endf 
 
-def node_039
+def node_039 : 325
 	if self.flying() 
 		-> rathian.threat_fly_short() 
 	else 
@@ -529,7 +529,7 @@ def node_039
 	return 
 endf 
 
-def node_040
+def node_040 : 545
 	if function#AB() 
 		function#AA() 
 		>> node_039 
@@ -538,7 +538,7 @@ def node_040
 	return 
 endf 
 
-def node_041
+def node_041 : 328
 	if self.flying() 
 		-> rathian.half_lost_search_front_fly() 
 	else 
@@ -547,7 +547,7 @@ def node_041
 	return 
 endf 
 
-def node_042
+def node_042 : 330
 	if self.flying() 
 		-> rathian.lost_search_fly() 
 	else 
@@ -556,7 +556,7 @@ def node_042
 	return 
 endf 
 
-def node_043
+def node_043 : 329
 	if self.flying() 
 		-> rathian.lost_search_fly() 
 	else 
@@ -565,7 +565,7 @@ def node_043
 	return 
 endf 
 
-def node_044
+def node_044 : 336
 	>> node_001 
 	if self.in_combat() 
 		-> rathian.idle_tired_combat() 
@@ -577,13 +577,13 @@ def node_044
 	return 
 endf 
 
-def node_045
+def node_045 : 515
 	>> node_001 
 	-> rathian.idle_tired_combat() 
 	return 
 endf 
 
-def node_046
+def node_046 : 337
 	if self.flying() 
 		-> rathian.refresh_fly() 
 	else 
@@ -592,7 +592,7 @@ def node_046
 	return 
 endf 
 
-def node_047
+def node_047 : 369
 	if self.flying() 
 		-> rathian.sniff_s_fly() 
 	else 
@@ -601,7 +601,7 @@ def node_047
 	return 
 endf 
 
-def node_048
+def node_048 : 370
 	if self.alert_out_of_combat() 
 		if self.flying() 
 			-> rathian.lost_search_fly() 
@@ -624,7 +624,7 @@ def node_048
 	return 
 endf 
 
-def node_049
+def node_049 : 482
 	if self.flying() 
 		-> rathian.intimidation_fly() 
 	else 
@@ -633,13 +633,13 @@ def node_049
 	return 
 endf 
 
-def node_050
+def node_050 : 206
 	self.targetArea(target_area.nearest_entrance) 
 	>> node_051 
 	return 
 endf 
 
-def node_051
+def node_051 : 427
 	if function#5A(20) 
 		>> node_052 
 	elif function#5A(21) 
@@ -670,7 +670,7 @@ def node_051
 	return 
 endf 
 
-def node_052
+def node_052 : 428
 	if self.distance_3d_to_target().leq(12000) 
 		>> node_001 
 		>> node_055 
@@ -680,7 +680,7 @@ def node_052
 	return 
 endf 
 
-def node_053
+def node_053 : 429
 	if self.distance_3d_to_target().leq(12000) 
 		>> node_002 
 		>> node_055 
@@ -690,7 +690,7 @@ def node_053
 	return 
 endf 
 
-def node_054
+def node_054 : 430
 	if function#AD() 
 		>> node_055 
 	else 
@@ -699,7 +699,7 @@ def node_054
 	return 
 endf 
 
-def node_055
+def node_055 : 207
 	if function#5A(10) 
 		>> node_002 
 	elif function#5A(11) 
@@ -735,7 +735,7 @@ def node_055
 	return 
 endf 
 
-def node_056
+def node_056 : 208
 	>> node_057 
 	>> node_058 
 	>> node_059 
@@ -743,7 +743,7 @@ def node_056
 	return 
 endf 
 
-def node_057
+def node_057 : 209
 	if self.flying() 
 		self.targetArea(target_area.area_aerial_center) 
 		>> node_023 
@@ -756,7 +756,7 @@ def node_057
 	return 
 endf 
 
-def node_058
+def node_058 : 210
 	self.targetArea(target_area.nearest_entrance) 
 	if self.flying() 
 		self.targetArea(40) 
@@ -768,7 +768,7 @@ def node_058
 	return 
 endf 
 
-def node_059
+def node_059 : 205
 	if function#5A(10) 
 	elif function#5A(11) 
 	elif function#5A(12) 
@@ -791,7 +791,7 @@ def node_059
 	return 
 endf 
 
-def node_060
+def node_060 : 278
 	self.targetArea(target_area.nearest_entrance) 
 	if self.flying() 
 		>> node_022 
@@ -801,7 +801,7 @@ def node_060
 	return 
 endf 
 
-def node_061
+def node_061 : 199
 	if function#C2() 
 		self.targetArea(target_area.next_exit) 
 	else 
@@ -816,7 +816,7 @@ def node_061
 	return 
 endf 
 
-def node_062
+def node_062 : 200
 	if self.flying() 
 		self.targetArea(40) 
 		>> node_027 
@@ -826,13 +826,13 @@ def node_062
 	return 
 endf 
 
-def node_063
+def node_063 : 201
 	>> node_064 
 	>> node_066 
 	return 
 endf 
 
-def node_064
+def node_064 : 493
 	if self.flying() 
 		self.targetArea(target_area.area_aerial_center) 
 		>> node_028 
@@ -843,7 +843,7 @@ def node_064
 	return 
 endf 
 
-def node_065
+def node_065 : 494
 	self.targetArea(target_area.area_center) 
 	>> node_011 
 	self.targetArea(target_area.area_aerial_center) 
@@ -851,7 +851,7 @@ def node_065
 	return 
 endf 
 
-def node_066
+def node_066 : 203
 	if function#C2() 
 		self.targetArea(target_area.next_exit) 
 	else 
@@ -866,7 +866,7 @@ def node_066
 	return 
 endf 
 
-def node_067
+def node_067 : 204
 	self.targetArea(target_area.area_center) 
 	if self.flying() 
 		if self.fatigued() 
@@ -879,7 +879,7 @@ def node_067
 	return 
 endf 
 
-def node_068
+def node_068 : 349
 	self.targetArea(24) 
 	if function#AD() 
 		>> node_069 
@@ -889,14 +889,14 @@ def node_068
 	return 
 endf 
 
-def node_069
+def node_069 : 350
 	>> node_001 
 	self.targetArea(24) 
 	>> node_010 
 	return 
 endf 
 
-def node_070
+def node_070 : 351
 	>> node_071 
 	>> node_072 
 	>> node_073 
@@ -904,7 +904,7 @@ def node_070
 	return 
 endf 
 
-def node_071
+def node_071 : 352
 	if self.flying() 
 		self.targetArea(target_area.area_aerial_center) 
 		>> node_018 
@@ -917,7 +917,7 @@ def node_071
 	return 
 endf 
 
-def node_072
+def node_072 : 353
 	self.targetArea(24) 
 	if self.flying() 
 		self.targetArea(40) 
@@ -929,7 +929,7 @@ def node_072
 	return 
 endf 
 
-def node_073
+def node_073 : 354
 	if self.flying() 
 		self.targetArea(target_area.area_center) 
 		>> node_001 
@@ -938,14 +938,14 @@ def node_073
 	return 
 endf 
 
-def node_074
+def node_074 : 355
 	>> node_001 
 	self.targetArea(24) 
 	>> node_010 
 	return 
 endf 
 
-def node_075
+def node_075 : 362
 	if function#AD() 
 		>> node_076 
 	else 
@@ -954,7 +954,7 @@ def node_075
 	return 
 endf 
 
-def node_076
+def node_076 : 363
 	if self.flying() 
 		>> node_027 
 	else 
@@ -967,14 +967,14 @@ def node_076
 	return 
 endf 
 
-def node_077
+def node_077 : 364
 	>> node_078 
 	>> node_079 
 	>> node_080 
 	return 
 endf 
 
-def node_078
+def node_078 : 365
 	if self.flying() 
 		self.targetArea(target_area.area_aerial_center) 
 		>> node_028 
@@ -991,7 +991,7 @@ def node_078
 	return 
 endf 
 
-def node_079
+def node_079 : 366
 	if self.flying() 
 		self.targetArea(40) 
 		>> node_026 
@@ -1006,7 +1006,7 @@ def node_079
 	return 
 endf 
 
-def node_080
+def node_080 : 367
 	if self.flying() 
 		self.targetArea(target_area.area_center) 
 		>> node_001 
@@ -1015,7 +1015,7 @@ def node_080
 	return 
 endf 
 
-def node_081
+def node_081 : 546
 	self.targetArea(target_area.area_center) 
 	if self.flying() 
 		if self.fatigued() 
@@ -1028,7 +1028,7 @@ def node_081
 	return 
 endf 
 
-def node_082
+def node_082 : 368
 	if self.flying() 
 		>> node_027 
 	else 
@@ -1041,7 +1041,7 @@ def node_082
 	return 
 endf 
 
-def node_083
+def node_083 : 309
 	if self.flying() 
 		-> rathian.normal_turn_fly() 
 	else 
@@ -1050,7 +1050,7 @@ def node_083
 	return 
 endf 
 
-def node_084
+def node_084 : 310
 	if self.angle_2d_cw_between(15,345) 
 		>> node_083 
 	else 
@@ -1058,7 +1058,7 @@ def node_084
 	return 
 endf 
 
-def node_085
+def node_085 : 311
 	if self.angle_2d_cw_between(30,330) 
 		>> node_083 
 	else 
@@ -1066,7 +1066,7 @@ def node_085
 	return 
 endf 
 
-def node_086
+def node_086 : 312
 	if self.angle_2d_cw_between(60,300) 
 		>> node_083 
 	else 
@@ -1074,7 +1074,7 @@ def node_086
 	return 
 endf 
 
-def node_087
+def node_087 : 313
 	if self.angle_2d_cw_between(90,270) 
 		>> node_083 
 	else 
@@ -1082,7 +1082,7 @@ def node_087
 	return 
 endf 
 
-def node_088
+def node_088 : 357
 	if self.flying() 
 		>> node_218 
 	else 
@@ -1091,7 +1091,7 @@ def node_088
 	return 
 endf 
 
-def node_089
+def node_089 : 358
 	if self.angle_2d_cw_between(15,345) 
 		>> node_088 
 	else 
@@ -1099,7 +1099,7 @@ def node_089
 	return 
 endf 
 
-def node_090
+def node_090 : 359
 	if self.angle_2d_cw_between(30,330) 
 		>> node_088 
 	else 
@@ -1107,7 +1107,7 @@ def node_090
 	return 
 endf 
 
-def node_091
+def node_091 : 360
 	if self.angle_2d_cw_between(60,300) 
 		>> node_088 
 	else 
@@ -1115,7 +1115,7 @@ def node_091
 	return 
 endf 
 
-def node_092
+def node_092 : 361
 	if self.angle_2d_cw_between(90,270) 
 		>> node_088 
 	else 
@@ -1123,37 +1123,37 @@ def node_092
 	return 
 endf 
 
-def node_093
+def node_093 : 226
 	>> node_001 
 	-> rathian.lost_search() 
 	return 
 endf 
 
-def node_094
+def node_094 : 234
 	>> node_002 
 	-> rathian.lost_search_fly() 
 	return 
 endf 
 
-def node_095
+def node_095 : 227
 	>> node_001 
 	-> rathian.lost_search() 
 	return 
 endf 
 
-def node_096
+def node_096 : 228
 	>> node_001 
 	-> rathian.sniff_combat_s() 
 	return 
 endf 
 
-def node_097
+def node_097 : 229
 	>> node_001 
 	-> rathian.sniff_combat_l() 
 	return 
 endf 
 
-def node_098
+def node_098 : 230
 	>> node_001 
 	if self.enraged() 
 		-> rathian.dash_no_hit(2,1,0,500,650) 
@@ -1165,7 +1165,7 @@ def node_098
 	return 
 endf 
 
-def node_099
+def node_099 : 231
 	>> node_001 
 	if self.enraged() 
 		-> rathian.dash_no_hit(2,1,0,1000,650) 
@@ -1177,7 +1177,7 @@ def node_099
 	return 
 endf 
 
-def node_100
+def node_100 : 232
 	>> node_001 
 	if self.enraged() 
 		-> rathian.peep_grass_search() 
@@ -1187,7 +1187,7 @@ def node_100
 	return 
 endf 
 
-def node_101
+def node_101 : 233
 	>> node_001 
 	if self.target(10) 
 		-> rathian.dash_no_hit(2,0,0,1000) 
@@ -1201,13 +1201,13 @@ def node_101
 	return 
 endf 
 
-def node_102
+def node_102 : 242
 	>> node_001 
 	-> rathian.idle_tired_combat() 
 	return 
 endf 
 
-def node_103
+def node_103 : 282
 	if self.distance_3d_to_target().leq(800) 
 		>> node_166 
 	elif self.distance_3d_to_target().leq(1200) 
@@ -1217,7 +1217,7 @@ def node_103
 	return 
 endf 
 
-def node_104
+def node_104 : 283
 	if self.distance_2d_to_target().leq(800) 
 		random (50) >> node_213 
 		elser (50) >> node_218 
@@ -1232,7 +1232,7 @@ def node_104
 	return 
 endf 
 
-def node_105
+def node_105 : 289
 	if self.distance_2d_to_target().leq(900) 
 	else 
 		-> rathian.dash_no_hit(1,2,0,800,1500) 
@@ -1248,7 +1248,7 @@ def node_105
 	return 
 endf 
 
-def node_106
+def node_106 : 290
 	if self.distance_2d_to_target().leq(900) 
 	else 
 		-> rathian.glide_direct_move(2,0,0,1500) 
@@ -1264,19 +1264,19 @@ def node_106
 	return 
 endf 
 
-def node_107
+def node_107 : 292
 	>> node_001 
 	-> rathian.lost_search() 
 	return 
 endf 
 
-def node_108
+def node_108 : 294
 	>> node_002 
 	-> rathian.lost_search_fly() 
 	return 
 endf 
 
-def node_109
+def node_109 : 483
 	>> node_116 
 	>> node_090 
 	if self.flying() 
@@ -1295,7 +1295,7 @@ def node_109
 	return 
 endf 
 
-def node_110
+def node_110 : 484
 	>> node_116 
 	if self.targetEnemy(target_em.any_monster) 
 		random (20) >> node_090 
@@ -1321,7 +1321,7 @@ def node_110
 	return 
 endf 
 
-def node_111
+def node_111 : 485
 	>> node_116 
 	>> node_090 
 	if self.flying() 
@@ -1340,7 +1340,7 @@ def node_111
 	return 
 endf 
 
-def node_112
+def node_112 : 486
 	>> node_116 
 	>> node_085 
 	if self.flying() 
@@ -1351,7 +1351,7 @@ def node_112
 	return 
 endf 
 
-def node_113
+def node_113 : 487
 	>> node_116 
 	self.targetEnemy(58) 
 	if self.flying() 
@@ -1379,17 +1379,17 @@ def node_113
 	return 
 endf 
 
-def node_114
+def node_114 : 488
 	-> rathian.walk(1,2,0,600,1500) 
 	return 
 endf 
 
-def node_115
+def node_115 : 491
 	-> rathian.glide_combat(1,2,0,600,2000) 
 	return 
 endf 
 
-def node_116
+def node_116 : 490
 	if self.fatigued() 
 		>> node_001 
 	else 
@@ -1397,98 +1397,98 @@ def node_116
 	return 
 endf 
 
-def node_117
+def node_117 : 295
 	>> node_001 
 	>> node_085 
 	-> rathian.life_search() 
 	return 
 endf 
 
-def node_118
+def node_118 : 300
 	>> node_001 
 	>> node_085 
 	-> rathian.sniff_s() 
 	return 
 endf 
 
-def node_119
+def node_119 : 307
 	>> node_001 
 	>> node_085 
 	-> rathian.sniff_l() 
 	return 
 endf 
 
-def node_120
+def node_120 : 298
 	>> node_001 
 	>> node_084 
 	-> rathian.marking() 
 	return 
 endf 
 
-def node_121
+def node_121 : 303
 	>> node_001 
 	>> node_085 
 	-> rathian.sunbath() 
 	return 
 endf 
 
-def node_122
+def node_122 : 305
 	>> node_001 
 	>> node_084 
 	-> rathian.drink() 
 	return 
 endf 
 
-def node_123
+def node_123 : 306
 	>> node_001 
 	>> node_085 
 	-> rathian.sleep() 
 	return 
 endf 
 
-def node_124
+def node_124 : 296
 	>> node_002 
 	>> node_085 
 	-> rathian.life_search_fly() 
 	return 
 endf 
 
-def node_125
+def node_125 : 301
 	>> node_002 
 	>> node_085 
 	-> rathian.sniff_s_fly() 
 	return 
 endf 
 
-def node_126
+def node_126 : 308
 	>> node_002 
 	>> node_085 
 	-> rathian.sniff_l_fly() 
 	return 
 endf 
 
-def node_127
+def node_127 : 299
 	>> node_002 
 	>> node_084 
 	-> rathian.marking_fly() 
 	return 
 endf 
 
-def node_128
+def node_128 : 297
 	>> node_002 
 	>> node_085 
 	-> rathian.life_search_trace_fly() 
 	return 
 endf 
 
-def node_129
+def node_129 : 517
 	>> node_002 
 	self.targetEnemy(17) 
 	-> rathian.sudden_drop() 
 	return 
 endf 
 
-def node_130
+def node_130 : 348
 	>> node_001 
 	>> node_085 
 	if function#C9() 
@@ -1499,7 +1499,7 @@ def node_130
 	return 
 endf 
 
-def node_131
+def node_131 : 338
 	if function#6B(5000) 
 		self.targetEnemy(26) 
 		>> node_133 
@@ -1511,7 +1511,7 @@ def node_131
 	return 
 endf 
 
-def node_132
+def node_132 : 342
 	if function#6B(5000) 
 		self.targetEnemy(26) 
 		>> node_133 
@@ -1523,7 +1523,7 @@ def node_132
 	return 
 endf 
 
-def node_133
+def node_133 : 339
 	if self.in_combat() 
 		if self.flying() 
 			-> rathian.sniff_s_fly() 
@@ -1540,19 +1540,19 @@ def node_133
 	return 
 endf 
 
-def node_134
+def node_134 : 340
 	>> node_001 
 	>> node_011 
 	return 
 endf 
 
-def node_135
+def node_135 : 341
 	>> node_174 
 	-> rathian.eat() 
 	return 
 endf 
 
-def node_136
+def node_136 : 535
 	>> node_047 
 	>> node_088 
 	>> node_047 
@@ -1561,7 +1561,7 @@ def node_136
 	return 
 endf 
 
-def node_137
+def node_137 : 371
 	if self.flying() 
 		-> rathian.glide_combat(1,2,0,1000,2000) 
 	else 
@@ -1570,14 +1570,14 @@ def node_137
 	return 
 endf 
 
-def node_138
+def node_138 : 381
 	>> node_002 
 	>> node_218 
 	-> rathian.predator_attack() 
 	return 
 endf 
 
-def node_139
+def node_139 : 382
 	if self.flying() 
 		-> rathian.predator_give_up_action_fly() 
 	else 
@@ -1586,37 +1586,37 @@ def node_139
 	return 
 endf 
 
-def node_140
+def node_140 : 383
 	>> node_002 
 	-> rathian.predator_adjust() 
 	return 
 endf 
 
-def node_141
+def node_141 : 384
 	>> node_001 
 	-> rathian.predator_eat() 
 	return 
 endf 
 
-def node_142
+def node_142 : 372
 	>> node_001 
 	-> rathian.walk(2,1,0,2000,1000) 
 	return 
 endf 
 
-def node_143
+def node_143 : 374
 	>> node_001 
 	-> rathian.dash(2,1,0,6000,1000) 
 	return 
 endf 
 
-def node_144
+def node_144 : 373
 	>> node_001 
 	-> rathian.dash(2,1,0,6000,3000) 
 	return 
 endf 
 
-def node_145
+def node_145 : 375
 	if self.distance_3d_to_target().leq(1500) 
 	elif self.distance_3d_to_target().leq(3500) 
 		random (50) >> node_147 
@@ -1628,7 +1628,7 @@ def node_145
 	return 
 endf 
 
-def node_146
+def node_146 : 376
 	random (50) >> node_147 
 	elser (50) >> node_148 
 	elser (0) 
@@ -1636,7 +1636,7 @@ def node_146
 	return 
 endf 
 
-def node_147
+def node_147 : 379
 	if self.flying() 
 		-> rathian.sniff_s_fly() 
 	else 
@@ -1645,7 +1645,7 @@ def node_147
 	return 
 endf 
 
-def node_148
+def node_148 : 380
 	if self.flying() 
 		-> rathian.life_search_fly() 
 	else 
@@ -1654,7 +1654,7 @@ def node_148
 	return 
 endf 
 
-def node_149
+def node_149 : 467
 	>> node_001 
 	if self.distance_2d_to_target().leq(600) 
 		>> node_166 
@@ -1664,7 +1664,7 @@ def node_149
 	return 
 endf 
 
-def node_150
+def node_150 : 468
 	if self.distance_2d_to_target().leq(700) 
 	else 
 		-> rathian.dash_no_hit(1,2,0,400,1000) 
@@ -1673,102 +1673,102 @@ def node_150
 	return 
 endf 
 
-def node_151
+def node_151 : 385
 	>> node_001 
 	>> node_238 
 	>> node_172 
 	return 
 endf 
 
-def node_152
+def node_152 : 508
 	>> node_195 
 	return 
 endf 
 
-def node_153
+def node_153 : 386
 	>> node_001 
 	-> rathian.ride_rage_head_ground_lv2() 
 	return 
 endf 
 
-def node_154
+def node_154 : 469
 	>> node_001 
 	-> rathian.ride_rage_body_ground() 
 	return 
 endf 
 
-def node_155
+def node_155 : 387
 	>> node_001 
 	-> rathian.ride_rage_body_ground_lv2() 
 	return 
 endf 
 
-def node_156
+def node_156 : 509
 	>> node_197 
 	return 
 endf 
 
-def node_157
+def node_157 : 470
 	>> node_001 
 	-> rathian.ride_rage_tail_ground_lv2() 
 	return 
 endf 
 
-def node_158
+def node_158 : 388
 	>> node_001 
 	-> rathian.ride_rage_crash_head_ground() 
 	return 
 endf 
 
-def node_159
+def node_159 : 389
 	>> node_001 
 	-> rathian.ride_rage_crash_head_ground_lv2() 
 	return 
 endf 
 
-def node_160
+def node_160 : 390
 	>> node_001 
 	-> rathian.ride_rage_crash_body_ground() 
 	return 
 endf 
 
-def node_161
+def node_161 : 391
 	>> node_001 
 	-> rathian.ride_rage_crash_body_ground_lv2() 
 	return 
 endf 
 
-def node_162
+def node_162 : 471
 	>> node_001 
 	-> rathian.ride_rage_crash_tail_ground() 
 	return 
 endf 
 
-def node_163
+def node_163 : 472
 	>> node_001 
 	-> rathian.ride_rage_crash_tail_ground_lv2() 
 	return 
 endf 
 
-def node_164
+def node_164 : 393
 	>> node_001 
 	-> rathian.ride_wait_ground() 
 	return 
 endf 
 
-def node_165
+def node_165 : 392
 	>> node_001 
 	-> rathian.ride_tired_ground() 
 	return 
 endf 
 
-def node_166
+def node_166 : 275
 	>> node_001 
 	-> rathian.short_back_step() 
 	return 
 endf 
 
-def node_167
+def node_167 : 284
 	if self.angle_2d_cw_between(15,345) 
 		>> node_166 
 	else 
@@ -1776,7 +1776,7 @@ def node_167
 	return 
 endf 
 
-def node_168
+def node_168 : 285
 	if self.angle_2d_cw_between(30,330) 
 		>> node_166 
 	else 
@@ -1784,7 +1784,7 @@ def node_168
 	return 
 endf 
 
-def node_169
+def node_169 : 286
 	if self.angle_2d_cw_between(45,315) 
 		>> node_166 
 	else 
@@ -1792,7 +1792,7 @@ def node_169
 	return 
 endf 
 
-def node_170
+def node_170 : 287
 	if self.angle_2d_cw_between(60,300) 
 		>> node_166 
 	else 
@@ -1800,7 +1800,7 @@ def node_170
 	return 
 endf 
 
-def node_171
+def node_171 : 288
 	if self.angle_2d_cw_between(90,270) 
 		>> node_166 
 	else 
@@ -1808,13 +1808,13 @@ def node_171
 	return 
 endf 
 
-def node_172
+def node_172 : 271
 	>> node_001 
 	-> rathian.quick_turn() 
 	return 
 endf 
 
-def node_173
+def node_173 : 212
 	if self.angle_2d_cw_between(15,345) 
 		>> node_172 
 	else 
@@ -1822,7 +1822,7 @@ def node_173
 	return 
 endf 
 
-def node_174
+def node_174 : 213
 	if self.angle_2d_cw_between(30,330) 
 		>> node_172 
 	else 
@@ -1830,7 +1830,7 @@ def node_174
 	return 
 endf 
 
-def node_175
+def node_175 : 214
 	if self.angle_2d_cw_between(45,315) 
 		>> node_172 
 	else 
@@ -1838,7 +1838,7 @@ def node_175
 	return 
 endf 
 
-def node_176
+def node_176 : 216
 	if self.angle_2d_cw_between(60,300) 
 		>> node_172 
 	else 
@@ -1846,7 +1846,7 @@ def node_176
 	return 
 endf 
 
-def node_177
+def node_177 : 215
 	if self.angle_2d_cw_between(90,270) 
 		>> node_172 
 	else 
@@ -1854,14 +1854,14 @@ def node_177
 	return 
 endf 
 
-def node_178
+def node_178 : 217
 	>> node_001 
 	>> node_177 
 	-> rathian.bite() 
 	return 
 endf 
 
-def node_179
+def node_179 : 218
 	>> node_001 
 	if self.fatigued() 
 		-> rathian.dash_bite_tired() 
@@ -1871,14 +1871,14 @@ def node_179
 	return 
 endf 
 
-def node_180
+def node_180 : 219
 	>> node_001 
 	>> node_177 
 	-> rathian.normal_breath() 
 	return 
 endf 
 
-def node_181
+def node_181 : 474
 	>> node_001 
 	if self.current_quest().is_rank(rank.MR) 
 		if self.distance_2d_to_target().leq(500) 
@@ -1901,7 +1901,7 @@ def node_181
 	return 
 endf 
 
-def node_182
+def node_182 : 538
 	if self.fatigued() 
 	else 
 		if self.distance_2d_to_target().leq(800) 
@@ -1923,7 +1923,7 @@ def node_182
 	return 
 endf 
 
-def node_183
+def node_183 : 315
 	>> node_001 
 	if self.in_combat() 
 		-> rathian.idle_tired_combat() 
@@ -1933,7 +1933,7 @@ def node_183
 	return 
 endf 
 
-def node_184
+def node_184 : 563
 	if self.angle_2d_cw_between(0,180) 
 		-> rathian.rolling_tail_attack2_l() 
 	else 
@@ -1942,7 +1942,7 @@ def node_184
 	return 
 endf 
 
-def node_185
+def node_185 : 562
 	>> node_001 
 	if self.part(0).is_broken(0) 
 		-> rathian.somersault_kick_tail_cut() 
@@ -1954,7 +1954,7 @@ def node_185
 	return 
 endf 
 
-def node_186
+def node_186 : 558
 	if self.fatigued() 
 	else 
 		if self.distance_2d_to_target().leq(900) 
@@ -1973,7 +1973,7 @@ def node_186
 	return 
 endf 
 
-def node_187
+def node_187 : 557
 	if self.fatigued() 
 	else 
 		if self.distance_2d_to_target().leq(900) 
@@ -2002,7 +2002,7 @@ def node_187
 	return 
 endf 
 
-def node_188
+def node_188 : 554
 	>> node_001 
 	if self.target.helpless_0() 
 	elif self.target.helpless_1() 
@@ -2055,19 +2055,19 @@ def node_188
 	return 
 endf 
 
-def node_189
+def node_189 : 556
 	>> node_166 
 	-> rathian.three_way_breath() 
 	return 
 endf 
 
-def node_190
+def node_190 : 555
 	>> node_166 
 	-> rathian.high_power_breath() 
 	return 
 endf 
 
-def node_191
+def node_191 : 559
 	if self.flying() 
 	else 
 		if self.enraged() 
@@ -2080,7 +2080,7 @@ def node_191
 	return 
 endf 
 
-def node_192
+def node_192 : 560
 	if self.target.helpless_0() 
 		random (35) 
 					if self.distance_2d_to_target().leq(900) 
@@ -2112,7 +2112,7 @@ def node_192
 	return 
 endf 
 
-def node_193
+def node_193 : 561
 	if self.target.helpless_0() 
 		random (50) 
 					if self.distance_2d_to_target().leq(900) 
@@ -2144,7 +2144,7 @@ def node_193
 	return 
 endf 
 
-def node_194
+def node_194 : 564
 	>> node_001 
 	if self.distance_2d_to_target().leq(900) 
 		if self.enraged() 
@@ -2168,13 +2168,13 @@ def node_194
 	return 
 endf 
 
-def node_195
+def node_195 : 464
 	>> node_001 
 	-> rathian.adjust_bite() 
 	return 
 endf 
 
-def node_196
+def node_196 : 457
 	>> node_001 
 	if self.distance_2d_to_target().leq(800) 
 		if self.enraged() 
@@ -2202,13 +2202,13 @@ def node_196
 	return 
 endf 
 
-def node_197
+def node_197 : 447
 	>> node_001 
 	-> rathian.double_tail_attack_first_l() 
 	return 
 endf 
 
-def node_198
+def node_198 : 400
 	>> node_001 
 	if self.part(0).is_broken(0) 
 		-> rathian.somersault_kick_tail_cut() 
@@ -2218,7 +2218,7 @@ def node_198
 	return 
 endf 
 
-def node_199
+def node_199 : 401
 	>> node_001 
 	if self.part(0).is_broken(0) 
 		-> rathian.somersault_kick_take_off_tail_cut() 
@@ -2228,7 +2228,7 @@ def node_199
 	return 
 endf 
 
-def node_200
+def node_200 : 402
 	>> node_001 
 	if self.part(0).is_broken(0) 
 		-> rathian.double_somersault_kick_tail_cut() 
@@ -2238,14 +2238,14 @@ def node_200
 	return 
 endf 
 
-def node_201
+def node_201 : 398
 	>> node_001 
 	>> node_177 
 	-> rathian.three_way_breath() 
 	return 
 endf 
 
-def node_202
+def node_202 : 475
 	>> node_001 
 	if self.current_quest().is_rank(rank.HR) 
 		>> node_166 
@@ -2259,14 +2259,14 @@ def node_202
 	return 
 endf 
 
-def node_203
+def node_203 : 399
 	>> node_001 
 	>> node_177 
 	-> rathian.high_power_breath() 
 	return 
 endf 
 
-def node_204
+def node_204 : 553
 	>> node_001 
 	if self.current_quest().is_rank(rank.HR) 
 		>> node_166 
@@ -2280,7 +2280,7 @@ def node_204
 	return 
 endf 
 
-def node_205
+def node_205 : 444
 	>> node_001 
 	if self.fatigued() 
 		-> rathian.dash_bite_tired() 
@@ -2290,7 +2290,7 @@ def node_205
 	return 
 endf 
 
-def node_206
+def node_206 : 420
 	>> node_001 
 	if self.fatigued() 
 		-> rathian.dash_bite_tired() 
@@ -2300,7 +2300,7 @@ def node_206
 	return 
 endf 
 
-def node_207
+def node_207 : 405
 	if self.distance_2d_to_target().leq(400) 
 		>> node_198 
 	elif self.distance_2d_to_target().leq(800) 
@@ -2311,7 +2311,7 @@ def node_207
 	return 
 endf 
 
-def node_208
+def node_208 : 406
 	if self.distance_2d_to_target().leq(800) 
 		random (60) >> node_199 
 		elser (40) >> node_205 
@@ -2324,7 +2324,7 @@ def node_208
 	return 
 endf 
 
-def node_209
+def node_209 : 419
 	if self.distance_2d_to_target().leq(800) 
 		>> node_197 
 	else 
@@ -2333,7 +2333,7 @@ def node_209
 	return 
 endf 
 
-def node_210
+def node_210 : 407
 	if self.flying() 
 	else 
 		if self.enraged() 
@@ -2346,7 +2346,7 @@ def node_210
 	return 
 endf 
 
-def node_211
+def node_211 : 409
 	if self.target.helpless_0() 
 		random (35) 
 					if self.distance_2d_to_target().leq(1000) 
@@ -2370,7 +2370,7 @@ def node_211
 	return 
 endf 
 
-def node_212
+def node_212 : 408
 	if self.target.helpless_0() 
 		random (50) 
 					if self.distance_2d_to_target().leq(1000) 
@@ -2394,13 +2394,13 @@ def node_212
 	return 
 endf 
 
-def node_213
+def node_213 : 245
 	>> node_002 
 	-> rathian.step_back_fly() 
 	return 
 endf 
 
-def node_214
+def node_214 : 263
 	if self.angle_2d_cw_between(15,345) 
 		>> node_213 
 	else 
@@ -2408,7 +2408,7 @@ def node_214
 	return 
 endf 
 
-def node_215
+def node_215 : 264
 	if self.angle_2d_cw_between(30,330) 
 		>> node_213 
 	else 
@@ -2416,7 +2416,7 @@ def node_215
 	return 
 endf 
 
-def node_216
+def node_216 : 265
 	if self.angle_2d_cw_between(45,315) 
 		>> node_213 
 	else 
@@ -2424,7 +2424,7 @@ def node_216
 	return 
 endf 
 
-def node_217
+def node_217 : 266
 	if self.angle_2d_cw_between(90,270) 
 		>> node_213 
 	else 
@@ -2432,7 +2432,7 @@ def node_217
 	return 
 endf 
 
-def node_218
+def node_218 : 261
 	if self.angle_2d_cw_between(0,180) 
 		-> rathian.snake_turn_step_fly_r() 
 	else 
@@ -2441,7 +2441,7 @@ def node_218
 	return 
 endf 
 
-def node_219
+def node_219 : 267
 	if self.angle_2d_cw_between(15,345) 
 		>> node_218 
 	else 
@@ -2449,7 +2449,7 @@ def node_219
 	return 
 endf 
 
-def node_220
+def node_220 : 268
 	if self.angle_2d_cw_between(30,330) 
 		>> node_218 
 	else 
@@ -2457,7 +2457,7 @@ def node_220
 	return 
 endf 
 
-def node_221
+def node_221 : 269
 	if self.angle_2d_cw_between(45,315) 
 		>> node_218 
 	else 
@@ -2465,7 +2465,7 @@ def node_221
 	return 
 endf 
 
-def node_222
+def node_222 : 270
 	if self.angle_2d_cw_between(90,270) 
 		>> node_218 
 	else 
@@ -2473,7 +2473,7 @@ def node_222
 	return 
 endf 
 
-def node_223
+def node_223 : 262
 	if self.angle_2d_cw_between(0,180) 
 		-> rathian.snake_turn_step_fly_l() 
 	else 
@@ -2482,7 +2482,7 @@ def node_223
 	return 
 endf 
 
-def node_224
+def node_224 : 443
 	if self.angle_2d_cw_between(0,180) 
 		-> rathian.turn_step_adjust_dist_l() 
 	else 
@@ -2491,19 +2491,19 @@ def node_224
 	return 
 endf 
 
-def node_225
+def node_225 : 187
 	>> node_002 
 	-> rathian.rash_bite_fly() 
 	return 
 endf 
 
-def node_226
+def node_226 : 184
 	>> node_002 
 	-> rathian.breath_fly() 
 	return 
 endf 
 
-def node_227
+def node_227 : 396
 	if self.fatigued() 
 		>> node_001 
 		reset 
@@ -2512,7 +2512,7 @@ def node_227
 	return 
 endf 
 
-def node_228
+def node_228 : 403
 	>> node_002 
 	if self.part(0).is_broken(0) 
 		-> rathian.somersault_kick_fly_tail_cut() 
@@ -2522,7 +2522,7 @@ def node_228
 	return 
 endf 
 
-def node_229
+def node_229 : 445
 	>> node_002 
 	if self.part(0).is_broken(0) 
 		-> rathian.somersault_kick_fly_no_adjust_tail_cut() 
@@ -2532,7 +2532,7 @@ def node_229
 	return 
 endf 
 
-def node_230
+def node_230 : 418
 	>> node_002 
 	if self.part(0).is_broken(0) 
 		-> rathian.somersault_kick_fly_to_landing_tail_cut() 
@@ -2542,7 +2542,7 @@ def node_230
 	return 
 endf 
 
-def node_231
+def node_231 : 446
 	>> node_002 
 	if self.part(0).is_broken(0) 
 		-> rathian.somersault_kick_fly_to_land_no_adjust_tail_cut() 
@@ -2552,28 +2552,28 @@ def node_231
 	return 
 endf 
 
-def node_232
+def node_232 : 404
 	>> node_002 
 	>> node_222 
 	-> rathian.glide_attack_short() 
 	return 
 endf 
 
-def node_233
+def node_233 : 539
 	>> node_002 
 	>> node_213 
 	-> rathian.glide_attack_short() 
 	return 
 endf 
 
-def node_234
+def node_234 : 473
 	>> node_002 
 	>> node_218 
 	-> rathian.glide_attack_short() 
 	return 
 endf 
 
-def node_235
+def node_235 : 466
 	>> node_001 
 	if self.distance_2d_to_target().leq(800) 
 		if self.enraged() 
@@ -2597,19 +2597,19 @@ def node_235
 	return 
 endf 
 
-def node_236
+def node_236 : 448
 	>> node_001 
 	>> node_211 
 	return 
 endf 
 
-def node_237
+def node_237 : 449
 	>> node_001 
 	>> node_212 
 	return 
 endf 
 
-def node_238
+def node_238 : 397
 	random (35) 
 				self.targetArea(21) @ parameter2:300 
 	elser (35) 
@@ -2622,7 +2622,7 @@ def node_238
 	return 
 endf 
 
-def node_239
+def node_239 : 518
 	if self.current_quest().is_rank(rank.MR) 
 		random (10) 
 					if self.flying() 
@@ -2645,7 +2645,7 @@ def node_239
 	return 
 endf 
 
-def node_240
+def node_240 : 519
 	if self.flying() 
 		-> rathian.intimidation_fly() 
 	else 
@@ -2654,7 +2654,7 @@ def node_240
 	return 
 endf 
 
-def node_241
+def node_241 : 503
 	if self.targetEnemy(target_em.any_monster) 
 		if self.target_is(em.Rathalos) 
 		else 
@@ -2665,7 +2665,7 @@ def node_241
 	return 
 endf 
 
-def node_242
+def node_242 : 504
 	if self.targetEnemy(target_em.any_monster) 
 		if self.target_is(em.Rathalos) 
 		else 
@@ -2676,7 +2676,7 @@ def node_242
 	return 
 endf 
 
-def node_243
+def node_243 : 495
 	if self.targetEnemy(target_em.any_monster) 
 		if self.target(13) 
 		else 
@@ -2735,7 +2735,7 @@ def node_243
 	return 
 endf 
 
-def node_244
+def node_244 : 496
 	if self.targetEnemy(target_em.any_monster) 
 		if self.target(13) 
 		else 
@@ -2794,11 +2794,11 @@ def node_244
 	return 
 endf 
 
-def node_245
+def node_245 : 497
 	return 
 endf 
 
-def node_246
+def node_246 : 498
 	if self.in_map(st.Special_Arena).in_area(-1) 
 		>> node_248 
 	elif self.in_map(st.Challenge_Arena).in_area(-1) 
@@ -2840,7 +2840,7 @@ def node_246
 	return 
 endf 
 
-def node_247
+def node_247 : 499
 	>> node_248 
 	>> node_248 
 	random (70) 
@@ -2856,7 +2856,7 @@ def node_247
 	return 
 endf 
 
-def node_248
+def node_248 : 500
 	>> node_001 
 	self.targetEnemy(target_em.closest_entity) 
 	random (40) >> node_250 
@@ -2866,7 +2866,7 @@ def node_248
 	return 
 endf 
 
-def node_249
+def node_249 : 501
 	self.targetEnemy(target_em.closest_entity) 
 	>> node_090 
 	if self.in_combat() 
@@ -2881,7 +2881,7 @@ def node_249
 	return 
 endf 
 
-def node_250
+def node_250 : 505
 	if self.fatigued() 
 		>> node_251 
 	else 
@@ -2902,7 +2902,7 @@ def node_250
 	return 
 endf 
 
-def node_251
+def node_251 : 506
 	self.targetEnemy(target_em.closest_entity) 
 	if self.vertical_distance_to_target().leq(500) 
 	else 
@@ -2919,7 +2919,7 @@ def node_251
 	return 
 endf 
 
-def node_252
+def node_252 : 507
 	self.targetEnemy(target_em.closest_entity) 
 	if self.vertical_distance_to_target().leq(500) 
 		if self.distance_2d_to_target().leq(1000) 
@@ -2934,7 +2934,7 @@ def node_252
 	return 
 endf 
 
-def node_253
+def node_253 : 520
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if function#5D() 
 		>> node_256 
@@ -2973,7 +2973,7 @@ def node_253
 	return 
 endf 
 
-def node_254
+def node_254 : 534
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if function#5C() 
 		>> node_256 
@@ -3009,7 +3009,7 @@ def node_254
 	return 
 endf 
 
-def node_255
+def node_255 : 521
 	if [RegisterVar2 <= 10] 
 		[RegisterVar2 |-] 
 	elif [RegisterVar2 <= 1] 
@@ -3019,7 +3019,7 @@ def node_255
 	return 
 endf 
 
-def node_256
+def node_256 : 522
 	if self.distance_2d_to_target().leq(1500) 
 		if self.angle_2d_cw_between(300,60) 
 		else 
@@ -3038,13 +3038,13 @@ def node_256
 	return 
 endf 
 
-def node_257
+def node_257 : 523
 	>> node_258 
 	>> node_259 
 	reset 
 endf 
 
-def node_258
+def node_258 : 331
 	self.targetArea(19) 
 	if self.distance_2d_to_target().leq(900) 
 	else 
@@ -3057,7 +3057,7 @@ def node_258
 	return 
 endf 
 
-def node_259
+def node_259 : 335
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.flying() 
 		>> node_220 
@@ -3069,7 +3069,7 @@ def node_259
 	return 
 endf 
 
-def node_260
+def node_260 : 524
 	if self.flying() 
 		>> node_267 
 	else 
@@ -3090,7 +3090,7 @@ def node_260
 	return 
 endf 
 
-def node_261
+def node_261 : 525
 	if self.flying() 
 		>> node_267 
 	else 
@@ -3111,7 +3111,7 @@ def node_261
 	return 
 endf 
 
-def node_262
+def node_262 : 526
 	if self.flying() 
 		>> node_267 
 	else 
@@ -3132,7 +3132,7 @@ def node_262
 	return 
 endf 
 
-def node_263
+def node_263 : 527
 	if self.flying() 
 		>> node_270 
 	else 
@@ -3141,7 +3141,7 @@ def node_263
 	return 
 endf 
 
-def node_264
+def node_264 : 551
 	if self.in_map(st.Ancient_Forest).in_area(2) 
 		if self.vertical_distance_to_target().leq(300) 
 		else 
@@ -3166,7 +3166,7 @@ def node_264
 	return 
 endf 
 
-def node_265
+def node_265 : 528
 	if self.distance_2d_to_target().leq(600) 
 		if self.vertical_distance_to_target().leq(1500) 
 		else 
@@ -3194,7 +3194,7 @@ def node_265
 	return 
 endf 
 
-def node_266
+def node_266 : 529
 	if self.distance_3d_to_target().leq(400) 
 	else 
 		-> rathian.dash_no_hit(1,2,0,300,1500) 
@@ -3210,7 +3210,7 @@ def node_266
 	return 
 endf 
 
-def node_267
+def node_267 : 530
 	if self.distance_2d_to_target().leq(300) 
 		if self.vertical_distance_to_target().leq(1000) 
 		else 
@@ -3239,7 +3239,7 @@ def node_267
 	return 
 endf 
 
-def node_268
+def node_268 : 531
 	if self.above_target() 
 		random (25) >> node_218 
 		elser (25) >> node_223 
@@ -3257,13 +3257,13 @@ def node_268
 	return 
 endf 
 
-def node_269
+def node_269 : 532
 	>> node_002 
 	-> rathian.short_up_step_fly() 
 	return 
 endf 
 
-def node_270
+def node_270 : 533
 	if self.distance_3d_to_target().leq(300) 
 	else 
 		-> rathian.glide_direct_move(1,2,0,200,1500) 
@@ -3279,7 +3279,7 @@ def node_270
 	return 
 endf 
 
-def node_271
+def node_271 : 541
 	if self.flying() 
 	else 
 		if function#11(450) 
@@ -3299,7 +3299,7 @@ def node_271
 	return 
 endf 
 
-def node_272
+def node_272 : 542
 	if function#11(1000) 
 		>> node_265 
 		>> node_198 
@@ -3316,7 +3316,7 @@ def node_272
 	return 
 endf 
 
-def node_273
+def node_273 : 544
 	if self.distance_2d_to_target().leq(950) 
 	else 
 		-> rathian.glide_combat(2,1,0,1500,850) 
@@ -3332,7 +3332,7 @@ def node_273
 	return 
 endf 
 
-def node_274
+def node_274 : 543
 	if self.distance_2d_to_target().leq(2000) 
 		>> node_166 
 	else 
@@ -3353,7 +3353,7 @@ def node_274
 	return 
 endf 
 
-def node_275
+def node_275 : 547
 	>> node_001 
 	if self.distance_3d_to_target().leq(1500) 
 		>> node_277 
@@ -3369,7 +3369,7 @@ def node_275
 	reset 
 endf 
 
-def node_276
+def node_276 : 548
 	if self.distance_3d_to_target().leq(1500) 
 	else 
 		if self.fatigued() 
@@ -3397,7 +3397,7 @@ def node_276
 	return 
 endf 
 
-def node_277
+def node_277 : 549
 	if self.enraged() 
 		random (30) >> node_201 
 		elser (10) >> node_195 
@@ -3424,7 +3424,7 @@ def node_277
 	return 
 endf 
 
-def node_278
+def node_278 : 550
 	if self.enraged() 
 		random (35) >> node_180 
 		elser (0) >> node_195 
@@ -3451,7 +3451,7 @@ def node_278
 	return 
 endf 
 
-def node_279
+def node_279 : 565
 	>> node_001 
 	if self.enraged() 
 		>> node_280 => reset 
@@ -3463,7 +3463,7 @@ def node_279
 	return 
 endf 
 
-def node_280
+def node_280 : 566
 	random (25) >> node_178 
 	elser (20) >> node_195 
 	elser (20) >> node_197 
@@ -3475,7 +3475,7 @@ def node_280
 	return 
 endf 
 
-def node_281
+def node_281 : 567
 	random (20) >> node_178 
 	elser (20) >> node_195 
 	elser (20) >> node_197 
@@ -3488,7 +3488,7 @@ def node_281
 	return 
 endf 
 
-def node_282
+def node_282 : 568
 	random (25) >> node_178 
 	elser (20) >> node_195 
 	elser (20) >> node_197 

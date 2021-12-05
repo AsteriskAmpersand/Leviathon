@@ -1,10 +1,10 @@
 importactions KestodonM as kestodonm
 
-def node_000
+def node_000 : 7
 	conclude 
 endf 
 
-def node_001
+def node_001 : 30
 	if self.angle_2d_cw_between(30,330) 
 		-> action#02() 
 	else 
@@ -12,7 +12,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 35
 	if self.angle_2d_cw_between(30,330) 
 		-> action#03() 
 	else 
@@ -20,7 +20,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 56
 	if self.angle_2d_cw_between(15,345) 
 		-> action#03() 
 	else 
@@ -28,12 +28,12 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 36
 	-> action#22() 
 	return 
 endf 
 
-def node_005
+def node_005 : 28
 	if function#51(0,2000) 
 		if self.distance_3d_recalc_to_target().leq(500) 
 			>> node_002 
@@ -52,7 +52,7 @@ def node_005
 	return 
 endf 
 
-def node_006
+def node_006 : 32
 	self.targetUnknown(1,0) 
 	if self.target(3) 
 		>> node_002 
@@ -65,7 +65,7 @@ def node_006
 	return 
 endf 
 
-def node_007
+def node_007 : 33
 	self.targetUnknown(1,0) 
 	if self.target(10) 
 		>> node_002 
@@ -79,7 +79,7 @@ def node_007
 	return 
 endf 
 
-def node_008
+def node_008 : 37
 	if self.targetEnemy(33) 
 		if self.distance_2d_to_target().leq(3000) 
 			>> node_002 
@@ -96,7 +96,7 @@ def node_008
 	return 
 endf 
 
-def node_009
+def node_009 : 47
 	if function#31(40,1500) 
 		self.targetEnemy(target_em.closest_entity) 
 		>> node_002 
@@ -107,7 +107,7 @@ def node_009
 	return 
 endf 
 
-def node_010
+def node_010 : 49
 	if function#31(46,5000) 
 		self.targetEnemy(target_em.closest_entity) 
 		if self.target(13) 
@@ -128,7 +128,7 @@ def node_010
 	return 
 endf 
 
-def node_011
+def node_011 : 57
 	self.targetUnknown(1,0) 
 	if self.target(46) 
 		>> node_002 
@@ -142,7 +142,7 @@ def node_011
 	return 
 endf 
 
-def node_012
+def node_012 : 58
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.target(0) 
 		if self.distance_2d_to_target().leq(1000) 
@@ -156,7 +156,7 @@ def node_012
 	return 
 endf 
 
-def node_013
+def node_013 : 60
 	if self.target(0) 
 		if self.distance_2d_to_target().leq(1000) 
 		else 
@@ -174,7 +174,7 @@ def node_013
 	return 
 endf 
 
-def node_014
+def node_014 : 62
 	if self.target(48) 
 		>> node_024 
 		reset 
@@ -183,7 +183,7 @@ def node_014
 	return 
 endf 
 
-def node_015
+def node_015 : 38
 	if function#3A() 
 		self.targetEnemy(target_em.random_player_or_cat) 
 		>> node_002 
@@ -197,12 +197,12 @@ def node_015
 	return 
 endf 
 
-def node_016
+def node_016 : 39
 	-> action#09(6,0,0,500) 
 	return 
 endf 
 
-def node_017
+def node_017 : 53
 	-> action#09(2,6,0,500,500) 
 	if self.distance_2d_to_target().leq(500) 
 	else 
@@ -211,7 +211,7 @@ def node_017
 	return 
 endf 
 
-def node_018
+def node_018 : 54
 	-> action#09(2,1,0,500,500) 
 	if self.distance_3d_to_target().leq(500) 
 	else 
@@ -220,17 +220,17 @@ def node_018
 	return 
 endf 
 
-def node_019
+def node_019 : 40
 	-> action#09(2,6,0,500,500) 
 	return 
 endf 
 
-def node_020
+def node_020 : 46
 	-> action#09(2,1,0,500,500) 
 	return 
 endf 
 
-def node_021
+def node_021 : 61
 	if self.distance_2d_to_target().leq(600) 
 	else 
 		-> action#09(2,6,0,500,500) 
@@ -294,19 +294,19 @@ def node_021
 	return 
 endf 
 
-def node_022
+def node_022 : 41
 	>> node_003 
 	-> action#16() 
 	return 
 endf 
 
-def node_023
+def node_023 : 43
 	>> node_003 
 	-> action#14() 
 	return 
 endf 
 
-def node_024
+def node_024 : 48
 	>> node_002 
 	random (40) -> action#19() 
 	elser (30) -> action#1B() 
@@ -315,7 +315,7 @@ def node_024
 	return 
 endf 
 
-def node_025
+def node_025 : 50
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.distance_2d_to_target().leq(1500) 
 		>> node_002 
@@ -326,7 +326,7 @@ def node_025
 	return 
 endf 
 
-def node_026
+def node_026 : 51
 	>> node_002 
 	random (40) -> action#19() 
 	elser (10) -> action#0A() 
@@ -336,12 +336,12 @@ def node_026
 	return 
 endf 
 
-def node_027
+def node_027 : 52
 	-> action#12() 
 	return 
 endf 
 
-def node_028
+def node_028 : 55
 	random (34) -> action#1D() 
 	elser (33) -> action#1E() 
 	elser (33) -> action#1F() 

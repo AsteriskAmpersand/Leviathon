@@ -1,7 +1,7 @@
 importactions Kushala_Daora as kushala_daora
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	>> Global.node_017 
 	if self.mounted() 
 		random (47) >> node_001 
@@ -15,7 +15,7 @@ def node_000
 	reset 
 endf 
 
-def node_001
+def node_001 : 2
 	>> node_003 
 	function#A8() 
 	self.targetEnemy(target_em.random_player_or_cat) 
@@ -34,7 +34,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 3
 	>> node_003 
 	function#A8() 
 	self.targetEnemy(target_em.random_player_or_cat) 
@@ -52,7 +52,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 4
 	if function#3B() 
 		if self.mount_staggered_twice() 
 			>> Global.node_111 
@@ -85,7 +85,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 5
 	if self.mounted() 
 		>> Global.node_112 
 	else 

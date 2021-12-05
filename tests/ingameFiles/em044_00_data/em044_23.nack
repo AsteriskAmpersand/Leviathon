@@ -1,13 +1,13 @@
 importactions Barroth as barroth
 importlibrary Global as Global
 
-def node_000
+def node_000 : 8
 	self.targetEnemy(target_em.closest_entity) 
 	>> node_001 
 	conclude 
 endf 
 
-def node_001
+def node_001 : 9
 	if self.target_is(em.Jyuratodus) 
 		>> node_002 
 	else 
@@ -15,7 +15,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 10
 	>> Global.node_058 
 	-> barroth.grapple_with_em108_mediation_threat() 
 	return 

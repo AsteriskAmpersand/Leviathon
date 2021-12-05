@@ -1,7 +1,7 @@
 importactions Kulve_Taroth as kulve_taroth
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	if self.current_quest().is_rank(rank.MR) 
 		>> node_003 
 	elif self.current_quest().is_rank(rank.AT) 
@@ -12,7 +12,7 @@ def node_000
 	conclude 
 endf 
 
-def node_001
+def node_001 : 2
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.in_map(st.Caverns_Of_El_Dorado).in_area(4) 
 		>> Global.node_086 
@@ -27,7 +27,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 3
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.in_map(st.Caverns_Of_El_Dorado).in_area(4) 
 		if function#10F() 
@@ -45,7 +45,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 4
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.in_map(st.Caverns_Of_El_Dorado).in_area(4) 
 		>> Global.node_086 

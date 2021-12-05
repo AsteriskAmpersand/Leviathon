@@ -1,7 +1,7 @@
 importactions Dodogama as dodogama
 importlibrary Global as Global
 
-def node_000
+def node_000 : 120
 	if self.current_quest().is_rank(rank.MR) 
 		>> node_001 
 	else 
@@ -10,7 +10,7 @@ def node_000
 	reset 
 endf 
 
-def node_001
+def node_001 : 119
 	>> Global.node_161 
 	if self.target_on_part(0) >> node_020 
 	elif self.target_on_part(1) >> node_021 
@@ -21,7 +21,7 @@ def node_001
 	reset 
 endf 
 
-def node_002
+def node_002 : 1
 	>> Global.node_161 
 	if self.target_on_part(0) >> node_020 
 	elif self.target_on_part(1) >> node_021 
@@ -33,7 +33,7 @@ def node_002
 	reset 
 endf 
 
-def node_003
+def node_003 : 105
 	random (50) 
 				>> Global.node_034 
 				>> Global.node_149 
@@ -42,7 +42,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 8
 	if self.distance_2d_to_target().leq(300) 
 		if self.enraged() >> node_005 
 		elif self.fatigued() >> node_010 
@@ -72,7 +72,7 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 87
 	random (50) >> Global.node_105 
 	elser (20) >> Global.node_106 
 	elser (30) >> Global.node_119 
@@ -80,7 +80,7 @@ def node_005
 	return 
 endf 
 
-def node_006
+def node_006 : 89
 	random (50) >> Global.node_105 
 	elser (20) >> Global.node_106 
 	elser (30) >> Global.node_119 
@@ -88,7 +88,7 @@ def node_006
 	return 
 endf 
 
-def node_007
+def node_007 : 91
 	random (50) >> Global.node_026 
 				>> Global.node_105 
 				>> Global.node_108 
@@ -99,7 +99,7 @@ def node_007
 	return 
 endf 
 
-def node_008
+def node_008 : 93
 	random (50) >> Global.node_026 
 				>> Global.node_105 
 				>> Global.node_108 
@@ -110,7 +110,7 @@ def node_008
 	return 
 endf 
 
-def node_009
+def node_009 : 95
 	random (50) >> Global.node_122 
 				>> Global.node_108 
 	elser (20) >> Global.node_106 
@@ -120,7 +120,7 @@ def node_009
 	return 
 endf 
 
-def node_010
+def node_010 : 106
 	random (50) >> Global.node_105 
 	elser (20) >> Global.node_106 
 	elser (30) >> Global.node_125 
@@ -128,7 +128,7 @@ def node_010
 	return 
 endf 
 
-def node_011
+def node_011 : 107
 	random (50) >> Global.node_105 
 	elser (20) >> Global.node_106 
 	elser (30) >> Global.node_125 
@@ -136,7 +136,7 @@ def node_011
 	return 
 endf 
 
-def node_012
+def node_012 : 108
 	random (50) >> Global.node_026 
 				>> Global.node_105 
 	elser (20) >> Global.node_106 
@@ -145,7 +145,7 @@ def node_012
 	return 
 endf 
 
-def node_013
+def node_013 : 109
 	random (50) >> Global.node_026 
 				>> Global.node_105 
 	elser (20) >> Global.node_106 
@@ -154,7 +154,7 @@ def node_013
 	return 
 endf 
 
-def node_014
+def node_014 : 110
 	random (50) >> Global.node_026 
 				>> Global.node_105 
 	elser (20) >> Global.node_106 
@@ -163,15 +163,7 @@ def node_014
 	return 
 endf 
 
-def node_015
-	random (50) >> Global.node_105 
-	elser (20) >> Global.node_106 
-	elser (30) >> Global.node_118 
-	endr 
-	return 
-endf 
-
-def node_016
+def node_015 : 9
 	random (50) >> Global.node_105 
 	elser (20) >> Global.node_106 
 	elser (30) >> Global.node_118 
@@ -179,16 +171,15 @@ def node_016
 	return 
 endf 
 
-def node_017
-	random (50) >> Global.node_026 
-				>> Global.node_105 
+def node_016 : 10
+	random (50) >> Global.node_105 
 	elser (20) >> Global.node_106 
 	elser (30) >> Global.node_118 
 	endr 
 	return 
 endf 
 
-def node_018
+def node_017 : 11
 	random (50) >> Global.node_026 
 				>> Global.node_105 
 	elser (20) >> Global.node_106 
@@ -197,7 +188,16 @@ def node_018
 	return 
 endf 
 
-def node_019
+def node_018 : 12
+	random (50) >> Global.node_026 
+				>> Global.node_105 
+	elser (20) >> Global.node_106 
+	elser (30) >> Global.node_118 
+	endr 
+	return 
+endf 
+
+def node_019 : 13
 	random (50) >> Global.node_026 
 				>> Global.node_105 
 	elser (20) >> Global.node_106 
@@ -206,7 +206,7 @@ def node_019
 	return 
 endf 
 
-def node_020
+def node_020 : 111
 	random (47) >> node_022 
 	elser (38) >> node_023 
 	elser (15) >> node_026 
@@ -214,7 +214,7 @@ def node_020
 	return 
 endf 
 
-def node_021
+def node_021 : 112
 	random (47) >> node_024 
 	elser (38) >> node_025 
 	elser (15) >> node_026 
@@ -222,34 +222,34 @@ def node_021
 	return 
 endf 
 
-def node_022
+def node_022 : 114
 	-> dodogama.ride_rage_head() 
 	return 
 endf 
 
-def node_023
+def node_023 : 115
 	random (50) -> dodogama.overturn_l() 
 	elser (50) -> dodogama.overturn_r() 
 	endr 
 	return 
 endf 
 
-def node_024
+def node_024 : 116
 	-> dodogama.ride_rage_body() 
 	return 
 endf 
 
-def node_025
+def node_025 : 117
 	-> dodogama.ride_rage_body_lv2() 
 	return 
 endf 
 
-def node_026
+def node_026 : 118
 	-> dodogama.wait() 
 	return 
 endf 
 
-def node_027
+def node_027 : 126
 	if self.distance_2d_to_target().leq(300) 
 		if self.enraged() >> node_005 
 		elif self.fatigued() >> node_028 
@@ -279,7 +279,7 @@ def node_027
 	return 
 endf 
 
-def node_028
+def node_028 : 121
 	random (60) >> Global.node_105 
 	elser (25) >> Global.node_106 
 	elser (15) >> Global.node_125 
@@ -287,7 +287,7 @@ def node_028
 	return 
 endf 
 
-def node_029
+def node_029 : 122
 	random (60) >> Global.node_105 
 	elser (25) >> Global.node_106 
 	elser (15) >> Global.node_125 
@@ -295,7 +295,7 @@ def node_029
 	return 
 endf 
 
-def node_030
+def node_030 : 123
 	random (60) >> Global.node_026 
 				>> Global.node_105 
 	elser (25) >> Global.node_106 
@@ -304,7 +304,7 @@ def node_030
 	return 
 endf 
 
-def node_031
+def node_031 : 124
 	random (60) >> Global.node_026 
 				>> Global.node_105 
 	elser (25) >> Global.node_106 
@@ -313,7 +313,7 @@ def node_031
 	return 
 endf 
 
-def node_032
+def node_032 : 125
 	random (60) >> Global.node_026 
 				>> Global.node_105 
 	elser (25) >> Global.node_106 

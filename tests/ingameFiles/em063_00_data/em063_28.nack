@@ -1,7 +1,7 @@
 importactions Brachydios as brachydios
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	>> node_001 
 	>> node_001 
 	>> node_001 
@@ -10,7 +10,7 @@ def node_000
 	conclude 
 endf 
 
-def node_001
+def node_001 : 3
 	>> Global.node_001 
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.distance_3d_to_target().leq(3500) >> node_002 
@@ -19,20 +19,20 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 4
 	>> Global.node_072 
 	-> brachydios.sniffs_s() 
 	return 
 endf 
 
-def node_003
+def node_003 : 5
 	>> node_004 
 	>> Global.node_073 
 	>> node_005 
 	return 
 endf 
 
-def node_004
+def node_004 : 6
 	self.targetEnemy(58) 
 	random (10) >> Global.node_077 
 	elser (90) 
@@ -40,7 +40,7 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 7
 	random (70) -> brachydios.quick_search() 
 	elser (30) -> brachydios.sniffs_s() 
 	endr 

@@ -1,13 +1,13 @@
 importactions Hornetaur as hornetaur
 
-def node_000
+def node_000 : 116
 	conclude 
 endf 
 
-def node_001
+def node_001 : 117
 endf 
 
-def node_002
+def node_002 : 120
 	if self.distance_3d_to_target().leq(1000) 
 		-> action#07(2,1,0,500,500) 
 		return 
@@ -17,7 +17,7 @@ def node_002
 	repeat 
 endf 
 
-def node_003
+def node_003 : 122
 	if self.distance_3d_to_target().leq(1300) 
 		-> action#07(2,1,0,500,800) 
 		return 
@@ -27,7 +27,7 @@ def node_003
 	repeat 
 endf 
 
-def node_004
+def node_004 : 139
 	if self.distance_2d_to_target().leq(1000) 
 		-> action#07(2,1,0,500,500) 
 		return 
@@ -37,7 +37,7 @@ def node_004
 	repeat 
 endf 
 
-def node_005
+def node_005 : 129
 	if self.distance_2d_to_target().leq(1300) 
 		-> action#07(2,1,0,500,800) 
 		return 
@@ -47,7 +47,7 @@ def node_005
 	repeat 
 endf 
 
-def node_006
+def node_006 : 145
 	if self.distance_3d_to_target().leq(500) 
 		return 
 	else 
@@ -66,12 +66,12 @@ def node_006
 	return 
 endf 
 
-def node_007
+def node_007 : 121
 	-> action#06(2,0,0,300) 
 	return 
 endf 
 
-def node_008
+def node_008 : 132
 	if self.distance_3d_to_target().leq(700) 
 		-> action#07(2,1,0,500,200) 
 		return 
@@ -81,14 +81,14 @@ def node_008
 	repeat 
 endf 
 
-def node_009
+def node_009 : 123
 	random (50) -> action#09() 
 	elser (50) -> action#0A() 
 	endr 
 	return 
 endf 
 
-def node_010
+def node_010 : 124
 	-> action#0F() 
 	*&
 	*&
@@ -96,7 +96,7 @@ def node_010
 	return 
 endf 
 
-def node_011
+def node_011 : 143
 	random (40) >> node_015 
 	elser (10) >> node_009 
 	elser (50) 
@@ -104,22 +104,22 @@ def node_011
 	return 
 endf 
 
-def node_012
+def node_012 : 135
 	-> action#02() 
 	return 
 endf 
 
-def node_013
+def node_013 : 134
 	-> action#03() 
 	return 
 endf 
 
-def node_014
+def node_014 : 133
 	-> action#04() 
 	return 
 endf 
 
-def node_015
+def node_015 : 138
 	random (20) >> node_012 
 	elser (10) >> node_013 
 	elser (10) >> node_014 
@@ -142,7 +142,7 @@ def node_015
 	return 
 endf 
 
-def node_016
+def node_016 : 142
 	random (20) >> node_012 
 	elser (40) >> node_013 
 	elser (40) >> node_014 
@@ -150,7 +150,7 @@ def node_016
 	return 
 endf 
 
-def node_017
+def node_017 : 125
 	if self.angle_2d_cw_between(30,330) 
 		-> action#05() 
 	else 
@@ -158,7 +158,7 @@ def node_017
 	return 
 endf 
 
-def node_018
+def node_018 : 126
 	if self.angle_2d_cw_between(30,330) 
 		-> action#21() 
 	else 
@@ -166,25 +166,25 @@ def node_018
 	return 
 endf 
 
-def node_019
+def node_019 : 128
 	>> node_018 
 	-> action#1F() 
 	return 
 endf 
 
-def node_020
+def node_020 : 127
 	>> node_018 
 	-> action#0E() 
 	return 
 endf 
 
-def node_021
+def node_021 : 137
 	>> node_018 
 	-> action#23() 
 	return 
 endf 
 
-def node_022
+def node_022 : 144
 	random (10) >> node_019 
 	elser (30) >> node_020 
 	elser (20) >> node_021 
@@ -193,7 +193,7 @@ def node_022
 	return 
 endf 
 
-def node_023
+def node_023 : 0
 	if self.angle_2d_cw_between(0,360) 
 		-> action#21() 
 	else 
@@ -201,7 +201,7 @@ def node_023
 	return 
 endf 
 
-def node_024
+def node_024 : 130
 	if function#51(0,3000) 
 	elif function#51(1,3000) 
 	else 
@@ -215,7 +215,7 @@ def node_024
 	reset 
 endf 
 
-def node_025
+def node_025 : 136
 	if function#51(0,3000) 
 	elif function#51(1,3000) 
 	else 
@@ -229,7 +229,7 @@ def node_025
 	conclude 
 endf 
 
-def node_026
+def node_026 : 131
 	>> node_006 
 	>> node_019 
 	>> node_015 

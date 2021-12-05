@@ -1,7 +1,7 @@
 importactions Glavenus as glavenus
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	>> Global.node_023 
 	self.targetEnemy(target_em.closest_entity) 
 	>> node_006 
@@ -9,7 +9,7 @@ def node_000
 	reset 
 endf 
 
-def node_001
+def node_001 : 2
 	>> node_003 
 	if self.distance_3d_to_target().leq(1000) 
 		>> node_008 
@@ -19,7 +19,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 3
 	>> node_003 
 	self.targetEnemy(target_em.closest_entity) 
 	if self.target(11) 
@@ -39,7 +39,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 5
 	if function#6B(20000) 
 		-> glavenus.sniff_l() 
 		>> node_004 
@@ -49,7 +49,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 6
 	self.targetEnemy(26) 
 	if self.distance_3d_to_target().leq(600) 
 	else 
@@ -59,7 +59,7 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 7
 	if self.distance_3d_to_target().leq(300) 
 		-> glavenus.back_turn() @ unkn6:65536 
 	elif self.angle_2d_cw_between(30,330) 
@@ -69,7 +69,7 @@ def node_005
 	conclude 
 endf 
 
-def node_006
+def node_006 : 8
 	if self.target_is(em.Aptonoth) 
 	elif self.target_is(em.Apceros) 
 	elif self.target_is(em.Gastodon) 
@@ -87,7 +87,7 @@ def node_006
 	return 
 endf 
 
-def node_007
+def node_007 : 4
 	if self.angle_2d_cw_between(40,320) 
 		-> glavenus.turn() 
 	else 
@@ -95,12 +95,12 @@ def node_007
 	return 
 endf 
 
-def node_008
+def node_008 : 17
 	-> glavenus.back_turn() 
 	return 
 endf 
 
-def node_009
+def node_009 : 16
 	>> node_007 
 	random (45) -> glavenus.predator_walk_l() @ unkn6:65536 
 	elser (55) -> glavenus.predator_walk_r() @ unkn6:65536 
@@ -108,17 +108,17 @@ def node_009
 	return 
 endf 
 
-def node_010
+def node_010 : 13
 	-> glavenus.fox_walk(2,5,0,2000) @ unkn6:65536 
 	return 
 endf 
 
-def node_011
+def node_011 : 15
 	-> glavenus.tired_dash(2,5,0,1500) @ unkn6:65536 
 	return 
 endf 
 
-def node_012
+def node_012 : 14
 	>> node_007 
 	-> glavenus.sniff_s() 
 	return 

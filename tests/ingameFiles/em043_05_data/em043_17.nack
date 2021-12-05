@@ -1,7 +1,7 @@
 importactions Savage_Deviljho as savage_deviljho
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	>> Global.node_184 
 	>> Global.node_185 
 	>> node_001 
@@ -9,7 +9,7 @@ def node_000
 	conclude 
 endf 
 
-def node_001
+def node_001 : 2
 	if function#41() 
 	elif function#101() 
 	else 
@@ -22,7 +22,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 3
 	self.targetArea(14) 
 	if function#101() 
 		if self.distance_3d_to_target().gt(800) 
@@ -40,7 +40,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 4
 	self.targetEnemy(target_em.random_player_or_cat) 
 	-> savage_deviljho.wait() 
 	if self.distance_3d_to_target().leq(800) 
@@ -52,7 +52,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 8
 	if self.fatigued() 
 		-> savage_deviljho.tired_dash(5,2,0,0,3000) 
 	else 
@@ -61,7 +61,7 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 9
 	-> savage_deviljho.hold_em_dash(5,2,0,0,3000) 
 	return 
 endf 

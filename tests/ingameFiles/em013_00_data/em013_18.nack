@@ -1,7 +1,7 @@
 importactions Fatalis as fatalis
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	>> Global.node_142 
 	>> Global.node_017 
 	self.targetEnemy(13) 
@@ -13,13 +13,13 @@ def node_000
 	conclude 
 endf 
 
-def node_001
+def node_001 : 3
 	>> Global.node_061 
 	>> node_003 
 	return 
 endf 
 
-def node_002
+def node_002 : 4
 	self.targetEnemy(13) 
 	if self.distance_2d_to_target().leq(1000) 
 		return 
@@ -29,7 +29,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 5
 	self.targetEnemy(48) 
 	if self.target(4) 
 		>> node_006 
@@ -47,7 +47,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 6
 	if function#104() 
 		if function#101(1) 
 			>> Global.node_016 
@@ -183,7 +183,7 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 7
 	if function#104() 
 		if function#101(1) 
 			>> Global.node_016 
@@ -258,7 +258,7 @@ def node_005
 	return 
 endf 
 
-def node_006
+def node_006 : 8
 	if self.flying() 
 		>> Global.node_018 
 	elif function#101() 

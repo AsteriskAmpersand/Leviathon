@@ -506,19 +506,39 @@ class NodeDecompiler(Decompiler):
         result = ""
         result += self.headerText(position)
         indentationDepth = 1
+        enclosure = [ENC_NODE]
         for segment in self.segments:
             segmentString = segment.decompile(*args,**kwargs)
-            indentationDepth -= segment.checkSubstraction()
+            contextStart = segment.contextStart()
+            if contextStart:
+                enclosure.append(contextStart)
+            contextEnd = segment.contextEnd()
+            if contextEnd:
+                if (not enclosure or contextEnd != enclosure[-1]):
+                    result += '\t'*indentationDepth+"*& // -Illegal Context was commented out '" + segmentString + "'"
+                    continue
+                else:
+                    enclosure.pop()
+            indentationDepth -= segment.checkSubstraction()      
             result += '\t'*indentationDepth + segmentString
             indentationDepth += segment.checkAddition()
             missingLocalReferences += segment.missingLocalReferences
         self.missingLocalReferences = missingLocalReferences
+        while(enclosure):
+            item = enclosure.pop()
+            indentationDepth -= 1
+            result += '\t'*indentationDepth + item
+            result += " // -Added by the Decompiler to ammend syntactically malformed thk\n"
         return result+"\n"
     
 def spaceIfOp(string):
     if not string:
         return string
     return string + " "
+
+ENC_COND = "endif"
+ENC_RNG = "endr"
+ENC_NODE = "endf"
 
 class SegmentDecompiler(Decompiler):
     def __init__(self,settings = None):
@@ -527,6 +547,8 @@ class SegmentDecompiler(Decompiler):
     def initMembers(self):
         self.addIndent = False
         self.removeIndent = False
+        self.encloseStart = None
+        self.encloseEnd = None
         
         self.used = set()
         self.missingLocalReferences = []
@@ -596,6 +618,7 @@ class SegmentDecompiler(Decompiler):
             return self.functionName
         return None
     def decompile(self,actionResolver,callResolver,scopeResolver,functionResolver,registerScheduler):
+        self.checkActive()
         self.checkFlow()
         self.resolveActions(actionResolver)
         self.resolveCalls(callResolver,scopeResolver)
@@ -611,11 +634,12 @@ class SegmentDecompiler(Decompiler):
             code += "// " + self.comments
         return code + "\n"
     
-    def checkActive(self,segment):
+    def checkActive(self):
+        segment = self.segment
         #action call directive
         self.active |= segment.functionType > 2
         self.active |= segment.extRefThkID != -1 or segment.localRefNodeID != -1
-        self.active |= segment.flowType != 0
+        self.active |= segment.actionID != 0
 
     def checkFlow(self):
         self.checkConditional()
@@ -627,6 +651,7 @@ class SegmentDecompiler(Decompiler):
         if segment.endRandom == 1:
             self.flow = key.ENDF
             self.removeIndent = True
+            self.encloseEnd = ENC_NODE
             self.log("nodeEndingData")
             self.log("endRandom")
             return True
@@ -638,16 +663,19 @@ class SegmentDecompiler(Decompiler):
             if self.active:
                 self.flow = key.ENDRW
                 self.removeIndent = chanceIndent
+                self.encloseEnd = ENC_RNG
                 self.log("branchingControl")
             else:
                 self.flow = key.ENDR
                 self.removeIndent = chanceIndent
+                self.encloseEnd = ENC_RNG
                 self.log("branchingControl")
             return True
         if segment.endRandom in [0x40,0xC0,0x80]:
             if segment.endRandom == 0x40:
                 self.flow = key.RANDOM+" (%d)" % segment.parameter1 
                 self.addIndent = chanceIndent
+                self.encloseStart = ENC_RNG
             else:
                 #0xC0 Chance, 0x80 Last Chance
                 self.removeIndent = chanceIndent
@@ -661,6 +689,7 @@ class SegmentDecompiler(Decompiler):
         if segment.branchingControl == 0x2:
             self.flow = key.IF
             self.addIndent = True
+            self.encloseStart = ENC_COND
         elif segment.branchingControl == 0x4:
             if segment.functionType > 2:
                 self.flow = key.ELIF
@@ -674,9 +703,11 @@ class SegmentDecompiler(Decompiler):
             if self.active:
                 self.flow = key.ENDIFW
                 self.removeIndent = True
+                self.encloseEnd = ENC_COND
             else:
                 self.flow = key.ENDIF
                 self.removeIndent = True
+                self.encloseEnd = ENC_COND
         else:
             return False
         self.log("branchingControl")
@@ -728,6 +759,11 @@ class SegmentDecompiler(Decompiler):
     def checkSubstraction(self):
         return self.removeIndent
     
+    def contextStart(self):
+        return self.encloseStart
+    def contextEnd(self):
+        return self.encloseEnd
+    
     def log(self,varname):
         if varname in self.used:
             raise ValueError("Segment is using the same field (%s) more than once"%varname)
@@ -745,6 +781,7 @@ if __name__ in "__main__":
         ts.verbose = True
         ts.outputPath = folder
         ts.display = void
+        ts.forceId = True
         THKLDecompiler(ts).read(file).writeFile()
     root = r"D:\Games SSD\MHW\chunk\em"
     outRoot = Path(r"D:\Games SSD\MHW-AI-Analysis\Leviathon\tests\ingameFiles")

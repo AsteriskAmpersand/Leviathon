@@ -478,6 +478,6 @@ class THKParser():
         
 #print(thkp.dataSummary())
 if __name__ in "__main__":
-    thkp = THKProject(r"D:\Games SSD\MHW\chunk\em\em108\00\data\em108.thklst")
+    thkp = THKProject(r'D:/Games SSD/MHW/chunk/em/em104/00/data/em104.thklst')
     print(thkp.dataSummary())
-    thkp.decompileFile(r"D:\Games SSD\MHW-AI-Analysis\em108.fand")
+    #thkp.decompileFile(r"D:\Games SSD\MHW-AI-Analysis\em108.fand")

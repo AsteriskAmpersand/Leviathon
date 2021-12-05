@@ -1,6 +1,6 @@
 importactions Frostfang_Barioth as frostfang_barioth
 
-def node_000
+def node_000 : 1
 	self.targetEnemy(target_em.closest_entity) 
 	if self.target_is(em.Fulgur_Anjanath) 
 		>> node_001 
@@ -18,7 +18,7 @@ def node_000
 	conclude 
 endf 
 
-def node_001
+def node_001 : 11
 	if self.distance_3d_to_target().gt(1600) 
 		-> frostfang_barioth.dash(1,0,0,1500) 
 	endif 
@@ -26,7 +26,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 13
 	if self.distance_3d_to_target().gt(1600) 
 		-> frostfang_barioth.dash(1,0,0,1550) 
 	endif 
@@ -34,7 +34,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 12
 	if self.distance_3d_to_target().gt(1600) 
 		-> frostfang_barioth.dash(1,0,0,1550) 
 	endif 
@@ -42,7 +42,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 14
 	if self.distance_2d_to_target().gt(2100) 
 		-> frostfang_barioth.dash(1,0,0,2000) 
 	endif 

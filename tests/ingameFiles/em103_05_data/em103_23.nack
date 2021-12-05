@@ -1,12 +1,12 @@
 importactions Ruiner_Nergigante as ruiner_nergigante
 
-def node_000
+def node_000 : 1
 	self.targetEnemy(target_em.closest_entity) 
 	>> node_001 
 	conclude 
 endf 
 
-def node_001
+def node_001 : 2
 	if self.target_is(em.Savage_Deviljho) 
 		-> ruiner_nergigante.grapple_with_em043_05_mediation() 
 	elif self.target_is(em.Velkhana) 

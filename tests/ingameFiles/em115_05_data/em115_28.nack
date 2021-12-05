@@ -1,7 +1,7 @@
 importactions Blackveil_Vaal_Hazak as blackveil_vaal_hazak
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	if [RegisterVar2 <= 15] 
 		[RegisterVar2 |-] 
 		conclude 
@@ -13,7 +13,7 @@ def node_000
 	conclude 
 endf 
 
-def node_001
+def node_001 : 2
 	>> Global.node_044 
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.distance_3d_to_target().leq(3500) 
@@ -24,7 +24,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 3
 	>> Global.node_005 
 	if self.enraged() 
 		>> Global.node_055 
@@ -36,7 +36,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 4
 	self.targetEnemy(58) 
 	random (10) >> node_004 
 	elser (90) 
@@ -55,7 +55,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 23
 	>> Global.node_001 
 	-> blackveil_vaal_hazak.walk(2,1,5,1500,800) 
 	return 

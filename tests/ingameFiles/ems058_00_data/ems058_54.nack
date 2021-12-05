@@ -1,7 +1,7 @@
 importactions Gastodon as gastodon
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	if function#B2() 
 		>> node_002 
 	else 
@@ -10,7 +10,7 @@ def node_000
 	reset 
 endf 
 
-def node_001
+def node_001 : 11
 	if self.targetEnemy(44) 
 		>> Global.node_002 
 		>> node_022 
@@ -22,7 +22,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 10
 	if function#B3() 
 		>> node_013 
 	elif function#B4() 
@@ -33,7 +33,7 @@ def node_002
 	reset 
 endf 
 
-def node_003
+def node_003 : 18
 	if self.targetEnemy(46) 
 		>> Global.node_015 
 		if function#B5() 
@@ -49,7 +49,7 @@ def node_003
 	reset 
 endf 
 
-def node_004
+def node_004 : 14
 	>> Global.node_014 
 	if self.target(4) 
 		>> node_005 
@@ -61,7 +61,7 @@ def node_004
 	reset 
 endf 
 
-def node_005
+def node_005 : 15
 	random (50) -> action#01() 
 	elser (20) -> action#1D() 
 	elser (15) -> action#1E() 
@@ -70,7 +70,7 @@ def node_005
 	reset 
 endf 
 
-def node_006
+def node_006 : 19
 	if self.distance_3d_to_target().leq(350) 
 		>> node_008 
 	elif self.distance_3d_to_target().leq(500) 
@@ -85,7 +85,7 @@ def node_006
 	return 
 endf 
 
-def node_007
+def node_007 : 20
 	if self.distance_3d_to_target().leq(800) 
 		random (50) >> Global.node_002 
 					>> Global.node_039 
@@ -105,13 +105,13 @@ def node_007
 	return 
 endf 
 
-def node_008
+def node_008 : 22
 	>> Global.node_003 
 	>> Global.node_033 
 	return 
 endf 
 
-def node_009
+def node_009 : 23
 	random (70) >> Global.node_003 
 				>> Global.node_033 
 	elser (30) 
@@ -122,26 +122,26 @@ def node_009
 	return 
 endf 
 
-def node_010
+def node_010 : 24
 	>> Global.node_003 
 	>> Global.node_034 
 	return 
 endf 
 
-def node_011
+def node_011 : 25
 	>> Global.node_003 
 	>> Global.node_034 
 	return 
 endf 
 
-def node_012
+def node_012 : 21
 	>> Global.node_002 
 	>> Global.node_022 
 	>> Global.node_033 
 	return 
 endf 
 
-def node_013
+def node_013 : 12
 	self.targetEnemy(45) 
 	>> Global.node_002 
 	>> Global.node_022 
@@ -150,7 +150,7 @@ def node_013
 	return 
 endf 
 
-def node_014
+def node_014 : 13
 	self.targetEnemy(46) 
 	if function#B5() 
 		random (80) >> node_015 
@@ -167,7 +167,7 @@ def node_014
 	return 
 endf 
 
-def node_015
+def node_015 : 28
 	if self.distance_3d_to_target().leq(350) 
 		>> node_017 
 	elif self.distance_3d_to_target().leq(500) 
@@ -182,7 +182,7 @@ def node_015
 	return 
 endf 
 
-def node_016
+def node_016 : 33
 	if self.distance_3d_to_target().leq(800) 
 		random (50) >> Global.node_002 
 					>> Global.node_039 
@@ -202,13 +202,13 @@ def node_016
 	return 
 endf 
 
-def node_017
+def node_017 : 27
 	>> Global.node_003 
 	>> Global.node_033 
 	return 
 endf 
 
-def node_018
+def node_018 : 29
 	random (70) >> Global.node_003 
 				>> Global.node_033 
 	elser (30) 
@@ -219,26 +219,26 @@ def node_018
 	return 
 endf 
 
-def node_019
+def node_019 : 30
 	>> Global.node_003 
 	-> action#41() 
 	return 
 endf 
 
-def node_020
+def node_020 : 31
 	>> Global.node_003 
 	>> Global.node_034 
 	return 
 endf 
 
-def node_021
+def node_021 : 32
 	>> Global.node_002 
 	>> Global.node_022 
 	>> Global.node_033 
 	return 
 endf 
 
-def node_022
+def node_022 : 26
 	if self.distance_2d_to_target().leq(450) 
 	else 
 		>> node_023 
@@ -247,7 +247,7 @@ def node_022
 	return 
 endf 
 
-def node_023
+def node_023 : 17
 	-> action#09(2,6,0,1000,400) 
 	return 
 endf 

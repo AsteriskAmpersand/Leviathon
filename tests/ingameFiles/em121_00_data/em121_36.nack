@@ -1,14 +1,14 @@
 importactions Behemoth as behemoth
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	>> Global.node_041 
 	self.enraged() >> node_002 => reset 
 	self.fatigued() >> node_003 => reset 
 	>> node_001 => reset 
 endf 
 
-def node_001
+def node_001 : 2
 	if [RegisterVar1 == 1] 
 		random (20) >> Global.node_065 
 		elser (8) >> Global.node_056 
@@ -42,12 +42,12 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 3
 	>> node_001 
 	return 
 endf 
 
-def node_003
+def node_003 : 4
 	>> node_001 
 	return 
 endf 

@@ -1,7 +1,7 @@
 importactions Apceros as apceros
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	function#54() 
 	if function#103() 
 		conclude 
@@ -38,7 +38,7 @@ def node_000
 	conclude 
 endf 
 
-def node_001
+def node_001 : 9
 	if function#77() 
 		function#52(66) 
 	else 
@@ -47,7 +47,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 10
 	if function#77() 
 		function#52(66) 
 	else 
@@ -60,7 +60,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 14
 	if function#77() 
 		function#52(66) 
 	else 
@@ -69,7 +69,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 12
 	if function#3A() 
 		self.targetEnemy(target_em.random_player_or_cat) 
 		>> Global.node_004 
@@ -95,7 +95,7 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 11
 	if self.distance_2d_to_target().gt(2000) 
 		>> Global.node_015 
 		conclude 
@@ -125,7 +125,7 @@ def node_005
 	return 
 endf 
 
-def node_006
+def node_006 : 15
 	if self.distance_2d_to_target().gt(2000) 
 		>> Global.node_015 
 		conclude 
@@ -167,7 +167,7 @@ def node_006
 	return 
 endf 
 
-def node_007
+def node_007 : 16
 	>> node_009 
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.distance_2d_to_target().leq(1000) 
@@ -178,7 +178,7 @@ def node_007
 	return 
 endf 
 
-def node_008
+def node_008 : 17
 	if self.distance_2d_to_target().leq(1000) 
 	else 
 		-> apceros.idle_fly(2,1,0,1000,1000) 
@@ -194,7 +194,7 @@ def node_008
 	return 
 endf 
 
-def node_009
+def node_009 : 18
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.distance_2d_to_target().leq(600) 
 	else 
@@ -213,7 +213,7 @@ def node_009
 	return 
 endf 
 
-def node_010
+def node_010 : 21
 	if self.distance_2d_to_target().leq(600) 
 		if self.angle_2d_cw_between(90,270) 
 			random (70) >> Global.node_034 

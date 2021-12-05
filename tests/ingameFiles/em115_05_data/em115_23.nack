@@ -1,12 +1,12 @@
 importactions Blackveil_Vaal_Hazak as blackveil_vaal_hazak
 
-def node_000
+def node_000 : 1
 	self.targetEnemy(target_em.closest_entity) 
 	>> node_001 
 	conclude 
 endf 
 
-def node_001
+def node_001 : 2
 	if self.target_is(em.Savage_Deviljho) 
 		>> node_002 
 		-> blackveil_vaal_hazak.grapple_with_em043_05_mediation() 
@@ -20,7 +20,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 3
 	if self.flying() 
 		-> blackveil_vaal_hazak.landing() 
 	endif 

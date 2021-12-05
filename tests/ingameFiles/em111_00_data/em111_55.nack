@@ -1,10 +1,10 @@
 importactions Legiana as legiana
 
-def node_000
+def node_000 : 37
 	conclude 
 endf 
 
-def node_001
+def node_001 : 222
 	if self.flying() 
 		if function#AF(5000) 
 			-> legiana.landing() 
@@ -16,7 +16,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 223
 	if self.flying() 
 	else 
 		-> legiana.take_off() 
@@ -24,7 +24,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 411
 	self.targetArea(target_area.area_aerial_center) 
 	>> node_025 
 	self.targetArea(target_area.area_center) 
@@ -32,7 +32,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 198
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		if self.fatigued() 
@@ -45,7 +45,7 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 520
 	>> node_340 
 	self.targetArea(target_area.nearest_entrance) 
 	if self.distance_3d_to_target().leq(600) 
@@ -60,7 +60,7 @@ def node_005
 	return 
 endf 
 
-def node_006
+def node_006 : 521
 	>> node_340 
 	self.targetArea(target_area.area_center) 
 	if self.distance_3d_to_target().leq(600) 
@@ -75,7 +75,7 @@ def node_006
 	return 
 endf 
 
-def node_007
+def node_007 : 522
 	>> node_340 
 	self.targetArea(39) 
 	if self.distance_3d_to_target().leq(600) 
@@ -90,7 +90,7 @@ def node_007
 	return 
 endf 
 
-def node_008
+def node_008 : 356
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> legiana.dying_walk(2,0,5,1500) 
@@ -99,7 +99,7 @@ def node_008
 	return 
 endf 
 
-def node_009
+def node_009 : 194
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		if self.fatigued() 
@@ -112,7 +112,7 @@ def node_009
 	return 
 endf 
 
-def node_010
+def node_010 : 272
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		if self.fatigued() 
@@ -140,7 +140,7 @@ def node_010
 	return 
 endf 
 
-def node_011
+def node_011 : 597
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		if self.fatigued() 
@@ -184,7 +184,7 @@ def node_011
 	return 
 endf 
 
-def node_012
+def node_012 : 598
 	if self.distance_2d_to_target().leq(600) 
 	else 
 		if self.fatigued() 
@@ -212,7 +212,7 @@ def node_012
 	return 
 endf 
 
-def node_013
+def node_013 : 599
 	if self.distance_2d_to_target().leq(600) 
 	else 
 		if self.fatigued() 
@@ -256,7 +256,7 @@ def node_013
 	return 
 endf 
 
-def node_014
+def node_014 : 343
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> legiana.dying_walk_fly(2,1,5,3000,500) 
@@ -265,7 +265,7 @@ def node_014
 	return 
 endf 
 
-def node_015
+def node_015 : 344
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> legiana.dying_glide_direct_move(2,1,5,3000,500) 
@@ -274,7 +274,7 @@ def node_015
 	return 
 endf 
 
-def node_016
+def node_016 : 345
 	if self.distance_3d_to_target().leq(1000) 
 	else 
 		-> legiana.dying_glide_direct_move(2,1,5,3000,900) 
@@ -283,7 +283,7 @@ def node_016
 	return 
 endf 
 
-def node_017
+def node_017 : 346
 	if self.distance_2d_to_target().leq(600) 
 	else 
 		-> legiana.glide_combat(2,1,5,3000,500) 
@@ -292,7 +292,7 @@ def node_017
 	return 
 endf 
 
-def node_018
+def node_018 : 347
 	if self.distance_2d_to_target().leq(1000) 
 	else 
 		-> legiana.glide_combat(2,1,5,3000,900) 
@@ -301,7 +301,7 @@ def node_018
 	return 
 endf 
 
-def node_019
+def node_019 : 401
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> legiana.glide(2,1,5,3000,500) 
@@ -310,7 +310,7 @@ def node_019
 	return 
 endf 
 
-def node_020
+def node_020 : 402
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> legiana.glide_direct_move(2,1,5,3000,500) 
@@ -319,7 +319,7 @@ def node_020
 	return 
 endf 
 
-def node_021
+def node_021 : 403
 	if self.distance_3d_to_target().leq(1000) 
 	else 
 		-> legiana.glide_direct_move(2,1,5,3000,900) 
@@ -328,7 +328,7 @@ def node_021
 	return 
 endf 
 
-def node_022
+def node_022 : 404
 	if self.distance_2d_to_target().leq(600) 
 	else 
 		-> legiana.glide_combat(2,1,5,3000,500) 
@@ -337,7 +337,7 @@ def node_022
 	return 
 endf 
 
-def node_023
+def node_023 : 405
 	if self.distance_2d_to_target().leq(1000) 
 	else 
 		-> legiana.glide_combat(2,1,5,3000,900) 
@@ -346,7 +346,7 @@ def node_023
 	return 
 endf 
 
-def node_024
+def node_024 : 196
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> legiana.glide(2,1,0,3000,500) 
@@ -355,7 +355,7 @@ def node_024
 	return 
 endf 
 
-def node_025
+def node_025 : 195
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> legiana.glide_direct_move(2,1,0,3000,500) 
@@ -364,7 +364,7 @@ def node_025
 	return 
 endf 
 
-def node_026
+def node_026 : 279
 	if self.distance_3d_to_target().leq(1000) 
 	else 
 		-> legiana.glide_direct_move(2,1,0,3000,900) 
@@ -373,7 +373,7 @@ def node_026
 	return 
 endf 
 
-def node_027
+def node_027 : 524
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> legiana.glide_direct_move(2,1,0,1500,500) 
@@ -389,7 +389,7 @@ def node_027
 	return 
 endf 
 
-def node_028
+def node_028 : 197
 	if self.distance_2d_to_target().leq(600) 
 	else 
 		-> legiana.glide_combat(2,1,0,3000,500) 
@@ -398,7 +398,7 @@ def node_028
 	return 
 endf 
 
-def node_029
+def node_029 : 280
 	if self.distance_2d_to_target().leq(1000) 
 	else 
 		-> legiana.glide_combat(2,1,0,3000,900) 
@@ -407,7 +407,7 @@ def node_029
 	return 
 endf 
 
-def node_030
+def node_030 : 525
 	if self.distance_2d_to_target().leq(600) 
 	else 
 		-> legiana.glide_combat(1,2,0,500,1500) 
@@ -423,7 +423,7 @@ def node_030
 	return 
 endf 
 
-def node_031
+def node_031 : 257
 	if self.distance_3d_to_target().leq(1000) 
 	else 
 		-> legiana.glide_direct_move(2,1,0,3000,700) 
@@ -447,7 +447,7 @@ def node_031
 	return 
 endf 
 
-def node_032
+def node_032 : 256
 	if self.distance_2d_to_target().leq(1000) 
 	else 
 		-> legiana.glide_combat(2,0,0,3000) 
@@ -471,14 +471,14 @@ def node_032
 	return 
 endf 
 
-def node_033
+def node_033 : 579
 	>> node_001 
 	-> legiana.take_off_switch_pattern_by_dist() 
 	>> node_026 
 	return 
 endf 
 
-def node_034
+def node_034 : 398
 	if self.flying() 
 		-> legiana.sudden_drop() 
 	else 
@@ -487,13 +487,13 @@ def node_034
 	return 
 endf 
 
-def node_035
+def node_035 : 400
 	>> node_002 
 	-> legiana.sudden_drop() 
 	return 
 endf 
 
-def node_036
+def node_036 : 324
 	if self.flying() 
 		-> legiana.threat_fly() 
 	else 
@@ -502,7 +502,7 @@ def node_036
 	return 
 endf 
 
-def node_037
+def node_037 : 325
 	if self.flying() 
 		-> legiana.threat_short_fly() 
 	else 
@@ -511,7 +511,7 @@ def node_037
 	return 
 endf 
 
-def node_038
+def node_038 : 669
 	if function#AB() 
 		function#AA() 
 		>> node_037 
@@ -520,7 +520,7 @@ def node_038
 	return 
 endf 
 
-def node_039
+def node_039 : 328
 	if self.flying() 
 		-> legiana.half_lost_search_front_fly() 
 	else 
@@ -529,7 +529,7 @@ def node_039
 	return 
 endf 
 
-def node_040
+def node_040 : 330
 	if self.flying() 
 		-> legiana.half_lost_search_back_fly() 
 	else 
@@ -538,7 +538,7 @@ def node_040
 	return 
 endf 
 
-def node_041
+def node_041 : 329
 	if self.flying() 
 		-> legiana.lost_search_fly() 
 	else 
@@ -547,7 +547,7 @@ def node_041
 	return 
 endf 
 
-def node_042
+def node_042 : 336
 	>> node_001 
 	if self.in_combat() 
 		-> legiana.idle_tired_combat() 
@@ -559,13 +559,13 @@ def node_042
 	return 
 endf 
 
-def node_043
+def node_043 : 600
 	>> node_001 
 	-> legiana.idle_tired_combat() 
 	return 
 endf 
 
-def node_044
+def node_044 : 337
 	if self.flying() 
 		-> legiana.refresh_fly() 
 	else 
@@ -574,7 +574,7 @@ def node_044
 	return 
 endf 
 
-def node_045
+def node_045 : 369
 	if self.flying() 
 		-> legiana.sniff_s_fly() 
 	else 
@@ -583,7 +583,7 @@ def node_045
 	return 
 endf 
 
-def node_046
+def node_046 : 453
 	if self.flying() 
 		-> legiana.sniff_l_fly() 
 	else 
@@ -592,7 +592,7 @@ def node_046
 	return 
 endf 
 
-def node_047
+def node_047 : 451
 	if self.flying() 
 		-> legiana.lost_search_fly() 
 	else 
@@ -601,7 +601,7 @@ def node_047
 	return 
 endf 
 
-def node_048
+def node_048 : 370
 	if self.flying() 
 		-> legiana.life_search_fly() 
 	else 
@@ -610,7 +610,7 @@ def node_048
 	return 
 endf 
 
-def node_049
+def node_049 : 548
 	if self.flying() 
 		-> legiana.intimidation_fly() 
 	else 
@@ -619,7 +619,7 @@ def node_049
 	return 
 endf 
 
-def node_050
+def node_050 : 530
 	if self.current_quest().is_rank(rank.MR) 
 		>> node_058 
 	elif function#B9() 
@@ -644,7 +644,7 @@ def node_050
 	return 
 endf 
 
-def node_051
+def node_051 : 531
 	if self.current_quest().is_rank(rank.MR) 
 		>> node_059 
 	elif function#B9() 
@@ -669,7 +669,7 @@ def node_051
 	return 
 endf 
 
-def node_052
+def node_052 : 532
 	if self.current_quest().is_rank(rank.MR) 
 		>> node_060 
 	elif function#B9() 
@@ -694,7 +694,7 @@ def node_052
 	return 
 endf 
 
-def node_053
+def node_053 : 533
 	if self.current_quest().is_rank(rank.MR) 
 		>> node_061 
 	elif function#B9() 
@@ -719,7 +719,7 @@ def node_053
 	return 
 endf 
 
-def node_054
+def node_054 : 534
 	if self.current_quest().is_rank(rank.MR) 
 		>> node_062 
 	elif function#B9() 
@@ -744,7 +744,7 @@ def node_054
 	return 
 endf 
 
-def node_055
+def node_055 : 535
 	if self.current_quest().is_rank(rank.MR) 
 		>> node_063 
 	elif function#B9() 
@@ -769,7 +769,7 @@ def node_055
 	return 
 endf 
 
-def node_056
+def node_056 : 536
 	if self.current_quest().is_rank(rank.MR) 
 		>> node_064 
 	elif function#B9() 
@@ -794,7 +794,7 @@ def node_056
 	return 
 endf 
 
-def node_057
+def node_057 : 537
 	if self.current_quest().is_rank(rank.MR) 
 		>> node_065 
 	elif function#B9() 
@@ -819,7 +819,7 @@ def node_057
 	return 
 endf 
 
-def node_058
+def node_058 : 562
 	if self.poisoned() 
 		-> legiana.turn_left_g2g_breaked() 
 	elif self.part(3).is_broken(0) 
@@ -834,7 +834,7 @@ def node_058
 	return 
 endf 
 
-def node_059
+def node_059 : 563
 	if self.poisoned() 
 		-> legiana.turn_right_g2g_breaked() 
 	elif self.part(2).is_broken(0) 
@@ -849,7 +849,7 @@ def node_059
 	return 
 endf 
 
-def node_060
+def node_060 : 564
 	if self.poisoned() 
 		-> legiana.turn_left_g2f_breaked() 
 	elif self.part(3).is_broken(0) 
@@ -864,7 +864,7 @@ def node_060
 	return 
 endf 
 
-def node_061
+def node_061 : 565
 	if self.poisoned() 
 		-> legiana.turn_right_g2f_breaked() 
 	elif self.part(2).is_broken(0) 
@@ -879,7 +879,7 @@ def node_061
 	return 
 endf 
 
-def node_062
+def node_062 : 566
 	if self.poisoned() 
 		-> legiana.turn_left_f2g_breaked() 
 	elif self.part(3).is_broken(0) 
@@ -894,7 +894,7 @@ def node_062
 	return 
 endf 
 
-def node_063
+def node_063 : 567
 	if self.poisoned() 
 		-> legiana.turn_right_f2g_breaked() 
 	elif self.part(2).is_broken(0) 
@@ -909,7 +909,7 @@ def node_063
 	return 
 endf 
 
-def node_064
+def node_064 : 568
 	if self.poisoned() 
 		-> legiana.turn_left_f2f_breaked() 
 	elif self.part(3).is_broken(0) 
@@ -924,7 +924,7 @@ def node_064
 	return 
 endf 
 
-def node_065
+def node_065 : 569
 	if self.poisoned() 
 		-> legiana.turn_right_f2f_breaked() 
 	elif self.part(2).is_broken(0) 
@@ -939,7 +939,7 @@ def node_065
 	return 
 endf 
 
-def node_066
+def node_066 : 554
 	if self.poisoned() 
 		-> legiana.slow_turn_left_g2g_breaked() 
 	elif self.part(3).is_broken(0) 
@@ -954,7 +954,7 @@ def node_066
 	return 
 endf 
 
-def node_067
+def node_067 : 555
 	if self.poisoned() 
 		-> legiana.slow_turn_right_g2g_breaked() 
 	elif self.part(2).is_broken(0) 
@@ -969,7 +969,7 @@ def node_067
 	return 
 endf 
 
-def node_068
+def node_068 : 556
 	if self.poisoned() 
 		-> legiana.slow_turn_left_g2f_breaked() 
 	elif self.part(3).is_broken(0) 
@@ -984,7 +984,7 @@ def node_068
 	return 
 endf 
 
-def node_069
+def node_069 : 557
 	if self.poisoned() 
 		-> legiana.slow_turn_right_g2f_breaked() 
 	elif self.part(2).is_broken(0) 
@@ -999,7 +999,7 @@ def node_069
 	return 
 endf 
 
-def node_070
+def node_070 : 558
 	if self.poisoned() 
 		-> legiana.slow_turn_left_f2g_breaked() 
 	elif self.part(3).is_broken(0) 
@@ -1014,7 +1014,7 @@ def node_070
 	return 
 endf 
 
-def node_071
+def node_071 : 559
 	if self.poisoned() 
 		-> legiana.slow_turn_right_f2g_breaked() 
 	elif self.part(2).is_broken(0) 
@@ -1029,7 +1029,7 @@ def node_071
 	return 
 endf 
 
-def node_072
+def node_072 : 560
 	if self.poisoned() 
 		-> legiana.slow_turn_left_f2f_breaked() 
 	elif self.part(3).is_broken(0) 
@@ -1044,7 +1044,7 @@ def node_072
 	return 
 endf 
 
-def node_073
+def node_073 : 561
 	if self.poisoned() 
 		-> legiana.slow_turn_right_f2f_breaked() 
 	elif self.part(2).is_broken(0) 
@@ -1059,7 +1059,7 @@ def node_073
 	return 
 endf 
 
-def node_074
+def node_074 : 443
 	>> node_001 
 	if self.angle_2d_cw_between(0,180) 
 		>> node_050 
@@ -1069,7 +1069,7 @@ def node_074
 	return 
 endf 
 
-def node_075
+def node_075 : 444
 	>> node_001 
 	if self.angle_2d_cw_between(0,180) 
 		>> node_052 
@@ -1079,7 +1079,7 @@ def node_075
 	return 
 endf 
 
-def node_076
+def node_076 : 445
 	>> node_002 
 	if self.angle_2d_cw_between(0,180) 
 		>> node_054 
@@ -1089,7 +1089,7 @@ def node_076
 	return 
 endf 
 
-def node_077
+def node_077 : 446
 	>> node_002 
 	if self.angle_2d_cw_between(0,180) 
 		>> node_056 
@@ -1099,7 +1099,7 @@ def node_077
 	return 
 endf 
 
-def node_078
+def node_078 : 654
 	>> node_001 
 	if self.angle_2d_cw_between(0,180) 
 		>> node_058 
@@ -1109,7 +1109,7 @@ def node_078
 	return 
 endf 
 
-def node_079
+def node_079 : 652
 	>> node_001 
 	if self.angle_2d_cw_between(0,180) 
 		>> node_060 
@@ -1119,7 +1119,7 @@ def node_079
 	return 
 endf 
 
-def node_080
+def node_080 : 655
 	>> node_002 
 	if self.angle_2d_cw_between(0,180) 
 		>> node_062 
@@ -1129,7 +1129,7 @@ def node_080
 	return 
 endf 
 
-def node_081
+def node_081 : 653
 	>> node_002 
 	if self.angle_2d_cw_between(0,180) 
 		>> node_064 
@@ -1139,7 +1139,7 @@ def node_081
 	return 
 endf 
 
-def node_082
+def node_082 : 624
 	>> node_001 
 	if self.angle_2d_cw_between(345,15) 
 		-> legiana.quick_turn() @ comboSetting:1 
@@ -1151,7 +1151,7 @@ def node_082
 	return 
 endf 
 
-def node_083
+def node_083 : 645
 	>> node_001 
 	>> node_010 
 	if self.angle_2d_cw_between(300,60) 
@@ -1162,19 +1162,19 @@ def node_083
 	return 
 endf 
 
-def node_084
+def node_084 : 454
 	>> node_001 
 	-> legiana.hover_rush_g2g() 
 	return 
 endf 
 
-def node_085
+def node_085 : 455
 	>> node_001 
 	-> legiana.hover_rush_g2f() 
 	return 
 endf 
 
-def node_086
+def node_086 : 456
 	>> node_001 
 	>> node_312 
 	-> legiana.moving_kick() 
@@ -1186,7 +1186,7 @@ def node_086
 	return 
 endf 
 
-def node_087
+def node_087 : 620
 	>> node_001 
 	>> node_312 
 	-> legiana.moving_kick_ground_to_fly() 
@@ -1198,7 +1198,7 @@ def node_087
 	return 
 endf 
 
-def node_088
+def node_088 : 540
 	>> node_001 
 	-> legiana.front_attack() 
 	if self.current_quest().is_rank(rank.MR) 
@@ -1211,7 +1211,7 @@ def node_088
 	return 
 endf 
 
-def node_089
+def node_089 : 458
 	>> node_001 
 	if self.angle_2d_cw_between(0,180) 
 		-> legiana.side_attack_r() 
@@ -1221,7 +1221,7 @@ def node_089
 	return 
 endf 
 
-def node_090
+def node_090 : 641
 	>> node_001 
 	if self.angle_2d_cw_between(270,90) 
 		-> legiana.vertical_kick() 
@@ -1231,14 +1231,14 @@ def node_090
 	return 
 endf 
 
-def node_091
+def node_091 : 459
 	>> node_001 
 	>> node_312 
 	-> legiana.bite() 
 	return 
 endf 
 
-def node_092
+def node_092 : 461
 	>> node_001 
 	if self.fatigued() 
 		-> legiana.dash_bite_tired() 
@@ -1248,7 +1248,7 @@ def node_092
 	return 
 endf 
 
-def node_093
+def node_093 : 457
 	>> node_001 
 	if self.distance_2d_to_target().leq(350) 
 	else 
@@ -1263,7 +1263,7 @@ def node_093
 	return 
 endf 
 
-def node_094
+def node_094 : 640
 	>> node_001 
 	-> legiana.vertical_kick() 
 	if self.current_quest().is_rank(rank.MR) 
@@ -1274,7 +1274,7 @@ def node_094
 	return 
 endf 
 
-def node_095
+def node_095 : 460
 	>> node_001 
 	if self.angle_2d_cw_between(0,180) 
 		-> legiana.rolling_tail_attack_l() 
@@ -1284,7 +1284,7 @@ def node_095
 	return 
 endf 
 
-def node_096
+def node_096 : 630
 	>> node_001 
 	if self.angle_2d_cw_between(270,90) 
 		-> legiana.vertical_kick() 
@@ -1294,7 +1294,7 @@ def node_096
 	return 
 endf 
 
-def node_097
+def node_097 : 622
 	if self.distance_2d_to_target().leq(1300) 
 		if self.vertical_distance_to_target().leq(800) 
 			if self.enraged() 
@@ -1322,7 +1322,7 @@ def node_097
 	return 
 endf 
 
-def node_098
+def node_098 : 623
 	if self.flying() 
 	else 
 		if self.distance_2d_to_target().leq(1300) 
@@ -1353,7 +1353,7 @@ def node_098
 	return 
 endf 
 
-def node_099
+def node_099 : 626
 	if self.fatigued() 
 		>> node_100 
 	elif self.enraged() 
@@ -1368,7 +1368,7 @@ def node_099
 	return 
 endf 
 
-def node_100
+def node_100 : 629
 	if self.distance_2d_to_target().leq(1000) 
 		if self.vertical_distance_to_target().leq(800) 
 			if self.fatigued() 
@@ -1408,7 +1408,7 @@ def node_100
 	return 
 endf 
 
-def node_101
+def node_101 : 631
 	if self.distance_2d_to_target().leq(1300) 
 		if self.vertical_distance_to_target().leq(800) 
 			if self.enraged() 
@@ -1433,19 +1433,19 @@ def node_101
 	return 
 endf 
 
-def node_102
+def node_102 : 463
 	>> node_002 
 	-> legiana.hover_rush_f2g() 
 	return 
 endf 
 
-def node_103
+def node_103 : 462
 	>> node_002 
 	-> legiana.hover_rush_f2f() 
 	return 
 endf 
 
-def node_104
+def node_104 : 621
 	>> node_002 
 	>> node_317 
 	-> legiana.moving_kick_fly_to_ground() 
@@ -1457,7 +1457,7 @@ def node_104
 	return 
 endf 
 
-def node_105
+def node_105 : 523
 	>> node_002 
 	>> node_317 
 	-> legiana.moving_kick_fly() 
@@ -1468,7 +1468,7 @@ def node_105
 	return 
 endf 
 
-def node_106
+def node_106 : 541
 	>> node_002 
 	>> node_317 
 	-> legiana.wide_chill_attack() 
@@ -1480,7 +1480,7 @@ def node_106
 	return 
 endf 
 
-def node_107
+def node_107 : 628
 	if self.distance_2d_to_target().leq(400) 
 		>> node_323 
 	else 
@@ -1489,26 +1489,26 @@ def node_107
 	return 
 endf 
 
-def node_108
+def node_108 : 464
 	>> node_002 
 	>> node_327 
 	-> legiana.chill_attack() 
 	return 
 endf 
 
-def node_109
+def node_109 : 625
 	>> node_002 
 	-> legiana.scratch_fly() 
 	return 
 endf 
 
-def node_110
+def node_110 : 632
 	>> node_002 
 	-> legiana.dash_bite_fly() 
 	return 
 endf 
 
-def node_111
+def node_111 : 465
 	>> node_002 
 	-> legiana.vertical_kick_fly() 
 	if self.flying() 
@@ -1522,7 +1522,7 @@ def node_111
 	return 
 endf 
 
-def node_112
+def node_112 : 466
 	>> node_002 
 	if self.angle_2d_cw_between(0,180) 
 		-> legiana.rolling_tail_attack_fly_l() 
@@ -1532,13 +1532,13 @@ def node_112
 	return 
 endf 
 
-def node_113
+def node_113 : 467
 	>> node_002 
 	-> legiana.dash_bite_fly() 
 	return 
 endf 
 
-def node_114
+def node_114 : 635
 	random (50) >> node_077 
 	elser (50) >> node_030 
 	endr 
@@ -1546,7 +1546,7 @@ def node_114
 	return 
 endf 
 
-def node_115
+def node_115 : 627
 	if self.fatigued() 
 		>> node_001 
 	elif self.enraged() 
@@ -1561,7 +1561,7 @@ def node_115
 	return 
 endf 
 
-def node_116
+def node_116 : 633
 	if self.distance_2d_to_target().leq(1000) 
 		if self.vertical_distance_to_target().leq(800) 
 			if self.enraged() 
@@ -1587,7 +1587,7 @@ def node_116
 	return 
 endf 
 
-def node_117
+def node_117 : 634
 	if self.distance_2d_to_target().leq(1300) 
 		if self.vertical_distance_to_target().leq(800) 
 			if self.enraged() 
@@ -1613,7 +1613,7 @@ def node_117
 	return 
 endf 
 
-def node_118
+def node_118 : 658
 	if self.target(44) 
 	else 
 		if self.distance_2d_to_target().leq(1000) 
@@ -1651,7 +1651,7 @@ def node_118
 	return 
 endf 
 
-def node_119
+def node_119 : 659
 	if self.flying() 
 		>> node_115 
 	else 
@@ -1660,7 +1660,7 @@ def node_119
 	return 
 endf 
 
-def node_120
+def node_120 : 660
 	if self.target(44) 
 	else 
 		if self.distance_2d_to_target().leq(1000) 
@@ -1688,7 +1688,7 @@ def node_120
 	return 
 endf 
 
-def node_121
+def node_121 : 664
 	if self.target(44) 
 	else 
 		if self.distance_2d_to_target().leq(1000) 
@@ -1716,7 +1716,7 @@ def node_121
 	return 
 endf 
 
-def node_122
+def node_122 : 661
 	if self.flying() 
 		random (65) >> node_080 
 		elser (35) >> node_081 
@@ -1730,7 +1730,7 @@ def node_122
 	return 
 endf 
 
-def node_123
+def node_123 : 468
 	>> node_001 
 	random (50) >> node_074 
 	elser (50) >> node_084 
@@ -1738,7 +1738,7 @@ def node_123
 	return 
 endf 
 
-def node_124
+def node_124 : 469
 	>> node_001 
 	random (50) >> node_075 
 	elser (50) >> node_085 
@@ -1746,7 +1746,7 @@ def node_124
 	return 
 endf 
 
-def node_125
+def node_125 : 470
 	>> node_002 
 	random (50) >> node_076 
 	elser (50) >> node_102 
@@ -1754,7 +1754,7 @@ def node_125
 	return 
 endf 
 
-def node_126
+def node_126 : 471
 	>> node_002 
 	random (50) >> node_077 
 	elser (50) >> node_103 
@@ -1762,7 +1762,7 @@ def node_126
 	return 
 endf 
 
-def node_127
+def node_127 : 517
 	>> node_001 
 	if self.angle_2d_cw_between(0,180) 
 		>> node_050 
@@ -1776,7 +1776,7 @@ def node_127
 	return 
 endf 
 
-def node_128
+def node_128 : 518
 	>> node_001 
 	if self.angle_2d_cw_between(0,180) 
 		>> node_050 
@@ -1790,7 +1790,7 @@ def node_128
 	return 
 endf 
 
-def node_129
+def node_129 : 486
 	>> node_001 
 	if self.angle_2d_cw_between(0,180) 
 		>> node_052 
@@ -1804,7 +1804,7 @@ def node_129
 	return 
 endf 
 
-def node_130
+def node_130 : 487
 	>> node_001 
 	if self.angle_2d_cw_between(0,180) 
 		>> node_052 
@@ -1818,7 +1818,7 @@ def node_130
 	return 
 endf 
 
-def node_131
+def node_131 : 515
 	>> node_002 
 	if self.angle_2d_cw_between(0,180) 
 		>> node_054 
@@ -1832,7 +1832,7 @@ def node_131
 	return 
 endf 
 
-def node_132
+def node_132 : 516
 	>> node_002 
 	if self.angle_2d_cw_between(0,180) 
 		>> node_054 
@@ -1846,7 +1846,7 @@ def node_132
 	return 
 endf 
 
-def node_133
+def node_133 : 488
 	>> node_002 
 	if self.angle_2d_cw_between(0,180) 
 		>> node_056 
@@ -1860,7 +1860,7 @@ def node_133
 	return 
 endf 
 
-def node_134
+def node_134 : 489
 	>> node_002 
 	if self.angle_2d_cw_between(0,180) 
 		>> node_056 
@@ -1874,7 +1874,7 @@ def node_134
 	return 
 endf 
 
-def node_135
+def node_135 : 499
 	>> node_001 
 	>> node_085 
 	>> node_147 
@@ -1882,7 +1882,7 @@ def node_135
 	return 
 endf 
 
-def node_136
+def node_136 : 500
 	>> node_001 
 	>> node_085 
 	>> node_147 
@@ -1890,7 +1890,7 @@ def node_136
 	return 
 endf 
 
-def node_137
+def node_137 : 501
 	>> node_002 
 	>> node_103 
 	>> node_147 
@@ -1898,7 +1898,7 @@ def node_137
 	return 
 endf 
 
-def node_138
+def node_138 : 502
 	>> node_002 
 	>> node_103 
 	>> node_147 
@@ -1906,7 +1906,7 @@ def node_138
 	return 
 endf 
 
-def node_139
+def node_139 : 491
 	>> node_001 
 	>> node_085 
 	>> node_147 
@@ -1914,7 +1914,7 @@ def node_139
 	return 
 endf 
 
-def node_140
+def node_140 : 492
 	>> node_001 
 	>> node_085 
 	>> node_147 
@@ -1922,7 +1922,7 @@ def node_140
 	return 
 endf 
 
-def node_141
+def node_141 : 493
 	>> node_002 
 	>> node_103 
 	>> node_147 
@@ -1930,7 +1930,7 @@ def node_141
 	return 
 endf 
 
-def node_142
+def node_142 : 494
 	>> node_002 
 	>> node_103 
 	>> node_147 
@@ -1938,7 +1938,7 @@ def node_142
 	return 
 endf 
 
-def node_143
+def node_143 : 495
 	>> node_001 
 	>> node_075 
 	>> node_147 
@@ -1946,7 +1946,7 @@ def node_143
 	return 
 endf 
 
-def node_144
+def node_144 : 496
 	>> node_001 
 	>> node_075 
 	>> node_147 
@@ -1954,7 +1954,7 @@ def node_144
 	return 
 endf 
 
-def node_145
+def node_145 : 497
 	>> node_002 
 	>> node_077 
 	>> node_147 
@@ -1962,7 +1962,7 @@ def node_145
 	return 
 endf 
 
-def node_146
+def node_146 : 498
 	>> node_002 
 	>> node_077 
 	>> node_147 
@@ -1970,7 +1970,7 @@ def node_146
 	return 
 endf 
 
-def node_147
+def node_147 : 479
 	if self.distance_2d_to_target().leq(1300) 
 		if self.vertical_distance_to_target().leq(800) 
 		else 
@@ -1990,7 +1990,7 @@ def node_147
 	return 
 endf 
 
-def node_148
+def node_148 : 545
 	if self.current_quest().is_rank(rank.MR) 
 		>> node_150 
 	elif function#B9() 
@@ -2003,7 +2003,7 @@ def node_148
 	return 
 endf 
 
-def node_149
+def node_149 : 513
 	if self.flying() 
 		random (50) >> node_076 
 		elser (50) >> node_077 
@@ -2016,7 +2016,7 @@ def node_149
 	return 
 endf 
 
-def node_150
+def node_150 : 485
 	if self.flying() 
 		random (60) >> node_125 
 		elser (40) >> node_126 
@@ -2029,7 +2029,7 @@ def node_150
 	return 
 endf 
 
-def node_151
+def node_151 : 546
 	if self.current_quest().is_rank(rank.MR) 
 		>> node_153 
 	elif function#B9() 
@@ -2042,7 +2042,7 @@ def node_151
 	return 
 endf 
 
-def node_152
+def node_152 : 514
 	if self.flying() 
 		random (25) >> node_131 
 		elser (25) >> node_133 
@@ -2059,7 +2059,7 @@ def node_152
 	return 
 endf 
 
-def node_153
+def node_153 : 490
 	if self.flying() 
 		random (10) >> node_133 
 		elser (10) >> node_137 
@@ -2084,7 +2084,7 @@ def node_153
 	return 
 endf 
 
-def node_154
+def node_154 : 543
 	if self.enraged() 
 		random (100) >> node_158 
 		elser (0) >> node_155 
@@ -2097,7 +2097,7 @@ def node_154
 	return 
 endf 
 
-def node_155
+def node_155 : 542
 	if self.flying() 
 		>> node_157 
 	else 
@@ -2106,7 +2106,7 @@ def node_155
 	return 
 endf 
 
-def node_156
+def node_156 : 538
 	if self.distance_2d_to_target().leq(450) 
 		random (50) >> node_094 
 		elser (50) >> node_088 
@@ -2121,7 +2121,7 @@ def node_156
 	return 
 endf 
 
-def node_157
+def node_157 : 539
 	if self.distance_2d_to_target().leq(600) 
 		if self.angle_2d_cw_between(270,90) 
 			random (55) >> node_113 
@@ -2147,7 +2147,7 @@ def node_157
 	return 
 endf 
 
-def node_158
+def node_158 : 482
 	if self.flying() 
 		>> node_160 
 	else 
@@ -2156,7 +2156,7 @@ def node_158
 	return 
 endf 
 
-def node_159
+def node_159 : 483
 	if self.distance_2d_to_target().leq(350) 
 		random (50) >> node_094 
 		elser (25) >> node_088 
@@ -2172,7 +2172,7 @@ def node_159
 	return 
 endf 
 
-def node_160
+def node_160 : 484
 	if self.distance_2d_to_target().leq(600) 
 		if self.angle_2d_cw_between(270,90) 
 			random (55) >> node_113 
@@ -2198,7 +2198,7 @@ def node_160
 	return 
 endf 
 
-def node_161
+def node_161 : 644
 	if self.flying() 
 		>> node_163 
 	else 
@@ -2207,7 +2207,7 @@ def node_161
 	return 
 endf 
 
-def node_162
+def node_162 : 642
 	if self.distance_2d_to_target().leq(1000) 
 		random (50) >> node_086 
 		elser (50) >> node_095 
@@ -2220,7 +2220,7 @@ def node_162
 	return 
 endf 
 
-def node_163
+def node_163 : 643
 	if self.distance_2d_to_target().leq(1000) 
 		random (50) >> node_104 
 		elser (50) >> node_112 
@@ -2233,21 +2233,21 @@ def node_163
 	return 
 endf 
 
-def node_164
+def node_164 : 505
 	>> node_148 
 	>> node_154 
 	>> node_120 
 	return 
 endf 
 
-def node_165
+def node_165 : 506
 	>> node_151 
 	>> node_154 
 	>> node_120 
 	return 
 endf 
 
-def node_166
+def node_166 : 636
 	if self.current_quest().is_rank(rank.MR) 
 		>> node_124 
 	elif function#B9() 
@@ -2261,7 +2261,7 @@ def node_166
 	return 
 endf 
 
-def node_167
+def node_167 : 656
 	if self.current_quest().is_rank(rank.MR) 
 		random (50) >> node_164 
 		elser (25) >> node_165 
@@ -2285,7 +2285,7 @@ def node_167
 	return 
 endf 
 
-def node_168
+def node_168 : 639
 	if self.current_quest().is_rank(rank.MR) 
 		random (50) >> node_164 
 		elser (25) >> node_165 
@@ -2305,7 +2305,7 @@ def node_168
 	return 
 endf 
 
-def node_169
+def node_169 : 507
 	if self.current_quest().is_rank(rank.MR) 
 		>> node_124 
 	elif function#B9() 
@@ -2321,14 +2321,14 @@ def node_169
 	return 
 endf 
 
-def node_170
+def node_170 : 508
 	>> node_148 
 	>> node_154 
 	>> node_120 
 	return 
 endf 
 
-def node_171
+def node_171 : 638
 	>> node_327 
 	>> node_108 
 	>> node_161 
@@ -2336,7 +2336,7 @@ def node_171
 	return 
 endf 
 
-def node_172
+def node_172 : 509
 	>> node_327 
 	>> node_108 
 	>> node_147 
@@ -2346,14 +2346,14 @@ def node_172
 	return 
 endf 
 
-def node_173
+def node_173 : 510
 	>> node_151 
 	>> node_154 
 	>> node_120 
 	return 
 endf 
 
-def node_174
+def node_174 : 657
 	if self.current_quest().is_rank(rank.MR) 
 		random (50) >> node_170 
 		elser (25) >> node_172 
@@ -2377,7 +2377,7 @@ def node_174
 	return 
 endf 
 
-def node_175
+def node_175 : 651
 	if self.current_quest().is_rank(rank.MR) 
 		random (50) >> node_170 
 		elser (25) >> node_172 
@@ -2397,7 +2397,7 @@ def node_175
 	return 
 endf 
 
-def node_176
+def node_176 : 637
 	if self.current_quest().is_rank(rank.MR) 
 		>> node_126 
 	elif function#B9() 
@@ -2411,7 +2411,7 @@ def node_176
 	return 
 endf 
 
-def node_177
+def node_177 : 511
 	if self.current_quest().is_rank(rank.MR) 
 		>> node_126 
 	elif function#B9() 
@@ -2427,21 +2427,21 @@ def node_177
 	return 
 endf 
 
-def node_178
+def node_178 : 473
 	>> node_148 
 	>> node_154 
 	>> node_120 
 	return 
 endf 
 
-def node_179
+def node_179 : 476
 	>> node_151 
 	>> node_154 
 	>> node_120 
 	return 
 endf 
 
-def node_180
+def node_180 : 472
 	>> node_124 
 	>> node_108 
 	>> node_147 
@@ -2451,14 +2451,14 @@ def node_180
 	return 
 endf 
 
-def node_181
+def node_181 : 474
 	>> node_148 
 	>> node_154 
 	>> node_120 
 	return 
 endf 
 
-def node_182
+def node_182 : 475
 	>> node_327 
 	>> node_108 
 	>> node_147 
@@ -2468,14 +2468,14 @@ def node_182
 	return 
 endf 
 
-def node_183
+def node_183 : 477
 	>> node_151 
 	>> node_154 
 	>> node_120 
 	return 
 endf 
 
-def node_184
+def node_184 : 478
 	>> node_126 
 	>> node_108 
 	>> node_147 
@@ -2485,13 +2485,13 @@ def node_184
 	return 
 endf 
 
-def node_185
+def node_185 : 206
 	self.targetArea(target_area.nearest_entrance) 
 	>> node_186 
 	return 
 endf 
 
-def node_186
+def node_186 : 424
 	if function#5A(20) 
 		>> node_187 
 	elif function#5A(21) 
@@ -2522,7 +2522,7 @@ def node_186
 	return 
 endf 
 
-def node_187
+def node_187 : 425
 	if self.distance_3d_to_target().leq(12000) 
 		>> node_001 
 		>> node_190 
@@ -2532,7 +2532,7 @@ def node_187
 	return 
 endf 
 
-def node_188
+def node_188 : 426
 	if self.distance_3d_to_target().leq(12000) 
 		>> node_002 
 		>> node_190 
@@ -2542,7 +2542,7 @@ def node_188
 	return 
 endf 
 
-def node_189
+def node_189 : 427
 	if function#AD() 
 		>> node_190 
 	else 
@@ -2551,7 +2551,7 @@ def node_189
 	return 
 endf 
 
-def node_190
+def node_190 : 207
 	if function#5A(10) 
 		>> node_002 
 	elif function#5A(11) 
@@ -2591,7 +2591,7 @@ def node_190
 	return 
 endf 
 
-def node_191
+def node_191 : 208
 	>> node_192 
 	>> node_193 
 	>> node_194 
@@ -2599,7 +2599,7 @@ def node_191
 	return 
 endf 
 
-def node_192
+def node_192 : 209
 	if self.flying() 
 		self.targetArea(target_area.area_aerial_center) 
 		>> node_021 
@@ -2612,7 +2612,7 @@ def node_192
 	return 
 endf 
 
-def node_193
+def node_193 : 210
 	self.targetArea(target_area.nearest_entrance) 
 	if self.flying() 
 		self.targetArea(40) 
@@ -2624,7 +2624,7 @@ def node_193
 	return 
 endf 
 
-def node_194
+def node_194 : 205
 	if function#5A(10) 
 	elif function#5A(11) 
 	elif function#5A(12) 
@@ -2649,7 +2649,7 @@ def node_194
 	return 
 endf 
 
-def node_195
+def node_195 : 278
 	self.targetArea(target_area.nearest_entrance) 
 	if self.flying() 
 		>> node_020 
@@ -2659,7 +2659,7 @@ def node_195
 	return 
 endf 
 
-def node_196
+def node_196 : 199
 	self.targetArea(14) 
 	if function#AD() 
 		>> node_198 
@@ -2670,7 +2670,7 @@ def node_196
 	return 
 endf 
 
-def node_197
+def node_197 : 673
 	if function#C2() 
 		self.targetArea(target_area.next_exit) 
 	else 
@@ -2690,7 +2690,7 @@ def node_197
 	return 
 endf 
 
-def node_198
+def node_198 : 200
 	if self.flying() 
 		self.targetArea(40) 
 		>> node_025 
@@ -2700,13 +2700,13 @@ def node_198
 	return 
 endf 
 
-def node_199
+def node_199 : 201
 	>> node_200 
 	>> node_202 
 	return 
 endf 
 
-def node_200
+def node_200 : 581
 	if self.flying() 
 		self.targetArea(target_area.area_aerial_center) 
 		>> node_026 
@@ -2717,7 +2717,7 @@ def node_200
 	return 
 endf 
 
-def node_201
+def node_201 : 580
 	self.targetArea(target_area.area_center) 
 	>> node_009 
 	self.targetArea(target_area.area_aerial_center) 
@@ -2725,7 +2725,7 @@ def node_201
 	return 
 endf 
 
-def node_202
+def node_202 : 203
 	if function#C2() 
 		self.targetArea(target_area.next_exit) 
 	else 
@@ -2740,7 +2740,7 @@ def node_202
 	return 
 endf 
 
-def node_203
+def node_203 : 204
 	self.targetArea(target_area.area_center) 
 	if self.flying() 
 		if self.fatigued() 
@@ -2753,7 +2753,7 @@ def node_203
 	return 
 endf 
 
-def node_204
+def node_204 : 349
 	self.targetArea(24) 
 	if function#AD() 
 		>> node_205 
@@ -2763,14 +2763,14 @@ def node_204
 	return 
 endf 
 
-def node_205
+def node_205 : 350
 	>> node_001 
 	self.targetArea(24) 
 	>> node_008 
 	return 
 endf 
 
-def node_206
+def node_206 : 351
 	>> node_207 
 	>> node_208 
 	>> node_209 
@@ -2778,7 +2778,7 @@ def node_206
 	return 
 endf 
 
-def node_207
+def node_207 : 352
 	if self.flying() 
 		self.targetArea(target_area.area_aerial_center) 
 		>> node_016 
@@ -2791,7 +2791,7 @@ def node_207
 	return 
 endf 
 
-def node_208
+def node_208 : 353
 	self.targetArea(24) 
 	if self.flying() 
 		self.targetArea(40) 
@@ -2803,7 +2803,7 @@ def node_208
 	return 
 endf 
 
-def node_209
+def node_209 : 354
 	if self.flying() 
 		self.targetArea(target_area.area_center) 
 		>> node_001 
@@ -2812,14 +2812,14 @@ def node_209
 	return 
 endf 
 
-def node_210
+def node_210 : 355
 	>> node_001 
 	self.targetArea(24) 
 	>> node_008 
 	return 
 endf 
 
-def node_211
+def node_211 : 362
 	if function#AD() 
 		>> node_212 
 	else 
@@ -2828,7 +2828,7 @@ def node_211
 	return 
 endf 
 
-def node_212
+def node_212 : 363
 	if self.flying() 
 		>> node_025 
 	else 
@@ -2841,14 +2841,14 @@ def node_212
 	return 
 endf 
 
-def node_213
+def node_213 : 364
 	>> node_214 
 	>> node_215 
 	>> node_216 
 	return 
 endf 
 
-def node_214
+def node_214 : 365
 	if self.flying() 
 		self.targetArea(target_area.area_aerial_center) 
 		>> node_026 
@@ -2865,7 +2865,7 @@ def node_214
 	return 
 endf 
 
-def node_215
+def node_215 : 366
 	if self.flying() 
 		self.targetArea(40) 
 		>> node_024 
@@ -2880,7 +2880,7 @@ def node_215
 	return 
 endf 
 
-def node_216
+def node_216 : 367
 	if self.flying() 
 		self.targetArea(target_area.area_center) 
 		>> node_001 
@@ -2889,7 +2889,7 @@ def node_216
 	return 
 endf 
 
-def node_217
+def node_217 : 670
 	self.targetArea(target_area.area_center) 
 	if self.flying() 
 		if self.fatigued() 
@@ -2902,7 +2902,7 @@ def node_217
 	return 
 endf 
 
-def node_218
+def node_218 : 368
 	if self.flying() 
 		>> node_025 
 	else 
@@ -2915,7 +2915,7 @@ def node_218
 	return 
 endf 
 
-def node_219
+def node_219 : 309
 	if self.flying() 
 		-> legiana.turn_fly() 
 	else 
@@ -2924,7 +2924,7 @@ def node_219
 	return 
 endf 
 
-def node_220
+def node_220 : 310
 	if self.angle_2d_cw_between(15,345) 
 		>> node_219 
 	else 
@@ -2932,7 +2932,7 @@ def node_220
 	return 
 endf 
 
-def node_221
+def node_221 : 311
 	if self.angle_2d_cw_between(30,330) 
 		>> node_219 
 	else 
@@ -2940,7 +2940,7 @@ def node_221
 	return 
 endf 
 
-def node_222
+def node_222 : 312
 	if self.angle_2d_cw_between(60,300) 
 		>> node_219 
 	else 
@@ -2948,7 +2948,7 @@ def node_222
 	return 
 endf 
 
-def node_223
+def node_223 : 313
 	if self.angle_2d_cw_between(90,270) 
 		>> node_219 
 	else 
@@ -2956,7 +2956,7 @@ def node_223
 	return 
 endf 
 
-def node_224
+def node_224 : 357
 	if self.flying() 
 		>> node_323 
 	else 
@@ -2965,7 +2965,7 @@ def node_224
 	return 
 endf 
 
-def node_225
+def node_225 : 358
 	if self.angle_2d_cw_between(15,345) 
 		>> node_224 
 	else 
@@ -2973,7 +2973,7 @@ def node_225
 	return 
 endf 
 
-def node_226
+def node_226 : 359
 	if self.angle_2d_cw_between(30,330) 
 		>> node_224 
 	else 
@@ -2981,7 +2981,7 @@ def node_226
 	return 
 endf 
 
-def node_227
+def node_227 : 360
 	if self.angle_2d_cw_between(60,300) 
 		>> node_224 
 	else 
@@ -2989,7 +2989,7 @@ def node_227
 	return 
 endf 
 
-def node_228
+def node_228 : 361
 	if self.angle_2d_cw_between(90,270) 
 		>> node_224 
 	else 
@@ -2997,31 +2997,31 @@ def node_228
 	return 
 endf 
 
-def node_229
+def node_229 : 226
 	>> node_001 
 	-> legiana.lost_search() 
 	return 
 endf 
 
-def node_230
+def node_230 : 227
 	>> node_001 
 	-> legiana.lost_search() 
 	return 
 endf 
 
-def node_231
+def node_231 : 228
 	>> node_001 
 	-> legiana.sniff_combat_s() 
 	return 
 endf 
 
-def node_232
+def node_232 : 229
 	>> node_001 
 	-> legiana.sniff_combat_l() 
 	return 
 endf 
 
-def node_233
+def node_233 : 230
 	>> node_001 
 	if self.enraged() 
 		-> legiana.dash_no_hit(2,1,0,500,650) 
@@ -3033,7 +3033,7 @@ def node_233
 	return 
 endf 
 
-def node_234
+def node_234 : 231
 	>> node_001 
 	if self.enraged() 
 		-> legiana.dash_no_hit(2,1,0,1000,650) 
@@ -3045,7 +3045,7 @@ def node_234
 	return 
 endf 
 
-def node_235
+def node_235 : 232
 	>> node_001 
 	if self.enraged() 
 		-> legiana.peep_grass_search() 
@@ -3055,7 +3055,7 @@ def node_235
 	return 
 endf 
 
-def node_236
+def node_236 : 233
 	>> node_001 
 	if self.target(10) 
 		-> legiana.dash_no_hit(2,0,0,1000) 
@@ -3069,49 +3069,49 @@ def node_236
 	return 
 endf 
 
-def node_237
+def node_237 : 242
 	>> node_001 
 	-> legiana.idle_tired_combat() 
 	return 
 endf 
 
-def node_238
+def node_238 : 234
 	>> node_002 
 	-> legiana.lost_search_fly() 
 	return 
 endf 
 
-def node_239
+def node_239 : 235
 	>> node_002 
 	-> legiana.lost_search_fly() 
 	return 
 endf 
 
-def node_240
+def node_240 : 236
 	>> node_002 
 	-> legiana.sniff_s_fly() 
 	return 
 endf 
 
-def node_241
+def node_241 : 237
 	>> node_002 
 	-> legiana.sniff_l_fly() 
 	return 
 endf 
 
-def node_242
+def node_242 : 238
 	>> node_002 
 	-> legiana.glide_direct_move(2,1,0,1000,800) 
 	return 
 endf 
 
-def node_243
+def node_243 : 239
 	>> node_002 
 	-> legiana.glide_direct_move(2,1,0,2000,800) 
 	return 
 endf 
 
-def node_244
+def node_244 : 240
 	>> node_002 
 	if self.enraged() 
 		-> legiana.vertical_kick_fly() 
@@ -3121,7 +3121,7 @@ def node_244
 	return 
 endf 
 
-def node_245
+def node_245 : 241
 	>> node_002 
 	if self.target(10) 
 		-> legiana.glide_direct_move(2,0,0,1000) 
@@ -3135,7 +3135,7 @@ def node_245
 	return 
 endf 
 
-def node_246
+def node_246 : 282
 	if self.distance_3d_to_target().leq(800) 
 		>> node_301 
 	elif self.distance_3d_to_target().leq(1200) 
@@ -3145,7 +3145,7 @@ def node_246
 	return 
 endf 
 
-def node_247
+def node_247 : 283
 	if self.distance_2d_to_target().leq(800) 
 		random (50) >> node_318 
 		elser (50) >> node_323 
@@ -3160,7 +3160,7 @@ def node_247
 	return 
 endf 
 
-def node_248
+def node_248 : 289
 	if self.distance_2d_to_target().leq(900) 
 	else 
 		-> legiana.dash_no_hit(1,2,0,800,1500) 
@@ -3176,7 +3176,7 @@ def node_248
 	return 
 endf 
 
-def node_249
+def node_249 : 290
 	if self.distance_2d_to_target().leq(900) 
 		return 
 	else 
@@ -3195,110 +3195,110 @@ def node_249
 	return 
 endf 
 
-def node_250
+def node_250 : 292
 	>> node_001 
 	-> legiana.lost_search() 
 	return 
 endf 
 
-def node_251
+def node_251 : 294
 	>> node_002 
 	-> legiana.lost_search_fly() 
 	return 
 endf 
 
-def node_252
+def node_252 : 295
 	>> node_001 
 	>> node_221 
 	-> legiana.life_search() 
 	return 
 endf 
 
-def node_253
+def node_253 : 300
 	>> node_001 
 	>> node_221 
 	-> legiana.sniff_s() 
 	return 
 endf 
 
-def node_254
+def node_254 : 307
 	>> node_001 
 	>> node_221 
 	-> legiana.sniff_l() 
 	return 
 endf 
 
-def node_255
+def node_255 : 298
 	>> node_001 
 	>> node_220 
 	-> legiana.marking() 
 	return 
 endf 
 
-def node_256
+def node_256 : 303
 	>> node_001 
 	>> node_221 
 	-> legiana.sunbath() 
 	return 
 endf 
 
-def node_257
+def node_257 : 305
 	>> node_001 
 	>> node_220 
 	-> legiana.drink() 
 	return 
 endf 
 
-def node_258
+def node_258 : 306
 	>> node_001 
 	>> node_221 
 	-> legiana.sleep() 
 	return 
 endf 
 
-def node_259
+def node_259 : 296
 	>> node_002 
 	>> node_221 
 	-> legiana.life_search_fly() 
 	return 
 endf 
 
-def node_260
+def node_260 : 301
 	>> node_002 
 	>> node_221 
 	-> legiana.sniff_s_fly() 
 	return 
 endf 
 
-def node_261
+def node_261 : 308
 	>> node_002 
 	>> node_221 
 	-> legiana.sniff_l_fly() 
 	return 
 endf 
 
-def node_262
+def node_262 : 299
 	>> node_002 
 	>> node_220 
 	-> legiana.marking_fly() 
 	return 
 endf 
 
-def node_263
+def node_263 : 297
 	>> node_002 
 	>> node_221 
 	-> legiana.life_search_fly() 
 	return 
 endf 
 
-def node_264
+def node_264 : 601
 	>> node_002 
 	self.targetEnemy(17) 
 	-> legiana.sudden_drop() 
 	return 
 endf 
 
-def node_265
+def node_265 : 348
 	>> node_001 
 	>> node_221 
 	if function#C9() 
@@ -3309,7 +3309,7 @@ def node_265
 	return 
 endf 
 
-def node_266
+def node_266 : 338
 	if function#6B(5000) 
 		self.targetEnemy(26) 
 		>> node_268 
@@ -3321,7 +3321,7 @@ def node_266
 	return 
 endf 
 
-def node_267
+def node_267 : 342
 	if function#6B(5000) 
 		self.targetEnemy(26) 
 		>> node_268 
@@ -3333,7 +3333,7 @@ def node_267
 	return 
 endf 
 
-def node_268
+def node_268 : 339
 	if self.in_combat() 
 		if self.flying() 
 			-> legiana.sniff_s_fly() 
@@ -3350,19 +3350,19 @@ def node_268
 	return 
 endf 
 
-def node_269
+def node_269 : 340
 	>> node_001 
 	>> node_009 
 	return 
 endf 
 
-def node_270
+def node_270 : 341
 	>> node_309 
 	-> legiana.meat_eat() 
 	return 
 endf 
 
-def node_271
+def node_271 : 602
 	>> node_045 
 	>> node_224 
 	>> node_045 
@@ -3371,13 +3371,13 @@ def node_271
 	return 
 endf 
 
-def node_272
+def node_272 : 452
 	>> node_002 
 	-> legiana.glide_predator(2,1,0,2000,600) 
 	return 
 endf 
 
-def node_273
+def node_273 : 544
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> legiana.glide_predator(2,1,5,2000,500) 
@@ -3386,13 +3386,13 @@ def node_273
 	return 
 endf 
 
-def node_274
+def node_274 : 619
 	>> node_002 
 	-> legiana.predator_sudden_drop() 
 	return 
 endf 
 
-def node_275
+def node_275 : 371
 	if self.flying() 
 		-> legiana.glide_combat(1,2,0,1000,2000) 
 	else 
@@ -3401,13 +3401,13 @@ def node_275
 	return 
 endf 
 
-def node_276
+def node_276 : 381
 	>> node_002 
 	-> legiana.predator_attack() 
 	return 
 endf 
 
-def node_277
+def node_277 : 382
 	if self.flying() 
 		-> legiana.predator_give_up_action_fly() 
 	else 
@@ -3416,37 +3416,37 @@ def node_277
 	return 
 endf 
 
-def node_278
+def node_278 : 383
 	>> node_002 
 	-> legiana.predator_adjust() 
 	return 
 endf 
 
-def node_279
+def node_279 : 384
 	>> node_001 
 	-> legiana.predator_eat() 
 	return 
 endf 
 
-def node_280
+def node_280 : 372
 	>> node_001 
 	-> legiana.walk(2,1,0,2000,1000) 
 	return 
 endf 
 
-def node_281
+def node_281 : 374
 	>> node_001 
 	-> legiana.dash(2,1,0,6000,1000) 
 	return 
 endf 
 
-def node_282
+def node_282 : 373
 	>> node_001 
 	-> legiana.dash(2,1,0,6000,3000) 
 	return 
 endf 
 
-def node_283
+def node_283 : 375
 	if self.distance_3d_to_target().leq(1500) 
 	elif self.distance_3d_to_target().leq(3500) 
 		random (50) >> node_285 
@@ -3458,7 +3458,7 @@ def node_283
 	return 
 endf 
 
-def node_284
+def node_284 : 376
 	random (50) >> node_285 
 	elser (50) >> node_286 
 	elser (0) 
@@ -3466,7 +3466,7 @@ def node_284
 	return 
 endf 
 
-def node_285
+def node_285 : 379
 	if self.flying() 
 		-> legiana.sniff_s_fly() 
 	else 
@@ -3475,7 +3475,7 @@ def node_285
 	return 
 endf 
 
-def node_286
+def node_286 : 380
 	if self.flying() 
 		-> legiana.life_search_fly() 
 	else 
@@ -3484,7 +3484,7 @@ def node_286
 	return 
 endf 
 
-def node_287
+def node_287 : 422
 	if self.distance_2d_to_target().leq(500) 
 	else 
 		-> legiana.glide_direct_move(1,2,0,400,1500) 
@@ -3493,7 +3493,7 @@ def node_287
 	return 
 endf 
 
-def node_288
+def node_288 : 385
 	>> node_002 
 	random (50) -> legiana.snake_turn_step_fly_l() 
 	elser (50) -> legiana.snake_turn_step_fly_r() 
@@ -3501,31 +3501,31 @@ def node_288
 	return 
 endf 
 
-def node_289
+def node_289 : 503
 	>> node_002 
 	-> legiana.dash_bite_fly() 
 	return 
 endf 
 
-def node_290
+def node_290 : 386
 	>> node_002 
 	-> legiana.ride_rage_head_lv2() 
 	return 
 endf 
 
-def node_291
+def node_291 : 504
 	>> node_002 
 	-> legiana.hover_rush_f2f() 
 	return 
 endf 
 
-def node_292
+def node_292 : 387
 	>> node_002 
 	-> legiana.ride_rage_body_lv2() 
 	return 
 endf 
 
-def node_293
+def node_293 : 394
 	>> node_002 
 	if self.distance_2d_to_target().leq(600) 
 		>> node_318 
@@ -3536,7 +3536,7 @@ def node_293
 	return 
 endf 
 
-def node_294
+def node_294 : 395
 	if function#11(1000) 
 	else 
 		if self.above_area() 
@@ -3548,49 +3548,49 @@ def node_294
 	return 
 endf 
 
-def node_295
+def node_295 : 388
 	>> node_002 
 	-> legiana.ride_rage_crash_head() 
 	return 
 endf 
 
-def node_296
+def node_296 : 389
 	>> node_002 
 	-> legiana.ride_rage_crash_head_lv2() 
 	return 
 endf 
 
-def node_297
+def node_297 : 390
 	>> node_002 
 	-> legiana.ride_rage_crash_body() 
 	return 
 endf 
 
-def node_298
+def node_298 : 391
 	>> node_002 
 	-> legiana.ride_rage_crash_body_lv2() 
 	return 
 endf 
 
-def node_299
+def node_299 : 393
 	>> node_002 
 	-> legiana.intimidation_fly() 
 	return 
 endf 
 
-def node_300
+def node_300 : 392
 	>> node_002 
 	-> legiana.ride_tired() 
 	return 
 endf 
 
-def node_301
+def node_301 : 275
 	>> node_001 
 	-> legiana.back_turn() 
 	return 
 endf 
 
-def node_302
+def node_302 : 284
 	if self.angle_2d_cw_between(15,345) 
 		>> node_301 
 	else 
@@ -3598,7 +3598,7 @@ def node_302
 	return 
 endf 
 
-def node_303
+def node_303 : 285
 	if self.angle_2d_cw_between(30,330) 
 		>> node_301 
 	else 
@@ -3606,7 +3606,7 @@ def node_303
 	return 
 endf 
 
-def node_304
+def node_304 : 286
 	if self.angle_2d_cw_between(45,315) 
 		>> node_301 
 	else 
@@ -3614,7 +3614,7 @@ def node_304
 	return 
 endf 
 
-def node_305
+def node_305 : 287
 	if self.angle_2d_cw_between(60,300) 
 		>> node_301 
 	else 
@@ -3622,7 +3622,7 @@ def node_305
 	return 
 endf 
 
-def node_306
+def node_306 : 288
 	if self.angle_2d_cw_between(90,270) 
 		>> node_301 
 	else 
@@ -3630,13 +3630,13 @@ def node_306
 	return 
 endf 
 
-def node_307
+def node_307 : 271
 	>> node_001 
 	-> legiana.quick_turn() 
 	return 
 endf 
 
-def node_308
+def node_308 : 212
 	if self.angle_2d_cw_between(15,345) 
 		>> node_307 
 	else 
@@ -3644,7 +3644,7 @@ def node_308
 	return 
 endf 
 
-def node_309
+def node_309 : 213
 	if self.angle_2d_cw_between(30,330) 
 		>> node_307 
 	else 
@@ -3652,7 +3652,7 @@ def node_309
 	return 
 endf 
 
-def node_310
+def node_310 : 214
 	if self.angle_2d_cw_between(45,315) 
 		>> node_307 
 	else 
@@ -3660,7 +3660,7 @@ def node_310
 	return 
 endf 
 
-def node_311
+def node_311 : 216
 	if self.angle_2d_cw_between(60,300) 
 		>> node_307 
 	else 
@@ -3668,7 +3668,7 @@ def node_311
 	return 
 endf 
 
-def node_312
+def node_312 : 215
 	if self.angle_2d_cw_between(90,270) 
 		>> node_307 
 	else 
@@ -3676,13 +3676,13 @@ def node_312
 	return 
 endf 
 
-def node_313
+def node_313 : 650
 	>> node_002 
 	-> legiana.quick_turn_fly() 
 	return 
 endf 
 
-def node_314
+def node_314 : 649
 	if self.angle_2d_cw_between(15,345) 
 		>> node_313 
 	else 
@@ -3690,7 +3690,7 @@ def node_314
 	return 
 endf 
 
-def node_315
+def node_315 : 648
 	if self.angle_2d_cw_between(30,330) 
 		>> node_313 
 	else 
@@ -3698,7 +3698,7 @@ def node_315
 	return 
 endf 
 
-def node_316
+def node_316 : 647
 	if self.angle_2d_cw_between(45,315) 
 		>> node_313 
 	else 
@@ -3706,7 +3706,7 @@ def node_316
 	return 
 endf 
 
-def node_317
+def node_317 : 646
 	if self.angle_2d_cw_between(90,270) 
 		>> node_313 
 	else 
@@ -3714,13 +3714,13 @@ def node_317
 	return 
 endf 
 
-def node_318
+def node_318 : 245
 	>> node_002 
 	-> legiana.back_turn_fly() 
 	return 
 endf 
 
-def node_319
+def node_319 : 263
 	if self.angle_2d_cw_between(15,345) 
 		>> node_318 
 	else 
@@ -3728,7 +3728,7 @@ def node_319
 	return 
 endf 
 
-def node_320
+def node_320 : 264
 	if self.angle_2d_cw_between(30,330) 
 		>> node_318 
 	else 
@@ -3736,7 +3736,7 @@ def node_320
 	return 
 endf 
 
-def node_321
+def node_321 : 265
 	if self.angle_2d_cw_between(45,315) 
 		>> node_318 
 	else 
@@ -3744,7 +3744,7 @@ def node_321
 	return 
 endf 
 
-def node_322
+def node_322 : 266
 	if self.angle_2d_cw_between(90,270) 
 		>> node_318 
 	else 
@@ -3752,7 +3752,7 @@ def node_322
 	return 
 endf 
 
-def node_323
+def node_323 : 261
 	if self.angle_2d_cw_between(0,180) 
 		-> legiana.snake_turn_step_fly_r() 
 	else 
@@ -3761,7 +3761,7 @@ def node_323
 	return 
 endf 
 
-def node_324
+def node_324 : 267
 	if self.angle_2d_cw_between(15,345) 
 		>> node_323 
 	else 
@@ -3769,7 +3769,7 @@ def node_324
 	return 
 endf 
 
-def node_325
+def node_325 : 268
 	if self.angle_2d_cw_between(30,330) 
 		>> node_323 
 	else 
@@ -3777,7 +3777,7 @@ def node_325
 	return 
 endf 
 
-def node_326
+def node_326 : 269
 	if self.angle_2d_cw_between(45,315) 
 		>> node_323 
 	else 
@@ -3785,7 +3785,7 @@ def node_326
 	return 
 endf 
 
-def node_327
+def node_327 : 270
 	if self.angle_2d_cw_between(90,270) 
 		>> node_323 
 	else 
@@ -3793,7 +3793,7 @@ def node_327
 	return 
 endf 
 
-def node_328
+def node_328 : 262
 	if self.angle_2d_cw_between(0,180) 
 		-> legiana.snake_turn_step_fly_l() 
 	else 
@@ -3802,7 +3802,7 @@ def node_328
 	return 
 endf 
 
-def node_329
+def node_329 : 397
 	random (35) 
 				self.targetArea(21) @ parameter2:300 
 	elser (35) 
@@ -3815,7 +3815,7 @@ def node_329
 	return 
 endf 
 
-def node_330
+def node_330 : 603
 	random (35) 
 				if self.flying() 
 					-> legiana.intimidation_fly() 
@@ -3827,7 +3827,7 @@ def node_330
 	return 
 endf 
 
-def node_331
+def node_331 : 604
 	if self.flying() 
 		-> legiana.intimidation_fly() 
 	else 
@@ -3836,7 +3836,7 @@ def node_331
 	return 
 endf 
 
-def node_332
+def node_332 : 571
 	>> node_339 
 	>> node_226 
 	if self.flying() 
@@ -3855,7 +3855,7 @@ def node_332
 	return 
 endf 
 
-def node_333
+def node_333 : 572
 	>> node_339 
 	if self.targetEnemy(target_em.any_monster) 
 		random (20) >> node_226 
@@ -3881,7 +3881,7 @@ def node_333
 	return 
 endf 
 
-def node_334
+def node_334 : 573
 	>> node_339 
 	>> node_226 
 	if self.flying() 
@@ -3900,7 +3900,7 @@ def node_334
 	return 
 endf 
 
-def node_335
+def node_335 : 574
 	>> node_339 
 	>> node_221 
 	if self.flying() 
@@ -3911,7 +3911,7 @@ def node_335
 	return 
 endf 
 
-def node_336
+def node_336 : 575
 	>> node_339 
 	self.targetEnemy(58) 
 	if self.flying() 
@@ -3939,17 +3939,17 @@ def node_336
 	return 
 endf 
 
-def node_337
+def node_337 : 576
 	-> legiana.walk(1,2,0,600,1500) 
 	return 
 endf 
 
-def node_338
+def node_338 : 577
 	-> legiana.glide_combat(1,2,0,600,2000) 
 	return 
 endf 
 
-def node_339
+def node_339 : 578
 	if self.fatigued() 
 		>> node_001 
 	else 
@@ -3957,7 +3957,7 @@ def node_339
 	return 
 endf 
 
-def node_340
+def node_340 : 596
 	if self.targetEnemy(target_em.any_monster) 
 		if self.target_is(em.Shrieking_Legiana) 
 		elif self.target_is(em.Legiana) 
@@ -4017,7 +4017,7 @@ def node_340
 	return 
 endf 
 
-def node_341
+def node_341 : 595
 	if self.targetEnemy(target_em.any_monster) 
 		if self.target_is(em.Shrieking_Legiana) 
 		elif self.target_is(em.Legiana) 
@@ -4078,11 +4078,11 @@ def node_341
 	return 
 endf 
 
-def node_342
+def node_342 : 594
 	return 
 endf 
 
-def node_343
+def node_343 : 593
 	if self.in_map(st.Special_Arena).in_area(-1) 
 		>> node_345 
 	elif self.in_map(st.Challenge_Arena).in_area(-1) 
@@ -4124,7 +4124,7 @@ def node_343
 	return 
 endf 
 
-def node_344
+def node_344 : 592
 	>> node_345 
 	>> node_345 
 	random (70) 
@@ -4140,7 +4140,7 @@ def node_344
 	return 
 endf 
 
-def node_345
+def node_345 : 591
 	>> node_347 
 	self.targetEnemy(target_em.closest_entity) 
 	if self.flying() 
@@ -4157,7 +4157,7 @@ def node_345
 	return 
 endf 
 
-def node_346
+def node_346 : 590
 	self.targetEnemy(target_em.closest_entity) 
 	>> node_226 
 	if self.in_combat() 
@@ -4172,7 +4172,7 @@ def node_346
 	return 
 endf 
 
-def node_347
+def node_347 : 588
 	if self.fatigued() 
 		>> node_001 
 	else 
@@ -4180,7 +4180,7 @@ def node_347
 	return 
 endf 
 
-def node_348
+def node_348 : 587
 	self.targetEnemy(target_em.closest_entity) 
 	if self.vertical_distance_to_target().leq(500) 
 		if self.distance_2d_to_target().leq(1200) 
@@ -4197,7 +4197,7 @@ def node_348
 	return 
 endf 
 
-def node_349
+def node_349 : 586
 	self.targetEnemy(target_em.closest_entity) 
 	if self.vertical_distance_to_target().leq(500) 
 		if self.distance_2d_to_target().leq(2000) 
@@ -4218,7 +4218,7 @@ def node_349
 	return 
 endf 
 
-def node_350
+def node_350 : 585
 	>> node_002 
 	self.targetEnemy(target_em.closest_entity) 
 	if self.distance_2d_to_target().leq(1000) 
@@ -4231,7 +4231,7 @@ def node_350
 	return 
 endf 
 
-def node_351
+def node_351 : 584
 	>> node_002 
 	if self.distance_2d_to_target().leq(1000) 
 		>> node_327 
@@ -4243,7 +4243,7 @@ def node_351
 	return 
 endf 
 
-def node_352
+def node_352 : 583
 	>> node_002 
 	if self.distance_2d_to_target().leq(1000) 
 	else 
@@ -4254,7 +4254,7 @@ def node_352
 	return 
 endf 
 
-def node_353
+def node_353 : 582
 	>> node_002 
 	if self.distance_2d_to_target().leq(1000) 
 	else 
@@ -4265,7 +4265,7 @@ def node_353
 	return 
 endf 
 
-def node_354
+def node_354 : 605
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if function#5D() 
 		>> node_356 
@@ -4303,7 +4303,7 @@ def node_354
 	return 
 endf 
 
-def node_355
+def node_355 : 606
 	if [RegisterVar1 <= 10] 
 		[RegisterVar1 |-] 
 	elif [RegisterVar1 <= 1] 
@@ -4313,7 +4313,7 @@ def node_355
 	return 
 endf 
 
-def node_356
+def node_356 : 607
 	if self.distance_2d_to_target().leq(1500) 
 		if self.angle_2d_cw_between(300,60) 
 		else 
@@ -4332,13 +4332,13 @@ def node_356
 	return 
 endf 
 
-def node_357
+def node_357 : 608
 	>> node_358 
 	>> node_359 
 	reset 
 endf 
 
-def node_358
+def node_358 : 331
 	self.targetArea(19) 
 	if self.distance_2d_to_target().leq(900) 
 	else 
@@ -4351,7 +4351,7 @@ def node_358
 	return 
 endf 
 
-def node_359
+def node_359 : 335
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.flying() 
 		if self.in_combat() 
@@ -4373,7 +4373,7 @@ def node_359
 	return 
 endf 
 
-def node_360
+def node_360 : 609
 	if self.flying() 
 		>> node_367 
 	else 
@@ -4394,7 +4394,7 @@ def node_360
 	return 
 endf 
 
-def node_361
+def node_361 : 610
 	if self.flying() 
 		>> node_367 
 	else 
@@ -4415,7 +4415,7 @@ def node_361
 	return 
 endf 
 
-def node_362
+def node_362 : 611
 	if self.flying() 
 		>> node_367 
 	else 
@@ -4436,7 +4436,7 @@ def node_362
 	return 
 endf 
 
-def node_363
+def node_363 : 612
 	if self.flying() 
 		>> node_370 
 	else 
@@ -4445,7 +4445,7 @@ def node_363
 	return 
 endf 
 
-def node_364
+def node_364 : 671
 	if self.target(52) 
 		>> node_366 
 	elif self.in_map(st.Coral_Highlands).in_area(2) 
@@ -4465,7 +4465,7 @@ def node_364
 	return 
 endf 
 
-def node_365
+def node_365 : 613
 	if self.distance_2d_to_target().leq(600) 
 		if self.vertical_distance_to_target().leq(1500) 
 		else 
@@ -4493,7 +4493,7 @@ def node_365
 	return 
 endf 
 
-def node_366
+def node_366 : 614
 	if self.distance_3d_to_target().leq(400) 
 	else 
 		-> legiana.dash_no_hit(1,2,0,300,1500) 
@@ -4509,7 +4509,7 @@ def node_366
 	return 
 endf 
 
-def node_367
+def node_367 : 615
 	if self.distance_2d_to_target().leq(300) 
 		if self.vertical_distance_to_target().leq(1000) 
 		else 
@@ -4538,7 +4538,7 @@ def node_367
 	return 
 endf 
 
-def node_368
+def node_368 : 616
 	if self.above_target() 
 		random (25) >> node_323 
 		elser (25) >> node_328 
@@ -4556,13 +4556,13 @@ def node_368
 	return 
 endf 
 
-def node_369
+def node_369 : 617
 	>> node_002 
 	-> legiana.short_up_step_fly() 
 	return 
 endf 
 
-def node_370
+def node_370 : 618
 	if self.distance_3d_to_target().leq(300) 
 	else 
 		-> legiana.glide_direct_move(1,2,0,200,1500) 
@@ -4578,7 +4578,7 @@ def node_370
 	return 
 endf 
 
-def node_371
+def node_371 : 665
 	if self.flying() 
 	else 
 		if function#11(450) 
@@ -4598,14 +4598,14 @@ def node_371
 	return 
 endf 
 
-def node_372
+def node_372 : 666
 	>> node_002 
 	>> node_373 
 	>> node_113 
 	return 
 endf 
 
-def node_373
+def node_373 : 667
 	if self.distance_2d_to_target().leq(950) 
 	else 
 		-> legiana.glide_combat(2,1,0,1500,850) 
@@ -4621,7 +4621,7 @@ def node_373
 	return 
 endf 
 
-def node_374
+def node_374 : 668
 	if function#11(1000) 
 		>> node_365 
 		>> node_088 
@@ -4631,7 +4631,7 @@ def node_374
 	return 
 endf 
 
-def node_375
+def node_375 : 674
 	if self.distance_2d_recalc_to_target().leq(600) 
 	else 
 		-> legiana.glide(2,6,0,1000,500) 
@@ -4640,23 +4640,23 @@ def node_375
 	return 
 endf 
 
-def node_376
+def node_376 : 672
 	>> node_001 
 	-> legiana.threat_narrow() 
 	return 
 endf 
 
-def node_377
+def node_377 : 676
 	[RegisterVar2 |-] 
 	return 
 endf 
 
-def node_378
+def node_378 : 677
 	[RegisterVar2 ++] 
 	return 
 endf 
 
-def node_379
+def node_379 : 675
 	random (15) 
 				if self.flying() 
 					-> legiana.intimidation_fly() 

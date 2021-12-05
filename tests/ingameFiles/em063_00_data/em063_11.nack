@@ -1,7 +1,7 @@
 importactions Brachydios as brachydios
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	>> Global.node_103 
 	>> node_008 
 	>> node_009 
@@ -12,7 +12,7 @@ def node_000
 	reset 
 endf 
 
-def node_001
+def node_001 : 4
 	if function#A9(0,1) >> Global.node_065 
 	elif function#A9(3,3) >> Global.node_067 
 	else 
@@ -22,7 +22,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 5
 	if function#A9(3,2) >> Global.node_067 
 	else 
 		function#A8(1) 
@@ -31,7 +31,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 7
 	if function#29() 
 		self.targetEnemy(7) 
 		>> node_004 
@@ -45,7 +45,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 10
 	if self.distance_3d_to_target().gt(3500) 
 		if self.vertical_distance_to_target().leq(1000) 
 			>> node_007 
@@ -57,7 +57,7 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 8
 	if self.target_on_part(0) -> brachydios.ride_rage_crash_head() 
 	elif self.target_on_part(1) -> brachydios.ride_rage_crash_body() 
 	elif self.target_on_part(2) -> brachydios.ride_rage_crash_tail() 
@@ -65,7 +65,7 @@ def node_005
 	return 
 endf 
 
-def node_006
+def node_006 : 9
 	if self.target_on_part(0) -> brachydios.ride_rage_crash_head_lv2() 
 	elif self.target_on_part(1) -> brachydios.ride_rage_crash_body_lv2() 
 	elif self.target_on_part(2) -> brachydios.ride_rage_crash_tail_lv2() 
@@ -73,13 +73,13 @@ def node_006
 	return 
 endf 
 
-def node_007
+def node_007 : 11
 	>> Global.node_074 
 	>> Global.node_036 
 	return 
 endf 
 
-def node_008
+def node_008 : 3
 	if self.fatigued() 
 		random (30) -> brachydios.tired_idle() 
 		elser (70) 
@@ -88,7 +88,7 @@ def node_008
 	return 
 endf 
 
-def node_009
+def node_009 : 12
 	if function#3B() 
 		if self.mount_staggered_twice() >> node_012 
 		endif 
@@ -100,7 +100,7 @@ def node_009
 	return 
 endf 
 
-def node_010
+def node_010 : 14
 	if self.mounted() 
 		random (60) >> node_012 
 		elser (40) 
@@ -113,7 +113,7 @@ def node_010
 	return 
 endf 
 
-def node_011
+def node_011 : 15
 	if self.mounted() 
 		random (40) >> node_012 
 		elser (60) 
@@ -126,7 +126,7 @@ def node_011
 	return 
 endf 
 
-def node_012
+def node_012 : 13
 	-> brachydios.ride_tired() 
 	return 
 endf 

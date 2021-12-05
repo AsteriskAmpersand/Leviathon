@@ -64,13 +64,12 @@ class Action(ErrorManaged):
 
 class ActionLiteral(Action):
     def __init__(self, id):
+        super().__init__()
         self.tag = "Action Literal [%d]" % id
         self.id = id
         self.raw_id = id
-        super().__init__()
 
     def resolveAction(self, _):
-        super.resolved(self.raw_id)
         return self.raw_id
 
     def copy(self):

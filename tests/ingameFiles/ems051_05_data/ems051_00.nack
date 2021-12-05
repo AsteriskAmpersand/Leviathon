@@ -1,7 +1,7 @@
 importactions KestodonF as kestodonf
 importlibrary Global as Global
 
-def node_000
+def node_000 : 7
 	>> Global.node_006 
 	>> Global.node_008 
 	>> Global.node_005 
@@ -15,7 +15,7 @@ def node_000
 	reset 
 endf 
 
-def node_001
+def node_001 : 15
 	if function#7B() 
 		>> node_004 
 		repeat 
@@ -24,7 +24,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 27
 	if function#3A() 
 		>> node_003 
 	else 
@@ -44,7 +44,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 6
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.distance_2d_to_target().leq(500) 
 		>> node_017 
@@ -58,7 +58,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 16
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.distance_2d_to_target().leq(1200) 
 		>> node_005 
@@ -70,23 +70,23 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 17
 	-> action#12() 
 	return 
 endf 
 
-def node_006
+def node_006 : 18
 	>> node_021 
 	return 
 endf 
 
-def node_007
+def node_007 : 19
 	self.targetEnemy(target_em.random_player_or_cat) 
 	>> node_021 
 	return 
 endf 
 
-def node_008
+def node_008 : 26
 	if self.distance_2d_to_target().leq(2000) 
 		>> node_014 
 	else 
@@ -96,7 +96,7 @@ def node_008
 	return 
 endf 
 
-def node_009
+def node_009 : 8
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.vertical_distance_to_target().leq(400) 
 		if self.distance_2d_to_target().leq(500) 
@@ -113,7 +113,7 @@ def node_009
 	return 
 endf 
 
-def node_010
+def node_010 : 2
 	if function#4B(3) 
 		self.targetEnemy(target_em.closest_entity) 
 		>> node_008 
@@ -125,19 +125,19 @@ def node_010
 	return 
 endf 
 
-def node_011
+def node_011 : 37
 	>> Global.node_002 
 	>> Global.node_015 
 	return 
 endf 
 
-def node_012
+def node_012 : 3
 	>> Global.node_002 
 	>> Global.node_015 
 	return 
 endf 
 
-def node_013
+def node_013 : 44
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.vertical_distance_to_target().leq(400) 
 		if self.distance_2d_to_target().leq(500) 
@@ -154,7 +154,7 @@ def node_013
 	return 
 endf 
 
-def node_014
+def node_014 : 45
 	self.targetEnemy(target_em.random_player_or_cat) 
 	random (35) >> Global.node_002 
 				>> Global.node_022 
@@ -164,19 +164,19 @@ def node_014
 	return 
 endf 
 
-def node_015
+def node_015 : 46
 	>> Global.node_023 
 	return 
 endf 
 
-def node_016
+def node_016 : 47
 	>> Global.node_002 
 	>> Global.node_015 
 	>> Global.node_020 
 	return 
 endf 
 
-def node_017
+def node_017 : 42
 	random (50) >> Global.node_002 
 				>> Global.node_022 
 	elser (50) >> Global.node_021 
@@ -184,24 +184,24 @@ def node_017
 	return 
 endf 
 
-def node_018
+def node_018 : 13
 	>> Global.node_023 
 	return 
 endf 
 
-def node_019
+def node_019 : 10
 	>> Global.node_002 
 	>> node_021 
 	return 
 endf 
 
-def node_020
+def node_020 : 11
 	>> Global.node_002 
 	>> node_021 
 	return 
 endf 
 
-def node_021
+def node_021 : 40
 	-> action#09(2,6,0,500,1000) 
 	if self.distance_2d_to_target().leq(1000) 
 	else 

@@ -1,7 +1,7 @@
 importactions Brachydios as brachydios
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	function#52() 
 	>> node_001 
 	function#54() 
@@ -9,7 +9,7 @@ def node_000
 	reset 
 endf 
 
-def node_001
+def node_001 : 3
 	>> Global.node_001 
 	self.targetArea(target_area.nearest_entrance) 
 	if function#57(1) >> Global.node_086 
@@ -29,7 +29,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 4
 	if function#57(1) >> node_003 
 	elif function#57(2) >> node_004 
 	elif function#57(3) >> node_005 
@@ -40,19 +40,19 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 6
 	-> brachydios.combat_search() 
 	return 
 endf 
 
-def node_004
+def node_004 : 8
 	>> node_008 
 	-> brachydios.sleep() 
 	>> Global.node_064 
 	return 
 endf 
 
-def node_005
+def node_005 : 9
 	self.targetEnemy(17) 
 	>> node_008 
 	>> Global.node_072 
@@ -60,7 +60,7 @@ def node_005
 	return 
 endf 
 
-def node_006
+def node_006 : 7
 	>> node_008 
 	>> Global.node_072 
 	-> brachydios.sunbath() 
@@ -68,14 +68,14 @@ def node_006
 	return 
 endf 
 
-def node_007
+def node_007 : 5
 	>> node_008 
 	>> Global.node_072 
 	-> brachydios.marking() 
 	return 
 endf 
 
-def node_008
+def node_008 : 10
 	random (10) -> brachydios.quick_search() 
 	elser (90) 
 	endr 

@@ -1,13 +1,13 @@
 importactions Leshen as leshen
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	>> node_001 
 	>> node_002 
 	conclude 
 endf 
 
-def node_001
+def node_001 : 2
 	if function#10E() 
 		return 
 	endif 
@@ -19,7 +19,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 3
 	if function#10E() 
 		self.targetArea(19) 
 	else 
@@ -53,7 +53,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 4
 	self.targetEnemy(target_em.random_player_or_cat) 
 	>> Global.node_018 
 	return 

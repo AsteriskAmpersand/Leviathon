@@ -1,7 +1,7 @@
 importactions Boaboa as boaboa
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	self.targetEnemy(target_em.random_player_or_cat) 
 	>> Global.node_003 
 	self.targetEnemy(target_em.random_player_or_cat) 
@@ -25,7 +25,7 @@ def node_000
 	reset 
 endf 
 
-def node_001
+def node_001 : 24
 	if function#B0() 
 		>> node_004 
 	elif function#B0(1) 
@@ -54,7 +54,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 31
 	if self.targetEnemy(target_em.any_monster) 
 		if self.distance_2d_to_target().leq(6000) 
 			if function#B0(12) 
@@ -89,7 +89,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 40
 	if function#11(1000) 
 		if self.distance_3d_recalc_to_target().leq(250) 
 			>> Global.node_024 
@@ -140,7 +140,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 15
 	if self.target(0) 
 		>> node_024 
 	else 
@@ -149,22 +149,22 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 16
 	>> node_004 
 	return 
 endf 
 
-def node_006
+def node_006 : 17
 	>> node_004 
 	return 
 endf 
 
-def node_007
+def node_007 : 18
 	>> node_004 
 	return 
 endf 
 
-def node_008
+def node_008 : 41
 	if function#11(1000) 
 		if self.distance_3d_recalc_to_target().leq(100) 
 			random (50) >> Global.node_024 
@@ -227,7 +227,7 @@ def node_008
 	return 
 endf 
 
-def node_009
+def node_009 : 19
 	if self.target(0) 
 		>> node_024 
 	else 
@@ -236,22 +236,22 @@ def node_009
 	return 
 endf 
 
-def node_010
+def node_010 : 20
 	>> node_009 
 	return 
 endf 
 
-def node_011
+def node_011 : 21
 	>> node_009 
 	return 
 endf 
 
-def node_012
+def node_012 : 22
 	>> node_009 
 	return 
 endf 
 
-def node_013
+def node_013 : 37
 	if self.target(0) 
 		>> node_024 
 	else 
@@ -260,7 +260,7 @@ def node_013
 	return 
 endf 
 
-def node_014
+def node_014 : 42
 	if self.distance_3d_to_target().leq(100) 
 		random (50) >> Global.node_024 
 		elser (20) >> Global.node_023 
@@ -302,7 +302,7 @@ def node_014
 	return 
 endf 
 
-def node_015
+def node_015 : 26
 	if self.target(0) 
 		>> node_028 
 	else 
@@ -354,7 +354,7 @@ def node_015
 	return 
 endf 
 
-def node_016
+def node_016 : 27
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.distance_3d_to_target().leq(300) 
 		random (20) >> Global.node_060 
@@ -403,7 +403,7 @@ def node_016
 	return 
 endf 
 
-def node_017
+def node_017 : 32
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.distance_3d_to_target().leq(300) 
 		random (35) >> Global.node_060 
@@ -446,7 +446,7 @@ def node_017
 	return 
 endf 
 
-def node_018
+def node_018 : 28
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.distance_3d_to_target().leq(300) 
 		random (35) >> Global.node_060 
@@ -489,7 +489,7 @@ def node_018
 	return 
 endf 
 
-def node_019
+def node_019 : 29
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.distance_3d_to_target().leq(100) 
 		random (30) >> Global.node_024 
@@ -535,7 +535,7 @@ def node_019
 	return 
 endf 
 
-def node_020
+def node_020 : 33
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.distance_3d_to_target().leq(100) 
 		random (50) >> Global.node_024 
@@ -579,7 +579,7 @@ def node_020
 	return 
 endf 
 
-def node_021
+def node_021 : 30
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.distance_3d_to_target().leq(100) 
 		random (50) >> Global.node_024 
@@ -619,7 +619,7 @@ def node_021
 	return 
 endf 
 
-def node_022
+def node_022 : 34
 	>> Global.node_005 
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if function#68(4) 
@@ -655,7 +655,7 @@ def node_022
 	return 
 endf 
 
-def node_023
+def node_023 : 38
 	random (30) 
 				-> action#75() 
 	elser (30) 
@@ -666,7 +666,7 @@ def node_023
 	return 
 endf 
 
-def node_024
+def node_024 : 39
 	if self.vertical_distance_to_target().gt(1300) 
 		>> node_026 
 	elif self.vertical_distance_to_target().gt(100) 
@@ -677,7 +677,7 @@ def node_024
 	return 
 endf 
 
-def node_025
+def node_025 : 45
 	if function#B0() 
 		>> node_003 
 	elif function#B0(1) 
@@ -706,7 +706,7 @@ def node_025
 	return 
 endf 
 
-def node_026
+def node_026 : 43
 	if self.distance_2d_to_target().leq(500) 
 		function#54() 
 		self.targetArea(10) @ parameter2:1000 
@@ -730,7 +730,7 @@ def node_026
 	return 
 endf 
 
-def node_027
+def node_027 : 44
 	if self.distance_2d_to_target().leq(500) 
 		>> Global.node_024 
 	elif self.distance_2d_to_target().leq(1500) 
@@ -750,7 +750,7 @@ def node_027
 	return 
 endf 
 
-def node_028
+def node_028 : 46
 	if self.vertical_distance_to_target().gt(1500) 
 		if self.distance_2d_to_target().leq(500) 
 			self.targetArea(10) @ parameter2:1000 
@@ -830,7 +830,7 @@ def node_028
 	return 
 endf 
 
-def node_029
+def node_029 : 48
 	>> Global.node_038 
 	-> action#0A(2,1,0,1000,800) 
 	return 

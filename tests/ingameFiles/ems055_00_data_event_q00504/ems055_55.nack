@@ -1,10 +1,10 @@
 importactions Barnos as barnos
 
-def node_000
+def node_000 : 1
 	conclude 
 endf 
 
-def node_001
+def node_001 : 32
 	if self.flying() 
 		-> action#22() 
 	else 
@@ -13,7 +13,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 33
 	if self.flying() 
 		-> action#24() 
 	else 
@@ -22,7 +22,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 41
 	if self.flying() 
 		-> action#27() 
 	else 
@@ -31,7 +31,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 34
 	if self.flying() 
 		-> action#0E() 
 	else 
@@ -40,7 +40,7 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 35
 	if self.flying() 
 		-> action#43() 
 	endif 
@@ -49,7 +49,7 @@ def node_005
 	return 
 endf 
 
-def node_006
+def node_006 : 37
 	if self.flying() 
 		-> action#07() 
 	else 
@@ -58,7 +58,7 @@ def node_006
 	return 
 endf 
 
-def node_007
+def node_007 : 39
 	if self.flying() 
 	elif function#40() 
 		-> action#09() 
@@ -68,14 +68,14 @@ def node_007
 	return 
 endf 
 
-def node_008
+def node_008 : 40
 	if self.flying() 
 		-> action#0D() 
 	endif 
 	return 
 endf 
 
-def node_009
+def node_009 : 43
 	if self.flying() 
 		-> action#2F() 
 	else 
@@ -84,20 +84,20 @@ def node_009
 	return 
 endf 
 
-def node_010
+def node_010 : 68
 	if function#51() 
 		>> node_011 
 	endif 
 	return 
 endf 
 
-def node_011
+def node_011 : 42
 	>> node_006 
 	>> node_001 
 	return 
 endf 
 
-def node_012
+def node_012 : 46
 	if self.distance_3d_to_target().leq(1000) 
 		return 
 	else 
@@ -111,7 +111,7 @@ def node_012
 	return 
 endf 
 
-def node_013
+def node_013 : 48
 	function#52() 
 	self.targetEnemy(16) 
 	-> action#13(1,0,0,1000) 
@@ -124,13 +124,13 @@ def node_013
 	return 
 endf 
 
-def node_014
+def node_014 : 78
 	>> node_007 
 	-> action#04() 
 	return 
 endf 
 
-def node_015
+def node_015 : 62
 	if self.hookable() 
 		>> node_002 
 		>> node_001 
@@ -139,7 +139,7 @@ def node_015
 	return 
 endf 
 
-def node_016
+def node_016 : 63
 	function#52() 
 	self.targetEnemy(16) 
 	-> action#14() 
@@ -147,7 +147,7 @@ def node_016
 	return 
 endf 
 
-def node_017
+def node_017 : 67
 	-> action#13(2,6,0,1000,1000) 
 	if self.distance_2d_to_target().leq(1000) 
 		return 
@@ -157,7 +157,7 @@ def node_017
 	return 
 endf 
 
-def node_018
+def node_018 : 69
 	if self.distance_2d_to_target().gt(800) 
 		function#74(0,300) 
 		-> action#0F() 
@@ -174,7 +174,7 @@ def node_018
 	return 
 endf 
 
-def node_019
+def node_019 : 75
 	function#74(0,100) 
 	-> action#18() 
 	function#74(180,100) 
@@ -182,7 +182,7 @@ def node_019
 	return 
 endf 
 
-def node_020
+def node_020 : 73
 	random (50) 
 				function#74(0,500) 
 				if function#2D() -> action#17(2,0,0,1000) 
@@ -197,13 +197,13 @@ def node_020
 	return 
 endf 
 
-def node_021
+def node_021 : 72
 	if self.angular_15(60,0) >> node_006 
 	endif 
 	return 
 endf 
 
-def node_022
+def node_022 : 47
 	if self.flying() 
 		-> action#22() 
 	else 
@@ -211,7 +211,7 @@ def node_022
 	return 
 endf 
 
-def node_023
+def node_023 : 65
 	if self.distance_2d_to_target().gt(1000) -> action#0F() 
 	endif 
 	-> action#17() 
@@ -222,7 +222,7 @@ def node_023
 	return 
 endf 
 
-def node_024
+def node_024 : 64
 	if self.flying() 
 		-> action#17(6,0,0,300) 
 		if self.vertical_distance_to_target().gt(300) -> action#1E() 
@@ -235,7 +235,7 @@ def node_024
 	return 
 endf 
 
-def node_025
+def node_025 : 74
 	if self.flying() 
 		-> action#18(6,0,0,500) 
 		if self.vertical_distance_to_target().gt(400) -> action#1E() 
@@ -248,13 +248,13 @@ def node_025
 	return 
 endf 
 
-def node_026
+def node_026 : 76
 	>> node_021 
 	-> action#45() 
 	return 
 endf 
 
-def node_027
+def node_027 : 83
 	>> node_024 
 	>> node_021 
 	-> action#42() 
@@ -262,7 +262,7 @@ def node_027
 	return 
 endf 
 
-def node_028
+def node_028 : 82
 	>> node_026 
 	>> node_021 
 	-> action#42() 
@@ -270,14 +270,14 @@ def node_028
 	return 
 endf 
 
-def node_029
+def node_029 : 66
 	random (0) >> node_023 
 	elser (100) >> node_024 
 	endr 
 	return 
 endf 
 
-def node_030
+def node_030 : 71
 	if [RegisterVar1 == 0] 
 		>> node_006 
 		>> node_001 
@@ -286,14 +286,14 @@ def node_030
 	return 
 endf 
 
-def node_031
+def node_031 : 79
 	if function#2D(2) >> node_033 
 	else >> node_032 
 	endif 
 	return 
 endf 
 
-def node_032
+def node_032 : 80
 	if function#32() 
 		random (80) >> node_024 
 		elser (20) >> node_001 
@@ -308,7 +308,7 @@ def node_032
 	return 
 endf 
 
-def node_033
+def node_033 : 81
 	random (40) >> node_025 
 	elser (15) >> node_001 
 	elser (45) >> node_026 

@@ -1,7 +1,7 @@
 importactions Savage_Deviljho as savage_deviljho
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	>> Global.node_184 
 	>> Global.node_185 
 	if function#101() 
@@ -15,7 +15,7 @@ def node_000
 	reset 
 endf 
 
-def node_001
+def node_001 : 2
 	>> node_003 
 	if self.distance_3d_to_target().leq(1500) 
 		>> node_002 
@@ -30,7 +30,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 3
 	>> node_003 
 	self.targetEnemy(target_em.closest_entity) 
 	if self.target(11) 
@@ -50,7 +50,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 5
 	if function#6B(20000) 
 		>> node_004 
 		>> node_005 
@@ -59,7 +59,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 6
 	self.targetEnemy(26) 
 	if self.distance_3d_to_target().leq(600) 
 	else 
@@ -69,7 +69,7 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 7
 	if self.distance_3d_to_target().leq(300) 
 		-> savage_deviljho.back_turn() @ unkn6:65536 
 	elif self.angle_2d_cw_between(30,330) 
@@ -79,12 +79,12 @@ def node_005
 	conclude 
 endf 
 
-def node_006
+def node_006 : 8
 	>> node_011 
 	return 
 endf 
 
-def node_007
+def node_007 : 9
 	random (20) >> node_012 
 	elser (65) >> node_013 
 	elser (15) >> node_011 
@@ -92,12 +92,12 @@ def node_007
 	return 
 endf 
 
-def node_008
+def node_008 : 10
 	>> node_012 
 	return 
 endf 
 
-def node_009
+def node_009 : 11
 	if self.target_is(em.Aptonoth) 
 	elif self.target_is(em.Apceros) 
 	elif self.target_is(em.Raphinos) 
@@ -119,7 +119,7 @@ def node_009
 	return 
 endf 
 
-def node_010
+def node_010 : 4
 	if self.angle_2d_cw_between(40,320) 
 		-> savage_deviljho.quick_turn() @ unkn6:65536 
 	else 
@@ -127,7 +127,7 @@ def node_010
 	return 
 endf 
 
-def node_011
+def node_011 : 12
 	>> node_010 
 	random (45) -> savage_deviljho.predator_walk_l() @ unkn6:65536 
 	elser (55) -> savage_deviljho.predator_walk_r() @ unkn6:65536 
@@ -135,12 +135,12 @@ def node_011
 	return 
 endf 
 
-def node_012
+def node_012 : 13
 	-> savage_deviljho.tired_dash(2,5,0,1500) @ unkn6:65536 
 	return 
 endf 
 
-def node_013
+def node_013 : 14
 	-> savage_deviljho.tired_walk(2,5,0,1500) @ unkn6:65536 
 	return 
 endf 

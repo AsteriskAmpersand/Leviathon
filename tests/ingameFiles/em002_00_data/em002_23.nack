@@ -1,13 +1,13 @@
 importactions Rathalos as rathalos
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	self.targetEnemy(target_em.closest_entity) 
 	>> node_001 
 	conclude 
 endf 
 
-def node_001
+def node_001 : 9
 	if self.target_is(em.Anjanath) 
 		>> node_005 
 	elif self.target_is(em.Odogaron) 
@@ -36,7 +36,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 24
 	if [RegisterVar2 == 0] 
 		[RegisterVar2 ++] 
 		>> Global.node_090 
@@ -54,7 +54,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 36
 	if self.flying() 
 		-> rathalos.breath_fly() 
 	else 
@@ -63,7 +63,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 33
 	>> Global.node_002 
 	>> Global.node_090 
 	>> Global.node_038 
@@ -79,42 +79,42 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 34
 	>> Global.node_002 
 	>> Global.node_090 
 	-> rathalos.grapple_mediation_threat() 
 	return 
 endf 
 
-def node_006
+def node_006 : 35
 	>> Global.node_002 
 	>> Global.node_090 
 	-> rathalos.grapple_with_em113_mediation() 
 	return 
 endf 
 
-def node_007
+def node_007 : 37
 	>> Global.node_002 
 	>> Global.node_090 
 	-> rathalos.grapple_with_em037_mediation() 
 	return 
 endf 
 
-def node_008
+def node_008 : 38
 	>> Global.node_002 
 	>> Global.node_090 
 	-> rathalos.grapple_with_em032_mediation() 
 	return 
 endf 
 
-def node_009
+def node_009 : 39
 	>> Global.node_002 
 	>> Global.node_090 
 	-> rathalos.grapple_with_em080_ver1_mediation() 
 	return 
 endf 
 
-def node_010
+def node_010 : 40
 	>> Global.node_090 
 	if self.flying() -> rathalos.grapple_with_em057_mediation_fly() 
 	else -> rathalos.grapple_with_em057_mediation() 
@@ -122,7 +122,7 @@ def node_010
 	return 
 endf 
 
-def node_011
+def node_011 : 41
 	>> Global.node_002 
 	>> Global.node_090 
 	if self.flying() -> rathalos.grapple_with_em063_adjust_turn_fly() 

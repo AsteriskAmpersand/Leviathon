@@ -1,7 +1,7 @@
 importactions TobiKadachi as tobikadachi
 importlibrary Global as Global
 
-def node_000
+def node_000 : 42
 	if self.current_quest().is_rank(rank.MR) 
 		>> node_001 
 	else 
@@ -10,7 +10,7 @@ def node_000
 	reset 
 endf 
 
-def node_001
+def node_001 : 41
 	>> Global.node_077 
 	self.targetEnemy(21) @ parameter2:700 
 	if self.target_on_part(0) >> node_019 
@@ -25,7 +25,7 @@ def node_001
 	reset 
 endf 
 
-def node_002
+def node_002 : 18
 	>> Global.node_077 
 	self.targetEnemy(21) @ parameter2:700 
 	if self.target_on_part(0) >> node_006 
@@ -40,7 +40,7 @@ def node_002
 	reset 
 endf 
 
-def node_003
+def node_003 : 19
 	random (45) >> Global.node_058 
 	elser (25) >> Global.node_081 
 	elser (20) >> Global.node_059 
@@ -49,7 +49,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 20
 	random (45) >> Global.node_058 
 	elser (20) >> Global.node_059 
 	elser (15) >> Global.node_081 
@@ -59,7 +59,7 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 21
 	random (20) >> Global.node_058 
 	elser (20) >> Global.node_059 
 	elser (0) >> Global.node_081 
@@ -68,7 +68,7 @@ def node_005
 	return 
 endf 
 
-def node_006
+def node_006 : 37
 	random (47) >> node_009 
 	elser (38) >> node_010 
 	elser (15) >> node_015 
@@ -76,7 +76,7 @@ def node_006
 	return 
 endf 
 
-def node_007
+def node_007 : 38
 	random (47) >> node_011 
 	elser (38) >> node_012 
 	elser (15) >> node_015 
@@ -84,7 +84,7 @@ def node_007
 	return 
 endf 
 
-def node_008
+def node_008 : 39
 	random (47) >> node_013 
 	elser (38) >> node_014 
 	elser (15) >> node_015 
@@ -92,32 +92,32 @@ def node_008
 	return 
 endf 
 
-def node_009
+def node_009 : 28
 	-> tobikadachi.ride_rage_head() 
 	return 
 endf 
 
-def node_010
+def node_010 : 29
 	>> Global.node_066 
 	return 
 endf 
 
-def node_011
+def node_011 : 30
 	-> tobikadachi.ride_rage_body() 
 	return 
 endf 
 
-def node_012
+def node_012 : 31
 	-> tobikadachi.side_rush_bite() 
 	return 
 endf 
 
-def node_013
+def node_013 : 32
 	-> tobikadachi.ride_rage_tail() 
 	return 
 endf 
 
-def node_014
+def node_014 : 33
 	if self.part(3).is_broken(1) 
 		-> tobikadachi.broken_side_tail_attack() 
 	elif function#104(1) 
@@ -128,12 +128,12 @@ def node_014
 	return 
 endf 
 
-def node_015
+def node_015 : 40
 	-> tobikadachi.threat() 
 	return 
 endf 
 
-def node_016
+def node_016 : 43
 	random (60) >> Global.node_058 
 	elser (0) >> Global.node_081 
 	elser (35) >> Global.node_059 
@@ -142,7 +142,7 @@ def node_016
 	return 
 endf 
 
-def node_017
+def node_017 : 44
 	random (55) >> Global.node_058 
 	elser (30) >> Global.node_059 
 	elser (0) >> Global.node_081 
@@ -152,7 +152,7 @@ def node_017
 	return 
 endf 
 
-def node_018
+def node_018 : 45
 	random (45) >> Global.node_058 
 	elser (45) >> Global.node_059 
 	elser (5) >> Global.node_081 
@@ -161,7 +161,7 @@ def node_018
 	return 
 endf 
 
-def node_019
+def node_019 : 46
 	random (55) >> node_009 
 	elser (45) >> node_010 
 	elser (0) >> node_015 
@@ -169,7 +169,7 @@ def node_019
 	return 
 endf 
 
-def node_020
+def node_020 : 47
 	random (55) >> node_011 
 	elser (45) >> node_012 
 	elser (0) >> node_015 
@@ -177,7 +177,7 @@ def node_020
 	return 
 endf 
 
-def node_021
+def node_021 : 48
 	random (55) >> node_013 
 	elser (45) >> node_014 
 	elser (0) >> node_015 

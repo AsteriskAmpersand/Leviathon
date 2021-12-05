@@ -1,7 +1,7 @@
 importactions Zinogre as zinogre
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	function#103() 
 	self.targetEnemy(13) 
 	if self.target(4) 
@@ -12,14 +12,14 @@ def node_000
 	conclude 
 endf 
 
-def node_001
+def node_001 : 3
 	>> Global.node_035 
 	>> node_002 
 	>> node_003 
 	return 
 endf 
 
-def node_002
+def node_002 : 4
 	self.targetEnemy(13) 
 	if self.distance_2d_to_target().leq(1000) 
 		return 
@@ -39,7 +39,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 5
 	self.targetEnemy(48) 
 	if self.target(7) 
 		>> node_005 
@@ -55,7 +55,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 6
 	if function#5F() 
 		>> Global.node_166 
 	else 
@@ -65,7 +65,7 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 7
 	>> Global.node_166 
 	return 
 endf 

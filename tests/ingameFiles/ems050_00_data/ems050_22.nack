@@ -1,7 +1,7 @@
 importactions Mernos as mernos
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	>> Global.node_021 
 	>> Global.node_016 
 	if self.miasmaed() 
@@ -18,7 +18,7 @@ def node_000
 	reset 
 endf 
 
-def node_001
+def node_001 : 41
 	function#52(2,4) 
 	self.targetEnemy(16) 
 	-> mernos.glide(1,0,0,900) 
@@ -27,14 +27,14 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 42
 	random (80) 
 	elser (20) >> Global.node_002 
 	endr 
 	return 
 endf 
 
-def node_003
+def node_003 : 37
 	self.targetEnemy(33) 
 	if self.target(20) 
 		if self.target_is(em.Vaal_Hazak) >> node_005 
@@ -49,7 +49,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 38
 	if function#3A() >> Global.node_032 
 	elif self.target(7) >> Global.node_032 
 	else 
@@ -63,7 +63,7 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 39
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.target(4) 
 	elif self.target(20) 
@@ -77,7 +77,7 @@ def node_005
 	return 
 endf 
 
-def node_006
+def node_006 : 40
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.distance_2d_to_target().leq(800) 
 		-> mernos.step_back() 

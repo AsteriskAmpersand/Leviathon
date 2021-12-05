@@ -1,12 +1,12 @@
 importactions Wulg as wulg
 
-def node_000
+def node_000 : 1
 	>> node_001 
 	>> node_002 
 	conclude 
 endf 
 
-def node_001
+def node_001 : 3
 	function#E4(7) 
 	function#E4(4) 
 	function#E4(1) 
@@ -19,7 +19,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 2
 	function#D3() 
 	[RegisterVar2 |-] 
 	[RegisterVar5 |-] 
@@ -32,12 +32,12 @@ def node_002
 	conclude 
 endf 
 
-def node_003
+def node_003 : 11
 	-> wulg.dash_punch_step_loop_l(8) 
 	return 
 endf 
 
-def node_004
+def node_004 : 12
 	-> wulg.dash_punch_step_loop_l(8,0,0,4) 
 	return 
 endf 

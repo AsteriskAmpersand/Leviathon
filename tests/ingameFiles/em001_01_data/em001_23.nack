@@ -1,7 +1,7 @@
 importactions Pink_Rathian as pink_rathian
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	self.targetEnemy(target_em.closest_entity) 
 	if self.target_is(em.Anjanath) 
 		>> node_001 
@@ -11,14 +11,14 @@ def node_000
 	conclude 
 endf 
 
-def node_001
+def node_001 : 9
 	>> Global.node_002 
 	>> Global.node_089 
 	-> pink_rathian.grapple_mediation_threat() 
 	return 
 endf 
 
-def node_002
+def node_002 : 24
 	>> Global.node_089 
 	>> Global.node_038 
 	>> Global.node_091 

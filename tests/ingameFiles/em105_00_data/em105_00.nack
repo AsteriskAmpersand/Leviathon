@@ -1,7 +1,7 @@
 importactions Xeno'jiiva as xeno'jiiva
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	>> node_001 
 	>> node_006 
 	if self.target(4) 
@@ -16,7 +16,7 @@ def node_000
 	reset 
 endf 
 
-def node_001
+def node_001 : 42
 	if function#5D() 
 		function#5E() 
 		self.targetEnemy(target_em.random_player_or_cat) 
@@ -27,7 +27,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 43
 	self.targetArea(19) 
 	if self.distance_3d_to_target().gt(1000) 
 		>> Global.node_015 
@@ -39,7 +39,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 49
 	if self.distance_2d_to_target().leq(2500) 
 		>> node_007 => reset 
 	else 
@@ -48,7 +48,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 46
 	>> node_030 
 	>> node_032 
 	if function#101(1) 
@@ -89,7 +89,7 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 80
 	if self.angle_2d_cw_between(270,90) 
 		>> Global.node_063 
 	else 
@@ -98,7 +98,7 @@ def node_005
 	return 
 endf 
 
-def node_006
+def node_006 : 93
 	if function#104() 
 		if self.flying() 
 		elif function#101(4) 
@@ -116,7 +116,7 @@ def node_006
 	return 
 endf 
 
-def node_007
+def node_007 : 50
 	random (60) >> node_008 
 	elser (40) >> Global.node_060 
 	endr 
@@ -125,7 +125,7 @@ def node_007
 	return 
 endf 
 
-def node_008
+def node_008 : 106
 	>> Global.node_005 
 	if self.angle_2d_cw_between(0,180) 
 		if function#101(2) 
@@ -144,7 +144,7 @@ def node_008
 	return 
 endf 
 
-def node_009
+def node_009 : 94
 	if function#101(1) 
 		>> Global.node_059 => reset 
 	else 
@@ -159,7 +159,7 @@ def node_009
 	return 
 endf 
 
-def node_010
+def node_010 : 107
 	if function#102() 
 		self.targetEnemy(50) 
 		random (50) >> Global.node_060 
@@ -170,7 +170,7 @@ def node_010
 	return 
 endf 
 
-def node_011
+def node_011 : 95
 	if self.flying() 
 		[RegisterVar1 ++] 
 		if self.current_quest().is_rank(rank.AT) 
@@ -198,7 +198,7 @@ def node_011
 	return 
 endf 
 
-def node_012
+def node_012 : 65
 	random (0) 
 	elser (0) >> Global.node_008 
 	elser (5) >> Global.node_009 
@@ -217,7 +217,7 @@ def node_012
 	return 
 endf 
 
-def node_013
+def node_013 : 68
 	random (0) 
 	elser (0) >> Global.node_008 
 	elser (5) >> Global.node_009 
@@ -240,7 +240,7 @@ def node_013
 	return 
 endf 
 
-def node_014
+def node_014 : 71
 	random (0) 
 	elser (0) >> Global.node_008 
 	elser (5) >> Global.node_009 
@@ -256,7 +256,7 @@ def node_014
 	return 
 endf 
 
-def node_015
+def node_015 : 77
 	random (0) 
 	elser (0) >> Global.node_008 
 	elser (5) >> Global.node_009 
@@ -271,12 +271,12 @@ def node_015
 	return 
 endf 
 
-def node_016
+def node_016 : 90
 	>> node_015 
 	return 
 endf 
 
-def node_017
+def node_017 : 108
 	random (0) 
 	elser (0) >> Global.node_008 
 	elser (0) >> Global.node_009 
@@ -295,7 +295,7 @@ def node_017
 	return 
 endf 
 
-def node_018
+def node_018 : 109
 	random (0) 
 	elser (0) >> Global.node_008 
 	elser (0) >> Global.node_009 
@@ -318,7 +318,7 @@ def node_018
 	return 
 endf 
 
-def node_019
+def node_019 : 110
 	random (0) 
 	elser (0) >> Global.node_008 
 	elser (0) >> Global.node_009 
@@ -334,7 +334,7 @@ def node_019
 	return 
 endf 
 
-def node_020
+def node_020 : 111
 	random (0) 
 	elser (0) >> Global.node_008 
 	elser (0) >> Global.node_009 
@@ -349,7 +349,7 @@ def node_020
 	return 
 endf 
 
-def node_021
+def node_021 : 101
 	random (0) 
 	elser (5) >> Global.node_009 
 	elser (10) >> Global.node_011 
@@ -376,7 +376,7 @@ def node_021
 	return 
 endf 
 
-def node_022
+def node_022 : 102
 	random (0) 
 	elser (5) >> Global.node_009 
 	elser (0) >> Global.node_011 
@@ -403,7 +403,7 @@ def node_022
 	return 
 endf 
 
-def node_023
+def node_023 : 103
 	random (0) 
 	elser (5) >> Global.node_009 
 	elser (0) >> Global.node_011 
@@ -429,7 +429,7 @@ def node_023
 	return 
 endf 
 
-def node_024
+def node_024 : 104
 	random (0) 
 	elser (5) >> Global.node_009 
 	elser (0) >> Global.node_011 
@@ -455,12 +455,12 @@ def node_024
 	return 
 endf 
 
-def node_025
+def node_025 : 105
 	>> node_024 
 	return 
 endf 
 
-def node_026
+def node_026 : 112
 	if self.current_quest().is_rank(rank.AT) 
 		>> node_035 
 	else 
@@ -491,7 +491,7 @@ def node_026
 	return 
 endf 
 
-def node_027
+def node_027 : 113
 	if self.current_quest().is_rank(rank.AT) 
 		>> node_036 
 	else 
@@ -522,7 +522,7 @@ def node_027
 	return 
 endf 
 
-def node_028
+def node_028 : 114
 	if self.current_quest().is_rank(rank.AT) 
 		>> node_037 
 	else 
@@ -552,7 +552,7 @@ def node_028
 	return 
 endf 
 
-def node_029
+def node_029 : 115
 	if self.current_quest().is_rank(rank.AT) 
 		>> node_038 
 	else 
@@ -582,7 +582,7 @@ def node_029
 	return 
 endf 
 
-def node_030
+def node_030 : 97
 	if function#102() 
 		self.targetEnemy(50) 
 		if function#101(0,2) 
@@ -614,7 +614,7 @@ def node_030
 	return 
 endf 
 
-def node_031
+def node_031 : 96
 	if function#101() 
 	else 
 		>> Global.node_001 
@@ -623,7 +623,7 @@ def node_031
 	return 
 endf 
 
-def node_032
+def node_032 : 116
 	if self.target(55) 
 	elif self.vertical_distance_to_target().gt(200) 
 		if self.distance_2d_to_target().leq(2000) 
@@ -647,7 +647,7 @@ def node_032
 	return 
 endf 
 
-def node_033
+def node_033 : 117
 	if function#101(4) 
 	else 
 		if self.distance_3d_to_target().leq(2000) 
@@ -658,7 +658,7 @@ def node_033
 	return 
 endf 
 
-def node_034
+def node_034 : 122
 	if self.current_quest().is_rank(rank.AT) 
 		if self.target.helpless_0() 
 			random (50) >> Global.node_026 
@@ -671,7 +671,7 @@ def node_034
 	return 
 endf 
 
-def node_035
+def node_035 : 118
 	random (0) 
 	elser (0) >> Global.node_009 
 	elser (0) >> Global.node_011 
@@ -703,7 +703,7 @@ def node_035
 	return 
 endf 
 
-def node_036
+def node_036 : 119
 	random (0) 
 	elser (0) >> Global.node_009 
 	elser (0) >> Global.node_011 
@@ -735,7 +735,7 @@ def node_036
 	return 
 endf 
 
-def node_037
+def node_037 : 120
 	random (0) 
 	elser (0) >> Global.node_009 
 	elser (0) >> Global.node_011 
@@ -766,7 +766,7 @@ def node_037
 	return 
 endf 
 
-def node_038
+def node_038 : 121
 	random (0) 
 	elser (0) >> Global.node_009 
 	elser (0) >> Global.node_011 

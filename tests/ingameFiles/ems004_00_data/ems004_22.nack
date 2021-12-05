@@ -1,7 +1,7 @@
 importactions Mosswine as mosswine
 importlibrary Global as Global
 
-def node_000
+def node_000 : 10
 	>> Global.node_000 
 	function#50() 
 	if function#3F() 
@@ -12,13 +12,13 @@ def node_000
 	reset 
 endf 
 
-def node_001
+def node_001 : 11
 	>> node_005 
 	-> action#15() 
 	return 
 endf 
 
-def node_002
+def node_002 : 12
 	>> node_004 
 	if function#4D(1,1) 
 		self.targetArea(36) 
@@ -34,7 +34,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 13
 	if self.angle_2d_cw_between(20,340) 
 		-> action#05() 
 	else 
@@ -42,7 +42,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 14
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.distance_3d_to_target().leq(500) 
 		>> node_003 
@@ -52,7 +52,7 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 15
 	if function#51(0,2500) 
 		if function#3F() 
 			-> action#15() 

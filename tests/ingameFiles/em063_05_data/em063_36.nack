@@ -1,7 +1,7 @@
 importactions Raging_Brachydios as raging_brachydios
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	>> node_005 
 	>> Global.node_146 
 	if function#107() 
@@ -14,7 +14,7 @@ def node_000
 	reset 
 endf 
 
-def node_001
+def node_001 : 4
 	random (30) >> Global.node_019 
 	elser (40) >> Global.node_032 
 	elser (30) >> Global.node_036 
@@ -22,7 +22,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 5
 	random (30) >> Global.node_019 
 	elser (35) >> Global.node_032 
 	elser (35) >> Global.node_036 
@@ -30,7 +30,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 11
 	random (30) >> Global.node_019 
 	elser (35) >> Global.node_048 
 	elser (35) >> Global.node_032 
@@ -38,7 +38,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 12
 	random (30) >> Global.node_019 
 	elser (35) >> Global.node_048 
 	elser (35) >> Global.node_032 
@@ -46,7 +46,7 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 3
 	if self.target_on_part(0) >> node_006 
 	elif self.target_on_part(1) >> node_007 
 	elif self.target_on_part(2) >> node_008 
@@ -56,22 +56,22 @@ def node_005
 	reset 
 endf 
 
-def node_006
+def node_006 : 7
 	-> raging_brachydios.ride_rage_head() 
 	return 
 endf 
 
-def node_007
+def node_007 : 8
 	-> raging_brachydios.ride_rage_body() 
 	return 
 endf 
 
-def node_008
+def node_008 : 9
 	-> raging_brachydios.ride_rage_tail() 
 	return 
 endf 
 
-def node_009
+def node_009 : 10
 	if self.fatigued() 
 		random (15) >> Global.node_113 
 		elser (85) 

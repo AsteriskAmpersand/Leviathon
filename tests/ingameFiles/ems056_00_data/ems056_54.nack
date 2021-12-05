@@ -1,7 +1,7 @@
 importactions Girros as girros
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	if function#B2() 
 		>> node_003 
 	else 
@@ -10,7 +10,7 @@ def node_000
 	reset 
 endf 
 
-def node_001
+def node_001 : 11
 	if self.targetEnemy(44) 
 		>> node_002 
 		>> Global.node_010 
@@ -21,7 +21,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 26
 	if self.distance_3d_to_target().leq(250) 
 	else 
 		-> action#04(2,0,0,1000) 
@@ -30,7 +30,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 10
 	if function#B3() 
 		>> node_015 
 	elif function#B4() 
@@ -41,7 +41,7 @@ def node_003
 	reset 
 endf 
 
-def node_004
+def node_004 : 18
 	if self.targetEnemy(46) 
 		if self.target(48) 
 			>> Global.node_048 
@@ -58,7 +58,7 @@ def node_004
 	reset 
 endf 
 
-def node_005
+def node_005 : 14
 	if self.target(4) 
 		>> node_006 
 	elif self.target(0) 
@@ -73,7 +73,7 @@ def node_005
 	reset 
 endf 
 
-def node_006
+def node_006 : 15
 	random (0) -> action#01() 
 	elser (50) -> action#19() 
 	elser (50) -> action#1A() 
@@ -83,7 +83,7 @@ def node_006
 	reset 
 endf 
 
-def node_007
+def node_007 : 34
 	if self.distance_2d_to_target().leq(800) 
 		>> node_006 
 	else 
@@ -93,7 +93,7 @@ def node_007
 	reset 
 endf 
 
-def node_008
+def node_008 : 19
 	if self.distance_3d_to_target().leq(350) 
 		>> node_010 
 	elif self.distance_3d_to_target().leq(500) 
@@ -108,7 +108,7 @@ def node_008
 	return 
 endf 
 
-def node_009
+def node_009 : 20
 	if self.distance_3d_to_target().leq(800) 
 		random (50) >> Global.node_020 
 		elser (30) >> Global.node_018 
@@ -129,14 +129,14 @@ def node_009
 	return 
 endf 
 
-def node_010
+def node_010 : 22
 	>> Global.node_017 
 	>> Global.node_010 
 	>> Global.node_015 
 	return 
 endf 
 
-def node_011
+def node_011 : 23
 	random (85) >> Global.node_011 
 				>> Global.node_020 
 				>> Global.node_016 
@@ -147,7 +147,7 @@ def node_011
 	return 
 endf 
 
-def node_012
+def node_012 : 24
 	random (30) >> Global.node_011 
 				>> Global.node_016 
 	elser (70) >> Global.node_003 
@@ -157,7 +157,7 @@ def node_012
 	return 
 endf 
 
-def node_013
+def node_013 : 25
 	random (30) >> Global.node_011 
 				>> Global.node_016 
 	elser (70) >> Global.node_003 
@@ -167,14 +167,14 @@ def node_013
 	return 
 endf 
 
-def node_014
+def node_014 : 21
 	>> Global.node_003 
 	>> Global.node_010 
 	>> Global.node_015 
 	return 
 endf 
 
-def node_015
+def node_015 : 12
 	self.targetEnemy(45) 
 	>> Global.node_002 
 	>> Global.node_010 
@@ -182,7 +182,7 @@ def node_015
 	return 
 endf 
 
-def node_016
+def node_016 : 13
 	self.targetEnemy(46) 
 	if self.target(48) 
 		>> Global.node_048 
@@ -200,7 +200,7 @@ def node_016
 	return 
 endf 
 
-def node_017
+def node_017 : 28
 	if self.distance_3d_to_target().leq(350) 
 		>> node_019 
 	elif self.distance_3d_to_target().leq(500) 
@@ -215,7 +215,7 @@ def node_017
 	return 
 endf 
 
-def node_018
+def node_018 : 33
 	if self.distance_3d_to_target().leq(800) 
 		random (50) >> Global.node_020 
 		elser (30) >> Global.node_018 
@@ -236,7 +236,7 @@ def node_018
 	return 
 endf 
 
-def node_019
+def node_019 : 27
 	random (20) >> Global.node_017 
 				>> Global.node_010 
 				>> Global.node_015 
@@ -253,7 +253,7 @@ def node_019
 	return 
 endf 
 
-def node_020
+def node_020 : 29
 	random (85) >> Global.node_011 
 				>> Global.node_020 
 				>> Global.node_016 
@@ -263,7 +263,7 @@ def node_020
 	return 
 endf 
 
-def node_021
+def node_021 : 30
 	random (30) >> Global.node_011 
 				>> Global.node_067 
 	elser (70) >> Global.node_003 
@@ -273,7 +273,7 @@ def node_021
 	return 
 endf 
 
-def node_022
+def node_022 : 31
 	random (30) >> Global.node_011 
 				>> Global.node_016 
 	elser (70) >> Global.node_003 
@@ -283,7 +283,7 @@ def node_022
 	return 
 endf 
 
-def node_023
+def node_023 : 32
 	>> Global.node_003 
 	>> Global.node_010 
 	>> Global.node_015 

@@ -1,7 +1,7 @@
 importactions TzitziYaKu as tzitziyaku
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	self.targetEnemy(target_em.closest_entity) 
 	>> node_001 
 	if self.target(13) 
@@ -11,7 +11,7 @@ def node_000
 	conclude 
 endf 
 
-def node_001
+def node_001 : 20
 	-> tzitziyaku.dash(1,2,0,1500,3000) 
 	if self.distance_3d_to_target().leq(1500) 
 		>> node_002 
@@ -21,7 +21,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 21
 	if self.target(13) 
 		conclude 
 	elif self.target.stunned_1() 
@@ -32,7 +32,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 32
 	if self.part(0).is_broken(2) 
 		if [RegisterVar6 < 1] 
 			-> tzitziyaku.refresh_predator_desire_reset() 
@@ -81,7 +81,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 33
 	if self.distance_3d_to_target().leq(1500) 
 		>> Global.node_051 
 		>> Global.node_039 

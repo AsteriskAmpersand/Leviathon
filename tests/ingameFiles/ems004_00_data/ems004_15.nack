@@ -1,7 +1,7 @@
 importactions Mosswine as mosswine
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	>> Global.node_000 
 	>> node_001 
 	*&
@@ -22,7 +22,7 @@ def node_000
 	reset 
 endf 
 
-def node_001
+def node_001 : 21
 	if function#3F() 
 		>> node_010 
 	else 
@@ -30,7 +30,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 30
 	if function#4D(1) 
 		self.targetEnemy(36) 
 	else 
@@ -40,7 +40,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 27
 	>> Global.node_002 
 	if self.distance_3d_to_target().leq(150) 
 	else 
@@ -50,7 +50,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 13
 	function#54() 
 	function#4E() 
 	>> node_007 
@@ -60,17 +60,17 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 17
 	-> action#0B() 
 	return 
 endf 
 
-def node_006
+def node_006 : 18
 	-> action#08() 
 	return 
 endf 
 
-def node_007
+def node_007 : 29
 	if self.angle_2d_cw_between(20,340) 
 		-> action#05() 
 	else 
@@ -78,19 +78,19 @@ def node_007
 	return 
 endf 
 
-def node_008
+def node_008 : 31
 	function#50() 
 	function#4E() 
 	return 
 endf 
 
-def node_009
+def node_009 : 32
 	>> node_007 
 	-> action#06() 
 	return 
 endf 
 
-def node_010
+def node_010 : 34
 	if function#51(0,3000) 
 		if function#3F() 
 			-> action#15() 
@@ -103,7 +103,7 @@ def node_010
 	return 
 endf 
 
-def node_011
+def node_011 : 36
 	>> node_012 
 	[RegisterVar0 |-] 
 	[RegisterVar1 |-] 
@@ -128,7 +128,7 @@ def node_011
 	return 
 endf 
 
-def node_012
+def node_012 : 37
 	function#E4(4) 
 	function#E4(1) 
 	function#E4(2) 
@@ -142,7 +142,7 @@ def node_012
 	return 
 endf 
 
-def node_013
+def node_013 : 65
 	if function#46() @ unknExtra2:1 
 		>> node_019 
 		function#DA() 
@@ -163,56 +163,56 @@ def node_013
 	reset 
 endf 
 
-def node_014
+def node_014 : 73
 	function#DA() 
 	>> node_019 
 	return 
 endf 
 
-def node_015
+def node_015 : 38
 	-> action#03(2,6,0,100,100) 
 	>> node_013 
 	return 
 endf 
 
-def node_016
+def node_016 : 39
 	-> action#04(2,0,0,100) 
 	>> node_013 
 	return 
 endf 
 
-def node_017
+def node_017 : 66
 	-> action#29() 
 	return 
 endf 
 
-def node_018
+def node_018 : 40
 	-> action#0D(2,6,0,100,100) 
 	>> node_013 
 	return 
 endf 
 
-def node_019
+def node_019 : 41
 	-> action#06() 
 	return 
 endf 
 
-def node_020
+def node_020 : 42
 	-> action#07() 
 	return 
 endf 
 
-def node_021
+def node_021 : 45
 	-> action#0A() 
 	return 
 endf 
 
-def node_022
+def node_022 : 43
 	-> action#08() 
 	return 
 endf 
 
-def node_023
+def node_023 : 44
 	if function#44() 
 		>> node_022 
 	else 
@@ -221,40 +221,40 @@ def node_023
 	return 
 endf 
 
-def node_024
+def node_024 : 67
 	-> action#2A() 
 	return 
 endf 
 
-def node_025
+def node_025 : 46
 	-> action#2B() 
 	return 
 endf 
 
-def node_026
+def node_026 : 47
 	-> action#2C() 
 	return 
 endf 
 
-def node_027
+def node_027 : 48
 	-> action#2D() 
 	return 
 endf 
 
-def node_028
+def node_028 : 69
 	>> node_052 
 	>> node_068 
 	return 
 endf 
 
-def node_029
+def node_029 : 70
 	>> node_052 
 	>> node_068 
 	>> node_068 
 	return 
 endf 
 
-def node_030
+def node_030 : 71
 	>> node_052 
 	>> node_068 
 	>> node_068 
@@ -262,7 +262,7 @@ def node_030
 	return 
 endf 
 
-def node_031
+def node_031 : 68
 	if [RegisterVar3 == 1] 
 		>> node_026 
 	elif [RegisterVar3 == 2] 
@@ -274,7 +274,7 @@ def node_031
 	return 
 endf 
 
-def node_032
+def node_032 : 72
 	function#DE(2000) 
 	function#E2() 
 	if function#D2(8) 
@@ -286,7 +286,7 @@ def node_032
 	return 
 endf 
 
-def node_033
+def node_033 : 49
 	if self.distance_3d_to_target().leq(200) 
 		>> node_048 
 	else 
@@ -306,7 +306,7 @@ def node_033
 	return 
 endf 
 
-def node_034
+def node_034 : 50
 	if [RegisterVar15 <= 3] 
 		random (90) 
 					>> node_051 
@@ -350,7 +350,7 @@ def node_034
 	return 
 endf 
 
-def node_035
+def node_035 : 51
 	if self.distance_3d_to_target().leq(200) 
 		>> node_049 
 	else 
@@ -370,7 +370,7 @@ def node_035
 	return 
 endf 
 
-def node_036
+def node_036 : 52
 	function#DD(3000) 
 	function#DE(10000) 
 	function#E2(2) 
@@ -386,7 +386,7 @@ def node_036
 	return 
 endf 
 
-def node_037
+def node_037 : 53
 	if [RegisterVar14 == 0] 
 		if [RegisterVar15 == 0] 
 			>> node_034 
@@ -408,7 +408,7 @@ def node_037
 	return 
 endf 
 
-def node_038
+def node_038 : 54
 	function#DD() 
 	function#DE(500) 
 	function#E2() 
@@ -433,7 +433,7 @@ def node_038
 	return 
 endf 
 
-def node_039
+def node_039 : 55
 	if [RegisterVar13 == 0] 
 		self.targetEnemy(9) @ parameter2:100 
 		>> node_031 
@@ -473,7 +473,7 @@ def node_039
 	return 
 endf 
 
-def node_040
+def node_040 : 56
 	if [RegisterVar11 < 0] 
 		>> node_060 
 	endif 
@@ -486,7 +486,7 @@ def node_040
 	return 
 endf 
 
-def node_041
+def node_041 : 107
 	function#DD() 
 	function#DE(500) 
 	function#E2() 
@@ -500,7 +500,7 @@ def node_041
 	return 
 endf 
 
-def node_042
+def node_042 : 108
 	function#DA() 
 	>> node_060 
 	>> node_062 
@@ -514,7 +514,7 @@ def node_042
 	return 
 endf 
 
-def node_043
+def node_043 : 57
 	if [RegisterVar11 != 0] 
 		return 
 	endif 
@@ -556,13 +556,13 @@ def node_043
 	return 
 endf 
 
-def node_044
+def node_044 : 58
 	>> node_070 
 	>> node_072 
 	return 
 endf 
 
-def node_045
+def node_045 : 59
 	>> node_031 
 	self.targetEnemy(9) @ parameter2:100 
 	>> node_020 
@@ -573,7 +573,7 @@ def node_045
 	return 
 endf 
 
-def node_046
+def node_046 : 60
 	if [RegisterVar11 != 0] 
 		return 
 	endif 
@@ -610,7 +610,7 @@ def node_046
 	return 
 endf 
 
-def node_047
+def node_047 : 61
 	if [RegisterVar14 == 1] 
 		if [RegisterVar11 == 0] 
 			function#DD(300) 
@@ -628,7 +628,7 @@ def node_047
 	return 
 endf 
 
-def node_048
+def node_048 : 62
 	if [RegisterVar11 == 0] 
 		>> node_031 
 		>> node_014 
@@ -641,7 +641,7 @@ def node_048
 	return 
 endf 
 
-def node_049
+def node_049 : 63
 	if [RegisterVar11 == 0] 
 		>> node_031 
 		>> node_014 
@@ -654,7 +654,7 @@ def node_049
 	return 
 endf 
 
-def node_050
+def node_050 : 64
 	>> node_031 
 	>> node_022 
 	function#DA() 
@@ -662,168 +662,168 @@ def node_050
 	return 
 endf 
 
-def node_051
+def node_051 : 106
 	function#E4(4) 
 	function#E4(1) 
 	return 
 endf 
 
-def node_052
+def node_052 : 75
 	[RegisterVar3 |-] 
 	return 
 endf 
 
-def node_053
+def node_053 : 76
 	[RegisterVar4 |-] 
 	return 
 endf 
 
-def node_054
+def node_054 : 77
 	[RegisterVar5 |-] 
 	return 
 endf 
 
-def node_055
+def node_055 : 78
 	[RegisterVar6 |-] 
 	return 
 endf 
 
-def node_056
+def node_056 : 79
 	[RegisterVar7 |-] 
 	return 
 endf 
 
-def node_057
+def node_057 : 80
 	[RegisterVar8 |-] 
 	return 
 endf 
 
-def node_058
+def node_058 : 81
 	[RegisterVar9 |-] 
 	return 
 endf 
 
-def node_059
+def node_059 : 82
 	[RegisterVar10 |-] 
 	return 
 endf 
 
-def node_060
+def node_060 : 83
 	[RegisterVar11 |-] 
 	return 
 endf 
 
-def node_061
+def node_061 : 84
 	[RegisterVar12 |-] 
 	return 
 endf 
 
-def node_062
+def node_062 : 85
 	[RegisterVar13 |-] 
 	return 
 endf 
 
-def node_063
+def node_063 : 86
 	[RegisterVar14 |-] 
 	return 
 endf 
 
-def node_064
+def node_064 : 87
 	[RegisterVar15 |-] 
 	return 
 endf 
 
-def node_065
+def node_065 : 88
 	[RegisterVar16 |-] 
 	return 
 endf 
 
-def node_066
+def node_066 : 89
 	[RegisterVar17 |-] 
 	return 
 endf 
 
-def node_067
+def node_067 : 90
 	[RegisterVar18 |-] 
 	return 
 endf 
 
-def node_068
+def node_068 : 91
 	[RegisterVar3 ++] 
 	return 
 endf 
 
-def node_069
+def node_069 : 92
 	[RegisterVar4 ++] 
 	return 
 endf 
 
-def node_070
+def node_070 : 93
 	[RegisterVar5 ++] 
 	return 
 endf 
 
-def node_071
+def node_071 : 94
 	[RegisterVar6 ++] 
 	return 
 endf 
 
-def node_072
+def node_072 : 95
 	[RegisterVar7 ++] 
 	return 
 endf 
 
-def node_073
+def node_073 : 74
 	[RegisterVar8 ++] 
 	return 
 endf 
 
-def node_074
+def node_074 : 96
 	[RegisterVar9 ++] 
 	return 
 endf 
 
-def node_075
+def node_075 : 97
 	[RegisterVar10 ++] 
 	return 
 endf 
 
-def node_076
+def node_076 : 98
 	[RegisterVar11 ++] 
 	return 
 endf 
 
-def node_077
+def node_077 : 99
 	[RegisterVar12 ++] 
 	return 
 endf 
 
-def node_078
+def node_078 : 100
 	[RegisterVar13 ++] 
 	return 
 endf 
 
-def node_079
+def node_079 : 101
 	[RegisterVar14 ++] 
 	return 
 endf 
 
-def node_080
+def node_080 : 102
 	[RegisterVar15 ++] 
 	return 
 endf 
 
-def node_081
+def node_081 : 103
 	[RegisterVar16 ++] 
 	return 
 endf 
 
-def node_082
+def node_082 : 104
 	[RegisterVar17 ++] 
 	return 
 endf 
 
-def node_083
+def node_083 : 105
 	[RegisterVar18 ++] 
 	return 
 endf 

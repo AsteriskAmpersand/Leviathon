@@ -1,11 +1,11 @@
 importactions Great_Jagras as great_jagras
 
-def node_000
+def node_000 : 1
 	-> great_jagras.short_search() 
 	reset @ comboSetting:256 
 endf 
 
-def node_001
+def node_001 : 2
 	self.targetArea(target_area.nearest_entrance) 
 	if function#57(1) 
 		>> node_009 
@@ -26,22 +26,22 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 3
 	-> great_jagras.damage_high(2,0,0,1500) 
 	return 
 endf 
 
-def node_003
+def node_003 : 4
 	-> great_jagras.damage_high(2,0,0,3000) 
 	return 
 endf 
 
-def node_004
+def node_004 : 5
 	-> great_jagras.damage_high(2,0,0,1500) 
 	return 
 endf 
 
-def node_005
+def node_005 : 6
 	if function#57(1) 
 		>> node_009 
 		>> node_007 
@@ -56,17 +56,17 @@ def node_005
 	return 
 endf 
 
-def node_006
+def node_006 : 7
 	-> great_jagras.search() 
 	return 
 endf 
 
-def node_007
+def node_007 : 8
 	-> great_jagras.search() 
 	return 
 endf 
 
-def node_008
+def node_008 : 9
 	self.targetArea(10) @ parameter2:1000 
 	-> great_jagras.turn() 
 	-> great_jagras.sleep() 
@@ -74,7 +74,7 @@ def node_008
 	return 
 endf 
 
-def node_009
+def node_009 : 10
 	if function#6B(20000) 
 		-> great_jagras.notify_group() 
 		>> node_010 
@@ -84,7 +84,7 @@ def node_009
 	return 
 endf 
 
-def node_010
+def node_010 : 11
 	self.targetEnemy(26) 
 	if self.distance_3d_to_target().leq(1000) 
 	else 
@@ -94,7 +94,7 @@ def node_010
 	return 
 endf 
 
-def node_011
+def node_011 : 12
 	-> great_jagras.turn() 
 	-> great_jagras.simple_bite() 
 	reset 

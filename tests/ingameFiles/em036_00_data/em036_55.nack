@@ -1,10 +1,10 @@
 importactions Lavasioth as lavasioth
 
-def node_000
+def node_000 : 73
 	conclude 
 endf 
 
-def node_001
+def node_001 : 135
 	if self.current_quest().is_rank(rank.MR) 
 		>> node_127 
 	else 
@@ -30,7 +30,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 206
 	if function#45() 
 	else 
 		>> node_001 
@@ -38,7 +38,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 190
 	if function#30(2) >> node_004 
 	elif function#30() >> node_005 
 	else >> node_006 
@@ -46,7 +46,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 191
 	random (35) 
 	elser (0) >> node_013 
 	elser (10) >> node_011 
@@ -55,7 +55,7 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 222
 	random (35) 
 	elser (10) >> node_013 
 	elser (45) >> node_011 
@@ -64,7 +64,7 @@ def node_005
 	return 
 endf 
 
-def node_006
+def node_006 : 192
 	random (35) 
 	elser (10) >> node_013 
 	elser (55) >> node_011 
@@ -73,7 +73,7 @@ def node_006
 	return 
 endf 
 
-def node_007
+def node_007 : 193
 	if function#30(2) >> node_008 
 	elif function#30() >> node_009 
 	else >> node_010 
@@ -81,7 +81,7 @@ def node_007
 	return 
 endf 
 
-def node_008
+def node_008 : 194
 	random (10) 
 	elser (35) >> node_013 
 	elser (0) >> node_011 
@@ -90,7 +90,7 @@ def node_008
 	return 
 endf 
 
-def node_009
+def node_009 : 223
 	random (35) 
 	elser (45) >> node_013 
 	elser (10) >> node_011 
@@ -99,7 +99,7 @@ def node_009
 	return 
 endf 
 
-def node_010
+def node_010 : 195
 	random (35) 
 	elser (55) >> node_013 
 	elser (10) >> node_011 
@@ -108,7 +108,7 @@ def node_010
 	return 
 endf 
 
-def node_011
+def node_011 : 138
 	>> node_031 
 	if function#105() 
 		>> node_056 
@@ -126,7 +126,7 @@ def node_011
 	return 
 endf 
 
-def node_012
+def node_012 : 139
 	if [RegisterVar3 <= 3] 
 		>> node_092 
 		>> node_124 
@@ -143,13 +143,13 @@ def node_012
 	return 
 endf 
 
-def node_013
+def node_013 : 140
 	>> node_090 
 	>> node_069 
 	return 
 endf 
 
-def node_014
+def node_014 : 145
 	>> node_011 
 	>> node_123 
 	>> node_123 
@@ -158,14 +158,14 @@ def node_014
 	return 
 endf 
 
-def node_015
+def node_015 : 225
 	function#31(49,1000) 
 	self.targetEnemy(target_em.closest_entity) 
 	>> node_006 
 	return 
 endf 
 
-def node_016
+def node_016 : 147
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if function#5D() 
 		function#5E() 
@@ -178,7 +178,7 @@ def node_016
 	return 
 endf 
 
-def node_017
+def node_017 : 158
 	if function#105() 
 		if self.vertical_distance_to_target().gt(1000) 
 			if function#101() >> node_019 
@@ -199,7 +199,7 @@ def node_017
 	return 
 endf 
 
-def node_018
+def node_018 : 159
 	self.targetArea(19) 
 	if self.distance_3d_to_target().gt(1000) 
 		>> node_085 
@@ -215,7 +215,7 @@ def node_018
 	return 
 endf 
 
-def node_019
+def node_019 : 160
 	if function#101() >> node_054 
 		>> node_026 
 	else >> node_064 
@@ -223,7 +223,7 @@ def node_019
 	return 
 endf 
 
-def node_020
+def node_020 : 161
 	>> node_031 
 	if self.distance_2d_to_target().gt(1000) >> node_087 
 	endif 
@@ -233,7 +233,7 @@ def node_020
 	return 
 endf 
 
-def node_021
+def node_021 : 248
 	if function#101() 
 		random (30) >> node_034 
 		elser (20) >> node_049 
@@ -258,7 +258,7 @@ def node_021
 	reset 
 endf 
 
-def node_022
+def node_022 : 165
 	if self.distance_2d_to_target().leq(500) >> node_030 
 	endif 
 	>> node_028 
@@ -266,31 +266,31 @@ def node_022
 	return 
 endf 
 
-def node_023
+def node_023 : 166
 	>> node_030 
 	-> lavasioth.breath_half_diving() 
 	return 
 endf 
 
-def node_024
+def node_024 : 207
 	>> node_030 
 	-> lavasioth.special_breath_diving() 
 	return 
 endf 
 
-def node_025
+def node_025 : 167
 	-> lavasioth.dash_diving(6,0,0,500) 
 	-> lavasioth.dive_to_stand_body_press() 
 	return 
 endf 
 
-def node_026
+def node_026 : 168
 	>> node_028 
 	-> lavasioth.appear_attack_from_diving() 
 	return 
 endf 
 
-def node_027
+def node_027 : 189
 	>> node_028 
 	if function#104() -> lavasioth.appear_attack_from_diving_to_swim() 
 	else -> lavasioth.appear_attack_from_diving() 
@@ -298,7 +298,7 @@ def node_027
 	return 
 endf 
 
-def node_028
+def node_028 : 181
 	if self.in_map(st.Guiding_Lands).in_area(-1) 
 		-> lavasioth.dash_diving(2,1,0,3000,500) 
 	else 
@@ -307,33 +307,33 @@ def node_028
 	return 
 endf 
 
-def node_029
+def node_029 : 214
 	self.targetArea(54) 
 	-> lavasioth.dash_diving() 
 	self.targetEnemy(50) 
 	return 
 endf 
 
-def node_030
+def node_030 : 170
 	self.targetArea(55) 
 	-> lavasioth.dash_diving() 
 	self.targetEnemy(50) 
 	return 
 endf 
 
-def node_031
+def node_031 : 186
 	if function#3F() -> lavasioth.dive_to_stand_no_jump() 
 	endif 
 	return 
 endf 
 
-def node_032
+def node_032 : 215
 	if function#3F() -> lavasioth.dive_to_swim() 
 	endif 
 	return 
 endf 
 
-def node_033
+def node_033 : 111
 	>> node_088 
 	if self.current_quest().is_rank(rank.MR) 
 		if self.hp_percent().gt(45) 
@@ -350,28 +350,28 @@ def node_033
 	return 
 endf 
 
-def node_034
+def node_034 : 114
 	>> node_087 
 	>> node_088 
 	-> lavasioth.bite() 
 	return 
 endf 
 
-def node_035
+def node_035 : 103
 	if self.angle_2d_cw_between(0,180) -> lavasioth.tail_attack_l() 
 	else -> lavasioth.tail_attack_r() 
 	endif 
 	return 
 endf 
 
-def node_036
+def node_036 : 108
 	>> node_087 
 	>> node_088 
 	-> lavasioth.slide_attack() 
 	return 
 endf 
 
-def node_037
+def node_037 : 109
 	>> node_088 
 	-> lavasioth.slide_homing_attack_pre() 
 	if self.enraged() 
@@ -381,20 +381,20 @@ def node_037
 	return 
 endf 
 
-def node_038
+def node_038 : 172
 	if self.angle_2d_cw_between(0,180) -> lavasioth.tackle() 
 	else -> lavasioth.tackle_r() 
 	endif 
 	return 
 endf 
 
-def node_039
+def node_039 : 232
 	>> node_088 
 	-> lavasioth.getting_busy_magma_breath() 
 	return 
 endf 
 
-def node_040
+def node_040 : 180
 	if self.angular_15(90,0) >> node_041 
 	else >> node_042 
 	endif 
@@ -402,40 +402,40 @@ def node_040
 	return 
 endf 
 
-def node_041
+def node_041 : 178
 	if self.angle_2d_cw_between(0,180) -> lavasioth.snake_turn_l() 
 	elif self.angle_2d_cw_between(180,360) -> lavasioth.snake_turn_r() 
 	endif 
 	return 
 endf 
 
-def node_042
+def node_042 : 179
 	if self.angle_2d_cw_between(0,180) -> lavasioth.snake_turn_r() 
 	elif self.angle_2d_cw_between(180,360) -> lavasioth.snake_turn_l() 
 	endif 
 	return 
 endf 
 
-def node_043
+def node_043 : 219
 	if self.angular_15(90,0) >> node_044 
 	else >> node_045 
 	endif 
 	return 
 endf 
 
-def node_044
+def node_044 : 218
 	>> node_042 
 	>> node_038 
 	return 
 endf 
 
-def node_045
+def node_045 : 199
 	>> node_042 
 	>> node_071 
 	return 
 endf 
 
-def node_046
+def node_046 : 234
 	if self.angular_15(90,0) >> node_041 
 	else >> node_042 
 	endif 
@@ -443,14 +443,14 @@ def node_046
 	return 
 endf 
 
-def node_047
+def node_047 : 236
 	if self.angular_15(90,0) >> node_044 
 	else >> node_048 
 	endif 
 	return 
 endf 
 
-def node_048
+def node_048 : 237
 	>> node_042 
 	if self.hp_percent().gt(45) 
 		random (70) >> node_071 
@@ -462,7 +462,7 @@ def node_048
 	return 
 endf 
 
-def node_049
+def node_049 : 164
 	if self.angle_2d_ccw_between(60,0) 
 		>> node_034 
 	else 
@@ -471,7 +471,7 @@ def node_049
 	return 
 endf 
 
-def node_050
+def node_050 : 163
 	if self.angle_2d_ccw_between(60,0) 
 		>> node_035 
 	else 
@@ -480,7 +480,7 @@ def node_050
 	return 
 endf 
 
-def node_051
+def node_051 : 173
 	if self.angle_2d_cw_between(90,270) >> node_041 
 	elif self.angle_2d_ccw_between(30,0) >> node_037 
 	else >> node_038 
@@ -488,7 +488,7 @@ def node_051
 	return 
 endf 
 
-def node_052
+def node_052 : 208
 	if self.distance_3d_to_target().leq(750) >> node_034 
 	elif self.distance_3d_to_target().leq(1000) >> node_036 
 	else >> node_033 
@@ -496,7 +496,7 @@ def node_052
 	return 
 endf 
 
-def node_053
+def node_053 : 235
 	if self.hp_percent().gt(45) 
 		if self.distance_3d_to_target().leq(500) >> node_034 
 		elif self.distance_3d_to_target().leq(750) >> node_039 
@@ -512,12 +512,12 @@ def node_053
 	return 
 endf 
 
-def node_054
+def node_054 : 177
 	-> lavasioth.stand_to_diving() 
 	return 
 endf 
 
-def node_055
+def node_055 : 155
 	self.targetArea(54) 
 	>> node_088 
 	if self.distance_3d_to_target().gt(500) >> node_086 
@@ -528,7 +528,7 @@ def node_055
 	return 
 endf 
 
-def node_056
+def node_056 : 198
 	if function#105() 
 		if function#101() 
 			self.targetArea(54) 
@@ -539,7 +539,7 @@ def node_056
 	return 
 endf 
 
-def node_057
+def node_057 : 104
 	if self.angle_2d_cw_between(0,180) 
 		>> node_088 
 	else 
@@ -550,7 +550,7 @@ def node_057
 	return 
 endf 
 
-def node_058
+def node_058 : 123
 	>> node_086 
 	>> node_088 
 	if function#102() -> lavasioth.swim_single_bite() 
@@ -559,7 +559,7 @@ def node_058
 	return 
 endf 
 
-def node_059
+def node_059 : 125
 	>> node_088 
 	if function#102() -> lavasioth.swim_breath_double() 
 	else >> node_033 
@@ -567,7 +567,7 @@ def node_059
 	return 
 endf 
 
-def node_060
+def node_060 : 153
 	>> node_088 
 	if function#102() -> lavasioth.swim_triple_breath() 
 	else >> node_033 
@@ -575,7 +575,7 @@ def node_060
 	return 
 endf 
 
-def node_061
+def node_061 : 105
 	>> node_088 
 	if function#102() -> lavasioth.swim_bite() 
 	else >> node_034 
@@ -583,21 +583,21 @@ def node_061
 	return 
 endf 
 
-def node_062
+def node_062 : 82
 	if function#102() -> lavasioth.swim_tail_attack() 
 	else >> node_035 
 	endif 
 	return 
 endf 
 
-def node_063
+def node_063 : 79
 	if function#102() -> lavasioth.swim_rush_pre() 
 	else >> node_037 
 	endif 
 	return 
 endf 
 
-def node_064
+def node_064 : 142
 	if function#2D(1) 
 		>> node_088 
 		>> node_059 
@@ -608,12 +608,12 @@ def node_064
 	return 
 endf 
 
-def node_065
+def node_065 : 188
 	-> lavasioth.swim_to_diving() 
 	return 
 endf 
 
-def node_066
+def node_066 : 130
 	if self.angle_2d_cw_between(180,360) 
 		>> node_057 
 	else 
@@ -622,7 +622,7 @@ def node_066
 	return 
 endf 
 
-def node_067
+def node_067 : 120
 	if self.angle_2d_ccw_between(60,0) 
 		>> node_061 
 	else 
@@ -631,7 +631,7 @@ def node_067
 	return 
 endf 
 
-def node_068
+def node_068 : 146
 	if self.angle_2d_ccw_between(60,0) 
 		>> node_063 
 	else 
@@ -640,7 +640,7 @@ def node_068
 	return 
 endf 
 
-def node_069
+def node_069 : 144
 	>> node_088 
 	if function#101() 
 		-> lavasioth.threat_short() 
@@ -650,14 +650,14 @@ def node_069
 	return 
 endf 
 
-def node_070
+def node_070 : 157
 	if function#101() >> node_037 
 	else >> node_063 
 	endif 
 	return 
 endf 
 
-def node_071
+def node_071 : 197
 	>> node_088 
 	if self.current_quest().is_rank(rank.MR) 
 		if self.hp_percent().gt(45) 
@@ -684,20 +684,20 @@ def node_071
 	return 
 endf 
 
-def node_072
+def node_072 : 202
 	self.targetArea(55) 
 	-> lavasioth.swim_dash(6,0,0,500) 
 	self.targetEnemy(target_em.random_player_or_cat) 
 	return 
 endf 
 
-def node_073
+def node_073 : 200
 	>> node_072 
 	>> node_074 
 	return 
 endf 
 
-def node_074
+def node_074 : 196
 	>> node_088 
 	if function#102() -> lavasioth.swim_upper_breath() 
 	else >> node_078 
@@ -705,7 +705,7 @@ def node_074
 	return 
 endf 
 
-def node_075
+def node_075 : 204
 	if self.distance_2d_to_target().leq(500) >> node_088 
 	else >> node_072 
 	endif 
@@ -714,7 +714,7 @@ def node_075
 	return 
 endf 
 
-def node_076
+def node_076 : 205
 	if self.distance_2d_to_target().leq(500) >> node_088 
 	else >> node_072 
 	endif 
@@ -723,14 +723,14 @@ def node_076
 	return 
 endf 
 
-def node_077
+def node_077 : 201
 	>> node_072 
 	>> node_065 
 	-> lavasioth.dolphin_jump_to_ground() 
 	return 
 endf 
 
-def node_078
+def node_078 : 209
 	>> node_072 
 	>> node_065 
 	self.targetEnemy(54) 
@@ -738,7 +738,7 @@ def node_078
 	return 
 endf 
 
-def node_079
+def node_079 : 203
 	if function#105() 
 		if function#102() 
 			>> node_078 
@@ -747,7 +747,7 @@ def node_079
 	return 
 endf 
 
-def node_080
+def node_080 : 238
 	if function#105() 
 		self.targetEnemy(55) 
 		if function#11(50) 
@@ -758,7 +758,7 @@ def node_080
 	return 
 endf 
 
-def node_081
+def node_081 : 224
 	if self.in_map(st.Elder_Recess).in_area(7) 
 		self.targetArea(54) 
 		>> node_086 
@@ -768,7 +768,7 @@ def node_081
 	return 
 endf 
 
-def node_082
+def node_082 : 89
 	>> node_088 
 	if function#101() 
 		-> lavasioth.walk(2,1,0,1500,600) 
@@ -778,7 +778,7 @@ def node_082
 	return 
 endf 
 
-def node_083
+def node_083 : 90
 	>> node_088 
 	if function#101() 
 		-> lavasioth.walk(2,1,0,3000,600) 
@@ -788,7 +788,7 @@ def node_083
 	return 
 endf 
 
-def node_084
+def node_084 : 91
 	>> node_088 
 	if function#101() 
 		-> lavasioth.walk(2,1,0,4000,600) 
@@ -798,7 +798,7 @@ def node_084
 	return 
 endf 
 
-def node_085
+def node_085 : 74
 	if function#101() 
 		-> lavasioth.dash_combat(2,0,0,1000) 
 	else 
@@ -807,7 +807,7 @@ def node_085
 	return 
 endf 
 
-def node_086
+def node_086 : 141
 	if function#101() 
 		-> lavasioth.dash_combat(1,0,0,750) 
 	else 
@@ -821,7 +821,7 @@ def node_086
 	return 
 endf 
 
-def node_087
+def node_087 : 156
 	if function#101() 
 		-> lavasioth.dash_combat(1,0,0,1000) 
 	else 
@@ -835,7 +835,7 @@ def node_087
 	return 
 endf 
 
-def node_088
+def node_088 : 87
 	if self.angular_15(60,0) 
 		if self.distance_2d_to_target().leq(750) 
 			>> node_090 
@@ -847,14 +847,14 @@ def node_088
 	return 
 endf 
 
-def node_089
+def node_089 : 88
 	if function#101() -> lavasioth.quick_turn() 
 	else -> lavasioth.swim_turn() 
 	endif 
 	return 
 endf 
 
-def node_090
+def node_090 : 119
 	if function#101() -> lavasioth.quick_turn() 
 	else -> lavasioth.swim_back_turn() 
 	else 
@@ -862,7 +862,7 @@ def node_090
 	return 
 endf 
 
-def node_091
+def node_091 : 100
 	self.targetEnemy(9) @ parameter2:1000 
 	if function#101() 
 		-> lavasioth.walk(2,5,3,1000) @ unknExtra0:3 
@@ -873,7 +873,7 @@ def node_091
 	return 
 endf 
 
-def node_092
+def node_092 : 102
 	self.targetEnemy(10) @ parameter2:1000 
 	if function#101() 
 		-> lavasioth.quick_turn() 
@@ -884,7 +884,7 @@ def node_092
 	return 
 endf 
 
-def node_093
+def node_093 : 121
 	if self.distance_3d_to_target().leq(750) 
 		>> node_090 
 	else 
@@ -893,14 +893,14 @@ def node_093
 	return 
 endf 
 
-def node_094
+def node_094 : 86
 	random (20) >> node_095 
 	elser (80) 
 	endr 
 	return 
 endf 
 
-def node_095
+def node_095 : 75
 	if function#101() 
 		-> lavasioth.search() 
 	else 
@@ -909,12 +909,12 @@ def node_095
 	return 
 endf 
 
-def node_096
+def node_096 : 78
 	-> lavasioth.drink() 
 	return 
 endf 
 
-def node_097
+def node_097 : 76
 	if function#101() 
 		-> lavasioth.meat_eat() 
 	else 
@@ -923,12 +923,12 @@ def node_097
 	return 
 endf 
 
-def node_098
+def node_098 : 77
 	-> lavasioth.sleep() 
 	return 
 endf 
 
-def node_099
+def node_099 : 93
 	if function#105() >> node_079 
 	elif function#102() -> lavasioth.swim_to_stand_no_jump() 
 	endif 
@@ -936,7 +936,7 @@ def node_099
 	return 
 endf 
 
-def node_100
+def node_100 : 107
 	>> node_031 
 	if function#101() 
 		-> lavasioth.threat() 
@@ -946,14 +946,14 @@ def node_100
 	return 
 endf 
 
-def node_101
+def node_101 : 106
 	if function#101() -> lavasioth.refresh() 
 	else -> lavasioth.swim_refresh() 
 	endif 
 	return 
 endf 
 
-def node_102
+def node_102 : 98
 	if function#101() 
 		-> lavasioth.search() 
 	else 
@@ -962,7 +962,7 @@ def node_102
 	return 
 endf 
 
-def node_103
+def node_103 : 211
 	if function#102() -> lavasioth.swim_sniff() 
 	else 
 		random (25) -> lavasioth.sniff_s() 
@@ -972,7 +972,7 @@ def node_103
 	return 
 endf 
 
-def node_104
+def node_104 : 99
 	if function#102() -> lavasioth.swim_marking() 
 	else 
 		>> node_054 
@@ -981,7 +981,7 @@ def node_104
 	return 
 endf 
 
-def node_105
+def node_105 : 216
 	self.targetArea(target_area.nearest_entrance) 
 	if self.distance_3d_to_target().gt(600) 
 		>> node_084 
@@ -990,7 +990,7 @@ def node_105
 	return 
 endf 
 
-def node_106
+def node_106 : 217
 	function#106() 
 	if self.distance_3d_to_target().gt(600) 
 		-> lavasioth.swim_dash(2,0,0,4000) 
@@ -999,31 +999,31 @@ def node_106
 	return 
 endf 
 
-def node_107
+def node_107 : 226
 	>> node_056 
 	>> node_105 
 	return 
 endf 
 
-def node_108
+def node_108 : 230
 	>> node_079 
 	>> node_105 
 	return 
 endf 
 
-def node_109
+def node_109 : 228
 	>> node_055 
 	>> node_106 
 	return 
 endf 
 
-def node_110
+def node_110 : 227
 	>> node_079 
 	>> node_105 
 	return 
 endf 
 
-def node_111
+def node_111 : 229
 	function#54() 
 	function#52(4,4) 
 	>> node_105 
@@ -1032,40 +1032,40 @@ def node_111
 	return 
 endf 
 
-def node_112
+def node_112 : 231
 	if function#101() >> node_054 
 	else >> node_065 
 	endif 
 	return 
 endf 
 
-def node_113
+def node_113 : 174
 	[RegisterVar0 ++] 
 	return 
 endf 
 
-def node_114
+def node_114 : 175
 	[RegisterVar0 ++] 
 	[RegisterVar0 ++] 
 	return 
 endf 
 
-def node_115
+def node_115 : 176
 	[RegisterVar0 |-] 
 	return 
 endf 
 
-def node_116
+def node_116 : 149
 	[RegisterVar1 ++] 
 	return 
 endf 
 
-def node_117
+def node_117 : 151
 	[RegisterVar1 |-] 
 	return 
 endf 
 
-def node_118
+def node_118 : 185
 	if function#101() 
 		self.targetEnemy(54) 
 		if self.distance_3d_to_target().leq(500) 
@@ -1082,55 +1082,55 @@ def node_118
 	return 
 endf 
 
-def node_119
+def node_119 : 182
 	[RegisterVar2 ++] 
 	return 
 endf 
 
-def node_120
-	[RegisterVar2 ++] 
-	[RegisterVar2 ++] 
-	return 
-endf 
-
-def node_121
-	[RegisterVar2 ++] 
-	[RegisterVar2 ++] 
-	[RegisterVar2 ++] 
-	[RegisterVar2 ++] 
-	[RegisterVar2 ++] 
-	[RegisterVar2 ++] 
+def node_120 : 183
 	[RegisterVar2 ++] 
 	[RegisterVar2 ++] 
 	return 
 endf 
 
-def node_122
+def node_121 : 187
+	[RegisterVar2 ++] 
+	[RegisterVar2 ++] 
+	[RegisterVar2 ++] 
+	[RegisterVar2 ++] 
+	[RegisterVar2 ++] 
+	[RegisterVar2 ++] 
+	[RegisterVar2 ++] 
+	[RegisterVar2 ++] 
+	return 
+endf 
+
+def node_122 : 184
 	[RegisterVar2 |-] 
 	return 
 endf 
 
-def node_123
+def node_123 : 220
 	[RegisterVar3 ++] 
 	return 
 endf 
 
-def node_124
+def node_124 : 221
 	[RegisterVar3 |-] 
 	return 
 endf 
 
-def node_125
+def node_125 : 212
 	[RegisterVar4 ++] 
 	return 
 endf 
 
-def node_126
+def node_126 : 213
 	[RegisterVar4 |-] 
 	return 
 endf 
 
-def node_127
+def node_127 : 239
 	if self.targetEnemy(target_em.any_monster) 
 		if self.target(13) 
 		else 
@@ -1152,7 +1152,7 @@ def node_127
 	return 
 endf 
 
-def node_128
+def node_128 : 240
 	if function#30(2) >> node_129 
 	elif function#30() >> node_130 
 	else >> node_131 
@@ -1160,7 +1160,7 @@ def node_128
 	return 
 endf 
 
-def node_129
+def node_129 : 241
 	random (35) 
 	elser (0) >> node_013 
 	elser (10) >> node_011 
@@ -1170,7 +1170,7 @@ def node_129
 	return 
 endf 
 
-def node_130
+def node_130 : 242
 	random (35) 
 	elser (0) >> node_013 
 	elser (50) >> node_011 
@@ -1180,7 +1180,7 @@ def node_130
 	return 
 endf 
 
-def node_131
+def node_131 : 243
 	random (35) 
 	elser (10) >> node_013 
 	elser (55) >> node_011 
@@ -1190,7 +1190,7 @@ def node_131
 	return 
 endf 
 
-def node_132
+def node_132 : 244
 	if function#30(2) >> node_133 
 	elif function#30() >> node_134 
 	else >> node_135 
@@ -1198,7 +1198,7 @@ def node_132
 	return 
 endf 
 
-def node_133
+def node_133 : 245
 	random (10) 
 	elser (35) >> node_013 
 	elser (0) >> node_011 
@@ -1208,7 +1208,7 @@ def node_133
 	return 
 endf 
 
-def node_134
+def node_134 : 246
 	random (35) 
 	elser (45) >> node_013 
 	elser (10) >> node_011 
@@ -1218,7 +1218,7 @@ def node_134
 	return 
 endf 
 
-def node_135
+def node_135 : 247
 	random (35) 
 	elser (55) >> node_013 
 	elser (10) >> node_011 

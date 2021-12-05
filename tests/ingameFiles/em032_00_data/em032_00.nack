@@ -1,7 +1,7 @@
 importactions Tigrex as tigrex
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	>> Global.node_020 
 	>> Global.node_001 
 	>> node_060 
@@ -29,7 +29,7 @@ def node_000
 	reset 
 endf 
 
-def node_001
+def node_001 : 215
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.distance_2d_to_target().leq(600) 
 		if self.enraged() >> node_007 
@@ -61,7 +61,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 210
 	random (40) >> node_017 
 	elser (15) >> node_021 
 	elser (10) >> node_023 
@@ -72,7 +72,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 211
 	random (35) >> node_017 
 	elser (5) >> node_021 
 	elser (20) >> node_023 
@@ -83,7 +83,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 212
 	random (30) >> node_030 
 				>> node_017 
 	elser (20) >> node_023 
@@ -94,7 +94,7 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 213
 	random (15) >> node_031 
 				>> node_028 
 	elser (30) >> node_027 
@@ -106,7 +106,7 @@ def node_005
 	return 
 endf 
 
-def node_006
+def node_006 : 214
 	random (25) >> node_032 
 				>> node_028 
 	elser (25) >> node_027 
@@ -118,7 +118,7 @@ def node_006
 	return 
 endf 
 
-def node_007
+def node_007 : 248
 	random (35) >> node_017 
 	elser (20) >> node_021 
 	elser (15) >> node_023 
@@ -129,7 +129,7 @@ def node_007
 	return 
 endf 
 
-def node_008
+def node_008 : 249
 	random (35) >> node_017 
 	elser (10) >> node_021 
 	elser (15) >> node_023 
@@ -140,7 +140,7 @@ def node_008
 	return 
 endf 
 
-def node_009
+def node_009 : 250
 	random (30) >> node_030 
 				>> node_017 
 	elser (20) >> node_023 
@@ -151,7 +151,7 @@ def node_009
 	return 
 endf 
 
-def node_010
+def node_010 : 251
 	random (15) >> node_031 
 				>> node_028 
 	elser (30) >> node_027 
@@ -163,7 +163,7 @@ def node_010
 	return 
 endf 
 
-def node_011
+def node_011 : 252
 	random (25) >> node_032 
 				>> node_028 
 	elser (25) >> node_027 
@@ -175,7 +175,7 @@ def node_011
 	return 
 endf 
 
-def node_012
+def node_012 : 254
 	random (45) >> node_018 
 	elser (5) >> node_021 
 	elser (10) >> node_023 
@@ -185,7 +185,7 @@ def node_012
 	return 
 endf 
 
-def node_013
+def node_013 : 255
 	random (40) >> node_018 
 	elser (5) >> node_021 
 	elser (15) >> node_023 
@@ -195,7 +195,7 @@ def node_013
 	return 
 endf 
 
-def node_014
+def node_014 : 256
 	random (30) >> node_030 
 				>> node_018 
 	elser (15) >> node_023 
@@ -205,7 +205,7 @@ def node_014
 	return 
 endf 
 
-def node_015
+def node_015 : 257
 	random (10) >> node_031 
 				>> node_029 
 	elser (25) >> node_027 
@@ -217,7 +217,7 @@ def node_015
 	return 
 endf 
 
-def node_016
+def node_016 : 258
 	random (25) >> node_032 
 				>> node_029 
 	elser (25) >> node_027 
@@ -229,13 +229,13 @@ def node_016
 	return 
 endf 
 
-def node_017
+def node_017 : 247
 	>> node_018 
 	>> node_019 
 	return 
 endf 
 
-def node_018
+def node_018 : 216
 	if self.distance_2d_to_target().leq(750) 
 		-> tigrex.check_bite() 
 	else 
@@ -244,7 +244,7 @@ def node_018
 	return 
 endf 
 
-def node_019
+def node_019 : 217
 	if self.distance_2d_to_target().leq(800) 
 		random (65) >> node_020 
 		elser (10) >> node_025 
@@ -270,7 +270,7 @@ def node_019
 	return 
 endf 
 
-def node_020
+def node_020 : 218
 	if self.angle_2d_cw_between(0,90) 
 		-> tigrex.check_attack_l() 
 	elif self.angle_2d_cw_between(270,0) 
@@ -283,17 +283,17 @@ def node_020
 	return 
 endf 
 
-def node_021
+def node_021 : 219
 	-> tigrex.rotate_attack_r() 
 	return 
 endf 
 
-def node_022
+def node_022 : 221
 	-> tigrex.bite_max() 
 	return 
 endf 
 
-def node_023
+def node_023 : 220
 	if self.distance_2d_to_target().leq(600) 
 		-> tigrex.move_back() 
 	else 
@@ -302,7 +302,7 @@ def node_023
 	return 
 endf 
 
-def node_024
+def node_024 : 223
 	if self.angle_2d_cw_between(180,0) 
 		-> tigrex.rock_launcher_r() 
 	else 
@@ -311,7 +311,7 @@ def node_024
 	return 
 endf 
 
-def node_025
+def node_025 : 222
 	if self.distance_2d_to_target().leq(1000) 
 		-> tigrex.move_back() 
 	else 
@@ -320,7 +320,7 @@ def node_025
 	return 
 endf 
 
-def node_026
+def node_026 : 224
 	if self.distance_2d_to_target().leq(1700) 
 		-> tigrex.move_back() 
 	else 
@@ -333,7 +333,7 @@ def node_026
 	return 
 endf 
 
-def node_027
+def node_027 : 244
 	if self.distance_2d_to_target().leq(1500) 
 		>> node_030 
 	elif self.distance_2d_to_target().leq(4000) 
@@ -344,7 +344,7 @@ def node_027
 	return 
 endf 
 
-def node_028
+def node_028 : 237
 	if self.distance_2d_to_target().leq(1000) 
 		random (75) >> node_017 
 		elser (25) >> node_021 
@@ -359,7 +359,7 @@ def node_028
 	return 
 endf 
 
-def node_029
+def node_029 : 265
 	if self.distance_2d_to_target().leq(1000) 
 		random (85) >> node_018 
 		elser (15) >> node_021 
@@ -374,7 +374,7 @@ def node_029
 	return 
 endf 
 
-def node_030
+def node_030 : 225
 	if self.distance_2d_to_target().leq(950) 
 	else 
 		-> tigrex.dash_combat(6,2,0,850,2000) 
@@ -382,20 +382,20 @@ def node_030
 	return 
 endf 
 
-def node_031
+def node_031 : 226
 	>> node_030 
 	>> node_030 
 	return 
 endf 
 
-def node_032
+def node_032 : 227
 	>> node_030 
 	>> node_030 
 	>> node_030 
 	return 
 endf 
 
-def node_033
+def node_033 : 231
 	-> tigrex.straight_rush() 
 	if self.target.helpless_0() 
 		-> tigrex.afterrush_stop() 
@@ -422,7 +422,7 @@ def node_033
 	return 
 endf 
 
-def node_034
+def node_034 : 245
 	-> tigrex.straight_rush() 
 	if self.target.helpless_0() 
 		-> tigrex.afterrush_stop() 
@@ -452,7 +452,7 @@ def node_034
 	return 
 endf 
 
-def node_035
+def node_035 : 242
 	if self.distance_2d_to_target().leq(1000) 
 		random (50) >> node_021 
 		elser (20) >> node_025 
@@ -481,7 +481,7 @@ def node_035
 	return 
 endf 
 
-def node_036
+def node_036 : 235
 	-> tigrex.straight_rush() 
 	if self.target.helpless_0() 
 		-> tigrex.afterrush_stop() 
@@ -507,7 +507,7 @@ def node_036
 	return 
 endf 
 
-def node_037
+def node_037 : 240
 	-> tigrex.straight_rush() 
 	if self.target.helpless_0() 
 		-> tigrex.afterrush_stop() 
@@ -537,7 +537,7 @@ def node_037
 	return 
 endf 
 
-def node_038
+def node_038 : 259
 	-> tigrex.straight_rush() 
 	if self.target.helpless_0() 
 		-> tigrex.afterrush_stop() 
@@ -555,7 +555,7 @@ def node_038
 	return 
 endf 
 
-def node_039
+def node_039 : 243
 	if self.quest_id(66855) 
 		if self.distance_2d_to_target().leq(975) 
 			-> tigrex.afterrush_stop() 
@@ -592,7 +592,7 @@ def node_039
 	return 
 endf 
 
-def node_040
+def node_040 : 239
 	if self.distance_3d_to_target().leq(5000) 
 		if self.enraged() 
 			if self.target.helpless_0() 
@@ -622,7 +622,7 @@ def node_040
 	return 
 endf 
 
-def node_041
+def node_041 : 229
 	-> tigrex.straight_rush() 
 	if self.target.helpless_0() 
 	else 
@@ -632,7 +632,7 @@ def node_041
 	return 
 endf 
 
-def node_042
+def node_042 : 246
 	-> tigrex.straight_rush() 
 	if self.target.helpless_0() 
 		-> tigrex.afterrush_stop() 
@@ -656,13 +656,13 @@ def node_042
 	return 
 endf 
 
-def node_043
+def node_043 : 233
 	-> tigrex.straight_rush(6,0,0,1200) 
 	>> node_044 
 	return 
 endf 
 
-def node_044
+def node_044 : 234
 	if self.quest_id(66853) 
 		if self.fatigued() 
 			-> tigrex.afterrush_stop() 
@@ -691,7 +691,7 @@ def node_044
 	return 
 endf 
 
-def node_045
+def node_045 : 174
 	if function#102() 
 		reset 
 	elif self.fatigued() 
@@ -706,12 +706,12 @@ def node_045
 	return 
 endf 
 
-def node_046
+def node_046 : 187
 	-> tigrex.afterrush_drift_for_attack() 
 	return 
 endf 
 
-def node_047
+def node_047 : 106
 	if function#102() 
 		reset 
 	else 
@@ -720,7 +720,7 @@ def node_047
 	reset 
 endf 
 
-def node_048
+def node_048 : 107
 	if function#102() 
 		reset 
 	else 
@@ -729,7 +729,7 @@ def node_048
 	reset 
 endf 
 
-def node_049
+def node_049 : 117
 	if function#102() 
 		reset 
 	else 
@@ -738,7 +738,7 @@ def node_049
 	reset 
 endf 
 
-def node_050
+def node_050 : 170
 	[RegisterVar0 |-] 
 	if function#102() 
 		reset 
@@ -749,22 +749,22 @@ def node_050
 	reset 
 endf 
 
-def node_051
+def node_051 : 182
 	-> tigrex.afterdrift_bite_min() 
 	reset 
 endf 
 
-def node_052
+def node_052 : 184
 	-> tigrex.afterdrift_bite_max() 
 	reset 
 endf 
 
-def node_053
+def node_053 : 183
 	-> tigrex.afterdrift_rotate_attack() 
 	reset 
 endf 
 
-def node_054
+def node_054 : 149
 	if function#102() 
 		[RegisterVar1 |-] 
 		reset 
@@ -776,7 +776,7 @@ def node_054
 	return 
 endf 
 
-def node_055
+def node_055 : 175
 	if [RegisterVar1 <= 1] 
 		[RegisterVar1 |-] 
 		-> tigrex.tired_rerush_drift() 
@@ -788,7 +788,7 @@ def node_055
 	return 
 endf 
 
-def node_056
+def node_056 : 181
 	if self.angle_2d_ccw_between(20,0) 
 		return 
 	else 
@@ -803,7 +803,7 @@ def node_056
 	return 
 endf 
 
-def node_057
+def node_057 : 110
 	if self.target(10) 
 		-> tigrex.navi_rush(2,1,0,10000,800) 
 		>> node_059 
@@ -820,7 +820,7 @@ def node_057
 	return 
 endf 
 
-def node_058
+def node_058 : 151
 	if self.target(10) 
 		-> tigrex.navi_rush(2,1,0,10000,1500) @ unkn6:65536 
 		>> node_059 
@@ -840,7 +840,7 @@ def node_058
 	return 
 endf 
 
-def node_059
+def node_059 : 148
 	if function#102() 
 		reset 
 	else 
@@ -854,7 +854,7 @@ def node_059
 	reset 
 endf 
 
-def node_060
+def node_060 : 163
 	[RegisterVar3 |-] 
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if function#5D() 
@@ -895,7 +895,7 @@ def node_060
 	return 
 endf 
 
-def node_061
+def node_061 : 165
 	self.targetArea(19) 
 	if self.distance_3d_to_target().gt(1000) 
 		>> Global.node_012 
@@ -912,7 +912,7 @@ def node_061
 	return 
 endf 
 
-def node_062
+def node_062 : 164
 	if self.vertical_distance_to_target().leq(700) 
 		if self.distance_2d_to_target().leq(2500) 
 			>> node_063 
@@ -929,7 +929,7 @@ def node_062
 	return 
 endf 
 
-def node_063
+def node_063 : 262
 	if self.fatigued() 
 		-> tigrex.dash_tired(1,2,0,850,3000) 
 	else 
@@ -939,7 +939,7 @@ def node_063
 	return 
 endf 
 
-def node_064
+def node_064 : 166
 	if self.above_target() 
 		if self.distance_2d_to_target().gt(1500) 
 			>> node_032 
@@ -962,7 +962,7 @@ def node_064
 	return 
 endf 
 
-def node_065
+def node_065 : 167
 	if self.distance_2d_to_target().gt(500) 
 		>> node_032 
 	else 
@@ -972,13 +972,13 @@ def node_065
 	return 
 endf 
 
-def node_066
+def node_066 : 267
 	>> node_032 
 	>> node_023 
 	return 
 endf 
 
-def node_067
+def node_067 : 169
 	if self.angle_2d_cw_between(90,270) 
 		-> tigrex.lost_search_front() 
 	elif self.distance_3d_to_target().gt(3000) 
@@ -989,7 +989,7 @@ def node_067
 	return 
 endf 
 
-def node_068
+def node_068 : 168
 	>> node_057 
 	return 
 endf 

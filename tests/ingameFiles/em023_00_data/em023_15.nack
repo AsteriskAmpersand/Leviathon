@@ -1,7 +1,7 @@
 importactions Rajang as rajang
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	>> Global.node_104 
 	>> Global.node_146 
 	function#52() 
@@ -10,7 +10,7 @@ def node_000
 	reset 
 endf 
 
-def node_001
+def node_001 : 2
 	self.targetArea(target_area.nearest_entrance) 
 	if function#57(1) 
 		>> node_004 
@@ -33,7 +33,7 @@ def node_001
 	reset 
 endf 
 
-def node_002
+def node_002 : 3
 	if function#57(1) 
 		>> node_009 
 		function#56(4) 
@@ -56,13 +56,13 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 5
 	self.targetArea(target_area.nearest_entrance) 
 	-> rajang.walk(2,1,5,1500,500) 
 	return 
 endf 
 
-def node_004
+def node_004 : 8
 	if [RegisterVar7 <= 3] 
 		[RegisterVar7 |-] 
 		>> Global.node_189 
@@ -74,53 +74,53 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 10
 	self.targetArea(target_area.nearest_entrance) 
 	-> rajang.walk(2,1,5,1500,500) 
 	return 
 endf 
 
-def node_006
+def node_006 : 11
 	self.targetArea(target_area.nearest_entrance) 
 	-> rajang.walk(2,1,5,1500,500) 
 	return 
 endf 
 
-def node_007
+def node_007 : 22
 	self.targetArea(target_area.nearest_entrance) 
 	-> rajang.walk(2,1,5,1500,500) 
 	return 
 endf 
 
-def node_008
+def node_008 : 27
 	function#54() 
 	self.targetEnemy(17) 
 	>> Global.node_133 
 	return 
 endf 
 
-def node_009
+def node_009 : 21
 	function#54() 
 	[RegisterVar7 ++] 
 	>> Global.node_170 
 	return 
 endf 
 
-def node_010
+def node_010 : 15
 	function#54() 
 	self.targetEnemy(17) 
 	>> Global.node_140 
 	return 
 endf 
 
-def node_011
+def node_011 : 16
 	function#54() 
 	self.targetEnemy(17) 
 	>> Global.node_141 
 	return 
 endf 
 
-def node_012
+def node_012 : 23
 	function#54() 
 	self.targetEnemy(17) 
 	>> Global.node_139 

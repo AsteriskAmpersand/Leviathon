@@ -1,7 +1,7 @@
 importactions Tigrex as tigrex
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	>> Global.node_020 
 	>> Global.node_030 
 	self.targetEnemy(target_em.closest_entity) 
@@ -10,7 +10,7 @@ def node_000
 	reset 
 endf 
 
-def node_001
+def node_001 : 2
 	>> Global.node_023 
 	if self.distance_3d_to_target().leq(1200) 
 		>> node_002 
@@ -25,7 +25,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 3
 	>> Global.node_023 
 	self.targetEnemy(target_em.closest_entity) 
 	if self.target(11) 
@@ -43,7 +43,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 11
 	if self.target_is(em.Aptonoth) 
 	elif self.target_is(em.Apceros) 
 	elif self.target_is(em.Raphinos) 
@@ -63,7 +63,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 4
 	if self.angle_2d_cw_between(40,320) 
 		-> tigrex.quick_turn() 
 	else 
@@ -71,18 +71,18 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 12
 	>> node_004 
 	-> tigrex.predator_walk() 
 	return 
 endf 
 
-def node_006
+def node_006 : 13
 	-> tigrex.dash_tired(2,1,0,1500,700) 
 	return 
 endf 
 
-def node_007
+def node_007 : 14
 	-> tigrex.walk_tired(2,1,0,1500,700) @ parameter1:35 
 	return 
 endf 

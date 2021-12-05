@@ -1,7 +1,7 @@
 importactions Shrieking_Legiana as shrieking_legiana
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	>> node_009 
 	>> Global.node_386 
 	function#52() 
@@ -11,7 +11,7 @@ def node_000
 	reset 
 endf 
 
-def node_001
+def node_001 : 18
 	self.targetArea(target_area.nearest_entrance) 
 	if function#57(1) 
 		>> node_002 
@@ -27,12 +27,12 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 42
 	>> Global.node_230 
 	return 
 endf 
 
-def node_003
+def node_003 : 19
 	self.targetArea(17) 
 	if function#57(1) 
 		>> node_005 
@@ -50,7 +50,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 43
 	self.targetEnemy(17) 
 	if function#5A() 
 		>> Global.node_297 
@@ -110,7 +110,7 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 45
 	if self.flying() 
 		>> Global.node_305 
 		>> Global.node_306 
@@ -123,12 +123,12 @@ def node_005
 	return 
 endf 
 
-def node_006
+def node_006 : 47
 	>> Global.node_301 
 	return 
 endf 
 
-def node_007
+def node_007 : 49
 	>> Global.node_266 
 	>> Global.node_297 
 	>> Global.node_303 
@@ -136,12 +136,12 @@ def node_007
 	return 
 endf 
 
-def node_008
+def node_008 : 51
 	>> Global.node_302 
 	return 
 endf 
 
-def node_009
+def node_009 : 53
 	if self.in_map(st.Hoarfrost_Reach).in_area(-1) 
 		if [RegisterVar2 == 0] 
 			if function#31(82,25000) 
@@ -154,7 +154,7 @@ def node_009
 	return 
 endf 
 
-def node_010
+def node_010 : 54
 	if self.target_is(em.Popo) 
 		>> Global.node_040 
 		>> Global.node_002 

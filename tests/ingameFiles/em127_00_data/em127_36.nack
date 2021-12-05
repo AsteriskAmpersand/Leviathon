@@ -1,7 +1,7 @@
 importactions Leshen as leshen
 importlibrary Global as Global
 
-def node_000
+def node_000 : 22
 	self.targetEnemy(21) @ parameter2:700 
 	if self.target_on_part(0) >> node_002 
 	else 
@@ -10,7 +10,7 @@ def node_000
 	reset 
 endf 
 
-def node_001
+def node_001 : 23
 	random (40) >> Global.node_088 
 	elser (30) >> Global.node_097 
 	elser (20) -> leshen.search() 
@@ -19,7 +19,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 24
 	random (47) >> node_003 
 	elser (38) >> node_004 
 	elser (15) >> node_005 
@@ -27,17 +27,17 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 25
 	-> leshen.ride_rage_head() 
 	return 
 endf 
 
-def node_004
+def node_004 : 26
 	-> leshen.ride_rage_head_lv2() 
 	return 
 endf 
 
-def node_005
+def node_005 : 27
 	>> Global.node_009 
 	return 
 endf 

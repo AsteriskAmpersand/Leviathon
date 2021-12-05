@@ -1,7 +1,7 @@
 importactions Bazelgeuse as bazelgeuse
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	self.targetEnemy(13) 
 	if self.target(4) 
 		>> Global.node_193 
@@ -14,7 +14,7 @@ def node_000
 	conclude 
 endf 
 
-def node_001
+def node_001 : 4
 	if self.distance_2d_to_target().leq(800) 
 		return 
 	else 
@@ -23,7 +23,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 5
 	self.targetEnemy(48) 
 	if self.target(10) 
 		>> node_005 
@@ -41,13 +41,13 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 9
 	-> bazelgeuse.sniff_s() 
 	>> Global.node_071 
 	return 
 endf 
 
-def node_004
+def node_004 : 10
 	if function#5F() 
 		>> Global.node_070 
 	else 
@@ -56,7 +56,7 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 11
 	self.targetEnemy(9) @ parameter2:1000 
 	random (50) >> Global.node_010 
 	elser (25) >> Global.node_009 

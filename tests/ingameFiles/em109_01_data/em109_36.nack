@@ -1,7 +1,7 @@
 importactions Viper_TobiKadachi as viper_tobikadachi
 importlibrary Global as Global
 
-def node_000
+def node_000 : 18
 	self.targetEnemy(21) @ parameter2:700 
 	if self.target_on_part(0) >> node_004 
 	elif self.target_on_part(1) >> node_005 
@@ -15,7 +15,7 @@ def node_000
 	reset 
 endf 
 
-def node_001
+def node_001 : 19
 	random (15) >> Global.node_072 
 	elser (20) >> Global.node_077 
 	elser (25) >> Global.node_081 
@@ -27,7 +27,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 20
 	random (15) >> Global.node_072 
 	elser (15) >> Global.node_077 
 	elser (15) >> Global.node_081 
@@ -40,7 +40,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 21
 	random (15) >> Global.node_072 
 	elser (15) >> Global.node_077 
 	elser (0) >> Global.node_081 
@@ -53,7 +53,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 37
 	random (47) >> node_007 
 	elser (38) >> node_008 
 	elser (15) >> node_013 
@@ -61,7 +61,7 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 38
 	random (47) >> node_009 
 	elser (38) >> node_010 
 	elser (15) >> node_013 
@@ -69,7 +69,7 @@ def node_005
 	return 
 endf 
 
-def node_006
+def node_006 : 39
 	random (47) >> node_011 
 	elser (38) >> node_012 
 	elser (15) >> node_013 
@@ -77,32 +77,32 @@ def node_006
 	return 
 endf 
 
-def node_007
+def node_007 : 28
 	-> viper_tobikadachi.ride_rage_head() 
 	return 
 endf 
 
-def node_008
+def node_008 : 29
 	>> Global.node_080 
 	return 
 endf 
 
-def node_009
+def node_009 : 30
 	-> viper_tobikadachi.ride_rage_body() 
 	return 
 endf 
 
-def node_010
+def node_010 : 31
 	-> viper_tobikadachi.side_rush_bite() 
 	return 
 endf 
 
-def node_011
+def node_011 : 32
 	-> viper_tobikadachi.ride_rage_tail() 
 	return 
 endf 
 
-def node_012
+def node_012 : 33
 	if self.part(3).is_broken(1) 
 		-> viper_tobikadachi.broken_poison_side_tail_attack() 
 	else 
@@ -111,7 +111,7 @@ def node_012
 	return 
 endf 
 
-def node_013
+def node_013 : 40
 	-> viper_tobikadachi.threat() 
 	return 
 endf 

@@ -1,7 +1,7 @@
 importactions Odogaron as odogaron
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	if self.current_quest().is_rank(rank.MR) 
 		>> node_001 
 	else 
@@ -10,7 +10,7 @@ def node_000
 	reset 
 endf 
 
-def node_001
+def node_001 : 8
 	[RegisterVar0 |-] 
 	>> Global.node_003 
 	>> Global.node_281 
@@ -19,7 +19,7 @@ def node_001
 	conclude 
 endf 
 
-def node_002
+def node_002 : 9
 	[RegisterVar0 |-] 
 	>> Global.node_003 
 	self.targetArea(14) 

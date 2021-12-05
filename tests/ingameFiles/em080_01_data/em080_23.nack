@@ -1,12 +1,12 @@
 importactions Acidic_Glavenus as acidic_glavenus
 
-def node_000
+def node_000 : 1
 	self.targetEnemy(target_em.closest_entity) 
 	>> node_001 
 	conclude 
 endf 
 
-def node_001
+def node_001 : 2
 	if self.target_is(em.Rathalos) 
 		-> acidic_glavenus.grapple_with_em002_ver2_mediation() 
 	elif self.target_is(em.Azure_Rathalos) 

@@ -1,12 +1,12 @@
 importactions Anjanath as anjanath
 
-def node_000
+def node_000 : 1
 	>> node_001 
 	>> node_002 
 	conclude 
 endf 
 
-def node_001
+def node_001 : 2
 	if function#41() 
 	else 
 		if function#AB() 
@@ -18,7 +18,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 3
 	self.targetArea(14) 
 	if self.distance_3d_to_target().gt(600) 
 		>> node_004 
@@ -28,7 +28,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 4
 	self.targetEnemy(target_em.random_player_or_cat) 
 	-> anjanath.wait() 
 	if self.distance_3d_to_target().leq(800) 
@@ -40,7 +40,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 8
 	if self.fatigued() 
 		-> anjanath.tired_dash(5,2,0,0,3000) 
 	else 

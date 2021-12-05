@@ -1,13 +1,13 @@
 importactions Glavenus as glavenus
 
-def node_000
+def node_000 : 1
 	self.targetArea(51) 
 	>> node_001 
 	-> glavenus.in_ground() 
 	conclude 
 endf 
 
-def node_001
+def node_001 : 2
 	if self.fatigued() 
 		-> glavenus.tired_dash() 
 	else 

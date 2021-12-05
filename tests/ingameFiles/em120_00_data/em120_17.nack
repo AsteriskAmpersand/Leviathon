@@ -1,14 +1,14 @@
 importactions TzitziYaKu as tzitziyaku
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	>> node_001 
 	>> node_002 
 	>> node_003 
 	conclude 
 endf 
 
-def node_001
+def node_001 : 2
 	if function#41() 
 	else 
 		if function#AB() 
@@ -20,7 +20,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 3
 	self.targetArea(14) 
 	if self.distance_3d_to_target().gt(600) 
 		>> Global.node_076 
@@ -30,7 +30,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 4
 	self.targetEnemy(target_em.random_player_or_cat) 
 	>> Global.node_049 
 	if self.distance_3d_to_target().leq(800) 

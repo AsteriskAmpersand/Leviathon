@@ -1,14 +1,14 @@
 importactions Viper_TobiKadachi as viper_tobikadachi
 importlibrary Global as Global
 
-def node_000
+def node_000 : 8
 	function#52() 
 	>> node_001 
 	>> node_002 
 	reset 
 endf 
 
-def node_001
+def node_001 : 9
 	>> Global.node_004 
 	self.targetArea(target_area.nearest_entrance) 
 	if function#57(1) 
@@ -30,7 +30,7 @@ def node_001
 	reset 
 endf 
 
-def node_002
+def node_002 : 10
 	if function#57(1) 
 		>> node_009 
 	elif function#57(2) 
@@ -48,13 +48,13 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 11
 	self.targetArea(target_area.nearest_entrance) 
 	>> Global.node_048 
 	return 
 endf 
 
-def node_004
+def node_004 : 12
 	function#54() 
 	function#52(32,1) 
 	self.targetArea(target_area.nearest_entrance) 
@@ -62,13 +62,13 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 13
 	self.targetArea(target_area.nearest_entrance) 
 	>> Global.node_048 
 	return 
 endf 
 
-def node_006
+def node_006 : 14
 	function#54() 
 	function#52(32,5) 
 	self.targetArea(target_area.nearest_entrance) 
@@ -76,13 +76,13 @@ def node_006
 	return 
 endf 
 
-def node_007
+def node_007 : 15
 	self.targetArea(target_area.nearest_entrance) 
 	>> Global.node_048 
 	return 
 endf 
 
-def node_008
+def node_008 : 16
 	self.targetEnemy(17) 
 	if function#5A(3) 
 		function#54() 
@@ -94,7 +94,7 @@ def node_008
 	return 
 endf 
 
-def node_009
+def node_009 : 17
 	self.targetEnemy(17) 
 	function#54() 
 	>> Global.node_053 
@@ -104,7 +104,7 @@ def node_009
 	return 
 endf 
 
-def node_010
+def node_010 : 18
 	self.targetArea(target_area.nearest_entrance) 
 	if self.distance_3d_to_target().leq(200) 
 	else 
@@ -117,7 +117,7 @@ def node_010
 	return 
 endf 
 
-def node_011
+def node_011 : 19
 	self.targetEnemy(17) 
 	function#54() 
 	>> Global.node_050 
@@ -125,7 +125,7 @@ def node_011
 	return 
 endf 
 
-def node_012
+def node_012 : 20
 	self.targetEnemy(17) 
 	function#54() 
 	>> Global.node_049 
@@ -133,7 +133,7 @@ def node_012
 	return 
 endf 
 
-def node_013
+def node_013 : 21
 	if self.in_map(st.Special_Arena).in_area(-1) 
 		>> Global.node_142 
 	elif self.in_map(st.Challenge_Arena).in_area(-1) 
@@ -144,7 +144,7 @@ def node_013
 	return 
 endf 
 
-def node_014
+def node_014 : 22
 	random (40) >> Global.node_114 
 	elser (30) >> Global.node_124 
 	elser (30) >> Global.node_125 

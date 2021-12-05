@@ -1,7 +1,7 @@
 importactions TzitziYaKu as tzitziyaku
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	function#52() 
 	self.targetArea(target_area.nearest_entrance) 
 	>> node_001 
@@ -10,7 +10,7 @@ def node_000
 	reset 
 endf 
 
-def node_001
+def node_001 : 55
 	>> Global.node_025 
 	>> Global.node_014 
 	if function#57(4) 
@@ -30,32 +30,32 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 66
 	>> Global.node_003 
 	return 
 endf 
 
-def node_003
+def node_003 : 74
 	>> Global.node_005 
 	return 
 endf 
 
-def node_004
+def node_004 : 75
 	>> Global.node_003 
 	return 
 endf 
 
-def node_005
+def node_005 : 89
 	>> Global.node_004 
 	return 
 endf 
 
-def node_006
+def node_006 : 76
 	>> Global.node_004 
 	return 
 endf 
 
-def node_007
+def node_007 : 62
 	if function#57(4) 
 		>> node_008 
 	elif function#57(1) 
@@ -73,7 +73,7 @@ def node_007
 	return 
 endf 
 
-def node_008
+def node_008 : 59
 	if [RegisterVar3 <= 3] 
 		[RegisterVar3 |-] 
 		-> tzitziyaku.sniff_s() 
@@ -85,24 +85,24 @@ def node_008
 	return 
 endf 
 
-def node_009
+def node_009 : 60
 	-> tzitziyaku.quick_search2() 
 	return 
 endf 
 
-def node_010
+def node_010 : 87
 	>> Global.node_053 
 	-> tzitziyaku.sleep() 
 	return 
 endf 
 
-def node_011
+def node_011 : 61
 	>> Global.node_053 
 	-> tzitziyaku.drink_water() 
 	return 
 endf 
 
-def node_012
+def node_012 : 73
 	self.targetEnemy(target_em.any_monster) 
 	>> Global.node_053 
 	>> Global.node_041 

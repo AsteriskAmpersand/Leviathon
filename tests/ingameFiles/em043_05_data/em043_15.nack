@@ -1,7 +1,7 @@
 importactions Savage_Deviljho as savage_deviljho
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	>> Global.node_184 
 	>> Global.node_185 
 	if function#41() 
@@ -18,7 +18,7 @@ def node_000
 	reset 
 endf 
 
-def node_001
+def node_001 : 2
 	>> Global.node_176 
 	>> Global.node_193 
 	self.targetArea(target_area.nearest_entrance) 
@@ -43,7 +43,7 @@ def node_001
 	reset 
 endf 
 
-def node_002
+def node_002 : 3
 	if function#57(1) 
 		>> node_016 
 		>> node_012 
@@ -62,7 +62,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 4
 	random (70) >> node_004 
 	elser (20) >> node_005 
 	elser (10) >> node_006 
@@ -71,7 +71,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 5
 	if function#59(2) 
 		>> node_021 
 	else 
@@ -80,7 +80,7 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 6
 	if function#59(2) 
 		>> node_022 
 	else 
@@ -89,7 +89,7 @@ def node_005
 	return 
 endf 
 
-def node_006
+def node_006 : 7
 	if function#59(2) 
 		>> node_020 
 	else 
@@ -98,27 +98,27 @@ def node_006
 	return 
 endf 
 
-def node_007
+def node_007 : 8
 	>> node_023 
 	return 
 endf 
 
-def node_008
+def node_008 : 9
 	>> node_021 
 	return 
 endf 
 
-def node_009
+def node_009 : 10
 	>> node_021 
 	return 
 endf 
 
-def node_010
+def node_010 : 11
 	>> node_025 
 	return 
 endf 
 
-def node_011
+def node_011 : 12
 	self.targetEnemy(17) 
 	>> node_019 
 	random (30) -> savage_deviljho.discover() 
@@ -130,13 +130,13 @@ def node_011
 	return 
 endf 
 
-def node_012
+def node_012 : 13
 	function#54() 
 	-> savage_deviljho.combat_search() 
 	return 
 endf 
 
-def node_013
+def node_013 : 14
 	function#54() 
 	>> node_019 
 	if self.angle_2d_cw_between(30,330) 
@@ -147,14 +147,14 @@ def node_013
 	return 
 endf 
 
-def node_014
+def node_014 : 15
 	function#54() 
 	>> node_019 
 	-> savage_deviljho.sleep() 
 	return 
 endf 
 
-def node_015
+def node_015 : 16
 	function#54() 
 	self.targetEnemy(17) 
 	>> node_019 
@@ -166,7 +166,7 @@ def node_015
 	return 
 endf 
 
-def node_016
+def node_016 : 17
 	if function#6B(20000) 
 		-> savage_deviljho.sniff_l() 
 		>> node_017 
@@ -176,7 +176,7 @@ def node_016
 	return 
 endf 
 
-def node_017
+def node_017 : 18
 	self.targetEnemy(26) 
 	if self.distance_3d_to_target().leq(1000) 
 	else 
@@ -186,7 +186,7 @@ def node_017
 	return 
 endf 
 
-def node_018
+def node_018 : 19
 	if self.distance_3d_to_target().leq(400) 
 		-> savage_deviljho.back_turn() @ unkn6:65536 
 	elif self.angle_2d_cw_between(30,330) 
@@ -197,7 +197,7 @@ def node_018
 	reset 
 endf 
 
-def node_019
+def node_019 : 20
 	if self.in_map(st.Special_Arena).in_area(-1) 
 	elif self.in_map(st.Challenge_Arena).in_area(-1) 
 	else 
@@ -208,7 +208,7 @@ def node_019
 	return 
 endf 
 
-def node_020
+def node_020 : 23
 	if self.fatigued() 
 		-> savage_deviljho.tired_walk(2,1,5,1500,600) 
 	else 
@@ -217,7 +217,7 @@ def node_020
 	return 
 endf 
 
-def node_021
+def node_021 : 21
 	if self.fatigued() 
 		-> savage_deviljho.tired_walk(2,1,5,3000,600) 
 	else 
@@ -226,7 +226,7 @@ def node_021
 	return 
 endf 
 
-def node_022
+def node_022 : 22
 	if self.fatigued() 
 		-> savage_deviljho.tired_walk(2,1,5,4000,600) 
 	else 
@@ -235,12 +235,12 @@ def node_022
 	return 
 endf 
 
-def node_023
+def node_023 : 24
 	-> savage_deviljho.tired_dash(2,1,5,3000,600) @ unkn6:65536 
 	return 
 endf 
 
-def node_024
+def node_024 : 26
 	if self.fatigued() 
 		-> savage_deviljho.tired_dash(2,1,5,1500,600) 
 	else 
@@ -249,7 +249,7 @@ def node_024
 	return 
 endf 
 
-def node_025
+def node_025 : 25
 	if self.fatigued() 
 		-> savage_deviljho.tired_dash(2,1,5,3000,600) 
 	else 
@@ -258,7 +258,7 @@ def node_025
 	return 
 endf 
 
-def node_026
+def node_026 : 27
 	self.targetArea(target_area.nearest_entrance) 
 	if function#57(1) 
 		>> Global.node_165 
@@ -280,7 +280,7 @@ def node_026
 	reset 
 endf 
 
-def node_027
+def node_027 : 28
 	function#54() 
 	if function#57(1) 
 		>> Global.node_159 

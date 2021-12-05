@@ -1,7 +1,7 @@
 importactions Black_Diablos as black_diablos
 importlibrary Global as Global
 
-def node_000
+def node_000 : 8
 	>> Global.node_007 
 	>> Global.node_019 
 	self.targetEnemy(target_em.random_player_or_cat) 
@@ -30,53 +30,53 @@ def node_000
 	reset 
 endf 
 
-def node_001
+def node_001 : 9
 	>> node_013 
 	return 
 endf 
 
-def node_002
+def node_002 : 10
 	>> node_010 
 	return 
 endf 
 
-def node_003
+def node_003 : 11
 	random (70) >> node_010 
 	elser (30) >> node_011 
 	endr 
 	return 
 endf 
 
-def node_004
+def node_004 : 12
 	>> node_013 
 	return 
 endf 
 
-def node_005
+def node_005 : 13
 	>> node_010 
 	return 
 endf 
 
-def node_006
+def node_006 : 14
 	random (30) >> node_010 
 	elser (70) >> node_011 
 	endr 
 	return 
 endf 
 
-def node_007
+def node_007 : 15
 	>> node_013 
 	return 
 endf 
 
-def node_008
+def node_008 : 16
 	random (80) >> node_010 
 	elser (20) >> Global.node_031 
 	endr 
 	return 
 endf 
 
-def node_009
+def node_009 : 17
 	random (70) >> node_010 
 	elser (10) >> node_012 
 	elser (20) >> Global.node_031 
@@ -84,28 +84,28 @@ def node_009
 	return 
 endf 
 
-def node_010
+def node_010 : 18
 	self.targetArea(4) 
 	>> node_019 
 	>> node_017 
 	return 
 endf 
 
-def node_011
+def node_011 : 19
 	self.targetArea(6) 
 	>> node_020 
 	>> node_017 
 	return 
 endf 
 
-def node_012
+def node_012 : 20
 	self.targetArea(21) @ parameter2:1000 
 	>> Global.node_011 @ unkn6:65536 
 	>> node_018 
 	return 
 endf 
 
-def node_013
+def node_013 : 21
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.target(7) 
 		>> node_015 
@@ -117,7 +117,7 @@ def node_013
 	return 
 endf 
 
-def node_014
+def node_014 : 22
 	if self.angle_2d_cw_between(60,300) 
 		>> Global.node_011 
 	else 
@@ -132,7 +132,7 @@ def node_014
 	return 
 endf 
 
-def node_015
+def node_015 : 23
 	if self.distance_3d_to_target().leq(550) 
 		-> black_diablos.short_back_step() @ comboSetting:2, unkn6:65536 
 	else 
@@ -145,7 +145,7 @@ def node_015
 	return 
 endf 
 
-def node_016
+def node_016 : 24
 	if self.distance_3d_to_target().leq(550) 
 		-> black_diablos.short_back_step() @ comboSetting:2, unkn6:65536 
 	else 
@@ -158,7 +158,7 @@ def node_016
 	return 
 endf 
 
-def node_017
+def node_017 : 25
 	if self.enraged() 
 		-> black_diablos.walk(1,5,0,1000) @ comboSetting:2, unkn6:65536 
 	else 
@@ -177,7 +177,7 @@ def node_017
 	return 
 endf 
 
-def node_018
+def node_018 : 26
 	if self.enraged() 
 		-> black_diablos.half_lost_search_front() @ unkn6:65536 
 	else 
@@ -186,7 +186,7 @@ def node_018
 	return 
 endf 
 
-def node_019
+def node_019 : 27
 	if self.enraged() 
 		-> black_diablos.sniff_s() @ unkn6:65536 
 	else 
@@ -195,7 +195,7 @@ def node_019
 	return 
 endf 
 
-def node_020
+def node_020 : 28
 	if self.enraged() 
 		-> black_diablos.sniff_l() @ unkn6:65536 
 	else 

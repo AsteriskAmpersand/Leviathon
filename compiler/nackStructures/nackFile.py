@@ -216,7 +216,7 @@ class NackFile(ErrorManaged):
                 names[name] = node
             if node.hasId():
                 iD = node.getId()
-                if iD in ids:
+                if iD in ids and iD != 0:
                     errorlog.repeatedId()
                 ids[iD] = node
             else:

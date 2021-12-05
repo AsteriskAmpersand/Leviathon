@@ -1,13 +1,13 @@
 importactions Frostfang_Barioth as frostfang_barioth
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	>> node_001 
 	>> node_002 
 	conclude 
 endf 
 
-def node_001
+def node_001 : 13
 	if function#AB() 
 		function#AA() 
 		>> Global.node_026 
@@ -16,7 +16,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 14
 	self.targetArea(14) 
 	if self.distance_3d_to_target().gt(800) 
 		>> Global.node_015 

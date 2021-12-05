@@ -1,7 +1,7 @@
 importactions Beotodus as beotodus
 importlibrary Global as Global
 
-def node_000
+def node_000 : 8
 	>> Global.node_070 
 	self.targetArea(21) @ parameter2:700 
 	if self.target_on_part(0) >> node_005 
@@ -15,7 +15,7 @@ def node_000
 	reset 
 endf 
 
-def node_001
+def node_001 : 9
 	if function#102() 
 		random (0) >> Global.node_105 
 		elser (30) >> Global.node_055 
@@ -34,7 +34,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 10
 	if function#102() 
 		random (0) >> Global.node_105 
 		elser (25) >> Global.node_055 
@@ -53,7 +53,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 11
 	if function#102() 
 		random (0) >> Global.node_105 
 		elser (30) >> Global.node_055 
@@ -74,7 +74,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 35
 	if function#102() 
 		random (10) >> Global.node_105 
 		elser (30) >> Global.node_055 
@@ -93,7 +93,7 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 34
 	function#A8() 
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if function#A9(0,1) 
@@ -112,7 +112,7 @@ def node_005
 	return 
 endf 
 
-def node_006
+def node_006 : 32
 	if self.mounted() 
 		>> node_007 
 	else 
@@ -121,17 +121,17 @@ def node_006
 	return 
 endf 
 
-def node_007
+def node_007 : 31
 	>> Global.node_026 
 	return 
 endf 
 
-def node_008
+def node_008 : 30
 	-> beotodus.ride_rage_head() 
 	return 
 endf 
 
-def node_009
+def node_009 : 29
 	if self.mounted() 
 		>> node_010 
 	else 
@@ -140,23 +140,23 @@ def node_009
 	return 
 endf 
 
-def node_010
+def node_010 : 28
 	>> Global.node_027 
 	return 
 endf 
 
-def node_011
+def node_011 : 27
 	-> beotodus.ride_rage_body() 
 	return 
 endf 
 
-def node_012
+def node_012 : 23
 	>> node_017 
 	>> Global.node_028 
 	return 
 endf 
 
-def node_013
+def node_013 : 22
 	if function#3B() 
 		if self.mount_staggered_twice() 
 			>> node_014 
@@ -189,12 +189,12 @@ def node_013
 	return 
 endf 
 
-def node_014
+def node_014 : 21
 	-> beotodus.ride_tired() 
 	return 
 endf 
 
-def node_015
+def node_015 : 20
 	if self.mounted() 
 		>> node_016 
 	else 
@@ -202,12 +202,12 @@ def node_015
 	return 
 endf 
 
-def node_016
+def node_016 : 19
 	-> beotodus.ride_wait() 
 	return 
 endf 
 
-def node_017
+def node_017 : 18
 	random (20) >> node_018 
 	elser (80) >> node_019 
 	endr 
@@ -215,34 +215,34 @@ def node_017
 	return 
 endf 
 
-def node_018
+def node_018 : 17
 	self.targetEnemy(21) @ parameter2:1000 
 	return 
 endf 
 
-def node_019
+def node_019 : 16
 	self.targetEnemy(22) @ parameter2:1000 
 	return 
 endf 
 
-def node_020
+def node_020 : 15
 	random (48) >> node_021 
 	elser (52) >> node_022 
 	endr 
 	return 
 endf 
 
-def node_021
+def node_021 : 14
 	self.targetEnemy(12) @ parameter2:1000 
 	return 
 endf 
 
-def node_022
+def node_022 : 13
 	self.targetEnemy(11) @ parameter2:1000 
 	return 
 endf 
 
-def node_023
+def node_023 : 12
 	if self.angular_17(300,60) 
 		>> Global.node_003 
 	else 

@@ -61,7 +61,7 @@ class FandStructure(ErrorManaged):
             self.indexedTargets[index] = ("", "", 0)
 
     def calculateSize(self):
-        return max(len(self.scopeNames), max(self.indexedTargets))
+        return max(len(self.scopeNames), max(self.indexedTargets,default = 0))
 
     def parseModule(self, path, scope, thkMap):
         if self.settings.verbose:

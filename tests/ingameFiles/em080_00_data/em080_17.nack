@@ -1,12 +1,12 @@
 importactions Glavenus as glavenus
 
-def node_000
+def node_000 : 1
 	>> node_001 
 	>> node_002 
 	conclude 
 endf 
 
-def node_001
+def node_001 : 33
 	if function#41() 
 	else 
 		if function#AB() 
@@ -18,7 +18,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 34
 	self.targetArea(14) 
 	if self.distance_3d_to_target().gt(800) 
 		>> node_004 
@@ -28,7 +28,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 35
 	self.targetEnemy(target_em.random_player_or_cat) 
 	-> glavenus.idle() 
 	if self.distance_3d_to_target().leq(800) 
@@ -40,7 +40,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 36
 	if self.fatigued() 
 		-> glavenus.tired_dash(2,5,0,3000) 
 	else 

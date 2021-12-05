@@ -1,14 +1,14 @@
 importactions Nargacuga as nargacuga
 importlibrary Global as Global
 
-def node_000
+def node_000 : 8
 	>> Global.node_120 
 	self.targetEnemy(target_em.closest_entity) 
 	>> node_001 
 	conclude 
 endf 
 
-def node_001
+def node_001 : 9
 	if self.target_is(em.Rathalos) 
 		>> node_002 
 	elif self.target_is(em.Azure_Rathalos) 
@@ -24,25 +24,25 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 10
 	>> Global.node_002 
 	-> nargacuga.grapple_with_em002_mediation() 
 	return 
 endf 
 
-def node_003
+def node_003 : 11
 	>> Global.node_002 
 	-> nargacuga.grapple_with_em002_mediation() 
 	return 
 endf 
 
-def node_004
+def node_004 : 12
 	>> Global.node_002 
 	-> nargacuga.grapple_with_em100_mediation() 
 	return 
 endf 
 
-def node_005
+def node_005 : 13
 	>> Global.node_002 
 	-> nargacuga.grapple_with_em113_mediation() 
 	return 

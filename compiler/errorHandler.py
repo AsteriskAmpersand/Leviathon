@@ -186,3 +186,19 @@ class ErrorHandler():
         level = self.errorLevel()
         self.log(
             level, "Call is lacking a proper target (normally from inlining failure)")
+
+    def repeatedId(self):
+        level = self.warningLevel()
+        self.log(
+            level, "Node is trying to use already taken ID and will overwrite previous instance")
+    
+    def repeatedIndex(self):
+        level = self.warningLevel()
+        self.log(
+            level, "Node is trying to use pre-existing index and will overwrite previous instance")
+    
+    def repeatedName(self):
+        level = self.warningLevel()
+        self.log(
+            level, "Node name already exists and will overwrite previous instance.")
+    

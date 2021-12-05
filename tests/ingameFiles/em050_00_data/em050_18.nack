@@ -1,7 +1,7 @@
 importactions Alatreon as alatreon
 importlibrary Global as Global
 
-def node_000
+def node_000 : 36
 	>> Global.node_001 
 	self.targetEnemy(13) 
 	if self.target(4) 
@@ -15,21 +15,21 @@ def node_000
 	conclude 
 endf 
 
-def node_001
+def node_001 : 22
 	>> Global.node_307 
 	>> Global.node_308 
 	>> node_003 
 	return 
 endf 
 
-def node_002
+def node_002 : 24
 	>> Global.node_307 
 	>> Global.node_308 
 	>> node_003 
 	return 
 endf 
 
-def node_003
+def node_003 : 38
 	self.targetEnemy(48) 
 	if self.distance_3d_to_target().leq(2000) 
 		if self.angle_2d_cw_between(300,60) 
@@ -50,7 +50,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 39
 	>> Global.node_309 
 	return 
 endf 

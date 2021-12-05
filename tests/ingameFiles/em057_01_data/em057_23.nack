@@ -1,13 +1,13 @@
 importactions Stygian_Zinogre as stygian_zinogre
 
-def node_000
+def node_000 : 1
 	function#103() 
 	self.targetEnemy(target_em.closest_entity) 
 	>> node_001 
 	conclude 
 endf 
 
-def node_001
+def node_001 : 27
 	if self.target_is(em.Brachydios) 
 		-> stygian_zinogre.grapple_with_em063_mediation() 
 	elif self.target_is(em.Glavenus) 

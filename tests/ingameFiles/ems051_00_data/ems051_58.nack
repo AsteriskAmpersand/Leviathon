@@ -1,7 +1,7 @@
 importactions KestodonM as kestodonm
 importlibrary Global as Global
 
-def node_000
+def node_000 : 2
 	function#C6() 
 	if self.targetEnemy(target_em.closest_entity) 
 		if self.target.helpless_0() 
@@ -36,7 +36,7 @@ def node_000
 	conclude 
 endf 
 
-def node_001
+def node_001 : 3
 	if self.vertical_distance_to_target().leq(400) 
 		>> node_002 
 	else 
@@ -45,7 +45,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 4
 	self.targetEnemy(target_em.closest_entity) 
 	if self.distance_3d_to_target().leq(700) 
 		random (70) >> Global.node_022 
@@ -62,7 +62,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 5
 	>> Global.node_002 
 	random (34) -> action#19() 
 	elser (33) -> action#1A() 
@@ -71,12 +71,12 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 9
 	-> action#09(2,6,0,500,700) 
 	return 
 endf 
 
-def node_005
+def node_005 : 6
 	function#54() 
 	function#52(0,1) 
 	self.targetArea(target_area.nearest_entrance) @ unkn3:2097152, actionUnkn0:4, actionUnkn3:300 
@@ -88,7 +88,7 @@ def node_005
 	return 
 endf 
 
-def node_006
+def node_006 : 7
 	self.targetEnemy(33) 
 	if self.target(20) 
 	else 
@@ -97,7 +97,7 @@ def node_006
 	return 
 endf 
 
-def node_007
+def node_007 : 8
 	>> Global.node_002 
 	random (34) -> action#19() 
 	elser (33) -> action#1A() 

@@ -1,7 +1,7 @@
 importactions Legiana as legiana
 importlibrary Global as Global
 
-def node_000
+def node_000 : 18
 	self.targetEnemy(34) 
 	if self.target_is(em.Raphinos) 
 		>> Global.node_045 
@@ -24,7 +24,7 @@ def node_000
 	conclude 
 endf 
 
-def node_001
+def node_001 : 19
 	if function#AD() 
 		>> node_002 
 	else 
@@ -33,7 +33,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 20
 	>> Global.node_002 
 	if self.flying() 
 		>> Global.node_273 
@@ -43,13 +43,13 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 21
 	>> node_004 
 	>> node_005 
 	return 
 endf 
 
-def node_004
+def node_004 : 22
 	if self.flying() 
 		self.targetArea(target_area.area_aerial_center) 
 		>> Global.node_026 
@@ -62,7 +62,7 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 23
 	self.targetEnemy(34) 
 	if self.flying() 
 		self.targetArea(40) 
@@ -74,7 +74,7 @@ def node_005
 	return 
 endf 
 
-def node_006
+def node_006 : 25
 	if self.flying() 
 		>> Global.node_273 
 	else 

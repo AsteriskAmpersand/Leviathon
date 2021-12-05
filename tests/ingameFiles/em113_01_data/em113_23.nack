@@ -1,14 +1,14 @@
 importactions Ebony_Odogaron as ebony_odogaron
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	>> Global.node_015 
 	self.targetEnemy(target_em.closest_entity) 
 	>> node_001 
 	conclude 
 endf 
 
-def node_001
+def node_001 : 6
 	if self.target_is(em.Rathalos) 
 		-> ebony_odogaron.grapple_with_em002_mediation() 
 	elif self.target_is(em.Azure_Rathalos) 

@@ -1,7 +1,7 @@
 importactions Shrieking_Legiana as shrieking_legiana
 importlibrary Global as Global
 
-def node_000
+def node_000 : 43
 	self.targetEnemy(target_em.closest_entity) 
 	if self.target_is(em.Cortos) 
 		if self.target(47) 
@@ -19,7 +19,7 @@ def node_000
 	conclude 
 endf 
 
-def node_001
+def node_001 : 49
 	>> Global.node_002 
 	>> Global.node_030 
 	if self.alert_out_of_combat() >> Global.node_320 
@@ -28,7 +28,7 @@ def node_001
 	conclude 
 endf 
 
-def node_002
+def node_002 : 51
 	>> Global.node_002 
 	>> Global.node_030 
 	>> Global.node_037 
@@ -43,7 +43,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 50
 	if self.target_is(em.Anteka) @ parameter2:1 
 	else 
 		return 

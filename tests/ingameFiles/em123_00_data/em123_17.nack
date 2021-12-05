@@ -1,14 +1,14 @@
 importactions Banbaro as banbaro
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	>> Global.node_103 
 	>> node_001 
 	>> node_002 
 	conclude 
 endf 
 
-def node_001
+def node_001 : 3
 	if function#AB() 
 		function#AA() 
 		>> Global.node_101 
@@ -17,7 +17,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 4
 	self.targetArea(14) 
 	if self.distance_3d_to_target().gt(600) 
 		>> Global.node_151 
@@ -27,7 +27,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 5
 	self.targetEnemy(target_em.random_player_or_cat) 
 	>> Global.node_036 
 	return 

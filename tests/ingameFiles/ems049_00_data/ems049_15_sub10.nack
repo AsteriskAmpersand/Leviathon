@@ -1,7 +1,7 @@
 importactions Jagras as jagras
 importlibrary Global as Global
 
-def node_000
+def node_000 : 37
 	if function#B0(10) 
 		>> node_001 
 		>> node_003 
@@ -19,7 +19,7 @@ def node_000
 	reset 
 endf 
 
-def node_001
+def node_001 : 38
 	if function#4B() 
 		self.targetEnemy(49) 
 		if self.distance_3d_to_target().gt(500) 
@@ -31,14 +31,14 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 39
 	if function#103() 
 	elif self.targetEnemy(target_em.random_player_or_cat) 
 	endif 
 	return 
 endf 
 
-def node_003
+def node_003 : 40
 	if self.targetEnemy(33) 
 		if self.target_is(em.PukeiPukei) 
 			if self.distance_3d_to_target().leq(5000) 
@@ -52,7 +52,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 47
 	if self.distance_3d_to_target().leq(500) 
 		random (25) >> Global.node_018 
 		elser (50) >> node_011 
@@ -75,7 +75,7 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 41
 	if self.distance_3d_to_target().leq(350) 
 		>> node_006 
 	elif self.distance_3d_to_target().leq(500) 
@@ -90,7 +90,7 @@ def node_005
 	return 
 endf 
 
-def node_006
+def node_006 : 42
 	random (85) >> Global.node_018 
 	elser (15) >> Global.node_022 
 				>> Global.node_019 
@@ -98,7 +98,7 @@ def node_006
 	return 
 endf 
 
-def node_007
+def node_007 : 43
 	random (85) >> Global.node_018 
 	elser (15) >> Global.node_022 
 				>> Global.node_019 
@@ -106,7 +106,7 @@ def node_007
 	return 
 endf 
 
-def node_008
+def node_008 : 44
 	random (30) >> Global.node_019 
 	elser (70) >> Global.node_002 
 				>> Global.node_018 
@@ -114,21 +114,21 @@ def node_008
 	return 
 endf 
 
-def node_009
+def node_009 : 45
 	>> Global.node_006 
 	>> Global.node_002 
 	>> Global.node_018 
 	return 
 endf 
 
-def node_010
+def node_010 : 46
 	>> Global.node_006 
 	>> Global.node_002 
 	>> Global.node_018 
 	return 
 endf 
 
-def node_011
+def node_011 : 48
 	if self.distance_3d_to_target().leq(400) 
 		>> node_012 
 	elif self.distance_3d_to_target().leq(900) 
@@ -143,40 +143,40 @@ def node_011
 	return 
 endf 
 
-def node_012
+def node_012 : 49
 	random (65) >> Global.node_022 
 	elser (35) >> Global.node_021 
 	endr 
 	return 
 endf 
 
-def node_013
+def node_013 : 50
 	random (75) >> Global.node_025 
 	elser (25) >> Global.node_026 
 	endr 
 	return 
 endf 
 
-def node_014
+def node_014 : 51
 	random (75) >> Global.node_027 
 	elser (25) >> Global.node_028 
 	endr 
 	return 
 endf 
 
-def node_015
+def node_015 : 52
 	>> Global.node_006 
 	>> Global.node_002 
 	return 
 endf 
 
-def node_016
+def node_016 : 53
 	>> Global.node_006 
 	>> Global.node_002 
 	return 
 endf 
 
-def node_017
+def node_017 : 54
 	random (20) -> action#1A() 
 	elser (20) -> action#1B() 
 	elser (20) -> action#1C() 

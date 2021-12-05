@@ -1,10 +1,10 @@
 importactions Lunastra as lunastra
 
-def node_000
+def node_000 : 37
 	conclude 
 endf 
 
-def node_001
+def node_001 : 222
 	if self.flying() 
 		if function#AF(5000) 
 			-> lunastra.landing() 
@@ -16,7 +16,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 223
 	if self.flying() 
 	else 
 		-> lunastra.take_off() 
@@ -24,7 +24,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 411
 	self.targetArea(target_area.area_aerial_center) 
 	>> node_061 
 	self.targetArea(target_area.area_center) 
@@ -32,35 +32,35 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 476
 	>> node_001 
 	>> node_126 
 	-> lunastra.diagonal_bite() 
 	return 
 endf 
 
-def node_005
+def node_005 : 477
 	>> node_001 
 	-> lunastra.jump_attack() 
 	return 
 endf 
 
-def node_006
+def node_006 : 491
 	>> node_001 
 	-> lunastra.dash(1,2,0,800,2000) 
 	return 
 endf 
 
-def node_007
+def node_007 : 494
 	>> node_001 
 	-> lunastra.reversal_take_off() 
 	return 
 endf 
 
-def node_008
+def node_008 : 558
 endf 
 
-def node_009
+def node_009 : 564
 	if self.angle_2d_cw_between(120,240) -> lunastra.back_scratch() 
 	elif self.angle_2d_cw_between(45,315) -> lunastra.scratch() 
 	else -> lunastra.front_scratch() 
@@ -68,7 +68,7 @@ def node_009
 	return 
 endf 
 
-def node_010
+def node_010 : 565
 	if self.angle_2d_cw_between(135,225) >> node_123 
 		>> node_016 
 	elif self.distance_2d_to_target().gt(1000) >> node_016 
@@ -78,7 +78,7 @@ def node_010
 	return 
 endf 
 
-def node_011
+def node_011 : 569
 	if self.angle_2d_ccw_between(45,0) 
 		random (50) >> node_009 
 		elser (50) >> node_019 
@@ -89,7 +89,7 @@ def node_011
 	return 
 endf 
 
-def node_012
+def node_012 : 588
 	if self.angle_2d_ccw_between(45,0) >> node_018 
 	elif self.angle_2d_cw_between(135,225) >> node_018 
 	else >> node_017 
@@ -97,14 +97,14 @@ def node_012
 	return 
 endf 
 
-def node_013
+def node_013 : 581
 	if self.angle_2d_cw_between(150,210) >> node_018 
 	else >> node_017 
 	endif 
 	return 
 endf 
 
-def node_014
+def node_014 : 580
 	if self.angle_2d_cw_between(225,315) >> node_020 
 	elif self.angle_2d_ccw_between(45,0) >> node_022 
 	else >> node_015 
@@ -112,7 +112,7 @@ def node_014
 	return 
 endf 
 
-def node_015
+def node_015 : 559
 	>> node_001 
 	-> lunastra.side_wing_attack() 
 	if self.current_quest().is_rank(rank.AT) 
@@ -124,7 +124,7 @@ def node_015
 	return 
 endf 
 
-def node_016
+def node_016 : 560
 	>> node_001 
 	-> lunastra.heat_wind_blow() 
 	if self.current_quest().is_rank(rank.AT) 
@@ -136,13 +136,13 @@ def node_016
 	return 
 endf 
 
-def node_017
+def node_017 : 567
 	>> node_001 
 	-> lunastra.tail_attack_side() 
 	return 
 endf 
 
-def node_018
+def node_018 : 566
 	>> node_001 
 	if self.angle_2d_ccw_between(90,0) -> lunastra.quick_turn_reversal() 
 	endif 
@@ -150,34 +150,34 @@ def node_018
 	return 
 endf 
 
-def node_019
+def node_019 : 568
 	>> node_001 
 	>> node_175 
 	-> lunastra.bite_attack() 
 	return 
 endf 
 
-def node_020
+def node_020 : 561
 	>> node_001 
 	>> node_175 
 	-> lunastra.close_breath() 
 	return 
 endf 
 
-def node_021
+def node_021 : 562
 	>> node_001 
 	-> lunastra.powerful_breath() 
 	return 
 endf 
 
-def node_022
+def node_022 : 563
 	>> node_001 
 	>> node_124 
 	-> lunastra.turn_around_breath() 
 	return 
 endf 
 
-def node_023
+def node_023 : 572
 	>> node_001 
 	if self.in_map(st.Special_Arena).in_area(0) 
 		self.targetArea(target_area.area_center) 
@@ -191,7 +191,7 @@ def node_023
 	return 
 endf 
 
-def node_024
+def node_024 : 557
 	>> node_001 
 	if function#31(18,5000) 
 	else 
@@ -202,27 +202,27 @@ def node_024
 	return 
 endf 
 
-def node_025
+def node_025 : 597
 	>> node_001 
 	-> lunastra.charge() 
 	return 
 endf 
 
-def node_026
+def node_026 : 598
 	>> node_001 
 	>> node_073 
 	>> node_024 
 	return 
 endf 
 
-def node_027
+def node_027 : 599
 	>> node_001 
 	>> node_250 
 	-> lunastra.petit_flare() 
 	return 
 endf 
 
-def node_028
+def node_028 : 610
 	if self.distance_2d_to_target().leq(500) >> node_167 
 	elif self.angle_2d_cw_between(45,315) >> node_167 
 	endif 
@@ -230,7 +230,7 @@ def node_028
 	return 
 endf 
 
-def node_029
+def node_029 : 608
 	if self.angle_2d_cw_between(45,135) 
 		if function#102(2) 
 		else >> node_015 
@@ -248,7 +248,7 @@ def node_029
 	return 
 endf 
 
-def node_030
+def node_030 : 609
 	if function#102() 
 		random (50) >> node_009 
 		elser (50) >> node_022 
@@ -258,21 +258,21 @@ def node_030
 	return 
 endf 
 
-def node_031
+def node_031 : 605
 	if function#102() >> node_019 
 	else >> node_004 
 	endif 
 	return 
 endf 
 
-def node_032
+def node_032 : 606
 	if function#102(5) >> node_020 
 	else >> node_005 
 	endif 
 	return 
 endf 
 
-def node_033
+def node_033 : 607
 	if function#102() 
 	else >> node_018 
 	endif 
@@ -280,32 +280,32 @@ def node_033
 	return 
 endf 
 
-def node_034
+def node_034 : 570
 	>> node_002 
 	-> lunastra.turn_around_breath_fly() 
 	return 
 endf 
 
-def node_035
+def node_035 : 571
 	>> node_002 
 	-> lunastra.dust_blow_fly() 
 	return 
 endf 
 
-def node_036
+def node_036 : 510
 	>> node_037 
 	>> node_038 
 	return 
 endf 
 
-def node_037
+def node_037 : 501
 	>> node_001 
 	>> node_006 
 	-> lunastra.reversal_take_off() 
 	return 
 endf 
 
-def node_038
+def node_038 : 502
 	if self.distance_2d_to_target().leq(300) 
 		>> node_124 
 		>> node_208 
@@ -326,7 +326,7 @@ def node_038
 	return 
 endf 
 
-def node_039
+def node_039 : 488
 	>> node_002 
 	-> lunastra.rush_to_landing() 
 	if self.current_quest().is_rank(rank.AT) 
@@ -337,7 +337,7 @@ def node_039
 	return 
 endf 
 
-def node_040
+def node_040 : 198
 	if self.distance_3d_to_target().leq(700) 
 	else 
 		-> lunastra.walk(1,2,5,600,1500) 
@@ -346,7 +346,7 @@ def node_040
 	return 
 endf 
 
-def node_041
+def node_041 : 444
 	>> node_179 
 	self.targetArea(target_area.nearest_entrance) 
 	if self.distance_3d_to_target().leq(700) 
@@ -357,7 +357,7 @@ def node_041
 	return 
 endf 
 
-def node_042
+def node_042 : 445
 	>> node_179 
 	self.targetArea(target_area.area_center) 
 	if self.distance_3d_to_target().leq(700) 
@@ -368,7 +368,7 @@ def node_042
 	return 
 endf 
 
-def node_043
+def node_043 : 446
 	>> node_179 
 	self.targetArea(39) 
 	if self.distance_3d_to_target().leq(700) 
@@ -379,7 +379,7 @@ def node_043
 	return 
 endf 
 
-def node_044
+def node_044 : 356
 	if self.distance_3d_to_target().leq(700) 
 	else 
 		-> lunastra.dying_walk(1,2,0,600,1500) 
@@ -388,7 +388,7 @@ def node_044
 	return 
 endf 
 
-def node_045
+def node_045 : 194
 	if self.distance_3d_to_target().leq(900) 
 	else 
 		-> lunastra.dash(1,2,0,800,1500) 
@@ -397,7 +397,7 @@ def node_045
 	return 
 endf 
 
-def node_046
+def node_046 : 272
 	if self.distance_3d_to_target().leq(900) 
 	else 
 		-> lunastra.dash(1,2,0,800,1500) 
@@ -413,7 +413,7 @@ def node_046
 	return 
 endf 
 
-def node_047
+def node_047 : 529
 	if self.distance_3d_to_target().leq(900) 
 	else 
 		-> lunastra.dash(1,2,0,800,1500) 
@@ -437,7 +437,7 @@ def node_047
 	return 
 endf 
 
-def node_048
+def node_048 : 530
 	if self.distance_2d_to_target().leq(900) 
 	else 
 		-> lunastra.dash(1,2,0,800,1500) 
@@ -453,7 +453,7 @@ def node_048
 	return 
 endf 
 
-def node_049
+def node_049 : 531
 	if self.distance_2d_to_target().leq(900) 
 	else 
 		-> lunastra.dash(1,2,0,800,1500) 
@@ -477,7 +477,7 @@ def node_049
 	return 
 endf 
 
-def node_050
+def node_050 : 343
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> lunastra.dying_glide(2,1,5,3000,500) 
@@ -486,7 +486,7 @@ def node_050
 	return 
 endf 
 
-def node_051
+def node_051 : 344
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> lunastra.dying_glide_direct_move(2,1,5,3000,500) 
@@ -495,7 +495,7 @@ def node_051
 	return 
 endf 
 
-def node_052
+def node_052 : 345
 	if self.distance_3d_to_target().leq(1000) 
 	else 
 		-> lunastra.dying_glide_direct_move(2,1,5,3000,500) 
@@ -504,7 +504,7 @@ def node_052
 	return 
 endf 
 
-def node_053
+def node_053 : 346
 	if self.distance_2d_to_target().leq(600) 
 	else 
 		-> lunastra.glide_combat(2,1,5,3000,500) 
@@ -513,7 +513,7 @@ def node_053
 	return 
 endf 
 
-def node_054
+def node_054 : 347
 	if self.distance_2d_to_target().leq(1000) 
 	else 
 		-> lunastra.glide_combat(2,1,5,3000,500) 
@@ -522,7 +522,7 @@ def node_054
 	return 
 endf 
 
-def node_055
+def node_055 : 401
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> lunastra.glide(2,1,5,3000,500) 
@@ -531,7 +531,7 @@ def node_055
 	return 
 endf 
 
-def node_056
+def node_056 : 402
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> lunastra.glide_direct_move(2,1,5,3000,500) 
@@ -540,7 +540,7 @@ def node_056
 	return 
 endf 
 
-def node_057
+def node_057 : 403
 	if self.distance_3d_to_target().leq(1000) 
 	else 
 		-> lunastra.glide_direct_move(2,1,5,3000,500) 
@@ -549,7 +549,7 @@ def node_057
 	return 
 endf 
 
-def node_058
+def node_058 : 404
 	if self.distance_2d_to_target().leq(600) 
 	else 
 		-> lunastra.glide_combat(2,1,5,3000,500) 
@@ -558,7 +558,7 @@ def node_058
 	return 
 endf 
 
-def node_059
+def node_059 : 405
 	if self.distance_2d_to_target().leq(1000) 
 	else 
 		-> lunastra.glide_combat(2,1,5,3000,500) 
@@ -567,7 +567,7 @@ def node_059
 	return 
 endf 
 
-def node_060
+def node_060 : 196
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> lunastra.glide(2,1,0,3000,500) 
@@ -576,7 +576,7 @@ def node_060
 	return 
 endf 
 
-def node_061
+def node_061 : 195
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> lunastra.glide_direct_move(2,1,0,3000,500) 
@@ -585,7 +585,7 @@ def node_061
 	return 
 endf 
 
-def node_062
+def node_062 : 279
 	if self.distance_3d_to_target().leq(1000) 
 	else 
 		-> lunastra.glide_direct_move(2,1,0,3000,500) 
@@ -594,7 +594,7 @@ def node_062
 	return 
 endf 
 
-def node_063
+def node_063 : 532
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> lunastra.glide_direct_move(2,1,0,1500,500) 
@@ -610,7 +610,7 @@ def node_063
 	return 
 endf 
 
-def node_064
+def node_064 : 197
 	if self.distance_2d_to_target().leq(600) 
 	else 
 		-> lunastra.glide_combat(2,1,0,3000,500) 
@@ -619,7 +619,7 @@ def node_064
 	return 
 endf 
 
-def node_065
+def node_065 : 280
 	if self.distance_2d_to_target().leq(1000) 
 	else 
 		-> lunastra.glide_combat(2,1,0,3000,500) 
@@ -628,7 +628,7 @@ def node_065
 	return 
 endf 
 
-def node_066
+def node_066 : 533
 	if self.distance_2d_to_target().leq(600) 
 	else 
 		-> lunastra.glide_combat(2,1,0,1500,500) 
@@ -644,7 +644,7 @@ def node_066
 	return 
 endf 
 
-def node_067
+def node_067 : 257
 	if self.distance_3d_to_target().leq(1000) 
 	else 
 		-> lunastra.glide_direct_move(2,1,0,1500,700) 
@@ -668,7 +668,7 @@ def node_067
 	return 
 endf 
 
-def node_068
+def node_068 : 256
 	if self.distance_2d_to_target().leq(1000) 
 	else 
 		-> lunastra.glide_combat(2,0,0,1500) 
@@ -692,26 +692,26 @@ def node_068
 	return 
 endf 
 
-def node_069
+def node_069 : 552
 	>> node_001 
 	-> lunastra.take_off_switch_pattern_by_dist() 
 	>> node_062 
 	return 
 endf 
 
-def node_070
+def node_070 : 398
 	>> node_001 
 	-> lunastra.sudden_rise() 
 	return 
 endf 
 
-def node_071
+def node_071 : 400
 	>> node_002 
 	-> lunastra.sudden_drop() 
 	return 
 endf 
 
-def node_072
+def node_072 : 324
 	if self.flying() 
 		-> lunastra.discover_fly() 
 	else 
@@ -720,7 +720,7 @@ def node_072
 	return 
 endf 
 
-def node_073
+def node_073 : 526
 	if self.flying() 
 		-> lunastra.barrier_up_fly() 
 	else 
@@ -729,7 +729,7 @@ def node_073
 	return 
 endf 
 
-def node_074
+def node_074 : 325
 	if self.flying() 
 		-> lunastra.threat_short_fly() 
 	else 
@@ -738,7 +738,7 @@ def node_074
 	return 
 endf 
 
-def node_075
+def node_075 : 556
 	if function#AB() 
 		function#AA() 
 		>> node_074 
@@ -747,7 +747,7 @@ def node_075
 	return 
 endf 
 
-def node_076
+def node_076 : 328
 	if self.flying() 
 		-> lunastra.combat_search_fly() 
 	else 
@@ -756,7 +756,7 @@ def node_076
 	return 
 endf 
 
-def node_077
+def node_077 : 330
 	if self.flying() 
 		-> lunastra.combat_search_fly() 
 	else 
@@ -765,7 +765,7 @@ def node_077
 	return 
 endf 
 
-def node_078
+def node_078 : 329
 	if self.flying() 
 		-> lunastra.combat_search_fly() 
 	else 
@@ -774,19 +774,19 @@ def node_078
 	return 
 endf 
 
-def node_079
+def node_079 : 336
 	>> node_001 
 	-> lunastra.tired() 
 	return 
 endf 
 
-def node_080
+def node_080 : 337
 	>> node_001 
 	-> lunastra.refresh() 
 	return 
 endf 
 
-def node_081
+def node_081 : 369
 	>> node_001 
 	if self.in_combat() 
 		-> lunastra.lost_search() 
@@ -796,13 +796,13 @@ def node_081
 	return 
 endf 
 
-def node_082
+def node_082 : 370
 	>> node_001 
 	-> lunastra.lost_search() 
 	return 
 endf 
 
-def node_083
+def node_083 : 457
 	if self.flying() 
 		-> lunastra.threat_short_fly() 
 	else 
@@ -811,7 +811,7 @@ def node_083
 	return 
 endf 
 
-def node_084
+def node_084 : 485
 	if self.flying() 
 		-> lunastra.barrier_up_fly() 
 		-> lunastra.chance_fly() 
@@ -822,13 +822,13 @@ def node_084
 	return 
 endf 
 
-def node_085
+def node_085 : 206
 	self.targetArea(target_area.nearest_entrance) 
 	>> node_086 
 	return 
 endf 
 
-def node_086
+def node_086 : 424
 	if function#5A(20) 
 		>> node_087 
 	elif function#5A(21) 
@@ -859,7 +859,7 @@ def node_086
 	return 
 endf 
 
-def node_087
+def node_087 : 425
 	if self.distance_3d_to_target().leq(15000) 
 		>> node_001 
 		>> node_090 
@@ -869,7 +869,7 @@ def node_087
 	return 
 endf 
 
-def node_088
+def node_088 : 426
 	if self.distance_3d_to_target().leq(15000) 
 		>> node_002 
 		>> node_090 
@@ -879,7 +879,7 @@ def node_088
 	return 
 endf 
 
-def node_089
+def node_089 : 427
 	if function#AD() 
 		>> node_090 
 	else 
@@ -888,7 +888,7 @@ def node_089
 	return 
 endf 
 
-def node_090
+def node_090 : 207
 	if function#5A(10) 
 		>> node_002 
 	elif function#5A(11) 
@@ -924,7 +924,7 @@ def node_090
 	return 
 endf 
 
-def node_091
+def node_091 : 208
 	>> node_092 
 	>> node_093 
 	>> node_094 
@@ -932,7 +932,7 @@ def node_091
 	return 
 endf 
 
-def node_092
+def node_092 : 209
 	if self.flying() 
 		self.targetArea(target_area.area_aerial_center) 
 		>> node_057 
@@ -945,7 +945,7 @@ def node_092
 	return 
 endf 
 
-def node_093
+def node_093 : 210
 	self.targetArea(target_area.nearest_entrance) 
 	if self.flying() 
 		self.targetArea(40) 
@@ -957,7 +957,7 @@ def node_093
 	return 
 endf 
 
-def node_094
+def node_094 : 205
 	if function#5A(10) 
 	elif function#5A(11) 
 	elif function#5A(12) 
@@ -980,7 +980,7 @@ def node_094
 	return 
 endf 
 
-def node_095
+def node_095 : 278
 	self.targetArea(target_area.nearest_entrance) 
 	if self.flying() 
 		>> node_056 
@@ -990,7 +990,7 @@ def node_095
 	return 
 endf 
 
-def node_096
+def node_096 : 199
 	if function#C2() 
 		self.targetArea(target_area.next_exit) 
 	else 
@@ -1005,7 +1005,7 @@ def node_096
 	return 
 endf 
 
-def node_097
+def node_097 : 200
 	if self.flying() 
 		self.targetArea(40) 
 		>> node_056 
@@ -1015,13 +1015,13 @@ def node_097
 	return 
 endf 
 
-def node_098
+def node_098 : 201
 	>> node_099 
 	>> node_101 
 	return 
 endf 
 
-def node_099
+def node_099 : 553
 	if self.flying() 
 		self.targetArea(target_area.area_aerial_center) 
 		>> node_057 
@@ -1032,7 +1032,7 @@ def node_099
 	return 
 endf 
 
-def node_100
+def node_100 : 554
 	self.targetArea(target_area.area_center) 
 	>> node_045 
 	self.targetArea(target_area.area_aerial_center) 
@@ -1040,7 +1040,7 @@ def node_100
 	return 
 endf 
 
-def node_101
+def node_101 : 203
 	if function#C2() 
 		self.targetArea(target_area.next_exit) 
 	else 
@@ -1055,7 +1055,7 @@ def node_101
 	return 
 endf 
 
-def node_102
+def node_102 : 204
 	self.targetArea(target_area.area_center) 
 	if self.flying() 
 		if self.fatigued() 
@@ -1068,7 +1068,7 @@ def node_102
 	return 
 endf 
 
-def node_103
+def node_103 : 349
 	self.targetArea(24) 
 	if function#AD() 
 		>> node_104 
@@ -1078,14 +1078,14 @@ def node_103
 	return 
 endf 
 
-def node_104
+def node_104 : 350
 	>> node_001 
 	self.targetEnemy(24) 
 	>> node_044 
 	return 
 endf 
 
-def node_105
+def node_105 : 351
 	>> node_106 
 	>> node_107 
 	>> node_108 
@@ -1093,7 +1093,7 @@ def node_105
 	return 
 endf 
 
-def node_106
+def node_106 : 352
 	if self.flying() 
 		self.targetArea(target_area.area_aerial_center) 
 		>> node_051 
@@ -1106,7 +1106,7 @@ def node_106
 	return 
 endf 
 
-def node_107
+def node_107 : 353
 	self.targetArea(24) 
 	if self.flying() 
 		self.targetArea(40) 
@@ -1118,7 +1118,7 @@ def node_107
 	return 
 endf 
 
-def node_108
+def node_108 : 354
 	if self.flying() 
 		self.targetArea(target_area.area_center) 
 		>> node_001 
@@ -1127,7 +1127,7 @@ def node_108
 	return 
 endf 
 
-def node_109
+def node_109 : 355
 	if self.flying() 
 	else 
 		self.targetArea(24) 
@@ -1136,7 +1136,7 @@ def node_109
 	return 
 endf 
 
-def node_110
+def node_110 : 362
 	if function#AD() 
 		>> node_111 
 	else 
@@ -1145,7 +1145,7 @@ def node_110
 	return 
 endf 
 
-def node_111
+def node_111 : 363
 	if self.flying() 
 		>> node_065 
 	else 
@@ -1158,14 +1158,14 @@ def node_111
 	return 
 endf 
 
-def node_112
+def node_112 : 364
 	>> node_113 
 	>> node_114 
 	>> node_115 
 	return 
 endf 
 
-def node_113
+def node_113 : 365
 	if self.flying() 
 		self.targetArea(target_area.area_aerial_center) 
 		>> node_061 
@@ -1182,7 +1182,7 @@ def node_113
 	return 
 endf 
 
-def node_114
+def node_114 : 366
 	if self.flying() 
 		self.targetArea(40) 
 		>> node_060 
@@ -1197,7 +1197,7 @@ def node_114
 	return 
 endf 
 
-def node_115
+def node_115 : 367
 	if self.flying() 
 		self.targetArea(target_area.area_center) 
 		>> node_001 
@@ -1206,7 +1206,7 @@ def node_115
 	return 
 endf 
 
-def node_116
+def node_116 : 573
 	self.targetArea(target_area.area_center) 
 	if self.flying() 
 		if self.fatigued() 
@@ -1219,7 +1219,7 @@ def node_116
 	return 
 endf 
 
-def node_117
+def node_117 : 368
 	if self.flying() 
 		>> node_065 
 	else 
@@ -1232,7 +1232,7 @@ def node_117
 	return 
 endf 
 
-def node_118
+def node_118 : 309
 	if self.flying() 
 		-> lunastra.turn_fly() 
 	else 
@@ -1241,7 +1241,7 @@ def node_118
 	return 
 endf 
 
-def node_119
+def node_119 : 310
 	if self.angle_2d_cw_between(15,345) 
 		>> node_118 
 	else 
@@ -1249,7 +1249,7 @@ def node_119
 	return 
 endf 
 
-def node_120
+def node_120 : 311
 	if self.angle_2d_cw_between(30,330) 
 		>> node_118 
 	else 
@@ -1257,7 +1257,7 @@ def node_120
 	return 
 endf 
 
-def node_121
+def node_121 : 312
 	if self.angle_2d_cw_between(60,300) 
 		>> node_118 
 	else 
@@ -1265,7 +1265,7 @@ def node_121
 	return 
 endf 
 
-def node_122
+def node_122 : 313
 	if self.angle_2d_cw_between(90,270) 
 		>> node_118 
 	else 
@@ -1273,7 +1273,7 @@ def node_122
 	return 
 endf 
 
-def node_123
+def node_123 : 357
 	if self.flying() 
 		>> node_209 
 	else 
@@ -1282,7 +1282,7 @@ def node_123
 	return 
 endf 
 
-def node_124
+def node_124 : 358
 	if self.angle_2d_cw_between(15,345) 
 		>> node_123 
 	else 
@@ -1290,7 +1290,7 @@ def node_124
 	return 
 endf 
 
-def node_125
+def node_125 : 359
 	if self.angle_2d_cw_between(30,330) 
 		>> node_123 
 	else 
@@ -1298,7 +1298,7 @@ def node_125
 	return 
 endf 
 
-def node_126
+def node_126 : 360
 	if self.angle_2d_cw_between(60,300) 
 		>> node_123 
 	else 
@@ -1306,7 +1306,7 @@ def node_126
 	return 
 endf 
 
-def node_127
+def node_127 : 361
 	if self.angle_2d_cw_between(90,270) 
 		>> node_123 
 	else 
@@ -1314,19 +1314,19 @@ def node_127
 	return 
 endf 
 
-def node_128
+def node_128 : 226
 	>> node_001 
 	-> lunastra.lost_search() 
 	return 
 endf 
 
-def node_129
+def node_129 : 227
 	>> node_001 
 	-> lunastra.lost_search() 
 	return 
 endf 
 
-def node_130
+def node_130 : 228
 	>> node_001 
 	random (50) -> lunastra.combat_search() 
 	elser (50) -> lunastra.lost_search() 
@@ -1334,7 +1334,7 @@ def node_130
 	return 
 endf 
 
-def node_131
+def node_131 : 229
 	>> node_001 
 	random (50) -> lunastra.combat_search() 
 	elser (50) -> lunastra.lost_search() 
@@ -1342,19 +1342,19 @@ def node_131
 	return 
 endf 
 
-def node_132
+def node_132 : 230
 	>> node_001 
 	-> lunastra.dash(2,1,0,1000,750) 
 	return 
 endf 
 
-def node_133
+def node_133 : 231
 	>> node_001 
 	-> lunastra.dash(2,1,0,2000,750) 
 	return 
 endf 
 
-def node_134
+def node_134 : 232
 	>> node_001 
 	if self.distance_2d_to_target().leq(900) 
 		random (65) >> node_009 
@@ -1370,7 +1370,7 @@ def node_134
 	return 
 endf 
 
-def node_135
+def node_135 : 233
 	>> node_001 
 	if self.target(10) 
 		-> lunastra.dash(2,0,0,1000) 
@@ -1384,13 +1384,13 @@ def node_135
 	return 
 endf 
 
-def node_136
+def node_136 : 242
 	>> node_001 
 	-> lunastra.tired() 
 	return 
 endf 
 
-def node_137
+def node_137 : 282
 	if self.distance_3d_to_target().leq(900) 
 		>> node_167 
 	elif self.distance_3d_to_target().leq(1350) 
@@ -1400,7 +1400,7 @@ def node_137
 	return 
 endf 
 
-def node_138
+def node_138 : 289
 	if self.distance_2d_to_target().leq(900) 
 	else 
 		-> lunastra.dash(2,0,0,1500) 
@@ -1416,13 +1416,13 @@ def node_138
 	return 
 endf 
 
-def node_139
+def node_139 : 292
 	>> node_001 
 	-> lunastra.lost_search() 
 	return 
 endf 
 
-def node_140
+def node_140 : 295
 	>> node_001 
 	>> node_120 
 	-> lunastra.life_search() 
@@ -1439,7 +1439,7 @@ def node_140
 	return 
 endf 
 
-def node_141
+def node_141 : 300
 	>> node_001 
 	self.targetArea(17) 
 	>> node_120 
@@ -1447,7 +1447,7 @@ def node_141
 	return 
 endf 
 
-def node_142
+def node_142 : 307
 	>> node_001 
 	self.targetArea(17) 
 	random (75) >> node_140 
@@ -1457,7 +1457,7 @@ def node_142
 	return 
 endf 
 
-def node_143
+def node_143 : 303
 	>> node_001 
 	self.targetArea(17) 
 	>> node_120 
@@ -1465,14 +1465,14 @@ def node_143
 	return 
 endf 
 
-def node_144
+def node_144 : 305
 	>> node_001 
 	>> node_119 
 	-> lunastra.life_search() 
 	return 
 endf 
 
-def node_145
+def node_145 : 306
 	>> node_001 
 	self.targetArea(17) 
 	>> node_120 
@@ -1480,56 +1480,56 @@ def node_145
 	return 
 endf 
 
-def node_146
+def node_146 : 296
 	>> node_002 
 	>> node_120 
 	-> lunastra.combat_search_fly() 
 	return 
 endf 
 
-def node_147
+def node_147 : 301
 	>> node_002 
 	>> node_120 
 	-> lunastra.chance_fly() 
 	return 
 endf 
 
-def node_148
+def node_148 : 308
 	>> node_002 
 	>> node_120 
 	-> lunastra.combat_search_fly() 
 	return 
 endf 
 
-def node_149
+def node_149 : 299
 	>> node_002 
 	>> node_119 
 	-> lunastra.combat_search_fly() 
 	return 
 endf 
 
-def node_150
+def node_150 : 297
 	>> node_002 
 	>> node_120 
 	-> lunastra.combat_search_fly() 
 	return 
 endf 
 
-def node_151
+def node_151 : 534
 	>> node_002 
 	self.targetEnemy(17) 
 	-> lunastra.sudden_drop() 
 	return 
 endf 
 
-def node_152
+def node_152 : 348
 	>> node_001 
 	>> node_120 
 	-> lunastra.dying_sleep() 
 	return 
 endf 
 
-def node_153
+def node_153 : 422
 	if self.distance_2d_to_target().leq(500) 
 	else 
 		-> lunastra.glide_direct_move(1,2,0,400,1500) 
@@ -1538,38 +1538,38 @@ def node_153
 	return 
 endf 
 
-def node_154
+def node_154 : 385
 	>> node_002 
 	self.targetArea(22) @ parameter2:500 
 	-> lunastra.quick_turn_fly() 
 	return 
 endf 
 
-def node_155
+def node_155 : 527
 	>> node_002 
 	-> lunastra.ride_rage_head() 
 	return 
 endf 
 
-def node_156
+def node_156 : 386
 	>> node_002 
 	-> lunastra.ride_rage_head_lv2() 
 	return 
 endf 
 
-def node_157
+def node_157 : 528
 	>> node_002 
 	-> lunastra.ride_rage_body() 
 	return 
 endf 
 
-def node_158
+def node_158 : 387
 	>> node_002 
 	-> lunastra.ride_rage_body_lv2() 
 	return 
 endf 
 
-def node_159
+def node_159 : 394
 	>> node_002 
 	if self.distance_2d_to_target().leq(600) 
 		>> node_204 
@@ -1580,7 +1580,7 @@ def node_159
 	return 
 endf 
 
-def node_160
+def node_160 : 551
 	if function#11(1000) 
 	else 
 		if self.above_area() 
@@ -1592,49 +1592,49 @@ def node_160
 	return 
 endf 
 
-def node_161
+def node_161 : 388
 	>> node_002 
 	-> lunastra.ride_rage_crash_head() 
 	return 
 endf 
 
-def node_162
+def node_162 : 389
 	>> node_002 
 	-> lunastra.ride_rage_crash_head_lv2() 
 	return 
 endf 
 
-def node_163
+def node_163 : 390
 	>> node_002 
 	-> lunastra.ride_rage_crash_body() 
 	return 
 endf 
 
-def node_164
+def node_164 : 391
 	>> node_002 
 	-> lunastra.ride_rage_crash_body_lv2() 
 	return 
 endf 
 
-def node_165
+def node_165 : 393
 	>> node_002 
 	-> lunastra.ride_rage_threat() 
 	return 
 endf 
 
-def node_166
+def node_166 : 392
 	>> node_002 
 	-> lunastra.ride_tired() 
 	return 
 endf 
 
-def node_167
+def node_167 : 275
 	>> node_001 
 	-> lunastra.back_turn() 
 	return 
 endf 
 
-def node_168
+def node_168 : 284
 	if self.angle_2d_cw_between(15,345) 
 		>> node_167 
 	else 
@@ -1642,7 +1642,7 @@ def node_168
 	return 
 endf 
 
-def node_169
+def node_169 : 285
 	if self.angle_2d_cw_between(30,330) 
 		>> node_167 
 	else 
@@ -1650,7 +1650,7 @@ def node_169
 	return 
 endf 
 
-def node_170
+def node_170 : 286
 	if self.angle_2d_cw_between(45,315) 
 		>> node_167 
 	else 
@@ -1658,7 +1658,7 @@ def node_170
 	return 
 endf 
 
-def node_171
+def node_171 : 287
 	if self.angle_2d_cw_between(60,300) 
 		>> node_167 
 	else 
@@ -1666,7 +1666,7 @@ def node_171
 	return 
 endf 
 
-def node_172
+def node_172 : 288
 	if self.angle_2d_cw_between(90,270) 
 		>> node_167 
 	else 
@@ -1674,13 +1674,13 @@ def node_172
 	return 
 endf 
 
-def node_173
+def node_173 : 271
 	>> node_001 
 	-> lunastra.quick_turn() 
 	return 
 endf 
 
-def node_174
+def node_174 : 212
 	if self.angle_2d_cw_between(15,345) 
 		>> node_173 
 	else 
@@ -1688,7 +1688,7 @@ def node_174
 	return 
 endf 
 
-def node_175
+def node_175 : 213
 	if self.angle_2d_cw_between(30,330) 
 		>> node_173 
 	else 
@@ -1696,7 +1696,7 @@ def node_175
 	return 
 endf 
 
-def node_176
+def node_176 : 214
 	if self.angle_2d_cw_between(45,315) 
 		>> node_173 
 	else 
@@ -1704,7 +1704,7 @@ def node_176
 	return 
 endf 
 
-def node_177
+def node_177 : 216
 	if self.angle_2d_cw_between(60,300) 
 		>> node_173 
 	else 
@@ -1712,7 +1712,7 @@ def node_177
 	return 
 endf 
 
-def node_178
+def node_178 : 215
 	if self.angle_2d_cw_between(90,270) 
 		>> node_173 
 	else 
@@ -1720,7 +1720,7 @@ def node_178
 	return 
 endf 
 
-def node_179
+def node_179 : 458
 	if self.targetEnemy(target_em.any_monster) 
 		if self.target(13) 
 		else 
@@ -1766,17 +1766,17 @@ def node_179
 	return 
 endf 
 
-def node_180
+def node_180 : 459
 	return 
 endf 
 
-def node_181
+def node_181 : 460
 	>> node_125 
 	>> node_083 
 	return 
 endf 
 
-def node_182
+def node_182 : 461
 	if self.flying() 
 		if self.distance_2d_to_target().leq(650) 
 			random (50) >> node_035 
@@ -1810,26 +1810,26 @@ def node_182
 	return 
 endf 
 
-def node_183
+def node_183 : 462
 	self.force_area_change2() 
 	return 
 endf 
 
-def node_184
+def node_184 : 615
 	if self.target.in_combat() >> node_182 
 	endif 
 	>> node_183 
 	return 
 endf 
 
-def node_185
+def node_185 : 611
 	function#31(49,1000) 
 	self.targetEnemy(target_em.closest_entity) 
 	>> node_186 
 	return 
 endf 
 
-def node_186
+def node_186 : 612
 	random (10) >> node_181 
 	elser (55) >> node_187 
 	elser (0) >> node_183 
@@ -1838,7 +1838,7 @@ def node_186
 	return 
 endf 
 
-def node_187
+def node_187 : 613
 	if self.flying() 
 		if self.distance_2d_to_target().leq(650) 
 			random (50) >> node_035 
@@ -1872,7 +1872,7 @@ def node_187
 	return 
 endf 
 
-def node_188
+def node_188 : 590
 	if self.targetEnemy(target_em.any_monster) 
 		if self.target_is(em.Teostra) @ parameter2:1 
 		elif self.target(13) 
@@ -1890,7 +1890,7 @@ def node_188
 	return 
 endf 
 
-def node_189
+def node_189 : 582
 	if self.targetEnemy(target_em.any_monster) 
 		if self.target(13) 
 		else 
@@ -1909,7 +1909,7 @@ def node_189
 	return 
 endf 
 
-def node_190
+def node_190 : 583
 	if self.target.in_combat() 
 		random (70) >> node_193 
 		elser (20) >> node_180 
@@ -1926,7 +1926,7 @@ def node_190
 	return 
 endf 
 
-def node_191
+def node_191 : 584
 	if self.target.in_combat() 
 		random (50) >> node_194 
 		elser (20) >> node_180 
@@ -1943,13 +1943,13 @@ def node_191
 	return 
 endf 
 
-def node_192
+def node_192 : 585
 	*&
 	*&
 	return 
 endf 
 
-def node_193
+def node_193 : 586
 	if self.distance_2d_to_target().gt(1000) 
 		if self.flying() >> node_066 
 		else >> node_048 
@@ -1970,7 +1970,7 @@ def node_193
 	reset 
 endf 
 
-def node_194
+def node_194 : 589
 	if self.flying() 
 		if self.distance_2d_to_target().leq(650) 
 			random (50) >> node_035 
@@ -2004,14 +2004,14 @@ def node_194
 	return 
 endf 
 
-def node_195
+def node_195 : 587
 	if self.flying() -> lunastra.chance_fly() 
 	else -> lunastra.chance() 
 	endif 
 	return 
 endf 
 
-def node_196
+def node_196 : 397
 	random (35) 
 				self.targetArea(21) @ parameter2:300 
 	elser (35) 
@@ -2024,7 +2024,7 @@ def node_196
 	return 
 endf 
 
-def node_197
+def node_197 : 595
 	random (35) 
 				self.targetArea(21) @ parameter2:1200 
 	elser (35) 
@@ -2037,7 +2037,7 @@ def node_197
 	return 
 endf 
 
-def node_198
+def node_198 : 535
 	random (35) 
 				if self.flying() 
 					-> lunastra.chance_fly() 
@@ -2049,7 +2049,7 @@ def node_198
 	return 
 endf 
 
-def node_199
+def node_199 : 536
 	if self.flying() 
 		-> lunastra.chance_fly() 
 	else 
@@ -2058,7 +2058,7 @@ def node_199
 	return 
 endf 
 
-def node_200
+def node_200 : 593
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.target(3) 
 	elif self.target(4) 
@@ -2073,7 +2073,7 @@ def node_200
 	return 
 endf 
 
-def node_201
+def node_201 : 594
 	>> node_002 
 	if self.in_map(st.Special_Arena).in_area(0) 
 		self.targetArea(target_area.area_center) 
@@ -2084,7 +2084,7 @@ def node_201
 	return 
 endf 
 
-def node_202
+def node_202 : 592
 	if self.distance_2d_to_target().leq(300) 
 		>> node_124 
 		>> node_208 
@@ -2107,20 +2107,20 @@ def node_202
 	return 
 endf 
 
-def node_203
+def node_203 : 596
 	random (30) -> lunastra.side_wing_attack() 
 	elser (70) -> lunastra.heat_wind_blow() 
 	endr 
 	return 
 endf 
 
-def node_204
+def node_204 : 464
 	>> node_002 
 	-> lunastra.back_step_fly() 
 	return 
 endf 
 
-def node_205
+def node_205 : 465
 	if self.angle_2d_cw_between(15,345) 
 		>> node_204 
 	else 
@@ -2128,7 +2128,7 @@ def node_205
 	return 
 endf 
 
-def node_206
+def node_206 : 466
 	if self.angle_2d_cw_between(30,330) 
 		>> node_204 
 	else 
@@ -2136,7 +2136,7 @@ def node_206
 	return 
 endf 
 
-def node_207
+def node_207 : 467
 	if self.angle_2d_cw_between(45,315) 
 		>> node_204 
 	else 
@@ -2144,7 +2144,7 @@ def node_207
 	return 
 endf 
 
-def node_208
+def node_208 : 468
 	if self.angle_2d_cw_between(90,270) 
 		>> node_204 
 	else 
@@ -2152,7 +2152,7 @@ def node_208
 	return 
 endf 
 
-def node_209
+def node_209 : 469
 	if self.angle_2d_cw_between(0,180) 
 		-> lunastra.quick_turn_fly() 
 	else 
@@ -2161,7 +2161,7 @@ def node_209
 	return 
 endf 
 
-def node_210
+def node_210 : 470
 	if self.angle_2d_cw_between(15,345) 
 		>> node_209 
 	else 
@@ -2169,7 +2169,7 @@ def node_210
 	return 
 endf 
 
-def node_211
+def node_211 : 471
 	if self.angle_2d_cw_between(30,330) 
 		>> node_209 
 	else 
@@ -2177,7 +2177,7 @@ def node_211
 	return 
 endf 
 
-def node_212
+def node_212 : 472
 	if self.angle_2d_cw_between(45,315) 
 		>> node_209 
 	else 
@@ -2185,7 +2185,7 @@ def node_212
 	return 
 endf 
 
-def node_213
+def node_213 : 473
 	if self.angle_2d_cw_between(90,270) 
 		>> node_209 
 	else 
@@ -2193,7 +2193,7 @@ def node_213
 	return 
 endf 
 
-def node_214
+def node_214 : 518
 	>> node_001 
 	>> node_125 
 	if self.flying() 
@@ -2204,7 +2204,7 @@ def node_214
 	return 
 endf 
 
-def node_215
+def node_215 : 519
 	>> node_001 
 	if self.targetEnemy(target_em.any_monster) 
 		random (20) >> node_125 
@@ -2219,7 +2219,7 @@ def node_215
 	return 
 endf 
 
-def node_216
+def node_216 : 520
 	>> node_001 
 	>> node_125 
 	random (40) -> lunastra.chance() 
@@ -2230,14 +2230,14 @@ def node_216
 	return 
 endf 
 
-def node_217
+def node_217 : 521
 	>> node_001 
 	>> node_120 
 	-> lunastra.life_search() 
 	return 
 endf 
 
-def node_218
+def node_218 : 522
 	>> node_001 
 	self.targetEnemy(58) 
 	random (0) >> node_219 
@@ -2253,17 +2253,17 @@ def node_218
 	return 
 endf 
 
-def node_219
+def node_219 : 523
 	-> lunastra.walk(1,2,0,600,1500) 
 	return 
 endf 
 
-def node_220
+def node_220 : 524
 	-> lunastra.glide_combat(1,2,0,600,2000) 
 	return 
 endf 
 
-def node_221
+def node_221 : 525
 	if self.fatigued() 
 		>> node_001 
 	else 
@@ -2271,7 +2271,7 @@ def node_221
 	return 
 endf 
 
-def node_222
+def node_222 : 537
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if function#5D() 
 		>> node_224 
@@ -2314,7 +2314,7 @@ def node_222
 	return 
 endf 
 
-def node_223
+def node_223 : 538
 	if [RegisterVar4 <= 10] 
 		[RegisterVar4 |-] 
 	elif [RegisterVar4 <= 1] 
@@ -2324,7 +2324,7 @@ def node_223
 	return 
 endf 
 
-def node_224
+def node_224 : 539
 	if self.distance_2d_to_target().leq(1500) 
 		if self.angle_2d_cw_between(300,60) 
 		else 
@@ -2343,13 +2343,13 @@ def node_224
 	return 
 endf 
 
-def node_225
+def node_225 : 540
 	>> node_226 
 	>> node_227 
 	reset 
 endf 
 
-def node_226
+def node_226 : 331
 	self.targetArea(19) 
 	if self.flying() 
 		>> node_064 
@@ -2359,14 +2359,14 @@ def node_226
 	return 
 endf 
 
-def node_227
+def node_227 : 335
 	self.targetEnemy(target_em.random_player_or_cat) 
 	>> node_001 
 	-> lunastra.lost_search() 
 	return 
 endf 
 
-def node_228
+def node_228 : 541
 	if self.flying() 
 		>> node_234 
 	else 
@@ -2386,7 +2386,7 @@ def node_228
 	return 
 endf 
 
-def node_229
+def node_229 : 542
 	if self.flying() 
 		>> node_234 
 	else 
@@ -2406,7 +2406,7 @@ def node_229
 	return 
 endf 
 
-def node_230
+def node_230 : 543
 	if self.flying() 
 		>> node_234 
 	else 
@@ -2426,7 +2426,7 @@ def node_230
 	return 
 endf 
 
-def node_231
+def node_231 : 544
 	if self.flying() 
 		>> node_237 
 	else 
@@ -2435,7 +2435,7 @@ def node_231
 	return 
 endf 
 
-def node_232
+def node_232 : 545
 	if self.distance_2d_to_target().leq(600) 
 		if self.vertical_distance_to_target().leq(1500) 
 		else 
@@ -2463,7 +2463,7 @@ def node_232
 	return 
 endf 
 
-def node_233
+def node_233 : 546
 	if self.distance_3d_to_target().leq(400) 
 	else 
 		-> lunastra.dash(1,2,0,300,1500) 
@@ -2479,7 +2479,7 @@ def node_233
 	return 
 endf 
 
-def node_234
+def node_234 : 547
 	if self.distance_2d_to_target().leq(300) 
 		if self.vertical_distance_to_target().leq(1000) 
 		else 
@@ -2508,7 +2508,7 @@ def node_234
 	return 
 endf 
 
-def node_235
+def node_235 : 548
 	if self.above_target() 
 		random (0) >> node_209 
 		elser (50) >> node_207 
@@ -2526,13 +2526,13 @@ def node_235
 	return 
 endf 
 
-def node_236
+def node_236 : 549
 	>> node_002 
 	-> lunastra.short_up_fly() 
 	return 
 endf 
 
-def node_237
+def node_237 : 550
 	if self.distance_3d_to_target().leq(300) 
 	else 
 		-> lunastra.glide_direct_move(1,2,0,200,1500) 
@@ -2548,7 +2548,7 @@ def node_237
 	return 
 endf 
 
-def node_238
+def node_238 : 614
 	if self.distance_2d_to_target().gt(1200) >> node_005 
 	endif 
 	random (50) >> node_010 
@@ -2557,27 +2557,27 @@ def node_238
 	return 
 endf 
 
-def node_239
+def node_239 : 576
 	[RegisterVar0 ++] 
 	return 
 endf 
 
-def node_240
+def node_240 : 577
 	[RegisterVar0 |-] 
 	return 
 endf 
 
-def node_241
+def node_241 : 578
 	[RegisterVar1 ++] 
 	return 
 endf 
 
-def node_242
+def node_242 : 579
 	[RegisterVar1 |-] 
 	return 
 endf 
 
-def node_243
+def node_243 : 591
 	if [RegisterVar2 == 0] 
 		if self.hp_percent().gt(50) 
 			function#C3(100) 
@@ -2587,32 +2587,32 @@ def node_243
 	return 
 endf 
 
-def node_244
+def node_244 : 574
 	[RegisterVar3 ++] 
 	return 
 endf 
 
-def node_245
+def node_245 : 575
 	[RegisterVar3 |-] 
 	return 
 endf 
 
-def node_246
+def node_246 : 600
 	[RegisterVar5 ++] 
 	return 
 endf 
 
-def node_247
+def node_247 : 601
 	[RegisterVar5 |-] 
 	return 
 endf 
 
-def node_248
+def node_248 : 602
 	[RegisterVar6 ++] 
 	return 
 endf 
 
-def node_249
+def node_249 : 604
 	[RegisterVar6 ++] 
 	[RegisterVar6 ++] 
 	[RegisterVar6 ++] 
@@ -2621,7 +2621,7 @@ def node_249
 	return 
 endf 
 
-def node_250
+def node_250 : 603
 	[RegisterVar6 |-] 
 	return 
 endf 

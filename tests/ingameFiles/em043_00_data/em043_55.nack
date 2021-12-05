@@ -1,11 +1,11 @@
 importactions Deviljho as deviljho
 
-def node_000
+def node_000 : 1
 	>> node_115 
 	conclude 
 endf 
 
-def node_001
+def node_001 : 73
 	if self.quest_id(1606) 
 		function#CF() 
 	elif function#101() 
@@ -35,7 +35,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 74
 	if self.quest_id(61606) 
 		>> node_005 
 		>> node_006 
@@ -57,7 +57,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 75
 	if self.quest_id(61606) 
 		>> node_005 
 		>> node_006 
@@ -79,7 +79,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 80
 	if function#41() 
 	else 
 		>> node_015 
@@ -88,7 +88,7 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 81
 	if function#41() 
 	else 
 		>> node_015 
@@ -97,7 +97,7 @@ def node_005
 	return 
 endf 
 
-def node_006
+def node_006 : 79
 	if function#41() 
 	else 
 		self.force_area_change2() 
@@ -105,7 +105,7 @@ def node_006
 	return 
 endf 
 
-def node_007
+def node_007 : 82
 	if function#41() 
 	else 
 		if self.vertical_distance_to_target().gt(500) 
@@ -129,14 +129,14 @@ def node_007
 	return 
 endf 
 
-def node_008
+def node_008 : 164
 	function#31(49,3000) 
 	self.targetEnemy(target_em.closest_entity) 
 	>> node_007 
 	return 
 endf 
 
-def node_009
+def node_009 : 108
 	if self.fatigued() 
 		-> deviljho.tired() 
 	elif self.enraged() 
@@ -147,12 +147,12 @@ def node_009
 	return 
 endf 
 
-def node_010
+def node_010 : 54
 	-> deviljho.back_turn() 
 	return 
 endf 
 
-def node_011
+def node_011 : 148
 	if self.angle_2d_cw_between(10,350) 
 		if self.in_combat() 
 			-> deviljho.quick_turn() 
@@ -166,7 +166,7 @@ def node_011
 	return 
 endf 
 
-def node_012
+def node_012 : 86
 	if self.angle_2d_cw_between(60,300) 
 		if self.in_combat() 
 			-> deviljho.quick_turn() 
@@ -180,7 +180,7 @@ def node_012
 	return 
 endf 
 
-def node_013
+def node_013 : 157
 	if self.angle_2d_cw_between(90,270) 
 		if self.in_combat() 
 			-> deviljho.quick_turn() 
@@ -194,7 +194,7 @@ def node_013
 	return 
 endf 
 
-def node_014
+def node_014 : 133
 	if self.angle_2d_cw_between(60,300) 
 		if self.distance_3d_to_target().leq(550) 
 			-> deviljho.back_turn() 
@@ -212,7 +212,7 @@ def node_014
 	return 
 endf 
 
-def node_015
+def node_015 : 17
 	if self.distance_3d_to_target().leq(550) 
 		-> deviljho.back_turn() 
 	else 
@@ -228,7 +228,7 @@ def node_015
 	return 
 endf 
 
-def node_016
+def node_016 : 154
 	if self.distance_2d_recalc_to_target().gt(500) 
 		if self.fatigued() 
 			-> deviljho.tired_dash(3,6,0,1,500) 
@@ -240,7 +240,7 @@ def node_016
 	return 
 endf 
 
-def node_017
+def node_017 : 132
 	if self.distance_3d_to_target().gt(1000) 
 		if self.fatigued() 
 			-> deviljho.tired_dash(0,1,0,0,1000) 
@@ -252,7 +252,7 @@ def node_017
 	return 
 endf 
 
-def node_018
+def node_018 : 134
 	if self.distance_3d_to_target().gt(1500) 
 		if self.fatigued() 
 			-> deviljho.tired_dash(0,1,0,0,1500) 
@@ -264,7 +264,7 @@ def node_018
 	return 
 endf 
 
-def node_019
+def node_019 : 136
 	if self.distance_3d_to_target().gt(2500) 
 		if self.fatigued() 
 			-> deviljho.tired_dash(0,1,0,0,2500) 
@@ -276,7 +276,7 @@ def node_019
 	return 
 endf 
 
-def node_020
+def node_020 : 51
 	if self.fatigued() 
 		-> deviljho.tired_dash(2,1,5,1500,800) 
 	else 
@@ -285,7 +285,7 @@ def node_020
 	return 
 endf 
 
-def node_021
+def node_021 : 84
 	if self.fatigued() 
 		-> deviljho.tired_dash(2,1,5,3000,800) 
 	else 
@@ -294,7 +294,7 @@ def node_021
 	return 
 endf 
 
-def node_022
+def node_022 : 167
 	if self.distance_3d_to_target().leq(900) 
 	else 
 		if self.fatigued() 
@@ -307,7 +307,7 @@ def node_022
 	return 
 endf 
 
-def node_023
+def node_023 : 88
 	if self.fatigued() 
 		-> deviljho.tired_walk(2,1,5,1500,800) 
 	else 
@@ -316,7 +316,7 @@ def node_023
 	return 
 endf 
 
-def node_024
+def node_024 : 55
 	>> node_015 
 	random (55) -> deviljho.predator_walk_l() 
 	elser (45) -> deviljho.predator_walk_r() 
@@ -324,7 +324,7 @@ def node_024
 	return 
 endf 
 
-def node_025
+def node_025 : 115
 	if self.angle_2d_cw_between(0,180) 
 		-> deviljho.side_step_l() 
 	else 
@@ -333,7 +333,7 @@ def node_025
 	return 
 endf 
 
-def node_026
+def node_026 : 116
 	if self.angle_2d_cw_between(0,180) 
 		-> deviljho.side_step_r() 
 	else 
@@ -342,7 +342,7 @@ def node_026
 	return 
 endf 
 
-def node_027
+def node_027 : 117
 	if self.angle_2d_cw_between(120,240) 
 		-> deviljho.quick_turn() 
 		-> deviljho.dash(2,5,0,500) 
@@ -354,7 +354,7 @@ def node_027
 	return 
 endf 
 
-def node_028
+def node_028 : 118
 	if self.angle_2d_cw_between(150,210) 
 		-> deviljho.back_turn() 
 	elif self.angle_2d_cw_between(30,330) 
@@ -365,13 +365,13 @@ def node_028
 	return 
 endf 
 
-def node_029
+def node_029 : 111
 	-> deviljho.bind_voice() 
 	-> deviljho.quick_turn() 
 	return 
 endf 
 
-def node_030
+def node_030 : 22
 	if self.distance_3d_to_target().leq(200) 
 		>> node_031 
 	elif self.distance_3d_to_target().leq(600) 
@@ -386,12 +386,12 @@ def node_030
 	return 
 endf 
 
-def node_031
+def node_031 : 23
 	-> deviljho.turn_bite_near() 
 	return 
 endf 
 
-def node_032
+def node_032 : 24
 	if self.angle_2d_cw_between(135,225) 
 		-> deviljho.round_bite_short() 
 	elif self.angle_2d_cw_between(90,270) 
@@ -402,7 +402,7 @@ def node_032
 	return 
 endf 
 
-def node_033
+def node_033 : 25
 	if self.angle_2d_cw_between(135,225) 
 		-> deviljho.turn_bite_behind() 
 	else 
@@ -411,12 +411,12 @@ def node_033
 	return 
 endf 
 
-def node_034
+def node_034 : 26
 	-> deviljho.step_bite() 
 	return 
 endf 
 
-def node_035
+def node_035 : 27
 	if self.angle_2d_cw_between(330,30) 
 		-> deviljho.dash_bite() 
 	else 
@@ -426,7 +426,7 @@ def node_035
 	return 
 endf 
 
-def node_036
+def node_036 : 21
 	>> node_015 
 	if self.distance_3d_to_target().leq(550) 
 		-> deviljho.petit_bite_near() 
@@ -439,7 +439,7 @@ def node_036
 	return 
 endf 
 
-def node_037
+def node_037 : 119
 	>> node_012 
 	>> node_017 
 	>> node_014 
@@ -454,7 +454,7 @@ def node_037
 	return 
 endf 
 
-def node_038
+def node_038 : 43
 	>> node_012 
 	if self.distance_3d_to_target().leq(550) 
 		-> deviljho.cut_bite_near() 
@@ -467,7 +467,7 @@ def node_038
 	return 
 endf 
 
-def node_039
+def node_039 : 120
 	>> node_011 
 	>> node_017 
 	>> node_014 
@@ -482,7 +482,7 @@ def node_039
 	return 
 endf 
 
-def node_040
+def node_040 : 28
 	if self.angle_2d_cw_between(170,190) 
 		>> node_025 
 		-> deviljho.side_bite() 
@@ -497,7 +497,7 @@ def node_040
 	return 
 endf 
 
-def node_041
+def node_041 : 121
 	if self.angle_2d_cw_between(30,180) 
 		-> deviljho.side_bite() 
 	elif self.angle_2d_cw_between(180,330) 
@@ -508,7 +508,7 @@ def node_041
 	return 
 endf 
 
-def node_042
+def node_042 : 29
 	if self.angle_2d_cw_between(0,180) 
 		-> deviljho.tail_attack_l() 
 	else 
@@ -517,26 +517,26 @@ def node_042
 	return 
 endf 
 
-def node_043
+def node_043 : 30
 	>> node_011 
 	-> deviljho.front_step_bite() 
 	return 
 endf 
 
-def node_044
+def node_044 : 122
 	>> node_011 
 	>> node_018 
 	-> deviljho.front_step_bite() 
 	return 
 endf 
 
-def node_045
+def node_045 : 123
 	-> deviljho.back_turn() 
 	-> deviljho.front_step_bite() 
 	return 
 endf 
 
-def node_046
+def node_046 : 135
 	if self.distance_3d_to_target().leq(1000) 
 		>> node_045 
 	elif self.distance_3d_to_target().leq(1500) 
@@ -547,34 +547,34 @@ def node_046
 	return 
 endf 
 
-def node_047
+def node_047 : 31
 	-> deviljho.new_dempsey_bite_3() 
 	return 
 endf 
 
-def node_048
+def node_048 : 124
 	>> node_028 
 	>> node_047 
 	return 
 endf 
 
-def node_049
+def node_049 : 32
 	-> deviljho.new_dempsey_bite_5() 
 	return 
 endf 
 
-def node_050
+def node_050 : 125
 	>> node_028 
 	>> node_049 
 	return 
 endf 
 
-def node_051
+def node_051 : 153
 	-> deviljho.new_dempsey_bite_7() 
 	return 
 endf 
 
-def node_052
+def node_052 : 33
 	if self.angle_2d_cw_between(0,180) 
 		-> deviljho.foot_stepping_l() 
 	else 
@@ -583,19 +583,19 @@ def node_052
 	return 
 endf 
 
-def node_053
+def node_053 : 126
 	>> node_028 
 	>> node_052 
 	return 
 endf 
 
-def node_054
+def node_054 : 127
 	>> node_027 
 	>> node_052 
 	return 
 endf 
 
-def node_055
+def node_055 : 114
 	if function#B9() 
 		if self.angle_2d_cw_between(0,180) 
 			-> deviljho.tail_attack_l() 
@@ -614,35 +614,35 @@ def node_055
 	return 
 endf 
 
-def node_056
+def node_056 : 113
 	>> node_011 
 	>> node_016 
 	>> node_055 
 	return 
 endf 
 
-def node_057
+def node_057 : 128
 	>> node_028 
 	>> node_055 
 	return 
 endf 
 
-def node_058
+def node_058 : 34
 	-> deviljho.ride_rage_tail() 
 	return 
 endf 
 
-def node_059
+def node_059 : 37
 	-> deviljho.jump_attack_2() 
 	return 
 endf 
 
-def node_060
+def node_060 : 168
 	-> deviljho.jump_attack_2_down() 
 	return 
 endf 
 
-def node_061
+def node_061 : 68
 	if self.angle_2d_cw_between(0,180) 
 		-> deviljho.side_tackle_l() 
 	else 
@@ -651,24 +651,24 @@ def node_061
 	return 
 endf 
 
-def node_062
+def node_062 : 129
 	>> node_027 
 	>> node_061 
 	return 
 endf 
 
-def node_063
+def node_063 : 72
 	-> deviljho.shot_rock() 
 	return 
 endf 
 
-def node_064
+def node_064 : 130
 	-> deviljho.back_turn() 
 	-> deviljho.shot_rock() 
 	return 
 endf 
 
-def node_065
+def node_065 : 49
 	>> node_012 
 	if function#103() 
 		if self.distance_3d_to_target().leq(1000) 
@@ -690,19 +690,19 @@ def node_065
 	return 
 endf 
 
-def node_066
+def node_066 : 112
 	>> node_015 
 	-> deviljho.large_bite() 
 	return 
 endf 
 
-def node_067
+def node_067 : 131
 	-> deviljho.back_turn() 
 	-> deviljho.large_bite() 
 	return 
 endf 
 
-def node_068
+def node_068 : 137
 	if self.distance_2d_to_target().leq(500) 
 		-> deviljho.back_turn() 
 		-> deviljho.large_bite_short() 
@@ -717,7 +717,7 @@ def node_068
 	return 
 endf 
 
-def node_069
+def node_069 : 95
 	if self.angle_2d_cw_between(90,240) 
 		-> deviljho.back_turn() 
 	else 
@@ -731,7 +731,7 @@ def node_069
 	return 
 endf 
 
-def node_070
+def node_070 : 138
 	if self.distance_2d_to_target().leq(300) 
 		-> deviljho.new_catch_start() 
 	elif self.distance_2d_to_target().leq(600) 
@@ -749,7 +749,7 @@ def node_070
 	return 
 endf 
 
-def node_071
+def node_071 : 96
 	if function#103() 
 		self.targetArea(3) 
 	else 
@@ -760,7 +760,7 @@ def node_071
 	return 
 endf 
 
-def node_072
+def node_072 : 98
 	if self.distance_3d_to_target().gt(3500) 
 	elif self.vertical_distance_to_target().gt(500) 
 	elif function#41() 
@@ -777,7 +777,7 @@ def node_072
 	return 
 endf 
 
-def node_073
+def node_073 : 97
 	if self.distance_3d_to_target().leq(500) 
 		-> deviljho.back_turn() 
 		-> deviljho.corner_bite() 
@@ -791,7 +791,7 @@ def node_073
 	return 
 endf 
 
-def node_074
+def node_074 : 58
 	if self.target(0) 
 		>> node_076 
 	else 
@@ -800,17 +800,17 @@ def node_074
 	reset 
 endf 
 
-def node_075
+def node_075 : 61
 	-> deviljho.wall_wait() 
 	reset 
 endf 
 
-def node_076
+def node_076 : 62
 	-> deviljho.dash() 
 	return 
 endf 
 
-def node_077
+def node_077 : 59
 	if function#35(2) 
 		self.targetArea(target_area.global_center) 
 		>> node_078 
@@ -822,7 +822,7 @@ def node_077
 	return 
 endf 
 
-def node_078
+def node_078 : 60
 	if self.above_target() 
 		-> deviljho.hold_em_with_em101_start() 
 	else 
@@ -831,7 +831,7 @@ def node_078
 	return 
 endf 
 
-def node_079
+def node_079 : 83
 	self.targetArea(14) 
 	if self.distance_3d_to_target().gt(800) 
 		>> node_021 
@@ -841,7 +841,7 @@ def node_079
 	return 
 endf 
 
-def node_080
+def node_080 : 87
 	self.targetArea(19) 
 	if self.distance_3d_to_target().gt(800) 
 		>> node_020 
@@ -851,7 +851,7 @@ def node_080
 	return 
 endf 
 
-def node_081
+def node_081 : 85
 	if function#41() 
 		>> node_020 => repeat 
 	else 
@@ -859,7 +859,7 @@ def node_081
 	return 
 endf 
 
-def node_082
+def node_082 : 99
 	if function#101() 
 	else 
 		self.targetUnknown(41,0) 
@@ -883,11 +883,11 @@ def node_082
 	return 
 endf 
 
-def node_083
+def node_083 : 139
 	return 
 endf 
 
-def node_084
+def node_084 : 89
 	if self.target(49) 
 	else 
 		>> node_085 
@@ -895,7 +895,7 @@ def node_084
 	return 
 endf 
 
-def node_085
+def node_085 : 141
 	>> node_015 
 	if self.target_is(em.Great_Jagras) 
 		-> deviljho.hold_em_with_em101_request() 
@@ -917,7 +917,7 @@ def node_085
 	return 
 endf 
 
-def node_086
+def node_086 : 90
 	if self.distance_3d_to_target().gt(1500) 
 		>> node_021 
 		if self.distance_3d_to_target().gt(1500) 
@@ -927,7 +927,7 @@ def node_086
 	return 
 endf 
 
-def node_087
+def node_087 : 91
 	if function#101() 
 		>> node_012 
 		[RegisterVar0 |-] 
@@ -954,7 +954,7 @@ def node_087
 	return 
 endf 
 
-def node_088
+def node_088 : 104
 	if function#101() 
 		self.targetEnemy(target_em.random_player_or_cat) 
 		if self.target(4) 
@@ -987,7 +987,7 @@ def node_088
 	return 
 endf 
 
-def node_089
+def node_089 : 144
 	random (0) 
 	elser (0) >> node_097 
 	elser (12) >> node_100 
@@ -1002,7 +1002,7 @@ def node_089
 	return 
 endf 
 
-def node_090
+def node_090 : 145
 	random (0) 
 	elser (0) >> node_097 
 	elser (0) >> node_100 
@@ -1017,7 +1017,7 @@ def node_090
 	return 
 endf 
 
-def node_091
+def node_091 : 146
 	random (0) 
 	elser (0) >> node_097 
 	elser (0) >> node_100 
@@ -1032,7 +1032,7 @@ def node_091
 	return 
 endf 
 
-def node_092
+def node_092 : 147
 	random (0) 
 	elser (0) >> node_097 
 	elser (0) >> node_100 
@@ -1047,7 +1047,7 @@ def node_092
 	return 
 endf 
 
-def node_093
+def node_093 : 106
 	if function#101() 
 		self.targetEnemy(22) @ parameter2:1000 
 		random (0) 
@@ -1061,7 +1061,7 @@ def node_093
 	return 
 endf 
 
-def node_094
+def node_094 : 105
 	[RegisterVar0 ++] 
 	if [RegisterVar0 <= 10] 
 		random (100) >> node_095 
@@ -1084,7 +1084,7 @@ def node_094
 	return 
 endf 
 
-def node_095
+def node_095 : 94
 	if function#101() 
 		>> node_096 
 	else 
@@ -1093,7 +1093,7 @@ def node_095
 	return 
 endf 
 
-def node_096
+def node_096 : 140
 	if function#101() 
 		if function#102(7) 
 			-> deviljho.hold_em_with_em101_release() 
@@ -1119,7 +1119,7 @@ def node_096
 	return 
 endf 
 
-def node_097
+def node_097 : 107
 	if function#101() 
 		-> deviljho.hold_em_wait_single() 
 	else 
@@ -1128,7 +1128,7 @@ def node_097
 	return 
 endf 
 
-def node_098
+def node_098 : 149
 	if function#101() 
 		if self.angle_2d_cw_between(15,345) 
 			-> deviljho.hold_em_quick_turn() 
@@ -1140,7 +1140,7 @@ def node_098
 	return 
 endf 
 
-def node_099
+def node_099 : 101
 	if function#101() 
 		if self.angle_2d_cw_between(60,300) 
 			-> deviljho.hold_em_quick_turn() 
@@ -1152,7 +1152,7 @@ def node_099
 	return 
 endf 
 
-def node_100
+def node_100 : 143
 	if function#101() 
 		-> deviljho.hold_em_back_turn() 
 	else 
@@ -1161,7 +1161,7 @@ def node_100
 	return 
 endf 
 
-def node_101
+def node_101 : 142
 	>> node_099 
 	if function#101() 
 		-> deviljho.hold_em_walk(2,1,5,1500,800) 
@@ -1171,7 +1171,7 @@ def node_101
 	return 
 endf 
 
-def node_102
+def node_102 : 102
 	>> node_098 
 	if function#101() 
 		-> deviljho.hold_em_dash(2,1,5,1500,800) 
@@ -1181,7 +1181,7 @@ def node_102
 	return 
 endf 
 
-def node_103
+def node_103 : 150
 	if self.distance_3d_to_target().gt(1000) 
 		-> deviljho.hold_em_dash(0,1,0,0,1000) 
 	else 
@@ -1189,7 +1189,7 @@ def node_103
 	return 
 endf 
 
-def node_104
+def node_104 : 151
 	if self.distance_2d_to_target().leq(700) 
 		>> node_100 
 		>> node_105 
@@ -1203,7 +1203,7 @@ def node_104
 	return 
 endf 
 
-def node_105
+def node_105 : 92
 	if function#101() 
 		if function#102(7) 
 			-> deviljho.hold_em_with_em101_slam() 
@@ -1228,7 +1228,7 @@ def node_105
 	return 
 endf 
 
-def node_106
+def node_106 : 152
 	if self.distance_2d_to_target().leq(800) 
 		>> node_100 
 		>> node_107 
@@ -1242,7 +1242,7 @@ def node_106
 	return 
 endf 
 
-def node_107
+def node_107 : 93
 	if function#101() 
 		if function#102(7) 
 			-> deviljho.hold_em_with_em101_swing() 
@@ -1267,7 +1267,7 @@ def node_107
 	return 
 endf 
 
-def node_108
+def node_108 : 103
 	if function#101() 
 		if self.angle_2d_cw_between(0,180) 
 			-> deviljho.hold_em_foot_stepping_l() 
@@ -1280,7 +1280,7 @@ def node_108
 	return 
 endf 
 
-def node_109
+def node_109 : 100
 	if function#101() 
 		if self.angle_2d_cw_between(0,180) 
 			-> deviljho.hold_em_side_tackle_l() 
@@ -1293,7 +1293,7 @@ def node_109
 	return 
 endf 
 
-def node_110
+def node_110 : 109
 	self.targetArea(14) 
 	if self.distance_3d_to_target().gt(800) 
 		>> node_102 
@@ -1303,7 +1303,7 @@ def node_110
 	return 
 endf 
 
-def node_111
+def node_111 : 110
 	self.targetArea(19) 
 	if self.distance_3d_to_target().gt(800) 
 		>> node_102 
@@ -1313,7 +1313,7 @@ def node_111
 	return 
 endf 
 
-def node_112
+def node_112 : 155
 	if self.in_combat() 
 	elif function#58(0,90) 
 		if self.targetEnemy(63) 
@@ -1329,7 +1329,7 @@ def node_112
 	return 
 endf 
 
-def node_113
+def node_113 : 156
 	if [RegisterVar5 == 0] 
 		if self.distance_3d_to_target().gt(800) 
 			>> node_020 
@@ -1344,7 +1344,7 @@ def node_113
 	return 
 endf 
 
-def node_114
+def node_114 : 159
 	if self.in_combat() 
 	elif self.distance_3d_to_target().gt(5000) 
 	elif self.target(11) 
@@ -1362,7 +1362,7 @@ def node_114
 	return 
 endf 
 
-def node_115
+def node_115 : 165
 	>> node_116 
 	if [RegisterVar3 == 1] 
 		self.targetEnemy(target_em.closest_entity) 
@@ -1387,7 +1387,7 @@ def node_115
 	return 
 endf 
 
-def node_116
+def node_116 : 162
 	[RegisterVar3 |-] 
 	[RegisterVar3 ++] 
 	if function#31(2,3000) 
@@ -1411,7 +1411,7 @@ def node_116
 	return 
 endf 
 
-def node_117
+def node_117 : 160
 	if self.distance_3d_to_target().leq(1000) 
 		>> node_010 
 	elif self.distance_3d_to_target().leq(1500) 
@@ -1422,7 +1422,7 @@ def node_117
 	return 
 endf 
 
-def node_118
+def node_118 : 161
 	if self.target(13) 
 	else 
 		random (50) >> node_047 
@@ -1435,7 +1435,7 @@ def node_118
 	return 
 endf 
 
-def node_119
+def node_119 : 166
 	>> node_015 
 	if self.distance_3d_to_target().leq(600) 
 	else 
@@ -1455,7 +1455,7 @@ def node_119
 	return 
 endf 
 
-def node_120
+def node_120 : 158
 	if function#107() 
 		if function#103() 
 			-> deviljho.counter_attack_pump_up() 
@@ -1466,7 +1466,7 @@ def node_120
 	return 
 endf 
 
-def node_121
+def node_121 : 163
 	if function#108() 
 		function#109() 
 		function#104() 

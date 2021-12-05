@@ -1,7 +1,7 @@
 importactions Kushala_Daora as kushala_daora
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	>> Global.node_119 
 	if [RegisterVar1 <= 15] 
 		[RegisterVar1 |-] 
@@ -14,7 +14,7 @@ def node_000
 	conclude 
 endf 
 
-def node_001
+def node_001 : 2
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.distance_3d_to_target().leq(3500) 
 		>> node_002 
@@ -24,13 +24,13 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 3
 	>> Global.node_028 
 	>> Global.node_033 
 	return 
 endf 
 
-def node_003
+def node_003 : 4
 	self.targetEnemy(22) @ parameter2:2000 
 	random (40) >> Global.node_074 
 	elser (60) 

@@ -1,7 +1,7 @@
 importactions Banbaro as banbaro
 importlibrary Global as Global
 
-def node_000
+def node_000 : 3
 	>> Global.node_103 
 	>> node_001 
 	if self.target.mudded() 
@@ -29,7 +29,7 @@ def node_000
 	reset 
 endf 
 
-def node_001
+def node_001 : 4
 	if function#45() 
 	else 
 		>> Global.node_004 
@@ -38,7 +38,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 5
 	if function#5D() 
 		function#5E() 
 		self.targetEnemy(target_em.random_player_or_cat) 
@@ -50,7 +50,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 6
 	self.targetArea(19) 
 	if self.distance_3d_to_target().gt(800) 
 		>> Global.node_151 
@@ -66,7 +66,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 7
 	if self.distance_3d_to_target().leq(1000) 
 		if self.vertical_distance_to_target().gt(500) 
 			>> Global.node_057 
@@ -88,7 +88,7 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 8
 	if self.distance_2d_to_target().gt(2000) 
 		-> banbaro.dash(2,6,0,2500,1000) 
 	else 
@@ -106,13 +106,13 @@ def node_005
 	return 
 endf 
 
-def node_006
+def node_006 : 9
 	>> Global.node_047 
 	>> Global.node_054 
 	return 
 endf 
 
-def node_007
+def node_007 : 10
 	if self.above_target() 
 		if self.in_map(st.Ancient_Forest).in_area(2) 
 			if self.distance_2d_to_target().gt(600) 
@@ -160,7 +160,7 @@ def node_007
 	return 
 endf 
 
-def node_008
+def node_008 : 11
 	if self.vertical_distance_to_target().gt(450) 
 		>> Global.node_050 
 	elif self.target(52) 
@@ -215,7 +215,7 @@ def node_008
 	return 
 endf 
 
-def node_009
+def node_009 : 12
 	if self.angle_2d_cw_between(270,90) 
 		>> Global.node_086 
 	else 
@@ -224,7 +224,7 @@ def node_009
 	return 
 endf 
 
-def node_010
+def node_010 : 44
 	if [RegisterVar2 >= 3] 
 		[RegisterVar2 ++] 
 	else 
@@ -234,7 +234,7 @@ def node_010
 	return 
 endf 
 
-def node_011
+def node_011 : 15
 	if self.angle_2d_cw_between(315,45) 
 		random (30) >> Global.node_053 
 		elser (25) >> Global.node_054 
@@ -277,7 +277,7 @@ def node_011
 	return 
 endf 
 
-def node_012
+def node_012 : 14
 	if self.angle_2d_cw_between(315,45) 
 		random (20) >> Global.node_053 
 		elser (30) >> Global.node_054 
@@ -317,7 +317,7 @@ def node_012
 	return 
 endf 
 
-def node_013
+def node_013 : 13
 	if self.angle_2d_cw_between(315,45) 
 		random (30) >> Global.node_053 
 		elser (25) >> Global.node_054 
@@ -360,7 +360,7 @@ def node_013
 	return 
 endf 
 
-def node_014
+def node_014 : 17
 	if self.angle_2d_cw_between(315,45) 
 		random (35) >> Global.node_053 
 		elser (30) >> Global.node_054 
@@ -401,7 +401,7 @@ def node_014
 	return 
 endf 
 
-def node_015
+def node_015 : 18
 	if self.angle_2d_cw_between(315,45) 
 		random (20) >> Global.node_053 
 		elser (40) >> Global.node_054 
@@ -439,7 +439,7 @@ def node_015
 	return 
 endf 
 
-def node_016
+def node_016 : 19
 	if self.angle_2d_cw_between(315,45) 
 		random (35) >> Global.node_053 
 		elser (30) >> Global.node_054 
@@ -480,7 +480,7 @@ def node_016
 	return 
 endf 
 
-def node_017
+def node_017 : 20
 	>> node_020 
 	if function#2D(1) 
 		random (20) >> Global.node_063 
@@ -498,7 +498,7 @@ def node_017
 	return 
 endf 
 
-def node_018
+def node_018 : 21
 	>> node_020 
 	if function#2D(1) 
 		random (20) >> Global.node_063 
@@ -515,7 +515,7 @@ def node_018
 	return 
 endf 
 
-def node_019
+def node_019 : 22
 	>> node_020 
 	if function#2D(1) 
 		random (15) >> Global.node_063 
@@ -533,7 +533,7 @@ def node_019
 	return 
 endf 
 
-def node_020
+def node_020 : 45
 	if self.in_map(st.Hoarfrost_Reach).in_area(7) 
 		if self.quest_id(10110) 
 			>> node_021 
@@ -560,7 +560,7 @@ def node_020
 	return 
 endf 
 
-def node_021
+def node_021 : 46
 	if self.enraged() 
 		random (15) >> Global.node_063 
 		elser (10) >> Global.node_068 
@@ -583,49 +583,49 @@ def node_021
 	return 
 endf 
 
-def node_022
+def node_022 : 23
 	random (20) >> Global.node_045 
 	elser (80) >> Global.node_046 
 	endr 
 	return 
 endf 
 
-def node_023
+def node_023 : 24
 	random (20) >> Global.node_045 
 	elser (80) >> Global.node_046 
 	endr 
 	return 
 endf 
 
-def node_024
+def node_024 : 25
 	random (20) >> Global.node_045 
 	elser (80) >> Global.node_046 
 	endr 
 	return 
 endf 
 
-def node_025
+def node_025 : 26
 	random (20) >> Global.node_045 
 	elser (80) >> Global.node_046 
 	endr 
 	return 
 endf 
 
-def node_026
+def node_026 : 27
 	random (20) >> Global.node_045 
 	elser (80) >> Global.node_046 
 	endr 
 	return 
 endf 
 
-def node_027
+def node_027 : 28
 	random (20) >> Global.node_045 
 	elser (80) >> Global.node_046 
 	endr 
 	return 
 endf 
 
-def node_028
+def node_028 : 29
 	if self.angle_2d_cw_between(315,45) 
 		random (35) >> Global.node_054 
 		elser (20) >> Global.node_056 
@@ -662,7 +662,7 @@ def node_028
 	return 
 endf 
 
-def node_029
+def node_029 : 30
 	if self.angle_2d_cw_between(315,45) 
 		random (35) >> Global.node_054 
 		elser (35) >> Global.node_056 
@@ -696,7 +696,7 @@ def node_029
 	return 
 endf 
 
-def node_030
+def node_030 : 31
 	if self.angle_2d_cw_between(315,45) 
 		random (35) >> Global.node_054 
 		elser (20) >> Global.node_056 
@@ -733,7 +733,7 @@ def node_030
 	return 
 endf 
 
-def node_031
+def node_031 : 32
 	if self.angle_2d_cw_between(315,45) 
 		random (40) >> Global.node_054 
 		elser (5) >> Global.node_056 
@@ -770,7 +770,7 @@ def node_031
 	return 
 endf 
 
-def node_032
+def node_032 : 33
 	if self.angle_2d_cw_between(315,45) 
 		random (45) >> Global.node_054 
 		elser (20) >> Global.node_056 
@@ -804,7 +804,7 @@ def node_032
 	return 
 endf 
 
-def node_033
+def node_033 : 34
 	if self.angle_2d_cw_between(315,45) 
 		random (40) >> Global.node_054 
 		elser (5) >> Global.node_056 
@@ -841,7 +841,7 @@ def node_033
 	return 
 endf 
 
-def node_034
+def node_034 : 35
 	>> node_020 
 	if function#2D(1) 
 		random (20) >> Global.node_063 
@@ -859,7 +859,7 @@ def node_034
 	return 
 endf 
 
-def node_035
+def node_035 : 36
 	>> node_020 
 	if function#2D(1) 
 		random (20) >> Global.node_063 
@@ -876,7 +876,7 @@ def node_035
 	return 
 endf 
 
-def node_036
+def node_036 : 37
 	>> node_020 
 	if function#2D(1) 
 		random (15) >> Global.node_063 
@@ -894,42 +894,42 @@ def node_036
 	return 
 endf 
 
-def node_037
+def node_037 : 38
 	random (20) >> Global.node_045 
 	elser (80) >> Global.node_046 
 	endr 
 	return 
 endf 
 
-def node_038
+def node_038 : 39
 	random (20) >> Global.node_045 
 	elser (80) >> Global.node_046 
 	endr 
 	return 
 endf 
 
-def node_039
+def node_039 : 40
 	random (20) >> Global.node_045 
 	elser (80) >> Global.node_046 
 	endr 
 	return 
 endf 
 
-def node_040
+def node_040 : 41
 	random (20) >> Global.node_045 
 	elser (80) >> Global.node_046 
 	endr 
 	return 
 endf 
 
-def node_041
+def node_041 : 42
 	random (20) >> Global.node_045 
 	elser (80) >> Global.node_046 
 	endr 
 	return 
 endf 
 
-def node_042
+def node_042 : 43
 	random (20) >> Global.node_045 
 	elser (80) >> Global.node_046 
 	endr 

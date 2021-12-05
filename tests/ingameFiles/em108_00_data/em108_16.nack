@@ -1,7 +1,7 @@
 importactions Jyuratodus as jyuratodus
 importlibrary Global as Global
 
-def node_000
+def node_000 : 73
 	self.targetArea(14) 
 	if function#101() 
 		>> node_001 
@@ -11,13 +11,13 @@ def node_000
 	conclude 
 endf 
 
-def node_001
+def node_001 : 74
 	>> node_002 
 	>> node_003 
 	return 
 endf 
 
-def node_002
+def node_002 : 75
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		>> Global.node_057 
@@ -26,19 +26,19 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 76
 	self.targetEnemy(target_em.random_player_or_cat) 
 	>> Global.node_062 
 	return 
 endf 
 
-def node_004
+def node_004 : 77
 	>> node_005 
 	>> node_006 
 	return 
 endf 
 
-def node_005
+def node_005 : 78
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		>> Global.node_057 
@@ -47,7 +47,7 @@ def node_005
 	return 
 endf 
 
-def node_006
+def node_006 : 79
 	self.targetEnemy(target_em.random_player_or_cat) 
 	>> Global.node_062 
 	return 

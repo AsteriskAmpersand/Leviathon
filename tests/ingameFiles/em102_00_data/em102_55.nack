@@ -1,11 +1,11 @@
 importactions PukeiPukei as pukeipukei
 importlibrary Global as Global
 
-def node_000
+def node_000 : 37
 	conclude 
 endf 
 
-def node_001
+def node_001 : 222
 	if self.flying() 
 		if function#AF(5000) 
 			-> pukeipukei.landing() 
@@ -17,7 +17,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 223
 	if self.flying() 
 	else 
 		-> pukeipukei.take_off() 
@@ -25,7 +25,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 411
 	self.targetArea(target_area.area_aerial_center) 
 	>> node_025 
 	self.targetArea(target_area.area_center) 
@@ -33,7 +33,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 198
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		if self.fatigued() 
@@ -46,7 +46,7 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 488
 	>> node_233 
 	self.targetArea(target_area.nearest_entrance) 
 	if self.distance_3d_to_target().leq(600) 
@@ -61,7 +61,7 @@ def node_005
 	return 
 endf 
 
-def node_006
+def node_006 : 489
 	>> node_233 
 	self.targetArea(target_area.area_center) 
 	if self.distance_3d_to_target().leq(600) 
@@ -76,7 +76,7 @@ def node_006
 	return 
 endf 
 
-def node_007
+def node_007 : 490
 	>> node_233 
 	self.targetArea(39) 
 	if self.distance_3d_to_target().leq(600) 
@@ -91,7 +91,7 @@ def node_007
 	return 
 endf 
 
-def node_008
+def node_008 : 356
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> pukeipukei.dying_walk(2,0,0,1500) 
@@ -100,7 +100,7 @@ def node_008
 	return 
 endf 
 
-def node_009
+def node_009 : 194
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		if self.fatigued() 
@@ -113,7 +113,7 @@ def node_009
 	return 
 endf 
 
-def node_010
+def node_010 : 272
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		if self.fatigued() 
@@ -141,7 +141,7 @@ def node_010
 	return 
 endf 
 
-def node_011
+def node_011 : 563
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		if self.fatigued() 
@@ -185,7 +185,7 @@ def node_011
 	return 
 endf 
 
-def node_012
+def node_012 : 564
 	if self.distance_2d_to_target().leq(600) 
 	else 
 		if self.fatigued() 
@@ -213,7 +213,7 @@ def node_012
 	return 
 endf 
 
-def node_013
+def node_013 : 565
 	if self.distance_2d_to_target().leq(600) 
 	else 
 		if self.fatigued() 
@@ -257,7 +257,7 @@ def node_013
 	return 
 endf 
 
-def node_014
+def node_014 : 343
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> pukeipukei.dying_walk_fly(2,1,5,3000,500) 
@@ -266,7 +266,7 @@ def node_014
 	return 
 endf 
 
-def node_015
+def node_015 : 344
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> pukeipukei.dying_glide_direct_move(2,1,0,3000,500) 
@@ -275,7 +275,7 @@ def node_015
 	return 
 endf 
 
-def node_016
+def node_016 : 345
 	if self.distance_3d_to_target().leq(1000) 
 	else 
 		-> pukeipukei.dying_glide_direct_move(2,1,0,3000,900) 
@@ -284,7 +284,7 @@ def node_016
 	return 
 endf 
 
-def node_017
+def node_017 : 346
 	if self.distance_2d_to_target().leq(600) 
 	else 
 		-> pukeipukei.glide_combat(2,1,0,3000,500) 
@@ -293,7 +293,7 @@ def node_017
 	return 
 endf 
 
-def node_018
+def node_018 : 347
 	if self.distance_2d_to_target().leq(1000) 
 	else 
 		-> pukeipukei.glide_combat(2,1,0,3000,900) 
@@ -302,7 +302,7 @@ def node_018
 	return 
 endf 
 
-def node_019
+def node_019 : 401
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> pukeipukei.glide(2,1,5,3000,500) 
@@ -311,7 +311,7 @@ def node_019
 	return 
 endf 
 
-def node_020
+def node_020 : 402
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> pukeipukei.glide_direct_move(2,1,5,3000,500) 
@@ -320,7 +320,7 @@ def node_020
 	return 
 endf 
 
-def node_021
+def node_021 : 403
 	if self.distance_3d_to_target().leq(1000) 
 	else 
 		-> pukeipukei.glide_direct_move(2,1,5,3000,900) 
@@ -329,7 +329,7 @@ def node_021
 	return 
 endf 
 
-def node_022
+def node_022 : 404
 	if self.distance_2d_to_target().leq(600) 
 	else 
 		-> pukeipukei.glide_combat(2,1,5,3000,500) 
@@ -338,7 +338,7 @@ def node_022
 	return 
 endf 
 
-def node_023
+def node_023 : 405
 	if self.distance_2d_to_target().leq(1000) 
 	else 
 		-> pukeipukei.glide_combat(2,1,5,3000,900) 
@@ -347,7 +347,7 @@ def node_023
 	return 
 endf 
 
-def node_024
+def node_024 : 196
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> pukeipukei.glide(2,1,0,3000,500) 
@@ -356,7 +356,7 @@ def node_024
 	return 
 endf 
 
-def node_025
+def node_025 : 195
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> pukeipukei.glide_direct_move(2,1,0,3000,500) 
@@ -365,7 +365,7 @@ def node_025
 	return 
 endf 
 
-def node_026
+def node_026 : 279
 	if self.distance_3d_to_target().leq(1000) 
 	else 
 		-> pukeipukei.glide_direct_move(2,1,0,3000,900) 
@@ -374,7 +374,7 @@ def node_026
 	return 
 endf 
 
-def node_027
+def node_027 : 566
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> pukeipukei.glide_direct_move(2,1,0,1500,500) 
@@ -390,7 +390,7 @@ def node_027
 	return 
 endf 
 
-def node_028
+def node_028 : 197
 	if self.distance_2d_to_target().leq(600) 
 	else 
 		-> pukeipukei.glide_combat(2,1,0,3000,500) 
@@ -399,7 +399,7 @@ def node_028
 	return 
 endf 
 
-def node_029
+def node_029 : 280
 	if self.distance_2d_to_target().leq(1000) 
 	else 
 		-> pukeipukei.glide_combat(2,1,0,3000,900) 
@@ -408,7 +408,7 @@ def node_029
 	return 
 endf 
 
-def node_030
+def node_030 : 567
 	if self.distance_2d_to_target().leq(600) 
 	else 
 		-> pukeipukei.glide_combat(2,1,0,1500,500) 
@@ -424,7 +424,7 @@ def node_030
 	return 
 endf 
 
-def node_031
+def node_031 : 257
 	if self.distance_3d_to_target().leq(1000) 
 	else 
 		-> pukeipukei.glide_direct_move(2,1,0,3000,700) 
@@ -448,7 +448,7 @@ def node_031
 	return 
 endf 
 
-def node_032
+def node_032 : 256
 	if self.distance_2d_to_target().leq(1000) 
 	else 
 		-> pukeipukei.glide_combat(2,0,0,3000) 
@@ -472,14 +472,14 @@ def node_032
 	return 
 endf 
 
-def node_033
+def node_033 : 546
 	>> node_001 
 	-> pukeipukei.take_off_switch_pattern_by_dist() 
 	>> node_026 
 	return 
 endf 
 
-def node_034
+def node_034 : 398
 	if self.flying() 
 	else 
 		-> pukeipukei.sudden_rise() 
@@ -487,13 +487,13 @@ def node_034
 	return 
 endf 
 
-def node_035
+def node_035 : 400
 	>> node_002 
 	-> pukeipukei.sudden_drop() 
 	return 
 endf 
 
-def node_036
+def node_036 : 324
 	if self.flying() 
 		-> pukeipukei.threat_fly() 
 	else 
@@ -502,7 +502,7 @@ def node_036
 	return 
 endf 
 
-def node_037
+def node_037 : 325
 	if self.flying() 
 		-> pukeipukei.threat_short_fly() 
 	else 
@@ -511,7 +511,7 @@ def node_037
 	return 
 endf 
 
-def node_038
+def node_038 : 593
 	if function#AB() 
 		function#AA() 
 		>> node_037 
@@ -520,7 +520,7 @@ def node_038
 	return 
 endf 
 
-def node_039
+def node_039 : 504
 	if self.flying() 
 		-> pukeipukei.angry_begin_fly() 
 	else 
@@ -529,7 +529,7 @@ def node_039
 	return 
 endf 
 
-def node_040
+def node_040 : 328
 	if self.flying() 
 		-> pukeipukei.half_lost_search_front_fly() 
 	else 
@@ -538,7 +538,7 @@ def node_040
 	return 
 endf 
 
-def node_041
+def node_041 : 330
 	if self.flying() 
 		-> pukeipukei.half_lost_search_back_fly() 
 	else 
@@ -547,7 +547,7 @@ def node_041
 	return 
 endf 
 
-def node_042
+def node_042 : 329
 	if self.flying() 
 		-> pukeipukei.lost_search_fly() 
 	else 
@@ -556,7 +556,7 @@ def node_042
 	return 
 endf 
 
-def node_043
+def node_043 : 336
 	>> node_001 
 	if function#101() 
 		-> pukeipukei.happy_end() 
@@ -572,7 +572,7 @@ def node_043
 	return 
 endf 
 
-def node_044
+def node_044 : 337
 	if self.flying() 
 		-> pukeipukei.refresh_fly() 
 	else 
@@ -581,7 +581,7 @@ def node_044
 	return 
 endf 
 
-def node_045
+def node_045 : 369
 	if self.flying() 
 		-> pukeipukei.life_search_fly() 
 	else 
@@ -590,7 +590,7 @@ def node_045
 	return 
 endf 
 
-def node_046
+def node_046 : 370
 	if self.flying() 
 		-> pukeipukei.life_search_fly() 
 	else 
@@ -599,7 +599,7 @@ def node_046
 	return 
 endf 
 
-def node_047
+def node_047 : 506
 	if self.flying() 
 		-> pukeipukei.life_search_fly() 
 	else 
@@ -608,7 +608,7 @@ def node_047
 	return 
 endf 
 
-def node_048
+def node_048 : 503
 	if self.flying() 
 		-> pukeipukei.pop_lv_down_fly() 
 	else 
@@ -617,7 +617,7 @@ def node_048
 	return 
 endf 
 
-def node_049
+def node_049 : 464
 	if self.flying() 
 		-> pukeipukei.happy_end_fly() 
 	else 
@@ -626,7 +626,7 @@ def node_049
 	return 
 endf 
 
-def node_050
+def node_050 : 467
 	if function#102() 
 	elif function#10D() 
 	else 
@@ -647,7 +647,7 @@ def node_050
 	return 
 endf 
 
-def node_051
+def node_051 : 465
 	if self.flying() 
 		-> pukeipukei.scared_end_fly() 
 	else 
@@ -656,7 +656,7 @@ def node_051
 	return 
 endf 
 
-def node_052
+def node_052 : 529
 	if self.flying() 
 		-> pukeipukei.intimidation_fly() 
 	else 
@@ -665,13 +665,13 @@ def node_052
 	return 
 endf 
 
-def node_053
+def node_053 : 206
 	self.targetArea(target_area.nearest_entrance) 
 	>> node_054 
 	return 
 endf 
 
-def node_054
+def node_054 : 424
 	if function#5A(20) 
 		>> node_055 
 	elif function#5A(21) 
@@ -702,7 +702,7 @@ def node_054
 	return 
 endf 
 
-def node_055
+def node_055 : 425
 	if self.distance_3d_to_target().leq(15000) 
 		>> node_001 
 		>> node_058 
@@ -712,7 +712,7 @@ def node_055
 	return 
 endf 
 
-def node_056
+def node_056 : 426
 	if self.distance_3d_to_target().leq(15000) 
 		>> node_002 
 		>> node_058 
@@ -722,7 +722,7 @@ def node_056
 	return 
 endf 
 
-def node_057
+def node_057 : 427
 	if function#AD() 
 		>> node_058 
 	else 
@@ -731,7 +731,7 @@ def node_057
 	return 
 endf 
 
-def node_058
+def node_058 : 207
 	if function#5A(10) 
 		>> node_002 
 	elif function#5A(11) 
@@ -767,7 +767,7 @@ def node_058
 	return 
 endf 
 
-def node_059
+def node_059 : 208
 	>> node_060 
 	>> node_061 
 	>> node_062 
@@ -775,7 +775,7 @@ def node_059
 	return 
 endf 
 
-def node_060
+def node_060 : 209
 	if self.flying() 
 		self.targetArea(target_area.area_aerial_center) 
 		>> node_021 
@@ -788,7 +788,7 @@ def node_060
 	return 
 endf 
 
-def node_061
+def node_061 : 210
 	self.targetArea(target_area.nearest_entrance) 
 	if self.flying() 
 		self.targetArea(40) 
@@ -800,7 +800,7 @@ def node_061
 	return 
 endf 
 
-def node_062
+def node_062 : 205
 	if function#5A(10) 
 	elif function#5A(11) 
 	elif function#5A(12) 
@@ -823,7 +823,7 @@ def node_062
 	return 
 endf 
 
-def node_063
+def node_063 : 278
 	self.targetArea(target_area.nearest_entrance) 
 	if self.flying() 
 		>> node_020 
@@ -833,7 +833,7 @@ def node_063
 	return 
 endf 
 
-def node_064
+def node_064 : 199
 	self.targetArea(14) 
 	if function#AD() 
 		>> node_065 
@@ -844,7 +844,7 @@ def node_064
 	return 
 endf 
 
-def node_065
+def node_065 : 200
 	if self.flying() 
 		self.targetArea(40) 
 		>> node_025 
@@ -854,13 +854,13 @@ def node_065
 	return 
 endf 
 
-def node_066
+def node_066 : 201
 	>> node_067 
 	>> node_069 
 	return 
 endf 
 
-def node_067
+def node_067 : 548
 	if self.flying() 
 		self.targetArea(target_area.area_aerial_center) 
 		>> node_026 
@@ -871,7 +871,7 @@ def node_067
 	return 
 endf 
 
-def node_068
+def node_068 : 547
 	self.targetArea(target_area.area_center) 
 	>> node_009 
 	self.targetArea(target_area.area_aerial_center) 
@@ -879,7 +879,7 @@ def node_068
 	return 
 endf 
 
-def node_069
+def node_069 : 203
 	self.targetArea(14) 
 	if self.flying() 
 		self.targetArea(40) 
@@ -890,7 +890,7 @@ def node_069
 	return 
 endf 
 
-def node_070
+def node_070 : 204
 	self.targetArea(target_area.area_center) 
 	if self.flying() 
 		if self.fatigued() 
@@ -903,7 +903,7 @@ def node_070
 	return 
 endf 
 
-def node_071
+def node_071 : 349
 	self.targetArea(24) 
 	if function#AD() 
 		>> node_072 
@@ -913,14 +913,14 @@ def node_071
 	return 
 endf 
 
-def node_072
+def node_072 : 350
 	>> node_001 
 	self.targetArea(24) 
 	>> node_008 
 	return 
 endf 
 
-def node_073
+def node_073 : 351
 	>> node_074 
 	>> node_075 
 	>> node_076 
@@ -928,7 +928,7 @@ def node_073
 	return 
 endf 
 
-def node_074
+def node_074 : 352
 	if self.flying() 
 		self.targetArea(target_area.area_aerial_center) 
 		>> node_016 
@@ -941,7 +941,7 @@ def node_074
 	return 
 endf 
 
-def node_075
+def node_075 : 353
 	self.targetArea(24) 
 	if self.flying() 
 		self.targetArea(40) 
@@ -953,7 +953,7 @@ def node_075
 	return 
 endf 
 
-def node_076
+def node_076 : 354
 	if self.flying() 
 		self.targetArea(target_area.area_center) 
 		>> node_001 
@@ -962,14 +962,14 @@ def node_076
 	return 
 endf 
 
-def node_077
+def node_077 : 355
 	>> node_001 
 	self.targetArea(24) 
 	>> node_008 
 	return 
 endf 
 
-def node_078
+def node_078 : 362
 	if function#AD() 
 		>> node_079 
 	else 
@@ -978,7 +978,7 @@ def node_078
 	return 
 endf 
 
-def node_079
+def node_079 : 363
 	if self.flying() 
 		>> node_025 
 	else 
@@ -991,14 +991,14 @@ def node_079
 	return 
 endf 
 
-def node_080
+def node_080 : 364
 	>> node_081 
 	>> node_082 
 	>> node_083 
 	return 
 endf 
 
-def node_081
+def node_081 : 365
 	if self.flying() 
 		self.targetArea(target_area.area_aerial_center) 
 		>> node_026 
@@ -1015,7 +1015,7 @@ def node_081
 	return 
 endf 
 
-def node_082
+def node_082 : 366
 	if self.flying() 
 		self.targetArea(40) 
 		>> node_024 
@@ -1030,7 +1030,7 @@ def node_082
 	return 
 endf 
 
-def node_083
+def node_083 : 367
 	if self.flying() 
 		self.targetArea(target_area.area_center) 
 		>> node_001 
@@ -1039,7 +1039,7 @@ def node_083
 	return 
 endf 
 
-def node_084
+def node_084 : 594
 	self.targetArea(target_area.area_center) 
 	if self.flying() 
 		if self.fatigued() 
@@ -1052,7 +1052,7 @@ def node_084
 	return 
 endf 
 
-def node_085
+def node_085 : 368
 	if self.flying() 
 		>> node_025 
 	else 
@@ -1065,7 +1065,7 @@ def node_085
 	return 
 endf 
 
-def node_086
+def node_086 : 309
 	if self.flying() 
 		-> pukeipukei.turn_fly() 
 	else 
@@ -1074,7 +1074,7 @@ def node_086
 	return 
 endf 
 
-def node_087
+def node_087 : 310
 	if self.angle_2d_cw_between(15,345) 
 		>> node_086 
 	else 
@@ -1082,7 +1082,7 @@ def node_087
 	return 
 endf 
 
-def node_088
+def node_088 : 311
 	if self.angle_2d_cw_between(30,330) 
 		>> node_086 
 	else 
@@ -1090,7 +1090,7 @@ def node_088
 	return 
 endf 
 
-def node_089
+def node_089 : 312
 	if self.angle_2d_cw_between(60,300) 
 		>> node_086 
 	else 
@@ -1098,7 +1098,7 @@ def node_089
 	return 
 endf 
 
-def node_090
+def node_090 : 313
 	if self.angle_2d_cw_between(90,270) 
 		>> node_086 
 	else 
@@ -1106,7 +1106,7 @@ def node_090
 	return 
 endf 
 
-def node_091
+def node_091 : 357
 	if self.flying() 
 		-> pukeipukei.quick_turn_fly() 
 	else 
@@ -1115,7 +1115,7 @@ def node_091
 	return 
 endf 
 
-def node_092
+def node_092 : 358
 	if self.angle_2d_cw_between(15,345) 
 		>> node_091 
 	else 
@@ -1123,7 +1123,7 @@ def node_092
 	return 
 endf 
 
-def node_093
+def node_093 : 359
 	if self.angle_2d_cw_between(30,330) 
 		>> node_091 
 	else 
@@ -1131,7 +1131,7 @@ def node_093
 	return 
 endf 
 
-def node_094
+def node_094 : 360
 	if self.angle_2d_cw_between(60,300) 
 		>> node_091 
 	else 
@@ -1139,7 +1139,7 @@ def node_094
 	return 
 endf 
 
-def node_095
+def node_095 : 361
 	if self.angle_2d_cw_between(90,270) 
 		>> node_091 
 	else 
@@ -1147,31 +1147,31 @@ def node_095
 	return 
 endf 
 
-def node_096
+def node_096 : 226
 	>> node_001 
 	-> pukeipukei.lost_search() 
 	return 
 endf 
 
-def node_097
+def node_097 : 227
 	>> node_001 
 	-> pukeipukei.lost_search() 
 	return 
 endf 
 
-def node_098
+def node_098 : 228
 	>> node_001 
 	-> pukeipukei.sniff_combat_s() 
 	return 
 endf 
 
-def node_099
+def node_099 : 229
 	>> node_001 
 	-> pukeipukei.sniff_combat_l() 
 	return 
 endf 
 
-def node_100
+def node_100 : 230
 	>> node_001 
 	if self.enraged() 
 		-> pukeipukei.dash(2,1,0,500,450) 
@@ -1183,7 +1183,7 @@ def node_100
 	return 
 endf 
 
-def node_101
+def node_101 : 231
 	>> node_001 
 	if self.enraged() 
 		-> pukeipukei.dash(2,1,0,1000,450) 
@@ -1195,7 +1195,7 @@ def node_101
 	return 
 endf 
 
-def node_102
+def node_102 : 232
 	>> node_001 
 	if self.enraged() 
 		-> pukeipukei.peep_grass_search() 
@@ -1205,7 +1205,7 @@ def node_102
 	return 
 endf 
 
-def node_103
+def node_103 : 233
 	>> node_001 
 	if self.target(10) 
 		-> pukeipukei.dash(2,0,0,1000) 
@@ -1219,13 +1219,13 @@ def node_103
 	return 
 endf 
 
-def node_104
+def node_104 : 242
 	>> node_001 
 	-> pukeipukei.tired() 
 	return 
 endf 
 
-def node_105
+def node_105 : 282
 	if self.distance_3d_to_target().leq(800) 
 		>> node_198 
 	elif self.distance_3d_to_target().leq(1200) 
@@ -1235,7 +1235,7 @@ def node_105
 	return 
 endf 
 
-def node_106
+def node_106 : 289
 	if self.distance_2d_to_target().leq(900) 
 		return 
 	else 
@@ -1254,104 +1254,104 @@ def node_106
 	return 
 endf 
 
-def node_107
+def node_107 : 292
 	>> node_001 
 	-> pukeipukei.lost_search() 
 	return 
 endf 
 
-def node_108
+def node_108 : 295
 	>> node_001 
 	>> node_088 
 	-> pukeipukei.life_search() 
 	return 
 endf 
 
-def node_109
+def node_109 : 300
 	>> node_001 
 	>> node_088 
 	-> pukeipukei.sniff_s() 
 	return 
 endf 
 
-def node_110
+def node_110 : 307
 	>> node_001 
 	>> node_088 
 	-> pukeipukei.sniff_l() 
 	return 
 endf 
 
-def node_111
+def node_111 : 298
 	>> node_001 
 	>> node_087 
 	-> pukeipukei.marking_poison() 
 	return 
 endf 
 
-def node_112
+def node_112 : 303
 	>> node_001 
 	>> node_088 
 	-> pukeipukei.sunbath() 
 	return 
 endf 
 
-def node_113
+def node_113 : 305
 	>> node_001 
 	>> node_087 
 	-> pukeipukei.drink() 
 	return 
 endf 
 
-def node_114
+def node_114 : 306
 	>> node_001 
 	>> node_088 
 	-> pukeipukei.sleep() 
 	return 
 endf 
 
-def node_115
+def node_115 : 296
 	>> node_002 
 	>> node_088 
 	-> pukeipukei.life_search_fly() 
 	return 
 endf 
 
-def node_116
+def node_116 : 301
 	>> node_002 
 	>> node_088 
 	-> pukeipukei.life_search_fly() 
 	return 
 endf 
 
-def node_117
+def node_117 : 308
 	>> node_002 
 	>> node_088 
 	-> pukeipukei.life_search_fly() 
 	return 
 endf 
 
-def node_118
+def node_118 : 299
 	>> node_002 
 	>> node_087 
 	-> pukeipukei.life_search_fly() 
 	return 
 endf 
 
-def node_119
+def node_119 : 297
 	>> node_002 
 	>> node_088 
 	-> pukeipukei.life_search_fly() 
 	return 
 endf 
 
-def node_120
+def node_120 : 568
 	>> node_002 
 	self.targetEnemy(17) 
 	-> pukeipukei.sudden_drop() 
 	return 
 endf 
 
-def node_121
+def node_121 : 348
 	>> node_001 
 	>> node_088 
 	if function#C9() 
@@ -1362,35 +1362,35 @@ def node_121
 	return 
 endf 
 
-def node_122
+def node_122 : 446
 	>> node_001 
 	>> node_088 
 	-> pukeipukei.sniff_s() 
 	return 
 endf 
 
-def node_123
+def node_123 : 444
 	>> node_001 
 	>> node_088 
 	-> pukeipukei.pop_eat_to_happy() 
 	return 
 endf 
 
-def node_124
+def node_124 : 448
 	>> node_002 
 	>> node_088 
 	-> pukeipukei.life_search_fly() 
 	return 
 endf 
 
-def node_125
+def node_125 : 447
 	>> node_002 
 	>> node_088 
 	-> pukeipukei.pop_eat_to_happy_fly() 
 	return 
 endf 
 
-def node_126
+def node_126 : 585
 	>> node_001 
 	if self.current_quest().is_rank(rank.MR) 
 		-> pukeipukei.breath_check_low() 
@@ -1409,7 +1409,7 @@ def node_126
 	return 
 endf 
 
-def node_127
+def node_127 : 586
 	>> node_001 
 	if self.current_quest().is_rank(rank.MR) 
 		>> node_204 
@@ -1425,7 +1425,7 @@ def node_127
 	return 
 endf 
 
-def node_128
+def node_128 : 588
 	>> node_001 
 	if self.current_quest().is_rank(rank.MR) 
 		>> node_198 
@@ -1439,7 +1439,7 @@ def node_128
 	return 
 endf 
 
-def node_129
+def node_129 : 587
 	>> node_001 
 	if self.current_quest().is_rank(rank.MR) 
 		if self.fatigued() 
@@ -1475,7 +1475,7 @@ def node_129
 	return 
 endf 
 
-def node_130
+def node_130 : 491
 	>> node_001 
 	if self.current_quest().is_rank(rank.MR) 
 		-> pukeipukei.breath_check_low() 
@@ -1494,7 +1494,7 @@ def node_130
 	return 
 endf 
 
-def node_131
+def node_131 : 522
 	>> node_001 
 	if function#101(4) 
 		if self.enraged() 
@@ -1509,28 +1509,28 @@ def node_131
 	return 
 endf 
 
-def node_132
+def node_132 : 472
 	>> node_001 
 	>> node_210 
 	-> pukeipukei.breath() 
 	return 
 endf 
 
-def node_133
+def node_133 : 473
 	>> node_001 
 	>> node_210 
 	-> pukeipukei.breath_3way() 
 	return 
 endf 
 
-def node_134
+def node_134 : 514
 	>> node_001 
 	>> node_204 
 	-> pukeipukei.breath_check_low() 
 	return 
 endf 
 
-def node_135
+def node_135 : 521
 	>> node_001 
 	if self.distance_2d_to_target().leq(400) 
 		if function#101(2) 
@@ -1545,7 +1545,7 @@ def node_135
 	return 
 endf 
 
-def node_136
+def node_136 : 515
 	>> node_001 
 	if self.distance_2d_to_target().leq(1500) 
 		if self.distance_2d_to_target().leq(400) 
@@ -1564,7 +1564,7 @@ def node_136
 	return 
 endf 
 
-def node_137
+def node_137 : 523
 	if function#101(0,2) 
 		if self.angle_2d_cw_between(60,300) 
 			if self.distance_2d_to_target().leq(400) 
@@ -1583,7 +1583,7 @@ def node_137
 	return 
 endf 
 
-def node_138
+def node_138 : 524
 	if function#101(0,2) 
 		if self.angle_2d_cw_between(60,300) 
 			if self.distance_2d_to_target().leq(400) 
@@ -1602,7 +1602,7 @@ def node_138
 	return 
 endf 
 
-def node_139
+def node_139 : 526
 	if self.distance_2d_to_target().leq(400) 
 		>> node_131 
 	else 
@@ -1611,7 +1611,7 @@ def node_139
 	return 
 endf 
 
-def node_140
+def node_140 : 527
 	if self.distance_2d_to_target().leq(400) 
 		>> node_131 
 	else 
@@ -1620,7 +1620,7 @@ def node_140
 	return 
 endf 
 
-def node_141
+def node_141 : 508
 	if function#101(0,2) 
 		if self.angle_2d_cw_between(60,300) 
 			-> pukeipukei.tail_breath() 
@@ -1635,7 +1635,7 @@ def node_141
 	return 
 endf 
 
-def node_142
+def node_142 : 509
 	if function#101(0,2) 
 		if self.angle_2d_cw_between(60,300) 
 			-> pukeipukei.tail_breath() 
@@ -1650,7 +1650,7 @@ def node_142
 	return 
 endf 
 
-def node_143
+def node_143 : 518
 	if self.enraged() 
 		>> node_142 
 	else 
@@ -1659,7 +1659,7 @@ def node_143
 	return 
 endf 
 
-def node_144
+def node_144 : 510
 	if self.distance_2d_to_target().leq(400) 
 		if function#101(4) 
 			>> node_198 
@@ -1674,7 +1674,7 @@ def node_144
 	return 
 endf 
 
-def node_145
+def node_145 : 511
 	if self.distance_2d_to_target().leq(400) 
 		if function#101(4) 
 			>> node_198 
@@ -1692,7 +1692,7 @@ def node_145
 	return 
 endf 
 
-def node_146
+def node_146 : 517
 	if self.enraged() 
 		>> node_145 
 	else 
@@ -1701,7 +1701,7 @@ def node_146
 	return 
 endf 
 
-def node_147
+def node_147 : 519
 	if function#101(0,2) 
 		if self.angle_2d_cw_between(60,300) 
 			if self.distance_2d_to_target().leq(500) 
@@ -1719,7 +1719,7 @@ def node_147
 	return 
 endf 
 
-def node_148
+def node_148 : 482
 	>> node_001 
 	if self.current_quest().is_rank(rank.MR) 
 		-> pukeipukei.stamp() 
@@ -1734,13 +1734,13 @@ def node_148
 	return 
 endf 
 
-def node_149
+def node_149 : 483
 	>> node_001 
 	-> pukeipukei.turn_tail_attack_l() 
 	return 
 endf 
 
-def node_150
+def node_150 : 484
 	>> node_001 
 	if self.current_quest().is_rank(rank.MR) 
 		>> node_151 
@@ -1760,7 +1760,7 @@ def node_150
 	return 
 endf 
 
-def node_151
+def node_151 : 604
 	if function#101() 
 		>> node_210 
 		-> pukeipukei.tongue_slap() 
@@ -1776,7 +1776,7 @@ def node_151
 	return 
 endf 
 
-def node_152
+def node_152 : 485
 	>> node_001 
 	if self.current_quest().is_rank(rank.MR) 
 		>> node_153 
@@ -1787,7 +1787,7 @@ def node_152
 	return 
 endf 
 
-def node_153
+def node_153 : 605
 	if function#101() 
 		>> node_210 
 		-> pukeipukei.tongue_slap_dash() 
@@ -1803,7 +1803,7 @@ def node_153
 	return 
 endf 
 
-def node_154
+def node_154 : 494
 	if self.distance_3d_to_target().leq(300) 
 		>> node_148 
 	elif self.distance_3d_to_target().leq(650) 
@@ -1818,7 +1818,7 @@ def node_154
 	return 
 endf 
 
-def node_155
+def node_155 : 492
 	if self.distance_3d_to_target().leq(300) 
 		>> node_148 
 	elif self.distance_3d_to_target().leq(650) 
@@ -1834,7 +1834,7 @@ def node_155
 	return 
 endf 
 
-def node_156
+def node_156 : 495
 	if self.distance_3d_to_target().leq(300) 
 		>> node_148 
 	elif self.distance_3d_to_target().leq(650) 
@@ -1849,7 +1849,7 @@ def node_156
 	return 
 endf 
 
-def node_157
+def node_157 : 493
 	if self.distance_3d_to_target().leq(300) 
 		>> node_148 
 	elif self.distance_3d_to_target().leq(650) 
@@ -1864,14 +1864,14 @@ def node_157
 	return 
 endf 
 
-def node_158
+def node_158 : 486
 	>> node_001 
 	>> node_210 
 	-> pukeipukei.jump_kick() 
 	return 
 endf 
 
-def node_159
+def node_159 : 487
 	>> node_001 
 	if self.fatigued() 
 		-> pukeipukei.dash_bite_tired() 
@@ -1881,7 +1881,7 @@ def node_159
 	return 
 endf 
 
-def node_160
+def node_160 : 512
 	if self.distance_3d_to_target().leq(350) 
 		random (70) >> node_148 
 		elser (30) >> node_149 
@@ -1900,7 +1900,7 @@ def node_160
 	return 
 endf 
 
-def node_161
+def node_161 : 516
 	if self.distance_3d_to_target().leq(350) 
 		>> node_148 
 	elif self.distance_3d_to_target().leq(650) 
@@ -1915,7 +1915,7 @@ def node_161
 	return 
 endf 
 
-def node_162
+def node_162 : 513
 	if self.distance_3d_to_target().leq(350) 
 		>> node_148 
 	elif self.distance_3d_to_target().leq(800) 
@@ -1926,7 +1926,7 @@ def node_162
 	return 
 endf 
 
-def node_163
+def node_163 : 520
 	if function#102() 
 		>> node_162 
 	elif self.enraged() 
@@ -1939,7 +1939,7 @@ def node_163
 	return 
 endf 
 
-def node_164
+def node_164 : 505
 	if function#102() 
 	elif self.fatigued() 
 	else 
@@ -1966,7 +1966,7 @@ def node_164
 	return 
 endf 
 
-def node_165
+def node_165 : 589
 	[RegisterVar0 ++] 
 	if function#101() 
 		if [RegisterVar0 <= 12] 
@@ -1990,7 +1990,7 @@ def node_165
 	return 
 endf 
 
-def node_166
+def node_166 : 603
 	[RegisterVar0 ++] 
 	if function#101(0,2) 
 		if [RegisterVar0 <= 20] 
@@ -2034,7 +2034,7 @@ def node_166
 	return 
 endf 
 
-def node_167
+def node_167 : 471
 	if [RegisterVar1 == 0] 
 	elif [RegisterVar1 == 1] 
 		>> node_169 
@@ -2051,7 +2051,7 @@ def node_167
 	return 
 endf 
 
-def node_168
+def node_168 : 449
 	if self.current_quest().is_rank(rank.MR) 
 		if function#103(2,600) 
 			self.targetEnemy(36) 
@@ -2085,7 +2085,7 @@ def node_168
 	return 
 endf 
 
-def node_169
+def node_169 : 455
 	if self.current_quest().is_rank(rank.MR) 
 		if function#103(1,600) 
 			self.targetEnemy(36) 
@@ -2122,7 +2122,7 @@ def node_169
 	return 
 endf 
 
-def node_170
+def node_170 : 452
 	if self.current_quest().is_rank(rank.MR) 
 		if function#103(0,600) 
 			self.targetEnemy(36) 
@@ -2159,7 +2159,7 @@ def node_170
 	return 
 endf 
 
-def node_171
+def node_171 : 458
 	if self.current_quest().is_rank(rank.MR) 
 		if function#103(4,600) 
 			self.targetEnemy(36) 
@@ -2196,7 +2196,7 @@ def node_171
 	return 
 endf 
 
-def node_172
+def node_172 : 461
 	if function#103(3,6000) 
 		self.targetEnemy(36) 
 		>> node_047 
@@ -2208,7 +2208,7 @@ def node_172
 	return 
 endf 
 
-def node_173
+def node_173 : 545
 	if self.flying() 
 		if self.current_quest().is_rank(rank.MR) 
 			-> pukeipukei.pop_eat_to_happy_fly2() 
@@ -2241,7 +2241,7 @@ def node_173
 	return 
 endf 
 
-def node_174
+def node_174 : 450
 	>> node_002 
 	self.targetEnemy(36) 
 	if self.distance_3d_to_target().leq(600) 
@@ -2267,7 +2267,7 @@ def node_174
 	reset 
 endf 
 
-def node_175
+def node_175 : 606
 	>> node_001 
 	self.targetEnemy(36) 
 	if self.distance_3d_to_target().leq(2000) 
@@ -2305,7 +2305,7 @@ def node_175
 	reset 
 endf 
 
-def node_176
+def node_176 : 451
 	>> node_002 
 	self.targetEnemy(36) 
 	>> node_093 
@@ -2313,7 +2313,7 @@ def node_176
 	return 
 endf 
 
-def node_177
+def node_177 : 453
 	>> node_001 
 	self.targetEnemy(36) 
 	if self.distance_3d_to_target().leq(600) 
@@ -2351,7 +2351,7 @@ def node_177
 	reset 
 endf 
 
-def node_178
+def node_178 : 454
 	>> node_001 
 	self.targetEnemy(36) 
 	>> node_207 
@@ -2359,7 +2359,7 @@ def node_178
 	return 
 endf 
 
-def node_179
+def node_179 : 469
 	>> node_001 
 	self.targetEnemy(36) 
 	>> node_207 
@@ -2367,7 +2367,7 @@ def node_179
 	return 
 endf 
 
-def node_180
+def node_180 : 443
 	if self.flying() 
 		>> node_001 
 	else 
@@ -2375,14 +2375,14 @@ def node_180
 	return 
 endf 
 
-def node_181
+def node_181 : 562
 	>> node_001 
 	>> node_222 
 	>> node_205 
 	return 
 endf 
 
-def node_182
+def node_182 : 422
 	if self.distance_2d_to_target().leq(500) 
 	else 
 		-> pukeipukei.dash(2,1,0,1000,350) 
@@ -2391,43 +2391,43 @@ def node_182
 	return 
 endf 
 
-def node_183
+def node_183 : 496
 	>> node_001 
 	-> pukeipukei.tongue_slap() 
 	return 
 endf 
 
-def node_184
+def node_184 : 386
 	>> node_001 
 	-> pukeipukei.ride_rage_head_lv2() 
 	return 
 endf 
 
-def node_185
+def node_185 : 497
 	>> node_001 
 	-> pukeipukei.ride_rage_body() 
 	return 
 endf 
 
-def node_186
+def node_186 : 387
 	>> node_001 
 	-> pukeipukei.ride_rage_body_lv2() 
 	return 
 endf 
 
-def node_187
+def node_187 : 498
 	>> node_001 
 	-> pukeipukei.turn_tail_attack_l() 
 	return 
 endf 
 
-def node_188
+def node_188 : 499
 	>> node_001 
 	-> pukeipukei.ride_rage_tail_lv2() 
 	return 
 endf 
 
-def node_189
+def node_189 : 394
 	>> node_001 
 	if self.distance_2d_to_target().leq(600) 
 		>> node_198 
@@ -2437,61 +2437,61 @@ def node_189
 	return 
 endf 
 
-def node_190
+def node_190 : 388
 	>> node_001 
 	-> pukeipukei.ride_rage_crash_head() 
 	return 
 endf 
 
-def node_191
+def node_191 : 389
 	>> node_001 
 	-> pukeipukei.ride_rage_crash_head_lv2() 
 	return 
 endf 
 
-def node_192
+def node_192 : 390
 	>> node_001 
 	-> pukeipukei.ride_rage_crash_body() 
 	return 
 endf 
 
-def node_193
+def node_193 : 391
 	>> node_001 
 	-> pukeipukei.ride_rage_crash_body_lv2() 
 	return 
 endf 
 
-def node_194
+def node_194 : 500
 	>> node_001 
 	-> pukeipukei.ride_rage_crash_tail() 
 	return 
 endf 
 
-def node_195
+def node_195 : 501
 	>> node_001 
 	-> pukeipukei.ride_rage_crash_tail_lv2() 
 	return 
 endf 
 
-def node_196
+def node_196 : 393
 	>> node_001 
 	-> pukeipukei.ride_wait() 
 	return 
 endf 
 
-def node_197
+def node_197 : 392
 	>> node_001 
 	-> pukeipukei.ride_tired() 
 	return 
 endf 
 
-def node_198
+def node_198 : 275
 	>> node_001 
 	-> pukeipukei.back_turn() 
 	return 
 endf 
 
-def node_199
+def node_199 : 284
 	if self.angle_2d_cw_between(15,345) 
 		>> node_198 
 	else 
@@ -2499,7 +2499,7 @@ def node_199
 	return 
 endf 
 
-def node_200
+def node_200 : 285
 	if self.angle_2d_cw_between(30,330) 
 		>> node_198 
 	else 
@@ -2507,7 +2507,7 @@ def node_200
 	return 
 endf 
 
-def node_201
+def node_201 : 286
 	if self.angle_2d_cw_between(45,315) 
 		>> node_198 
 	else 
@@ -2515,7 +2515,7 @@ def node_201
 	return 
 endf 
 
-def node_202
+def node_202 : 287
 	if self.angle_2d_cw_between(60,300) 
 		>> node_198 
 	else 
@@ -2523,7 +2523,7 @@ def node_202
 	return 
 endf 
 
-def node_203
+def node_203 : 288
 	if self.angle_2d_cw_between(90,270) 
 		>> node_198 
 	else 
@@ -2531,7 +2531,7 @@ def node_203
 	return 
 endf 
 
-def node_204
+def node_204 : 525
 	if self.distance_2d_to_target().leq(400) 
 		>> node_198 
 	else 
@@ -2539,13 +2539,13 @@ def node_204
 	return 
 endf 
 
-def node_205
+def node_205 : 271
 	>> node_001 
 	-> pukeipukei.quick_turn() 
 	return 
 endf 
 
-def node_206
+def node_206 : 212
 	if self.angle_2d_cw_between(15,345) 
 		>> node_205 
 	else 
@@ -2553,7 +2553,7 @@ def node_206
 	return 
 endf 
 
-def node_207
+def node_207 : 213
 	if self.angle_2d_cw_between(30,330) 
 		>> node_205 
 	else 
@@ -2561,7 +2561,7 @@ def node_207
 	return 
 endf 
 
-def node_208
+def node_208 : 214
 	if self.angle_2d_cw_between(45,315) 
 		>> node_205 
 	else 
@@ -2569,7 +2569,7 @@ def node_208
 	return 
 endf 
 
-def node_209
+def node_209 : 216
 	if self.angle_2d_cw_between(60,300) 
 		>> node_205 
 	else 
@@ -2577,7 +2577,7 @@ def node_209
 	return 
 endf 
 
-def node_210
+def node_210 : 215
 	if self.angle_2d_cw_between(90,270) 
 		>> node_205 
 	else 
@@ -2585,13 +2585,13 @@ def node_210
 	return 
 endf 
 
-def node_211
+def node_211 : 245
 	>> node_002 
 	-> pukeipukei.back_turn_fly() 
 	return 
 endf 
 
-def node_212
+def node_212 : 263
 	if self.angle_2d_cw_between(15,345) 
 		>> node_211 
 	else 
@@ -2599,7 +2599,7 @@ def node_212
 	return 
 endf 
 
-def node_213
+def node_213 : 264
 	if self.angle_2d_cw_between(30,330) 
 		>> node_211 
 	else 
@@ -2607,7 +2607,7 @@ def node_213
 	return 
 endf 
 
-def node_214
+def node_214 : 265
 	if self.angle_2d_cw_between(45,315) 
 		>> node_211 
 	else 
@@ -2615,7 +2615,7 @@ def node_214
 	return 
 endf 
 
-def node_215
+def node_215 : 266
 	if self.angle_2d_cw_between(90,270) 
 		>> node_211 
 	else 
@@ -2623,7 +2623,7 @@ def node_215
 	return 
 endf 
 
-def node_216
+def node_216 : 261
 	if self.angle_2d_cw_between(0,180) 
 		-> pukeipukei.quick_turn_fly() 
 	else 
@@ -2632,7 +2632,7 @@ def node_216
 	return 
 endf 
 
-def node_217
+def node_217 : 267
 	if self.angle_2d_cw_between(15,345) 
 		>> node_216 
 	else 
@@ -2640,7 +2640,7 @@ def node_217
 	return 
 endf 
 
-def node_218
+def node_218 : 268
 	if self.angle_2d_cw_between(30,330) 
 		>> node_216 
 	else 
@@ -2648,7 +2648,7 @@ def node_218
 	return 
 endf 
 
-def node_219
+def node_219 : 269
 	if self.angle_2d_cw_between(45,315) 
 		>> node_216 
 	else 
@@ -2656,7 +2656,7 @@ def node_219
 	return 
 endf 
 
-def node_220
+def node_220 : 270
 	if self.angle_2d_cw_between(90,270) 
 		>> node_216 
 	else 
@@ -2664,7 +2664,7 @@ def node_220
 	return 
 endf 
 
-def node_221
+def node_221 : 262
 	if self.angle_2d_cw_between(0,180) 
 		-> pukeipukei.quick_turn_fly() 
 	else 
@@ -2673,7 +2673,7 @@ def node_221
 	return 
 endf 
 
-def node_222
+def node_222 : 397
 	random (35) 
 				self.targetArea(21) @ parameter2:300 
 	elser (35) 
@@ -2686,7 +2686,7 @@ def node_222
 	return 
 endf 
 
-def node_223
+def node_223 : 569
 	random (50) 
 				if self.flying() 
 					-> pukeipukei.intimidation_fly() 
@@ -2698,7 +2698,7 @@ def node_223
 	return 
 endf 
 
-def node_224
+def node_224 : 570
 	if self.flying() 
 		-> pukeipukei.intimidation_fly() 
 	else 
@@ -2707,7 +2707,7 @@ def node_224
 	return 
 endf 
 
-def node_225
+def node_225 : 537
 	>> node_001 
 	>> node_093 
 	if self.flying() 
@@ -2726,7 +2726,7 @@ def node_225
 	return 
 endf 
 
-def node_226
+def node_226 : 538
 	>> node_001 
 	if self.targetEnemy(target_em.any_monster) 
 		random (20) >> node_093 
@@ -2752,7 +2752,7 @@ def node_226
 	return 
 endf 
 
-def node_227
+def node_227 : 539
 	>> node_001 
 	>> node_093 
 	if self.flying() 
@@ -2771,7 +2771,7 @@ def node_227
 	return 
 endf 
 
-def node_228
+def node_228 : 540
 	>> node_001 
 	>> node_088 
 	if self.flying() 
@@ -2782,7 +2782,7 @@ def node_228
 	return 
 endf 
 
-def node_229
+def node_229 : 541
 	>> node_001 
 	self.targetEnemy(58) 
 	if self.flying() 
@@ -2810,17 +2810,17 @@ def node_229
 	return 
 endf 
 
-def node_230
+def node_230 : 542
 	-> pukeipukei.walk(1,2,0,600,1500) 
 	return 
 endf 
 
-def node_231
+def node_231 : 543
 	-> pukeipukei.glide_combat(1,2,0,600,2000) 
 	return 
 endf 
 
-def node_232
+def node_232 : 544
 	if self.fatigued() 
 		>> node_001 
 	else 
@@ -2828,7 +2828,7 @@ def node_232
 	return 
 endf 
 
-def node_233
+def node_233 : 552
 	>> node_240 
 	if self.targetEnemy(target_em.any_monster) 
 		if self.target(13) 
@@ -2888,7 +2888,7 @@ def node_233
 	return 
 endf 
 
-def node_234
+def node_234 : 553
 	>> node_240 
 	if self.targetEnemy(target_em.any_monster) 
 		if self.target(13) 
@@ -2948,11 +2948,11 @@ def node_234
 	return 
 endf 
 
-def node_235
+def node_235 : 557
 	return 
 endf 
 
-def node_236
+def node_236 : 556
 	if self.in_map(st.Special_Arena).in_area(-1) 
 		>> node_239 
 	elif self.in_map(st.Challenge_Arena).in_area(-1) 
@@ -2994,7 +2994,7 @@ def node_236
 	return 
 endf 
 
-def node_237
+def node_237 : 561
 	>> node_238 
 	>> node_238 
 	random (70) 
@@ -3010,7 +3010,7 @@ def node_237
 	return 
 endf 
 
-def node_238
+def node_238 : 554
 	>> node_001 
 	self.targetEnemy(target_em.closest_entity) 
 	random (60) >> node_241 
@@ -3019,7 +3019,7 @@ def node_238
 	return 
 endf 
 
-def node_239
+def node_239 : 555
 	>> node_001 
 	self.targetEnemy(target_em.closest_entity) 
 	>> node_093 
@@ -3035,7 +3035,7 @@ def node_239
 	return 
 endf 
 
-def node_240
+def node_240 : 466
 	if self.targetEnemy(target_em.any_monster) 
 		if self.target(13) 
 		else 
@@ -3058,7 +3058,7 @@ def node_240
 	return 
 endf 
 
-def node_241
+def node_241 : 559
 	self.targetEnemy(target_em.closest_entity) 
 	if self.vertical_distance_to_target().leq(500) 
 		if self.distance_2d_to_target().leq(600) 
@@ -3082,7 +3082,7 @@ def node_241
 	return 
 endf 
 
-def node_242
+def node_242 : 560
 	self.targetEnemy(target_em.closest_entity) 
 	if self.vertical_distance_to_target().leq(500) 
 		if self.distance_2d_to_target().leq(1800) 
@@ -3108,7 +3108,7 @@ def node_242
 	return 
 endf 
 
-def node_243
+def node_243 : 571
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if function#5D() 
 		>> node_245 
@@ -3148,7 +3148,7 @@ def node_243
 	return 
 endf 
 
-def node_244
+def node_244 : 572
 	if [RegisterVar3 <= 10] 
 		[RegisterVar3 |-] 
 	elif [RegisterVar3 <= 1] 
@@ -3158,7 +3158,7 @@ def node_244
 	return 
 endf 
 
-def node_245
+def node_245 : 573
 	if self.distance_2d_to_target().leq(1500) 
 		if self.angle_2d_cw_between(300,60) 
 		else 
@@ -3177,13 +3177,13 @@ def node_245
 	return 
 endf 
 
-def node_246
+def node_246 : 574
 	>> node_247 
 	>> node_248 
 	reset 
 endf 
 
-def node_247
+def node_247 : 331
 	self.targetArea(19) 
 	if self.distance_2d_to_target().leq(900) 
 	else 
@@ -3196,7 +3196,7 @@ def node_247
 	return 
 endf 
 
-def node_248
+def node_248 : 335
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.flying() 
 		>> node_218 
@@ -3208,7 +3208,7 @@ def node_248
 	return 
 endf 
 
-def node_249
+def node_249 : 575
 	if self.flying() 
 		>> node_256 
 	else 
@@ -3229,7 +3229,7 @@ def node_249
 	return 
 endf 
 
-def node_250
+def node_250 : 576
 	if self.flying() 
 		>> node_256 
 	else 
@@ -3250,7 +3250,7 @@ def node_250
 	return 
 endf 
 
-def node_251
+def node_251 : 577
 	if self.flying() 
 		>> node_256 
 	else 
@@ -3271,7 +3271,7 @@ def node_251
 	return 
 endf 
 
-def node_252
+def node_252 : 578
 	if self.flying() 
 		>> node_259 
 	else 
@@ -3280,7 +3280,7 @@ def node_252
 	return 
 endf 
 
-def node_253
+def node_253 : 599
 	if self.in_map(st.Ancient_Forest).in_area(2) 
 		if self.vertical_distance_to_target().leq(300) 
 		else 
@@ -3311,7 +3311,7 @@ def node_253
 	return 
 endf 
 
-def node_254
+def node_254 : 579
 	if self.distance_2d_to_target().leq(600) 
 		if self.vertical_distance_to_target().leq(1500) 
 		else 
@@ -3339,7 +3339,7 @@ def node_254
 	return 
 endf 
 
-def node_255
+def node_255 : 580
 	if self.distance_3d_to_target().leq(400) 
 	else 
 		-> pukeipukei.dash_no_hit(1,2,0,300,1500) 
@@ -3355,7 +3355,7 @@ def node_255
 	return 
 endf 
 
-def node_256
+def node_256 : 581
 	if self.distance_2d_to_target().leq(300) 
 		if self.vertical_distance_to_target().leq(1000) 
 		else 
@@ -3384,7 +3384,7 @@ def node_256
 	return 
 endf 
 
-def node_257
+def node_257 : 582
 	if self.above_target() 
 		random (25) >> node_216 
 		elser (25) >> node_221 
@@ -3402,13 +3402,13 @@ def node_257
 	return 
 endf 
 
-def node_258
+def node_258 : 583
 	>> node_002 
 	-> pukeipukei.short_down_step_fly() 
 	return 
 endf 
 
-def node_259
+def node_259 : 584
 	if self.distance_3d_to_target().leq(300) 
 	else 
 		-> pukeipukei.glide_direct_move(1,2,0,200,1500) 
@@ -3424,7 +3424,7 @@ def node_259
 	return 
 endf 
 
-def node_260
+def node_260 : 591
 	if self.flying() 
 	else 
 		if function#11(400) 
@@ -3442,7 +3442,7 @@ def node_260
 	return 
 endf 
 
-def node_261
+def node_261 : 592
 	if self.distance_2d_to_target().leq(2000) 
 		>> node_198 
 	else 
@@ -3467,7 +3467,7 @@ def node_261
 	return 
 endf 
 
-def node_262
+def node_262 : 595
 	>> node_001 
 	if self.distance_3d_to_target().leq(1300) 
 		>> node_264 
@@ -3483,7 +3483,7 @@ def node_262
 	reset 
 endf 
 
-def node_263
+def node_263 : 596
 	if self.distance_3d_to_target().leq(1300) 
 	else 
 		if self.fatigued() 
@@ -3511,7 +3511,7 @@ def node_263
 	return 
 endf 
 
-def node_264
+def node_264 : 597
 	if function#101() 
 		random (40) >> node_130 
 		elser (0) >> node_149 
@@ -3548,7 +3548,7 @@ def node_264
 	return 
 endf 
 
-def node_265
+def node_265 : 598
 	if function#101() 
 		random (0) >> node_130 
 		elser (0) >> node_149 
@@ -3585,7 +3585,7 @@ def node_265
 	return 
 endf 
 
-def node_266
+def node_266 : 600
 	if function#101(1,2) 
 		return 
 	elif function#101(2,2) 
@@ -3600,14 +3600,14 @@ def node_266
 	return 
 endf 
 
-def node_267
+def node_267 : 601
 	*&
 	[RegisterVar0 |-] 
 	-> pukeipukei.g_360aim_pop_eat() 
 	return 
 endf 
 
-def node_268
+def node_268 : 602
 	>> node_001 
 	>> node_210 
 	[RegisterVar0 |-] 
@@ -3615,7 +3615,7 @@ def node_268
 	return 
 endf 
 
-def node_269
+def node_269 : 607
 	random (15) 
 				if self.flying() 
 					-> pukeipukei.intimidation_fly() 

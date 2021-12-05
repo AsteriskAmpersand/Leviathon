@@ -1,7 +1,7 @@
 importactions Tigrex as tigrex
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	>> Global.node_020 
 	self.targetEnemy(34) 
 	if function#41() 
@@ -21,7 +21,7 @@ def node_000
 	conclude 
 endf 
 
-def node_001
+def node_001 : 48
 	if self.distance_3d_to_target().leq(1500) 
 		-> tigrex.quick_turn() 
 	elif self.angle_2d_cw_between(40,320) 
@@ -31,7 +31,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 49
 	if self.distance_3d_to_target().leq(1000) 
 		-> tigrex.quick_turn() 
 	else 
@@ -39,7 +39,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 50
 	if self.target_is(em.Rathalos) 
 		>> node_001 
 		-> tigrex.roar() 
@@ -48,7 +48,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 51
 	if self.distance_3d_to_target().leq(4000) 
 		>> node_001 
 		-> tigrex.discover() 
@@ -59,7 +59,7 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 52
 	if self.distance_3d_to_target().leq(1500) 
 		>> node_001 
 		-> tigrex.search() 
@@ -69,7 +69,7 @@ def node_005
 	return 
 endf 
 
-def node_006
+def node_006 : 53
 	return 
 endf 
 

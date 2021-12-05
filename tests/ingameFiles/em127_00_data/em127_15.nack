@@ -1,7 +1,7 @@
 importactions Leshen as leshen
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	>> Global.node_002 
 	>> Global.node_005 
 	>> node_001 
@@ -14,7 +14,7 @@ def node_000
 	reset 
 endf 
 
-def node_001
+def node_001 : 28
 	if function#103() 
 	else 
 		if self.targetEnemy(target_em.any_monster) 
@@ -43,7 +43,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 29
 	self.targetEnemy(target_em.any_monster) 
 	random (50) >> Global.node_097 
 	elser (50) >> Global.node_100 

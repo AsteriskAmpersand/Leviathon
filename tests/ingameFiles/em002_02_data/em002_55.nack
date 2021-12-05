@@ -1,10 +1,10 @@
 importactions Silver_Rathalos as silver_rathalos
 
-def node_000
+def node_000 : 37
 	conclude 
 endf 
 
-def node_001
+def node_001 : 222
 	if self.flying() 
 		if function#AF(5000) 
 			-> silver_rathalos.landing() 
@@ -16,7 +16,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 223
 	if self.flying() 
 	else 
 		-> silver_rathalos.take_off() 
@@ -24,7 +24,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 545
 	if self.flying() 
 	else 
 		-> silver_rathalos.take_off(7,0,0,400) 
@@ -32,7 +32,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 411
 	self.targetArea(target_area.area_aerial_center) 
 	>> node_026 
 	self.targetArea(target_area.area_center) 
@@ -40,7 +40,7 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 198
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		if self.fatigued() 
@@ -53,7 +53,7 @@ def node_005
 	return 
 endf 
 
-def node_006
+def node_006 : 444
 	>> node_272 
 	self.targetArea(target_area.nearest_entrance) 
 	if self.distance_3d_to_target().leq(600) 
@@ -68,7 +68,7 @@ def node_006
 	return 
 endf 
 
-def node_007
+def node_007 : 445
 	>> node_272 
 	self.targetArea(target_area.area_center) 
 	if self.distance_3d_to_target().leq(600) 
@@ -83,7 +83,7 @@ def node_007
 	return 
 endf 
 
-def node_008
+def node_008 : 446
 	>> node_272 
 	self.targetArea(39) 
 	if self.distance_3d_to_target().leq(600) 
@@ -98,7 +98,7 @@ def node_008
 	return 
 endf 
 
-def node_009
+def node_009 : 356
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> silver_rathalos.dying_walk(2,0,0,1500) 
@@ -107,7 +107,7 @@ def node_009
 	return 
 endf 
 
-def node_010
+def node_010 : 194
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> silver_rathalos.dash(2,0,0,1500) 
@@ -116,7 +116,7 @@ def node_010
 	return 
 endf 
 
-def node_011
+def node_011 : 272
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		if self.fatigued() 
@@ -144,7 +144,7 @@ def node_011
 	return 
 endf 
 
-def node_012
+def node_012 : 514
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		if self.fatigued() 
@@ -188,7 +188,7 @@ def node_012
 	return 
 endf 
 
-def node_013
+def node_013 : 515
 	if self.distance_2d_to_target().leq(600) 
 	else 
 		if self.fatigued() 
@@ -216,7 +216,7 @@ def node_013
 	return 
 endf 
 
-def node_014
+def node_014 : 516
 	if self.distance_2d_to_target().leq(600) 
 	else 
 		if self.fatigued() 
@@ -260,7 +260,7 @@ def node_014
 	return 
 endf 
 
-def node_015
+def node_015 : 343
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> silver_rathalos.dying_walk_fly(2,1,0,3000,500) 
@@ -269,7 +269,7 @@ def node_015
 	return 
 endf 
 
-def node_016
+def node_016 : 344
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> silver_rathalos.dying_glide_direct_move(2,1,0,3000,500) 
@@ -278,7 +278,7 @@ def node_016
 	return 
 endf 
 
-def node_017
+def node_017 : 345
 	if self.distance_3d_to_target().leq(1000) 
 	else 
 		-> silver_rathalos.dying_glide_direct_move(2,1,0,3000,900) 
@@ -287,7 +287,7 @@ def node_017
 	return 
 endf 
 
-def node_018
+def node_018 : 346
 	if self.distance_2d_to_target().leq(600) 
 	else 
 		-> silver_rathalos.glide_combat(2,1,0,3000,500) 
@@ -296,7 +296,7 @@ def node_018
 	return 
 endf 
 
-def node_019
+def node_019 : 347
 	if self.distance_2d_to_target().leq(1000) 
 	else 
 		-> silver_rathalos.glide_combat(2,1,0,3000,900) 
@@ -305,7 +305,7 @@ def node_019
 	return 
 endf 
 
-def node_020
+def node_020 : 401
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> silver_rathalos.glide(2,1,5,3000,500) 
@@ -314,7 +314,7 @@ def node_020
 	return 
 endf 
 
-def node_021
+def node_021 : 402
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> silver_rathalos.glide_direct_move(2,1,5,3000,500) 
@@ -323,7 +323,7 @@ def node_021
 	return 
 endf 
 
-def node_022
+def node_022 : 403
 	if self.distance_3d_to_target().leq(1000) 
 	else 
 		-> silver_rathalos.glide_direct_move(2,1,5,3000,900) 
@@ -332,7 +332,7 @@ def node_022
 	return 
 endf 
 
-def node_023
+def node_023 : 404
 	if self.distance_2d_to_target().leq(600) 
 	else 
 		-> silver_rathalos.glide_combat(2,1,5,3000,500) 
@@ -341,7 +341,7 @@ def node_023
 	return 
 endf 
 
-def node_024
+def node_024 : 405
 	if self.distance_2d_to_target().leq(1000) 
 	else 
 		-> silver_rathalos.glide_combat(2,1,5,3000,900) 
@@ -350,7 +350,7 @@ def node_024
 	return 
 endf 
 
-def node_025
+def node_025 : 196
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> silver_rathalos.glide(2,1,0,3000,500) 
@@ -359,7 +359,7 @@ def node_025
 	return 
 endf 
 
-def node_026
+def node_026 : 195
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> silver_rathalos.glide_direct_move(2,1,0,3000,500) 
@@ -368,7 +368,7 @@ def node_026
 	return 
 endf 
 
-def node_027
+def node_027 : 279
 	if self.distance_3d_to_target().leq(1000) 
 	else 
 		-> silver_rathalos.glide_direct_move(2,1,0,3000,900) 
@@ -377,7 +377,7 @@ def node_027
 	return 
 endf 
 
-def node_028
+def node_028 : 517
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> silver_rathalos.glide_direct_move(2,1,0,1500,500) 
@@ -393,7 +393,7 @@ def node_028
 	return 
 endf 
 
-def node_029
+def node_029 : 197
 	if self.distance_2d_to_target().leq(600) 
 	else 
 		-> silver_rathalos.glide_combat(2,1,0,3000,500) 
@@ -402,7 +402,7 @@ def node_029
 	return 
 endf 
 
-def node_030
+def node_030 : 280
 	if self.distance_2d_to_target().leq(1000) 
 	else 
 		-> silver_rathalos.glide_combat(2,1,0,3000,900) 
@@ -411,7 +411,7 @@ def node_030
 	return 
 endf 
 
-def node_031
+def node_031 : 518
 	if self.distance_2d_to_target().leq(600) 
 	else 
 		-> silver_rathalos.glide_combat(2,1,0,1500,500) 
@@ -427,7 +427,7 @@ def node_031
 	return 
 endf 
 
-def node_032
+def node_032 : 257
 	if self.distance_3d_to_target().leq(1000) 
 		return 
 	else 
@@ -456,7 +456,7 @@ def node_032
 	return 
 endf 
 
-def node_033
+def node_033 : 256
 	if self.distance_2d_to_target().leq(1000) 
 	else 
 		-> silver_rathalos.glide_combat(2,0,0,3000) 
@@ -480,14 +480,14 @@ def node_033
 	return 
 endf 
 
-def node_034
+def node_034 : 472
 	>> node_001 
 	-> silver_rathalos.take_off_switch_pattern_by_dist() 
 	>> node_027 
 	return 
 endf 
 
-def node_035
+def node_035 : 398
 	if self.flying() 
 		-> silver_rathalos.sudden_rise_from_fly() 
 	else 
@@ -496,13 +496,13 @@ def node_035
 	return 
 endf 
 
-def node_036
+def node_036 : 400
 	>> node_002 
 	-> silver_rathalos.sudden_drop() 
 	return 
 endf 
 
-def node_037
+def node_037 : 324
 	if self.flying() 
 		-> silver_rathalos.threat_fly() 
 	else 
@@ -511,7 +511,7 @@ def node_037
 	return 
 endf 
 
-def node_038
+def node_038 : 325
 	if self.flying() 
 		-> silver_rathalos.threat_fly_short() 
 	else 
@@ -520,7 +520,7 @@ def node_038
 	return 
 endf 
 
-def node_039
+def node_039 : 547
 	if function#AB() 
 		function#AA() 
 		>> node_038 
@@ -529,7 +529,7 @@ def node_039
 	return 
 endf 
 
-def node_040
+def node_040 : 328
 	if self.flying() 
 		-> silver_rathalos.half_lost_search_front_fly() 
 	else 
@@ -538,7 +538,7 @@ def node_040
 	return 
 endf 
 
-def node_041
+def node_041 : 330
 	if self.flying() 
 		-> silver_rathalos.half_lost_search_back_fly() 
 	else 
@@ -547,7 +547,7 @@ def node_041
 	return 
 endf 
 
-def node_042
+def node_042 : 329
 	if self.flying() 
 		-> silver_rathalos.lost_search_fly() 
 	else 
@@ -556,7 +556,7 @@ def node_042
 	return 
 endf 
 
-def node_043
+def node_043 : 336
 	>> node_001 
 	if self.in_combat() 
 		-> silver_rathalos.idle_tired_combat() 
@@ -568,13 +568,13 @@ def node_043
 	return 
 endf 
 
-def node_044
+def node_044 : 519
 	>> node_001 
 	-> silver_rathalos.idle_tired_combat() 
 	return 
 endf 
 
-def node_045
+def node_045 : 337
 	if self.flying() 
 		-> silver_rathalos.refresh_fly() 
 	else 
@@ -583,7 +583,7 @@ def node_045
 	return 
 endf 
 
-def node_046
+def node_046 : 369
 	if self.flying() 
 		-> silver_rathalos.life_search_fly() 
 	else 
@@ -592,7 +592,7 @@ def node_046
 	return 
 endf 
 
-def node_047
+def node_047 : 370
 	if self.alert_out_of_combat() 
 		if self.flying() 
 			-> silver_rathalos.lost_search_fly() 
@@ -615,7 +615,7 @@ def node_047
 	return 
 endf 
 
-def node_048
+def node_048 : 457
 	if self.flying() 
 		-> silver_rathalos.intimidation_fly() 
 	else 
@@ -624,13 +624,13 @@ def node_048
 	return 
 endf 
 
-def node_049
+def node_049 : 206
 	self.targetArea(target_area.nearest_entrance) 
 	>> node_050 
 	return 
 endf 
 
-def node_050
+def node_050 : 424
 	if function#5A(20) 
 		>> node_051 
 	elif function#5A(21) 
@@ -661,7 +661,7 @@ def node_050
 	return 
 endf 
 
-def node_051
+def node_051 : 425
 	if self.distance_3d_to_target().leq(12000) 
 		>> node_001 
 		>> node_054 
@@ -671,7 +671,7 @@ def node_051
 	return 
 endf 
 
-def node_052
+def node_052 : 426
 	if self.distance_3d_to_target().leq(12000) 
 		>> node_002 
 		>> node_054 
@@ -681,7 +681,7 @@ def node_052
 	return 
 endf 
 
-def node_053
+def node_053 : 427
 	if function#AD() 
 		>> node_054 
 	else 
@@ -690,7 +690,7 @@ def node_053
 	return 
 endf 
 
-def node_054
+def node_054 : 207
 	if function#5A(10) 
 		>> node_002 
 	elif function#5A(11) 
@@ -726,7 +726,7 @@ def node_054
 	return 
 endf 
 
-def node_055
+def node_055 : 208
 	>> node_056 
 	>> node_057 
 	>> node_058 
@@ -734,7 +734,7 @@ def node_055
 	return 
 endf 
 
-def node_056
+def node_056 : 209
 	if self.flying() 
 		self.targetArea(target_area.area_aerial_center) 
 		>> node_022 
@@ -747,7 +747,7 @@ def node_056
 	return 
 endf 
 
-def node_057
+def node_057 : 210
 	self.targetArea(target_area.nearest_entrance) 
 	if self.flying() 
 		self.targetArea(40) 
@@ -759,7 +759,7 @@ def node_057
 	return 
 endf 
 
-def node_058
+def node_058 : 205
 	if function#5A(10) 
 	elif function#5A(11) 
 	elif function#5A(12) 
@@ -782,7 +782,7 @@ def node_058
 	return 
 endf 
 
-def node_059
+def node_059 : 278
 	self.targetArea(target_area.nearest_entrance) 
 	if self.flying() 
 		>> node_021 
@@ -792,7 +792,7 @@ def node_059
 	return 
 endf 
 
-def node_060
+def node_060 : 199
 	if function#C2() 
 		self.targetArea(target_area.next_exit) 
 	else 
@@ -807,7 +807,7 @@ def node_060
 	return 
 endf 
 
-def node_061
+def node_061 : 200
 	if self.flying() 
 		self.targetArea(40) 
 		>> node_026 
@@ -817,13 +817,13 @@ def node_061
 	return 
 endf 
 
-def node_062
+def node_062 : 201
 	>> node_063 
 	>> node_065 
 	return 
 endf 
 
-def node_063
+def node_063 : 473
 	if self.flying() 
 		self.targetArea(target_area.area_aerial_center) 
 		>> node_027 
@@ -834,7 +834,7 @@ def node_063
 	return 
 endf 
 
-def node_064
+def node_064 : 474
 	self.targetArea(target_area.area_center) 
 	>> node_010 
 	self.targetArea(target_area.area_aerial_center) 
@@ -842,7 +842,7 @@ def node_064
 	return 
 endf 
 
-def node_065
+def node_065 : 203
 	if function#C2() 
 		self.targetArea(target_area.next_exit) 
 	else 
@@ -857,7 +857,7 @@ def node_065
 	return 
 endf 
 
-def node_066
+def node_066 : 204
 	self.targetArea(target_area.area_center) 
 	if self.flying() 
 		if self.fatigued() 
@@ -870,7 +870,7 @@ def node_066
 	return 
 endf 
 
-def node_067
+def node_067 : 349
 	self.targetArea(24) 
 	if function#AD() 
 		>> node_068 
@@ -880,14 +880,14 @@ def node_067
 	return 
 endf 
 
-def node_068
+def node_068 : 350
 	>> node_001 
 	self.targetArea(24) 
 	>> node_009 
 	return 
 endf 
 
-def node_069
+def node_069 : 351
 	>> node_070 
 	>> node_071 
 	>> node_072 
@@ -895,7 +895,7 @@ def node_069
 	return 
 endf 
 
-def node_070
+def node_070 : 352
 	if self.flying() 
 		self.targetArea(target_area.area_aerial_center) 
 		>> node_017 
@@ -908,7 +908,7 @@ def node_070
 	return 
 endf 
 
-def node_071
+def node_071 : 353
 	self.targetArea(24) 
 	if self.flying() 
 		self.targetArea(40) 
@@ -920,7 +920,7 @@ def node_071
 	return 
 endf 
 
-def node_072
+def node_072 : 354
 	if self.flying() 
 		self.targetArea(target_area.area_center) 
 		>> node_001 
@@ -929,14 +929,14 @@ def node_072
 	return 
 endf 
 
-def node_073
+def node_073 : 355
 	>> node_001 
 	self.targetArea(24) 
 	>> node_009 
 	return 
 endf 
 
-def node_074
+def node_074 : 362
 	if function#AD() 
 		>> node_075 
 	else 
@@ -945,7 +945,7 @@ def node_074
 	return 
 endf 
 
-def node_075
+def node_075 : 363
 	if self.flying() 
 		>> node_026 
 	else 
@@ -958,14 +958,14 @@ def node_075
 	return 
 endf 
 
-def node_076
+def node_076 : 364
 	>> node_077 
 	>> node_078 
 	>> node_079 
 	return 
 endf 
 
-def node_077
+def node_077 : 365
 	if self.flying() 
 		self.targetArea(target_area.area_aerial_center) 
 		>> node_027 
@@ -982,7 +982,7 @@ def node_077
 	return 
 endf 
 
-def node_078
+def node_078 : 366
 	if self.flying() 
 		self.targetArea(40) 
 		>> node_025 
@@ -997,7 +997,7 @@ def node_078
 	return 
 endf 
 
-def node_079
+def node_079 : 367
 	if self.flying() 
 		self.targetArea(target_area.area_center) 
 		>> node_001 
@@ -1006,7 +1006,7 @@ def node_079
 	return 
 endf 
 
-def node_080
+def node_080 : 548
 	self.targetArea(target_area.area_center) 
 	if self.flying() 
 		if self.fatigued() 
@@ -1019,7 +1019,7 @@ def node_080
 	return 
 endf 
 
-def node_081
+def node_081 : 368
 	if self.flying() 
 		>> node_026 
 	else 
@@ -1032,7 +1032,7 @@ def node_081
 	return 
 endf 
 
-def node_082
+def node_082 : 309
 	if self.flying() 
 		-> silver_rathalos.normal_turn_fly() 
 	else 
@@ -1041,7 +1041,7 @@ def node_082
 	return 
 endf 
 
-def node_083
+def node_083 : 310
 	if self.angle_2d_cw_between(15,345) 
 		>> node_082 
 	else 
@@ -1049,7 +1049,7 @@ def node_083
 	return 
 endf 
 
-def node_084
+def node_084 : 311
 	if self.angle_2d_cw_between(30,330) 
 		>> node_082 
 	else 
@@ -1057,7 +1057,7 @@ def node_084
 	return 
 endf 
 
-def node_085
+def node_085 : 312
 	if self.angle_2d_cw_between(60,300) 
 		>> node_082 
 	else 
@@ -1065,7 +1065,7 @@ def node_085
 	return 
 endf 
 
-def node_086
+def node_086 : 313
 	if self.angle_2d_cw_between(90,270) 
 		>> node_082 
 	else 
@@ -1073,7 +1073,7 @@ def node_086
 	return 
 endf 
 
-def node_087
+def node_087 : 357
 	if self.flying() 
 		>> node_203 
 	else 
@@ -1082,7 +1082,7 @@ def node_087
 	return 
 endf 
 
-def node_088
+def node_088 : 358
 	if self.angle_2d_cw_between(15,345) 
 		>> node_087 
 	else 
@@ -1090,7 +1090,7 @@ def node_088
 	return 
 endf 
 
-def node_089
+def node_089 : 359
 	if self.angle_2d_cw_between(30,330) 
 		>> node_087 
 	else 
@@ -1098,7 +1098,7 @@ def node_089
 	return 
 endf 
 
-def node_090
+def node_090 : 360
 	if self.angle_2d_cw_between(60,300) 
 		>> node_087 
 	else 
@@ -1106,7 +1106,7 @@ def node_090
 	return 
 endf 
 
-def node_091
+def node_091 : 361
 	if self.angle_2d_cw_between(90,270) 
 		>> node_087 
 	else 
@@ -1114,31 +1114,31 @@ def node_091
 	return 
 endf 
 
-def node_092
+def node_092 : 226
 	>> node_001 
 	-> silver_rathalos.lost_search() 
 	return 
 endf 
 
-def node_093
+def node_093 : 227
 	>> node_001 
 	-> silver_rathalos.lost_search() 
 	return 
 endf 
 
-def node_094
+def node_094 : 228
 	>> node_001 
 	-> silver_rathalos.sniff_combat_s() 
 	return 
 endf 
 
-def node_095
+def node_095 : 229
 	>> node_001 
 	-> silver_rathalos.sniff_combat_l() 
 	return 
 endf 
 
-def node_096
+def node_096 : 230
 	>> node_001 
 	if self.enraged() 
 		-> silver_rathalos.dash_no_hit(2,1,0,500,650) 
@@ -1150,7 +1150,7 @@ def node_096
 	return 
 endf 
 
-def node_097
+def node_097 : 231
 	>> node_001 
 	if self.enraged() 
 		-> silver_rathalos.dash_no_hit(2,1,0,1000,650) 
@@ -1162,7 +1162,7 @@ def node_097
 	return 
 endf 
 
-def node_098
+def node_098 : 232
 	>> node_001 
 	if self.enraged() 
 		-> silver_rathalos.peep_grass_search() 
@@ -1172,7 +1172,7 @@ def node_098
 	return 
 endf 
 
-def node_099
+def node_099 : 233
 	>> node_001 
 	if self.target(10) 
 		-> silver_rathalos.dash_no_hit(2,0,0,1000) 
@@ -1186,49 +1186,49 @@ def node_099
 	return 
 endf 
 
-def node_100
+def node_100 : 242
 	>> node_001 
 	-> silver_rathalos.idle_tired_combat() 
 	return 
 endf 
 
-def node_101
+def node_101 : 234
 	>> node_002 
 	-> silver_rathalos.lost_search_fly() 
 	return 
 endf 
 
-def node_102
+def node_102 : 235
 	>> node_002 
 	-> silver_rathalos.lost_search_fly() 
 	return 
 endf 
 
-def node_103
+def node_103 : 236
 	>> node_002 
 	-> silver_rathalos.sniff_s_fly() 
 	return 
 endf 
 
-def node_104
+def node_104 : 237
 	>> node_002 
 	-> silver_rathalos.sniff_l_fly() 
 	return 
 endf 
 
-def node_105
+def node_105 : 238
 	>> node_002 
 	-> silver_rathalos.glide_direct_move(2,1,0,1000,800) 
 	return 
 endf 
 
-def node_106
+def node_106 : 239
 	>> node_002 
 	-> silver_rathalos.glide_direct_move(2,1,0,2000,800) 
 	return 
 endf 
 
-def node_107
+def node_107 : 240
 	>> node_002 
 	if self.enraged() 
 		-> silver_rathalos.back_step_breath_fly() 
@@ -1244,7 +1244,7 @@ def node_107
 	return 
 endf 
 
-def node_108
+def node_108 : 241
 	>> node_002 
 	if self.target(10) 
 		-> silver_rathalos.glide_direct_move(2,0,0,1000) 
@@ -1258,7 +1258,7 @@ def node_108
 	return 
 endf 
 
-def node_109
+def node_109 : 282
 	if self.distance_3d_to_target().leq(800) 
 		>> node_175 
 	elif self.distance_3d_to_target().leq(1200) 
@@ -1268,7 +1268,7 @@ def node_109
 	return 
 endf 
 
-def node_110
+def node_110 : 283
 	if self.distance_2d_to_target().leq(800) 
 		random (50) >> node_198 
 		elser (50) >> node_203 
@@ -1283,7 +1283,7 @@ def node_110
 	return 
 endf 
 
-def node_111
+def node_111 : 289
 	if self.distance_2d_to_target().leq(900) 
 	else 
 		-> silver_rathalos.dash_no_hit(1,2,0,800,1500) 
@@ -1299,7 +1299,7 @@ def node_111
 	return 
 endf 
 
-def node_112
+def node_112 : 290
 	if self.distance_2d_to_target().leq(900) 
 	else 
 		-> silver_rathalos.glide_direct_move(2,0,0,1500) 
@@ -1315,110 +1315,110 @@ def node_112
 	return 
 endf 
 
-def node_113
+def node_113 : 292
 	>> node_001 
 	-> silver_rathalos.lost_search() 
 	return 
 endf 
 
-def node_114
+def node_114 : 294
 	>> node_002 
 	-> silver_rathalos.lost_search_fly() 
 	return 
 endf 
 
-def node_115
+def node_115 : 295
 	>> node_001 
 	>> node_084 
 	-> silver_rathalos.life_search() 
 	return 
 endf 
 
-def node_116
+def node_116 : 300
 	>> node_001 
 	>> node_084 
 	-> silver_rathalos.sniff_s() 
 	return 
 endf 
 
-def node_117
+def node_117 : 307
 	>> node_001 
 	>> node_084 
 	-> silver_rathalos.sniff_l() 
 	return 
 endf 
 
-def node_118
+def node_118 : 298
 	>> node_001 
 	>> node_083 
 	-> silver_rathalos.marking() 
 	return 
 endf 
 
-def node_119
+def node_119 : 303
 	>> node_001 
 	>> node_084 
 	-> silver_rathalos.sunbath() 
 	return 
 endf 
 
-def node_120
+def node_120 : 305
 	>> node_001 
 	>> node_083 
 	-> silver_rathalos.drink() 
 	return 
 endf 
 
-def node_121
+def node_121 : 306
 	>> node_001 
 	>> node_084 
 	-> silver_rathalos.sleep() 
 	return 
 endf 
 
-def node_122
+def node_122 : 296
 	>> node_002 
 	>> node_084 
 	-> silver_rathalos.life_search_fly() 
 	return 
 endf 
 
-def node_123
+def node_123 : 301
 	>> node_002 
 	>> node_084 
 	-> silver_rathalos.sniff_s_fly() 
 	return 
 endf 
 
-def node_124
+def node_124 : 308
 	>> node_002 
 	>> node_084 
 	-> silver_rathalos.sniff_l_fly() 
 	return 
 endf 
 
-def node_125
+def node_125 : 299
 	>> node_002 
 	>> node_083 
 	-> silver_rathalos.marking_fly() 
 	return 
 endf 
 
-def node_126
+def node_126 : 297
 	>> node_002 
 	>> node_084 
 	-> silver_rathalos.life_search_trace_fly() 
 	return 
 endf 
 
-def node_127
+def node_127 : 475
 	>> node_002 
 	self.targetEnemy(17) 
 	-> silver_rathalos.sudden_drop() 
 	return 
 endf 
 
-def node_128
+def node_128 : 348
 	>> node_001 
 	>> node_084 
 	if function#C9() 
@@ -1429,7 +1429,7 @@ def node_128
 	return 
 endf 
 
-def node_129
+def node_129 : 338
 	if function#6B(5000) 
 		self.targetEnemy(26) 
 		>> node_131 
@@ -1441,7 +1441,7 @@ def node_129
 	return 
 endf 
 
-def node_130
+def node_130 : 342
 	if function#6B(5000) 
 		self.targetEnemy(26) 
 		>> node_131 
@@ -1453,7 +1453,7 @@ def node_130
 	return 
 endf 
 
-def node_131
+def node_131 : 339
 	if self.in_combat() 
 		if self.flying() 
 			-> silver_rathalos.sniff_s_fly() 
@@ -1470,19 +1470,19 @@ def node_131
 	return 
 endf 
 
-def node_132
+def node_132 : 340
 	>> node_001 
 	>> node_010 
 	return 
 endf 
 
-def node_133
+def node_133 : 341
 	>> node_183 
 	-> silver_rathalos.eat() 
 	return 
 endf 
 
-def node_134
+def node_134 : 536
 	>> node_046 
 	>> node_087 
 	>> node_046 
@@ -1491,7 +1491,7 @@ def node_134
 	return 
 endf 
 
-def node_135
+def node_135 : 371
 	if self.flying() 
 		-> silver_rathalos.glide_combat(1,2,0,1000,2000) 
 	else 
@@ -1500,14 +1500,14 @@ def node_135
 	return 
 endf 
 
-def node_136
+def node_136 : 381
 	>> node_002 
 	>> node_203 
 	-> silver_rathalos.predator_attack() 
 	return 
 endf 
 
-def node_137
+def node_137 : 382
 	>> node_089 
 	if self.flying() 
 		-> silver_rathalos.predator_give_up_action_fly() 
@@ -1517,37 +1517,37 @@ def node_137
 	return 
 endf 
 
-def node_138
+def node_138 : 383
 	>> node_002 
 	-> silver_rathalos.predator_adjust() 
 	return 
 endf 
 
-def node_139
+def node_139 : 384
 	>> node_001 
 	-> silver_rathalos.predator_eat() 
 	return 
 endf 
 
-def node_140
+def node_140 : 372
 	>> node_001 
 	-> silver_rathalos.walk(2,1,0,2000,1000) 
 	return 
 endf 
 
-def node_141
+def node_141 : 374
 	>> node_001 
 	-> silver_rathalos.dash(2,1,0,6000,1000) 
 	return 
 endf 
 
-def node_142
+def node_142 : 373
 	>> node_001 
 	-> silver_rathalos.dash(2,1,0,6000,3000) 
 	return 
 endf 
 
-def node_143
+def node_143 : 375
 	if self.distance_3d_to_target().leq(1500) 
 	elif self.distance_3d_to_target().leq(3500) 
 		random (50) >> node_145 
@@ -1559,7 +1559,7 @@ def node_143
 	return 
 endf 
 
-def node_144
+def node_144 : 376
 	random (50) >> node_145 
 	elser (50) >> node_146 
 	elser (0) 
@@ -1567,7 +1567,7 @@ def node_144
 	return 
 endf 
 
-def node_145
+def node_145 : 379
 	if self.flying() 
 		-> silver_rathalos.sniff_s_fly() 
 	else 
@@ -1576,7 +1576,7 @@ def node_145
 	return 
 endf 
 
-def node_146
+def node_146 : 380
 	if self.flying() 
 		-> silver_rathalos.life_search_fly() 
 	else 
@@ -1585,7 +1585,7 @@ def node_146
 	return 
 endf 
 
-def node_147
+def node_147 : 422
 	if self.distance_2d_to_target().leq(500) 
 	else 
 		-> silver_rathalos.glide_direct_move(1,2,0,400,1500) 
@@ -1594,7 +1594,7 @@ def node_147
 	return 
 endf 
 
-def node_148
+def node_148 : 385
 	>> node_003 
 	random (50) -> silver_rathalos.snake_turn_step_fly_l() 
 	elser (50) -> silver_rathalos.snake_turn_step_fly_r() 
@@ -1602,32 +1602,32 @@ def node_148
 	return 
 endf 
 
-def node_149
+def node_149 : 512
 	>> node_003 
 	-> silver_rathalos.rash_bite_fly() 
 	return 
 endf 
 
-def node_150
+def node_150 : 386
 	>> node_003 
 	-> silver_rathalos.ride_rage_head_lv2() 
 	return 
 endf 
 
-def node_151
+def node_151 : 513
 	>> node_003 
 	-> silver_rathalos.ride_vertical_kick_fly() 
 	>> node_003 
 	return 
 endf 
 
-def node_152
+def node_152 : 387
 	>> node_003 
 	-> silver_rathalos.ride_rage_body_lv2() 
 	return 
 endf 
 
-def node_153
+def node_153 : 394
 	>> node_003 
 	if self.distance_2d_to_target().leq(600) 
 		>> node_198 
@@ -1638,7 +1638,7 @@ def node_153
 	return 
 endf 
 
-def node_154
+def node_154 : 395
 	if function#11(1000) 
 	else 
 		if self.above_area() 
@@ -1650,43 +1650,43 @@ def node_154
 	return 
 endf 
 
-def node_155
+def node_155 : 388
 	>> node_003 
 	-> silver_rathalos.ride_rage_crash_head() 
 	return 
 endf 
 
-def node_156
+def node_156 : 389
 	>> node_003 
 	-> silver_rathalos.ride_rage_crash_head_lv2() 
 	return 
 endf 
 
-def node_157
+def node_157 : 390
 	>> node_003 
 	-> silver_rathalos.ride_rage_crash_body() 
 	return 
 endf 
 
-def node_158
+def node_158 : 391
 	>> node_003 
 	-> silver_rathalos.ride_rage_crash_body_lv2() 
 	return 
 endf 
 
-def node_159
+def node_159 : 393
 	>> node_003 
 	-> silver_rathalos.intimidation_fly() 
 	return 
 endf 
 
-def node_160
+def node_160 : 392
 	>> node_003 
 	-> silver_rathalos.ride_tired() 
 	return 
 endf 
 
-def node_161
+def node_161 : 511
 	if self.flying() 
 		>> node_170 
 	else 
@@ -1695,7 +1695,7 @@ def node_161
 	return 
 endf 
 
-def node_162
+def node_162 : 438
 	[RegisterVar0 |-] 
 	[RegisterVar1 ++] 
 	if self.part(2).is_broken(0) 
@@ -1712,7 +1712,7 @@ def node_162
 	return 
 endf 
 
-def node_163
+def node_163 : 439
 	if self.current_quest().is_rank(rank.MR) 
 		>> node_166 
 	else 
@@ -1736,7 +1736,7 @@ def node_163
 	return 
 endf 
 
-def node_164
+def node_164 : 440
 	if self.current_quest().is_rank(rank.MR) 
 		>> node_167 
 	else 
@@ -1762,7 +1762,7 @@ def node_164
 	return 
 endf 
 
-def node_165
+def node_165 : 441
 	if self.current_quest().is_rank(rank.MR) 
 		>> node_168 
 	else 
@@ -1782,7 +1782,7 @@ def node_165
 	return 
 endf 
 
-def node_166
+def node_166 : 538
 	if [RegisterVar1 <= 15] 
 		>> node_169 
 	elif [RegisterVar1 <= 12] 
@@ -1798,7 +1798,7 @@ def node_166
 	return 
 endf 
 
-def node_167
+def node_167 : 539
 	if [RegisterVar1 <= 12] 
 		>> node_169 
 	elif [RegisterVar1 <= 9] 
@@ -1816,7 +1816,7 @@ def node_167
 	return 
 endf 
 
-def node_168
+def node_168 : 540
 	if [RegisterVar1 <= 9] 
 		>> node_169 
 	elif [RegisterVar1 <= 6] 
@@ -1828,7 +1828,7 @@ def node_168
 	return 
 endf 
 
-def node_169
+def node_169 : 453
 	>> node_001 
 	if self.enraged() 
 		>> node_193 
@@ -1842,7 +1842,7 @@ def node_169
 	return 
 endf 
 
-def node_170
+def node_170 : 476
 	[RegisterVar1 |-] 
 	if self.distance_2d_to_target().leq(600) 
 		[RegisterVar0 ++] 
@@ -1859,7 +1859,7 @@ def node_170
 	return 
 endf 
 
-def node_171
+def node_171 : 409
 	if self.current_quest().is_rank(rank.MR) 
 		>> node_173 
 	else 
@@ -1900,7 +1900,7 @@ def node_171
 	return 
 endf 
 
-def node_172
+def node_172 : 537
 	if self.flying() 
 		if [RegisterVar0 <= 45] 
 			>> node_174 
@@ -1933,7 +1933,7 @@ def node_172
 	return 
 endf 
 
-def node_173
+def node_173 : 558
 	if self.flying() 
 		if [RegisterVar0 <= 60] 
 			>> node_174 
@@ -1966,20 +1966,20 @@ def node_173
 	return 
 endf 
 
-def node_174
+def node_174 : 454
 	>> node_249 
 	[RegisterVar0 |-] 
 	[RegisterVar1 |-] 
 	return 
 endf 
 
-def node_175
+def node_175 : 275
 	>> node_001 
 	-> silver_rathalos.short_back_step() 
 	return 
 endf 
 
-def node_176
+def node_176 : 284
 	if self.angle_2d_cw_between(15,345) 
 		>> node_175 
 	else 
@@ -1987,7 +1987,7 @@ def node_176
 	return 
 endf 
 
-def node_177
+def node_177 : 285
 	if self.angle_2d_cw_between(30,330) 
 		>> node_175 
 	else 
@@ -1995,7 +1995,7 @@ def node_177
 	return 
 endf 
 
-def node_178
+def node_178 : 286
 	if self.angle_2d_cw_between(45,315) 
 		>> node_175 
 	else 
@@ -2003,7 +2003,7 @@ def node_178
 	return 
 endf 
 
-def node_179
+def node_179 : 287
 	if self.angle_2d_cw_between(60,300) 
 		>> node_175 
 	else 
@@ -2011,7 +2011,7 @@ def node_179
 	return 
 endf 
 
-def node_180
+def node_180 : 288
 	if self.angle_2d_cw_between(90,270) 
 		>> node_175 
 	else 
@@ -2019,13 +2019,13 @@ def node_180
 	return 
 endf 
 
-def node_181
+def node_181 : 271
 	>> node_001 
 	-> silver_rathalos.quick_turn() 
 	return 
 endf 
 
-def node_182
+def node_182 : 212
 	if self.angle_2d_cw_between(15,345) 
 		>> node_181 
 	else 
@@ -2033,7 +2033,7 @@ def node_182
 	return 
 endf 
 
-def node_183
+def node_183 : 213
 	if self.angle_2d_cw_between(30,330) 
 		>> node_181 
 	else 
@@ -2041,7 +2041,7 @@ def node_183
 	return 
 endf 
 
-def node_184
+def node_184 : 214
 	if self.angle_2d_cw_between(45,315) 
 		>> node_181 
 	else 
@@ -2049,7 +2049,7 @@ def node_184
 	return 
 endf 
 
-def node_185
+def node_185 : 216
 	if self.angle_2d_cw_between(60,300) 
 		>> node_181 
 	else 
@@ -2057,7 +2057,7 @@ def node_185
 	return 
 endf 
 
-def node_186
+def node_186 : 215
 	if self.angle_2d_cw_between(90,270) 
 		>> node_181 
 	else 
@@ -2065,7 +2065,7 @@ def node_186
 	return 
 endf 
 
-def node_187
+def node_187 : 221
 	>> node_001 
 	if self.angle_2d_cw_between(0,180) 
 		-> silver_rathalos.rolling_tail_attack2_l() 
@@ -2075,13 +2075,13 @@ def node_187
 	return 
 endf 
 
-def node_188
+def node_188 : 217
 	>> node_001 
 	-> silver_rathalos.bite() 
 	return 
 endf 
 
-def node_189
+def node_189 : 218
 	>> node_001 
 	if self.fatigued() 
 		-> silver_rathalos.dash_bite_tired() 
@@ -2091,31 +2091,31 @@ def node_189
 	return 
 endf 
 
-def node_190
+def node_190 : 219
 	>> node_001 
 	-> silver_rathalos.normal_breath() 
 	return 
 endf 
 
-def node_191
+def node_191 : 314
 	>> node_001 
 	-> silver_rathalos.vertical_kick() 
 	return 
 endf 
 
-def node_192
+def node_192 : 224
 	>> node_001 
 	-> silver_rathalos.back_step_breath_to_ground() 
 	return 
 endf 
 
-def node_193
+def node_193 : 251
 	>> node_001 
 	-> silver_rathalos.back_step_breath_to_air() 
 	return 
 endf 
 
-def node_194
+def node_194 : 225
 	>> node_001 
 	if self.distance_2d_to_target().leq(450) 
 		random (100) >> node_191 
@@ -2131,7 +2131,7 @@ def node_194
 	return 
 endf 
 
-def node_195
+def node_195 : 423
 	>> node_001 
 	if self.distance_2d_to_target().leq(450) 
 		>> node_189 
@@ -2145,7 +2145,7 @@ def node_195
 	return 
 endf 
 
-def node_196
+def node_196 : 274
 	if self.distance_2d_to_target().leq(350) 
 		>> node_191 
 	elif self.distance_2d_to_target().leq(850) 
@@ -2156,19 +2156,19 @@ def node_196
 	return 
 endf 
 
-def node_197
+def node_197 : 315
 	>> node_001 
 	-> silver_rathalos.idle_tired_combat() 
 	return 
 endf 
 
-def node_198
+def node_198 : 245
 	>> node_002 
 	-> silver_rathalos.step_back_fly() 
 	return 
 endf 
 
-def node_199
+def node_199 : 263
 	if self.angle_2d_cw_between(15,345) 
 		>> node_198 
 	else 
@@ -2176,7 +2176,7 @@ def node_199
 	return 
 endf 
 
-def node_200
+def node_200 : 264
 	if self.angle_2d_cw_between(30,330) 
 		>> node_198 
 	else 
@@ -2184,7 +2184,7 @@ def node_200
 	return 
 endf 
 
-def node_201
+def node_201 : 265
 	if self.angle_2d_cw_between(45,315) 
 		>> node_198 
 	else 
@@ -2192,7 +2192,7 @@ def node_201
 	return 
 endf 
 
-def node_202
+def node_202 : 266
 	if self.angle_2d_cw_between(90,270) 
 		>> node_198 
 	else 
@@ -2200,7 +2200,7 @@ def node_202
 	return 
 endf 
 
-def node_203
+def node_203 : 261
 	if self.angle_2d_cw_between(0,180) 
 		-> silver_rathalos.snake_turn_step_fly_r() 
 	else 
@@ -2209,7 +2209,7 @@ def node_203
 	return 
 endf 
 
-def node_204
+def node_204 : 267
 	if self.angle_2d_cw_between(15,345) 
 		>> node_203 
 	else 
@@ -2217,7 +2217,7 @@ def node_204
 	return 
 endf 
 
-def node_205
+def node_205 : 268
 	if self.angle_2d_cw_between(30,330) 
 		>> node_203 
 	else 
@@ -2225,7 +2225,7 @@ def node_205
 	return 
 endf 
 
-def node_206
+def node_206 : 269
 	if self.angle_2d_cw_between(45,315) 
 		>> node_203 
 	else 
@@ -2233,7 +2233,7 @@ def node_206
 	return 
 endf 
 
-def node_207
+def node_207 : 270
 	if self.angle_2d_cw_between(90,270) 
 		>> node_203 
 	else 
@@ -2241,7 +2241,7 @@ def node_207
 	return 
 endf 
 
-def node_208
+def node_208 : 262
 	if self.angle_2d_cw_between(0,180) 
 		-> silver_rathalos.snake_turn_step_fly_l() 
 	else 
@@ -2250,13 +2250,13 @@ def node_208
 	return 
 endf 
 
-def node_209
+def node_209 : 191
 	>> node_002 
 	-> silver_rathalos.bite_fly() 
 	return 
 endf 
 
-def node_210
+def node_210 : 246
 	>> node_002 
 	if function#AF(5000) 
 		-> silver_rathalos.double_kick_fly2() 
@@ -2266,19 +2266,19 @@ def node_210
 	return 
 endf 
 
-def node_211
+def node_211 : 183
 	>> node_002 
 	-> silver_rathalos.scratch_fly() 
 	return 
 endf 
 
-def node_212
+def node_212 : 187
 	>> node_002 
 	-> silver_rathalos.rash_bite_fly() 
 	return 
 endf 
 
-def node_213
+def node_213 : 188
 	>> node_002 
 	if self.angle_2d_cw_between(0,180) 
 		-> silver_rathalos.low_tail_attack_fly_l() 
@@ -2288,26 +2288,26 @@ def node_213
 	return 
 endf 
 
-def node_214
+def node_214 : 184
 	>> node_002 
 	>> node_207 
 	-> silver_rathalos.breath_fly() 
 	return 
 endf 
 
-def node_215
+def node_215 : 185
 	>> node_002 
 	-> silver_rathalos.breath_nagiharai_fly_low() 
 	return 
 endf 
 
-def node_216
+def node_216 : 260
 	>> node_002 
 	-> silver_rathalos.back_step_breath_fly() 
 	return 
 endf 
 
-def node_217
+def node_217 : 259
 	>> node_002 
 	if self.angle_2d_cw_between(0,180) 
 		-> silver_rathalos.kick_progress_fly_r() 
@@ -2317,7 +2317,7 @@ def node_217
 	return 
 endf 
 
-def node_218
+def node_218 : 412
 	>> node_002 
 	if self.angle_2d_cw_between(0,180) 
 		-> silver_rathalos.kick_progress_fly_s_range_r() 
@@ -2327,19 +2327,19 @@ def node_218
 	return 
 endf 
 
-def node_219
+def node_219 : 443
 	>> node_002 
 	-> silver_rathalos.kick_fly_start_short_range() 
 	return 
 endf 
 
-def node_220
+def node_220 : 186
 	>> node_002 
 	-> silver_rathalos.kick_fly_start() 
 	return 
 endf 
 
-def node_221
+def node_221 : 276
 	>> node_002 
 	if function#AF(5000) 
 		-> silver_rathalos.vertical_kick_fly() 
@@ -2349,13 +2349,13 @@ def node_221
 	return 
 endf 
 
-def node_222
+def node_222 : 192
 	>> node_002 
 	-> silver_rathalos.glide_charge() 
 	return 
 endf 
 
-def node_223
+def node_223 : 478
 	>> node_002 
 	if self.distance_2d_to_target().leq(400) 
 		>> node_203 
@@ -2367,7 +2367,7 @@ def node_223
 	return 
 endf 
 
-def node_224
+def node_224 : 479
 	>> node_002 
 	if self.distance_2d_to_target().leq(400) 
 		>> node_203 
@@ -2379,7 +2379,7 @@ def node_224
 	return 
 endf 
 
-def node_225
+def node_225 : 481
 	>> node_002 
 	if self.distance_2d_to_target().leq(900) 
 	else 
@@ -2389,7 +2389,7 @@ def node_225
 	return 
 endf 
 
-def node_226
+def node_226 : 480
 	if self.distance_3d_to_target().leq(1100) 
 		-> silver_rathalos.kick_fly_start_short_range() 
 	else 
@@ -2398,7 +2398,7 @@ def node_226
 	return 
 endf 
 
-def node_227
+def node_227 : 550
 	>> node_002 
 	>> node_207 
 	-> silver_rathalos.breath_fly_big() 
@@ -2406,7 +2406,7 @@ def node_227
 	return 
 endf 
 
-def node_228
+def node_228 : 189
 	if self.distance_2d_to_target().leq(600) 
 		>> node_203 
 	else 
@@ -2415,7 +2415,7 @@ def node_228
 	return 
 endf 
 
-def node_229
+def node_229 : 190
 	if self.distance_2d_to_target().leq(300) 
 		>> node_203 
 	else 
@@ -2424,7 +2424,7 @@ def node_229
 	return 
 endf 
 
-def node_230
+def node_230 : 413
 	if self.distance_2d_to_target().leq(300) 
 		random (35) >> node_203 
 					>> node_215 
@@ -2443,7 +2443,7 @@ def node_230
 	return 
 endf 
 
-def node_231
+def node_231 : 414
 	if self.distance_2d_to_target().leq(600) 
 		random (25) >> node_211 
 					>> node_236 
@@ -2461,7 +2461,7 @@ def node_231
 	return 
 endf 
 
-def node_232
+def node_232 : 277
 	if self.distance_2d_to_target().leq(500) 
 		>> node_211 
 	else 
@@ -2470,7 +2470,7 @@ def node_232
 	return 
 endf 
 
-def node_233
+def node_233 : 258
 	>> node_002 
 	-> silver_rathalos.catch_attack() 
 	if self.target.pinned() 
@@ -2488,7 +2488,7 @@ def node_233
 	return 
 endf 
 
-def node_234
+def node_234 : 541
 	if self.distance_2d_to_target().leq(1300) 
 		if self.vertical_distance_to_target().leq(750) 
 			if self.above_target() 
@@ -2529,7 +2529,7 @@ def node_234
 	return 
 endf 
 
-def node_235
+def node_235 : 546
 	if self.distance_2d_to_target().leq(1300) 
 		if self.vertical_distance_to_target().leq(1000) 
 		else 
@@ -2557,7 +2557,7 @@ def node_235
 	return 
 endf 
 
-def node_236
+def node_236 : 396
 	if self.fatigued() 
 		>> node_001 
 		reset 
@@ -2566,7 +2566,7 @@ def node_236
 	return 
 endf 
 
-def node_237
+def node_237 : 408
 	if self.target.helpless_0() 
 		if self.enraged() 
 			random (35) >> node_239 
@@ -2600,7 +2600,7 @@ def node_237
 	return 
 endf 
 
-def node_238
+def node_238 : 406
 	if self.distance_2d_to_target().leq(1000) 
 		>> node_219 
 	elif self.distance_2d_to_target().leq(2000) 
@@ -2610,7 +2610,7 @@ def node_238
 	return 
 endf 
 
-def node_239
+def node_239 : 407
 	if self.distance_2d_to_target().leq(1000) 
 		>> node_219 
 	elif self.distance_2d_to_target().leq(2000) 
@@ -2620,7 +2620,7 @@ def node_239
 	return 
 endf 
 
-def node_240
+def node_240 : 442
 	if self.distance_2d_to_target().leq(2000) 
 		>> node_220 
 	else 
@@ -2628,7 +2628,7 @@ def node_240
 	return 
 endf 
 
-def node_241
+def node_241 : 563
 	if self.target.helpless_0() 
 		if self.enraged() 
 			random (35) >> node_252 
@@ -2662,7 +2662,7 @@ def node_241
 	return 
 endf 
 
-def node_242
+def node_242 : 566
 	>> node_002 
 	-> silver_rathalos.kick_fly_start_combo() @ comboSetting:1 
 	-> silver_rathalos.back_step_breath_fly() @ comboSetting:1 
@@ -2670,13 +2670,13 @@ def node_242
 	return 
 endf 
 
-def node_243
+def node_243 : 448
 	>> node_002 
 	-> silver_rathalos.back_hover_breath() 
 	return 
 endf 
 
-def node_244
+def node_244 : 449
 	>> node_002 
 	if self.angle_2d_cw_between(0,180) 
 		-> silver_rathalos.hover_turn_breath_l() 
@@ -2686,7 +2686,7 @@ def node_244
 	return 
 endf 
 
-def node_245
+def node_245 : 456
 	>> node_002 
 	-> silver_rathalos.scratch_fly() @ comboSetting:1 
 	-> silver_rathalos.rush_bite_fly_combo() @ comboSetting:1 
@@ -2695,7 +2695,7 @@ def node_245
 	return 
 endf 
 
-def node_246
+def node_246 : 447
 	>> node_002 
 	if self.angle_2d_cw_between(0,180) 
 		-> silver_rathalos.hover_turn_breath_l() @ comboSetting:1 
@@ -2709,7 +2709,7 @@ def node_246
 	return 
 endf 
 
-def node_247
+def node_247 : 450
 	>> node_002 
 	if function#AF(5000) 
 		if self.angle_2d_cw_between(0,180) 
@@ -2727,7 +2727,7 @@ def node_247
 	return 
 endf 
 
-def node_248
+def node_248 : 455
 	>> node_002 
 	if self.distance_2d_to_target().leq(800) 
 	else 
@@ -2739,7 +2739,7 @@ def node_248
 	return 
 endf 
 
-def node_249
+def node_249 : 452
 	>> node_002 
 	if self.distance_2d_to_target().leq(800) 
 		>> node_243 
@@ -2761,7 +2761,7 @@ def node_249
 	return 
 endf 
 
-def node_250
+def node_250 : 451
 	>> node_001 
 	if self.distance_2d_to_target().leq(850) 
 	else 
@@ -2773,7 +2773,7 @@ def node_250
 	return 
 endf 
 
-def node_251
+def node_251 : 560
 	>> node_002 
 	if self.distance_2d_to_target().leq(600) 
 		-> silver_rathalos.step_back_fly() 
@@ -2791,7 +2791,7 @@ def node_251
 	return 
 endf 
 
-def node_252
+def node_252 : 562
 	>> node_002 
 	if self.distance_2d_to_target().leq(1000) 
 		-> silver_rathalos.kick_fly_start_short_range_combo() @ comboSetting:1 
@@ -2805,7 +2805,7 @@ def node_252
 	return 
 endf 
 
-def node_253
+def node_253 : 561
 	>> node_002 
 	-> silver_rathalos.kick_fly_start_combo() @ comboSetting:1 
 	-> silver_rathalos.kick_fly_start_short_range_combo() @ comboSetting:1 
@@ -2813,7 +2813,7 @@ def node_253
 	return 
 endf 
 
-def node_254
+def node_254 : 552
 	random (30) >> node_002 
 				-> silver_rathalos.scratch_fly() @ comboSetting:1 
 				-> silver_rathalos.rush_bite_fly_combo() @ comboSetting:1 
@@ -2836,7 +2836,7 @@ def node_254
 	return 
 endf 
 
-def node_255
+def node_255 : 551
 	random (30) >> node_002 
 				if self.angle_2d_cw_between(0,180) 
 					-> silver_rathalos.hover_turn_breath_l() @ comboSetting:1 
@@ -2874,7 +2874,7 @@ def node_255
 	return 
 endf 
 
-def node_256
+def node_256 : 553
 	random (50) >> node_002 
 				if function#AF(5000) 
 					if self.angle_2d_cw_between(0,180) 
@@ -2909,7 +2909,7 @@ def node_256
 	return 
 endf 
 
-def node_257
+def node_257 : 556
 	random (20) >> node_002 
 				if self.distance_2d_to_target().leq(800) 
 				else 
@@ -2932,7 +2932,7 @@ def node_257
 	return 
 endf 
 
-def node_258
+def node_258 : 554
 	random (50) >> node_002 
 				if self.distance_2d_to_target().leq(800) 
 					>> node_243 
@@ -2976,7 +2976,7 @@ def node_258
 	return 
 endf 
 
-def node_259
+def node_259 : 555
 	>> node_002 
 	if self.angle_2d_cw_between(0,180) 
 		-> silver_rathalos.hover_turn_breath_l() @ comboSetting:1 
@@ -2991,7 +2991,7 @@ def node_259
 	return 
 endf 
 
-def node_260
+def node_260 : 567
 	if self.target.helpless_0() 
 		return 
 	elif self.target.fire_blighted() 
@@ -3024,7 +3024,7 @@ def node_260
 	return 
 endf 
 
-def node_261
+def node_261 : 397
 	random (35) 
 				self.targetArea(21) @ parameter2:500 
 	elser (35) 
@@ -3037,7 +3037,7 @@ def node_261
 	return 
 endf 
 
-def node_262
+def node_262 : 520
 	random (35) 
 				if self.flying() 
 					-> silver_rathalos.intimidation_fly() 
@@ -3049,7 +3049,7 @@ def node_262
 	return 
 endf 
 
-def node_263
+def node_263 : 521
 	if self.flying() 
 		-> silver_rathalos.intimidation_fly() 
 	else 
@@ -3058,7 +3058,7 @@ def node_263
 	return 
 endf 
 
-def node_264
+def node_264 : 464
 	>> node_271 
 	>> node_089 
 	if self.flying() 
@@ -3077,7 +3077,7 @@ def node_264
 	return 
 endf 
 
-def node_265
+def node_265 : 465
 	>> node_271 
 	if self.targetEnemy(target_em.any_monster) 
 		random (20) >> node_089 
@@ -3103,7 +3103,7 @@ def node_265
 	return 
 endf 
 
-def node_266
+def node_266 : 466
 	>> node_271 
 	>> node_089 
 	if self.flying() 
@@ -3122,7 +3122,7 @@ def node_266
 	return 
 endf 
 
-def node_267
+def node_267 : 467
 	>> node_271 
 	>> node_084 
 	if self.flying() 
@@ -3133,7 +3133,7 @@ def node_267
 	return 
 endf 
 
-def node_268
+def node_268 : 468
 	>> node_271 
 	self.targetEnemy(58) 
 	if self.flying() 
@@ -3161,7 +3161,7 @@ def node_268
 	return 
 endf 
 
-def node_269
+def node_269 : 469
 	if self.fatigued() 
 		-> silver_rathalos.walk_tired(1,2,0,600,1500) 
 	else 
@@ -3170,12 +3170,12 @@ def node_269
 	return 
 endf 
 
-def node_270
+def node_270 : 470
 	-> silver_rathalos.glide_combat(1,2,0,600,2000) 
 	return 
 endf 
 
-def node_271
+def node_271 : 471
 	if self.fatigued() 
 		>> node_001 
 	else 
@@ -3183,7 +3183,7 @@ def node_271
 	return 
 endf 
 
-def node_272
+def node_272 : 482
 	if self.targetEnemy(target_em.any_monster) 
 		if self.target_is(em.Pink_Rathian) 
 		elif self.target_is(em.Gold_Rathian) 
@@ -3199,7 +3199,7 @@ def node_272
 	return 
 endf 
 
-def node_273
+def node_273 : 483
 	if self.targetEnemy(target_em.any_monster) 
 		if self.target_is(em.Pink_Rathian) 
 		elif self.target_is(em.Gold_Rathian) 
@@ -3215,7 +3215,7 @@ def node_273
 	return 
 endf 
 
-def node_274
+def node_274 : 484
 	if self.targetEnemy(target_em.any_monster) 
 		if self.target(13) 
 		else 
@@ -3274,7 +3274,7 @@ def node_274
 	return 
 endf 
 
-def node_275
+def node_275 : 485
 	if self.targetEnemy(target_em.any_monster) 
 		if self.target(13) 
 		else 
@@ -3335,11 +3335,11 @@ def node_275
 	return 
 endf 
 
-def node_276
+def node_276 : 486
 	return 
 endf 
 
-def node_277
+def node_277 : 487
 	if self.in_map(st.Special_Arena).in_area(-1) 
 		>> node_279 
 	elif self.in_map(st.Challenge_Arena).in_area(-1) 
@@ -3381,7 +3381,7 @@ def node_277
 	return 
 endf 
 
-def node_278
+def node_278 : 488
 	>> node_279 
 	>> node_279 
 	random (70) 
@@ -3397,7 +3397,7 @@ def node_278
 	return 
 endf 
 
-def node_279
+def node_279 : 489
 	>> node_281 
 	self.targetEnemy(target_em.closest_entity) 
 	if self.flying() 
@@ -3414,7 +3414,7 @@ def node_279
 	return 
 endf 
 
-def node_280
+def node_280 : 490
 	self.targetEnemy(target_em.closest_entity) 
 	>> node_089 
 	if self.in_combat() 
@@ -3429,7 +3429,7 @@ def node_280
 	return 
 endf 
 
-def node_281
+def node_281 : 492
 	if self.fatigued() 
 		>> node_001 
 	else 
@@ -3437,7 +3437,7 @@ def node_281
 	return 
 endf 
 
-def node_282
+def node_282 : 493
 	if self.fatigued() 
 		>> node_283 
 	else 
@@ -3458,7 +3458,7 @@ def node_282
 	return 
 endf 
 
-def node_283
+def node_283 : 494
 	self.targetEnemy(target_em.closest_entity) 
 	if self.vertical_distance_to_target().leq(500) 
 	else 
@@ -3477,7 +3477,7 @@ def node_283
 	return 
 endf 
 
-def node_284
+def node_284 : 495
 	>> node_002 
 	self.targetEnemy(target_em.closest_entity) 
 	if self.distance_2d_to_target().leq(1000) 
@@ -3490,7 +3490,7 @@ def node_284
 	return 
 endf 
 
-def node_285
+def node_285 : 496
 	>> node_002 
 	self.targetEnemy(target_em.closest_entity) 
 	if self.distance_2d_to_target().leq(600) 
@@ -3504,7 +3504,7 @@ def node_285
 	return 
 endf 
 
-def node_286
+def node_286 : 497
 	>> node_002 
 	self.targetEnemy(target_em.closest_entity) 
 	if self.distance_2d_to_target().leq(1000) 
@@ -3515,7 +3515,7 @@ def node_286
 	return 
 endf 
 
-def node_287
+def node_287 : 498
 	>> node_002 
 	if self.distance_2d_to_target().leq(2000) 
 	else 
@@ -3530,7 +3530,7 @@ def node_287
 	return 
 endf 
 
-def node_288
+def node_288 : 542
 	if function#31(49,3000) 
 		self.targetEnemy(target_em.closest_entity) 
 		random (25) >> node_089 
@@ -3542,7 +3542,7 @@ def node_288
 	return 
 endf 
 
-def node_289
+def node_289 : 522
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if function#5D() 
 		>> node_291 
@@ -3585,7 +3585,7 @@ def node_289
 	return 
 endf 
 
-def node_290
+def node_290 : 523
 	if [RegisterVar4 <= 10] 
 		[RegisterVar4 |-] 
 	elif [RegisterVar4 <= 1] 
@@ -3595,7 +3595,7 @@ def node_290
 	return 
 endf 
 
-def node_291
+def node_291 : 524
 	if self.distance_2d_to_target().leq(1500) 
 		if self.angle_2d_cw_between(300,60) 
 		else 
@@ -3614,13 +3614,13 @@ def node_291
 	return 
 endf 
 
-def node_292
+def node_292 : 525
 	>> node_293 
 	>> node_294 
 	reset 
 endf 
 
-def node_293
+def node_293 : 331
 	self.targetArea(19) 
 	if self.distance_2d_to_target().leq(900) 
 	else 
@@ -3633,7 +3633,7 @@ def node_293
 	return 
 endf 
 
-def node_294
+def node_294 : 335
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.flying() 
 		>> node_205 
@@ -3645,7 +3645,7 @@ def node_294
 	return 
 endf 
 
-def node_295
+def node_295 : 526
 	if self.flying() 
 		>> node_302 
 	else 
@@ -3666,7 +3666,7 @@ def node_295
 	return 
 endf 
 
-def node_296
+def node_296 : 527
 	if self.flying() 
 		>> node_302 
 	else 
@@ -3687,7 +3687,7 @@ def node_296
 	return 
 endf 
 
-def node_297
+def node_297 : 528
 	if self.flying() 
 		>> node_302 
 	else 
@@ -3708,7 +3708,7 @@ def node_297
 	return 
 endf 
 
-def node_298
+def node_298 : 529
 	if self.flying() 
 		>> node_305 
 	else 
@@ -3717,7 +3717,7 @@ def node_298
 	return 
 endf 
 
-def node_299
+def node_299 : 549
 	if self.in_map(st.Ancient_Forest).in_area(2) 
 		if self.vertical_distance_to_target().leq(300) 
 		else 
@@ -3742,7 +3742,7 @@ def node_299
 	return 
 endf 
 
-def node_300
+def node_300 : 530
 	if self.distance_2d_to_target().leq(600) 
 		if self.vertical_distance_to_target().leq(1500) 
 		else 
@@ -3770,7 +3770,7 @@ def node_300
 	return 
 endf 
 
-def node_301
+def node_301 : 531
 	if self.distance_3d_to_target().leq(400) 
 	else 
 		-> silver_rathalos.dash_no_hit(1,2,0,300,1500) 
@@ -3786,7 +3786,7 @@ def node_301
 	return 
 endf 
 
-def node_302
+def node_302 : 532
 	if self.distance_2d_to_target().leq(300) 
 		if self.vertical_distance_to_target().leq(1000) 
 		else 
@@ -3815,7 +3815,7 @@ def node_302
 	return 
 endf 
 
-def node_303
+def node_303 : 533
 	if self.above_target() 
 		random (25) >> node_203 
 		elser (25) >> node_208 
@@ -3833,7 +3833,7 @@ def node_303
 	return 
 endf 
 
-def node_304
+def node_304 : 534
 	>> node_002 
 	if self.vertical_distance_to_target().leq(400) 
 		-> silver_rathalos.short_up_step_fly_min() 
@@ -3843,7 +3843,7 @@ def node_304
 	return 
 endf 
 
-def node_305
+def node_305 : 535
 	if self.distance_3d_to_target().leq(300) 
 	else 
 		-> silver_rathalos.glide_direct_move(1,2,0,200,1500) 
@@ -3859,7 +3859,7 @@ def node_305
 	return 
 endf 
 
-def node_306
+def node_306 : 543
 	if self.flying() 
 	else 
 		if self.vertical_distance_to_target().leq(450) 
@@ -3877,7 +3877,7 @@ def node_306
 	return 
 endf 
 
-def node_307
+def node_307 : 544
 	if self.distance_2d_to_target().leq(2000) 
 		>> node_175 
 	else 
@@ -3898,7 +3898,7 @@ def node_307
 	return 
 endf 
 
-def node_308
+def node_308 : 640
 	if self.flying() 
 		>> node_309 
 	else 
@@ -3907,7 +3907,7 @@ def node_308
 	return 
 endf 
 
-def node_309
+def node_309 : 641
 	>> node_002 
 	if self.distance_3d_to_target().leq(1500) 
 		>> node_311 
@@ -3919,7 +3919,7 @@ def node_309
 	return 
 endf 
 
-def node_310
+def node_310 : 642
 	>> node_001 
 	if self.distance_3d_to_target().leq(1500) 
 		>> node_313 
@@ -3937,7 +3937,7 @@ def node_310
 	return 
 endf 
 
-def node_311
+def node_311 : 643
 	if function#101() 
 		if self.enraged() 
 			random (20) >> node_215 
@@ -3960,14 +3960,14 @@ def node_311
 	return 
 endf 
 
-def node_312
+def node_312 : 644
 	random (50) >> node_214 
 	elser (50) >> node_339 
 	endr 
 	return 
 endf 
 
-def node_313
+def node_313 : 645
 	if self.enraged() 
 		random (20) >> node_328 
 		elser (35) >> node_326 
@@ -3989,7 +3989,7 @@ def node_313
 	return 
 endf 
 
-def node_314
+def node_314 : 646
 	if self.enraged() 
 		random (30) >> node_326 
 		elser (30) >> node_189 
@@ -4011,7 +4011,7 @@ def node_314
 	return 
 endf 
 
-def node_315
+def node_315 : 647
 	if self.distance_3d_to_target().leq(1500) 
 	else 
 		if self.fatigued() 
@@ -4039,7 +4039,7 @@ def node_315
 	return 
 endf 
 
-def node_316
+def node_316 : 648
 	if self.flying() 
 		if function#101() 
 			if self.enraged() 
@@ -4119,7 +4119,7 @@ def node_316
 	reset 
 endf 
 
-def node_317
+def node_317 : 568
 	if self.fatigued() 
 	else 
 		if self.flying() 
@@ -4138,7 +4138,7 @@ def node_317
 	return 
 endf 
 
-def node_318
+def node_318 : 569
 	if self.enraged() 
 		if function#101() 
 			if self.distance_2d_to_target().leq(600) 
@@ -4167,7 +4167,7 @@ def node_318
 	return 
 endf 
 
-def node_319
+def node_319 : 610
 	>> node_002 
 	if self.distance_2d_to_target().leq(1000) 
 		>> node_221 
@@ -4177,7 +4177,7 @@ def node_319
 	return 
 endf 
 
-def node_320
+def node_320 : 570
 	if self.enraged() 
 		if function#101() 
 			if self.distance_2d_to_target().leq(500) 
@@ -4200,7 +4200,7 @@ def node_320
 	return 
 endf 
 
-def node_321
+def node_321 : 609
 	>> node_001 
 	if self.distance_2d_to_target().leq(500) 
 		>> node_327 
@@ -4212,14 +4212,14 @@ def node_321
 	return 
 endf 
 
-def node_322
+def node_322 : 591
 	>> node_001 
 	>> node_091 
 	>> node_190 
 	return 
 endf 
 
-def node_323
+def node_323 : 590
 	>> node_001 
 	if self.distance_2d_to_target().leq(700) 
 		>> node_091 
@@ -4230,14 +4230,14 @@ def node_323
 	return 
 endf 
 
-def node_324
+def node_324 : 589
 	>> node_001 
 	>> node_331 
 	>> node_191 
 	return 
 endf 
 
-def node_325
+def node_325 : 638
 	>> node_001 
 	if self.distance_2d_to_target().leq(500) 
 	else 
@@ -4247,7 +4247,7 @@ def node_325
 	return 
 endf 
 
-def node_326
+def node_326 : 575
 	>> node_001 
 	if self.distance_2d_to_target().leq(1400) 
 	else 
@@ -4257,7 +4257,7 @@ def node_326
 	return 
 endf 
 
-def node_327
+def node_327 : 576
 	>> node_001 
 	if self.distance_2d_to_target().leq(500) 
 		>> node_329 
@@ -4269,7 +4269,7 @@ def node_327
 	return 
 endf 
 
-def node_328
+def node_328 : 577
 	>> node_001 
 	if self.distance_2d_to_target().leq(700) 
 	else 
@@ -4279,14 +4279,14 @@ def node_328
 	return 
 endf 
 
-def node_329
+def node_329 : 578
 	>> node_001 
 	-> silver_rathalos.quick_turn() 
 	-> silver_rathalos.back_turn_breath() 
 	return 
 endf 
 
-def node_330
+def node_330 : 639
 	if self.distance_2d_to_target().leq(850) 
 	else 
 		if self.fatigued() 
@@ -4330,7 +4330,7 @@ def node_330
 	return 
 endf 
 
-def node_331
+def node_331 : 588
 	if self.distance_3d_to_target().leq(450) 
 	else 
 		if self.fatigued() 
@@ -4374,7 +4374,7 @@ def node_331
 	return 
 endf 
 
-def node_332
+def node_332 : 572
 	if self.distance_2d_to_target().leq(400) 
 		>> node_324 
 		>> node_334 
@@ -4392,7 +4392,7 @@ def node_332
 	return 
 endf 
 
-def node_333
+def node_333 : 592
 	if self.distance_2d_to_target().leq(400) 
 		>> node_324 
 	elif self.distance_2d_to_target().leq(650) 
@@ -4407,7 +4407,7 @@ def node_333
 	return 
 endf 
 
-def node_334
+def node_334 : 573
 	if self.distance_2d_to_target().leq(650) 
 		>> node_328 
 	elif self.distance_2d_to_target().leq(1400) 
@@ -4420,7 +4420,7 @@ def node_334
 	return 
 endf 
 
-def node_335
+def node_335 : 574
 	if self.distance_2d_to_target().leq(400) 
 		>> node_324 
 	elif self.distance_2d_to_target().leq(650) 
@@ -4436,7 +4436,7 @@ def node_335
 	return 
 endf 
 
-def node_336
+def node_336 : 612
 	if self.distance_2d_to_target().leq(400) 
 		>> node_324 
 	elif self.distance_2d_to_target().leq(650) 
@@ -4449,7 +4449,7 @@ def node_336
 	return 
 endf 
 
-def node_337
+def node_337 : 632
 	>> node_002 
 	if self.angle_2d_cw_between(0,180) 
 		-> silver_rathalos.hover_turn_breath_r() @ comboSetting:1 
@@ -4461,25 +4461,25 @@ def node_337
 	return 
 endf 
 
-def node_338
+def node_338 : 623
 	>> node_002 
 	-> silver_rathalos.breath_fly_triple() 
 	return 
 endf 
 
-def node_339
+def node_339 : 622
 	>> node_002 
 	-> silver_rathalos.breath_fly_big() 
 	return 
 endf 
 
-def node_340
+def node_340 : 579
 	>> node_002 
 	-> silver_rathalos.front_sweep_kick() 
 	return 
 endf 
 
-def node_341
+def node_341 : 593
 	>> node_002 
 	random (50) -> silver_rathalos.sweep_breath_vertical() 
 	elser (50) -> silver_rathalos.sweep_breath_horizontal() 
@@ -4487,7 +4487,7 @@ def node_341
 	return 
 endf 
 
-def node_342
+def node_342 : 580
 	>> node_002 
 	random (50) -> silver_rathalos.sweep_breath_vertical_start() 
 	elser (50) -> silver_rathalos.sweep_breath_horizontal_start() 
@@ -4498,7 +4498,7 @@ def node_342
 	return 
 endf 
 
-def node_343
+def node_343 : 581
 	>> node_002 
 	random (50) -> silver_rathalos.sweep_breath_vertical_start() 
 	elser (50) -> silver_rathalos.sweep_breath_horizontal_start() 
@@ -4512,7 +4512,7 @@ def node_343
 	return 
 endf 
 
-def node_344
+def node_344 : 608
 	>> node_002 
 	random (50) -> silver_rathalos.sweep_breath_vertical_start() 
 	elser (50) -> silver_rathalos.sweep_breath_horizontal_start() 
@@ -4529,7 +4529,7 @@ def node_344
 	return 
 endf 
 
-def node_345
+def node_345 : 626
 	if self.enraged() 
 		>> node_033 
 	else 
@@ -4553,7 +4553,7 @@ def node_345
 	return 
 endf 
 
-def node_346
+def node_346 : 625
 	if self.distance_2d_to_target().leq(500) 
 		random (40) >> node_243 
 		elser (40) >> node_216 
@@ -4575,19 +4575,19 @@ def node_346
 	return 
 endf 
 
-def node_347
+def node_347 : 630
 	>> node_349 
 	>> node_350 
 	return 
 endf 
 
-def node_348
+def node_348 : 631
 	>> node_349 
 	>> node_351 
 	return 
 endf 
 
-def node_349
+def node_349 : 629
 	if self.distance_2d_to_target().leq(400) 
 		random (75) >> node_211 
 		elser (25) >> node_337 
@@ -4610,7 +4610,7 @@ def node_349
 	return 
 endf 
 
-def node_350
+def node_350 : 627
 	if self.enraged() 
 		if self.distance_2d_to_target().leq(400) 
 			random (100) >> node_211 
@@ -4659,7 +4659,7 @@ def node_350
 	return 
 endf 
 
-def node_351
+def node_351 : 628
 	if function#101() 
 		if self.enraged() 
 			if self.distance_2d_to_target().leq(500) 
@@ -4730,7 +4730,7 @@ def node_351
 	return 
 endf 
 
-def node_352
+def node_352 : 624
 	>> node_002 
 	-> silver_rathalos.scratch_fly() 
 	random (50) >> node_203 
@@ -4739,10 +4739,10 @@ def node_352
 	return 
 endf 
 
-def node_353
+def node_353 : 636
 endf 
 
-def node_354
+def node_354 : 635
 	>> node_002 
 	if self.angle_2d_cw_between(0,180) 
 		-> silver_rathalos.kick_progress_fly_s_range_r() @ comboSetting:1 
@@ -4768,7 +4768,7 @@ def node_354
 	return 
 endf 
 
-def node_355
+def node_355 : 633
 	>> node_002 
 	if self.distance_2d_to_target().leq(600) 
 		-> silver_rathalos.back_hover_breath_combo() @ comboSetting:1 
@@ -4796,7 +4796,7 @@ def node_355
 	return 
 endf 
 
-def node_356
+def node_356 : 634
 	>> node_002 
 	if self.distance_2d_to_target().leq(900) 
 		random (50) -> silver_rathalos.back_step_breath_fly() @ comboSetting:1 
@@ -4818,7 +4818,7 @@ def node_356
 	return 
 endf 
 
-def node_357
+def node_357 : 611
 	>> node_002 
 	if self.distance_2d_to_target().leq(1000) 
 		-> silver_rathalos.kick_fly_start_short_range_combo() @ comboSetting:1 
@@ -4832,7 +4832,7 @@ def node_357
 	return 
 endf 
 
-def node_358
+def node_358 : 604
 	>> node_001 
 	if self.distance_2d_to_target().leq(500) 
 	else 
@@ -4844,7 +4844,7 @@ def node_358
 	return 
 endf 
 
-def node_359
+def node_359 : 598
 	>> node_001 
 	if self.distance_2d_to_target().leq(500) 
 		>> node_329 
@@ -4858,7 +4858,7 @@ def node_359
 	return 
 endf 
 
-def node_360
+def node_360 : 605
 	>> node_002 
 	if self.distance_2d_to_target().leq(750) 
 	else 
@@ -4878,7 +4878,7 @@ def node_360
 	return 
 endf 
 
-def node_361
+def node_361 : 607
 	>> node_002 
 	if self.distance_2d_to_target().leq(1000) 
 		-> silver_rathalos.back_hover_breath_combo() @ comboSetting:1 
@@ -4899,7 +4899,7 @@ def node_361
 	return 
 endf 
 
-def node_362
+def node_362 : 586
 	if self.fatigued() 
 	elif function#101() 
 		[RegisterVar5 |-] 
@@ -4914,7 +4914,7 @@ def node_362
 	return 
 endf 
 
-def node_363
+def node_363 : 587
 	if self.flying() 
 		-> silver_rathalos.power_up_start_fly() 
 	else 

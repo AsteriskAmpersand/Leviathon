@@ -1,7 +1,7 @@
 importactions Tigrex as tigrex
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	>> Global.node_020 
 	if function#41() 
 		>> Global.node_027 
@@ -25,7 +25,7 @@ def node_000
 	reset 
 endf 
 
-def node_001
+def node_001 : 2
 	>> node_029 
 	function#A8() 
 	self.targetEnemy(target_em.random_player_or_cat) 
@@ -48,7 +48,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 3
 	>> node_029 
 	function#A8() 
 	self.targetEnemy(target_em.random_player_or_cat) 
@@ -69,7 +69,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 4
 	if self.mounted() 
 		>> node_010 
 	else 
@@ -78,7 +78,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 5
 	if self.mounted() 
 		>> node_012 
 	else 
@@ -87,7 +87,7 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 6
 	if self.mounted() 
 		>> node_014 
 	else 
@@ -96,7 +96,7 @@ def node_005
 	return 
 endf 
 
-def node_006
+def node_006 : 7
 	if self.mounted() 
 		>> node_007 
 	else 
@@ -105,7 +105,7 @@ def node_006
 	return 
 endf 
 
-def node_007
+def node_007 : 8
 	if function#29() 
 		self.targetArea(7) 
 		>> node_019 
@@ -121,7 +121,7 @@ def node_007
 	return 
 endf 
 
-def node_008
+def node_008 : 9
 	if function#29() 
 		self.targetArea(7) 
 		>> node_019 
@@ -135,7 +135,7 @@ def node_008
 	return 
 endf 
 
-def node_009
+def node_009 : 10
 	if self.mounted() 
 		>> node_020 
 	else 
@@ -143,45 +143,45 @@ def node_009
 	return 
 endf 
 
-def node_010
+def node_010 : 11
 	-> tigrex.ride_rage_head() 
 	return 
 endf 
 
-def node_011
+def node_011 : 12
 	>> node_022 
 	-> tigrex.ride_rage_head() 
 	return 
 endf 
 
-def node_012
+def node_012 : 13
 	>> node_022 
 	-> tigrex.rotate_attack_r() 
 	return 
 endf 
 
-def node_013
+def node_013 : 14
 	-> tigrex.ride_rage_body() 
 	return 
 endf 
 
-def node_014
+def node_014 : 15
 	-> tigrex.ride_rage_tail() 
 	return 
 endf 
 
-def node_015
+def node_015 : 16
 	-> tigrex.ride_rage_tail() 
 	return 
 endf 
 
-def node_016
+def node_016 : 17
 	>> node_022 
 	-> tigrex.roar() 
 	return 
 endf 
 
-def node_017
+def node_017 : 18
 	if self.angular_17(330,30) 
 		-> tigrex.quick_turn() 
 	else 
@@ -190,7 +190,7 @@ def node_017
 	return 
 endf 
 
-def node_018
+def node_018 : 19
 	if self.fatigued() 
 		-> tigrex.dash_combat(2,1,0,3000,700) 
 	else 
@@ -199,7 +199,7 @@ def node_018
 	return 
 endf 
 
-def node_019
+def node_019 : 20
 	if self.distance_3d_to_target().leq(500) 
 		-> tigrex.quick_turn() 
 	elif self.distance_3d_to_target().gt(3500) 
@@ -219,17 +219,17 @@ def node_019
 	return 
 endf 
 
-def node_020
+def node_020 : 21
 	-> tigrex.idle() 
 	return 
 endf 
 
-def node_021
+def node_021 : 22
 	-> tigrex.tired() 
 	return 
 endf 
 
-def node_022
+def node_022 : 23
 	random (20) >> node_023 
 	elser (80) >> node_024 
 	endr 
@@ -237,34 +237,34 @@ def node_022
 	return 
 endf 
 
-def node_023
+def node_023 : 24
 	self.targetEnemy(21) @ parameter2:1000 
 	return 
 endf 
 
-def node_024
+def node_024 : 25
 	self.targetEnemy(22) @ parameter2:1000 
 	return 
 endf 
 
-def node_025
+def node_025 : 26
 	random (48) >> node_026 
 	elser (52) >> node_027 
 	endr 
 	return 
 endf 
 
-def node_026
+def node_026 : 27
 	self.targetEnemy(12) @ parameter2:1000 
 	return 
 endf 
 
-def node_027
+def node_027 : 28
 	self.targetEnemy(11) @ parameter2:1000 
 	return 
 endf 
 
-def node_028
+def node_028 : 29
 	if self.angular_17(300,60) 
 		-> tigrex.quick_turn() 
 	else 
@@ -272,7 +272,7 @@ def node_028
 	return 
 endf 
 
-def node_029
+def node_029 : 30
 	if function#3B() 
 		if self.mount_staggered_twice() 
 			>> node_030 
@@ -302,7 +302,7 @@ def node_029
 	return 
 endf 
 
-def node_030
+def node_030 : 31
 	-> tigrex.ride_tired() 
 	return 
 endf 

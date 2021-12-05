@@ -1,10 +1,10 @@
 importactions Dodogama as dodogama
 
-def node_000
+def node_000 : 1
 	conclude 
 endf 
 
-def node_001
+def node_001 : 344
 	self.targetArea(14) 
 	if self.distance_3d_to_target().gt(600) 
 		>> node_029 
@@ -15,7 +15,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 345
 	self.targetArea(19) 
 	if self.distance_3d_to_target().gt(1000) 
 		>> node_029 
@@ -26,7 +26,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 327
 	if self.current_quest().is_rank(rank.MR) 
 		>> node_307 
 	else 
@@ -55,7 +55,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 328
 	if self.target_is(em.Deviljho) 
 		if self.target(49) 
 			>> node_008 
@@ -94,7 +94,7 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 329
 	if self.target_is(em.Deviljho) 
 		if self.target(49) 
 			>> node_008 
@@ -133,19 +133,19 @@ def node_005
 	return 
 endf 
 
-def node_006
+def node_006 : 330
 	>> node_034 
 	>> node_014 
 	return 
 endf 
 
-def node_007
+def node_007 : 331
 	>> node_040 
 	>> node_014 
 	return 
 endf 
 
-def node_008
+def node_008 : 332
 	if [RegisterVar0 >= 2] 
 		[RegisterVar0 ++] 
 	else 
@@ -155,7 +155,7 @@ def node_008
 	return 
 endf 
 
-def node_009
+def node_009 : 333
 	if self.vertical_distance_to_target().gt(1000) 
 		if function#101() 
 			>> node_122 
@@ -199,13 +199,13 @@ def node_009
 	return 
 endf 
 
-def node_010
+def node_010 : 350
 	>> node_007 
 	self.force_area_change2() 
 	return 
 endf 
 
-def node_011
+def node_011 : 355
 	>> node_009 
 	[RegisterVar0 ++] 
 	[RegisterVar0 ++] 
@@ -214,7 +214,7 @@ def node_011
 	return 
 endf 
 
-def node_012
+def node_012 : 351
 	if function#31(49,1500) 
 		self.targetEnemy(target_em.closest_entity) 
 		if self.target(13) 
@@ -227,29 +227,29 @@ def node_012
 	return 
 endf 
 
-def node_013
+def node_013 : 298
 	-> dodogama.threat() 
 	return 
 endf 
 
-def node_014
+def node_014 : 299
 	-> dodogama.threat_short() 
 	return 
 endf 
 
-def node_015
+def node_015 : 341
 	random (50) -> dodogama.search() 
 	elser (50) -> dodogama.short_search() 
 	endr 
 	return 
 endf 
 
-def node_016
+def node_016 : 172
 	>> node_262 
 	return 
 endf 
 
-def node_017
+def node_017 : 171
 	if self.distance_2d_to_target().leq(800) 
 	else 
 		>> node_016 
@@ -258,12 +258,12 @@ def node_017
 	return 
 endf 
 
-def node_018
+def node_018 : 176
 	-> dodogama.run(2,1,0,1500,600) 
 	return 
 endf 
 
-def node_019
+def node_019 : 175
 	>> node_018 
 	if self.distance_2d_to_target().leq(800) 
 	else 
@@ -272,7 +272,7 @@ def node_019
 	return 
 endf 
 
-def node_020
+def node_020 : 235
 	>> node_018 
 	if self.distance_2d_to_target().leq(800) 
 	else 
@@ -285,7 +285,7 @@ def node_020
 	return 
 endf 
 
-def node_021
+def node_021 : 236
 	if self.distance_3d_to_target().leq(300) 
 		>> node_040 
 	else 
@@ -294,12 +294,12 @@ def node_021
 	return 
 endf 
 
-def node_022
+def node_022 : 226
 	>> node_259 
 	return 
 endf 
 
-def node_023
+def node_023 : 227
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		>> node_022 
@@ -308,7 +308,7 @@ def node_023
 	return 
 endf 
 
-def node_024
+def node_024 : 292
 	if self.distance_2d_to_target().leq(800) 
 		return 
 	else 
@@ -327,7 +327,7 @@ def node_024
 	return 
 endf 
 
-def node_025
+def node_025 : 293
 	if self.distance_2d_to_target().leq(2000) 
 		>> node_047 
 	else 
@@ -336,7 +336,7 @@ def node_025
 	return 
 endf 
 
-def node_026
+def node_026 : 313
 	if self.distance_2d_to_target().gt(500) 
 		-> dodogama.run(1,2,0,500,1000) 
 	else 
@@ -360,7 +360,7 @@ def node_026
 	return 
 endf 
 
-def node_027
+def node_027 : 314
 	if self.distance_2d_to_target().gt(900) 
 		-> dodogama.run(1,2,0,900,1000) 
 	else 
@@ -384,7 +384,7 @@ def node_027
 	return 
 endf 
 
-def node_028
+def node_028 : 315
 	if self.distance_2d_to_target().gt(2400) 
 		-> dodogama.run(1,2,0,2400,2500) 
 	else 
@@ -408,17 +408,17 @@ def node_028
 	return 
 endf 
 
-def node_029
+def node_029 : 346
 	-> dodogama.run(2,1,5,1500,500) 
 	return 
 endf 
 
-def node_030
+def node_030 : 347
 	-> dodogama.walk(2,1,5,1000,500) 
 	return 
 endf 
 
-def node_031
+def node_031 : 354
 	-> dodogama.run(1,2,0,450,1000) 
 	if self.distance_3d_to_target().gt(450) 
 		-> dodogama.run(1,2,0,450,1000) 
@@ -443,7 +443,7 @@ def node_031
 	return 
 endf 
 
-def node_032
+def node_032 : 349
 	if self.angle_2d_cw_between(10,350) 
 		-> dodogama.turn() 
 	else 
@@ -451,7 +451,7 @@ def node_032
 	return 
 endf 
 
-def node_033
+def node_033 : 306
 	if self.angle_2d_cw_between(15,345) 
 		if self.distance_2d_to_target().leq(300) 
 			-> dodogama.back_turn() 
@@ -463,7 +463,7 @@ def node_033
 	return 
 endf 
 
-def node_034
+def node_034 : 307
 	if self.angle_2d_cw_between(30,330) 
 		if self.distance_2d_to_target().leq(300) 
 			-> dodogama.back_turn() 
@@ -475,7 +475,7 @@ def node_034
 	return 
 endf 
 
-def node_035
+def node_035 : 310
 	if self.angle_2d_cw_between(90,270) 
 		if self.distance_2d_to_target().leq(300) 
 			-> dodogama.back_turn() 
@@ -487,7 +487,7 @@ def node_035
 	return 
 endf 
 
-def node_036
+def node_036 : 316
 	if self.distance_2d_to_target().leq(300) 
 		-> dodogama.back_turn() 
 	elif self.angle_2d_cw_between(15,345) 
@@ -497,7 +497,7 @@ def node_036
 	return 
 endf 
 
-def node_037
+def node_037 : 317
 	if self.distance_2d_to_target().leq(300) 
 		-> dodogama.back_turn() 
 	elif self.angle_2d_cw_between(30,330) 
@@ -507,7 +507,7 @@ def node_037
 	return 
 endf 
 
-def node_038
+def node_038 : 319
 	if self.distance_2d_to_target().leq(300) 
 		-> dodogama.back_turn() 
 	elif self.angle_2d_cw_between(60,300) 
@@ -517,7 +517,7 @@ def node_038
 	return 
 endf 
 
-def node_039
+def node_039 : 318
 	if self.distance_2d_to_target().leq(300) 
 		-> dodogama.back_turn() 
 	elif self.angle_2d_cw_between(90,270) 
@@ -527,12 +527,12 @@ def node_039
 	return 
 endf 
 
-def node_040
+def node_040 : 334
 	-> dodogama.back_turn() 
 	return 
 endf 
 
-def node_041
+def node_041 : 308
 	if self.angle_2d_cw_between(15,345) 
 		-> dodogama.back_turn() 
 	else 
@@ -540,7 +540,7 @@ def node_041
 	return 
 endf 
 
-def node_042
+def node_042 : 309
 	if self.angle_2d_cw_between(30,330) 
 		-> dodogama.back_turn() 
 	else 
@@ -548,12 +548,12 @@ def node_042
 	return 
 endf 
 
-def node_043
+def node_043 : 163
 	>> node_269 
 	return 
 endf 
 
-def node_044
+def node_044 : 158
 	if self.distance_2d_to_target().leq(750) 
 		>> node_189 
 	else 
@@ -562,7 +562,7 @@ def node_044
 	return 
 endf 
 
-def node_045
+def node_045 : 161
 	if self.distance_2d_to_target().leq(750) 
 		>> node_272 
 	else 
@@ -571,22 +571,22 @@ def node_045
 	return 
 endf 
 
-def node_046
+def node_046 : 162
 	>> node_045 
 	return 
 endf 
 
-def node_047
+def node_047 : 189
 	>> node_040 
 	return 
 endf 
 
-def node_048
+def node_048 : 274
 	>> node_270 
 	return 
 endf 
 
-def node_049
+def node_049 : 76
 	if self.angle_2d_cw_between(15,345) 
 		>> node_043 
 	else 
@@ -594,7 +594,7 @@ def node_049
 	return 
 endf 
 
-def node_050
+def node_050 : 77
 	if self.angle_2d_cw_between(30,330) 
 		>> node_043 
 	else 
@@ -602,7 +602,7 @@ def node_050
 	return 
 endf 
 
-def node_051
+def node_051 : 78
 	if self.angle_2d_cw_between(45,315) 
 		>> node_043 
 	else 
@@ -610,7 +610,7 @@ def node_051
 	return 
 endf 
 
-def node_052
+def node_052 : 79
 	if self.angle_2d_cw_between(60,300) 
 		>> node_043 
 	else 
@@ -618,7 +618,7 @@ def node_052
 	return 
 endf 
 
-def node_053
+def node_053 : 80
 	if self.angle_2d_cw_between(75,285) 
 		>> node_043 
 	else 
@@ -626,7 +626,7 @@ def node_053
 	return 
 endf 
 
-def node_054
+def node_054 : 81
 	if self.angle_2d_cw_between(90,270) 
 		>> node_043 
 	else 
@@ -634,7 +634,7 @@ def node_054
 	return 
 endf 
 
-def node_055
+def node_055 : 98
 	if self.angle_2d_cw_between(10,320) 
 		>> node_043 
 	else 
@@ -642,7 +642,7 @@ def node_055
 	return 
 endf 
 
-def node_056
+def node_056 : 84
 	if self.angle_2d_cw_between(15,345) 
 		>> node_046 
 	else 
@@ -650,7 +650,7 @@ def node_056
 	return 
 endf 
 
-def node_057
+def node_057 : 85
 	if self.angle_2d_cw_between(30,330) 
 		>> node_046 
 	else 
@@ -658,7 +658,7 @@ def node_057
 	return 
 endf 
 
-def node_058
+def node_058 : 86
 	if self.angle_2d_cw_between(45,315) 
 		>> node_046 
 	else 
@@ -666,7 +666,7 @@ def node_058
 	return 
 endf 
 
-def node_059
+def node_059 : 87
 	if self.angle_2d_cw_between(60,300) 
 		>> node_046 
 	else 
@@ -674,7 +674,7 @@ def node_059
 	return 
 endf 
 
-def node_060
+def node_060 : 88
 	if self.angle_2d_cw_between(75,285) 
 		>> node_046 
 	else 
@@ -682,7 +682,7 @@ def node_060
 	return 
 endf 
 
-def node_061
+def node_061 : 89
 	if self.angle_2d_cw_between(90,270) 
 		>> node_046 
 	else 
@@ -690,7 +690,7 @@ def node_061
 	return 
 endf 
 
-def node_062
+def node_062 : 99
 	if self.angle_2d_cw_between(10,320) 
 		>> node_046 
 	else 
@@ -698,7 +698,7 @@ def node_062
 	return 
 endf 
 
-def node_063
+def node_063 : 251
 	if self.angle_2d_cw_between(15,345) 
 		>> node_047 
 	else 
@@ -706,7 +706,7 @@ def node_063
 	return 
 endf 
 
-def node_064
+def node_064 : 252
 	if self.angle_2d_cw_between(30,330) 
 		>> node_047 
 	else 
@@ -714,7 +714,7 @@ def node_064
 	return 
 endf 
 
-def node_065
+def node_065 : 253
 	if self.angle_2d_cw_between(45,315) 
 		>> node_047 
 	else 
@@ -722,7 +722,7 @@ def node_065
 	return 
 endf 
 
-def node_066
+def node_066 : 254
 	if self.angle_2d_cw_between(60,300) 
 		>> node_047 
 	else 
@@ -730,7 +730,7 @@ def node_066
 	return 
 endf 
 
-def node_067
+def node_067 : 255
 	if self.angle_2d_cw_between(90,270) 
 		>> node_047 
 	else 
@@ -738,7 +738,7 @@ def node_067
 	return 
 endf 
 
-def node_068
+def node_068 : 277
 	if self.angle_2d_cw_between(15,345) 
 		>> node_048 
 	else 
@@ -746,7 +746,7 @@ def node_068
 	return 
 endf 
 
-def node_069
+def node_069 : 278
 	if self.angle_2d_cw_between(30,330) 
 		>> node_048 
 	else 
@@ -754,7 +754,7 @@ def node_069
 	return 
 endf 
 
-def node_070
+def node_070 : 279
 	if self.angle_2d_cw_between(45,315) 
 		>> node_048 
 	else 
@@ -762,7 +762,7 @@ def node_070
 	return 
 endf 
 
-def node_071
+def node_071 : 280
 	if self.angle_2d_cw_between(60,300) 
 		>> node_048 
 	else 
@@ -770,7 +770,7 @@ def node_071
 	return 
 endf 
 
-def node_072
+def node_072 : 281
 	if self.angle_2d_cw_between(90,270) 
 		>> node_048 
 	else 
@@ -778,7 +778,7 @@ def node_072
 	return 
 endf 
 
-def node_073
+def node_073 : 90
 	if self.angle_2d_cw_between(0,180) 
 		>> node_223 
 	else 
@@ -787,7 +787,7 @@ def node_073
 	return 
 endf 
 
-def node_074
+def node_074 : 91
 	if self.angle_2d_cw_between(0,180) 
 		>> node_220 
 	else 
@@ -796,7 +796,7 @@ def node_074
 	return 
 endf 
 
-def node_075
+def node_075 : 97
 	if self.angle_2d_cw_between(270,90) 
 		>> node_073 
 	else 
@@ -805,7 +805,7 @@ def node_075
 	return 
 endf 
 
-def node_076
+def node_076 : 173
 	if self.angle_2d_cw_between(270,90) 
 		>> node_073 
 	else 
@@ -819,28 +819,28 @@ def node_076
 	return 
 endf 
 
-def node_077
+def node_077 : 92
 	>> node_217 
 	return 
 endf 
 
-def node_078
+def node_078 : 93
 	>> node_225 
 	return 
 endf 
 
-def node_079
+def node_079 : 94
 	>> node_222 
 	return 
 endf 
 
-def node_080
+def node_080 : 95
 	>> node_227 
 	>> node_081 
 	return 
 endf 
 
-def node_081
+def node_081 : 159
 	if self.target.helpless_1() 
 		>> node_082 
 		>> node_083 
@@ -850,7 +850,7 @@ def node_081
 	return 
 endf 
 
-def node_082
+def node_082 : 246
 	if self.distance_3d_to_target().leq(800) 
 		>> node_228 
 	else 
@@ -859,17 +859,17 @@ def node_082
 	return 
 endf 
 
-def node_083
+def node_083 : 160
 	>> node_230 
 	return 
 endf 
 
-def node_084
+def node_084 : 96
 	>> node_231 
 	return 
 endf 
 
-def node_085
+def node_085 : 164
 	if self.distance_2d_to_target().leq(800) 
 		random (25) >> node_050 
 					>> node_077 
@@ -884,7 +884,7 @@ def node_085
 	return 
 endf 
 
-def node_086
+def node_086 : 165
 	if self.distance_2d_to_target().leq(800) 
 		random (50) >> node_050 
 					>> node_077 
@@ -898,7 +898,7 @@ def node_086
 	return 
 endf 
 
-def node_087
+def node_087 : 166
 	random (50) >> node_077 
 	elser (25) >> node_075 
 	elser (25) >> node_079 
@@ -906,17 +906,17 @@ def node_087
 	return 
 endf 
 
-def node_088
+def node_088 : 174
 	>> node_201 
 	return 
 endf 
 
-def node_089
+def node_089 : 296
 	>> node_226 
 	return 
 endf 
 
-def node_090
+def node_090 : 100
 	if self.angle_2d_cw_between(0,180) 
 		>> node_292 
 	else 
@@ -925,7 +925,7 @@ def node_090
 	return 
 endf 
 
-def node_091
+def node_091 : 101
 	if self.angle_2d_cw_between(0,180) 
 		>> node_296 
 	else 
@@ -934,7 +934,7 @@ def node_091
 	return 
 endf 
 
-def node_092
+def node_092 : 183
 	if self.angle_2d_cw_between(270,90) 
 		>> node_090 
 	else 
@@ -943,12 +943,12 @@ def node_092
 	return 
 endf 
 
-def node_093
+def node_093 : 103
 	>> node_291 
 	return 
 endf 
 
-def node_094
+def node_094 : 104
 	if self.angle_2d_cw_between(0,180) 
 		>> node_294 
 	else 
@@ -957,7 +957,7 @@ def node_094
 	return 
 endf 
 
-def node_095
+def node_095 : 184
 	if self.angle_2d_cw_between(315,45) 
 		>> node_093 
 	elif self.angle_2d_cw_between(45,135) 
@@ -971,28 +971,28 @@ def node_095
 	return 
 endf 
 
-def node_096
+def node_096 : 244
 	>> node_298 
 	return 
 endf 
 
-def node_097
+def node_097 : 181
 	>> node_299 
 	>> node_300 
 	return 
 endf 
 
-def node_098
+def node_098 : 106
 	>> node_303 
 	return 
 endf 
 
-def node_099
+def node_099 : 243
 	>> node_304 
 	return 
 endf 
 
-def node_100
+def node_100 : 185
 	if self.distance_2d_to_target().leq(1000) 
 		random (50) >> node_095 
 		elser (50) 
@@ -1010,7 +1010,7 @@ def node_100
 	return 
 endf 
 
-def node_101
+def node_101 : 186
 	if self.distance_2d_to_target().leq(1000) 
 		>> node_095 
 	else 
@@ -1024,28 +1024,28 @@ def node_101
 	return 
 endf 
 
-def node_102
+def node_102 : 107
 	>> node_301 
 	return 
 endf 
 
-def node_103
+def node_103 : 108
 	>> node_302 
 	return 
 endf 
 
-def node_104
+def node_104 : 102
 	>> node_290 
 	return 
 endf 
 
-def node_105
+def node_105 : 300
 	>> node_035 
 	-> dodogama.eat_ore_attack() 
 	return 
 endf 
 
-def node_106
+def node_106 : 301
 	>> node_035 
 	-> dodogama.rush_eat_ore() 
 	if function#101(2) 
@@ -1062,14 +1062,14 @@ def node_106
 	return 
 endf 
 
-def node_107
+def node_107 : 348
 	>> node_035 
 	-> dodogama.rush_eat_ore() 
 	-> dodogama.rush_eat_ore_ok() 
 	return 
 endf 
 
-def node_108
+def node_108 : 311
 	>> node_039 
 	if self.distance_2d_to_target().leq(700) 
 		>> node_109 
@@ -1079,17 +1079,17 @@ def node_108
 	return 
 endf 
 
-def node_109
+def node_109 : 302
 	-> dodogama.breath_short() 
 	return 
 endf 
 
-def node_110
+def node_110 : 303
 	-> dodogama.breath_long() 
 	return 
 endf 
 
-def node_111
+def node_111 : 312
 	if self.distance_2d_to_target().leq(700) 
 		>> node_038 
 		>> node_112 
@@ -1100,17 +1100,17 @@ def node_111
 	return 
 endf 
 
-def node_112
+def node_112 : 304
 	-> dodogama.full_burst_short() 
 	return 
 endf 
 
-def node_113
+def node_113 : 305
 	-> dodogama.full_burst_long() 
 	return 
 endf 
 
-def node_114
+def node_114 : 320
 	if self.angle_2d_cw_between(0,180) 
 		-> dodogama.tail_attack_l() 
 	else 
@@ -1119,7 +1119,7 @@ def node_114
 	return 
 endf 
 
-def node_115
+def node_115 : 321
 	if self.distance_2d_to_target().gt(500) 
 		-> dodogama.run(2,1,0,100,500) 
 		repeat 
@@ -1134,7 +1134,7 @@ def node_115
 	return 
 endf 
 
-def node_116
+def node_116 : 322
 	if self.angle_2d_cw_between(0,180) 
 		-> dodogama.overturn_l() 
 	else 
@@ -1143,13 +1143,13 @@ def node_116
 	return 
 endf 
 
-def node_117
+def node_117 : 323
 	>> node_035 
 	-> dodogama.body_press() 
 	return 
 endf 
 
-def node_118
+def node_118 : 325
 	if self.angle_2d_cw_between(270,90) 
 		>> node_115 
 	else 
@@ -1158,7 +1158,7 @@ def node_118
 	return 
 endf 
 
-def node_119
+def node_119 : 326
 	if self.angle_2d_cw_between(315,45) 
 		>> node_117 
 	elif self.angle_2d_cw_between(45,135) 
@@ -1172,45 +1172,45 @@ def node_119
 	return 
 endf 
 
-def node_120
+def node_120 : 338
 	>> node_035 
 	-> dodogama.dash_attack() 
 	return 
 endf 
 
-def node_121
+def node_121 : 339
 	>> node_035 
 	-> dodogama.dash_attack_no_end() 
 	-> dodogama.overturn_dash() 
 	return 
 endf 
 
-def node_122
+def node_122 : 335
 	-> dodogama.eat_ore_combat() 
 	return 
 endf 
 
-def node_123
+def node_123 : 340
 	-> dodogama.eat_ore_life() 
 	return 
 endf 
 
-def node_124
+def node_124 : 336
 	-> dodogama.refresh() 
 	return 
 endf 
 
-def node_125
+def node_125 : 337
 	-> dodogama.tired() 
 	return 
 endf 
 
-def node_126
+def node_126 : 342
 	-> dodogama.sleep() 
 	return 
 endf 
 
-def node_127
+def node_127 : 239
 	if self.distance_3d_to_target().leq(3500) 
 		>> node_182 
 	else 
@@ -1221,7 +1221,7 @@ def node_127
 	return 
 endf 
 
-def node_128
+def node_128 : 241
 	if self.distance_3d_to_target().leq(1500) 
 	elif self.distance_3d_to_target().leq(3500) 
 		random (50) >> node_193 
@@ -1233,19 +1233,19 @@ def node_128
 	return 
 endf 
 
-def node_129
+def node_129 : 242
 	random (50) >> node_193 
 	elser (50) >> node_195 
 	endr 
 	return 
 endf 
 
-def node_130
+def node_130 : 237
 	-> dodogama.idle() 
 	return 
 endf 
 
-def node_131
+def node_131 : 249
 	if self.distance_3d_to_target().leq(500) 
 		>> node_047 
 	elif self.distance_3d_to_target().leq(750) 
@@ -1256,7 +1256,7 @@ def node_131
 	return 
 endf 
 
-def node_132
+def node_132 : 250
 	if self.distance_3d_to_target().leq(500) 
 		>> node_040 
 	elif self.distance_3d_to_target().leq(750) 
@@ -1267,7 +1267,7 @@ def node_132
 	return 
 endf 
 
-def node_133
+def node_133 : 197
 	if self.distance_2d_to_target().leq(1000) 
 		return 
 	else 
@@ -1286,7 +1286,7 @@ def node_133
 	return 
 endf 
 
-def node_134
+def node_134 : 198
 	if self.distance_2d_to_target().leq(1000) 
 		return 
 	else 
@@ -1305,59 +1305,59 @@ def node_134
 	return 
 endf 
 
-def node_135
+def node_135 : 256
 	>> node_191 
 	return 
 endf 
 
-def node_136
+def node_136 : 257
 	>> node_277 
 	return 
 endf 
 
-def node_137
+def node_137 : 60
 	>> node_197 
 	return 
 endf 
 
-def node_138
-	>> node_197 
-	>> node_197 
-	return 
-endf 
-
-def node_139
-	>> node_197 
-	return 
-endf 
-
-def node_140
+def node_138 : 61
 	>> node_197 
 	>> node_197 
 	return 
 endf 
 
-def node_141
+def node_139 : 62
+	>> node_197 
+	return 
+endf 
+
+def node_140 : 63
+	>> node_197 
+	>> node_197 
+	return 
+endf 
+
+def node_141 : 121
 	>> node_194 
 	return 
 endf 
 
-def node_142
+def node_142 : 69
 	>> node_194 
 	return 
 endf 
 
-def node_143
+def node_143 : 65
 	>> node_195 
 	return 
 endf 
 
-def node_144
+def node_144 : 66
 	>> node_196 
 	return 
 endf 
 
-def node_145
+def node_145 : 71
 	if self.enraged() 
 		>> node_183 
 	else 
@@ -1366,7 +1366,7 @@ def node_145
 	return 
 endf 
 
-def node_146
+def node_146 : 115
 	if self.enraged() 
 		>> node_184 
 	else 
@@ -1375,7 +1375,7 @@ def node_146
 	return 
 endf 
 
-def node_147
+def node_147 : 73
 	if self.enraged() 
 		>> node_077 
 	else 
@@ -1384,7 +1384,7 @@ def node_147
 	return 
 endf 
 
-def node_148
+def node_148 : 82
 	if self.target(10) 
 		-> dodogama.run(2,3,0,1000,2) 
 	else 
@@ -1394,27 +1394,27 @@ def node_148
 	return 
 endf 
 
-def node_149
+def node_149 : 122
 	>> node_280 
 	return 
 endf 
 
-def node_150
+def node_150 : 70
 	>> node_280 
 	return 
 endf 
 
-def node_151
+def node_151 : 67
 	>> node_281 
 	return 
 endf 
 
-def node_152
+def node_152 : 68
 	>> node_282 
 	return 
 endf 
 
-def node_153
+def node_153 : 72
 	if self.enraged() 
 		>> node_264 
 	else 
@@ -1423,7 +1423,7 @@ def node_153
 	return 
 endf 
 
-def node_154
+def node_154 : 116
 	if self.enraged() 
 		>> node_265 
 	else 
@@ -1432,7 +1432,7 @@ def node_154
 	return 
 endf 
 
-def node_155
+def node_155 : 74
 	if self.enraged() 
 		>> node_117 
 	else 
@@ -1441,7 +1441,7 @@ def node_155
 	return 
 endf 
 
-def node_156
+def node_156 : 83
 	if self.target(10) 
 		-> dodogama.run(2,3,0,1000,2) 
 	else 
@@ -1451,27 +1451,27 @@ def node_156
 	return 
 endf 
 
-def node_157
+def node_157 : 117
 	>> node_203 
 	return 
 endf 
 
-def node_158
+def node_158 : 118
 	>> node_203 
 	return 
 endf 
 
-def node_159
+def node_159 : 119
 	>> node_284 
 	return 
 endf 
 
-def node_160
+def node_160 : 120
 	>> node_284 
 	return 
 endf 
 
-def node_161
+def node_161 : 263
 	random (35) 
 				self.targetArea(21) @ parameter2:450 
 	elser (35) 
@@ -1484,7 +1484,7 @@ def node_161
 	return 
 endf 
 
-def node_162
+def node_162 : 294
 	if self.above_target() 
 		if self.vertical_distance_to_target().leq(1000) 
 			if function#101() 
@@ -1524,7 +1524,7 @@ def node_162
 	return 
 endf 
 
-def node_163
+def node_163 : 352
 	if function#11(500) 
 		if function#101() 
 			>> node_122 
@@ -1552,7 +1552,7 @@ def node_163
 	return 
 endf 
 
-def node_164
+def node_164 : 353
 	if self.distance_2d_to_target().leq(1000) 
 		>> node_106 
 	else 
@@ -1561,7 +1561,7 @@ def node_164
 	return 
 endf 
 
-def node_165
+def node_165 : 359
 	random (30) >> node_105 
 	elser (20) >> node_118 
 	elser (15) >> node_119 
@@ -1571,612 +1571,612 @@ def node_165
 	return 
 endf 
 
-def node_166
+def node_166 : 4
 	-> dodogama.idle() 
 	return 
 endf 
 
-def node_167
+def node_167 : 5
 	-> dodogama.walk() 
 	return 
 endf 
 
-def node_168
+def node_168 : 111
 	-> dodogama.walk(2,0,0,500) 
 	return 
 endf 
 
-def node_169
+def node_169 : 112
 	-> dodogama.walk(2,0,0,1000) 
 	return 
 endf 
 
-def node_170
+def node_170 : 209
 	-> dodogama.walk(2,1,0,500,650) 
 	return 
 endf 
 
-def node_171
+def node_171 : 208
 	-> dodogama.walk(2,1,0,1000,650) 
 	return 
 endf 
 
-def node_172
+def node_172 : 240
 	-> dodogama.walk(2,1,0,2000,1000) 
 	return 
 endf 
 
-def node_173
+def node_173 : 218
 	-> dodogama.walk(2,1,5,500,650) 
 	return 
 endf 
 
-def node_174
+def node_174 : 219
 	-> dodogama.walk(2,1,5,1000,650) 
 	return 
 endf 
 
-def node_175
+def node_175 : 6
 	-> dodogama.run() 
 	return 
 endf 
 
-def node_176
+def node_176 : 195
 	-> dodogama.run(2,0,0,1000) 
 	return 
 endf 
 
-def node_177
+def node_177 : 199
 	-> dodogama.run(2,3,0,1000,5) 
 	return 
 endf 
 
-def node_178
+def node_178 : 215
 	-> dodogama.run(2,1,0,500,650) 
 	return 
 endf 
 
-def node_179
+def node_179 : 167
 	-> dodogama.run(2,1,0,1000,650) 
 	return 
 endf 
 
-def node_180
+def node_180 : 168
 	-> dodogama.run(2,1,0,1000,1000) 
 	return 
 endf 
 
-def node_181
+def node_181 : 238
 	-> dodogama.run(2,1,0,6000,3000) 
 	return 
 endf 
 
-def node_182
+def node_182 : 245
 	-> dodogama.run(2,1,0,6000,1000) 
 	return 
 endf 
 
-def node_183
+def node_183 : 220
 	-> dodogama.run(2,1,5,500,650) 
 	return 
 endf 
 
-def node_184
+def node_184 : 221
 	-> dodogama.run(2,1,5,1000,650) 
 	return 
 endf 
 
-def node_185
+def node_185 : 135
 	-> dodogama.dying_walk() 
 	return 
 endf 
 
-def node_186
+def node_186 : 136
 	-> dodogama.dying_walk(2,0,0,1000) 
 	return 
 endf 
 
-def node_187
+def node_187 : 7
 	-> dodogama.turn() 
 	return 
 endf 
 
-def node_188
+def node_188 : 8
 	-> dodogama.back_turn() 
 	return 
 endf 
 
-def node_189
+def node_189 : 9
 	-> dodogama.idle() 
 	return 
 endf 
 
-def node_190
+def node_190 : 234
 	-> dodogama.idle() 
 	return 
 endf 
 
-def node_191
+def node_191 : 10
 	-> dodogama.search() 
 	return 
 endf 
 
-def node_192
+def node_192 : 11
 	-> dodogama.search() 
 	return 
 endf 
 
-def node_193
+def node_193 : 64
 	-> dodogama.short_search() 
 	return 
 endf 
 
-def node_194
+def node_194 : 191
 	-> dodogama.lost_search() 
 	return 
 endf 
 
-def node_195
+def node_195 : 211
 	-> dodogama.smell() 
 	return 
 endf 
 
-def node_196
+def node_196 : 212
 	-> dodogama.smell_max() 
 	return 
 endf 
 
-def node_197
+def node_197 : 12
 	-> dodogama.anger_search() 
 	return 
 endf 
 
-def node_198
+def node_198 : 134
 	-> dodogama.anger_search_walk() 
 	return 
 endf 
 
-def node_199
+def node_199 : 193
 	-> dodogama.peep_grass_search() 
 	return 
 endf 
 
-def node_200
+def node_200 : 137
 	-> dodogama.idle() 
 	return 
 endf 
 
-def node_201
+def node_201 : 146
 	-> dodogama.tired() 
 	return 
 endf 
 
-def node_202
+def node_202 : 13
 	-> dodogama.threat() 
 	return 
 endf 
 
-def node_203
+def node_203 : 138
 	-> dodogama.threat_short() 
 	return 
 endf 
 
-def node_204
+def node_204 : 14
 	-> dodogama.idle() 
 	return 
 endf 
 
-def node_205
+def node_205 : 23
 	-> dodogama.idle() 
 	return 
 endf 
 
-def node_206
+def node_206 : 264
 	-> dodogama.idle() 
 	return 
 endf 
 
-def node_207
+def node_207 : 15
 	-> dodogama.idle() 
 	return 
 endf 
 
-def node_208
+def node_208 : 266
 	-> dodogama.idle() 
 	return 
 endf 
 
-def node_209
+def node_209 : 59
 	-> dodogama.idle() 
 	return 
 endf 
 
-def node_210
+def node_210 : 16
 	-> dodogama.idle() 
 	return 
 endf 
 
-def node_211
+def node_211 : 17
 	-> dodogama.idle() 
 	return 
 endf 
 
-def node_212
+def node_212 : 18
 	-> dodogama.sleep() 
 	return 
 endf 
 
-def node_213
+def node_213 : 19
 	-> dodogama.sleep_end() 
 	return 
 endf 
 
-def node_214
+def node_214 : 20
 	-> dodogama.dying_sleep() 
 	return 
 endf 
 
-def node_215
+def node_215 : 21
 	-> dodogama.dying_sleep_end() 
 	return 
 endf 
 
-def node_216
+def node_216 : 139
 	-> dodogama.refresh() 
 	return 
 endf 
 
-def node_217
+def node_217 : 22
 	-> dodogama.idle() 
 	return 
 endf 
 
-def node_218
+def node_218 : 267
 	-> dodogama.idle() 
 	return 
 endf 
 
-def node_219
+def node_219 : 24
 	-> dodogama.idle() 
 	return 
 endf 
 
-def node_220
+def node_220 : 25
 	-> dodogama.tail_attack_l() 
 	return 
 endf 
 
-def node_221
+def node_221 : 26
 	-> dodogama.tail_attack_r() 
 	return 
 endf 
 
-def node_222
+def node_222 : 27
 	-> dodogama.idle() 
 	return 
 endf 
 
-def node_223
+def node_223 : 28
 	-> dodogama.idle() 
 	return 
 endf 
 
-def node_224
+def node_224 : 29
 	-> dodogama.idle() 
 	return 
 endf 
 
-def node_225
+def node_225 : 32
 	-> dodogama.idle() 
 	return 
 endf 
 
-def node_226
+def node_226 : 295
 	-> dodogama.idle() 
 	return 
 endf 
 
-def node_227
+def node_227 : 33
 	-> dodogama.idle() 
 	return 
 endf 
 
-def node_228
+def node_228 : 259
 	-> dodogama.idle() 
 	return 
 endf 
 
-def node_229
+def node_229 : 247
 	-> dodogama.idle() 
 	return 
 endf 
 
-def node_230
+def node_230 : 248
 	-> dodogama.idle() 
 	return 
 endf 
 
-def node_231
+def node_231 : 34
 	-> dodogama.idle() 
 	return 
 endf 
 
-def node_232
+def node_232 : 35
 	-> dodogama.ride_rage_head() 
 	return 
 endf 
 
-def node_233
+def node_233 : 36
 	-> dodogama.ride_rage_body() 
 	return 
 endf 
 
-def node_234
+def node_234 : 37
 	-> dodogama.ride_rage_crash_head() 
 	return 
 endf 
 
-def node_235
+def node_235 : 202
 	-> dodogama.ride_rage_crash_head_lv2() 
 	return 
 endf 
 
-def node_236
+def node_236 : 38
 	-> dodogama.ride_rage_crash_body() 
 	return 
 endf 
 
-def node_237
+def node_237 : 203
 	-> dodogama.ride_rage_crash_body_lv2() 
 	return 
 endf 
 
-def node_238
+def node_238 : 147
 	-> dodogama.ride_tired() 
 	return 
 endf 
 
-def node_239
+def node_239 : 140
 	-> dodogama.ride_rage_head() 
 	return 
 endf 
 
-def node_240
+def node_240 : 141
 	-> dodogama.ride_rage_body() 
 	return 
 endf 
 
-def node_241
+def node_241 : 142
 	-> dodogama.ride_rage_crash_head() 
 	return 
 endf 
 
-def node_242
+def node_242 : 204
 	-> dodogama.ride_rage_crash_head_lv2() 
 	return 
 endf 
 
-def node_243
+def node_243 : 143
 	-> dodogama.ride_rage_crash_body() 
 	return 
 endf 
 
-def node_244
+def node_244 : 205
 	-> dodogama.ride_rage_crash_body_lv2() 
 	return 
 endf 
 
-def node_245
+def node_245 : 148
 	-> dodogama.ride_tired() 
 	return 
 endf 
 
-def node_246
+def node_246 : 39
 	-> dodogama.idle() 
 	return 
 endf 
 
-def node_247
+def node_247 : 40
 	-> dodogama.idle() 
 	return 
 endf 
 
-def node_248
+def node_248 : 41
 	-> dodogama.idle() 
 	return 
 endf 
 
-def node_249
+def node_249 : 42
 	-> dodogama.idle() 
 	return 
 endf 
 
-def node_250
+def node_250 : 43
 	-> dodogama.idle() 
 	return 
 endf 
 
-def node_251
+def node_251 : 44
 	-> dodogama.walk() 
 	return 
 endf 
 
-def node_252
+def node_252 : 113
 	-> dodogama.walk(2,0,0,500) 
 	return 
 endf 
 
-def node_253
+def node_253 : 114
 	-> dodogama.walk(2,0,0,1000) 
 	return 
 endf 
 
-def node_254
+def node_254 : 210
 	-> dodogama.walk(2,1,0,500,650) 
 	return 
 endf 
 
-def node_255
+def node_255 : 207
 	-> dodogama.walk(2,1,0,1000,650) 
 	return 
 endf 
 
-def node_256
+def node_256 : 222
 	-> dodogama.walk(2,1,5,500,650) 
 	return 
 endf 
 
-def node_257
+def node_257 : 223
 	-> dodogama.walk(2,1,5,1000,650) 
 	return 
 endf 
 
-def node_258
+def node_258 : 45
 	-> dodogama.run() 
 	return 
 endf 
 
-def node_259
+def node_259 : 196
 	-> dodogama.run(2,0,0,1000) 
 	return 
 endf 
 
-def node_260
+def node_260 : 200
 	-> dodogama.run(2,3,0,1000,5) 
 	return 
 endf 
 
-def node_261
+def node_261 : 217
 	-> dodogama.run(2,1,0,500,650) 
 	return 
 endf 
 
-def node_262
+def node_262 : 169
 	-> dodogama.run(2,1,0,1000,650) 
 	return 
 endf 
 
-def node_263
+def node_263 : 170
 	-> dodogama.run(2,1,0,1000,1000) 
 	return 
 endf 
 
-def node_264
+def node_264 : 224
 	-> dodogama.run(2,1,5,500,650) 
 	return 
 endf 
 
-def node_265
+def node_265 : 225
 	-> dodogama.run(2,1,5,1000,650) 
 	return 
 endf 
 
-def node_266
+def node_266 : 144
 	-> dodogama.anger_search_walk() 
 	return 
 endf 
 
-def node_267
+def node_267 : 145
 	-> dodogama.dying_walk() 
 	return 
 endf 
 
-def node_268
+def node_268 : 201
 	-> dodogama.dying_walk(2,0,0,1000) 
 	return 
 endf 
 
-def node_269
+def node_269 : 46
 	-> dodogama.turn() 
 	return 
 endf 
 
-def node_270
+def node_270 : 276
 	-> dodogama.turn() 
 	return 
 endf 
 
-def node_271
+def node_271 : 188
 	-> dodogama.back_turn() 
 	return 
 endf 
 
-def node_272
+def node_272 : 190
 	-> dodogama.idle() 
 	return 
 endf 
 
-def node_273
+def node_273 : 233
 	-> dodogama.idle() 
 	return 
 endf 
 
-def node_274
+def node_274 : 194
 	-> dodogama.peep_grass_search() 
 	return 
 endf 
 
-def node_275
+def node_275 : 149
 	-> dodogama.idle() 
 	return 
 endf 
 
-def node_276
+def node_276 : 150
 	-> dodogama.tired() 
 	return 
 endf 
 
-def node_277
+def node_277 : 151
 	-> dodogama.search() 
 	return 
 endf 
 
-def node_278
+def node_278 : 152
 	-> dodogama.short_search() 
 	return 
 endf 
 
-def node_279
+def node_279 : 153
 	-> dodogama.anger_search() 
 	return 
 endf 
 
-def node_280
+def node_280 : 192
 	-> dodogama.lost_search() 
 	return 
 endf 
 
-def node_281
+def node_281 : 213
 	-> dodogama.smell() 
 	return 
 endf 
 
-def node_282
+def node_282 : 214
 	-> dodogama.smell_max() 
 	return 
 endf 
 
-def node_283
+def node_283 : 154
 	-> dodogama.threat() 
 	return 
 endf 
 
-def node_284
+def node_284 : 155
 	-> dodogama.threat_short() 
 	return 
 endf 
 
-def node_285
+def node_285 : 47
 	-> dodogama.sleep() 
 	return 
 endf 
 
-def node_286
+def node_286 : 48
 	-> dodogama.sleep_end() 
 	return 
 endf 
 
-def node_287
+def node_287 : 156
 	if function#C9() 
 		-> dodogama.dying_sleep() 
 	else 
@@ -2185,102 +2185,102 @@ def node_287
 	return 
 endf 
 
-def node_288
+def node_288 : 157
 	-> dodogama.dying_sleep_end() 
 	return 
 endf 
 
-def node_289
+def node_289 : 187
 	-> dodogama.refresh() 
 	return 
 endf 
 
-def node_290
+def node_290 : 49
 	-> dodogama.idle() 
 	return 
 endf 
 
-def node_291
+def node_291 : 50
 	-> dodogama.body_press() 
 	return 
 endf 
 
-def node_292
+def node_292 : 51
 	-> dodogama.idle() 
 	return 
 endf 
 
-def node_293
+def node_293 : 52
 	-> dodogama.idle() 
 	return 
 endf 
 
-def node_294
+def node_294 : 53
 	-> dodogama.overturn_l() 
 	return 
 endf 
 
-def node_295
+def node_295 : 54
 	-> dodogama.overturn_r() 
 	return 
 endf 
 
-def node_296
+def node_296 : 109
 	-> dodogama.tail_attack_l() 
 	return 
 endf 
 
-def node_297
+def node_297 : 110
 	-> dodogama.tail_attack_r() 
 	return 
 endf 
 
-def node_298
+def node_298 : 178
 	-> dodogama.idle() 
 	return 
 endf 
 
-def node_299
+def node_299 : 179
 	-> dodogama.idle() 
 	return 
 endf 
 
-def node_300
+def node_300 : 180
 	-> dodogama.idle() 
 	return 
 endf 
 
-def node_301
+def node_301 : 55
 	-> dodogama.idle() 
 	return 
 endf 
 
-def node_302
+def node_302 : 177
 	-> dodogama.idle() 
 	return 
 endf 
 
-def node_303
+def node_303 : 56
 	-> dodogama.idle() 
 	return 
 endf 
 
-def node_304
+def node_304 : 258
 	-> dodogama.idle() 
 	return 
 endf 
 
-def node_305
+def node_305 : 57
 	-> dodogama.idle() 
 	return 
 endf 
 
-def node_306
+def node_306 : 58
 	-> dodogama.idle() 
 	return 
 endf 
 
-def node_307
+def node_307 : 356
 	if self.targetEnemy(target_em.any_monster) 
 		if self.target(13) 
 		else 
@@ -2305,7 +2305,7 @@ def node_307
 	return 
 endf 
 
-def node_308
+def node_308 : 357
 	if self.target_is(em.Deviljho) 
 		if self.target(49) 
 			>> node_008 
@@ -2348,7 +2348,7 @@ def node_308
 	return 
 endf 
 
-def node_309
+def node_309 : 358
 	if self.target_is(em.Deviljho) 
 		if self.target(49) 
 			>> node_008 

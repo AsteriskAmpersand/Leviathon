@@ -1,14 +1,14 @@
 importactions Blackveil_Vaal_Hazak as blackveil_vaal_hazak
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	self.targetEnemy(target_em.random_player_or_cat) 
 	>> Global.node_001 
 	>> node_001 
 	conclude 
 endf 
 
-def node_001
+def node_001 : 20
 	if self.enraged() 
 		>> Global.node_055 
 	else 

@@ -1,10 +1,10 @@
 importactions Barroth as barroth
 
-def node_000
+def node_000 : 1
 	conclude 
 endf 
 
-def node_001
+def node_001 : 41
 	if function#5A() 
 		>> node_003 
 	elif function#5A(1) 
@@ -21,19 +21,19 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 68
 	>> node_025 
 	return 
 endf 
 
-def node_003
+def node_003 : 40
 	random (50) 
 	elser (50) >> node_025 
 	endr 
 	return 
 endf 
 
-def node_004
+def node_004 : 160
 	random (40) >> node_027 
 	elser (20) -> barroth.sniff_s() 
 	elser (10) -> barroth.sniff_l() 
@@ -42,18 +42,18 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 43
 	>> node_009 
 	-> barroth.ant_eat() 
 	return 
 endf 
 
-def node_006
+def node_006 : 70
 	-> barroth.rush_headbutt() 
 	return 
 endf 
 
-def node_007
+def node_007 : 44
 	if self.in_map(st.Guiding_Lands).in_area(-1) 
 		-> barroth.egc_sleep() 
 	else 
@@ -62,17 +62,17 @@ def node_007
 	return 
 endf 
 
-def node_008
+def node_008 : 42
 	-> barroth.drink() 
 	reset 
 endf 
 
-def node_009
+def node_009 : 33
 	-> barroth.normal_turn() 
 	return 
 endf 
 
-def node_010
+def node_010 : 31
 	if self.angle_2d_cw_between(30,330) 
 		-> barroth.normal_turn() 
 	else 
@@ -80,7 +80,7 @@ def node_010
 	return 
 endf 
 
-def node_011
+def node_011 : 32
 	if self.angle_2d_cw_between(80,280) 
 		-> barroth.normal_turn() 
 	else 
@@ -88,7 +88,7 @@ def node_011
 	return 
 endf 
 
-def node_012
+def node_012 : 66
 	if self.distance_3d_to_target().leq(800) 
 		-> barroth.back_turn() 
 	elif self.angle_2d_cw_between(30,330) 
@@ -98,17 +98,17 @@ def node_012
 	return 
 endf 
 
-def node_013
+def node_013 : 45
 	-> barroth.back_turn() 
 	return 
 endf 
 
-def node_014
+def node_014 : 111
 	-> barroth.back_step() 
 	return 
 endf 
 
-def node_015
+def node_015 : 10
 	if self.current_quest().is_rank(rank.MR) 
 		>> node_101 
 	else 
@@ -139,7 +139,7 @@ def node_015
 	return 
 endf 
 
-def node_016
+def node_016 : 147
 	if self.in_map(st.Special_Arena).in_area(-1) 
 	elif self.in_map(st.Challenge_Arena).in_area(-1) 
 	else 
@@ -163,7 +163,7 @@ def node_016
 	return 
 endf 
 
-def node_017
+def node_017 : 148
 	if self.in_map(st.Special_Arena).in_area(-1) 
 	elif self.in_map(st.Challenge_Arena).in_area(-1) 
 	else 
@@ -187,7 +187,7 @@ def node_017
 	return 
 endf 
 
-def node_018
+def node_018 : 130
 	if self.target(39) 
 		>> node_017 
 	else 
@@ -206,7 +206,7 @@ def node_018
 	return 
 endf 
 
-def node_019
+def node_019 : 141
 	if self.target(39) 
 		>> node_016 
 	else 
@@ -235,19 +235,19 @@ def node_019
 	return 
 endf 
 
-def node_020
+def node_020 : 150
 	[RegisterVar3 ++] 
 	return 
 endf 
 
-def node_021
+def node_021 : 80
 	[RegisterVar3 ++] 
 	>> node_057 
 	>> node_030 
 	return 
 endf 
 
-def node_022
+def node_022 : 83
 	if self.vertical_distance_to_target().gt(800) 
 		[RegisterVar3 ++] 
 		>> node_030 
@@ -265,25 +265,25 @@ def node_022
 	return 
 endf 
 
-def node_023
+def node_023 : 82
 	[RegisterVar3 |-] 
 	self.force_area_change2() 
 	return 
 endf 
 
-def node_024
+def node_024 : 162
 	>> node_022 
 	>> node_023 
 	return 
 endf 
 
-def node_025
+def node_025 : 54
 	[RegisterVar2 ++] 
 	-> barroth.search_desire() 
 	return 
 endf 
 
-def node_026
+def node_026 : 55
 	if self.enraged() 
 		-> barroth.search_switch_anger() 
 	else 
@@ -292,43 +292,43 @@ def node_026
 	return 
 endf 
 
-def node_027
+def node_027 : 56
 	-> barroth.search_feeling() 
 	return 
 endf 
 
-def node_028
+def node_028 : 53
 	-> barroth.refresh() 
 	return 
 endf 
 
-def node_029
+def node_029 : 52
 	-> barroth.tired() 
 	return 
 endf 
 
-def node_030
+def node_030 : 23
 	-> barroth.growl() 
 	return 
 endf 
 
-def node_031
+def node_031 : 50
 	-> barroth.threat_area_jump() 
 	return 
 endf 
 
-def node_032
+def node_032 : 20
 	-> barroth.threat_angry() 
 	return 
 endf 
 
-def node_033
+def node_033 : 74
 	>> node_010 
 	-> barroth.marking() 
 	return 
 endf 
 
-def node_034
+def node_034 : 67
 	if function#103() 
 		-> barroth.no_mud_splash() 
 	else 
@@ -337,7 +337,7 @@ def node_034
 	return 
 endf 
 
-def node_035
+def node_035 : 49
 	if function#103() 
 		-> barroth.no_mud_splash() 
 	else 
@@ -346,13 +346,13 @@ def node_035
 	return 
 endf 
 
-def node_036
+def node_036 : 139
 	>> node_009 
 	-> barroth.ant_eat_stamina() 
 	return 
 endf 
 
-def node_037
+def node_037 : 85
 	if self.distance_3d_to_target().leq(500) 
 		return 
 	else 
@@ -371,7 +371,7 @@ def node_037
 	return 
 endf 
 
-def node_038
+def node_038 : 88
 	if self.fatigued() 
 		-> barroth.tired_walk(2,1,5,1500,400) 
 	else 
@@ -380,7 +380,7 @@ def node_038
 	return 
 endf 
 
-def node_039
+def node_039 : 46
 	if self.distance_3d_to_target().leq(600) 
 		return 
 	else 
@@ -399,7 +399,7 @@ def node_039
 	return 
 endf 
 
-def node_040
+def node_040 : 87
 	if self.fatigued() 
 		-> barroth.tired_dash(2,1,0,500,500) 
 	else 
@@ -408,7 +408,7 @@ def node_040
 	return 
 endf 
 
-def node_041
+def node_041 : 157
 	if self.distance_3d_to_target().leq(600) 
 		return 
 	else 
@@ -427,7 +427,7 @@ def node_041
 	return 
 endf 
 
-def node_042
+def node_042 : 158
 	if self.fatigued() 
 		-> barroth.tired_dash(2,1,0,1000,500) 
 	else 
@@ -436,7 +436,7 @@ def node_042
 	return 
 endf 
 
-def node_043
+def node_043 : 36
 	if self.distance_3d_to_target().leq(500) 
 		return 
 	else 
@@ -455,7 +455,7 @@ def node_043
 	return 
 endf 
 
-def node_044
+def node_044 : 98
 	if self.distance_3d_to_target().leq(1000) 
 		return 
 	else 
@@ -474,7 +474,7 @@ def node_044
 	return 
 endf 
 
-def node_045
+def node_045 : 161
 	if self.distance_2d_to_target().leq(2000) 
 		return 
 	else 
@@ -493,7 +493,7 @@ def node_045
 	return 
 endf 
 
-def node_046
+def node_046 : 145
 	if self.distance_2d_to_target().leq(3000) 
 		return 
 	else 
@@ -512,7 +512,7 @@ def node_046
 	return 
 endf 
 
-def node_047
+def node_047 : 94
 	if self.distance_3d_to_target().leq(500) 
 		return 
 	else 
@@ -525,7 +525,7 @@ def node_047
 	repeat 
 endf 
 
-def node_048
+def node_048 : 73
 	if [RegisterVar2 <= 10] 
 		-> barroth.search_desire_2() 
 	else 
@@ -533,13 +533,13 @@ def node_048
 	return 
 endf 
 
-def node_049
+def node_049 : 47
 	[RegisterVar2 |-] 
 	-> barroth.mud_cover_life() 
 	reset 
 endf 
 
-def node_050
+def node_050 : 72
 	if [RegisterVar0 == 0] 
 		>> node_052 
 	elif [RegisterVar0 <= 40] 
@@ -562,7 +562,7 @@ def node_050
 	return 
 endf 
 
-def node_051
+def node_051 : 114
 	if self.enraged() 
 		random (80) 
 					[RegisterVar0 ++] 
@@ -574,7 +574,7 @@ def node_051
 	return 
 endf 
 
-def node_052
+def node_052 : 116
 	if function#7C() 
 		return 
 	elif function#103(1,6) 
@@ -595,7 +595,7 @@ def node_052
 	return 
 endf 
 
-def node_053
+def node_053 : 117
 	if function#101() 
 		function#102() 
 		if self.distance_3d_to_target().leq(600) 
@@ -610,13 +610,13 @@ def node_053
 	return 
 endf 
 
-def node_054
+def node_054 : 140
 	[RegisterVar0 |-] 
 	[RegisterVar0 ++] 
 	return 
 endf 
 
-def node_055
+def node_055 : 118
 	if function#104(1500,30) 
 		>> node_056 
 	elif function#104(3000,15) 
@@ -626,7 +626,7 @@ def node_055
 	return 
 endf 
 
-def node_056
+def node_056 : 119
 	if self.distance_3d_to_target().gt(800) 
 		>> node_061 
 		reset 
@@ -635,12 +635,12 @@ def node_056
 	return 
 endf 
 
-def node_057
+def node_057 : 9
 	-> barroth.quick_turn() 
 	return 
 endf 
 
-def node_058
+def node_058 : 34
 	if self.angle_2d_cw_between(30,330) 
 		-> barroth.quick_turn() 
 	else 
@@ -648,7 +648,7 @@ def node_058
 	return 
 endf 
 
-def node_059
+def node_059 : 35
 	if self.angle_2d_cw_between(80,280) 
 		-> barroth.quick_turn() 
 	else 
@@ -656,7 +656,7 @@ def node_059
 	return 
 endf 
 
-def node_060
+def node_060 : 86
 	if self.angle_2d_cw_between(100,260) 
 		-> barroth.quick_turn() 
 	else 
@@ -664,7 +664,7 @@ def node_060
 	return 
 endf 
 
-def node_061
+def node_061 : 21
 	if self.angle_2d_cw_between(30,90) 
 		if self.distance_3d_to_target().leq(700) 
 			>> node_014 
@@ -686,17 +686,17 @@ def node_061
 	return 
 endf 
 
-def node_062
+def node_062 : 101
 	-> barroth.rush_headbutt_attack() 
 	return 
 endf 
 
-def node_063
+def node_063 : 69
 	-> barroth.side_bite() 
 	return 
 endf 
 
-def node_064
+def node_064 : 120
 	if self.distance_3d_to_target().leq(500) 
 		-> barroth.side_tackle() 
 	elif self.distance_3d_to_target().leq(900) 
@@ -715,22 +715,22 @@ def node_064
 	return 
 endf 
 
-def node_065
+def node_065 : 100
 	-> barroth.jump_attack_2() 
 	return 
 endf 
 
-def node_066
+def node_066 : 39
 	-> barroth.tail_wind() 
 	return 
 endf 
 
-def node_067
+def node_067 : 99
 	-> barroth.tail_wind_short() 
 	return 
 endf 
 
-def node_068
+def node_068 : 84
 	if self.distance_2d_to_target().gt(600) 
 		>> node_060 
 		>> node_043 
@@ -740,30 +740,30 @@ def node_068
 	return 
 endf 
 
-def node_069
+def node_069 : 71
 	>> node_058 
 	-> barroth.mid_range_bite() 
 	return 
 endf 
 
-def node_070
+def node_070 : 89
 	>> node_058 
 	-> barroth.tackle_attack() 
 	return 
 endf 
 
-def node_071
+def node_071 : 51
 	-> barroth.side_bite() 
 	return 
 endf 
 
-def node_072
+def node_072 : 22
 	>> node_057 
 	-> barroth.jump_attack_2() 
 	return 
 endf 
 
-def node_073
+def node_073 : 159
 	if self.distance_2d_to_target().leq(500) 
 		>> node_013 
 	elif self.distance_2d_to_target().leq(2000) 
@@ -780,7 +780,7 @@ def node_073
 	return 
 endf 
 
-def node_074
+def node_074 : 97
 	>> node_060 
 	if self.distance_3d_to_target().leq(800) 
 		random (70) -> barroth.head_attack() 
@@ -794,7 +794,7 @@ def node_074
 	return 
 endf 
 
-def node_075
+def node_075 : 104
 	if function#2D(1) 
 		return 
 	else 
@@ -809,7 +809,7 @@ def node_075
 	return 
 endf 
 
-def node_076
+def node_076 : 93
 	if self.distance_3d_to_target().leq(1200) 
 		if self.angle_2d_cw_between(140,220) 
 			>> node_067 
@@ -821,7 +821,7 @@ def node_076
 	return 
 endf 
 
-def node_077
+def node_077 : 103
 	if self.distance_3d_to_target().leq(1200) 
 		if self.angle_2d_cw_between(140,220) 
 			>> node_066 
@@ -833,7 +833,7 @@ def node_077
 	return 
 endf 
 
-def node_078
+def node_078 : 92
 	if self.distance_3d_to_target().leq(1500) 
 		>> node_035 
 	else 
@@ -842,7 +842,7 @@ def node_078
 	return 
 endf 
 
-def node_079
+def node_079 : 107
 	if self.angle_2d_cw_between(45,140) 
 		>> node_064 
 	elif self.angle_2d_cw_between(140,170) 
@@ -859,7 +859,7 @@ def node_079
 	return 
 endf 
 
-def node_080
+def node_080 : 95
 	>> node_081 
 	if function#2D(1) 
 		return 
@@ -872,7 +872,7 @@ def node_080
 	return 
 endf 
 
-def node_081
+def node_081 : 19
 	if self.angle_2d_cw_between(45,170) 
 		>> node_063 
 	elif self.angle_2d_cw_between(190,315) 
@@ -883,7 +883,7 @@ def node_081
 	return 
 endf 
 
-def node_082
+def node_082 : 78
 	if function#2D(1) 
 		return 
 	elif self.target.helpless_0() 
@@ -900,7 +900,7 @@ def node_082
 	return 
 endf 
 
-def node_083
+def node_083 : 24
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.target.mudded() 
 		>> node_044 
@@ -918,7 +918,7 @@ def node_083
 	return 
 endf 
 
-def node_084
+def node_084 : 25
 	if self.angle_2d_cw_between(90,270) 
 		>> node_086 
 	elif self.distance_3d_to_target().gt(3000) 
@@ -929,17 +929,17 @@ def node_084
 	return 
 endf 
 
-def node_085
+def node_085 : 26
 	-> barroth.search_switch() 
 	return 
 endf 
 
-def node_086
+def node_086 : 27
 	-> barroth.search_feeling() 
 	return 
 endf 
 
-def node_087
+def node_087 : 30
 	self.targetArea(19) 
 	if self.distance_2d_to_target().gt(1000) 
 		>> node_047 
@@ -949,14 +949,14 @@ def node_087
 	return 
 endf 
 
-def node_088
+def node_088 : 29
 	self.targetEnemy(target_em.random_player_or_cat) 
 	>> node_010 
 	>> node_098 
 	return 
 endf 
 
-def node_089
+def node_089 : 142
 	>> node_045 
 	random (50) >> node_068 
 	elser (50) >> node_061 
@@ -964,7 +964,7 @@ def node_089
 	return 
 endf 
 
-def node_090
+def node_090 : 143
 	>> node_045 
 	>> node_045 
 	random (20) >> node_059 
@@ -975,13 +975,13 @@ def node_090
 	return 
 endf 
 
-def node_091
+def node_091 : 146
 	>> node_043 
 	>> node_068 
 	return 
 endf 
 
-def node_092
+def node_092 : 61
 	if self.target(0) 
 	else 
 		>> node_095 
@@ -993,11 +993,11 @@ def node_092
 	reset 
 endf 
 
-def node_093
+def node_093 : 62
 	reset 
 endf 
 
-def node_094
+def node_094 : 58
 	if self.angular_1A(270,90) 
 		*&
 	else 
@@ -1006,7 +1006,7 @@ def node_094
 	reset 
 endf 
 
-def node_095
+def node_095 : 57
 	if self.target(9) 
 		return 
 	else 
@@ -1019,7 +1019,7 @@ def node_095
 	return 
 endf 
 
-def node_096
+def node_096 : 151
 	self.targetArea(19) 
 	if self.distance_3d_recalc_to_target().gt(1000) 
 		>> node_047 
@@ -1028,7 +1028,7 @@ def node_096
 	return 
 endf 
 
-def node_097
+def node_097 : 152
 	random (15) -> barroth.wait() 
 	elser (5) -> barroth.sniff_s() 
 	elser (20) -> barroth.sniff_l() 
@@ -1039,7 +1039,7 @@ def node_097
 	return 
 endf 
 
-def node_098
+def node_098 : 156
 	random (37) -> barroth.wait() 
 	elser (23) -> barroth.search_feeling() 
 	elser (40) -> barroth.threat_area_jump() 
@@ -1047,12 +1047,12 @@ def node_098
 	return 
 endf 
 
-def node_099
+def node_099 : 153
 	-> barroth.wait() 
 	return 
 endf 
 
-def node_100
+def node_100 : 155
 	if self.fatigued() 
 		-> barroth.tired_walk(2,1,5,1500,400) 
 	else 
@@ -1061,7 +1061,7 @@ def node_100
 	return 
 endf 
 
-def node_101
+def node_101 : 163
 	if self.targetEnemy(target_em.any_monster) 
 		if self.target(13) 
 		else 
@@ -1088,7 +1088,7 @@ def node_101
 	return 
 endf 
 
-def node_102
+def node_102 : 164
 	if self.in_map(st.Special_Arena).in_area(-1) 
 	elif self.in_map(st.Challenge_Arena).in_area(-1) 
 	else 
@@ -1116,7 +1116,7 @@ def node_102
 	return 
 endf 
 
-def node_103
+def node_103 : 165
 	if self.in_map(st.Special_Arena).in_area(-1) 
 	elif self.in_map(st.Challenge_Arena).in_area(-1) 
 	else 
@@ -1144,7 +1144,7 @@ def node_103
 	return 
 endf 
 
-def node_104
+def node_104 : 166
 	if self.target(39) 
 		>> node_103 
 	else 
@@ -1167,7 +1167,7 @@ def node_104
 	return 
 endf 
 
-def node_105
+def node_105 : 167
 	if self.target(39) 
 		>> node_102 
 	else 

@@ -1,6 +1,6 @@
 importactions Popo as popo
 
-def node_000
+def node_000 : 1
 	if function#72(4) 
 		>> node_002 
 	else 
@@ -9,7 +9,7 @@ def node_000
 	conclude 
 endf 
 
-def node_001
+def node_001 : 3
 	if function#B0(3) 
 		>> node_003 
 	elif function#B0(4) 
@@ -28,7 +28,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 4
 	if self.distance_3d_to_target().leq(500) 
 	else 
 		random (52) -> action#05(2,1,0,2000,400) 
@@ -39,7 +39,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 10
 	if function#108() 
 		function#54() 
 		self.targetEnemy(48) 

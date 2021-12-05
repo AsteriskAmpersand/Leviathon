@@ -1,7 +1,7 @@
 importactions Stygian_Zinogre as stygian_zinogre
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	function#103() 
 	if function#10D() 
 		if self.distance_3d_to_target().leq(10000) 
@@ -21,7 +21,7 @@ def node_000
 	conclude 
 endf 
 
-def node_001
+def node_001 : 3
 	-> stygian_zinogre.dash(2,1,0,1000,900) 
 	if self.distance_2d_to_target().leq(1000) 
 	else 
@@ -30,7 +30,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 5
 	if function#6B(30000) 
 		>> Global.node_214 
 		>> node_003 
@@ -40,7 +40,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 6
 	self.targetEnemy(26) 
 	if self.distance_3d_to_target().leq(600) 
 	else 
@@ -50,7 +50,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 7
 	>> Global.node_048 
 	>> Global.node_209 
 	>> Global.node_081 

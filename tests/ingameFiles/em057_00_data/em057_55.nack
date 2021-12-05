@@ -1,10 +1,10 @@
 importactions Zinogre as zinogre
 
-def node_000
+def node_000 : 1
 	conclude 
 endf 
 
-def node_001
+def node_001 : 57
 	self.targetArea(14) 
 	if self.distance_3d_to_target().gt(600) 
 		>> node_203 
@@ -15,7 +15,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 58
 	self.targetArea(14) 
 	if self.distance_3d_to_target().gt(600) 
 		>> node_203 
@@ -26,7 +26,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 59
 	self.targetArea(19) 
 	if self.distance_3d_to_target().gt(1000) 
 		>> node_203 
@@ -37,7 +37,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 304
 	if function#38(0,10008) 
 		if [RegisterVar1 <= 3] 
 			function#CF() 
@@ -49,7 +49,7 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 305
 	if function#CE(1,1) 
 		function#CF() 
 	else 
@@ -57,7 +57,7 @@ def node_005
 	return 
 endf 
 
-def node_006
+def node_006 : 66
 	if self.targetEnemy(target_em.any_monster) 
 		if self.target(13) 
 		else 
@@ -94,7 +94,7 @@ def node_006
 	return 
 endf 
 
-def node_007
+def node_007 : 67
 	if function#38(0,10008) 
 		if self.target.in_combat() 
 			random (35) >> node_011 
@@ -129,7 +129,7 @@ def node_007
 	return 
 endf 
 
-def node_008
+def node_008 : 68
 	if function#38(0,10008) 
 		if self.target.in_combat() 
 			random (35) >> node_011 
@@ -167,7 +167,7 @@ def node_008
 	return 
 endf 
 
-def node_009
+def node_009 : 70
 	if self.target(39) 
 		>> node_007 
 	else 
@@ -227,7 +227,7 @@ def node_009
 	return 
 endf 
 
-def node_010
+def node_010 : 69
 	if self.target(39) 
 		>> node_008 
 	else 
@@ -288,11 +288,11 @@ def node_010
 	return 
 endf 
 
-def node_011
+def node_011 : 71
 	return 
 endf 
 
-def node_012
+def node_012 : 73
 	if self.vertical_distance_to_target().gt(500) 
 		>> node_105 
 	else 
@@ -301,19 +301,19 @@ def node_012
 	return 
 endf 
 
-def node_013
+def node_013 : 72
 	>> node_035 
 	>> node_183 
 	return 
 endf 
 
-def node_014
+def node_014 : 76
 	>> node_035 
 	>> node_184 
 	return 
 endf 
 
-def node_015
+def node_015 : 74
 	if [RegisterVar4 >= 2] 
 		[RegisterVar4 ++] 
 	else 
@@ -323,7 +323,7 @@ def node_015
 	return 
 endf 
 
-def node_016
+def node_016 : 297
 	if [RegisterVar4 >= 2] 
 	else 
 		[RegisterVar4 |-] 
@@ -332,12 +332,12 @@ def node_016
 	return 
 endf 
 
-def node_017
+def node_017 : 298
 	self.force_area_change2() 
 	return 
 endf 
 
-def node_018
+def node_018 : 306
 	if function#7F(5) 
 		random (30) -> zinogre.dash_attack() 
 		elser (30) -> zinogre.below_attack() 
@@ -359,7 +359,7 @@ def node_018
 	return 
 endf 
 
-def node_019
+def node_019 : 313
 	if self.above_target() 
 	else 
 		if self.target(0) @ parameter2:1 
@@ -373,7 +373,7 @@ def node_019
 	return 
 endf 
 
-def node_020
+def node_020 : 3
 	if self.angle_2d_cw_between(15,345) 
 		-> zinogre.normal_turn() 
 	else 
@@ -381,7 +381,7 @@ def node_020
 	return 
 endf 
 
-def node_021
+def node_021 : 5
 	if self.angle_2d_cw_between(30,330) 
 		-> zinogre.normal_turn() 
 	else 
@@ -389,7 +389,7 @@ def node_021
 	return 
 endf 
 
-def node_022
+def node_022 : 6
 	if self.angle_2d_cw_between(60,300) 
 		-> zinogre.normal_turn() 
 	else 
@@ -397,7 +397,7 @@ def node_022
 	return 
 endf 
 
-def node_023
+def node_023 : 7
 	if self.angle_2d_cw_between(90,270) 
 		-> zinogre.normal_turn() 
 	else 
@@ -405,12 +405,12 @@ def node_023
 	return 
 endf 
 
-def node_024
+def node_024 : 154
 	-> zinogre.normal_turn() 
 	return 
 endf 
 
-def node_025
+def node_025 : 9
 	if self.angle_2d_cw_between(15,345) 
 		if self.distance_2d_to_target().leq(350) 
 			-> zinogre.back_step() 
@@ -422,7 +422,7 @@ def node_025
 	return 
 endf 
 
-def node_026
+def node_026 : 10
 	if self.angle_2d_cw_between(30,330) 
 		if self.distance_2d_to_target().leq(350) 
 			-> zinogre.back_step() 
@@ -434,7 +434,7 @@ def node_026
 	return 
 endf 
 
-def node_027
+def node_027 : 11
 	if self.angle_2d_cw_between(60,300) 
 		if self.distance_2d_to_target().leq(350) 
 			-> zinogre.back_step() 
@@ -446,7 +446,7 @@ def node_027
 	return 
 endf 
 
-def node_028
+def node_028 : 12
 	if self.angle_2d_cw_between(90,270) 
 		if self.distance_2d_to_target().leq(350) 
 			-> zinogre.back_step() 
@@ -458,7 +458,7 @@ def node_028
 	return 
 endf 
 
-def node_029
+def node_029 : 15
 	if self.angle_2d_cw_between(15,345) 
 		-> zinogre.quick_turn() 
 	else 
@@ -466,7 +466,7 @@ def node_029
 	return 
 endf 
 
-def node_030
+def node_030 : 16
 	if self.angle_2d_cw_between(30,330) 
 		-> zinogre.quick_turn() 
 	else 
@@ -474,7 +474,7 @@ def node_030
 	return 
 endf 
 
-def node_031
+def node_031 : 17
 	if self.angle_2d_cw_between(60,300) 
 		-> zinogre.quick_turn() 
 	else 
@@ -482,7 +482,7 @@ def node_031
 	return 
 endf 
 
-def node_032
+def node_032 : 18
 	if self.angle_2d_cw_between(90,270) 
 		-> zinogre.quick_turn() 
 	else 
@@ -490,7 +490,7 @@ def node_032
 	return 
 endf 
 
-def node_033
+def node_033 : 246
 	if self.angle_2d_cw_between(125,235) 
 		-> zinogre.quick_turn() 
 	else 
@@ -498,7 +498,7 @@ def node_033
 	return 
 endf 
 
-def node_034
+def node_034 : 19
 	if self.angle_2d_cw_between(15,345) 
 		if self.distance_2d_to_target().leq(350) 
 			-> zinogre.back_step() 
@@ -510,7 +510,7 @@ def node_034
 	return 
 endf 
 
-def node_035
+def node_035 : 20
 	if self.angle_2d_cw_between(30,330) 
 		if self.distance_2d_to_target().leq(350) 
 			-> zinogre.back_step() 
@@ -522,7 +522,7 @@ def node_035
 	return 
 endf 
 
-def node_036
+def node_036 : 21
 	if self.angle_2d_cw_between(60,300) 
 		if self.distance_2d_to_target().leq(350) 
 			-> zinogre.back_step() 
@@ -534,7 +534,7 @@ def node_036
 	return 
 endf 
 
-def node_037
+def node_037 : 22
 	if self.angle_2d_cw_between(90,270) 
 		if self.distance_2d_to_target().leq(350) 
 			-> zinogre.back_step() 
@@ -546,7 +546,7 @@ def node_037
 	return 
 endf 
 
-def node_038
+def node_038 : 245
 	if self.angle_2d_cw_between(125,235) 
 		if self.distance_2d_to_target().leq(350) 
 			-> zinogre.back_step() 
@@ -558,12 +558,12 @@ def node_038
 	return 
 endf 
 
-def node_039
+def node_039 : 23
 	-> zinogre.back_step() 
 	return 
 endf 
 
-def node_040
+def node_040 : 24
 	if self.angle_2d_cw_between(15,345) 
 		-> zinogre.back_step() 
 	else 
@@ -571,7 +571,7 @@ def node_040
 	return 
 endf 
 
-def node_041
+def node_041 : 25
 	if self.angle_2d_cw_between(30,330) 
 		-> zinogre.back_step() 
 	else 
@@ -579,7 +579,7 @@ def node_041
 	return 
 endf 
 
-def node_042
+def node_042 : 26
 	if self.angle_2d_cw_between(60,300) 
 		-> zinogre.back_step() 
 	else 
@@ -587,7 +587,7 @@ def node_042
 	return 
 endf 
 
-def node_043
+def node_043 : 27
 	if self.angle_2d_cw_between(90,270) 
 		-> zinogre.back_step() 
 	else 
@@ -595,7 +595,7 @@ def node_043
 	return 
 endf 
 
-def node_044
+def node_044 : 282
 	if self.distance_2d_to_target().leq(350) 
 		-> zinogre.back_step() 
 	else 
@@ -603,7 +603,7 @@ def node_044
 	return 
 endf 
 
-def node_045
+def node_045 : 137
 	if self.distance_2d_to_target().leq(500) 
 		-> zinogre.back_step() 
 	else 
@@ -611,7 +611,7 @@ def node_045
 	return 
 endf 
 
-def node_046
+def node_046 : 187
 	>> node_195 
 	if self.distance_2d_to_target().leq(600) 
 		return 
@@ -632,7 +632,7 @@ def node_046
 	return 
 endf 
 
-def node_047
+def node_047 : 311
 	>> node_196 
 	if self.distance_2d_to_target().leq(700) 
 		return 
@@ -653,7 +653,7 @@ def node_047
 	return 
 endf 
 
-def node_048
+def node_048 : 309
 	>> node_197 
 	if self.distance_2d_to_target().leq(800) 
 		return 
@@ -674,7 +674,7 @@ def node_048
 	return 
 endf 
 
-def node_049
+def node_049 : 41
 	>> node_198 
 	if self.distance_2d_to_target().leq(1000) 
 		return 
@@ -695,7 +695,7 @@ def node_049
 	return 
 endf 
 
-def node_050
+def node_050 : 250
 	>> node_199 
 	if self.distance_2d_to_target().leq(2000) 
 		return 
@@ -716,7 +716,7 @@ def node_050
 	return 
 endf 
 
-def node_051
+def node_051 : 289
 	>> node_200 
 	if self.distance_2d_to_target().leq(2500) 
 		return 
@@ -737,7 +737,7 @@ def node_051
 	return 
 endf 
 
-def node_052
+def node_052 : 202
 	>> node_201 
 	if self.distance_2d_to_target().leq(3000) 
 		return 
@@ -758,7 +758,7 @@ def node_052
 	return 
 endf 
 
-def node_053
+def node_053 : 42
 	>> node_202 
 	if self.distance_2d_to_target().leq(1500) 
 		return 
@@ -775,7 +775,7 @@ def node_053
 	return 
 endf 
 
-def node_054
+def node_054 : 43
 	>> node_205 
 	if self.distance_2d_to_target().leq(3000) 
 		return 
@@ -784,7 +784,7 @@ def node_054
 	return 
 endf 
 
-def node_055
+def node_055 : 141
 	if self.target(0) @ parameter2:1 
 		-> zinogre.dash(2,1,0,1000,700) 
 	else 
@@ -825,7 +825,7 @@ def node_055
 	return 
 endf 
 
-def node_056
+def node_056 : 303
 	-> zinogre.dash(2,1,0,1000,300) 
 	if self.distance_3d_to_target().gt(450) 
 		-> zinogre.dash(2,1,0,1000,300) 
@@ -846,7 +846,7 @@ def node_056
 	return 
 endf 
 
-def node_057
+def node_057 : 268
 	if self.distance_2d_to_target().gt(800) 
 		if function#101() 
 			>> node_064 
@@ -858,7 +858,7 @@ def node_057
 	return 
 endf 
 
-def node_058
+def node_058 : 269
 	if self.distance_2d_to_target().gt(1000) 
 		if function#101() 
 			>> node_064 
@@ -870,7 +870,7 @@ def node_058
 	return 
 endf 
 
-def node_059
+def node_059 : 270
 	if self.distance_2d_to_target().gt(3000) 
 		>> node_052 
 	else 
@@ -878,7 +878,7 @@ def node_059
 	return 
 endf 
 
-def node_060
+def node_060 : 271
 	if self.distance_2d_to_target().gt(3000) 
 		>> node_052 
 	else 
@@ -886,24 +886,24 @@ def node_060
 	return 
 endf 
 
-def node_061
+def node_061 : 232
 	-> zinogre.back_turn() 
 	return 
 endf 
 
-def node_062
+def node_062 : 247
 	function#102() 
 	-> zinogre.back_turn() 
 	function#103() 
 	return 
 endf 
 
-def node_063
+def node_063 : 233
 	-> zinogre.back_step() 
 	return 
 endf 
 
-def node_064
+def node_064 : 248
 	if self.distance_2d_to_target().leq(400) 
 		>> node_039 
 	elif self.distance_2d_to_target().leq(1000) 
@@ -924,17 +924,17 @@ def node_064
 	return 
 endf 
 
-def node_065
+def node_065 : 234
 	-> zinogre.front_step_short() 
 	return 
 endf 
 
-def node_066
+def node_066 : 235
 	-> zinogre.front_step_long() 
 	return 
 endf 
 
-def node_067
+def node_067 : 236
 	if self.angle_2d_cw_between(135,225) 
 		-> zinogre.same_direction_btof() 
 	elif self.angle_2d_cw_between(315,45) 
@@ -944,7 +944,7 @@ def node_067
 	return 
 endf 
 
-def node_068
+def node_068 : 241
 	-> zinogre.fox_walk(2,1,0,500,700) 
 	if self.distance_3d_to_target().leq(700) 
 	else 
@@ -957,7 +957,7 @@ def node_068
 	return 
 endf 
 
-def node_069
+def node_069 : 302
 	-> zinogre.fox_walk_from_lightning_ball(2,1,0,500,700) 
 	if self.distance_3d_to_target().leq(700) 
 	else 
@@ -970,27 +970,27 @@ def node_069
 	return 
 endf 
 
-def node_070
+def node_070 : 237
 	-> zinogre.short_lightning_charge() 
 	return 
 endf 
 
-def node_071
+def node_071 : 238
 	-> zinogre.lightning_charge_min() 
 	return 
 endf 
 
-def node_072
+def node_072 : 239
 	-> zinogre.charge_trans() 
 	return 
 endf 
 
-def node_073
+def node_073 : 240
 	-> zinogre.charge_trans2() 
 	return 
 endf 
 
-def node_074
+def node_074 : 181
 	if self.distance_2d_to_target().gt(1000) 
 		if function#101() 
 			>> node_064 
@@ -1006,7 +1006,7 @@ def node_074
 	return 
 endf 
 
-def node_075
+def node_075 : 182
 	if self.distance_2d_to_target().gt(1000) 
 		if function#101() 
 			>> node_064 
@@ -1023,7 +1023,7 @@ def node_075
 	return 
 endf 
 
-def node_076
+def node_076 : 207
 	if function#101() 
 		-> zinogre.punch_combo_continue_l_lightning() 
 	else 
@@ -1032,7 +1032,7 @@ def node_076
 	return 
 endf 
 
-def node_077
+def node_077 : 183
 	if self.distance_2d_to_target().gt(100) 
 		if function#101() 
 			>> node_064 
@@ -1049,7 +1049,7 @@ def node_077
 	return 
 endf 
 
-def node_078
+def node_078 : 208
 	if function#101() 
 		-> zinogre.punch_combo_continue_r_lightning() 
 	else 
@@ -1058,7 +1058,7 @@ def node_078
 	return 
 endf 
 
-def node_079
+def node_079 : 184
 	if self.distance_2d_to_target().gt(1000) 
 		if function#101() 
 			>> node_064 
@@ -1075,7 +1075,7 @@ def node_079
 	return 
 endf 
 
-def node_080
+def node_080 : 272
 	if function#101() 
 		-> zinogre.strong_punch_l_lightning() 
 	else 
@@ -1084,7 +1084,7 @@ def node_080
 	return 
 endf 
 
-def node_081
+def node_081 : 209
 	if function#101() 
 		-> zinogre.strong_punch_combo_continue_l_lightning() 
 	else 
@@ -1093,7 +1093,7 @@ def node_081
 	return 
 endf 
 
-def node_082
+def node_082 : 185
 	if self.distance_2d_to_target().gt(1000) 
 		if function#101() 
 			>> node_064 
@@ -1110,7 +1110,7 @@ def node_082
 	return 
 endf 
 
-def node_083
+def node_083 : 273
 	if function#101() 
 		-> zinogre.strong_punch_r_lightning() 
 	else 
@@ -1119,7 +1119,7 @@ def node_083
 	return 
 endf 
 
-def node_084
+def node_084 : 210
 	if function#101() 
 		-> zinogre.strong_punch_combo_continue_r_lightning() 
 	else 
@@ -1128,7 +1128,7 @@ def node_084
 	return 
 endf 
 
-def node_085
+def node_085 : 186
 	if self.distance_2d_to_target().gt(1000) 
 		if function#101() 
 			>> node_064 
@@ -1142,27 +1142,27 @@ def node_085
 	return 
 endf 
 
-def node_086
+def node_086 : 285
 	-> zinogre.shoulder_tackle() 
 	return 
 endf 
 
-def node_087
+def node_087 : 188
 	-> zinogre.check_tail_attack() 
 	return 
 endf 
 
-def node_088
+def node_088 : 190
 	-> zinogre.turn_tail_attack() 
 	return 
 endf 
 
-def node_089
+def node_089 : 291
 	-> zinogre.turn_tail_attack() 
 	return 
 endf 
 
-def node_090
+def node_090 : 189
 	if self.distance_2d_to_target().gt(1000) 
 		if function#101() 
 			>> node_064 
@@ -1175,12 +1175,12 @@ def node_090
 	return 
 endf 
 
-def node_091
+def node_091 : 284
 	-> zinogre.tail_attack() 
 	return 
 endf 
 
-def node_092
+def node_092 : 197
 	if self.distance_2d_to_target().gt(1000) 
 		if function#101() 
 			>> node_064 
@@ -1193,22 +1193,22 @@ def node_092
 	return 
 endf 
 
-def node_093
+def node_093 : 274
 	-> zinogre.somersault() 
 	return 
 endf 
 
-def node_094
+def node_094 : 198
 	-> zinogre.side_attack() 
 	return 
 endf 
 
-def node_095
+def node_095 : 286
 	-> zinogre.side_attack() 
 	return 
 endf 
 
-def node_096
+def node_096 : 199
 	if self.distance_2d_to_target().gt(4000) 
 		>> node_052 
 	elif self.distance_2d_to_target().leq(400) 
@@ -1219,17 +1219,17 @@ def node_096
 	return 
 endf 
 
-def node_097
+def node_097 : 275
 	-> zinogre.back_showered_attack() 
 	return 
 endf 
 
-def node_098
+def node_098 : 191
 	-> zinogre.below_attack() 
 	return 
 endf 
 
-def node_099
+def node_099 : 192
 	if self.distance_2d_to_target().gt(4500) 
 		>> node_052 
 	elif self.distance_2d_to_target().leq(250) 
@@ -1240,12 +1240,12 @@ def node_099
 	return 
 endf 
 
-def node_100
+def node_100 : 276
 	-> zinogre.dash_attack() 
 	return 
 endf 
 
-def node_101
+def node_101 : 242
 	if self.distance_2d_to_target().gt(4500) 
 		>> node_052 
 	elif self.distance_2d_to_target().leq(250) 
@@ -1259,7 +1259,7 @@ def node_101
 	return 
 endf 
 
-def node_102
+def node_102 : 277
 	-> zinogre.dash_attack() 
 	random (85) >> node_071 
 	elser (15) >> node_103 
@@ -1267,7 +1267,7 @@ def node_102
 	return 
 endf 
 
-def node_103
+def node_103 : 267
 	if function#B9() 
 		if self.distance_2d_to_target().leq(1000) 
 			>> node_122 
@@ -1288,7 +1288,7 @@ def node_103
 	return 
 endf 
 
-def node_104
+def node_104 : 278
 	if function#B9() 
 		if self.distance_2d_to_target().leq(1000) 
 			>> node_122 
@@ -1309,7 +1309,7 @@ def node_104
 	return 
 endf 
 
-def node_105
+def node_105 : 193
 	if self.distance_2d_to_target().gt(3000) 
 		>> node_052 
 	elif self.distance_2d_to_target().leq(400) 
@@ -1328,7 +1328,7 @@ def node_105
 	return 
 endf 
 
-def node_106
+def node_106 : 279
 	if function#101() 
 		-> zinogre.jump_attack_lightning() 
 	else 
@@ -1341,7 +1341,7 @@ def node_106
 	return 
 endf 
 
-def node_107
+def node_107 : 249
 	if self.enraged() 
 		random (0) >> node_108 
 		elser (100) >> node_110 
@@ -1359,17 +1359,17 @@ def node_107
 	return 
 endf 
 
-def node_108
+def node_108 : 194
 	-> zinogre.lightning_ball() 
 	return 
 endf 
 
-def node_109
+def node_109 : 195
 	-> zinogre.lightning_ball_2_ren() 
 	return 
 endf 
 
-def node_110
+def node_110 : 295
 	if self.distance_2d_to_target().leq(1000) 
 		>> node_062 
 	else 
@@ -1378,7 +1378,7 @@ def node_110
 	return 
 endf 
 
-def node_111
+def node_111 : 301
 	if self.enraged() 
 		random (0) >> node_108 
 		elser (100) >> node_110 
@@ -1396,7 +1396,7 @@ def node_111
 	return 
 endf 
 
-def node_112
+def node_112 : 299
 	-> zinogre.lightning_ball_to_fox() 
 	if self.distance_2d_to_target().leq(1000) 
 		-> zinogre.lightning_ball_end_to_fox() 
@@ -1408,7 +1408,7 @@ def node_112
 	return 
 endf 
 
-def node_113
+def node_113 : 300
 	-> zinogre.lightning_ball_2_ren_to_fox() 
 	if self.distance_2d_to_target().leq(1000) 
 		-> zinogre.lightning_ball_end_2_ren_to_fox() 
@@ -1420,7 +1420,7 @@ def node_113
 	return 
 endf 
 
-def node_114
+def node_114 : 196
 	if self.distance_2d_to_target().leq(500) 
 		>> node_039 
 	elif self.distance_2d_to_target().gt(1000) 
@@ -1449,7 +1449,7 @@ def node_114
 	return 
 endf 
 
-def node_115
+def node_115 : 280
 	>> node_045 
 	-> zinogre.catch_attack() 
 	if self.target.pinned() 
@@ -1469,12 +1469,12 @@ def node_115
 	return 
 endf 
 
-def node_116
+def node_116 : 200
 	-> zinogre.lightning_charge_max() 
 	return 
 endf 
 
-def node_117
+def node_117 : 266
 	>> node_061 
 	random (85) >> node_071 
 	elser (15) >> node_118 
@@ -1482,7 +1482,7 @@ def node_117
 	return 
 endf 
 
-def node_118
+def node_118 : 283
 	if function#B9() 
 		if self.distance_2d_to_target().leq(1000) 
 			>> node_122 
@@ -1503,7 +1503,7 @@ def node_118
 	return 
 endf 
 
-def node_119
+def node_119 : 292
 	random (50) 
 				>> node_061 
 	elser (50) 
@@ -1516,7 +1516,7 @@ def node_119
 	return 
 endf 
 
-def node_120
+def node_120 : 296
 	[RegisterVar2 ++] 
 	if self.enraged() 
 		-> zinogre.multi_combo_attack_start3() 
@@ -1526,7 +1526,7 @@ def node_120
 	return 
 endf 
 
-def node_121
+def node_121 : 253
 	if function#104() 
 		if self.distance_2d_to_target().leq(1000) 
 			random (20) 
@@ -1556,7 +1556,7 @@ def node_121
 	return 
 endf 
 
-def node_122
+def node_122 : 243
 	>> node_038 
 	>> node_140 
 	>> node_121 
@@ -1572,7 +1572,7 @@ def node_122
 	return 
 endf 
 
-def node_123
+def node_123 : 244
 	>> node_141 
 	>> node_121 
 	if self.angle_2d_cw_between(315,45) 
@@ -1589,7 +1589,7 @@ def node_123
 	return 
 endf 
 
-def node_124
+def node_124 : 254
 	>> node_038 
 	>> node_140 
 	>> node_121 
@@ -1605,7 +1605,7 @@ def node_124
 	return 
 endf 
 
-def node_125
+def node_125 : 255
 	>> node_141 
 	>> node_121 
 	if self.angle_2d_cw_between(315,45) 
@@ -1620,7 +1620,7 @@ def node_125
 	return 
 endf 
 
-def node_126
+def node_126 : 256
 	>> node_150 
 	if self.angle_2d_cw_between(270,90) 
 		>> node_086 
@@ -1633,7 +1633,7 @@ def node_126
 	return 
 endf 
 
-def node_127
+def node_127 : 257
 	>> node_151 
 	if self.distance_2d_to_target().gt(1000) 
 		>> node_159 
@@ -1654,7 +1654,7 @@ def node_127
 	return 
 endf 
 
-def node_128
+def node_128 : 258
 	>> node_158 
 	if self.angle_2d_cw_between(315,45) 
 		>> node_141 
@@ -1668,7 +1668,7 @@ def node_128
 	return 
 endf 
 
-def node_129
+def node_129 : 259
 	>> node_159 
 	if self.distance_2d_to_target().gt(1000) 
 		>> node_158 
@@ -1688,7 +1688,7 @@ def node_129
 	return 
 endf 
 
-def node_130
+def node_130 : 262
 	>> node_038 
 	>> node_140 
 	>> node_121 
@@ -1707,7 +1707,7 @@ def node_130
 	return 
 endf 
 
-def node_131
+def node_131 : 263
 	>> node_141 
 	>> node_121 
 	if self.angle_2d_cw_between(315,45) 
@@ -1726,7 +1726,7 @@ def node_131
 	return 
 endf 
 
-def node_132
+def node_132 : 287
 	>> node_150 
 	if self.angle_2d_cw_between(270,90) 
 		>> node_149 
@@ -1742,7 +1742,7 @@ def node_132
 	return 
 endf 
 
-def node_133
+def node_133 : 288
 	>> node_158 
 	if self.angle_2d_cw_between(315,45) 
 		>> node_141 
@@ -1759,7 +1759,7 @@ def node_133
 	return 
 endf 
 
-def node_134
+def node_134 : 307
 	>> node_141 
 	>> node_121 
 	>> node_144 
@@ -1776,7 +1776,7 @@ def node_134
 	return 
 endf 
 
-def node_135
+def node_135 : 308
 	>> node_141 
 	>> node_121 
 	>> node_144 
@@ -1796,7 +1796,7 @@ def node_135
 	return 
 endf 
 
-def node_136
+def node_136 : 265
 	if function#101() 
 		if function#105(1) 
 			if self.enraged() 
@@ -1815,7 +1815,7 @@ def node_136
 	return 
 endf 
 
-def node_137
+def node_137 : 260
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.angle_2d_cw_between(315,45) 
 		if function#106(1) 
@@ -1833,7 +1833,7 @@ def node_137
 	return 
 endf 
 
-def node_138
+def node_138 : 261
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.angle_2d_cw_between(315,45) 
 		if function#106(1) 
@@ -1851,7 +1851,7 @@ def node_138
 	return 
 endf 
 
-def node_139
+def node_139 : 264
 	if function#107(1) 
 	elif self.targetEnemy(target_em.random_player_or_cat) 
 	endif 
@@ -1891,14 +1891,14 @@ def node_139
 	return 
 endf 
 
-def node_140
+def node_140 : 206
 	function#102() 
 	-> zinogre.jab() 
 	function#103() 
 	return 
 endf 
 
-def node_141
+def node_141 : 211
 	function#102() 
 	if function#101() 
 		-> zinogre.punch_l_lightning() 
@@ -1909,7 +1909,7 @@ def node_141
 	return 
 endf 
 
-def node_142
+def node_142 : 212
 	function#102() 
 	if function#101() 
 		-> zinogre.punch_combo_continue_l_lightning() 
@@ -1920,7 +1920,7 @@ def node_142
 	return 
 endf 
 
-def node_143
+def node_143 : 213
 	function#102() 
 	if function#101() 
 		-> zinogre.punch_r_lightning() 
@@ -1931,7 +1931,7 @@ def node_143
 	return 
 endf 
 
-def node_144
+def node_144 : 214
 	function#102() 
 	if function#101() 
 		-> zinogre.punch_combo_continue_r_lightning() 
@@ -1942,7 +1942,7 @@ def node_144
 	return 
 endf 
 
-def node_145
+def node_145 : 215
 	function#102() 
 	if function#101() 
 		-> zinogre.strong_punch_l_lightning() 
@@ -1953,7 +1953,7 @@ def node_145
 	return 
 endf 
 
-def node_146
+def node_146 : 216
 	function#102() 
 	if function#101() 
 		-> zinogre.strong_punch_combo_continue_l_lightning() 
@@ -1964,7 +1964,7 @@ def node_146
 	return 
 endf 
 
-def node_147
+def node_147 : 217
 	function#102() 
 	if function#101() 
 		-> zinogre.strong_punch_r_lightning() 
@@ -1975,7 +1975,7 @@ def node_147
 	return 
 endf 
 
-def node_148
+def node_148 : 218
 	function#102() 
 	if function#101() 
 		-> zinogre.strong_punch_combo_continue_r_lightning() 
@@ -1986,70 +1986,70 @@ def node_148
 	return 
 endf 
 
-def node_149
+def node_149 : 219
 	function#102() 
 	-> zinogre.shoulder_tackle() 
 	function#103() 
 	return 
 endf 
 
-def node_150
+def node_150 : 220
 	function#102() 
 	-> zinogre.check_tail_attack() 
 	function#103() 
 	return 
 endf 
 
-def node_151
+def node_151 : 221
 	function#102() 
 	-> zinogre.turn_tail_attack() 
 	function#103() 
 	return 
 endf 
 
-def node_152
+def node_152 : 222
 	function#102() 
 	-> zinogre.tail_attack() 
 	function#103() 
 	return 
 endf 
 
-def node_153
+def node_153 : 223
 	function#102() 
 	-> zinogre.somersault() 
 	function#103() 
 	return 
 endf 
 
-def node_154
+def node_154 : 224
 	function#102() 
 	-> zinogre.side_attack() 
 	function#103() 
 	return 
 endf 
 
-def node_155
+def node_155 : 225
 	function#102() 
 	-> zinogre.back_showered_attack() 
 	function#103() 
 	return 
 endf 
 
-def node_156
+def node_156 : 226
 	function#102() 
 	-> zinogre.below_attack() 
 	function#103() 
 	return 
 endf 
 
-def node_157
+def node_157 : 227
 	function#102() 
 	-> zinogre.dash_attack() 
 	function#103() 
 	return 
 endf 
 
-def node_158
+def node_158 : 228
 	function#102() 
 	if function#101() 
 		-> zinogre.jump_attack_lightning() 
@@ -2060,87 +2060,87 @@ def node_158
 	return 
 endf 
 
-def node_159
+def node_159 : 252
 	random (60) >> node_160 
 	elser (40) >> node_161 
 	endr 
 	return 
 endf 
 
-def node_160
+def node_160 : 229
 	function#102() 
 	-> zinogre.lightning_ball() 
 	function#103() 
 	return 
 endf 
 
-def node_161
+def node_161 : 230
 	function#102() 
 	-> zinogre.lightning_ball_2_ren() 
 	function#103() 
 	return 
 endf 
 
-def node_162
+def node_162 : 231
 	function#102() 
 	-> zinogre.lightning_charge_max() 
 	function#103() 
 	return 
 endf 
 
-def node_163
+def node_163 : 119
 	>> node_105 
 	return 
 endf 
 
-def node_164
+def node_164 : 111
 	>> node_034 
 	-> zinogre.search_bushes() 
 	return 
 endf 
 
-def node_165
+def node_165 : 294
 	>> node_034 
 	-> zinogre.predatory_attack() 
 	return 
 endf 
 
-def node_166
+def node_166 : 51
 	-> zinogre.search() 
 	return 
 endf 
 
-def node_167
+def node_167 : 204
 	-> zinogre.battle_search() 
 	return 
 endf 
 
-def node_168
+def node_168 : 205
 	-> zinogre.lost_search() 
 	return 
 endf 
 
-def node_169
+def node_169 : 293
 	-> zinogre.loss_appetite() 
 	return 
 endf 
 
-def node_170
+def node_170 : 112
 	-> zinogre.sleep() 
 	return 
 endf 
 
-def node_171
+def node_171 : 113
 	-> zinogre.drink() 
 	return 
 endf 
 
-def node_172
+def node_172 : 114
 	-> zinogre.eat() 
 	return 
 endf 
 
-def node_173
+def node_173 : 115
 	if function#3C() 
 		-> zinogre.sunbath() 
 	else 
@@ -2149,63 +2149,63 @@ def node_173
 	return 
 endf 
 
-def node_174
+def node_174 : 116
 	-> zinogre.dying_sleep() 
 	return 
 endf 
 
-def node_175
+def node_175 : 117
 	-> zinogre.normal_turn() 
 	-> zinogre.marking() 
 	return 
 endf 
 
-def node_176
+def node_176 : 107
 	-> zinogre.sniff_s() 
 	return 
 endf 
 
-def node_177
+def node_177 : 108
 	-> zinogre.sniff_l() 
 	return 
 endf 
 
-def node_178
+def node_178 : 109
 	-> zinogre.lost_search() 
 	return 
 endf 
 
-def node_179
+def node_179 : 110
 	-> zinogre.battle_search() 
 	return 
 endf 
 
-def node_180
+def node_180 : 105
 	-> zinogre.idle_tired() 
 	return 
 endf 
 
-def node_181
+def node_181 : 122
 	-> zinogre.refresh() 
 	return 
 endf 
 
-def node_182
+def node_182 : 63
 	-> zinogre.threat() 
 	return 
 endf 
 
-def node_183
+def node_183 : 64
 	-> zinogre.short_threat() 
 	return 
 endf 
 
-def node_184
+def node_184 : 65
 	-> zinogre.growl() 
 	return 
 endf 
 
-def node_185
+def node_185 : 29
 	if self.in_combat() 
 		if self.fatigued() 
 			-> zinogre.tired_walk(2,1,0,500,500) 
@@ -2222,7 +2222,7 @@ def node_185
 	return 
 endf 
 
-def node_186
+def node_186 : 52
 	if self.in_combat() 
 		if self.fatigued() 
 			-> zinogre.tired_walk(2,1,5,500,500) 
@@ -2239,7 +2239,7 @@ def node_186
 	return 
 endf 
 
-def node_187
+def node_187 : 30
 	if self.in_combat() 
 		if self.fatigued() 
 			-> zinogre.tired_walk(2,1,0,1500,500) 
@@ -2256,7 +2256,7 @@ def node_187
 	return 
 endf 
 
-def node_188
+def node_188 : 53
 	if self.in_combat() 
 		if self.fatigued() 
 			-> zinogre.tired_walk(2,1,5,1500,500) 
@@ -2273,7 +2273,7 @@ def node_188
 	return 
 endf 
 
-def node_189
+def node_189 : 31
 	if self.in_combat() 
 		if self.fatigued() 
 			-> zinogre.tired_walk(2,6,0,500,500) 
@@ -2290,7 +2290,7 @@ def node_189
 	return 
 endf 
 
-def node_190
+def node_190 : 54
 	if self.in_combat() 
 		if self.fatigued() 
 			-> zinogre.tired_walk(2,6,5,500,500) 
@@ -2307,7 +2307,7 @@ def node_190
 	return 
 endf 
 
-def node_191
+def node_191 : 32
 	if self.in_combat() 
 		if self.fatigued() 
 			-> zinogre.tired_walk(2,6,0,1500,500) 
@@ -2324,7 +2324,7 @@ def node_191
 	return 
 endf 
 
-def node_192
+def node_192 : 55
 	if self.in_combat() 
 		if self.fatigued() 
 			-> zinogre.tired_walk(2,6,5,1500,500) 
@@ -2341,107 +2341,107 @@ def node_192
 	return 
 endf 
 
-def node_193
+def node_193 : 33
 	-> zinogre.dash(2,1,0,500,500) 
 	return 
 endf 
 
-def node_194
+def node_194 : 34
 	-> zinogre.dash(2,1,0,1000,500) 
 	return 
 endf 
 
-def node_195
+def node_195 : 281
 	-> zinogre.dash(2,1,0,1000,600) 
 	return 
 endf 
 
-def node_196
+def node_196 : 312
 	-> zinogre.dash(2,1,0,1000,700) 
 	return 
 endf 
 
-def node_197
+def node_197 : 310
 	-> zinogre.dash(2,1,0,1000,800) 
 	return 
 endf 
 
-def node_198
+def node_198 : 203
 	-> zinogre.dash(2,1,0,1000,900) 
 	return 
 endf 
 
-def node_199
+def node_199 : 251
 	-> zinogre.dash(2,1,0,1000,1900) 
 	return 
 endf 
 
-def node_200
+def node_200 : 290
 	-> zinogre.dash(2,1,0,1000,2400) 
 	return 
 endf 
 
-def node_201
+def node_201 : 201
 	-> zinogre.dash(2,1,0,1000,2900) 
 	return 
 endf 
 
-def node_202
+def node_202 : 35
 	-> zinogre.dash(2,1,0,1500,500) 
 	return 
 endf 
 
-def node_203
+def node_203 : 56
 	-> zinogre.dash(2,1,5,1500,500) 
 	return 
 endf 
 
-def node_204
+def node_204 : 144
 	-> zinogre.dash(2,1,0,1500,3000) 
 	return 
 endf 
 
-def node_205
+def node_205 : 36
 	-> zinogre.dash(2,1,0,3000,500) 
 	return 
 endf 
 
-def node_206
+def node_206 : 37
 	-> zinogre.dash(2,6,0,500,500) 
 	return 
 endf 
 
-def node_207
+def node_207 : 38
 	-> zinogre.dash(2,6,0,1000,500) 
 	return 
 endf 
 
-def node_208
+def node_208 : 39
 	-> zinogre.dash(2,6,0,1500,500) 
 	return 
 endf 
 
-def node_209
+def node_209 : 82
 	-> zinogre.dash(2,6,5,1500,500) 
 	return 
 endf 
 
-def node_210
+def node_210 : 40
 	-> zinogre.dash(2,6,0,3000,500) 
 	return 
 endf 
 
-def node_211
+def node_211 : 77
 	-> zinogre.fox_walk(2,1,5,500,500) 
 	return 
 endf 
 
-def node_212
+def node_212 : 79
 	-> zinogre.fox_walk(2,1,5,1000,500) 
 	return 
 endf 
 
-def node_213
+def node_213 : 123
 	-> zinogre.fox_walk(2,1,5,2000,500) 
 	return 
 endf 

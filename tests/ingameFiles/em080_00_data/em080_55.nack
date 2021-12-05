@@ -1,10 +1,10 @@
 importactions Glavenus as glavenus
 
-def node_000
+def node_000 : 1
 	conclude 
 endf 
 
-def node_001
+def node_001 : 11
 	if self.targetEnemy(target_em.any_monster) 
 		if self.target(13) 
 		else 
@@ -27,7 +27,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 12
 	if function#30(2) 
 		random (35) 
 		elser (0) >> node_004 
@@ -51,7 +51,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 13
 	if function#30(2) 
 		random (10) 
 		elser (35) >> node_004 
@@ -68,7 +68,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 14
 	if function#41() 
 	else 
 		>> node_009 
@@ -77,7 +77,7 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 15
 	if function#41() 
 	else 
 		>> node_009 
@@ -86,7 +86,7 @@ def node_005
 	return 
 endf 
 
-def node_006
+def node_006 : 16
 	if function#41() 
 	else 
 		if self.target_is(em.Rathalos) 
@@ -126,7 +126,7 @@ def node_006
 	return 
 endf 
 
-def node_007
+def node_007 : 17
 	if function#41() -> glavenus.bite() 
 	else 
 		if self.vertical_distance_to_target().gt(500) 
@@ -140,7 +140,7 @@ def node_007
 	return 
 endf 
 
-def node_008
+def node_008 : 34
 	if self.angle_2d_cw_between(60,300) 
 		if self.in_combat() 
 			-> glavenus.quick_turn() 
@@ -154,7 +154,7 @@ def node_008
 	return 
 endf 
 
-def node_009
+def node_009 : 23
 	if self.distance_3d_to_target().leq(550) 
 		-> glavenus.back_turn() 
 	else 
@@ -170,7 +170,7 @@ def node_009
 	return 
 endf 
 
-def node_010
+def node_010 : 31
 	if self.fatigued() 
 		-> glavenus.tired_dash(2,1,5,1500,700) 
 	else 
@@ -179,7 +179,7 @@ def node_010
 	return 
 endf 
 
-def node_011
+def node_011 : 32
 	if self.fatigued() 
 		-> glavenus.tired_dash(2,1,5,3000,700) 
 	else 
@@ -188,7 +188,7 @@ def node_011
 	return 
 endf 
 
-def node_012
+def node_012 : 33
 	if self.fatigued() 
 		-> glavenus.tired_walk(2,1,5,1500,700) 
 	else 
@@ -197,7 +197,7 @@ def node_012
 	return 
 endf 
 
-def node_013
+def node_013 : 25
 	if self.distance_3d_to_target().leq(1000) 
 		random (50) -> glavenus.bite() 
 		elser (50) -> glavenus.nagiharai() 
@@ -215,12 +215,12 @@ def node_013
 	return 
 endf 
 
-def node_014
+def node_014 : 26
 	-> glavenus.bite() 
 	return 
 endf 
 
-def node_015
+def node_015 : 27
 	if self.angle_2d_cw_between(345,15) 
 		-> glavenus.dash_bite() 
 	elif self.angle_2d_cw_between(15,40) 
@@ -237,23 +237,23 @@ def node_015
 	return 
 endf 
 
-def node_016
+def node_016 : 28
 	-> glavenus.dash_bite2() 
 	return 
 endf 
 
-def node_017
+def node_017 : 29
 	-> glavenus.dash_bite2() 
 	return 
 endf 
 
-def node_018
+def node_018 : 24
 	>> node_009 
 	-> glavenus.jump_tail_attack() 
 	return 
 endf 
 
-def node_019
+def node_019 : 18
 	if self.target(0) 
 		>> node_020 
 	else 
@@ -262,12 +262,12 @@ def node_019
 	reset 
 endf 
 
-def node_020
+def node_020 : 19
 	-> glavenus.dash() 
 	return 
 endf 
 
-def node_021
+def node_021 : 20
 	self.targetArea(14) 
 	if self.distance_3d_to_target().gt(600) 
 		>> node_011 
@@ -277,7 +277,7 @@ def node_021
 	return 
 endf 
 
-def node_022
+def node_022 : 21
 	self.targetArea(19) 
 	if self.distance_3d_to_target().gt(1000) 
 		>> node_010 
@@ -287,7 +287,7 @@ def node_022
 	return 
 endf 
 
-def node_023
+def node_023 : 22
 	if function#41() 
 		>> node_010 => repeat 
 	else 
@@ -295,7 +295,7 @@ def node_023
 	return 
 endf 
 
-def node_024
+def node_024 : 35
 	if function#31(49,1500) 
 		self.targetEnemy(target_em.closest_entity) 
 		if self.target(13) 

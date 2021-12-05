@@ -1,7 +1,7 @@
 importactions Coral_PukeiPukei as coral_pukeipukei
 importlibrary Global as Global
 
-def node_000
+def node_000 : 16
 	>> Global.node_039 
 	self.targetArea(20) 
 	>> node_001 
@@ -10,7 +10,7 @@ def node_000
 	conclude 
 endf 
 
-def node_001
+def node_001 : 9
 	if function#AD() 
 		>> node_002 
 	else 
@@ -19,7 +19,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 10
 	if self.flying() 
 		>> Global.node_147 
 	else 
@@ -32,14 +32,14 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 11
 	>> node_004 
 	>> node_005 
 	>> node_006 
 	return 
 endf 
 
-def node_004
+def node_004 : 12
 	self.targetArea(target_area.area_aerial_center) 
 	if self.flying() 
 		>> Global.node_138 
@@ -49,7 +49,7 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 13
 	self.targetArea(20) 
 	if self.flying() 
 		self.targetArea(40) 
@@ -65,7 +65,7 @@ def node_005
 	return 
 endf 
 
-def node_006
+def node_006 : 14
 	if self.flying() 
 		self.targetArea(target_area.area_center) 
 		>> Global.node_001 
@@ -74,7 +74,7 @@ def node_006
 	return 
 endf 
 
-def node_007
+def node_007 : 15
 	if self.flying() 
 		>> Global.node_141 
 	else 

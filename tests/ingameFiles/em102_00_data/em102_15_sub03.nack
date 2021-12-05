@@ -1,7 +1,7 @@
 importactions PukeiPukei as pukeipukei
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	>> Global.node_001 
 	if function#10C() 
 		>> node_017 
@@ -20,7 +20,7 @@ def node_000
 	reset 
 endf 
 
-def node_001
+def node_001 : 59
 	if self.target(19) 
 		if self.distance_3d_to_target().leq(8000) 
 		else 
@@ -39,7 +39,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 57
 	if function#102() 
 	elif self.fatigued() 
 	else 
@@ -60,7 +60,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 56
 	random (30) -> pukeipukei.life_search() 
 	elser (40) -> pukeipukei.intimidation() 
 	elser (30) -> pukeipukei.sniff_l() 
@@ -68,7 +68,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 60
 	-> pukeipukei.dash_no_hit(2,1,0,1000,1000) 
 	if self.distance_3d_to_target().gt(1000) 
 		-> pukeipukei.dash_no_hit(2,1,0,1000,1000) 
@@ -89,13 +89,13 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 55
 	>> node_001 
 	>> node_006 
 	return 
 endf 
 
-def node_006
+def node_006 : 61
 	if self.distance_2d_to_target().leq(350) 
 		>> node_007 
 	elif self.distance_2d_to_target().leq(700) 
@@ -110,7 +110,7 @@ def node_006
 	return 
 endf 
 
-def node_007
+def node_007 : 62
 	random (30) >> Global.node_148 
 	elser (20) >> Global.node_150 
 	elser (40) >> Global.node_127 
@@ -119,7 +119,7 @@ def node_007
 	return 
 endf 
 
-def node_008
+def node_008 : 63
 	random (30) >> Global.node_148 
 	elser (20) >> Global.node_150 
 	elser (40) >> Global.node_127 
@@ -128,7 +128,7 @@ def node_008
 	return 
 endf 
 
-def node_009
+def node_009 : 64
 	random (30) >> Global.node_158 
 	elser (20) >> Global.node_010 
 				>> node_008 
@@ -138,7 +138,7 @@ def node_009
 	return 
 endf 
 
-def node_010
+def node_010 : 65
 	>> node_012 
 	random (35) >> Global.node_127 
 	elser (15) -> pukeipukei.intimidation() 
@@ -148,7 +148,7 @@ def node_010
 	return 
 endf 
 
-def node_011
+def node_011 : 66
 	if self.distance_2d_to_target().leq(3000) 
 	else 
 		-> pukeipukei.dash_no_hit(2,1,0,3000,2700) 
@@ -162,7 +162,7 @@ def node_011
 	return 
 endf 
 
-def node_012
+def node_012 : 67
 	[RegisterVar5 ++] 
 	if [RegisterVar5 <= 9] 
 		[RegisterVar5 |-] 
@@ -177,7 +177,7 @@ def node_012
 	return 
 endf 
 
-def node_013
+def node_013 : 69
 	[RegisterVar4 ++] 
 	if [RegisterVar4 <= 3] 
 		[RegisterVar4 |-] 
@@ -194,13 +194,13 @@ def node_013
 	return 
 endf 
 
-def node_014
+def node_014 : 68
 	-> pukeipukei.walk_combat(2,0,0,500) 
 	-> pukeipukei.walk_combat(2,5,0,500) 
 	return 
 endf 
 
-def node_015
+def node_015 : 70
 	-> pukeipukei.dash_no_hit(2,0,0,1500) 
 	if self.distance_3d_to_target().leq(550) 
 	else 
@@ -225,7 +225,7 @@ def node_015
 	return 
 endf 
 
-def node_016
+def node_016 : 71
 	-> pukeipukei.dash_no_hit(2,1,0,2000,2000) 
 	if self.distance_3d_to_target().leq(2000) 
 	else 
@@ -242,7 +242,7 @@ def node_016
 	return 
 endf 
 
-def node_017
+def node_017 : 72
 	if function#31(3,1000) 
 		if self.target(13) 
 		elif self.target.in_combat() 

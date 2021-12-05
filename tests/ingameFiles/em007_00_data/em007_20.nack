@@ -1,7 +1,7 @@
 importactions Diablos as diablos
 importlibrary Global as Global
 
-def node_000
+def node_000 : 8
 	>> Global.node_007 
 	self.targetArea(24) 
 	if self.distance_3d_to_target().gt(900) 
@@ -14,7 +14,7 @@ def node_000
 	conclude 
 endf 
 
-def node_001
+def node_001 : 11
 	>> node_003 
 	if self.distance_3d_to_target().gt(5000) 
 		>> Global.node_048 
@@ -28,7 +28,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 9
 	if function#7C() 
 		>> node_003 
 		conclude 
@@ -43,7 +43,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 10
 	if function#3F() 
 		-> diablos.appear_attack_vertical() 
 	else 

@@ -1,7 +1,7 @@
 importactions Nightshade_Paolumu as nightshade_paolumu
 importlibrary Global as Global
 
-def node_000
+def node_000 : 49
 	>> Global.node_002 
 	if self.mounted() 
 		random (55) >> node_001 
@@ -15,7 +15,7 @@ def node_000
 	reset 
 endf 
 
-def node_001
+def node_001 : 68
 	>> node_015 
 	function#A8() 
 	self.targetEnemy(target_em.random_player_or_cat) 
@@ -37,7 +37,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 79
 	>> node_015 
 	function#A8() 
 	self.targetEnemy(target_em.random_player_or_cat) 
@@ -58,7 +58,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 69
 	if self.mounted() 
 		>> node_004 
 	else 
@@ -67,21 +67,21 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 24
 	>> Global.node_002 
 	>> node_026 
 	-> nightshade_paolumu.bite_fly() 
 	return 
 endf 
 
-def node_005
+def node_005 : 25
 	>> Global.node_002 
 	>> node_026 
 	-> nightshade_paolumu.ride_rage_head() 
 	return 
 endf 
 
-def node_006
+def node_006 : 70
 	if self.mounted() 
 		>> node_007 
 	else 
@@ -90,21 +90,21 @@ def node_006
 	return 
 endf 
 
-def node_007
+def node_007 : 26
 	>> Global.node_002 
 	>> node_026 
 	-> nightshade_paolumu.tail_attack_front_slap() 
 	return 
 endf 
 
-def node_008
+def node_008 : 27
 	>> Global.node_002 
 	>> node_026 
 	-> nightshade_paolumu.ride_rage_body() 
 	return 
 endf 
 
-def node_009
+def node_009 : 72
 	if self.mounted() 
 		>> node_010 
 	else 
@@ -113,7 +113,7 @@ def node_009
 	return 
 endf 
 
-def node_010
+def node_010 : 73
 	>> Global.node_002 
 	if function#29() 
 		self.targetArea(7) 
@@ -128,7 +128,7 @@ def node_010
 	return 
 endf 
 
-def node_011
+def node_011 : 74
 	>> Global.node_002 
 	if function#29() 
 		self.targetArea(7) 
@@ -142,14 +142,14 @@ def node_011
 	return 
 endf 
 
-def node_012
+def node_012 : 56
 	>> Global.node_002 
 	>> node_019 
 	-> nightshade_paolumu.take_down_press_start() 
 	return 
 endf 
 
-def node_013
+def node_013 : 75
 	if self.distance_2d_to_target().leq(300) 
 		-> nightshade_paolumu.back_turn_fly() 
 	else 
@@ -158,7 +158,7 @@ def node_013
 	return 
 endf 
 
-def node_014
+def node_014 : 83
 	if self.distance_2d_to_target().leq(500) 
 	else 
 		-> nightshade_paolumu.glide_combat(2,1,0,1000,300) 
@@ -167,7 +167,7 @@ def node_014
 	return 
 endf 
 
-def node_015
+def node_015 : 21
 	if function#3B() 
 		if self.mount_staggered_twice() 
 			>> node_016 
@@ -200,12 +200,12 @@ def node_015
 	return 
 endf 
 
-def node_016
+def node_016 : 22
 	-> nightshade_paolumu.ride_tired() 
 	return 
 endf 
 
-def node_017
+def node_017 : 77
 	if self.mounted() 
 		>> node_018 
 	else 
@@ -213,12 +213,12 @@ def node_017
 	return 
 endf 
 
-def node_018
+def node_018 : 78
 	-> nightshade_paolumu.ride_wait() 
 	return 
 endf 
 
-def node_019
+def node_019 : 58
 	random (20) >> node_020 
 	elser (80) >> node_021 
 	endr 
@@ -226,34 +226,34 @@ def node_019
 	return 
 endf 
 
-def node_020
+def node_020 : 59
 	self.targetEnemy(21) @ parameter2:1000 
 	return 
 endf 
 
-def node_021
+def node_021 : 60
 	self.targetEnemy(22) @ parameter2:1000 
 	return 
 endf 
 
-def node_022
+def node_022 : 61
 	random (48) >> node_023 
 	elser (52) >> node_024 
 	endr 
 	return 
 endf 
 
-def node_023
+def node_023 : 62
 	self.targetEnemy(12) @ parameter2:1000 
 	return 
 endf 
 
-def node_024
+def node_024 : 63
 	self.targetEnemy(11) @ parameter2:1000 
 	return 
 endf 
 
-def node_025
+def node_025 : 64
 	if self.angular_17(300,60) 
 		>> Global.node_215 
 	else 
@@ -261,7 +261,7 @@ def node_025
 	return 
 endf 
 
-def node_026
+def node_026 : 84
 	>> Global.node_002 
 	random (50) -> nightshade_paolumu.snake_turn_step_fly_l() 
 	elser (50) -> nightshade_paolumu.snake_turn_step_fly_r() 

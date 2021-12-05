@@ -1,6 +1,6 @@
 importactions Velkhana as velkhana
 
-def node_000
+def node_000 : 1
 	self.targetEnemy(target_em.closest_entity) 
 	if self.target_is(em.Ruiner_Nergigante) 
 		>> node_001 
@@ -20,12 +20,12 @@ def node_000
 	conclude 
 endf 
 
-def node_001
+def node_001 : 3
 	-> velkhana.grapple_with_em103_05_glide() 
 	return 
 endf 
 
-def node_002
+def node_002 : 4
 	if self.distance_3d_to_target().gt(1800) 
 		-> velkhana.dash(1,0,0,1800) 
 	else 
@@ -35,23 +35,23 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 5
 	-> velkhana.quick_turn_fly() 
 	-> velkhana.grapple_with_em023_glide() 
 	return 
 endf 
 
-def node_004
+def node_004 : 6
 	-> velkhana.grapple_with_em024_attacker_first() 
 	return 
 endf 
 
-def node_005
+def node_005 : 7
 	-> velkhana.grapple_with_em026_attacker_first() 
 	return 
 endf 
 
-def node_006
+def node_006 : 8
 	-> velkhana.grapple_with_em027_attacker_first() 
 	return 
 endf 

@@ -1,7 +1,7 @@
 importactions Nargacuga as nargacuga
 importlibrary Global as Global
 
-def node_000
+def node_000 : 12
 	>> Global.node_120 
 	if self.in_combat() 
 		conclude 
@@ -24,7 +24,7 @@ def node_000
 	conclude 
 endf 
 
-def node_001
+def node_001 : 13
 	if self.target_is(em.Rathian) 
 		>> Global.node_009 
 		-> nargacuga.damage_floor_fall() 
@@ -33,7 +33,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 9
 	if self.distance_3d_to_target().leq(4000) 
 		>> Global.node_009 
 		>> Global.node_155 
@@ -44,7 +44,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 11
 	return 
 endf 
 

@@ -1,7 +1,7 @@
 importactions Beotodus as beotodus
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	>> Global.node_070 
 	>> Global.node_002 
 	self.targetArea(24) 
@@ -14,7 +14,7 @@ def node_000
 	conclude 
 endf 
 
-def node_001
+def node_001 : 10
 	if self.distance_3d_to_target().gt(5000) 
 		>> Global.node_001 
 		>> Global.node_131 
@@ -26,7 +26,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 8
 	if function#7C() 
 		conclude 
 	else 

@@ -1,7 +1,7 @@
 importactions Barroth as barroth
 importlibrary Global as Global
 
-def node_000
+def node_000 : 12
 	>> node_001 
 	self.targetEnemy(34) 
 	if function#41() >> Global.node_093 
@@ -15,12 +15,12 @@ def node_000
 	conclude 
 endf 
 
-def node_001
+def node_001 : 17
 	>> Global.node_029 
 	return 
 endf 
 
-def node_002
+def node_002 : 9
 	if self.distance_2d_to_target().leq(1000) 
 		>> Global.node_012 
 	elif self.distance_2d_to_target().leq(1500) 
@@ -32,7 +32,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 15
 	if self.distance_2d_to_target().leq(500) 
 	else 
 		-> barroth.walk(2,1,0,1500,500) 
@@ -40,7 +40,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 16
 	>> Global.node_058 
 	>> Global.node_036 
 	return 

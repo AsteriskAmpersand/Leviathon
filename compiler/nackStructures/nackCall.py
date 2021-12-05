@@ -32,11 +32,11 @@ class Call(ErrorManaged):
         return self
 
     def resolveCalls(self):
-        if self.raw_target: return self.raw_target
+        if self.raw_target is not None: return self.raw_target
         self.raw_target = getattr(self.node_target,self.local_scope)()
         self.external = -1
         self.target.raw_id = self.raw_target
-
+            
     def reconnectChain(self,target):
         self.node_target = target
         self.target.node_target = target

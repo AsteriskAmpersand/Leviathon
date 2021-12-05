@@ -1,11 +1,11 @@
 importactions Acidic_Glavenus as acidic_glavenus
 
-def node_000
+def node_000 : 1
 	>> node_001 
 	conclude 
 endf 
 
-def node_001
+def node_001 : 3
 	self.targetArea(20) 
 	if self.distance_3d_to_target().gt(600) 
 		>> node_002 
@@ -15,7 +15,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 8
 	if self.fatigued() 
 		-> acidic_glavenus.tired_dash(5,2,0,0,3000) 
 	else 

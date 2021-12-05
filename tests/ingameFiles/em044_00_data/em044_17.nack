@@ -1,7 +1,7 @@
 importactions Barroth as barroth
 importlibrary Global as Global
 
-def node_000
+def node_000 : 8
 	if function#AB() 
 		function#AA() 
 		>> node_001 
@@ -12,13 +12,13 @@ def node_000
 	conclude 
 endf 
 
-def node_001
+def node_001 : 9
 	>> node_003 
 	>> Global.node_031 
 	return 
 endf 
 
-def node_002
+def node_002 : 10
 	if self.distance_3d_to_target().leq(800) 
 		return 
 	else 
@@ -27,7 +27,7 @@ def node_002
 	repeat 
 endf 
 
-def node_003
+def node_003 : 16
 	[RegisterVar3 |-] 
 	return 
 endf 

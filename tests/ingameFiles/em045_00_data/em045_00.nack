@@ -1,7 +1,7 @@
 importactions Uragaan as uragaan
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	>> Global.node_009 
 	if function#45() 
 	else 
@@ -49,7 +49,7 @@ def node_000
 	reset 
 endf 
 
-def node_001
+def node_001 : 2
 	if self.current_quest().is_rank(rank.MR) 
 		random (0) 
 		elser (5) >> Global.node_015 
@@ -82,7 +82,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 3
 	if self.current_quest().is_rank(rank.MR) 
 		random (0) 
 		elser (5) >> Global.node_015 
@@ -119,7 +119,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 4
 	if self.current_quest().is_rank(rank.MR) 
 		random (0) 
 		elser (10) >> Global.node_016 
@@ -151,7 +151,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 5
 	random (0) 
 	elser (27) >> Global.node_018 
 	elser (3) >> Global.node_022 
@@ -162,7 +162,7 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 6
 	random (0) 
 	elser (27) >> Global.node_019 
 	elser (3) >> Global.node_022 
@@ -172,7 +172,7 @@ def node_005
 	return 
 endf 
 
-def node_006
+def node_006 : 7
 	if self.current_quest().is_rank(rank.MR) 
 		random (0) 
 		elser (10) >> Global.node_024 
@@ -204,7 +204,7 @@ def node_006
 	return 
 endf 
 
-def node_007
+def node_007 : 8
 	if self.current_quest().is_rank(rank.MR) 
 		random (0) 
 		elser (6) >> Global.node_024 
@@ -239,7 +239,7 @@ def node_007
 	return 
 endf 
 
-def node_008
+def node_008 : 9
 	if self.current_quest().is_rank(rank.MR) 
 		random (0) 
 		elser (10) >> Global.node_016 
@@ -271,7 +271,7 @@ def node_008
 	return 
 endf 
 
-def node_009
+def node_009 : 10
 	random (0) 
 	elser (20) >> Global.node_018 
 	elser (0) >> Global.node_022 
@@ -282,7 +282,7 @@ def node_009
 	return 
 endf 
 
-def node_010
+def node_010 : 11
 	random (0) 
 	elser (30) >> Global.node_019 
 	elser (0) >> Global.node_022 
@@ -292,7 +292,7 @@ def node_010
 	return 
 endf 
 
-def node_011
+def node_011 : 12
 	random (0) 
 	elser (20) >> Global.node_015 
 	elser (0) >> Global.node_021 
@@ -310,7 +310,7 @@ def node_011
 	return 
 endf 
 
-def node_012
+def node_012 : 13
 	random (0) 
 	elser (10) >> Global.node_015 
 	elser (0) >> Global.node_020 
@@ -330,7 +330,7 @@ def node_012
 	return 
 endf 
 
-def node_013
+def node_013 : 14
 	random (0) 
 	elser (15) >> Global.node_016 
 	elser (10) >> Global.node_022 
@@ -347,7 +347,7 @@ def node_013
 	return 
 endf 
 
-def node_014
+def node_014 : 15
 	random (0) 
 	elser (28) >> Global.node_018 
 	elser (10) >> Global.node_022 
@@ -358,7 +358,7 @@ def node_014
 	return 
 endf 
 
-def node_015
+def node_015 : 16
 	random (0) 
 	elser (25) >> Global.node_019 
 	elser (30) >> Global.node_022 
@@ -368,12 +368,12 @@ def node_015
 	return 
 endf 
 
-def node_016
+def node_016 : 51
 	>> node_017 
 	return 
 endf 
 
-def node_017
+def node_017 : 52
 	if self.fatigued() 
 		-> uragaan.tired_dash(1,0,0,1500) 
 	else 
@@ -382,13 +382,13 @@ def node_017
 	return 
 endf 
 
-def node_018
+def node_018 : 54
 	>> Global.node_014 
 	-> uragaan.tired() 
 	return 
 endf 
 
-def node_019
+def node_019 : 56
 	[RegisterVar2 |-] 
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if function#5D() 
@@ -417,7 +417,7 @@ def node_019
 	return 
 endf 
 
-def node_020
+def node_020 : 57
 	self.targetArea(19) 
 	if self.distance_3d_to_target().gt(1000) 
 		-> uragaan.dash() 
@@ -440,7 +440,7 @@ def node_020
 	return 
 endf 
 
-def node_021
+def node_021 : 63
 	if self.above_target() 
 		if self.distance_2d_to_target().gt(3000) 
 			-> uragaan.dash(6,0,0,2500) 
@@ -460,7 +460,7 @@ def node_021
 	return 
 endf 
 
-def node_022
+def node_022 : 64
 	if self.distance_2d_to_target().gt(3000) 
 		-> uragaan.dash(6,0,0,2500) 
 	else 
@@ -473,7 +473,7 @@ def node_022
 	return 
 endf 
 
-def node_023
+def node_023 : 65
 	if self.below_target() 
 		self.targetEnemy(target_em.random_player_or_cat) 
 		-> uragaan.dash() 
@@ -482,7 +482,7 @@ def node_023
 	return 
 endf 
 
-def node_024
+def node_024 : 66
 	if self.angle_2d_cw_between(90,270) 
 		-> uragaan.combat_search() 
 	elif self.distance_3d_to_target().gt(3000) 
@@ -493,25 +493,25 @@ def node_024
 	return 
 endf 
 
-def node_025
+def node_025 : 73
 	>> Global.node_012 
 	-> uragaan.jump_attack_high() 
 	return 
 endf 
 
-def node_026
+def node_026 : 76
 	>> Global.node_013 
 	-> uragaan.jump_attack_high() 
 	return 
 endf 
 
-def node_027
+def node_027 : 77
 	>> Global.node_013 
 	-> uragaan.jump_attack_wall_down() 
 	return 
 endf 
 
-def node_028
+def node_028 : 75
 	if self.in_combat() 
 		if self.fatigued() 
 		else 

@@ -1,7 +1,7 @@
 importactions Fulgur_Anjanath as fulgur_anjanath
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	>> Global.node_044 
 	self.targetEnemy(target_em.closest_entity) 
 	>> node_001 
@@ -9,7 +9,7 @@ def node_000
 	conclude 
 endf 
 
-def node_001
+def node_001 : 2
 	if self.angle_2d_cw_between(60,300) 
 		-> fulgur_anjanath.back_turn() @ unkn6:65536 
 	else 
@@ -17,7 +17,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 3
 	-> fulgur_anjanath.discover() 
 	return 
 endf 

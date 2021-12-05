@@ -1,14 +1,14 @@
 importactions Dodogama as dodogama
 importlibrary Global as Global
 
-def node_000
+def node_000 : 6
 	function#52() 
 	>> node_001 
 	>> node_002 
 	reset 
 endf 
 
-def node_001
+def node_001 : 7
 	>> Global.node_003 
 	self.targetArea(target_area.nearest_entrance) 
 	if function#57(1) 
@@ -31,7 +31,7 @@ def node_001
 	reset 
 endf 
 
-def node_002
+def node_002 : 8
 	if function#57(1) 
 		>> node_009 
 	elif function#57(2) 
@@ -49,44 +49,44 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 9
 	self.targetArea(target_area.nearest_entrance) 
 	-> dodogama.walk(2,1,5,1000,500) 
 	return 
 endf 
 
-def node_004
+def node_004 : 10
 	self.targetArea(target_area.nearest_entrance) 
 	-> dodogama.walk(2,1,5,1000,600) 
 	return 
 endf 
 
-def node_005
+def node_005 : 11
 	self.targetArea(target_area.nearest_entrance) 
 	-> dodogama.walk(2,1,5,1000,600) 
 	return 
 endf 
 
-def node_006
+def node_006 : 12
 	self.targetArea(target_area.nearest_entrance) 
 	-> dodogama.walk(2,1,5,1000,500) 
 	return 
 endf 
 
-def node_007
+def node_007 : 13
 	self.targetArea(target_area.nearest_entrance) 
 	-> dodogama.walk(2,1,5,1000,500) 
 	return 
 endf 
 
-def node_008
+def node_008 : 14
 	self.targetEnemy(17) 
 	>> node_014 
 	function#54() 
 	return 
 endf 
 
-def node_009
+def node_009 : 15
 	self.targetArea(target_area.nearest_entrance) 
 	if self.distance_3d_to_target().leq(200) 
 	else 
@@ -102,7 +102,7 @@ def node_009
 	return 
 endf 
 
-def node_010
+def node_010 : 16
 	self.targetArea(target_area.nearest_entrance) 
 	if self.distance_3d_to_target().leq(200) 
 	else 
@@ -118,7 +118,7 @@ def node_010
 	return 
 endf 
 
-def node_011
+def node_011 : 17
 	function#54() 
 	self.targetEnemy(17) 
 	>> node_013 
@@ -130,14 +130,14 @@ def node_011
 	return 
 endf 
 
-def node_012
+def node_012 : 18
 	function#54() 
 	>> node_013 
 	-> dodogama.search() 
 	return 
 endf 
 
-def node_013
+def node_013 : 19
 	if self.in_map(st.Special_Arena).in_area(-1) 
 	elif self.in_map(st.Challenge_Arena).in_area(-1) 
 	else 
@@ -148,7 +148,7 @@ def node_013
 	return 
 endf 
 
-def node_014
+def node_014 : 20
 	if self.in_map(st.Special_Arena).in_area(-1) 
 		-> dodogama.search() 
 	elif self.in_map(st.Challenge_Arena).in_area(-1) 

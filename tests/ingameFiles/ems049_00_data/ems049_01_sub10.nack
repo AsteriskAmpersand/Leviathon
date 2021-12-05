@@ -1,7 +1,7 @@
 importactions Jagras as jagras
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	if function#B0(10) 
 		>> node_007 
 		>> node_006 
@@ -17,12 +17,12 @@ def node_000
 	reset 
 endf 
 
-def node_001
+def node_001 : 19
 	>> Global.node_021 
 	return 
 endf 
 
-def node_002
+def node_002 : 2
 	>> node_006 
 	if self.target(7) 
 		>> node_003 
@@ -32,19 +32,19 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 4
 	>> Global.node_040 
 	>> Global.node_108 
 	return 
 endf 
 
-def node_004
+def node_004 : 3
 	>> Global.node_040 
 	>> Global.node_077 
 	return 
 endf 
 
-def node_005
+def node_005 : 8
 	if function#62(315,45) 
 		self.targetArea(9) @ parameter2:1000 
 	elif function#62(45,135) 
@@ -59,14 +59,14 @@ def node_005
 	return 
 endf 
 
-def node_006
+def node_006 : 21
 	if function#103() 
 	elif self.targetEnemy(target_em.random_player_or_cat) 
 	endif 
 	return 
 endf 
 
-def node_007
+def node_007 : 23
 	if self.targetEnemy(33) 
 		if self.target_is(em.PukeiPukei) 
 			if self.distance_3d_to_target().leq(5000) 
@@ -80,7 +80,7 @@ def node_007
 	return 
 endf 
 
-def node_008
+def node_008 : 31
 	if self.distance_3d_to_target().leq(500) 
 		random (25) >> Global.node_018 
 		elser (50) >> node_015 
@@ -103,7 +103,7 @@ def node_008
 	return 
 endf 
 
-def node_009
+def node_009 : 25
 	if self.distance_3d_to_target().leq(350) 
 		>> node_010 
 	elif self.distance_3d_to_target().leq(500) 
@@ -118,7 +118,7 @@ def node_009
 	return 
 endf 
 
-def node_010
+def node_010 : 26
 	random (85) >> Global.node_018 
 	elser (15) >> Global.node_022 
 				>> Global.node_019 
@@ -126,7 +126,7 @@ def node_010
 	return 
 endf 
 
-def node_011
+def node_011 : 27
 	random (85) >> Global.node_018 
 	elser (15) >> Global.node_022 
 				>> Global.node_019 
@@ -134,7 +134,7 @@ def node_011
 	return 
 endf 
 
-def node_012
+def node_012 : 28
 	random (30) >> Global.node_019 
 	elser (70) >> Global.node_002 
 				>> Global.node_018 
@@ -142,21 +142,21 @@ def node_012
 	return 
 endf 
 
-def node_013
+def node_013 : 29
 	>> Global.node_006 
 	>> Global.node_002 
 	>> Global.node_018 
 	return 
 endf 
 
-def node_014
+def node_014 : 30
 	>> Global.node_006 
 	>> Global.node_002 
 	>> Global.node_018 
 	return 
 endf 
 
-def node_015
+def node_015 : 32
 	if self.distance_3d_to_target().leq(400) 
 		>> node_016 
 	elif self.distance_3d_to_target().leq(900) 
@@ -171,34 +171,34 @@ def node_015
 	return 
 endf 
 
-def node_016
+def node_016 : 33
 	random (65) >> Global.node_022 
 	elser (35) >> Global.node_021 
 	endr 
 	return 
 endf 
 
-def node_017
+def node_017 : 34
 	random (75) >> Global.node_025 
 	elser (25) >> Global.node_026 
 	endr 
 	return 
 endf 
 
-def node_018
+def node_018 : 35
 	random (75) >> Global.node_027 
 	elser (25) >> Global.node_028 
 	endr 
 	return 
 endf 
 
-def node_019
+def node_019 : 36
 	>> Global.node_006 
 	>> Global.node_002 
 	return 
 endf 
 
-def node_020
+def node_020 : 37
 	>> Global.node_006 
 	>> Global.node_002 
 	return 

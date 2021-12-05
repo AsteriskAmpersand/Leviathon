@@ -1,7 +1,7 @@
 importactions Leshen as leshen
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	self.targetEnemy(13) 
 	if self.target(4) 
 		>> Global.node_002 
@@ -11,23 +11,23 @@ def node_000
 	conclude 
 endf 
 
-def node_001
+def node_001 : 2
 	>> node_004 
 	return 
 endf 
 
-def node_002
+def node_002 : 3
 	>> Global.node_018 
 	return 
 endf 
 
-def node_003
+def node_003 : 4
 	self.targetEnemy(13) 
 	-> leshen.warp_navi_area_move(2,1,5,3000,300) 
 	return 
 endf 
 
-def node_004
+def node_004 : 5
 	self.targetEnemy(48) 
 	if self.target(7) 
 		>> node_010 
@@ -48,13 +48,13 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 9
 	>> Global.node_018 
 	-> leshen.search() 
 	return 
 endf 
 
-def node_006
+def node_006 : 10
 	if function#5F() 
 		-> leshen.search() 
 	else 
@@ -64,17 +64,17 @@ def node_006
 	return 
 endf 
 
-def node_007
+def node_007 : 11
 	>> Global.node_105 
 	return 
 endf 
 
-def node_008
+def node_008 : 12
 	>> Global.node_132 
 	return 
 endf 
 
-def node_009
+def node_009 : 13
 	self.targetEnemy(48) 
 	if function#103() 
 		-> leshen.crow_rush_ex_scr_through() 
@@ -84,7 +84,7 @@ def node_009
 	return 
 endf 
 
-def node_010
+def node_010 : 14
 	if [RegisterVar5 == 0] 
 		[RegisterVar5 ++] 
 	else 

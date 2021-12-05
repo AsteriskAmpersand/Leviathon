@@ -1,6 +1,6 @@
 importactions Safi'jiiva as safi'jiiva
 
-def node_000
+def node_000 : 37
 	self.targetEnemy(50) 
 	if function#B0(1) 
 		>> node_082 
@@ -14,7 +14,7 @@ def node_000
 	conclude 
 endf 
 
-def node_001
+def node_001 : 503
 	if self.flying() 
 		-> safi'jiiva.landing() 
 	else 
@@ -22,7 +22,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 504
 	if self.flying() 
 	else 
 		-> safi'jiiva.take_off() 
@@ -30,7 +30,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 505
 	if function#110() 
 	else 
 		-> safi'jiiva.switch_idle_to_combat() 
@@ -38,7 +38,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 506
 	if function#110() 
 		-> safi'jiiva.switch_idle_normal_c() 
 	else 
@@ -46,7 +46,7 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 512
 	if self.flying() 
 		-> safi'jiiva.turn_fly() 
 	elif function#110() 
@@ -57,7 +57,7 @@ def node_005
 	return 
 endf 
 
-def node_006
+def node_006 : 649
 	if self.angle_2d_cw_between(10,350) 
 		if self.flying() 
 			-> safi'jiiva.turn_fly() 
@@ -71,7 +71,7 @@ def node_006
 	return 
 endf 
 
-def node_007
+def node_007 : 513
 	if self.angle_2d_cw_between(30,330) 
 		if self.flying() 
 			-> safi'jiiva.turn_fly() 
@@ -85,7 +85,7 @@ def node_007
 	return 
 endf 
 
-def node_008
+def node_008 : 651
 	if self.angle_2d_cw_between(45,315) 
 		if self.flying() 
 			-> safi'jiiva.turn_fly() 
@@ -99,7 +99,7 @@ def node_008
 	return 
 endf 
 
-def node_009
+def node_009 : 514
 	if self.angle_2d_cw_between(60,300) 
 		if self.flying() 
 			-> safi'jiiva.turn_fly() 
@@ -113,7 +113,7 @@ def node_009
 	return 
 endf 
 
-def node_010
+def node_010 : 515
 	if self.angle_2d_cw_between(90,270) 
 		if self.flying() 
 			-> safi'jiiva.turn_fly() 
@@ -127,7 +127,7 @@ def node_010
 	return 
 endf 
 
-def node_011
+def node_011 : 675
 	if self.angle_2d_cw_between(120,240) 
 		if self.flying() 
 			-> safi'jiiva.turn_fly() 
@@ -141,7 +141,7 @@ def node_011
 	return 
 endf 
 
-def node_012
+def node_012 : 676
 	if self.angle_2d_cw_between(150,210) 
 		if self.flying() 
 			-> safi'jiiva.turn_fly() 
@@ -155,56 +155,56 @@ def node_012
 	return 
 endf 
 
-def node_013
+def node_013 : 527
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.dash(5) 
 	return 
 endf 
 
-def node_014
+def node_014 : 565
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.dash(5,1,0,0,1000) 
 	return 
 endf 
 
-def node_015
+def node_015 : 800
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.dash(0,1,0,0,1000) 
 	return 
 endf 
 
-def node_016
+def node_016 : 765
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.dash(0,1,0,0,1500) 
 	return 
 endf 
 
-def node_017
+def node_017 : 767
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.dash(0,1,0,0,2000) 
 	return 
 endf 
 
-def node_018
+def node_018 : 768
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.dash(0,1,0,0,2500) 
 	return 
 endf 
 
-def node_019
+def node_019 : 766
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.dash(0,1,0,0,3000) 
 	return 
 endf 
 
-def node_020
+def node_020 : 591
 	>> node_001 
 	function#102() 
 	>> node_007 
@@ -216,7 +216,7 @@ def node_020
 	return 
 endf 
 
-def node_021
+def node_021 : 564
 	self.targetArea(19) 
 	if self.distance_3d_to_target().gt(1000) 
 		>> node_014 
@@ -226,35 +226,35 @@ def node_021
 	return 
 endf 
 
-def node_022
+def node_022 : 621
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.back_turn() 
 	return 
 endf 
 
-def node_023
+def node_023 : 566
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.back_step() 
 	return 
 endf 
 
-def node_024
+def node_024 : 622
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.front_step() 
 	return 
 endf 
 
-def node_025
+def node_025 : 623
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.side_step() 
 	return 
 endf 
 
-def node_026
+def node_026 : 530
 	if self.flying() 
 		-> safi'jiiva.idle_wait_fly() 
 	else 
@@ -263,49 +263,49 @@ def node_026
 	return 
 endf 
 
-def node_027
+def node_027 : 516
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.chance_short() 
 	return 
 endf 
 
-def node_028
+def node_028 : 517
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.chance_long() 
 	return 
 endf 
 
-def node_029
+def node_029 : 518
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.threat_short() 
 	return 
 endf 
 
-def node_030
+def node_030 : 519
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.discover() 
 	return 
 endf 
 
-def node_031
+def node_031 : 567
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.refresh() 
 	return 
 endf 
 
-def node_032
+def node_032 : 620
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.tired() 
 	return 
 endf 
 
-def node_033
+def node_033 : 508
 	>> node_001 
 	>> node_003 
 	[RegisterVar4 |-] 
@@ -320,7 +320,7 @@ def node_033
 	return 
 endf 
 
-def node_034
+def node_034 : 509
 	>> node_001 
 	>> node_003 
 	[RegisterVar4 |-] 
@@ -335,49 +335,49 @@ def node_034
 	return 
 endf 
 
-def node_035
+def node_035 : 726
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.recover_parts_head() 
 	return 
 endf 
 
-def node_036
+def node_036 : 727
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.recover_parts_tail() 
 	return 
 endf 
 
-def node_037
+def node_037 : 521
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.search() 
 	return 
 endf 
 
-def node_038
+def node_038 : 522
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.search_lost() 
 	return 
 endf 
 
-def node_039
+def node_039 : 523
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.search_angry() 
 	return 
 endf 
 
-def node_040
+def node_040 : 674
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.neck_sweep() 
 	return 
 endf 
 
-def node_041
+def node_041 : 711
 	if self.angle_2d_cw_between(45,315) 
 		>> node_040 
 	else 
@@ -385,7 +385,7 @@ def node_041
 	return 
 endf 
 
-def node_042
+def node_042 : 816
 	if self.angle_2d_cw_between(90,270) 
 		>> node_040 
 	else 
@@ -393,14 +393,14 @@ def node_042
 	return 
 endf 
 
-def node_043
+def node_043 : 597
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.headbutt() 
 	return 
 endf 
 
-def node_044
+def node_044 : 737
 	>> node_001 
 	>> node_003 
 	self.targetEnemy(9) @ parameter2:500 
@@ -411,21 +411,21 @@ def node_044
 	return 
 endf 
 
-def node_045
+def node_045 : 608
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.short_roar() 
 	return 
 endf 
 
-def node_046
+def node_046 : 598
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.bite() 
 	return 
 endf 
 
-def node_047
+def node_047 : 754
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.bite() @ comboSetting:1 
@@ -434,21 +434,21 @@ def node_047
 	return 
 endf 
 
-def node_048
+def node_048 : 624
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.breath_front_to_side_l() 
 	return 
 endf 
 
-def node_049
+def node_049 : 635
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.breath_front_to_side_r() 
 	return 
 endf 
 
-def node_050
+def node_050 : 640
 	if self.angle_2d_cw_between(0,180) 
 		>> node_048 
 	else 
@@ -458,14 +458,14 @@ def node_050
 	return 
 endf 
 
-def node_051
+def node_051 : 625
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.explosive_breath() 
 	return 
 endf 
 
-def node_052
+def node_052 : 687
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.bite() @ comboSetting:1 
@@ -473,7 +473,7 @@ def node_052
 	return 
 endf 
 
-def node_053
+def node_053 : 688
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.bite() @ comboSetting:1 
@@ -481,7 +481,7 @@ def node_053
 	return 
 endf 
 
-def node_054
+def node_054 : 689
 	if self.angle_2d_cw_between(0,180) 
 		>> node_052 
 	else 
@@ -491,21 +491,21 @@ def node_054
 	return 
 endf 
 
-def node_055
+def node_055 : 599
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.quick_back_fist_l() 
 	return 
 endf 
 
-def node_056
+def node_056 : 610
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.quick_back_fist_r() 
 	return 
 endf 
 
-def node_057
+def node_057 : 735
 	>> node_001 
 	>> node_003 
 	self.targetEnemy(9) @ parameter2:500 
@@ -516,7 +516,7 @@ def node_057
 	return 
 endf 
 
-def node_058
+def node_058 : 736
 	>> node_001 
 	>> node_003 
 	self.targetEnemy(9) @ parameter2:500 
@@ -527,21 +527,21 @@ def node_058
 	return 
 endf 
 
-def node_059
+def node_059 : 600
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.side_scratch_l() 
 	return 
 endf 
 
-def node_060
+def node_060 : 611
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.side_scratch_r() 
 	return 
 endf 
 
-def node_061
+def node_061 : 742
 	>> node_001 
 	>> node_003 
 	self.targetEnemy(11) @ parameter2:500 
@@ -551,7 +551,7 @@ def node_061
 	return 
 endf 
 
-def node_062
+def node_062 : 743
 	>> node_001 
 	>> node_003 
 	self.targetEnemy(12) @ parameter2:500 
@@ -561,7 +561,7 @@ def node_062
 	return 
 endf 
 
-def node_063
+def node_063 : 780
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.side_scratch_l() @ comboSetting:1 
@@ -569,7 +569,7 @@ def node_063
 	return 
 endf 
 
-def node_064
+def node_064 : 781
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.side_scratch_r() @ comboSetting:1 
@@ -577,7 +577,7 @@ def node_064
 	return 
 endf 
 
-def node_065
+def node_065 : 811
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.side_scratch_l() @ comboSetting:1 
@@ -585,7 +585,7 @@ def node_065
 	return 
 endf 
 
-def node_066
+def node_066 : 812
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.side_scratch_r() @ comboSetting:1 
@@ -593,7 +593,7 @@ def node_066
 	return 
 endf 
 
-def node_067
+def node_067 : 733
 	>> node_001 
 	>> node_003 
 	self.targetEnemy(9) @ parameter2:500 
@@ -604,7 +604,7 @@ def node_067
 	return 
 endf 
 
-def node_068
+def node_068 : 734
 	>> node_001 
 	>> node_003 
 	self.targetEnemy(9) @ parameter2:500 
@@ -615,21 +615,21 @@ def node_068
 	return 
 endf 
 
-def node_069
+def node_069 : 601
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.front_leg_slap_l() 
 	return 
 endf 
 
-def node_070
+def node_070 : 612
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.front_leg_slap_r() 
 	return 
 endf 
 
-def node_071
+def node_071 : 650
 	if self.angle_2d_cw_between(0,180) 
 		>> node_069 
 	else 
@@ -639,63 +639,63 @@ def node_071
 	return 
 endf 
 
-def node_072
+def node_072 : 728
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.front_leg_slap_high_l() 
 	return 
 endf 
 
-def node_073
+def node_073 : 729
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.front_leg_slap_high_r() 
 	return 
 endf 
 
-def node_074
+def node_074 : 730
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.front_leg_slap_high_after_recover_l() 
 	return 
 endf 
 
-def node_075
+def node_075 : 731
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.front_leg_slap_high_after_recover_r() 
 	return 
 endf 
 
-def node_076
+def node_076 : 602
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.quick_stomp_l() 
 	return 
 endf 
 
-def node_077
+def node_077 : 613
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.quick_stomp_r() 
 	return 
 endf 
 
-def node_078
+def node_078 : 603
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.back_kick_l() 
 	return 
 endf 
 
-def node_079
+def node_079 : 614
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.back_kick_r() 
 	return 
 endf 
 
-def node_080
+def node_080 : 750
 	>> node_001 
 	>> node_003 
 	self.targetEnemy(10) @ parameter2:500 
@@ -705,7 +705,7 @@ def node_080
 	return 
 endf 
 
-def node_081
+def node_081 : 751
 	>> node_001 
 	>> node_003 
 	self.targetEnemy(10) @ parameter2:500 
@@ -715,7 +715,7 @@ def node_081
 	return 
 endf 
 
-def node_082
+def node_082 : 782
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.back_kick_l() @ comboSetting:1 
@@ -723,7 +723,7 @@ def node_082
 	return 
 endf 
 
-def node_083
+def node_083 : 783
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.back_kick_r() @ comboSetting:1 
@@ -731,7 +731,7 @@ def node_083
 	return 
 endf 
 
-def node_084
+def node_084 : 813
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.back_kick_l() @ comboSetting:1 
@@ -739,7 +739,7 @@ def node_084
 	return 
 endf 
 
-def node_085
+def node_085 : 814
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.back_kick_r() @ comboSetting:1 
@@ -747,21 +747,21 @@ def node_085
 	return 
 endf 
 
-def node_086
+def node_086 : 636
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.breath_side_to_back_l() 
 	return 
 endf 
 
-def node_087
+def node_087 : 637
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.breath_side_to_back_r() 
 	return 
 endf 
 
-def node_088
+def node_088 : 717
 	if self.angle_2d_cw_between(0,180) 
 		>> node_086 
 	else 
@@ -771,7 +771,7 @@ def node_088
 	return 
 endf 
 
-def node_089
+def node_089 : 699
 	>> node_001 
 	>> node_003 
 	self.targetEnemy(11) @ parameter2:500 
@@ -781,7 +781,7 @@ def node_089
 	return 
 endf 
 
-def node_090
+def node_090 : 700
 	>> node_001 
 	>> node_003 
 	self.targetEnemy(12) @ parameter2:500 
@@ -791,7 +791,7 @@ def node_090
 	return 
 endf 
 
-def node_091
+def node_091 : 701
 	if self.angle_2d_cw_between(0,180) 
 		>> node_089 
 	else 
@@ -801,7 +801,7 @@ def node_091
 	return 
 endf 
 
-def node_092
+def node_092 : 681
 	>> node_001 
 	>> node_003 
 	self.targetEnemy(11) @ parameter2:500 
@@ -812,7 +812,7 @@ def node_092
 	return 
 endf 
 
-def node_093
+def node_093 : 682
 	>> node_001 
 	>> node_003 
 	self.targetEnemy(12) @ parameter2:500 
@@ -823,42 +823,42 @@ def node_093
 	return 
 endf 
 
-def node_094
+def node_094 : 746
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.back_leg_stomp_high_l() 
 	return 
 endf 
 
-def node_095
+def node_095 : 747
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.back_leg_stomp_high_r() 
 	return 
 endf 
 
-def node_096
+def node_096 : 748
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.back_leg_stomp_high_after_recover_l() 
 	return 
 endf 
 
-def node_097
+def node_097 : 749
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.back_leg_stomp_high_after_recover_r() 
 	return 
 endf 
 
-def node_098
+def node_098 : 604
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.tail_tap() 
 	return 
 endf 
 
-def node_099
+def node_099 : 756
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.tail_tap() 
@@ -867,14 +867,14 @@ def node_099
 	return 
 endf 
 
-def node_100
+def node_100 : 605
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.tail_swing_twice() 
 	return 
 endf 
 
-def node_101
+def node_101 : 757
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.tail_swing_twice() @ comboSetting:1 
@@ -882,28 +882,28 @@ def node_101
 	return 
 endf 
 
-def node_102
+def node_102 : 606
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.tail_slap_2() 
 	return 
 endf 
 
-def node_103
+def node_103 : 607
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.tail_sweep_2_l() 
 	return 
 endf 
 
-def node_104
+def node_104 : 615
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.tail_sweep_2_r() 
 	return 
 endf 
 
-def node_105
+def node_105 : 645
 	if self.angle_2d_cw_between(0,180) 
 		>> node_103 
 	else 
@@ -913,7 +913,7 @@ def node_105
 	return 
 endf 
 
-def node_106
+def node_106 : 685
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.tail_swing_twice() @ comboSetting:1 
@@ -921,7 +921,7 @@ def node_106
 	return 
 endf 
 
-def node_107
+def node_107 : 686
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.tail_swing_twice() @ comboSetting:1 
@@ -929,7 +929,7 @@ def node_107
 	return 
 endf 
 
-def node_108
+def node_108 : 690
 	if self.angle_2d_cw_between(0,180) 
 		>> node_106 
 	else 
@@ -939,21 +939,21 @@ def node_108
 	return 
 endf 
 
-def node_109
+def node_109 : 678
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.quick_body_press() 
 	return 
 endf 
 
-def node_110
+def node_110 : 626
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.jab_breath() 
 	return 
 endf 
 
-def node_111
+def node_111 : 702
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.side_step() @ comboSetting:1 
@@ -961,7 +961,7 @@ def node_111
 	return 
 endf 
 
-def node_112
+def node_112 : 627
 	>> node_001 
 	>> node_003 
 	>> node_011 
@@ -969,7 +969,7 @@ def node_112
 	return 
 endf 
 
-def node_113
+def node_113 : 738
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.side_step() @ comboSetting:1 
@@ -977,7 +977,7 @@ def node_113
 	return 
 endf 
 
-def node_114
+def node_114 : 638
 	>> node_001 
 	>> node_003 
 	>> node_009 
@@ -989,7 +989,7 @@ def node_114
 	return 
 endf 
 
-def node_115
+def node_115 : 677
 	>> node_001 
 	>> node_003 
 	>> node_012 
@@ -1005,7 +1005,7 @@ def node_115
 	return 
 endf 
 
-def node_116
+def node_116 : 628
 	>> node_001 
 	>> node_003 
 	>> node_009 
@@ -1013,7 +1013,7 @@ def node_116
 	return 
 endf 
 
-def node_117
+def node_117 : 639
 	>> node_001 
 	>> node_003 
 	>> node_009 
@@ -1021,7 +1021,7 @@ def node_117
 	return 
 endf 
 
-def node_118
+def node_118 : 641
 	>> node_001 
 	>> node_003 
 	>> node_009 
@@ -1033,21 +1033,21 @@ def node_118
 	return 
 endf 
 
-def node_119
+def node_119 : 609
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.continue_bite() 
 	return 
 endf 
 
-def node_120
+def node_120 : 740
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.continue_bite_2() 
 	return 
 endf 
 
-def node_121
+def node_121 : 629
 	>> node_001 
 	>> node_003 
 	>> node_006 
@@ -1055,14 +1055,14 @@ def node_121
 	return 
 endf 
 
-def node_122
+def node_122 : 616
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.rush_2() 
 	return 
 endf 
 
-def node_123
+def node_123 : 761
 	>> node_001 
 	>> node_003 
 	if function#111() 
@@ -1076,7 +1076,7 @@ def node_123
 	return 
 endf 
 
-def node_124
+def node_124 : 617
 	>> node_001 
 	>> node_003 
 	>> node_006 
@@ -1089,7 +1089,7 @@ def node_124
 	return 
 endf 
 
-def node_125
+def node_125 : 642
 	if function#101() 
 		function#113() 
 	else 
@@ -1101,7 +1101,7 @@ def node_125
 	return 
 endf 
 
-def node_126
+def node_126 : 818
 	if function#117() 
 		>> node_114 
 	else 
@@ -1109,35 +1109,35 @@ def node_126
 	return 
 endf 
 
-def node_127
+def node_127 : 618
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.reset_attack() 
 	return 
 endf 
 
-def node_128
+def node_128 : 774
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.berserk_start() 
 	return 
 endf 
 
-def node_129
+def node_129 : 775
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.berserk_end() 
 	return 
 endf 
 
-def node_130
+def node_130 : 666
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.short_rush_drift() 
 	return 
 endf 
 
-def node_131
+def node_131 : 760
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.dash(1,0,0,2500) 
@@ -1145,21 +1145,21 @@ def node_131
 	return 
 endf 
 
-def node_132
+def node_132 : 663
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.breath_and_tail_sweep_l() 
 	return 
 endf 
 
-def node_133
+def node_133 : 664
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.breath_and_tail_sweep_r() 
 	return 
 endf 
 
-def node_134
+def node_134 : 665
 	if self.angle_2d_cw_between(0,180) 
 		>> node_132 
 	else 
@@ -1169,7 +1169,7 @@ def node_134
 	return 
 endf 
 
-def node_135
+def node_135 : 630
 	>> node_001 
 	>> node_003 
 	function#102() 
@@ -1178,21 +1178,21 @@ def node_135
 	return 
 endf 
 
-def node_136
+def node_136 : 619
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.ride_rampage() 
 	return 
 endf 
 
-def node_137
+def node_137 : 771
 	>> node_001 
 	>> node_003 
 	-> safi'jiiva.damage_ride_chance() 
 	return 
 endf 
 
-def node_138
+def node_138 : 631
 	function#102() 
 	>> node_002 
 	-> safi'jiiva.special_breath() 
@@ -1200,10 +1200,10 @@ def node_138
 	return 
 endf 
 
-def node_139
+def node_139 : 596
 endf 
 
-def node_140
+def node_140 : 524
 	function#A8(1) 
 	>> node_225 
 	>> node_144 
@@ -1219,7 +1219,7 @@ def node_140
 	return 
 endf 
 
-def node_141
+def node_141 : 550
 	>> node_144 
 	if self.flying() 
 		>> node_027 
@@ -1230,7 +1230,7 @@ def node_141
 	return 
 endf 
 
-def node_142
+def node_142 : 558
 	function#A8(1) 
 	self.targetEnemy(21) @ parameter2:1500 
 	if self.target(4) 
@@ -1245,7 +1245,7 @@ def node_142
 	return 
 endf 
 
-def node_143
+def node_143 : 528
 	self.targetArea(19) 
 	if self.distance_3d_to_target().gt(1000) 
 		>> node_013 
@@ -1257,7 +1257,7 @@ def node_143
 	return 
 endf 
 
-def node_144
+def node_144 : 526
 	if function#5D() 
 		function#5E() 
 		self.targetEnemy(target_em.random_player_or_cat) 
@@ -1278,7 +1278,7 @@ def node_144
 	return 
 endf 
 
-def node_145
+def node_145 : 525
 	if self.angle_2d_cw_between(270,90) 
 		>> node_037 
 	else 
@@ -1287,7 +1287,7 @@ def node_145
 	return 
 endf 
 
-def node_146
+def node_146 : 520
 	if function#B0(1) 
 		if self.in_map(st.Secluded_Valley).in_area(1) 
 			>> node_151 
@@ -1319,7 +1319,7 @@ def node_146
 	return 
 endf 
 
-def node_147
+def node_147 : 803
 	if self.quest_id(51605) 
 		if function#119(3,15) 
 			if [RegisterVar0 <= 1] 
@@ -1337,7 +1337,7 @@ def node_147
 	return 
 endf 
 
-def node_148
+def node_148 : 804
 	if self.quest_id(51605) 
 		if function#119(3,15) 
 			function#114() 
@@ -1352,14 +1352,14 @@ def node_148
 	return 
 endf 
 
-def node_149
+def node_149 : 529
 	>> node_150 
 	>> node_001 
 	>> node_027 
 	return 
 endf 
 
-def node_150
+def node_150 : 817
 	if function#B0(1) 
 	elif self.in_map(st.Secluded_Valley).in_area(1) 
 	elif [RegisterVar10 <= 3] 
@@ -1393,7 +1393,7 @@ def node_150
 	return 
 endf 
 
-def node_151
+def node_151 : 568
 	[RegisterVar5 ++] 
 	>> node_152 
 	>> node_155 
@@ -1429,7 +1429,7 @@ def node_151
 	return 
 endf 
 
-def node_152
+def node_152 : 594
 	if function#101() 
 		[RegisterVar6 |-] 
 		[RegisterVar7 |-] 
@@ -1463,7 +1463,7 @@ def node_152
 	return 
 endf 
 
-def node_153
+def node_153 : 764
 	function#102() 
 	if function#101(1) 
 		>> node_154 
@@ -1476,7 +1476,7 @@ def node_153
 	return 
 endf 
 
-def node_154
+def node_154 : 762
 	if self.angle_2d_cw_between(0,60) 
 		>> node_014 
 	elif self.angle_2d_cw_between(60,135) 
@@ -1494,7 +1494,7 @@ def node_154
 	return 
 endf 
 
-def node_155
+def node_155 : 647
 	[RegisterVar4 ++] 
 	if self.in_map(st.Secluded_Valley).in_area(1) 
 		if [RegisterVar4 <= 10] 
@@ -1534,7 +1534,7 @@ def node_155
 	return 
 endf 
 
-def node_156
+def node_156 : 788
 	if [RegisterVar11 <= 1] 
 		[RegisterVar11 |-] 
 		>> node_029 
@@ -1552,15 +1552,17 @@ def node_156
 				elser (75) >> node_110 
 				elser (25) >> node_112 
 				elser (0) 
-						endif 
-			endr 
-		else 
+							*& // [Illegal Context] endif 
+				endr 
+			else 
+			endif 
 		endif 
-	endif 
-	return 
-endf 
+		return 
+		*& // [Illegal Context] endf 
+	endif // Added by the Decompiler to ammend malformed thk
+endf // Added by the Decompiler to ammend malformed thk
 
-def node_157
+def node_157 : 793
 	self.targetEnemy(67) 
 	if self.target.helpless_0() 
 		>> node_192 
@@ -1588,7 +1590,7 @@ def node_157
 	return 
 endf 
 
-def node_158
+def node_158 : 643
 	self.targetEnemy(67) 
 	if self.target.helpless_0() 
 		>> node_192 
@@ -1620,7 +1622,7 @@ def node_158
 	return 
 endf 
 
-def node_159
+def node_159 : 785
 	self.targetEnemy(50) 
 	if self.in_map(st.Secluded_Valley).in_area(1) 
 		>> node_202 
@@ -1633,7 +1635,7 @@ def node_159
 	return 
 endf 
 
-def node_160
+def node_160 : 648
 	if [RegisterVar5 <= 2] 
 		[RegisterVar5 |-] 
 		[RegisterVar6 ++] 
@@ -1644,7 +1646,7 @@ def node_160
 	return 
 endf 
 
-def node_161
+def node_161 : 722
 	if function#112() 
 	else 
 		[RegisterVar13 |-] 
@@ -1672,7 +1674,7 @@ def node_161
 	return 
 endf 
 
-def node_162
+def node_162 : 792
 	>> node_164 
 	>> node_199 
 	>> node_166 
@@ -1699,7 +1701,7 @@ def node_162
 	return 
 endf 
 
-def node_163
+def node_163 : 826
 	self.targetEnemy(67) 
 	if self.target.helpless_0() 
 		>> node_215 
@@ -1729,7 +1731,7 @@ def node_163
 	return 
 endf 
 
-def node_164
+def node_164 : 798
 	if self.target_on_part(0) 
 	elif self.target_on_part(1) 
 	elif self.target_on_part(2) 
@@ -1744,7 +1746,7 @@ def node_164
 	return 
 endf 
 
-def node_165
+def node_165 : 799
 	if self.enraged() 
 		if function#B0(1) 
 		elif self.in_map(st.Secluded_Valley).in_area(1) 
@@ -1773,7 +1775,7 @@ def node_165
 	return 
 endf 
 
-def node_166
+def node_166 : 570
 	[RegisterVar1 |-] 
 	>> node_167 
 	if [RegisterVar1 == 0] 
@@ -1788,7 +1790,7 @@ def node_166
 	return 
 endf 
 
-def node_167
+def node_167 : 573
 	[RegisterVar11 |-] 
 	if function#103(0,4) 
 		[RegisterVar1 ++] 
@@ -1852,7 +1854,7 @@ def node_167
 	return 
 endf 
 
-def node_168
+def node_168 : 574
 	[RegisterVar11 |-] 
 	if function#103(0,3) 
 		[RegisterVar1 ++] 
@@ -1916,7 +1918,7 @@ def node_168
 	return 
 endf 
 
-def node_169
+def node_169 : 575
 	[RegisterVar11 |-] 
 	if function#103(0,2) 
 		[RegisterVar1 ++] 
@@ -1980,7 +1982,7 @@ def node_169
 	return 
 endf 
 
-def node_170
+def node_170 : 572
 	[RegisterVar11 |-] 
 	if function#103(0,1) 
 		[RegisterVar1 ++] 
@@ -2044,7 +2046,7 @@ def node_170
 	return 
 endf 
 
-def node_171
+def node_171 : 571
 	if [RegisterVar11 == 0] 
 		[RegisterVar1 |-] 
 	elif [RegisterVar11 == 1] 
@@ -2077,7 +2079,7 @@ def node_171
 	return 
 endf 
 
-def node_172
+def node_172 : 576
 	[RegisterVar2 |-] 
 	>> node_173 
 	if [RegisterVar2 == 0] 
@@ -2092,7 +2094,7 @@ def node_172
 	return 
 endf 
 
-def node_173
+def node_173 : 579
 	[RegisterVar11 |-] 
 	if function#103(0,2) 
 	elif function#103(0,1) 
@@ -2162,7 +2164,7 @@ def node_173
 	return 
 endf 
 
-def node_174
+def node_174 : 582
 	[RegisterVar11 |-] 
 	if function#103(0,3) 
 	elif function#103(0,2) 
@@ -2232,7 +2234,7 @@ def node_174
 	return 
 endf 
 
-def node_175
+def node_175 : 581
 	[RegisterVar11 |-] 
 	if function#103(0,4) 
 	elif function#103(0,3) 
@@ -2302,7 +2304,7 @@ def node_175
 	return 
 endf 
 
-def node_176
+def node_176 : 580
 	[RegisterVar11 |-] 
 	if function#103(0,4) 
 		[RegisterVar2 ++] 
@@ -2366,7 +2368,7 @@ def node_176
 	return 
 endf 
 
-def node_177
+def node_177 : 583
 	if [RegisterVar11 == 0] 
 		[RegisterVar2 |-] 
 	elif [RegisterVar11 == 1] 
@@ -2399,7 +2401,7 @@ def node_177
 	return 
 endf 
 
-def node_178
+def node_178 : 704
 	[RegisterVar3 |-] 
 	if [RegisterVar1 == 1] 
 		if [RegisterVar2 == 1] 
@@ -2436,7 +2438,7 @@ def node_178
 	return 
 endf 
 
-def node_179
+def node_179 : 706
 	if function#111() 
 		random (0) 
 		elser (50) >> node_181 
@@ -2458,7 +2460,7 @@ def node_179
 	return 
 endf 
 
-def node_180
+def node_180 : 705
 	if function#111() 
 		random (0) 
 		elser (50) >> node_183 
@@ -2484,7 +2486,7 @@ def node_180
 	return 
 endf 
 
-def node_181
+def node_181 : 577
 	if [RegisterVar1 == 1] 
 		>> node_043 
 	elif [RegisterVar1 == 2] 
@@ -2502,7 +2504,7 @@ def node_181
 	return 
 endf 
 
-def node_182
+def node_182 : 578
 	if [RegisterVar1 == 1] 
 		>> node_046 
 	elif [RegisterVar1 == 2] 
@@ -2520,7 +2522,7 @@ def node_182
 	return 
 endf 
 
-def node_183
+def node_183 : 584
 	if [RegisterVar2 == 1] 
 		>> node_043 
 	elif [RegisterVar2 == 2] 
@@ -2538,7 +2540,7 @@ def node_183
 	return 
 endf 
 
-def node_184
+def node_184 : 585
 	if [RegisterVar2 == 1] 
 		>> node_046 
 	elif [RegisterVar2 == 2] 
@@ -2556,7 +2558,7 @@ def node_184
 	return 
 endf 
 
-def node_185
+def node_185 : 684
 	if [RegisterVar1 == 1] 
 		if function#112() 
 			>> node_186 
@@ -2598,7 +2600,7 @@ def node_185
 	return 
 endf 
 
-def node_186
+def node_186 : 753
 	if [RegisterVar12 <= 1] 
 		if function#111() 
 			>> node_051 
@@ -2632,7 +2634,7 @@ def node_186
 	return 
 endf 
 
-def node_187
+def node_187 : 741
 	if [RegisterVar12 <= 1] 
 		if function#111() 
 			>> node_065 
@@ -2663,7 +2665,7 @@ def node_187
 	return 
 endf 
 
-def node_188
+def node_188 : 744
 	if [RegisterVar12 <= 1] 
 		if function#111() 
 			>> node_066 
@@ -2694,7 +2696,7 @@ def node_188
 	return 
 endf 
 
-def node_189
+def node_189 : 745
 	if [RegisterVar12 <= 1] 
 		if function#111() 
 			>> node_084 
@@ -2725,7 +2727,7 @@ def node_189
 	return 
 endf 
 
-def node_190
+def node_190 : 752
 	if [RegisterVar12 <= 1] 
 		if function#111() 
 			>> node_085 
@@ -2756,7 +2758,7 @@ def node_190
 	return 
 endf 
 
-def node_191
+def node_191 : 755
 	if [RegisterVar12 <= 1] 
 		if function#111() 
 			>> node_102 
@@ -2798,7 +2800,7 @@ def node_191
 	return 
 endf 
 
-def node_192
+def node_192 : 586
 	if self.target(58) 
 		self.targetEnemy(67) @ parameter2:1 
 		random (80) 
@@ -2828,7 +2830,7 @@ def node_192
 	return 
 endf 
 
-def node_193
+def node_193 : 695
 	if function#103(6,1) 
 		if [RegisterVar8 == 0] 
 			[RegisterVar8 ++] 
@@ -2851,7 +2853,7 @@ def node_193
 	return 
 endf 
 
-def node_194
+def node_194 : 696
 	if self.angle_2d_cw_between(0,60) 
 		random (20) >> node_050 
 		elser (25) >> node_115 
@@ -2898,7 +2900,7 @@ def node_194
 	return 
 endf 
 
-def node_195
+def node_195 : 697
 	random (0) 
 	elser (75) >> node_110 
 				>> node_112 
@@ -2908,7 +2910,7 @@ def node_195
 	return 
 endf 
 
-def node_196
+def node_196 : 698
 	random (0) 
 	elser (40) >> node_112 
 	elser (30) >> node_110 
@@ -2920,7 +2922,7 @@ def node_196
 	return 
 endf 
 
-def node_197
+def node_197 : 807
 	random (0) 
 	elser (80) >> node_114 
 	elser (20) >> node_118 
@@ -2929,7 +2931,7 @@ def node_197
 	return 
 endf 
 
-def node_198
+def node_198 : 777
 	if self.target_on_part(0) 
 		random (50) >> node_136 
 		elser (50) >> node_046 
@@ -2955,7 +2957,7 @@ def node_198
 	return 
 endf 
 
-def node_199
+def node_199 : 795
 	if self.target(58) 
 		self.targetEnemy(67) @ parameter2:1 
 	else 
@@ -2968,7 +2970,7 @@ def node_199
 	return 
 endf 
 
-def node_200
+def node_200 : 796
 	if function#103(6,1) 
 		if [RegisterVar9 <= 1] 
 			[RegisterVar9 |-] 
@@ -2983,7 +2985,7 @@ def node_200
 	return 
 endf 
 
-def node_201
+def node_201 : 797
 	random (0) 
 	elser (45) >> node_123 
 	elser (35) >> node_041 
@@ -2999,7 +3001,7 @@ def node_201
 	return 
 endf 
 
-def node_202
+def node_202 : 790
 	if self.target(58) 
 		self.targetEnemy(67) @ parameter2:1 
 	else 
@@ -3022,7 +3024,7 @@ def node_202
 	return 
 endf 
 
-def node_203
+def node_203 : 791
 	if function#103(6,1) 
 		if [RegisterVar8 == 0] 
 			[RegisterVar8 ++] 
@@ -3048,7 +3050,7 @@ def node_203
 	return 
 endf 
 
-def node_204
+def node_204 : 789
 	if self.angle_2d_cw_between(0,60) 
 		random (35) >> node_050 
 		elser (25) >> node_115 
@@ -3095,7 +3097,7 @@ def node_204
 	return 
 endf 
 
-def node_205
+def node_205 : 587
 	[RegisterVar7 |-] 
 	if [RegisterVar4 <= 3] 
 		>> node_206 
@@ -3107,7 +3109,7 @@ def node_205
 	return 
 endf 
 
-def node_206
+def node_206 : 708
 	>> node_207 
 	if [RegisterVar1 == 0] 
 		return 
@@ -3118,7 +3120,7 @@ def node_206
 	return 
 endf 
 
-def node_207
+def node_207 : 827
 	[RegisterVar1 |-] 
 	>> node_208 
 	if [RegisterVar1 == 0] 
@@ -3133,7 +3135,7 @@ def node_207
 	return 
 endf 
 
-def node_208
+def node_208 : 828
 	[RegisterVar11 |-] 
 	if function#103(6,4) 
 		[RegisterVar1 ++] 
@@ -3197,7 +3199,7 @@ def node_208
 	return 
 endf 
 
-def node_209
+def node_209 : 829
 	[RegisterVar11 |-] 
 	if function#103(6,3) 
 		[RegisterVar1 ++] 
@@ -3261,7 +3263,7 @@ def node_209
 	return 
 endf 
 
-def node_210
+def node_210 : 830
 	[RegisterVar11 |-] 
 	if function#103(6,2) 
 		[RegisterVar1 ++] 
@@ -3325,7 +3327,7 @@ def node_210
 	return 
 endf 
 
-def node_211
+def node_211 : 831
 	[RegisterVar11 |-] 
 	if function#103(6,1) 
 		[RegisterVar1 ++] 
@@ -3389,7 +3391,7 @@ def node_211
 	return 
 endf 
 
-def node_212
+def node_212 : 709
 	if function#111() 
 		>> node_214 
 	else 
@@ -3398,7 +3400,7 @@ def node_212
 	return 
 endf 
 
-def node_213
+def node_213 : 834
 	if [RegisterVar1 == 1] 
 		>> node_109 
 	elif [RegisterVar1 == 2] 
@@ -3416,7 +3418,7 @@ def node_213
 	return 
 endf 
 
-def node_214
+def node_214 : 833
 	if [RegisterVar1 == 1] 
 		>> node_109 
 	elif [RegisterVar1 == 2] 
@@ -3454,7 +3456,7 @@ def node_214
 	return 
 endf 
 
-def node_215
+def node_215 : 590
 	if self.target(58) 
 		>> node_198 
 		self.targetEnemy(67) @ parameter2:1 
@@ -3476,7 +3478,7 @@ def node_215
 	return 
 endf 
 
-def node_216
+def node_216 : 712
 	if self.target(55) 
 		[RegisterVar9 |-] 
 		>> node_127 
@@ -3503,7 +3505,7 @@ def node_216
 	return 
 endf 
 
-def node_217
+def node_217 : 715
 	>> node_022 
 	random (0) 
 	elser (10) >> node_045 
@@ -3520,7 +3522,7 @@ def node_217
 	return 
 endf 
 
-def node_218
+def node_218 : 716
 	>> node_025 
 	random (0) 
 	elser (0) >> node_050 
@@ -3534,7 +3536,7 @@ def node_218
 	return 
 endf 
 
-def node_219
+def node_219 : 809
 	if self.angle_2d_cw_between(30,90) 
 		if function#112(5) 
 			[RegisterVar12 |-] 
@@ -3583,7 +3585,7 @@ def node_219
 	return 
 endf 
 
-def node_220
+def node_220 : 815
 	random (0) 
 	elser (0) >> node_120 
 	elser (20) >> node_071 
@@ -3602,7 +3604,7 @@ def node_220
 	return 
 endf 
 
-def node_221
+def node_221 : 713
 	>> node_041 
 	random (0) 
 	elser (15) >> node_043 
@@ -3624,7 +3626,7 @@ def node_221
 	return 
 endf 
 
-def node_222
+def node_222 : 714
 	>> node_010 
 	random (0) 
 	elser (30) >> node_016 
@@ -3642,7 +3644,7 @@ def node_222
 	return 
 endf 
 
-def node_223
+def node_223 : 769
 	>> node_010 
 	random (0) 
 	elser (20) >> node_016 
@@ -3662,7 +3664,7 @@ def node_223
 	return 
 endf 
 
-def node_224
+def node_224 : 835
 	if function#10F() 
 		if [RegisterVar6 <= 2] 
 			[RegisterVar6 |-] 
@@ -3676,7 +3678,7 @@ def node_224
 	return 
 endf 
 
-def node_225
+def node_225 : 652
 	if function#B0(1) 
 		if self.in_map(st.Secluded_Valley).in_area(1) 
 			>> node_229 
@@ -3697,7 +3699,7 @@ def node_225
 	return 
 endf 
 
-def node_226
+def node_226 : 654
 	if self.hp_percent().gt(69) 
 		>> node_271 
 		[RegisterVar0 ++] 
@@ -3711,7 +3713,7 @@ def node_226
 	return 
 endf 
 
-def node_227
+def node_227 : 657
 	if self.hp_percent().gt(49) 
 		>> node_272 
 		if [RegisterVar10 <= 3] 
@@ -3738,7 +3740,7 @@ def node_227
 	return 
 endf 
 
-def node_228
+def node_228 : 658
 	if self.hp_percent().gt(39) 
 		if function#108() 
 		else 
@@ -3761,7 +3763,7 @@ def node_228
 	return 
 endf 
 
-def node_229
+def node_229 : 718
 	if [RegisterVar0 <= 2] 
 		function#109() 
 		conclude 
@@ -3784,7 +3786,7 @@ def node_229
 	return 
 endf 
 
-def node_230
+def node_230 : 719
 	if self.hp_percent().gt(79) 
 		[RegisterVar0 ++] 
 		>> node_138 
@@ -3798,7 +3800,7 @@ def node_230
 	return 
 endf 
 
-def node_231
+def node_231 : 660
 	if self.in_map(st.Secluded_Valley).in_area(3) 
 		if function#108() 
 			if self.hp_percent().gt(29) 
@@ -3834,7 +3836,7 @@ def node_231
 	return 
 endf 
 
-def node_232
+def node_232 : 667
 	self.targetEnemy(48) 
 	if self.distance_3d_to_target().leq(1000) 
 	elif self.distance_3d_to_target().leq(1700) 
@@ -3855,7 +3857,7 @@ def node_232
 	return 
 endf 
 
-def node_233
+def node_233 : 772
 	>> node_273 
 	if [RegisterVar19 <= 10] 
 		if [RegisterVar0 < 12] 
@@ -3894,7 +3896,7 @@ def node_233
 	return 
 endf 
 
-def node_234
+def node_234 : 773
 	[RegisterVar19 |-] 
 	if self.target_on_part(0) 
 	elif self.target_on_part(1) 
@@ -3923,7 +3925,7 @@ def node_234
 	return 
 endf 
 
-def node_235
+def node_235 : 776
 	if [RegisterVar0 < 6] 
 		[RegisterVar0 |-] 
 		>> node_128 
@@ -3931,7 +3933,7 @@ def node_235
 	return 
 endf 
 
-def node_236
+def node_236 : 821
 	if function#111() 
 		[RegisterVar0 |-] 
 		>> node_129 
@@ -3940,7 +3942,7 @@ def node_236
 	return 
 endf 
 
-def node_237
+def node_237 : 820
 	[RegisterVar0 ++] 
 	[RegisterVar19 |-] 
 	[RegisterVar19 ++] 
@@ -3955,7 +3957,7 @@ def node_237
 	return 
 endf 
 
-def node_238
+def node_238 : 822
 	if [RegisterVar0 <= 2] 
 		if self.target_on_part(0) 
 			>> node_127 
@@ -3990,7 +3992,7 @@ def node_238
 	return 
 endf 
 
-def node_239
+def node_239 : 824
 	[RegisterVar0 ++] 
 	[RegisterVar19 |-] 
 	[RegisterVar19 ++] 
@@ -4004,7 +4006,7 @@ def node_239
 	return 
 endf 
 
-def node_240
+def node_240 : 825
 	if [RegisterVar0 <= 10] 
 		if self.target_on_part(0) 
 		elif self.target_on_part(1) 
@@ -4036,7 +4038,7 @@ def node_240
 	return 
 endf 
 
-def node_241
+def node_241 : 593
 	if function#A9() 
 		function#A8() 
 		>> node_137 
@@ -4049,7 +4051,7 @@ def node_241
 	return 
 endf 
 
-def node_242
+def node_242 : 778
 	if [RegisterVar10 == 0] 
 		[RegisterVar10 ++] 
 		if self.in_map(st.Secluded_Valley).in_area(1) 
@@ -4083,12 +4085,12 @@ def node_242
 	return 
 endf 
 
-def node_243
+def node_243 : 533
 	>> node_244 
 	return 
 endf 
 
-def node_244
+def node_244 : 779
 	self.targetEnemy(48) 
 	if self.distance_3d_to_target().gt(10000) 
 		random (0) 
@@ -4150,17 +4152,17 @@ def node_244
 	return 
 endf 
 
-def node_245
+def node_245 : 534
 	>> node_030 
 	return 
 endf 
 
-def node_246
+def node_246 : 535
 	>> node_030 
 	return 
 endf 
 
-def node_247
+def node_247 : 536
 	>> node_275 
 	if self.in_map(st.Secluded_Valley).in_area(1) 
 	else 
@@ -4178,7 +4180,7 @@ def node_247
 	return 
 endf 
 
-def node_248
+def node_248 : 537
 	>> node_275 
 	if self.in_map(st.Secluded_Valley).in_area(1) 
 	else 
@@ -4191,17 +4193,17 @@ def node_248
 	return 
 endf 
 
-def node_249
+def node_249 : 551
 	>> node_038 
 	return 
 endf 
 
-def node_250
+def node_250 : 552
 	>> node_013 
 	return 
 endf 
 
-def node_251
+def node_251 : 532
 	>> node_252 
 	if self.in_map(st.Secluded_Valley).in_area(1) 
 		>> node_253 
@@ -4214,7 +4216,7 @@ def node_251
 	return 
 endf 
 
-def node_252
+def node_252 : 661
 	[RegisterVar0 |-] 
 	[RegisterVar1 |-] 
 	[RegisterVar2 |-] 
@@ -4240,7 +4242,7 @@ def node_252
 	return 
 endf 
 
-def node_253
+def node_253 : 732
 	>> node_273 
 	if function#11B(4,5000) 
 		if [RegisterVar19 <= 1] 
@@ -4261,7 +4263,7 @@ def node_253
 	return 
 endf 
 
-def node_254
+def node_254 : 763
 	>> node_273 
 	if function#11D(4,3000) 
 		if [RegisterVar19 <= 1] 
@@ -4290,7 +4292,7 @@ def node_254
 	return 
 endf 
 
-def node_255
+def node_255 : 507
 	>> node_001 
 	>> node_003 
 	function#10A() 
@@ -4303,7 +4305,7 @@ def node_255
 	return 
 endf 
 
-def node_256
+def node_256 : 511
 	>> node_001 
 	>> node_003 
 	function#10B() 
@@ -4316,7 +4318,7 @@ def node_256
 	return 
 endf 
 
-def node_257
+def node_257 : 553
 	self.targetEnemy(13) 
 	if self.flying() 
 		>> node_027 
@@ -4354,23 +4356,23 @@ def node_257
 	return 
 endf 
 
-def node_258
+def node_258 : 554
 	>> node_029 
 	return 
 endf 
 
-def node_259
+def node_259 : 819
 	function#CA() 
 	return 
 endf 
 
-def node_260
+def node_260 : 555
 	self.targetEnemy(target_em.random_player_or_cat) 
 	>> node_029 
 	return 
 endf 
 
-def node_261
+def node_261 : 531
 	>> node_264 
 	>> node_020 
 	>> node_242 
@@ -4378,14 +4380,14 @@ def node_261
 	return 
 endf 
 
-def node_262
+def node_262 : 556
 	>> node_264 
 	>> node_242 
 	>> node_027 
 	return 
 endf 
 
-def node_263
+def node_263 : 557
 	>> node_264 
 	if function#11E(11) 
 		>> node_027 
@@ -4399,7 +4401,7 @@ def node_263
 	return 
 endf 
 
-def node_264
+def node_264 : 808
 	if [RegisterVar10 <= 2] 
 		[RegisterVar3 |-] 
 	else 
@@ -4415,7 +4417,7 @@ def node_264
 	return 
 endf 
 
-def node_265
+def node_265 : 559
 	>> node_275 
 	if self.flying() 
 	else 
@@ -4424,7 +4426,7 @@ def node_265
 	return 
 endf 
 
-def node_266
+def node_266 : 646
 	if self.quest_id(51605) 
 		>> node_267 
 	elif self.quest_id(23161) 
@@ -4434,7 +4436,7 @@ def node_266
 	return 
 endf 
 
-def node_267
+def node_267 : 721
 	>> node_001 
 	>> node_003 
 	function#115() 
@@ -4443,7 +4445,7 @@ def node_267
 	return 
 endf 
 
-def node_268
+def node_268 : 707
 	if self.in_map(st.Secluded_Valley).in_area(-1) 
 		>> node_001 
 		>> node_003 
@@ -4456,7 +4458,7 @@ def node_268
 	return 
 endf 
 
-def node_269
+def node_269 : 723
 	>> node_271 
 	[RegisterVar0 ++] 
 	function#105(70) 
@@ -4469,7 +4471,7 @@ def node_269
 	return 
 endf 
 
-def node_270
+def node_270 : 724
 	>> node_271 
 	function#102() 
 	>> node_130 
@@ -4484,7 +4486,7 @@ def node_270
 	return 
 endf 
 
-def node_271
+def node_271 : 758
 	if function#106() 
 		function#109() 
 		conclude 
@@ -4493,7 +4495,7 @@ def node_271
 	return 
 endf 
 
-def node_272
+def node_272 : 759
 	if function#107() 
 		function#109() 
 		conclude 
@@ -4502,7 +4504,7 @@ def node_272
 	return 
 endf 
 
-def node_273
+def node_273 : 653
 	[RegisterVar19 |-] 
 	if self.part(1).is_broken(1) 
 		[RegisterVar19 ++] 
@@ -4540,12 +4542,12 @@ def node_273
 	return 
 endf 
 
-def node_274
+def node_274 : 592
 	function#10D() 
 	return 
 endf 
 
-def node_275
+def node_275 : 823
 	if function#11E(97) 
 		if function#B0(1) 
 			if [RegisterVar0 <= 1] 
@@ -4574,13 +4576,13 @@ def node_275
 	return 
 endf 
 
-def node_276
+def node_276 : 720
 	function#115() 
 	self.targetEnemy(38) 
 	-> safi'jiiva.repelled_threat() 
 	conclude 
 endf 
 
-def node_277
+def node_277 : 725
 endf 
 

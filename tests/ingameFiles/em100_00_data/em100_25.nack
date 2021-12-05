@@ -1,6 +1,6 @@
 importactions Anjanath as anjanath
 
-def node_000
+def node_000 : 1
 	self.targetEnemy(34) 
 	if function#41() 
 	elif self.vertical_distance_to_target().gt(1000) 
@@ -15,7 +15,7 @@ def node_000
 	conclude 
 endf 
 
-def node_001
+def node_001 : 2
 	if self.distance_3d_to_target().leq(1500) 
 		-> anjanath.back_turn() 
 	elif self.angle_2d_cw_between(40,320) 
@@ -25,7 +25,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 3
 	if self.distance_3d_to_target().leq(1000) 
 		-> anjanath.back_turn() 
 	else 
@@ -33,7 +33,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 4
 	if self.target_is(em.Rathalos) 
 		>> node_001 
 		-> anjanath.threat_fly() 
@@ -42,7 +42,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 5
 	if self.distance_3d_to_target().leq(4000) 
 		>> node_001 
 		-> anjanath.discover() 
@@ -53,7 +53,7 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 6
 	if self.distance_3d_to_target().leq(1500) 
 		>> node_001 
 		-> anjanath.lost_search() 
@@ -63,7 +63,7 @@ def node_005
 	return 
 endf 
 
-def node_006
+def node_006 : 7
 	return 
 endf 
 

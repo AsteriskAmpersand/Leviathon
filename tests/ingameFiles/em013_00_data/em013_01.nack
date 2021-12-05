@@ -1,7 +1,7 @@
 importactions Fatalis as fatalis
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	>> Global.node_142 
 	if function#103() 
 		if self.quest_id(51612) 
@@ -38,37 +38,37 @@ def node_000
 	reset 
 endf 
 
-def node_001
+def node_001 : 3
 	>> node_010 
 	return 
 endf 
 
-def node_002
+def node_002 : 4
 	>> node_007 
 	return 
 endf 
 
-def node_003
+def node_003 : 5
 	>> node_007 
 	return 
 endf 
 
-def node_004
+def node_004 : 6
 	>> node_010 
 	return 
 endf 
 
-def node_005
+def node_005 : 7
 	>> node_007 
 	return 
 endf 
 
-def node_006
+def node_006 : 8
 	>> node_007 
 	return 
 endf 
 
-def node_007
+def node_007 : 12
 	random (35) >> node_014 
 	elser (35) >> node_013 
 	elser (30) >> node_008 
@@ -77,7 +77,7 @@ def node_007
 	return 
 endf 
 
-def node_008
+def node_008 : 24
 	if function#104() 
 		if self.flying() 
 			>> Global.node_018 
@@ -117,21 +117,21 @@ def node_008
 	return 
 endf 
 
-def node_009
+def node_009 : 14
 	self.targetArea(21) @ parameter2:1000 
 	>> Global.node_050 
 	>> node_013 
 	return 
 endf 
 
-def node_010
+def node_010 : 15
 	self.targetEnemy(target_em.random_player_or_cat) 
 	function#10C() 
 	>> node_011 
 	return 
 endf 
 
-def node_011
+def node_011 : 16
 	if function#104() 
 		if self.flying() 
 			>> Global.node_018 
@@ -178,7 +178,7 @@ def node_011
 	return 
 endf 
 
-def node_012
+def node_012 : 19
 	>> Global.node_044 
 	if self.distance_2d_to_target().leq(1000) 
 	else 
@@ -187,12 +187,12 @@ def node_012
 	return 
 endf 
 
-def node_013
+def node_013 : 20
 	>> Global.node_011 
 	return 
 endf 
 
-def node_014
+def node_014 : 21
 	>> Global.node_013 
 	return 
 endf 

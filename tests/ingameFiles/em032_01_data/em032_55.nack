@@ -1,10 +1,10 @@
 importactions Brute_Tigrex as brute_tigrex
 
-def node_000
+def node_000 : 1
 	conclude 
 endf 
 
-def node_001
+def node_001 : 11
 	if self.targetEnemy(target_em.any_monster) 
 		if self.target(13) 
 		else 
@@ -29,7 +29,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 12
 	if function#30(2) 
 		random (35) 
 		elser (0) >> node_004 
@@ -54,7 +54,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 13
 	if function#30(2) 
 		random (10) 
 		elser (35) >> node_004 
@@ -71,7 +71,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 14
 	if function#41() 
 	else 
 		>> node_010 
@@ -80,7 +80,7 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 15
 	if function#41() 
 	else 
 		>> node_010 
@@ -89,7 +89,7 @@ def node_005
 	return 
 endf 
 
-def node_006
+def node_006 : 16
 	if function#41() 
 	else 
 		if self.target_is(em.Rathalos) 
@@ -141,7 +141,7 @@ def node_006
 	return 
 endf 
 
-def node_007
+def node_007 : 17
 	if function#41() 
 	else 
 		if self.vertical_distance_to_target().gt(500) 
@@ -155,14 +155,14 @@ def node_007
 	return 
 endf 
 
-def node_008
+def node_008 : 43
 	function#31(49,1000) 
 	self.targetEnemy(target_em.closest_entity) 
 	>> node_002 
 	return 
 endf 
 
-def node_009
+def node_009 : 34
 	if self.angle_2d_cw_between(60,300) 
 		if self.in_combat() 
 			-> brute_tigrex.quick_turn() 
@@ -176,7 +176,7 @@ def node_009
 	return 
 endf 
 
-def node_010
+def node_010 : 23
 	if self.distance_3d_to_target().leq(550) 
 		-> brute_tigrex.quick_turn() 
 	else 
@@ -192,7 +192,7 @@ def node_010
 	return 
 endf 
 
-def node_011
+def node_011 : 31
 	if self.fatigued() 
 		-> brute_tigrex.dash_tired(2,1,5,1500,700) 
 	else 
@@ -201,7 +201,7 @@ def node_011
 	return 
 endf 
 
-def node_012
+def node_012 : 32
 	if self.fatigued() 
 		-> brute_tigrex.dash_tired(2,1,5,3000,700) 
 	else 
@@ -210,7 +210,7 @@ def node_012
 	return 
 endf 
 
-def node_013
+def node_013 : 33
 	if self.fatigued() 
 		-> brute_tigrex.walk(2,1,5,1500,700) 
 	else 
@@ -219,7 +219,7 @@ def node_013
 	return 
 endf 
 
-def node_014
+def node_014 : 25
 	if self.distance_3d_to_target().leq(500) 
 		>> node_016 
 	elif self.distance_3d_to_target().leq(1000) 
@@ -232,28 +232,28 @@ def node_014
 	return 
 endf 
 
-def node_015
+def node_015 : 26
 	-> brute_tigrex.bite_max() 
 	return 
 endf 
 
-def node_016
+def node_016 : 27
 	-> brute_tigrex.bite_min() 
 	return 
 endf 
 
-def node_017
+def node_017 : 28
 	-> brute_tigrex.rotate_attack_r() 
 	return 
 endf 
 
-def node_018
+def node_018 : 29
 	-> brute_tigrex.straight_rush(2,6,0,10000,800) 
 	-> brute_tigrex.afterrush_stop() 
 	return 
 endf 
 
-def node_019
+def node_019 : 35
 	-> brute_tigrex.navi_rush_short(1,2,0,800,10000) 
 	if self.target(10) 
 		-> brute_tigrex.afterrush_roar() 
@@ -264,7 +264,7 @@ def node_019
 	return 
 endf 
 
-def node_020
+def node_020 : 36
 	if function#101() 
 		-> brute_tigrex.afterrush_stop() 
 	else 
@@ -272,7 +272,7 @@ def node_020
 	return 
 endf 
 
-def node_021
+def node_021 : 37
 	-> brute_tigrex.move_back() 
 	if self.angle_2d_cw_between(0,60) 
 		-> brute_tigrex.threat_short_l() 
@@ -286,7 +286,7 @@ def node_021
 	return 
 endf 
 
-def node_022
+def node_022 : 24
 	>> node_010 
 	if self.distance_2d_to_target().leq(1500) 
 		-> brute_tigrex.move_back() 
@@ -300,7 +300,7 @@ def node_022
 	return 
 endf 
 
-def node_023
+def node_023 : 44
 	if function#6B(20000) 
 		-> brute_tigrex.sniff_l() 
 		>> node_024 
@@ -310,7 +310,7 @@ def node_023
 	return 
 endf 
 
-def node_024
+def node_024 : 45
 	self.targetEnemy(26) 
 	if self.distance_3d_to_target().leq(800) 
 	else 
@@ -320,7 +320,7 @@ def node_024
 	return 
 endf 
 
-def node_025
+def node_025 : 46
 	if self.distance_3d_to_target().leq(500) 
 		-> brute_tigrex.quick_turn() @ unkn6:65536 
 	elif self.angle_2d_cw_between(30,330) 
@@ -331,7 +331,7 @@ def node_025
 	reset 
 endf 
 
-def node_026
+def node_026 : 18
 	if self.target(0) 
 		>> node_027 
 	else 
@@ -340,12 +340,12 @@ def node_026
 	reset 
 endf 
 
-def node_027
+def node_027 : 19
 	-> brute_tigrex.dash() 
 	return 
 endf 
 
-def node_028
+def node_028 : 20
 	self.targetArea(14) 
 	if self.distance_3d_to_target().gt(600) 
 		>> node_012 
@@ -355,7 +355,7 @@ def node_028
 	return 
 endf 
 
-def node_029
+def node_029 : 21
 	self.targetArea(19) 
 	if self.distance_3d_to_target().gt(1000) 
 		>> node_011 
@@ -365,7 +365,7 @@ def node_029
 	return 
 endf 
 
-def node_030
+def node_030 : 22
 	if function#41() 
 		>> node_011 => repeat 
 	else 
@@ -373,7 +373,7 @@ def node_030
 	return 
 endf 
 
-def node_031
+def node_031 : 40
 	if self.angle_2d_cw_between(150,210) 
 		-> brute_tigrex.quick_turn() 
 	else 
@@ -386,7 +386,7 @@ def node_031
 	return 
 endf 
 
-def node_032
+def node_032 : 39
 	if self.distance_2d_to_target().leq(500) 
 		-> brute_tigrex.max_roar_single_back() 
 	else 
@@ -395,7 +395,7 @@ def node_032
 	return 
 endf 
 
-def node_033
+def node_033 : 38
 	if self.distance_2d_to_target().leq(500) 
 		-> brute_tigrex.max_roar_double_first() 
 	else 
@@ -404,7 +404,7 @@ def node_033
 	return 
 endf 
 
-def node_034
+def node_034 : 42
 	if self.enraged() 
 		if self.angle_2d_cw_between(0,90) 
 			-> brute_tigrex.afterrush_super_roar_r() 

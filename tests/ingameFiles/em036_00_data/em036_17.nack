@@ -1,7 +1,7 @@
 importactions Lavasioth as lavasioth
 importlibrary Global as Global
 
-def node_000
+def node_000 : 73
 	if self.quest_id(61607) >> node_005 
 	elif self.in_map(st.Elder_Recess).in_area(7) >> node_002 
 	elif self.in_map(st.Elder_Recess).in_area(9) >> node_002 
@@ -11,7 +11,7 @@ def node_000
 	conclude 
 endf 
 
-def node_001
+def node_001 : 82
 	>> Global.node_069 
 	self.targetArea(55) 
 	>> Global.node_086 
@@ -23,7 +23,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 86
 	self.targetArea(14) 
 	if function#AB() 
 		>> Global.node_079 
@@ -34,7 +34,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 81
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		>> Global.node_085 
@@ -43,7 +43,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 88
 	if self.distance_2d_to_target().leq(500) 
 	else 
 		-> lavasioth.dash_diving(2,6,0,1000,500) 
@@ -52,7 +52,7 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 89
 	if function#AB() 
 		function#AA() 
 		>> Global.node_069 

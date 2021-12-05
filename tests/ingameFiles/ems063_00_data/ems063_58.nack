@@ -1,7 +1,7 @@
 importactions Wulg as wulg
 importlibrary Global as Global
 
-def node_000
+def node_000 : 2
 	function#C6() 
 	if self.targetEnemy(target_em.closest_entity) 
 		if self.target.helpless_0() 
@@ -31,7 +31,7 @@ def node_000
 	conclude 
 endf 
 
-def node_001
+def node_001 : 3
 	if self.vertical_distance_to_target().leq(1000) 
 		>> node_002 
 	else 
@@ -40,7 +40,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 4
 	if function#3F() 
 		-> wulg.damage_clawgrab_initiate() 
 	else 
@@ -51,14 +51,14 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 5
 	>> node_007 
 	>> Global.node_008 
 	>> Global.node_050 
 	return 
 endf 
 
-def node_004
+def node_004 : 6
 	>> node_007 
 	function#54() 
 	function#52(18,6) 
@@ -71,7 +71,7 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 7
 	self.targetEnemy(33) 
 	if self.target(20) 
 	else 
@@ -80,13 +80,13 @@ def node_005
 	return 
 endf 
 
-def node_006
+def node_006 : 8
 	>> Global.node_008 
 	>> Global.node_050 
 	return 
 endf 
 
-def node_007
+def node_007 : 10
 	if function#B0() 
 		if function#110() 
 		else 

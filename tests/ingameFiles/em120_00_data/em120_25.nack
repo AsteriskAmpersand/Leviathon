@@ -1,7 +1,7 @@
 importactions TzitziYaKu as tzitziyaku
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	self.targetEnemy(33) 
 	if function#41() 
 		>> node_003 
@@ -14,7 +14,7 @@ def node_000
 	conclude 
 endf 
 
-def node_001
+def node_001 : 4
 	if function#31(32,3000) 
 		>> node_002 
 	elif function#31(31,3000) 
@@ -28,7 +28,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 9
 	if self.vertical_distance_to_target().leq(3000) 
 		>> Global.call#071 // -THK_55 is missing NodeID 071. 
 	else 
@@ -37,7 +37,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 8
 	>> Global.node_060 
 	return 
 endf 

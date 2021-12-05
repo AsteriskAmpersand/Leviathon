@@ -1,14 +1,14 @@
 importactions Jagras as jagras
 importlibrary Global as Global
 
-def node_000
+def node_000 : 1
 	>> node_001 
 	>> node_001 
 	>> node_001 
 	conclude 
 endf 
 
-def node_001
+def node_001 : 19
 	self.targetEnemy(target_em.random_player_or_cat) 
 	>> node_002 
 	if self.distance_3d_to_target().leq(750) 
@@ -20,7 +20,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 25
 	if self.target(4) 
 		>> node_005 
 		conclude 
@@ -32,12 +32,12 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 20
 	>> Global.node_008 
 	return 
 endf 
 
-def node_004
+def node_004 : 21
 	self.targetArea(1) @ unkn3:2097152, unkn12:4, unknExtra1:200 
 	>> Global.node_002 
 	self.targetArea(1) 
@@ -45,7 +45,7 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 22
 	>> Global.node_053 
 	return 
 endf 

@@ -1,10 +1,10 @@
 importactions Great_Jagras as great_jagras
 
-def node_000
+def node_000 : 1
 	conclude 
 endf 
 
-def node_001
+def node_001 : 324
 	if self.current_quest().is_rank(rank.MR) 
 		>> node_003 
 	else 
@@ -13,7 +13,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 326
 	if self.current_quest().is_rank(rank.MR) 
 		>> node_004 
 	else 
@@ -22,7 +22,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 426
 	>> node_152 
 	if self.targetEnemy(target_em.any_monster) 
 		if self.target(13) 
@@ -120,7 +120,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 427
 	>> node_152 
 	if self.targetEnemy(target_em.any_monster) 
 		if self.target(13) 
@@ -218,7 +218,7 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 428
 	>> node_152 
 	if self.targetEnemy(target_em.any_monster) 
 		if self.target(13) 
@@ -300,7 +300,7 @@ def node_005
 	return 
 endf 
 
-def node_006
+def node_006 : 429
 	>> node_152 
 	if self.targetEnemy(target_em.any_monster) 
 		if self.target(13) 
@@ -382,11 +382,11 @@ def node_006
 	return 
 endf 
 
-def node_007
+def node_007 : 306
 	return 
 endf 
 
-def node_008
+def node_008 : 325
 	if self.in_map(st.Special_Arena).in_area(-1) 
 		>> node_010 
 	elif self.in_map(st.Challenge_Arena).in_area(-1) 
@@ -430,7 +430,7 @@ def node_008
 	return 
 endf 
 
-def node_009
+def node_009 : 335
 	>> node_010 
 	>> node_010 
 	random (70) 
@@ -446,7 +446,7 @@ def node_009
 	return 
 endf 
 
-def node_010
+def node_010 : 308
 	if self.quest_id(61606) 
 		self.targetEnemy(target_em.closest_entity) 
 		if function#101() 
@@ -473,7 +473,7 @@ def node_010
 	return 
 endf 
 
-def node_011
+def node_011 : 307
 	if self.quest_id(61606) 
 		>> node_010 
 	else 
@@ -492,7 +492,7 @@ def node_011
 	return 
 endf 
 
-def node_012
+def node_012 : 330
 	self.targetEnemy(target_em.closest_entity) 
 	if self.vertical_distance_to_target().leq(500) 
 		if self.distance_2d_to_target().leq(1000) 
@@ -508,7 +508,7 @@ def node_012
 	return 
 endf 
 
-def node_013
+def node_013 : 331
 	self.targetEnemy(target_em.closest_entity) 
 	if self.vertical_distance_to_target().leq(500) 
 		if self.distance_2d_to_target().leq(1000) 
@@ -524,7 +524,7 @@ def node_013
 	return 
 endf 
 
-def node_014
+def node_014 : 332
 	self.targetEnemy(target_em.closest_entity) 
 	if self.distance_2d_to_target().leq(1000) 
 		>> node_095 
@@ -534,7 +534,7 @@ def node_014
 	return 
 endf 
 
-def node_015
+def node_015 : 333
 	self.targetEnemy(target_em.closest_entity) 
 	if self.vertical_distance_to_target().leq(500) 
 		if self.distance_2d_to_target().leq(1200) 
@@ -552,7 +552,7 @@ def node_015
 	return 
 endf 
 
-def node_016
+def node_016 : 298
 	if function#101() 
 		-> great_jagras.fat_threat() 
 	else 
@@ -561,7 +561,7 @@ def node_016
 	return 
 endf 
 
-def node_017
+def node_017 : 299
 	if function#101() 
 		-> great_jagras.fat_threat_short() 
 	else 
@@ -570,7 +570,7 @@ def node_017
 	return 
 endf 
 
-def node_018
+def node_018 : 413
 	if function#AB() 
 		function#AA() 
 		>> node_017 
@@ -579,7 +579,7 @@ def node_018
 	return 
 endf 
 
-def node_019
+def node_019 : 336
 	if function#101() 
 		-> great_jagras.fat_lost_search() 
 	else 
@@ -588,7 +588,7 @@ def node_019
 	return 
 endf 
 
-def node_020
+def node_020 : 337
 	if function#101() 
 		-> great_jagras.fat_short_search() 
 	else 
@@ -597,7 +597,7 @@ def node_020
 	return 
 endf 
 
-def node_021
+def node_021 : 338
 	if function#101() 
 		-> great_jagras.fat_lost_search() 
 	else 
@@ -606,7 +606,7 @@ def node_021
 	return 
 endf 
 
-def node_022
+def node_022 : 315
 	if function#101() 
 		-> great_jagras.fat_tired() 
 	else 
@@ -615,7 +615,7 @@ def node_022
 	return 
 endf 
 
-def node_023
+def node_023 : 339
 	if function#101() 
 		-> great_jagras.fat_refresh() 
 	else 
@@ -624,7 +624,7 @@ def node_023
 	return 
 endf 
 
-def node_024
+def node_024 : 340
 	if function#101() 
 		-> great_jagras.fat_smell() 
 	else 
@@ -633,7 +633,7 @@ def node_024
 	return 
 endf 
 
-def node_025
+def node_025 : 341
 	if self.alert_out_of_combat() 
 		if function#101() 
 			-> great_jagras.fat_lost_search() 
@@ -650,7 +650,7 @@ def node_025
 	return 
 endf 
 
-def node_026
+def node_026 : 303
 	if function#101() 
 		-> great_jagras.fat_threat_short() 
 	else 
@@ -659,7 +659,7 @@ def node_026
 	return 
 endf 
 
-def node_027
+def node_027 : 310
 	if function#101() 
 		-> great_jagras.fat_wait() 
 	else 
@@ -668,7 +668,7 @@ def node_027
 	return 
 endf 
 
-def node_028
+def node_028 : 172
 	if function#101() 
 		-> great_jagras.fat_run(1,2,0,600,1500) 
 	else 
@@ -677,7 +677,7 @@ def node_028
 	return 
 endf 
 
-def node_029
+def node_029 : 171
 	if self.distance_3d_to_target().leq(700) 
 	else 
 		>> node_028 
@@ -686,7 +686,7 @@ def node_029
 	return 
 endf 
 
-def node_030
+def node_030 : 176
 	if function#101() 
 		-> great_jagras.fat_run(1,2,0,600,1500) 
 	else 
@@ -695,20 +695,20 @@ def node_030
 	return 
 endf 
 
-def node_031
+def node_031 : 175
 	>> node_030 
 	>> node_030 
 	return 
 endf 
 
-def node_032
+def node_032 : 235
 	>> node_030 
 	>> node_030 
 	>> node_030 
 	return 
 endf 
 
-def node_033
+def node_033 : 292
 	if self.distance_2d_to_target().leq(800) 
 		return 
 	else 
@@ -727,7 +727,7 @@ def node_033
 	return 
 endf 
 
-def node_034
+def node_034 : 293
 	if self.distance_2d_to_target().leq(2000) 
 		>> node_039 
 	else 
@@ -736,7 +736,7 @@ def node_034
 	return 
 endf 
 
-def node_035
+def node_035 : 163
 	if function#101() 
 		-> great_jagras.fat_turn() 
 	else 
@@ -745,7 +745,7 @@ def node_035
 	return 
 endf 
 
-def node_036
+def node_036 : 158
 	if self.distance_2d_to_target().leq(750) 
 		-> great_jagras.battle_turn() 
 	else 
@@ -754,7 +754,7 @@ def node_036
 	return 
 endf 
 
-def node_037
+def node_037 : 161
 	if self.distance_2d_to_target().leq(750) 
 		-> great_jagras.fat_battle_turn() 
 	else 
@@ -763,7 +763,7 @@ def node_037
 	return 
 endf 
 
-def node_038
+def node_038 : 162
 	if function#101() 
 		>> node_037 
 	else 
@@ -772,7 +772,7 @@ def node_038
 	return 
 endf 
 
-def node_039
+def node_039 : 189
 	if function#101() 
 		-> great_jagras.fat_back_turn() 
 	else 
@@ -781,7 +781,7 @@ def node_039
 	return 
 endf 
 
-def node_040
+def node_040 : 274
 	if function#101() 
 		-> great_jagras.fat_turn_life() 
 	else 
@@ -790,7 +790,7 @@ def node_040
 	return 
 endf 
 
-def node_041
+def node_041 : 76
 	if self.angle_2d_cw_between(15,345) 
 		>> node_035 
 	else 
@@ -798,7 +798,7 @@ def node_041
 	return 
 endf 
 
-def node_042
+def node_042 : 77
 	if self.angle_2d_cw_between(30,330) 
 		>> node_035 
 	else 
@@ -806,7 +806,7 @@ def node_042
 	return 
 endf 
 
-def node_043
+def node_043 : 78
 	if self.angle_2d_cw_between(45,315) 
 		>> node_035 
 	else 
@@ -814,7 +814,7 @@ def node_043
 	return 
 endf 
 
-def node_044
+def node_044 : 79
 	if self.angle_2d_cw_between(60,300) 
 		>> node_035 
 	else 
@@ -822,7 +822,7 @@ def node_044
 	return 
 endf 
 
-def node_045
+def node_045 : 80
 	if self.angle_2d_cw_between(75,285) 
 		>> node_035 
 	else 
@@ -830,7 +830,7 @@ def node_045
 	return 
 endf 
 
-def node_046
+def node_046 : 81
 	if self.angle_2d_cw_between(90,270) 
 		>> node_035 
 	else 
@@ -838,7 +838,7 @@ def node_046
 	return 
 endf 
 
-def node_047
+def node_047 : 98
 	if self.angle_2d_cw_between(10,320) 
 		>> node_035 
 	else 
@@ -846,7 +846,7 @@ def node_047
 	return 
 endf 
 
-def node_048
+def node_048 : 84
 	if self.angle_2d_cw_between(15,345) 
 		>> node_038 
 	else 
@@ -854,7 +854,7 @@ def node_048
 	return 
 endf 
 
-def node_049
+def node_049 : 85
 	if self.angle_2d_cw_between(30,330) 
 		>> node_038 
 	else 
@@ -862,7 +862,7 @@ def node_049
 	return 
 endf 
 
-def node_050
+def node_050 : 86
 	if self.angle_2d_cw_between(45,315) 
 		>> node_038 
 	else 
@@ -870,7 +870,7 @@ def node_050
 	return 
 endf 
 
-def node_051
+def node_051 : 87
 	if self.angle_2d_cw_between(60,300) 
 		>> node_038 
 	else 
@@ -878,7 +878,7 @@ def node_051
 	return 
 endf 
 
-def node_052
+def node_052 : 88
 	if self.angle_2d_cw_between(75,285) 
 		>> node_038 
 	else 
@@ -886,7 +886,7 @@ def node_052
 	return 
 endf 
 
-def node_053
+def node_053 : 89
 	if self.angle_2d_cw_between(90,270) 
 		>> node_038 
 	else 
@@ -894,7 +894,7 @@ def node_053
 	return 
 endf 
 
-def node_054
+def node_054 : 99
 	if self.angle_2d_cw_between(10,320) 
 		>> node_038 
 	else 
@@ -902,7 +902,7 @@ def node_054
 	return 
 endf 
 
-def node_055
+def node_055 : 251
 	if self.angle_2d_cw_between(15,345) 
 		>> node_039 
 	else 
@@ -910,7 +910,7 @@ def node_055
 	return 
 endf 
 
-def node_056
+def node_056 : 252
 	if self.angle_2d_cw_between(30,330) 
 		>> node_039 
 	else 
@@ -918,7 +918,7 @@ def node_056
 	return 
 endf 
 
-def node_057
+def node_057 : 253
 	if self.angle_2d_cw_between(45,315) 
 		>> node_039 
 	else 
@@ -926,7 +926,7 @@ def node_057
 	return 
 endf 
 
-def node_058
+def node_058 : 254
 	if self.angle_2d_cw_between(60,300) 
 		>> node_039 
 	else 
@@ -934,7 +934,7 @@ def node_058
 	return 
 endf 
 
-def node_059
+def node_059 : 255
 	if self.angle_2d_cw_between(90,270) 
 		>> node_039 
 	else 
@@ -942,7 +942,7 @@ def node_059
 	return 
 endf 
 
-def node_060
+def node_060 : 277
 	if self.angle_2d_cw_between(15,345) 
 		>> node_040 
 	else 
@@ -950,7 +950,7 @@ def node_060
 	return 
 endf 
 
-def node_061
+def node_061 : 278
 	if self.angle_2d_cw_between(30,330) 
 		>> node_040 
 	else 
@@ -958,7 +958,7 @@ def node_061
 	return 
 endf 
 
-def node_062
+def node_062 : 279
 	if self.angle_2d_cw_between(45,315) 
 		>> node_040 
 	else 
@@ -966,7 +966,7 @@ def node_062
 	return 
 endf 
 
-def node_063
+def node_063 : 280
 	if self.angle_2d_cw_between(60,300) 
 		>> node_040 
 	else 
@@ -974,7 +974,7 @@ def node_063
 	return 
 endf 
 
-def node_064
+def node_064 : 281
 	if self.angle_2d_cw_between(90,270) 
 		>> node_040 
 	else 
@@ -982,7 +982,7 @@ def node_064
 	return 
 endf 
 
-def node_065
+def node_065 : 90
 	>> node_046 
 	if self.angle_2d_cw_between(0,180) 
 		-> great_jagras.scratch_l() 
@@ -992,7 +992,7 @@ def node_065
 	return 
 endf 
 
-def node_066
+def node_066 : 91
 	if self.angle_2d_cw_between(0,180) 
 		-> great_jagras.tail_attack_l() 
 	else 
@@ -1001,7 +1001,7 @@ def node_066
 	return 
 endf 
 
-def node_067
+def node_067 : 97
 	if self.angle_2d_cw_between(270,90) 
 		>> node_065 
 	else 
@@ -1010,7 +1010,7 @@ def node_067
 	return 
 endf 
 
-def node_068
+def node_068 : 173
 	if self.angle_2d_cw_between(270,90) 
 		>> node_065 
 	else 
@@ -1024,7 +1024,7 @@ def node_068
 	return 
 endf 
 
-def node_069
+def node_069 : 92
 	if self.current_quest().is_rank(rank.MR) 
 		>> node_046 
 		-> great_jagras.simple_bite() 
@@ -1042,19 +1042,19 @@ def node_069
 	return 
 endf 
 
-def node_070
+def node_070 : 93
 	>> node_047 
 	-> great_jagras.rush_bite_first() 
 	return 
 endf 
 
-def node_071
+def node_071 : 94
 	>> node_045 
 	-> great_jagras.hook_bite() 
 	return 
 endf 
 
-def node_072
+def node_072 : 409
 	if self.target(44) 
 		>> node_071 
 	else 
@@ -1079,7 +1079,7 @@ def node_072
 	return 
 endf 
 
-def node_073
+def node_073 : 95
 	if self.target(44) 
 		>> node_071 
 	else 
@@ -1090,7 +1090,7 @@ def node_073
 	return 
 endf 
 
-def node_074
+def node_074 : 159
 	if self.target.helpless_1() 
 		>> node_075 
 		>> node_076 
@@ -1100,7 +1100,7 @@ def node_074
 	return 
 endf 
 
-def node_075
+def node_075 : 246
 	if self.distance_3d_to_target().leq(800) 
 		-> great_jagras.catch_turn() 
 	else 
@@ -1109,7 +1109,7 @@ def node_075
 	return 
 endf 
 
-def node_076
+def node_076 : 160
 	if function#103(1000) 
 		-> great_jagras.catch_eat_to_fat() 
 		reset 
@@ -1119,7 +1119,7 @@ def node_076
 	return 
 endf 
 
-def node_077
+def node_077 : 96
 	if function#101() 
 		return 
 	else 
@@ -1128,7 +1128,7 @@ def node_077
 	return 
 endf 
 
-def node_078
+def node_078 : 164
 	if self.distance_2d_to_target().leq(800) 
 		random (25) >> node_069 
 		elser (15) >> node_070 
@@ -1140,7 +1140,7 @@ def node_078
 	return 
 endf 
 
-def node_079
+def node_079 : 165
 	if self.distance_2d_to_target().leq(800) 
 		random (50) >> node_069 
 		elser (30) >> node_070 
@@ -1151,7 +1151,7 @@ def node_079
 	return 
 endf 
 
-def node_080
+def node_080 : 166
 	random (50) >> node_069 
 	elser (25) >> node_067 
 	elser (25) >> node_071 
@@ -1159,12 +1159,12 @@ def node_080
 	return 
 endf 
 
-def node_081
+def node_081 : 174
 	-> great_jagras.tired() 
 	return 
 endf 
 
-def node_082
+def node_082 : 408
 	if function#101() 
 	else 
 		if self.distance_2d_to_target().leq(700) 
@@ -1187,12 +1187,12 @@ def node_082
 	return 
 endf 
 
-def node_083
+def node_083 : 296
 	-> great_jagras.jump_attack() 
 	return 
 endf 
 
-def node_084
+def node_084 : 100
 	if self.current_quest().is_rank(rank.MR) 
 		if self.distance_3d_to_target().leq(750) 
 			>> node_053 
@@ -1216,7 +1216,7 @@ def node_084
 	return 
 endf 
 
-def node_085
+def node_085 : 101
 	if self.angle_2d_cw_between(0,180) 
 		-> great_jagras.fat_tail_attack_l() 
 	else 
@@ -1225,7 +1225,7 @@ def node_085
 	return 
 endf 
 
-def node_086
+def node_086 : 183
 	if self.angle_2d_cw_between(270,90) 
 		>> node_084 
 	else 
@@ -1234,7 +1234,7 @@ def node_086
 	return 
 endf 
 
-def node_087
+def node_087 : 103
 	if self.current_quest().is_rank(rank.MR) 
 		if self.distance_3d_to_target().leq(750) 
 			>> node_049 
@@ -1256,7 +1256,7 @@ def node_087
 	return 
 endf 
 
-def node_088
+def node_088 : 104
 	if self.angle_2d_cw_between(0,180) 
 		-> great_jagras.fat_overturn_l() 
 	else 
@@ -1265,7 +1265,7 @@ def node_088
 	return 
 endf 
 
-def node_089
+def node_089 : 184
 	if self.angle_2d_cw_between(315,45) 
 		>> node_087 
 	elif self.angle_2d_cw_between(45,135) 
@@ -1278,7 +1278,7 @@ def node_089
 	return 
 endf 
 
-def node_090
+def node_090 : 410
 	if self.current_quest().is_rank(rank.MR) 
 		if self.distance_3d_to_target().leq(750) 
 			>> node_053 
@@ -1302,18 +1302,18 @@ def node_090
 	return 
 endf 
 
-def node_091
+def node_091 : 244
 	-> great_jagras.fat_dash_attack() 
 	return 
 endf 
 
-def node_092
+def node_092 : 181
 	-> great_jagras.fat_dash_attack_no_end() 
 	-> great_jagras.fat_overturn_dash() 
 	return 
 endf 
 
-def node_093
+def node_093 : 411
 	if self.current_quest().is_rank(rank.MR) 
 		if self.distance_2d_to_target().leq(600) 
 			>> node_053 
@@ -1337,17 +1337,17 @@ def node_093
 	return 
 endf 
 
-def node_094
+def node_094 : 106
 	-> great_jagras.fat_reverse_petit() 
 	return 
 endf 
 
-def node_095
+def node_095 : 243
 	-> great_jagras.fat_back_reverse_petit_start() 
 	return 
 endf 
 
-def node_096
+def node_096 : 185
 	if self.distance_2d_to_target().leq(1000) 
 		random (50) >> node_089 
 		elser (50) 
@@ -1360,7 +1360,7 @@ def node_096
 	return 
 endf 
 
-def node_097
+def node_097 : 186
 	if self.distance_2d_to_target().leq(1000) 
 		>> node_089 
 	else 
@@ -1369,23 +1369,23 @@ def node_097
 	return 
 endf 
 
-def node_098
+def node_098 : 107
 	-> great_jagras.fat_reverse() 
 	return 
 endf 
 
-def node_099
+def node_099 : 108
 	-> great_jagras.fat_back_reverse_start() 
 	return 
 endf 
 
-def node_100
+def node_100 : 102
 	*&
 	-> great_jagras.fat_overturn_r() 
 	return 
 endf 
 
-def node_101
+def node_101 : 364
 	if self.distance_2d_to_target().leq(800) 
 		>> node_099 
 	else 
@@ -1395,12 +1395,12 @@ def node_101
 	return 
 endf 
 
-def node_102
+def node_102 : 365
 	-> great_jagras.fat_to_slim() 
 	return 
 endf 
 
-def node_103
+def node_103 : 356
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		>> node_104 
@@ -1409,7 +1409,7 @@ def node_103
 	return 
 endf 
 
-def node_104
+def node_104 : 358
 	if function#101() 
 		-> great_jagras.fat_dying_walk(1,2,0,500,1500) 
 	else 
@@ -1418,7 +1418,7 @@ def node_104
 	return 
 endf 
 
-def node_105
+def node_105 : 357
 	if function#C9() 
 		if function#101() 
 			-> great_jagras.fat_dying_sleep(1,2,0,500,1500) 
@@ -1431,13 +1431,13 @@ def node_105
 	return 
 endf 
 
-def node_106
+def node_106 : 366
 	self.targetArea(22) @ parameter2:300 
 	>> node_035 
 	return 
 endf 
 
-def node_107
+def node_107 : 369
 	if function#101() 
 		>> node_087 
 	else 
@@ -1446,7 +1446,7 @@ def node_107
 	return 
 endf 
 
-def node_108
+def node_108 : 370
 	if function#101() 
 		-> great_jagras.fat_ride_rage_head() 
 	else 
@@ -1455,7 +1455,7 @@ def node_108
 	return 
 endf 
 
-def node_109
+def node_109 : 371
 	if function#101() 
 		-> great_jagras.fat_ride_rage_body() 
 	else 
@@ -1464,7 +1464,7 @@ def node_109
 	return 
 endf 
 
-def node_110
+def node_110 : 372
 	if function#101() 
 		-> great_jagras.fat_ride_rage_body_lv2() 
 	else 
@@ -1473,7 +1473,7 @@ def node_110
 	return 
 endf 
 
-def node_111
+def node_111 : 367
 	if self.distance_3d_to_target().leq(300) 
 		>> node_039 
 	else 
@@ -1482,7 +1482,7 @@ def node_111
 	return 
 endf 
 
-def node_112
+def node_112 : 368
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		if function#101() 
@@ -1495,7 +1495,7 @@ def node_112
 	return 
 endf 
 
-def node_113
+def node_113 : 373
 	if function#101() 
 		-> great_jagras.fat_ride_rage_crash_head() 
 	else 
@@ -1504,7 +1504,7 @@ def node_113
 	return 
 endf 
 
-def node_114
+def node_114 : 374
 	if function#101() 
 		-> great_jagras.fat_ride_rage_crash_head_lv2() 
 	else 
@@ -1513,7 +1513,7 @@ def node_114
 	return 
 endf 
 
-def node_115
+def node_115 : 375
 	if function#101() 
 		-> great_jagras.fat_ride_rage_crash_body() 
 	else 
@@ -1522,7 +1522,7 @@ def node_115
 	return 
 endf 
 
-def node_116
+def node_116 : 376
 	if function#101() 
 		-> great_jagras.fat_ride_rage_crash_body_lv2() 
 	else 
@@ -1531,7 +1531,7 @@ def node_116
 	return 
 endf 
 
-def node_117
+def node_117 : 377
 	if function#101() 
 		-> great_jagras.fat_wait() 
 	else 
@@ -1540,7 +1540,7 @@ def node_117
 	return 
 endf 
 
-def node_118
+def node_118 : 378
 	if function#101() 
 		-> great_jagras.fat_ride_tired() 
 	else 
@@ -1549,7 +1549,7 @@ def node_118
 	return 
 endf 
 
-def node_119
+def node_119 : 361
 	if function#101() 
 		>> node_042 
 		if self.fatigued() 
@@ -1568,7 +1568,7 @@ def node_119
 	return 
 endf 
 
-def node_120
+def node_120 : 362
 	if function#101() 
 		if self.targetEnemy(target_em.any_monster) 
 			random (20) >> node_042 
@@ -1599,7 +1599,7 @@ def node_120
 	return 
 endf 
 
-def node_121
+def node_121 : 363
 	if function#101() 
 		>> node_042 
 		random (15) -> great_jagras.fat_anger_search() 
@@ -1616,7 +1616,7 @@ def node_121
 	return 
 endf 
 
-def node_122
+def node_122 : 322
 	if function#101() 
 		-> great_jagras.fat_walk(1,2,0,600,1500) 
 	else 
@@ -1625,7 +1625,7 @@ def node_122
 	return 
 endf 
 
-def node_123
+def node_123 : 359
 	if function#101() 
 		>> node_042 
 		-> great_jagras.fat_smell() 
@@ -1636,7 +1636,7 @@ def node_123
 	return 
 endf 
 
-def node_124
+def node_124 : 360
 	if function#101() 
 		self.targetEnemy(58) 
 		random (10) >> node_122 
@@ -1665,7 +1665,7 @@ def node_124
 	return 
 endf 
 
-def node_125
+def node_125 : 351
 	if function#101() 
 		if self.distance_3d_to_target().leq(800) 
 			>> node_039 
@@ -1684,7 +1684,7 @@ def node_125
 	return 
 endf 
 
-def node_126
+def node_126 : 352
 	if function#101() 
 		if self.distance_2d_to_target().leq(1000) 
 		else 
@@ -1715,7 +1715,7 @@ def node_126
 	return 
 endf 
 
-def node_127
+def node_127 : 353
 	if function#101() 
 		-> great_jagras.fat_lost_search() 
 	else 
@@ -1724,7 +1724,7 @@ def node_127
 	return 
 endf 
 
-def node_128
+def node_128 : 342
 	if function#101() 
 		-> great_jagras.fat_lost_search() 
 	else 
@@ -1733,7 +1733,7 @@ def node_128
 	return 
 endf 
 
-def node_129
+def node_129 : 343
 	if function#101() 
 		-> great_jagras.fat_lost_search() 
 	else 
@@ -1742,7 +1742,7 @@ def node_129
 	return 
 endf 
 
-def node_130
+def node_130 : 344
 	if function#101() 
 		-> great_jagras.fat_smell() 
 	else 
@@ -1751,7 +1751,7 @@ def node_130
 	return 
 endf 
 
-def node_131
+def node_131 : 345
 	if function#101() 
 		-> great_jagras.fat_smell_max() 
 	else 
@@ -1760,7 +1760,7 @@ def node_131
 	return 
 endf 
 
-def node_132
+def node_132 : 346
 	if function#101() 
 		if self.enraged() 
 			-> great_jagras.fat_run(1,2,0,600,500) 
@@ -1777,7 +1777,7 @@ def node_132
 	return 
 endf 
 
-def node_133
+def node_133 : 347
 	if function#101() 
 		if self.enraged() 
 			-> great_jagras.fat_run(1,2,0,600,1000) 
@@ -1794,7 +1794,7 @@ def node_133
 	return 
 endf 
 
-def node_134
+def node_134 : 348
 	if function#101() 
 		if self.enraged() 
 			-> great_jagras.fat_peep_grass_search() 
@@ -1811,7 +1811,7 @@ def node_134
 	return 
 endf 
 
-def node_135
+def node_135 : 349
 	if self.target(10) 
 		if function#101() 
 			-> great_jagras.fat_run(2,0,0,1000) 
@@ -1830,7 +1830,7 @@ def node_135
 	return 
 endf 
 
-def node_136
+def node_136 : 350
 	if function#101() 
 		-> great_jagras.fat_tired() 
 	else 
@@ -1839,7 +1839,7 @@ def node_136
 	return 
 endf 
 
-def node_137
+def node_137 : 354
 	if function#101() 
 		-> great_jagras.fat_threat_short() 
 	else 
@@ -1848,7 +1848,7 @@ def node_137
 	return 
 endf 
 
-def node_138
+def node_138 : 355
 	if function#101() 
 		-> great_jagras.fat_threat_short() 
 	else 
@@ -1857,7 +1857,7 @@ def node_138
 	return 
 endf 
 
-def node_139
+def node_139 : 382
 	>> node_154 
 	>> node_157 
 	self.targetEnemy(34) 
@@ -1873,7 +1873,7 @@ def node_139
 	return 
 endf 
 
-def node_140
+def node_140 : 383
 	self.targetEnemy(34) 
 	>> node_024 
 	>> node_154 
@@ -1889,7 +1889,7 @@ def node_140
 	return 
 endf 
 
-def node_141
+def node_141 : 384
 	>> node_157 
 	self.targetEnemy(target_em.closest_entity) 
 	if self.distance_3d_to_target().leq(1000) 
@@ -1904,7 +1904,7 @@ def node_141
 	return 
 endf 
 
-def node_142
+def node_142 : 385
 	if self.target(11) 
 		>> node_145 
 		conclude 
@@ -1923,7 +1923,7 @@ def node_142
 	return 
 endf 
 
-def node_143
+def node_143 : 414
 	if self.target(39) 
 		>> node_145 
 	else 
@@ -1932,7 +1932,7 @@ def node_143
 	return 
 endf 
 
-def node_144
+def node_144 : 415
 	if function#101() 
 		-> great_jagras.fat_search() 
 	else 
@@ -1941,7 +1941,7 @@ def node_144
 	return 
 endf 
 
-def node_145
+def node_145 : 237
 	if function#101() 
 		-> great_jagras.fat_search() 
 	else 
@@ -1950,7 +1950,7 @@ def node_145
 	return 
 endf 
 
-def node_146
+def node_146 : 386
 	if self.distance_3d_to_target().leq(1000) 
 	else 
 		if function#101() 
@@ -1963,7 +1963,7 @@ def node_146
 	return 
 endf 
 
-def node_147
+def node_147 : 124
 	>> node_041 
 	if self.target_is(em.Aptonoth) @ parameter2:2 
 		>> node_148 
@@ -1979,7 +1979,7 @@ def node_147
 	return 
 endf 
 
-def node_148
+def node_148 : 123
 	-> great_jagras.predator_turn() 
 	if function#104() 
 		-> great_jagras.predator_eat_to_fat() 
@@ -1988,17 +1988,17 @@ def node_148
 	return 
 endf 
 
-def node_149
+def node_149 : 125
 	-> great_jagras.meat_eat_to_fat() 
 	return 
 endf 
 
-def node_150
+def node_150 : 126
 	-> great_jagras.meat_eat() 
 	return 
 endf 
 
-def node_151
+def node_151 : 381
 	if function#102() 
 		if function#31(0,10000) 
 			self.targetEnemy(target_em.closest_entity) 
@@ -2112,7 +2112,7 @@ def node_151
 	return 
 endf 
 
-def node_152
+def node_152 : 302
 	if function#102() 
 		if function#31(0,10000) 
 			self.targetEnemy(target_em.closest_entity) 
@@ -2218,7 +2218,7 @@ def node_152
 	return 
 endf 
 
-def node_153
+def node_153 : 300
 	if function#102() 
 		if function#31(0,10000) 
 			self.targetEnemy(target_em.closest_entity) 
@@ -2332,7 +2332,7 @@ def node_153
 	return 
 endf 
 
-def node_154
+def node_154 : 301
 	if function#102() 
 		if function#31(0,10000) 
 			self.targetEnemy(target_em.closest_entity) 
@@ -2446,7 +2446,7 @@ def node_154
 	return 
 endf 
 
-def node_155
+def node_155 : 127
 	if function#101() 
 	else 
 		>> node_156 
@@ -2454,7 +2454,7 @@ def node_155
 	return 
 endf 
 
-def node_156
+def node_156 : 128
 	if function#6B(50000) 
 		self.targetEnemy(26) 
 		>> node_159 
@@ -2466,7 +2466,7 @@ def node_156
 	return 
 endf 
 
-def node_157
+def node_157 : 262
 	if function#101() 
 	else 
 		>> node_158 
@@ -2474,7 +2474,7 @@ def node_157
 	return 
 endf 
 
-def node_158
+def node_158 : 261
 	if function#6B(50000) 
 		self.targetEnemy(26) 
 		>> node_159 
@@ -2486,12 +2486,12 @@ def node_158
 	return 
 endf 
 
-def node_159
+def node_159 : 131
 	-> great_jagras.smell() 
 	return 
 endf 
 
-def node_160
+def node_160 : 129
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> great_jagras.run(2,1,0,1500,500) 
@@ -2500,7 +2500,7 @@ def node_160
 	return 
 endf 
 
-def node_161
+def node_161 : 130
 	>> node_151 
 	if function#6B(1200) 
 		>> node_147 
@@ -2509,7 +2509,7 @@ def node_161
 	return 
 endf 
 
-def node_162
+def node_162 : 424
 	if self.fatigued() 
 	else 
 		if function#102() 
@@ -2552,7 +2552,7 @@ def node_162
 	return 
 endf 
 
-def node_163
+def node_163 : 425
 	>> node_024 
 	>> node_168 
 	if function#105() 
@@ -2564,7 +2564,7 @@ def node_163
 	return 
 endf 
 
-def node_164
+def node_164 : 423
 	if self.in_map(st.Ancient_Forest).in_area(1) 
 		>> node_165 
 	elif self.in_map(st.Ancient_Forest).in_area(2) 
@@ -2574,7 +2574,7 @@ def node_164
 	return 
 endf 
 
-def node_165
+def node_165 : 421
 	random (25) 
 				self.targetEnemy(42) 
 				>> node_024 
@@ -2590,7 +2590,7 @@ def node_165
 	return 
 endf 
 
-def node_166
+def node_166 : 417
 	self.targetEnemy(target_em.closest_entity) 
 	>> node_168 
 	>> node_169 
@@ -2614,7 +2614,7 @@ def node_166
 	return @ comboSetting:256 
 endf 
 
-def node_167
+def node_167 : 418
 	self.targetEnemy(target_em.closest_entity) 
 	if self.target(13) 
 		>> node_146 
@@ -2624,7 +2624,7 @@ def node_167
 	return @ comboSetting:256 
 endf 
 
-def node_168
+def node_168 : 419
 	self.targetEnemy(target_em.closest_entity) 
 	if self.distance_3d_to_target().leq(1000) 
 	else 
@@ -2638,7 +2638,7 @@ def node_168
 	return 
 endf 
 
-def node_169
+def node_169 : 420
 	if self.target(11) 
 		>> node_145 
 		conclude 
@@ -2654,7 +2654,7 @@ def node_169
 	return 
 endf 
 
-def node_170
+def node_170 : 387
 	self.targetArea(target_area.nearest_entrance) 
 	if function#101() 
 		-> great_jagras.fat_walk(1,2,0,500,1500) 
@@ -2664,7 +2664,7 @@ def node_170
 	return 
 endf 
 
-def node_171
+def node_171 : 388
 	if self.in_map(st.Guiding_Lands).in_area(-1) 
 		if function#101() 
 			self.targetArea(target_area.nearest_entrance) 
@@ -2689,7 +2689,7 @@ def node_171
 	return 
 endf 
 
-def node_172
+def node_172 : 389
 	self.targetArea(target_area.nearest_entrance) 
 	if function#101() 
 		-> great_jagras.fat_run(1,2,0,400,1500) 
@@ -2699,7 +2699,7 @@ def node_172
 	return 
 endf 
 
-def node_173
+def node_173 : 390
 	self.targetArea(17) 
 	>> node_061 
 	if function#101() 
@@ -2714,7 +2714,7 @@ def node_173
 	return 
 endf 
 
-def node_174
+def node_174 : 391
 	self.targetArea(17) 
 	>> node_061 
 	if function#101() 
@@ -2725,7 +2725,7 @@ def node_174
 	return 
 endf 
 
-def node_175
+def node_175 : 392
 	self.targetArea(17) 
 	>> node_061 
 	if function#101() 
@@ -2736,7 +2736,7 @@ def node_175
 	return 
 endf 
 
-def node_176
+def node_176 : 393
 	self.targetArea(17) 
 	>> node_061 
 	if function#101() 
@@ -2747,7 +2747,7 @@ def node_176
 	return 
 endf 
 
-def node_177
+def node_177 : 394
 	self.targetArea(17) 
 	>> node_060 
 	if function#101() 
@@ -2759,7 +2759,7 @@ def node_177
 	return 
 endf 
 
-def node_178
+def node_178 : 263
 	random (35) 
 				self.targetArea(21) @ parameter2:250 
 	elser (35) 
@@ -2772,7 +2772,7 @@ def node_178
 	return 
 endf 
 
-def node_179
+def node_179 : 379
 	random (50) 
 				if function#101() 
 					-> great_jagras.fat_wait() 
@@ -2784,7 +2784,7 @@ def node_179
 	return 
 endf 
 
-def node_180
+def node_180 : 380
 	if function#101() 
 		-> great_jagras.fat_wait() 
 	else 
@@ -2793,7 +2793,7 @@ def node_180
 	return 
 endf 
 
-def node_181
+def node_181 : 323
 	if function#101() 
 		-> great_jagras.fat_in_ground() 
 	else 
@@ -2802,7 +2802,7 @@ def node_181
 	return 
 endf 
 
-def node_182
+def node_182 : 395
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if function#5D() 
 		>> node_184 
@@ -2828,7 +2828,7 @@ def node_182
 	return 
 endf 
 
-def node_183
+def node_183 : 396
 	if [RegisterVar3 <= 10] 
 		[RegisterVar3 |-] 
 	elif [RegisterVar3 <= 1] 
@@ -2838,7 +2838,7 @@ def node_183
 	return 
 endf 
 
-def node_184
+def node_184 : 397
 	if self.distance_2d_to_target().leq(1500) 
 		if self.angle_2d_cw_between(300,60) 
 		else 
@@ -2857,13 +2857,13 @@ def node_184
 	return 
 endf 
 
-def node_185
+def node_185 : 398
 	>> node_186 
 	>> node_187 
 	reset 
 endf 
 
-def node_186
+def node_186 : 399
 	self.targetArea(19) 
 	if self.distance_3d_to_target().leq(1000) 
 	else 
@@ -2872,14 +2872,14 @@ def node_186
 	return 
 endf 
 
-def node_187
+def node_187 : 400
 	self.targetEnemy(target_em.random_player_or_cat) 
 	>> node_042 
 	>> node_020 
 	return 
 endf 
 
-def node_188
+def node_188 : 401
 	>> node_193 
 	if self.distance_2d_to_target().leq(1000) 
 		if self.target(0) 
@@ -2906,7 +2906,7 @@ def node_188
 	return 
 endf 
 
-def node_189
+def node_189 : 402
 	>> node_193 
 	if self.distance_2d_to_target().leq(1000) 
 		if self.target(0) 
@@ -2933,7 +2933,7 @@ def node_189
 	return 
 endf 
 
-def node_190
+def node_190 : 403
 	>> node_193 
 	if self.distance_2d_to_target().leq(2000) 
 		if self.target(14) 
@@ -2960,12 +2960,12 @@ def node_190
 	return 
 endf 
 
-def node_191
+def node_191 : 404
 	>> node_195 
 	return 
 endf 
 
-def node_192
+def node_192 : 416
 	if self.in_map(st.Ancient_Forest).in_area(2) 
 		if self.vertical_distance_to_target().leq(300) 
 		elif self.target(52) 
@@ -2994,7 +2994,7 @@ def node_192
 	return 
 endf 
 
-def node_193
+def node_193 : 405
 	if self.distance_2d_to_target().leq(600) 
 		if self.vertical_distance_to_target().leq(1500) 
 		else 
@@ -3022,7 +3022,7 @@ def node_193
 	return 
 endf 
 
-def node_194
+def node_194 : 407
 	if function#101() 
 		-> great_jagras.fat_run(1,2,0,500,1500) 
 	else 
@@ -3031,7 +3031,7 @@ def node_194
 	return 
 endf 
 
-def node_195
+def node_195 : 406
 	if self.distance_3d_to_target().leq(400) 
 	else 
 		if function#101() 
@@ -3059,7 +3059,7 @@ def node_195
 	return 
 endf 
 
-def node_196
+def node_196 : 430
 	if self.distance_3d_to_target().leq(1200) 
 		>> node_053 
 	else 
@@ -3073,7 +3073,7 @@ def node_196
 	return 
 endf 
 
-def node_197
+def node_197 : 431
 	if self.angle_2d_cw_between(270,90) 
 		>> node_196 
 	else 
@@ -3082,7 +3082,7 @@ def node_197
 	return 
 endf 
 
-def node_198
+def node_198 : 432
 	if self.distance_3d_to_target().leq(1100) 
 		>> node_049 
 	else 
@@ -3092,7 +3092,7 @@ def node_198
 	return 
 endf 
 
-def node_199
+def node_199 : 433
 	if self.angle_2d_cw_between(315,45) 
 		>> node_198 
 	elif self.angle_2d_cw_between(45,135) 
@@ -3105,7 +3105,7 @@ def node_199
 	return 
 endf 
 
-def node_200
+def node_200 : 434
 	if self.distance_3d_to_target().leq(1100) 
 		>> node_053 
 	else 
@@ -3116,7 +3116,7 @@ def node_200
 	return 
 endf 
 
-def node_201
+def node_201 : 435
 	if self.distance_2d_to_target().leq(600) 
 		>> node_204 
 	elif self.distance_2d_to_target().leq(1200) 
@@ -3129,14 +3129,14 @@ def node_201
 	return 
 endf 
 
-def node_202
+def node_202 : 436
 	-> great_jagras.fat_back_turn() @ comboSetting:1 
 	-> great_jagras.fat_full_burst_short() @ comboSetting:1 
 	-> great_jagras.fat_full_burst_long() 
 	return 
 endf 
 
-def node_203
+def node_203 : 437
 	if self.distance_2d_to_target().leq(550) 
 		>> node_206 
 	else 
@@ -3145,43 +3145,43 @@ def node_203
 	return 
 endf 
 
-def node_204
+def node_204 : 438
 	-> great_jagras.fat_back_turn() @ comboSetting:1 
 	-> great_jagras.fat_full_burst_short() 
 	return 
 endf 
 
-def node_205
+def node_205 : 439
 	-> great_jagras.fat_back_turn() @ comboSetting:1 
 	-> great_jagras.fat_full_burst_long() 
 	return 
 endf 
 
-def node_206
+def node_206 : 440
 	>> node_038 
 	-> great_jagras.fat_full_burst_short() 
 	return 
 endf 
 
-def node_207
+def node_207 : 441
 	>> node_045 
 	-> great_jagras.fat_full_burst_short() 
 	return 
 endf 
 
-def node_208
+def node_208 : 442
 	>> node_046 
 	-> great_jagras.fat_full_burst_long() 
 	return 
 endf 
 
-def node_209
+def node_209 : 443
 	-> great_jagras.fat_full_burst_short() @ comboSetting:1 
 	-> great_jagras.fat_full_burst_long() 
 	return 
 endf 
 
-def node_210
+def node_210 : 444
 	if self.distance_2d_to_target().leq(1000) 
 		random (25) >> node_199 
 		elser (25) >> node_201 
@@ -3196,7 +3196,7 @@ def node_210
 	return 
 endf 
 
-def node_211
+def node_211 : 445
 	if self.distance_2d_to_target().leq(1000) 
 		random (50) >> node_199 
 		elser (50) >> node_201 
@@ -3209,12 +3209,12 @@ def node_211
 	return 
 endf 
 
-def node_212
+def node_212 : 446
 	-> great_jagras.max_punch() 
 	return 
 endf 
 
-def node_213
+def node_213 : 447
 	>> node_053 
 	if self.angle_2d_cw_between(0,180) 
 		-> great_jagras.scratch_r() 
@@ -3224,7 +3224,7 @@ def node_213
 	return 
 endf 
 
-def node_214
+def node_214 : 448
 	if self.angle_2d_cw_between(270,90) 
 		>> node_213 
 	else 
@@ -3233,7 +3233,7 @@ def node_214
 	return 
 endf 
 
-def node_215
+def node_215 : 451
 	if self.angle_2d_cw_between(270,90) 
 		>> node_213 
 	else 
@@ -3247,13 +3247,13 @@ def node_215
 	return 
 endf 
 
-def node_216
+def node_216 : 449
 	>> node_053 
 	-> great_jagras.simple_bite() 
 	return 
 endf 
 
-def node_217
+def node_217 : 450
 	if self.distance_2d_to_target().leq(1100) 
 		>> node_054 
 	else 
@@ -3263,7 +3263,7 @@ def node_217
 	return 
 endf 
 
-def node_218
+def node_218 : 452
 	if self.angle_2d_cw_between(285,75) 
 		-> great_jagras.hook_bite() 
 	else 
@@ -3277,7 +3277,7 @@ def node_218
 	return 
 endf 
 
-def node_219
+def node_219 : 453
 	if self.target(44) 
 		>> node_218 
 	else 
@@ -3291,7 +3291,7 @@ def node_219
 	return 
 endf 
 
-def node_220
+def node_220 : 454
 	if self.target(44) 
 		>> node_218 
 	else 
@@ -3302,7 +3302,7 @@ def node_220
 	return 
 endf 
 
-def node_221
+def node_221 : 455
 	if self.target.helpless_1() 
 		>> node_222 
 		>> node_223 
@@ -3312,7 +3312,7 @@ def node_221
 	return 
 endf 
 
-def node_222
+def node_222 : 456
 	if self.distance_3d_to_target().leq(1440) 
 		-> great_jagras.catch_turn() 
 	else 
@@ -3321,13 +3321,13 @@ def node_222
 	return 
 endf 
 
-def node_223
+def node_223 : 457
 	-> great_jagras.catch_eat_to_fat() 
 	reset 
 	return 
 endf 
 
-def node_224
+def node_224 : 458
 	if function#101() 
 		reset 
 	else 
@@ -3336,7 +3336,7 @@ def node_224
 	return 
 endf 
 
-def node_225
+def node_225 : 459
 	if self.distance_2d_to_target().leq(1000) 
 		random (15) >> node_212 
 		elser (15) >> node_216 
@@ -3349,7 +3349,7 @@ def node_225
 	return 
 endf 
 
-def node_226
+def node_226 : 460
 	if self.distance_2d_to_target().leq(1000) 
 		random (30) >> node_212 
 		elser (20) >> node_216 
@@ -3361,7 +3361,7 @@ def node_226
 	return 
 endf 
 
-def node_227
+def node_227 : 461
 	random (50) >> node_069 
 	elser (25) >> node_067 
 	elser (25) >> node_071 
@@ -3369,7 +3369,7 @@ def node_227
 	return 
 endf 
 
-def node_228
+def node_228 : 462
 	if self.target(44) 
 	else 
 		if function#101() 
@@ -3420,7 +3420,7 @@ def node_228
 	return 
 endf 
 
-def node_229
+def node_229 : 463
 	if self.enraged() 
 	else 
 		if self.distance_2d_to_target().leq(550) 
@@ -3433,7 +3433,7 @@ def node_229
 	return 
 endf 
 
-def node_230
+def node_230 : 464
 	self.targetEnemy(target_em.closest_entity) 
 	if self.distance_2d_to_target().leq(1500) 
 	else 
@@ -3449,7 +3449,7 @@ def node_230
 	return 
 endf 
 
-def node_231
+def node_231 : 465
 	self.targetEnemy(target_em.closest_entity) 
 	if self.distance_2d_to_target().leq(2000) 
 	else 
@@ -3460,7 +3460,7 @@ def node_231
 	return 
 endf 
 
-def node_232
+def node_232 : 466
 	self.targetEnemy(target_em.closest_entity) 
 	if self.distance_2d_to_target().leq(2000) 
 	else 
@@ -3478,7 +3478,7 @@ def node_232
 	return 
 endf 
 
-def node_233
+def node_233 : 467
 	self.targetEnemy(target_em.closest_entity) 
 	if self.distance_2d_to_target().leq(1100) 
 	else 
@@ -3494,7 +3494,7 @@ def node_233
 	return 
 endf 
 
-def node_234
+def node_234 : 468
 	if function#101() 
 		-> great_jagras.fat_run(1,2,0,1000,1500) 
 	else 
@@ -3503,44 +3503,44 @@ def node_234
 	return 
 endf 
 
-def node_235
+def node_235 : 469
 	>> node_234 
 	>> node_234 
 	return 
 endf 
 
-def node_236
+def node_236 : 470
 	>> node_234 
 	>> node_234 
 	>> node_234 
 	return 
 endf 
 
-def node_237
+def node_237 : 476
 	>> node_042 
 	-> great_jagras.fat_full_burst_short() 
 	return 
 endf 
 
-def node_238
+def node_238 : 479
 	>> node_038 
 	-> great_jagras.fat_full_burst_short() 
 	return 
 endf 
 
-def node_239
+def node_239 : 477
 	>> node_042 
 	-> great_jagras.fat_full_burst_long() 
 	return 
 endf 
 
-def node_240
+def node_240 : 478
 	-> great_jagras.fat_back_turn() @ comboSetting:1 
 	-> great_jagras.fat_full_burst_long() 
 	return 
 endf 
 
-def node_241
+def node_241 : 471
 	if self.distance_2d_to_target().leq(800) 
 		>> node_242 
 	elif self.distance_2d_to_target().leq(1100) 
@@ -3551,7 +3551,7 @@ def node_241
 	return 
 endf 
 
-def node_242
+def node_242 : 472
 	if self.distance_2d_to_target().leq(600) 
 		>> node_238 
 	else 
@@ -3560,7 +3560,7 @@ def node_242
 	return 
 endf 
 
-def node_243
+def node_243 : 473
 	if self.distance_2d_to_target().leq(1000) 
 		random (25) >> node_089 
 		elser (25) >> node_241 
@@ -3575,7 +3575,7 @@ def node_243
 	return 
 endf 
 
-def node_244
+def node_244 : 474
 	if self.distance_2d_to_target().leq(1000) 
 		random (75) >> node_089 
 		elser (25) >> node_241 
@@ -3588,7 +3588,7 @@ def node_244
 	return 
 endf 
 
-def node_245
+def node_245 : 475
 	if self.current_quest().is_rank(rank.MR) 
 		if self.distance_3d_to_target().leq(750) 
 			>> node_053 
@@ -3615,7 +3615,7 @@ def node_245
 	return 
 endf 
 
-def node_246
+def node_246 : 481
 	>> node_247 
 	>> node_157 
 	self.targetEnemy(34) 
@@ -3636,7 +3636,7 @@ def node_246
 	return 
 endf 
 
-def node_247
+def node_247 : 482
 	if function#102() 
 		if function#31(0,10000) 
 			self.targetEnemy(target_em.closest_entity) 
@@ -3750,7 +3750,7 @@ def node_247
 	return 
 endf 
 
-def node_248
+def node_248 : 483
 	if function#106() 
 		>> node_145 
 		conclude 

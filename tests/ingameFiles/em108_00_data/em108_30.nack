@@ -1,14 +1,14 @@
 importactions Jyuratodus as jyuratodus
 importlibrary Global as Global
 
-def node_000
+def node_000 : 73
 	self.targetEnemy(target_em.closest_entity) 
 	>> node_009 
 	>> node_002 
 	reset 
 endf 
 
-def node_001
+def node_001 : 75
 	>> node_003 
 	self.targetEnemy(target_em.closest_entity) 
 	if self.target(11) 
@@ -25,7 +25,7 @@ def node_001
 	return 
 endf 
 
-def node_002
+def node_002 : 74
 	>> node_003 
 	if self.distance_2d_to_target().leq(2000) 
 		>> node_006 
@@ -37,7 +37,7 @@ def node_002
 	return 
 endf 
 
-def node_003
+def node_003 : 77
 	if function#6B(10000) 
 		>> Global.node_068 
 		>> node_004 
@@ -47,7 +47,7 @@ def node_003
 	return 
 endf 
 
-def node_004
+def node_004 : 78
 	self.targetEnemy(26) 
 	if self.distance_2d_to_target().leq(1000) 
 	else 
@@ -57,31 +57,31 @@ def node_004
 	return 
 endf 
 
-def node_005
+def node_005 : 79
 	>> Global.node_062 
 	>> Global.node_064 
 	>> Global.node_070 
 	conclude 
 endf 
 
-def node_006
+def node_006 : 80
 	>> node_001 
 	return 
 endf 
 
-def node_007
+def node_007 : 81
 	random (50) >> Global.node_055 
 	elser (50) >> Global.node_053 
 	endr 
 	return 
 endf 
 
-def node_008
+def node_008 : 82
 	>> Global.node_055 
 	return 
 endf 
 
-def node_009
+def node_009 : 83
 	if self.target_is(em.Apceros) @ parameter2:1 
 	else 
 		>> node_010 
@@ -111,7 +111,7 @@ def node_009
 	return 
 endf 
 
-def node_010
+def node_010 : 87
 	function#52(0,1) 
 	self.targetEnemy(16) 
 	>> Global.node_055 
