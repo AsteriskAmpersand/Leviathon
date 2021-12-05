@@ -1,0 +1,19 @@
+importactions Gold_Rathian as gold_rathian
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_333 
+	>> Global.node_349 
+	self.targetEnemy(48) 
+	if self.in_map(st.Challenge_Arena).in_area(-1) 
+		>> Global.node_326 
+	elif self.target(7) 
+		>> Global.node_325 
+	elif self.distance_3d_to_target().leq(3500) 
+		>> Global.node_324 
+	else 
+		>> Global.node_325 
+	endif 
+	reset 
+endf 
+

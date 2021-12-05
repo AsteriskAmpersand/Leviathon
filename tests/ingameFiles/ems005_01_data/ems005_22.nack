@@ -1,0 +1,55 @@
+importactions Hornetaur as hornetaur
+importlibrary Global as Global
+
+def node_000
+	>> node_001 
+	if self.targetEnemy(48) 
+		if function#3A() 
+			self.targetEnemy(target_em.any_monster) 
+			>> Global.node_015 
+			>> Global.node_022 
+		elif self.target(7) 
+			self.targetEnemy(target_em.any_monster) 
+			>> Global.node_015 
+			>> Global.node_022 
+		elif self.target(10) 
+			self.targetEnemy(target_em.any_monster) 
+			>> Global.node_015 
+			>> Global.node_022 
+		elif self.distance_3d_to_target().leq(500) 
+			>> node_002 
+		else 
+			self.targetEnemy(target_em.any_monster) 
+			>> Global.node_015 
+			>> Global.node_022 
+		endif 
+	else 
+		self.targetEnemy(target_em.any_monster) 
+		>> Global.node_015 
+		>> Global.node_022 
+	endif 
+	reset 
+endf 
+
+def node_001
+	function#52(0,5) 
+	self.targetEnemy(16) 
+	>> Global.node_008 
+	function#54() 
+	return 
+endf 
+
+def node_002
+	>> Global.node_022 
+	>> Global.node_022 
+	random (50) 
+	elser (50) 
+				if self.distance_3d_to_target().leq(500) 
+					>> Global.node_002 
+					>> Global.node_010 
+				else 
+				endif 
+	endr 
+	return 
+endf 
+

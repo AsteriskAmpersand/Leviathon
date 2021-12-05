@@ -1,0 +1,17 @@
+importactions KestodonF as kestodonf
+importlibrary Global as Global
+
+def node_000
+	>> node_001 
+	conclude 
+endf 
+
+def node_001
+	self.targetEnemy(target_em.random_player_or_cat) 
+	>> Global.node_002 
+	random (50) -> action#5A() 
+	elser (50) -> action#1B() 
+	endr 
+	return 
+endf 
+

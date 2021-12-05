@@ -1,0 +1,27 @@
+importactions Viper_TobiKadachi as viper_tobikadachi
+
+def node_000
+	if self.target_is(em.Fulgur_Anjanath) 
+		>> node_001 
+	elif self.target_is(em.Anjanath) 
+		>> node_002 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	if self.vertical_distance_to_target().gt(1000) 
+		-> viper_tobikadachi.dash(1,0,0,1000) 
+	endif 
+	-> viper_tobikadachi.grapple_with_em100_01_adjust() 
+	return 
+endf 
+
+def node_002
+	if self.vertical_distance_to_target().gt(1000) 
+		-> viper_tobikadachi.dash(1,0,0,1000) 
+	endif 
+	-> viper_tobikadachi.grapple_with_em100_adjust_subspecies() 
+	return 
+endf 
+

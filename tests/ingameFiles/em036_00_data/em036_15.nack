@@ -1,0 +1,148 @@
+importactions Lavasioth as lavasioth
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_001 
+	>> node_016 
+	function#52(32) 
+	self.targetArea(target_area.nearest_entrance) 
+	>> node_001 
+	>> node_009 
+	function#54() 
+	reset 
+endf 
+
+def node_001
+	if function#57(1) >> node_003 
+	elif function#57(2) >> node_004 
+	elif function#57(3) >> node_005 
+	elif function#57(5) >> node_006 
+	elif function#57(4) >> node_002 
+	else >> node_002 
+	endif 
+	return 
+endf 
+
+def node_002
+	if self.in_map(st.Elder_Recess).in_area(7) >> Global.node_109 
+	elif self.in_map(st.Elder_Recess).in_area(10) >> Global.node_111 
+	elif self.in_map(st.Elder_Recess).in_area(9) 
+		>> Global.node_056 
+		>> Global.node_105 
+	elif self.in_map(st.Guiding_Lands).in_area(-1) 
+		>> Global.node_105 
+	else >> node_015 
+		>> Global.node_056 
+		>> Global.node_105 
+	endif 
+	return 
+endf 
+
+def node_003
+	if self.in_map(st.Elder_Recess).in_area(7) >> Global.node_105 
+	elif self.in_map(st.Elder_Recess).in_area(9) >> Global.node_110 
+	endif 
+	>> Global.node_105 
+	return 
+endf 
+
+def node_004
+	if self.in_map(st.Elder_Recess).in_area(7) >> Global.node_109 
+	elif self.in_map(st.Elder_Recess).in_area(10) >> Global.node_111 
+	endif 
+	>> Global.node_079 
+	>> Global.node_105 
+	return 
+endf 
+
+def node_005
+	if self.in_map(st.Elder_Recess).in_area(7) >> Global.node_105 
+	elif self.in_map(st.Elder_Recess).in_area(9) >> Global.node_110 
+	endif 
+	>> Global.node_105 
+	return 
+endf 
+
+def node_006
+	if self.in_map(st.Elder_Recess).in_area(9) >> Global.node_107 
+	elif self.in_map(st.Elder_Recess).in_area(10) >> Global.node_105 
+	endif 
+	>> Global.node_105 
+	return 
+endf 
+
+def node_007
+	>> Global.node_109 
+	>> Global.node_110 
+	return 
+endf 
+
+def node_008
+	>> Global.node_111 
+	>> Global.node_108 
+	return 
+endf 
+
+def node_009
+	if function#57(1) >> node_011 
+	elif function#57(2) >> node_012 
+	elif function#57(3) >> node_013 
+	elif function#57(5) >> node_014 
+	elif function#57(4) >> node_010 
+	else >> node_010 
+	endif 
+	return 
+endf 
+
+def node_010
+	if self.in_map(st.Special_Arena).in_area(-1) >> Global.node_095 
+	elif self.in_map(st.Challenge_Arena).in_area(-1) >> Global.node_095 
+	elif self.in_map(st.Guiding_Lands).in_area(-1) >> Global.node_095 
+	elif function#5A(1) 
+		>> Global.node_076 
+		>> Global.node_078 
+		>> Global.node_095 
+		>> Global.node_056 
+	else 
+		>> Global.node_095 
+		random (50) >> Global.node_095 
+		elser (50) 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_011
+	>> Global.node_097 
+	return 
+endf 
+
+def node_012
+	>> Global.node_098 
+	return 
+endf 
+
+def node_013
+	>> Global.node_096 
+	return 
+endf 
+
+def node_014
+	>> Global.node_103 
+	return 
+endf 
+
+def node_015
+	>> Global.node_111 
+	return 
+endf 
+
+def node_016
+	if self.quest_id(61607) 
+		if function#57(5) 
+			function#54() 
+		endif 
+	endif 
+	return 
+endf 
+

@@ -1,0 +1,750 @@
+importactions Teostra as teostra
+importlibrary Global as Global
+
+def node_000
+	>> node_001 
+	>> Global.node_001 
+	>> Global.node_256 
+	>> Global.node_257 
+	if self.current_quest().is_rank(rank.AT) 
+		>> node_038 
+	else 
+		>> node_007 
+	endif 
+	reset 
+endf 
+
+def node_001
+	if self.target_on_part(0) 
+		>> node_002 
+	elif self.target_on_part(1) 
+		>> node_002 
+	else 
+	endif 
+	return 
+endf 
+
+def node_002
+	>> Global.node_002 
+	>> node_004 
+	reset 
+endf 
+
+def node_003
+	random (50) >> Global.node_238 
+	elser (50) 
+	endr 
+	return 
+endf 
+
+def node_004
+	if self.mounted() 
+		>> node_005 
+	else 
+		>> node_006 
+	endif 
+	return 
+endf 
+
+def node_005
+	>> Global.node_226 
+	if self.target_on_part(0) 
+		>> Global.node_227 
+	else 
+		>> Global.node_229 
+	endif 
+	return 
+endf 
+
+def node_006
+	>> Global.node_226 
+	if self.target_on_part(0) 
+		>> Global.node_228 
+	else 
+		>> Global.node_230 
+	endif 
+	return 
+endf 
+
+def node_007
+	if function#102(0,1) 
+		>> node_009 
+	elif function#102(0,2) 
+		>> node_010 
+	elif function#102(1,1) 
+		>> node_011 
+	elif function#102(1,2) 
+		>> node_012 
+	else 
+		>> node_008 
+	endif 
+	return 
+endf 
+
+def node_008
+	if self.distance_2d_to_target().leq(300) 
+		>> node_013 
+	elif self.distance_2d_to_target().leq(650) 
+		>> node_014 
+	elif self.distance_2d_to_target().leq(1200) 
+		>> node_015 
+	elif self.distance_2d_to_target().leq(2000) 
+		>> node_016 
+	else 
+		>> node_017 
+	endif 
+	return 
+endf 
+
+def node_009
+	if self.distance_2d_to_target().leq(300) 
+		>> node_018 
+	elif self.distance_2d_to_target().leq(800) 
+		>> node_019 
+	elif self.distance_2d_to_target().leq(1200) 
+		>> node_020 
+	elif self.distance_2d_to_target().leq(2500) 
+		>> node_021 
+	else 
+		>> node_022 
+	endif 
+	return 
+endf 
+
+def node_010
+	if self.distance_2d_to_target().leq(300) 
+		>> node_023 
+	elif self.distance_2d_to_target().leq(800) 
+		>> node_024 
+	elif self.distance_2d_to_target().leq(1200) 
+		>> node_025 
+	elif self.distance_2d_to_target().leq(2500) 
+		>> node_026 
+	else 
+		>> node_027 
+	endif 
+	return 
+endf 
+
+def node_011
+	if self.distance_2d_to_target().leq(300) 
+		>> node_028 
+	elif self.distance_2d_to_target().leq(650) 
+		>> node_029 
+	elif self.distance_2d_to_target().leq(1200) 
+		>> node_030 
+	elif self.distance_2d_to_target().leq(2000) 
+		>> node_031 
+	else 
+		>> node_032 
+	endif 
+	return 
+endf 
+
+def node_012
+	if self.distance_2d_to_target().leq(300) 
+		>> node_033 
+	elif self.distance_2d_to_target().leq(650) 
+		>> node_034 
+	elif self.distance_2d_to_target().leq(950) 
+		>> node_035 
+	elif self.distance_2d_to_target().leq(2000) 
+		>> node_036 
+	else 
+		>> node_037 
+	endif 
+	return 
+endf 
+
+def node_013
+	random (0) >> Global.node_079 
+	elser (35) >> Global.node_078 
+	elser (5) >> Global.node_075 
+	elser (20) >> Global.node_098 
+	elser (0) >> Global.node_081 
+	elser (20) >> Global.node_087 
+	elser (5) >> Global.node_088 
+	elser (0) >> Global.node_092 
+	elser (5) >> Global.node_089 
+	elser (10) >> Global.node_083 
+	elser (0) >> Global.node_102 
+	endr 
+	return 
+endf 
+
+def node_014
+	random (0) >> Global.node_079 
+	elser (35) >> Global.node_078 
+	elser (5) >> Global.node_075 
+	elser (20) >> Global.node_098 
+	elser (0) >> Global.node_081 
+	elser (20) >> Global.node_087 
+	elser (5) >> Global.node_088 
+	elser (0) >> Global.node_092 
+	elser (5) >> Global.node_089 
+	elser (10) >> Global.node_083 
+	elser (0) >> Global.node_102 
+	endr 
+	return 
+endf 
+
+def node_015
+	random (0) >> Global.node_079 
+	elser (5) >> Global.node_078 
+	elser (10) >> Global.node_075 
+	elser (20) >> Global.node_098 
+	elser (10) >> Global.node_081 
+	elser (20) >> Global.node_087 
+	elser (20) >> Global.node_088 
+	elser (0) >> Global.node_092 
+	elser (5) >> Global.node_089 
+	elser (10) >> Global.node_083 
+	elser (0) >> Global.node_102 
+	endr 
+	return 
+endf 
+
+def node_016
+	random (30) >> Global.node_079 
+	elser (0) >> Global.node_078 
+	elser (0) >> Global.node_075 
+	elser (0) >> Global.node_098 
+	elser (15) >> Global.node_081 
+	elser (0) >> Global.node_087 
+	elser (20) >> Global.node_088 
+	elser (0) >> Global.node_092 
+	elser (10) >> Global.node_089 
+	elser (25) >> Global.node_083 
+	elser (0) >> Global.node_102 
+	endr 
+	return 
+endf 
+
+def node_017
+	>> Global.node_118 
+	>> node_014 
+	return 
+endf 
+
+def node_018
+	random (0) >> Global.node_077 
+	elser (35) >> Global.node_076 
+	elser (5) >> Global.node_075 
+	elser (20) >> Global.node_098 
+	elser (0) >> Global.node_081 
+	elser (20) >> Global.node_087 
+	elser (5) >> Global.node_088 
+	elser (0) >> Global.node_092 
+	elser (5) >> Global.node_089 
+	elser (10) >> Global.node_083 
+	elser (0) >> Global.node_102 
+	endr 
+	return 
+endf 
+
+def node_019
+	random (0) >> Global.node_077 
+	elser (35) >> Global.node_076 
+	elser (5) >> Global.node_075 
+	elser (20) >> Global.node_098 
+	elser (0) >> Global.node_081 
+	elser (20) >> Global.node_087 
+	elser (5) >> Global.node_088 
+	elser (0) >> Global.node_092 
+	elser (5) >> Global.node_089 
+	elser (10) >> Global.node_083 
+	elser (0) >> Global.node_102 
+	endr 
+	return 
+endf 
+
+def node_020
+	random (0) >> Global.node_077 
+	elser (5) >> Global.node_076 
+	elser (10) >> Global.node_075 
+	elser (20) >> Global.node_098 
+	elser (10) >> Global.node_081 
+	elser (20) >> Global.node_087 
+	elser (20) >> Global.node_088 
+	elser (0) >> Global.node_092 
+	elser (5) >> Global.node_089 
+	elser (10) >> Global.node_083 
+	elser (0) >> Global.node_102 
+	endr 
+	return 
+endf 
+
+def node_021
+	random (30) >> Global.node_077 
+	elser (0) >> Global.node_076 
+	elser (0) >> Global.node_075 
+	elser (0) >> Global.node_098 
+	elser (15) >> Global.node_081 
+	elser (0) >> Global.node_087 
+	elser (20) >> Global.node_088 
+	elser (0) >> Global.node_092 
+	elser (10) >> Global.node_089 
+	elser (25) >> Global.node_083 
+	elser (0) >> Global.node_102 
+	endr 
+	return 
+endf 
+
+def node_022
+	>> Global.node_118 
+	>> node_019 
+	return 
+endf 
+
+def node_023
+	random (0) >> Global.node_077 
+	elser (30) >> Global.node_076 
+	elser (5) >> Global.node_075 
+	elser (15) >> Global.node_098 
+	elser (0) >> Global.node_081 
+	elser (15) >> Global.node_087 
+	elser (5) >> Global.node_088 
+	elser (15) >> Global.node_092 
+	elser (5) >> Global.node_089 
+	elser (10) >> Global.node_083 
+	elser (0) >> Global.node_102 
+	endr 
+	return 
+endf 
+
+def node_024
+	random (0) >> Global.node_077 
+	elser (30) >> Global.node_076 
+	elser (5) >> Global.node_075 
+	elser (15) >> Global.node_098 
+	elser (0) >> Global.node_081 
+	elser (15) >> Global.node_087 
+	elser (5) >> Global.node_088 
+	elser (15) >> Global.node_092 
+	elser (5) >> Global.node_089 
+	elser (10) >> Global.node_083 
+	elser (0) >> Global.node_102 
+	endr 
+	return 
+endf 
+
+def node_025
+	random (0) >> Global.node_077 
+	elser (5) >> Global.node_076 
+	elser (10) >> Global.node_075 
+	elser (15) >> Global.node_098 
+	elser (10) >> Global.node_081 
+	elser (15) >> Global.node_087 
+	elser (15) >> Global.node_088 
+	elser (15) >> Global.node_092 
+	elser (5) >> Global.node_089 
+	elser (10) >> Global.node_083 
+	elser (0) >> Global.node_102 
+	endr 
+	return 
+endf 
+
+def node_026
+	random (25) >> Global.node_077 
+	elser (0) >> Global.node_076 
+	elser (0) >> Global.node_075 
+	elser (0) >> Global.node_098 
+	elser (10) >> Global.node_081 
+	elser (0) >> Global.node_087 
+	elser (15) >> Global.node_088 
+	elser (15) >> Global.node_092 
+	elser (10) >> Global.node_089 
+	elser (25) >> Global.node_083 
+	elser (0) >> Global.node_102 
+	endr 
+	return 
+endf 
+
+def node_027
+	>> Global.node_118 
+	>> node_024 
+	return 
+endf 
+
+def node_028
+	random (0) >> Global.node_095 
+	elser (40) >> Global.node_094 
+	elser (0) >> Global.node_075 
+	elser (20) >> Global.node_098 
+	elser (0) >> Global.node_081 
+	elser (20) >> Global.node_087 
+	elser (10) >> Global.node_096 
+	elser (0) >> Global.node_092 
+	elser (5) >> Global.node_089 
+	elser (5) >> Global.node_097 
+	elser (0) >> Global.node_102 
+	endr 
+	return 
+endf 
+
+def node_029
+	random (0) >> Global.node_095 
+	elser (40) >> Global.node_094 
+	elser (0) >> Global.node_075 
+	elser (20) >> Global.node_098 
+	elser (0) >> Global.node_081 
+	elser (20) >> Global.node_087 
+	elser (10) >> Global.node_096 
+	elser (0) >> Global.node_092 
+	elser (5) >> Global.node_089 
+	elser (5) >> Global.node_097 
+	elser (0) >> Global.node_102 
+	endr 
+	return 
+endf 
+
+def node_030
+	random (35) >> Global.node_095 
+	elser (0) >> Global.node_094 
+	elser (5) >> Global.node_075 
+	elser (20) >> Global.node_098 
+	elser (0) >> Global.node_081 
+	elser (20) >> Global.node_087 
+	elser (10) >> Global.node_096 
+	elser (0) >> Global.node_092 
+	elser (5) >> Global.node_089 
+	elser (5) >> Global.node_097 
+	elser (0) >> Global.node_102 
+	endr 
+	return 
+endf 
+
+def node_031
+	random (30) >> Global.node_095 
+	elser (0) >> Global.node_094 
+	elser (0) >> Global.node_075 
+	elser (0) >> Global.node_098 
+	elser (20) >> Global.node_081 
+	elser (0) >> Global.node_087 
+	elser (20) >> Global.node_096 
+	elser (0) >> Global.node_092 
+	elser (10) >> Global.node_089 
+	elser (20) >> Global.node_097 
+	elser (0) >> Global.node_102 
+	endr 
+	return 
+endf 
+
+def node_032
+	>> Global.node_118 
+	>> node_029 
+	return 
+endf 
+
+def node_033
+	random (0) >> Global.node_073 
+	elser (40) >> Global.node_070 
+	elser (0) >> Global.node_075 
+	elser (20) >> Global.node_098 
+	elser (0) >> Global.node_081 
+	elser (20) >> Global.node_087 
+	elser (10) >> Global.node_088 
+	elser (0) >> Global.node_092 
+	elser (5) >> Global.node_089 
+	elser (5) >> Global.node_083 
+	elser (0) >> Global.node_102 
+	endr 
+	return 
+endf 
+
+def node_034
+	random (0) >> Global.node_073 
+	elser (40) >> Global.node_070 
+	elser (0) >> Global.node_075 
+	elser (20) >> Global.node_098 
+	elser (0) >> Global.node_081 
+	elser (20) >> Global.node_087 
+	elser (10) >> Global.node_088 
+	elser (0) >> Global.node_092 
+	elser (5) >> Global.node_089 
+	elser (5) >> Global.node_083 
+	elser (0) >> Global.node_102 
+	endr 
+	return 
+endf 
+
+def node_035
+	random (35) >> Global.node_073 
+	elser (0) >> Global.node_070 
+	elser (5) >> Global.node_075 
+	elser (20) >> Global.node_098 
+	elser (0) >> Global.node_081 
+	elser (20) >> Global.node_087 
+	elser (10) >> Global.node_088 
+	elser (0) >> Global.node_092 
+	elser (5) >> Global.node_089 
+	elser (5) >> Global.node_083 
+	elser (0) >> Global.node_102 
+	endr 
+	return 
+endf 
+
+def node_036
+	random (30) >> Global.node_073 
+	elser (0) >> Global.node_070 
+	elser (0) >> Global.node_075 
+	elser (0) >> Global.node_098 
+	elser (0) >> Global.node_081 
+	elser (0) >> Global.node_087 
+	elser (15) >> Global.node_088 
+	elser (30) >> Global.node_092 
+	elser (5) >> Global.node_089 
+	elser (20) >> Global.node_083 
+	elser (0) >> Global.node_102 
+	endr 
+	return 
+endf 
+
+def node_037
+	>> Global.node_118 
+	>> node_034 
+	return 
+endf 
+
+def node_038
+	if function#102(0,1) 
+		>> node_040 
+	elif function#102(0,2) 
+		>> node_041 
+	elif function#102(1,1) 
+		>> node_042 
+	elif function#102(1,2) 
+		>> node_043 
+	else 
+		>> node_039 
+	endif 
+	return 
+endf 
+
+def node_039
+	if self.distance_2d_to_target().leq(400) 
+		>> node_044 
+	else 
+		>> node_045 
+	endif 
+	return 
+endf 
+
+def node_040
+	if self.distance_2d_to_target().leq(400) 
+		>> node_046 
+	else 
+		>> node_047 
+	endif 
+	return 
+endf 
+
+def node_041
+	if self.distance_2d_to_target().leq(400) 
+		>> node_048 
+	else 
+		>> node_049 
+	endif 
+	return 
+endf 
+
+def node_042
+	if self.distance_2d_to_target().leq(400) 
+		>> node_050 
+	else 
+		>> node_051 
+	endif 
+	return 
+endf 
+
+def node_043
+	if self.distance_2d_to_target().leq(400) 
+		>> node_052 
+	else 
+		>> node_053 
+	endif 
+	return 
+endf 
+
+def node_044
+	random (0) >> Global.node_054 
+	elser (30) >> Global.node_056 
+	elser (0) >> Global.node_051 
+	elser (10) >> Global.node_075 
+	elser (20) >> Global.node_080 
+	elser (0) >> Global.node_081 
+	elser (10) >> Global.node_087 
+	elser (0) >> Global.node_088 
+	elser (0) >> Global.node_092 
+	elser (10) >> Global.node_061 
+	elser (20) >> Global.node_083 
+	elser (0) >> Global.node_102 
+	endr 
+	return 
+endf 
+
+def node_045
+	random (0) >> Global.node_054 
+	elser (30) >> Global.node_056 
+	elser (0) >> Global.node_051 
+	elser (10) >> Global.node_075 
+	elser (20) >> Global.node_080 
+	elser (0) >> Global.node_081 
+	elser (10) >> Global.node_087 
+	elser (0) >> Global.node_088 
+	elser (0) >> Global.node_092 
+	elser (10) >> Global.node_061 
+	elser (20) >> Global.node_083 
+	elser (0) >> Global.node_102 
+	endr 
+	return 
+endf 
+
+def node_046
+	random (0) >> Global.node_055 
+	elser (15) >> Global.node_057 
+	elser (15) >> Global.node_051 
+	elser (0) >> Global.node_075 
+	elser (20) >> Global.node_080 
+	elser (0) >> Global.node_081 
+	elser (10) >> Global.node_087 
+	elser (0) >> Global.node_088 
+	elser (10) >> Global.node_092 
+	elser (10) >> Global.node_061 
+	elser (20) >> Global.node_083 
+	elser (0) >> Global.node_102 
+	endr 
+	return 
+endf 
+
+def node_047
+	random (0) >> Global.node_055 
+	elser (15) >> Global.node_057 
+	elser (15) >> Global.node_051 
+	elser (0) >> Global.node_075 
+	elser (20) >> Global.node_080 
+	elser (0) >> Global.node_081 
+	elser (10) >> Global.node_087 
+	elser (0) >> Global.node_088 
+	elser (10) >> Global.node_092 
+	elser (10) >> Global.node_061 
+	elser (20) >> Global.node_083 
+	elser (0) >> Global.node_102 
+	endr 
+	return 
+endf 
+
+def node_048
+	random (0) >> Global.node_055 
+	elser (15) >> Global.node_057 
+	elser (15) >> Global.node_051 
+	elser (0) >> Global.node_075 
+	elser (20) >> Global.node_080 
+	elser (0) >> Global.node_081 
+	elser (10) >> Global.node_087 
+	elser (0) >> Global.node_088 
+	elser (10) >> Global.node_092 
+	elser (10) >> Global.node_061 
+	elser (20) >> Global.node_083 
+	elser (0) >> Global.node_102 
+	endr 
+	return 
+endf 
+
+def node_049
+	random (0) >> Global.node_055 
+	elser (15) >> Global.node_057 
+	elser (15) >> Global.node_051 
+	elser (0) >> Global.node_075 
+	elser (20) >> Global.node_080 
+	elser (0) >> Global.node_081 
+	elser (10) >> Global.node_087 
+	elser (0) >> Global.node_088 
+	elser (10) >> Global.node_092 
+	elser (10) >> Global.node_061 
+	elser (20) >> Global.node_083 
+	elser (0) >> Global.node_102 
+	endr 
+	return 
+endf 
+
+def node_050
+	random (0) >> Global.node_036 
+	elser (0) >> Global.node_035 
+	elser (0) >> Global.node_033 
+	elser (20) >> Global.node_045 
+	elser (10) >> Global.node_043 
+	elser (0) >> Global.node_044 
+	elser (0) >> Global.node_047 
+	elser (30) >> Global.node_080 
+	elser (0) >> Global.node_081 
+	elser (10) >> Global.node_087 
+	elser (0) >> Global.node_088 
+	elser (10) >> Global.node_092 
+	elser (0) >> Global.node_089 
+	elser (20) >> Global.node_083 
+	elser (0) >> Global.node_102 
+	endr 
+	return 
+endf 
+
+def node_051
+	random (0) >> Global.node_036 
+	elser (0) >> Global.node_035 
+	elser (0) >> Global.node_033 
+	elser (20) >> Global.node_045 
+	elser (10) >> Global.node_043 
+	elser (0) >> Global.node_044 
+	elser (0) >> Global.node_047 
+	elser (30) >> Global.node_080 
+	elser (0) >> Global.node_081 
+	elser (10) >> Global.node_087 
+	elser (0) >> Global.node_088 
+	elser (10) >> Global.node_092 
+	elser (0) >> Global.node_089 
+	elser (20) >> Global.node_083 
+	elser (0) >> Global.node_102 
+	endr 
+	return 
+endf 
+
+def node_052
+	random (0) >> Global.node_036 
+	elser (0) >> Global.node_035 
+	elser (0) >> Global.node_033 
+	elser (20) >> Global.node_045 
+	elser (10) >> Global.node_043 
+	elser (0) >> Global.node_044 
+	elser (0) >> Global.node_047 
+	elser (30) >> Global.node_080 
+	elser (0) >> Global.node_081 
+	elser (10) >> Global.node_087 
+	elser (0) >> Global.node_088 
+	elser (10) >> Global.node_092 
+	elser (0) >> Global.node_089 
+	elser (20) >> Global.node_083 
+	elser (0) >> Global.node_102 
+	endr 
+	return 
+endf 
+
+def node_053
+	random (0) >> Global.node_036 
+	elser (0) >> Global.node_035 
+	elser (0) >> Global.node_033 
+	elser (20) >> Global.node_045 
+	elser (10) >> Global.node_043 
+	elser (0) >> Global.node_044 
+	elser (0) >> Global.node_047 
+	elser (30) >> Global.node_080 
+	elser (0) >> Global.node_081 
+	elser (10) >> Global.node_087 
+	elser (0) >> Global.node_088 
+	elser (10) >> Global.node_092 
+	elser (0) >> Global.node_089 
+	elser (20) >> Global.node_083 
+	elser (0) >> Global.node_102 
+	endr 
+	return 
+endf 
+

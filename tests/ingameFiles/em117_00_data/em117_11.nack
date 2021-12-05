@@ -1,0 +1,272 @@
+importactions Kulve_Taroth as kulve_taroth
+importlibrary Global as Global
+
+def node_000
+	if self.current_quest().is_rank(rank.MR) 
+		>> node_002 
+	else 
+		>> node_001 
+	endif 
+	reset 
+endf 
+
+def node_001
+	>> Global.node_299 
+	>> node_003 
+	if function#101() 
+		>> node_008 
+	else 
+		if function#102() 
+			>> node_008 
+		else 
+			>> node_007 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_002
+	>> Global.node_297 
+	>> node_003 
+	if function#101() 
+		>> node_010 
+	else 
+		if function#102() 
+			>> node_010 
+		else 
+			>> node_009 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_003
+	if function#3B() 
+		if self.mount_staggered_twice() 
+			>> node_006 
+		endif 
+	else 
+		if self.mount_stabbed() 
+			[RegisterVar5 ++] 
+			if [RegisterVar5 <= 2] 
+				[RegisterVar5 |-] 
+				>> node_006 
+			else 
+			endif 
+		elif self.mount_finisher_ready() 
+			[RegisterVar5 ++] 
+			if [RegisterVar5 <= 2] 
+				[RegisterVar5 |-] 
+				>> node_006 
+			else 
+			endif 
+		else 
+			function#A8(1) 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_004
+	if self.mounted() 
+		>> Global.node_312 
+	else 
+	endif 
+	return 
+endf 
+
+def node_005
+	if self.fatigued() 
+		random (50) >> Global.node_312 
+		elser (50) 
+		endr 
+	else 
+	endif 
+	return 
+endf 
+
+def node_006
+	>> Global.node_313 
+	return 
+endf 
+
+def node_007
+	if function#A9() 
+		function#A8() 
+	endif 
+	if function#A9(1,5) 
+		function#A8(1) 
+		function#A8() 
+	endif 
+	if function#A9(0,1) 
+		function#A8() 
+		>> node_011 
+	endif 
+	>> Global.node_299 
+	if function#A9(0,2) 
+		function#A8() 
+		>> node_011 
+		>> Global.node_299 
+	endif 
+	function#A8(1) 
+	>> node_014 
+	>> Global.node_299 
+	return 
+endf 
+
+def node_008
+	if function#A9(4,5) 
+		function#A8(1) 
+		function#A8() 
+		function#A8() 
+		function#A8() 
+		function#A8() 
+		function#A8() 
+	endif 
+	if function#A9(0,5) 
+		function#A8() 
+		>> node_014 
+		>> Global.node_299 
+	endif 
+	if function#A9(0,6) 
+		function#A8() 
+		>> node_014 
+		>> Global.node_299 
+	endif 
+	function#A8(1) 
+	>> node_011 
+	>> Global.node_299 
+	return 
+endf 
+
+def node_009
+	if function#A9() 
+		function#A8() 
+	endif 
+	if function#A9(1,5) 
+		function#A8(1) 
+		function#A8() 
+	endif 
+	if function#A9(0,1) 
+		function#A8() 
+		>> node_011 
+		>> Global.node_297 
+	endif 
+	if function#A9(0,2) 
+		function#A8() 
+		>> node_011 
+		>> Global.node_297 
+	endif 
+	function#A8(1) 
+	>> node_014 
+	>> Global.node_297 
+	return 
+endf 
+
+def node_010
+	if function#A9(4,5) 
+		function#A8(1) 
+		function#A8() 
+		function#A8() 
+		function#A8() 
+		function#A8() 
+		function#A8() 
+	endif 
+	if function#A9(0,5) 
+		function#A8() 
+		>> node_014 
+		>> Global.node_297 
+	endif 
+	if function#A9(0,6) 
+		function#A8() 
+		>> node_014 
+		>> Global.node_297 
+	endif 
+	function#A8(1) 
+	>> node_011 
+	>> Global.node_297 
+	return 
+endf 
+
+def node_011
+	>> Global.node_300 
+	>> Global.node_298 
+	if self.mounted() 
+		>> node_012 
+	else 
+		>> node_013 
+	endif 
+	return 
+endf 
+
+def node_012
+	if self.target_on_part(0) 
+		>> Global.node_302 
+	else 
+		>> Global.node_303 
+	endif 
+	return 
+endf 
+
+def node_013
+	if self.target_on_part(0) 
+		>> Global.node_302 
+	else 
+		>> Global.node_304 
+	endif 
+	return 
+endf 
+
+def node_014
+	if self.mounted() 
+		>> node_015 
+	else 
+		>> node_017 
+	endif 
+	return 
+endf 
+
+def node_015
+	if function#29() 
+		self.targetArea(7) 
+		>> Global.node_306 
+		self.targetArea(15) 
+		>> Global.node_307 
+		>> node_016 
+	else 
+		>> node_011 
+	endif 
+	return 
+endf 
+
+def node_016
+	if self.target_on_part(0) 
+		>> Global.node_308 
+	else 
+		>> Global.node_310 
+	endif 
+	return 
+endf 
+
+def node_017
+	if function#29() 
+		self.targetArea(7) 
+		>> Global.node_306 
+		self.targetArea(15) 
+		>> Global.node_307 
+		>> node_018 
+	else 
+		>> node_011 
+	endif 
+	return 
+endf 
+
+def node_018
+	if self.target_on_part(0) 
+		>> Global.node_309 
+	else 
+		>> Global.node_311 
+	endif 
+	return 
+endf 
+

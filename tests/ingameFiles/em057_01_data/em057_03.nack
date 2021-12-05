@@ -1,0 +1,33 @@
+importactions Stygian_Zinogre as stygian_zinogre
+importlibrary Global as Global
+
+def node_000
+	function#103() 
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if self.target(7) 
+		>> node_002 
+	elif self.target(10) 
+		>> node_003 
+	else 
+		>> node_001 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	>> Global.node_037 
+	>> Global.node_219 
+	return 
+endf 
+
+def node_002
+	>> Global.node_037 
+	>> Global.node_219 
+	return 
+endf 
+
+def node_003
+	>> Global.node_200 
+	return 
+endf 
+

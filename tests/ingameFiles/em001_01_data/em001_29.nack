@@ -1,0 +1,19 @@
+importactions Pink_Rathian as pink_rathian
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_255 
+	>> Global.node_271 
+	self.targetEnemy(48) 
+	if self.in_map(st.Challenge_Arena).in_area(-1) 
+		>> Global.node_248 
+	elif self.target(7) 
+		>> Global.node_247 
+	elif self.distance_3d_to_target().leq(3500) 
+		>> Global.node_246 
+	else 
+		>> Global.node_247 
+	endif 
+	reset 
+endf 
+

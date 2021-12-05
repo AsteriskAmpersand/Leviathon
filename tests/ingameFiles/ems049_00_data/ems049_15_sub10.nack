@@ -1,0 +1,188 @@
+importactions Jagras as jagras
+importlibrary Global as Global
+
+def node_000
+	if function#B0(10) 
+		>> node_001 
+		>> node_003 
+		>> node_002 
+	else 
+		self.targetEnemy(target_em.random_player_or_cat) 
+	endif 
+	if self.distance_3d_to_target().leq(3000) 
+		>> Global.node_007 
+	else 
+	endif 
+	random (50) >> node_017 
+	elser (50) >> Global.node_104 
+	endr 
+	reset 
+endf 
+
+def node_001
+	if function#4B() 
+		self.targetEnemy(49) 
+		if self.distance_3d_to_target().gt(500) 
+			>> Global.node_002 
+		else 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_002
+	if function#103() 
+	elif self.targetEnemy(target_em.random_player_or_cat) 
+	endif 
+	return 
+endf 
+
+def node_003
+	if self.targetEnemy(33) 
+		if self.target_is(em.PukeiPukei) 
+			if self.distance_3d_to_target().leq(5000) 
+				>> node_004 
+				reset 
+			else 
+			endif 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_004
+	if self.distance_3d_to_target().leq(500) 
+		random (25) >> Global.node_018 
+		elser (50) >> node_011 
+		elser (25) >> Global.node_022 
+					>> Global.node_019 
+		endr 
+	elif self.distance_3d_to_target().leq(800) 
+		random (25) >> Global.node_019 
+		elser (50) >> node_011 
+		elser (25) >> Global.node_002 
+					>> Global.node_018 
+		endr 
+	else 
+		random (50) >> Global.node_006 
+					>> Global.node_002 
+					>> Global.node_018 
+		elser (50) >> node_011 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_005
+	if self.distance_3d_to_target().leq(350) 
+		>> node_006 
+	elif self.distance_3d_to_target().leq(500) 
+		>> node_007 
+	elif self.distance_3d_to_target().leq(800) 
+		>> node_008 
+	elif self.distance_3d_to_target().leq(1200) 
+		>> node_009 
+	else 
+		>> node_010 
+	endif 
+	return 
+endf 
+
+def node_006
+	random (85) >> Global.node_018 
+	elser (15) >> Global.node_022 
+				>> Global.node_019 
+	endr 
+	return 
+endf 
+
+def node_007
+	random (85) >> Global.node_018 
+	elser (15) >> Global.node_022 
+				>> Global.node_019 
+	endr 
+	return 
+endf 
+
+def node_008
+	random (30) >> Global.node_019 
+	elser (70) >> Global.node_002 
+				>> Global.node_018 
+	endr 
+	return 
+endf 
+
+def node_009
+	>> Global.node_006 
+	>> Global.node_002 
+	>> Global.node_018 
+	return 
+endf 
+
+def node_010
+	>> Global.node_006 
+	>> Global.node_002 
+	>> Global.node_018 
+	return 
+endf 
+
+def node_011
+	if self.distance_3d_to_target().leq(400) 
+		>> node_012 
+	elif self.distance_3d_to_target().leq(900) 
+		>> node_013 
+	elif self.distance_3d_to_target().leq(1500) 
+		>> node_014 
+	elif self.distance_3d_to_target().leq(1800) 
+		>> node_015 
+	else 
+		>> node_016 
+	endif 
+	return 
+endf 
+
+def node_012
+	random (65) >> Global.node_022 
+	elser (35) >> Global.node_021 
+	endr 
+	return 
+endf 
+
+def node_013
+	random (75) >> Global.node_025 
+	elser (25) >> Global.node_026 
+	endr 
+	return 
+endf 
+
+def node_014
+	random (75) >> Global.node_027 
+	elser (25) >> Global.node_028 
+	endr 
+	return 
+endf 
+
+def node_015
+	>> Global.node_006 
+	>> Global.node_002 
+	return 
+endf 
+
+def node_016
+	>> Global.node_006 
+	>> Global.node_002 
+	return 
+endf 
+
+def node_017
+	random (20) -> action#1A() 
+	elser (20) -> action#1B() 
+	elser (20) -> action#1C() 
+	elser (20) -> action#1D() 
+	elser (20) -> action#1E() 
+	endr 
+	return 
+endf 
+

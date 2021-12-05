@@ -1,0 +1,27 @@
+importactions Vaal_Hazak as vaal_hazak
+
+def node_000
+	self.targetEnemy(target_em.closest_entity) 
+	>> node_001 
+	conclude 
+endf 
+
+def node_001
+	if self.target_is(em.Rajang) 
+		>> node_002 
+		-> vaal_hazak.grapple_with_em023_mediation() 
+	elif self.target_is(em.Furious_Rajang) 
+		>> node_002 
+		-> vaal_hazak.grapple_with_em023_mediation() 
+	else 
+	endif 
+	return 
+endf 
+
+def node_002
+	if self.flying() 
+		-> vaal_hazak.landing() 
+	endif 
+	return 
+endf 
+

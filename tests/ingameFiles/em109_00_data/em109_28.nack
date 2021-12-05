@@ -1,0 +1,56 @@
+importactions TobiKadachi as tobikadachi
+importlibrary Global as Global
+
+def node_000
+	if [RegisterVar1 <= 15] 
+		[RegisterVar1 |-] 
+		conclude 
+	else 
+	endif 
+	[RegisterVar1 ++] 
+	>> node_001 
+	repeat 
+	conclude 
+endf 
+
+def node_001
+	>> Global.node_004 
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if self.distance_3d_to_target().leq(3500) 
+		>> node_002 
+	else 
+		>> node_003 
+	endif 
+	return 
+endf 
+
+def node_002
+	>> Global.node_077 
+	if self.target(7) 
+	elif self.target(10) 
+	else 
+		>> Global.node_039 
+	endif 
+	random (40) >> Global.node_091 
+	elser (25) >> Global.node_081 
+	elser (35) >> Global.node_092 
+	endr 
+	return 
+endf 
+
+def node_003
+	self.targetEnemy(58) 
+	random (20) >> Global.node_037 
+	elser (80) 
+	endr 
+	self.targetEnemy(22) @ parameter2:2000 
+	random (40) >> Global.node_039 
+	elser (60) 
+	endr 
+	random (60) >> Global.node_081 
+	elser (20) >> Global.node_092 
+	elser (20) >> Global.node_091 
+	endr 
+	return 
+endf 
+

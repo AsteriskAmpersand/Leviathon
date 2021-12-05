@@ -1,0 +1,118 @@
+importactions Viper_TobiKadachi as viper_tobikadachi
+importlibrary Global as Global
+
+def node_000
+	self.targetEnemy(21) @ parameter2:700 
+	if self.target_on_part(0) >> node_004 
+	elif self.target_on_part(1) >> node_005 
+	elif self.target_on_part(2) >> node_006 
+	else 
+		function#41() -> viper_tobikadachi.damage_fly() => reset 
+		self.enraged() >> node_002 => reset 
+		self.fatigued() >> node_003 => reset 
+		>> node_001 => reset 
+	endif 
+	reset 
+endf 
+
+def node_001
+	random (15) >> Global.node_072 
+	elser (20) >> Global.node_077 
+	elser (25) >> Global.node_081 
+	elser (15) >> Global.node_079 
+	elser (20) >> Global.node_073 
+	elser (5) >> Global.node_114 
+	elser (0) >> Global.node_117 
+	endr 
+	return 
+endf 
+
+def node_002
+	random (15) >> Global.node_072 
+	elser (15) >> Global.node_077 
+	elser (15) >> Global.node_081 
+	elser (20) >> Global.node_079 
+	elser (20) >> Global.node_073 
+	elser (15) >> Global.node_075 
+	elser (0) >> Global.node_114 
+	elser (0) >> Global.node_117 
+	endr 
+	return 
+endf 
+
+def node_003
+	random (15) >> Global.node_072 
+	elser (15) >> Global.node_077 
+	elser (0) >> Global.node_081 
+	elser (15) >> Global.node_079 
+	elser (15) >> Global.node_073 
+	elser (20) >> Global.node_108 
+	elser (10) >> Global.node_114 
+	elser (10) >> Global.node_117 
+	endr 
+	return 
+endf 
+
+def node_004
+	random (47) >> node_007 
+	elser (38) >> node_008 
+	elser (15) >> node_013 
+	endr 
+	return 
+endf 
+
+def node_005
+	random (47) >> node_009 
+	elser (38) >> node_010 
+	elser (15) >> node_013 
+	endr 
+	return 
+endf 
+
+def node_006
+	random (47) >> node_011 
+	elser (38) >> node_012 
+	elser (15) >> node_013 
+	endr 
+	return 
+endf 
+
+def node_007
+	-> viper_tobikadachi.ride_rage_head() 
+	return 
+endf 
+
+def node_008
+	>> Global.node_080 
+	return 
+endf 
+
+def node_009
+	-> viper_tobikadachi.ride_rage_body() 
+	return 
+endf 
+
+def node_010
+	-> viper_tobikadachi.side_rush_bite() 
+	return 
+endf 
+
+def node_011
+	-> viper_tobikadachi.ride_rage_tail() 
+	return 
+endf 
+
+def node_012
+	if self.part(3).is_broken(1) 
+		-> viper_tobikadachi.broken_poison_side_tail_attack() 
+	else 
+		-> viper_tobikadachi.poison_side_tail_attack() 
+	endif 
+	return 
+endf 
+
+def node_013
+	-> viper_tobikadachi.threat() 
+	return 
+endf 
+

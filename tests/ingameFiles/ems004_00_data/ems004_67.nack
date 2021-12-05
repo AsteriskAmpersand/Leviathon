@@ -1,0 +1,968 @@
+importactions Mosswine as mosswine
+
+def node_000
+	>> node_027 
+	reset 
+endf 
+
+def node_001
+	if function#46() @ unknExtra2:1 
+		>> node_021 
+		function#DA() 
+		if [RegisterVar11 != 0] 
+			>> node_070 
+		else 
+			if [RegisterVar14 == 0] 
+				>> node_043 
+			elif [RegisterVar14 == 1] 
+				>> node_045 
+			else 
+				>> node_045 
+			endif 
+		endif 
+	else 
+		return 
+	endif 
+	reset 
+endf 
+
+def node_002
+	[RegisterVar0 ++] 
+	return 
+endf 
+
+def node_003
+	[RegisterVar0 |-] 
+	return 
+endf 
+
+def node_004
+	[RegisterVar1 ++] 
+	return 
+endf 
+
+def node_005
+	[RegisterVar1 |-] 
+	return 
+endf 
+
+def node_006
+	[RegisterVar2 ++] 
+	return 
+endf 
+
+def node_007
+	[RegisterVar2 |-] 
+	return 
+endf 
+
+def node_008
+	-> action#01() 
+	return 
+endf 
+
+def node_009
+	-> action#03(2,6,0,100,100) 
+	>> node_001 
+	return 
+endf 
+
+def node_010
+	-> action#04(2,6,0,100,100) 
+	>> node_001 
+	return 
+endf 
+
+def node_011
+	-> action#04(2,0,0,100) 
+	>> node_001 
+	return 
+endf 
+
+def node_012
+	-> action#0D(2,6,0,100,100) 
+	>> node_001 
+	return 
+endf 
+
+def node_013
+	-> action#06() 
+	return 
+endf 
+
+def node_014
+	-> action#08() 
+	return 
+endf 
+
+def node_015
+	-> action#07() 
+	return 
+endf 
+
+def node_016
+	if function#44() 
+		>> node_014 
+	else 
+		-> action#27() 
+	endif 
+	return 
+endf 
+
+def node_017
+	-> action#05() 
+	return 
+endf 
+
+def node_018
+	-> action#0A() 
+	return 
+endf 
+
+def node_019
+	-> action#0A(12,0,0,3000) 
+	return 
+endf 
+
+def node_020
+	-> action#29() 
+	return 
+endf 
+
+def node_021
+	-> action#2A() 
+	return 
+endf 
+
+def node_022
+	-> action#2B() 
+	return 
+endf 
+
+def node_023
+	-> action#2C() 
+	return 
+endf 
+
+def node_024
+	-> action#2D() 
+	return 
+endf 
+
+def node_025
+	function#E1() 
+	function#E2(2) 
+	function#EA(1) 
+	if function#D2(1) 
+	else 
+		>> node_001 
+	endif 
+	return 
+endf 
+
+def node_026
+	>> node_030 
+	if [RegisterVar12 < 0] 
+		>> node_033 
+		>> node_035 
+		if [RegisterVar13 == 0] 
+			>> node_037 
+			>> node_002 
+			>> node_071 
+			function#DA() 
+			>> node_025 
+			repeat 
+		endif 
+	else 
+		if self.distance_3d_to_target().leq(200) 
+			>> node_037 
+			>> node_002 
+			function#DA() 
+			>> node_025 
+			repeat 
+		else 
+			if self.distance_3d_to_target().leq(800) 
+				if [RegisterVar3 == 3] 
+					>> node_012 
+				else 
+					>> node_037 
+				endif 
+				>> node_036 
+			else 
+				>> node_038 
+				>> node_029 
+				if [RegisterVar5 < 0] 
+					>> node_013 
+					>> node_016 
+					*&
+					>> node_025 
+					repeat 
+				else 
+					if [RegisterVar12 == 0] 
+						>> node_032 
+						if [RegisterVar12 == 0] 
+						endif 
+						>> node_037 
+					endif 
+					if [RegisterVar12 == 0] 
+						>> node_031 
+					endif 
+				endif 
+			endif 
+			repeat 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_027
+	>> node_046 
+	return 
+endf 
+
+def node_028
+	>> node_080 
+	>> node_082 
+	return 
+endf 
+
+def node_029
+	>> node_081 
+	if [RegisterVar6 <= 4] 
+		if [RegisterVar7 >= 5] 
+			random (30) >> node_028 
+			elser (70) 
+			endr 
+		elif [RegisterVar7 >= 10] 
+			random (20) >> node_028 
+			elser (80) 
+			endr 
+		elif [RegisterVar7 >= 20] 
+			random (10) >> node_028 
+			elser (90) 
+			endr 
+		else 
+			random (5) >> node_028 
+			elser (95) 
+			endr 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_030
+	function#DE(2000) 
+	function#E2() 
+	if function#D2(8) 
+		if self.distance_2d_to_target().leq(1500) 
+			>> node_020 
+		endif 
+		function#E5() 
+	endif 
+	return 
+endf 
+
+def node_031
+	if [RegisterVar11 == 0] 
+		function#DD() 
+		function#DE(1000) 
+		function#E2() 
+		function#DF(80) 
+		function#EA(1) 
+		if function#D2(1) 
+			>> node_086 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_032
+	function#DD() 
+	function#DE(800) 
+	function#E2() 
+	function#F0() 
+	function#F1() 
+	if function#D2(2) 
+		>> node_087 
+		>> node_072 
+	else 
+		if function#FA() 
+			>> node_087 
+			>> node_072 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_033
+	if [RegisterVar13 == 0] 
+		function#E1() 
+		function#E2(2) 
+		function#EA(1) 
+		if function#D2(1) 
+		else 
+			function#DD(500) 
+			function#E2(1) 
+			function#EC(3) 
+			function#D2(11) 
+		endif 
+		>> node_018 
+	endif 
+	if [RegisterVar13 <= 6] 
+		>> node_071 
+		>> node_072 
+	else 
+		>> node_011 
+		>> node_088 
+	endif 
+	return 
+endf 
+
+def node_034
+	>> node_062 
+	>> node_078 
+	return 
+endf 
+
+def node_035
+	>> node_062 
+	>> node_078 
+	>> node_078 
+	return 
+endf 
+
+def node_036
+	>> node_062 
+	>> node_078 
+	>> node_078 
+	>> node_078 
+	return 
+endf 
+
+def node_037
+	if [RegisterVar3 == 1] 
+		>> node_023 
+	elif [RegisterVar3 == 2] 
+		>> node_022 
+	elif [RegisterVar3 == 3] 
+		>> node_024 
+	endif 
+	>> node_062 
+	return 
+endf 
+
+def node_038
+	if [RegisterVar9 == 0] 
+		>> node_009 
+		>> node_034 
+	elif [RegisterVar9 == 1] 
+		>> node_037 
+		>> node_002 
+	elif [RegisterVar9 == 2] 
+		>> node_012 
+		>> node_036 
+	endif 
+	if [RegisterVar9 == 1] 
+		random (40) >> node_039 
+		elser (0) >> node_040 
+		elser (60) >> node_041 
+		endr 
+		>> node_069 
+		return 
+	else 
+		>> node_085 
+	endif 
+	if [RegisterVar10 <= 2] 
+		random (50) >> node_039 
+		elser (20) >> node_040 
+		elser (30) >> node_041 
+		endr 
+		>> node_069 
+	endif 
+	*&
+	return 
+endf 
+
+def node_039
+	>> node_068 
+	return 
+endf 
+
+def node_040
+	>> node_068 
+	>> node_084 
+	return 
+endf 
+
+def node_041
+	>> node_068 
+	>> node_084 
+	>> node_084 
+	return 
+endf 
+
+def node_042
+	if self.distance_3d_to_target().leq(200) 
+		>> node_057 
+	else 
+		>> node_012 
+		>> node_036 
+		if self.distance_3d_to_target().gt(300) 
+			>> node_053 
+		endif 
+		if [RegisterVar5 < 0] 
+			>> node_055 
+		else 
+			>> node_050 
+			if [RegisterVar14 > 2] 
+				>> node_051 
+			endif 
+			if [RegisterVar11 == 0] 
+				>> node_058 
+			endif 
+		endif 
+	endif 
+	*&
+	return 
+endf 
+
+def node_043
+	if [RegisterVar15 <= 3] 
+		random (90) 
+					>> node_061 
+					function#DA() 
+					>> node_073 
+					>> node_089 
+					>> node_074 
+					return 
+		elser (10) 
+		endr 
+	endif 
+	function#DA() 
+	function#DD(300) 
+	function#DE(3000) 
+	function#E2(1) 
+	if [RegisterVar15 == 0] 
+		function#DF(80) 
+	endif 
+	if function#D2(4) 
+		>> node_073 
+		>> node_090 
+		>> node_070 
+	else 
+		function#DD(300) 
+		function#DE(3000) 
+		function#E2(1) 
+		if function#D2(4) 
+			>> node_073 
+			>> node_090 
+			>> node_070 
+		else 
+			>> node_061 
+			if [RegisterVar14 < 0] 
+				>> node_045 
+			endif 
+			>> node_073 
+			>> node_089 
+			>> node_074 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_044
+	if self.distance_3d_to_target().leq(200) 
+		>> node_059 
+	else 
+		>> node_009 
+		>> node_034 
+		if self.distance_3d_to_target().gt(300) 
+			>> node_056 
+		endif 
+		if [RegisterVar5 < 0] 
+			>> node_055 
+		else 
+			>> node_050 
+			if [RegisterVar14 > 2] 
+				>> node_051 
+			endif 
+			if [RegisterVar11 == 0] 
+				>> node_058 
+			endif 
+		endif 
+	endif 
+	*&
+	return 
+endf 
+
+def node_045
+	function#DD(3000) 
+	function#DE(10000) 
+	function#E2(2) 
+	if function#D2(3) 
+		>> node_070 
+	else 
+		function#DD(3000) 
+		function#DE(20000) 
+		function#E2(2) 
+		function#D2(3) 
+		>> node_070 
+	endif 
+	return 
+endf 
+
+def node_046
+	>> node_030 
+	if [RegisterVar14 == 0] 
+		if [RegisterVar15 == 0] 
+			>> node_043 
+			>> node_042 
+		else 
+			>> node_042 
+			if [RegisterVar14 < 0] 
+				>> node_045 
+			endif 
+		endif 
+	elif [RegisterVar14 == 1] 
+		>> node_044 
+	elif [RegisterVar14 == 2] 
+		>> node_048 
+	endif 
+	*&
+	*&
+	return 
+endf 
+
+def node_047
+	function#DD() 
+	function#DE(300) 
+	function#E2() 
+	function#F0() 
+	function#F1() 
+	if function#D2(2) 
+		if [RegisterVar14 != 2] 
+			>> node_072 
+			>> node_073 
+			>> node_089 
+			>> node_089 
+			>> node_074 
+			>> node_037 
+			>> node_049 
+		endif 
+	else 
+		if function#FA() 
+			if [RegisterVar14 != 2] 
+				>> node_072 
+				>> node_073 
+				>> node_089 
+				>> node_089 
+				>> node_074 
+				>> node_037 
+				>> node_049 
+			endif 
+		else 
+			*&
+			if [RegisterVar14 == 2] 
+				>> node_073 
+				>> node_074 
+			endif 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_048
+	if [RegisterVar13 == 0] 
+		self.targetEnemy(9) @ parameter2:100 
+		>> node_037 
+		>> node_018 
+		function#D3() 
+		>> node_088 
+	else 
+		if self.distance_3d_to_target().leq(200) 
+			>> node_037 
+			-> action#06() 
+			>> node_072 
+			>> node_073 
+			>> node_089 
+			>> node_074 
+			function#DA() 
+			>> node_045 
+		else 
+			if [RegisterVar13 < 40] 
+				>> node_072 
+				>> node_037 
+				-> action#06() 
+				>> node_047 
+				if [RegisterVar14 > 2] 
+					>> node_072 
+					>> node_073 
+					>> node_089 
+					>> node_074 
+					return 
+				endif 
+				return 
+			endif 
+			>> node_011 
+			>> node_035 
+			>> node_088 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_049
+	if [RegisterVar11 < 0] 
+		>> node_070 
+	endif 
+	function#DA() 
+	function#DD(3000) 
+	function#DE(20000) 
+	function#E2(2) 
+	function#D2(3) 
+	*&
+	return 
+endf 
+
+def node_050
+	if function#FA() 
+		>> node_072 
+		>> node_073 
+		>> node_089 
+		>> node_089 
+		>> node_074 
+		>> node_037 
+		>> node_049 
+	endif 
+	return 
+endf 
+
+def node_051
+	function#DD() 
+	function#DE(500) 
+	function#E2() 
+	function#F0() 
+	function#F1() 
+	if function#D2(2) 
+		>> node_070 
+		>> node_086 
+		>> node_086 
+	endif 
+	return 
+endf 
+
+def node_052
+	function#DA() 
+	>> node_070 
+	>> node_072 
+	>> node_073 
+	>> node_089 
+	>> node_089 
+	>> node_074 
+	>> node_037 
+	>> node_015 
+	>> node_049 
+	return 
+endf 
+
+def node_053
+	if [RegisterVar11 != 0] 
+		return 
+	endif 
+	>> node_081 
+	if [RegisterVar11 < 0] 
+		return 
+	endif 
+	*&
+	if [RegisterVar6 <= 20] 
+		if [RegisterVar7 >= 3] 
+			random (16) 
+						>> node_054 
+			elser (84) 
+			endr 
+		elif [RegisterVar7 >= 6] 
+			random (8) 
+						>> node_054 
+			elser (92) 
+			endr 
+		elif [RegisterVar7 >= 9] 
+			random (4) 
+						>> node_054 
+			elser (96) 
+			endr 
+		else 
+			random (1) 
+						>> node_054 
+			elser (99) 
+			endr 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_054
+	>> node_080 
+	>> node_082 
+	return 
+endf 
+
+def node_055
+	self.targetEnemy(9) @ parameter2:100 
+	>> node_037 
+	>> node_015 
+	>> node_016 
+	function#D3() 
+	>> node_064 
+	>> node_065 
+	return 
+endf 
+
+def node_056
+	if [RegisterVar11 != 0] 
+		return 
+	endif 
+	>> node_081 
+	if [RegisterVar6 <= 50] 
+		if [RegisterVar7 >= 3] 
+			random (6) 
+						>> node_054 
+			elser (94) 
+			endr 
+		elif [RegisterVar7 >= 6] 
+			random (4) 
+						>> node_054 
+			elser (96) 
+			endr 
+		elif [RegisterVar7 >= 9] 
+			random (2) 
+						>> node_054 
+			elser (98) 
+			endr 
+		else 
+			random (1) 
+						>> node_054 
+			elser (99) 
+			endr 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_057
+	if [RegisterVar11 == 0] 
+		>> node_037 
+		>> node_013 
+		>> node_043 
+	elif [RegisterVar11 == 1] 
+		>> node_060 
+	else 
+		>> node_052 
+	endif 
+	return 
+endf 
+
+def node_058
+	if [RegisterVar14 == 1] 
+		if [RegisterVar11 == 0] 
+			function#DD(300) 
+			function#DE(1000) 
+			function#E2() 
+			function#DF(80) 
+			function#EA(1) 
+			if function#D2(1) 
+				-> action#06() 
+				>> node_070 
+				>> node_086 
+			endif 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_059
+	if [RegisterVar11 == 0] 
+		>> node_037 
+		>> node_013 
+		>> node_043 
+	elif [RegisterVar11 == 1] 
+		>> node_060 
+	else 
+		>> node_052 
+	endif 
+	return 
+endf 
+
+def node_060
+	>> node_037 
+	>> node_014 
+	function#DA() 
+	>> node_070 
+	return 
+endf 
+
+def node_061
+	function#E4(4) 
+	function#E4(1) 
+	return 
+endf 
+
+def node_062
+	[RegisterVar3 |-] 
+	return 
+endf 
+
+def node_063
+	[RegisterVar4 |-] 
+	return 
+endf 
+
+def node_064
+	[RegisterVar5 |-] 
+	return 
+endf 
+
+def node_065
+	[RegisterVar6 |-] 
+	return 
+endf 
+
+def node_066
+	[RegisterVar7 |-] 
+	return 
+endf 
+
+def node_067
+	[RegisterVar8 |-] 
+	return 
+endf 
+
+def node_068
+	[RegisterVar9 |-] 
+	return 
+endf 
+
+def node_069
+	[RegisterVar10 |-] 
+	return 
+endf 
+
+def node_070
+	[RegisterVar11 |-] 
+	return 
+endf 
+
+def node_071
+	[RegisterVar12 |-] 
+	return 
+endf 
+
+def node_072
+	[RegisterVar13 |-] 
+	return 
+endf 
+
+def node_073
+	[RegisterVar14 |-] 
+	return 
+endf 
+
+def node_074
+	[RegisterVar15 |-] 
+	return 
+endf 
+
+def node_075
+	[RegisterVar16 |-] 
+	return 
+endf 
+
+def node_076
+	[RegisterVar17 |-] 
+	return 
+endf 
+
+def node_077
+	[RegisterVar18 |-] 
+	return 
+endf 
+
+def node_078
+	[RegisterVar3 ++] 
+	return 
+endf 
+
+def node_079
+	[RegisterVar4 ++] 
+	return 
+endf 
+
+def node_080
+	[RegisterVar5 ++] 
+	return 
+endf 
+
+def node_081
+	[RegisterVar6 ++] 
+	return 
+endf 
+
+def node_082
+	[RegisterVar7 ++] 
+	return 
+endf 
+
+def node_083
+	[RegisterVar8 ++] 
+	return 
+endf 
+
+def node_084
+	[RegisterVar9 ++] 
+	return 
+endf 
+
+def node_085
+	[RegisterVar10 ++] 
+	return 
+endf 
+
+def node_086
+	[RegisterVar11 ++] 
+	return 
+endf 
+
+def node_087
+	[RegisterVar12 ++] 
+	return 
+endf 
+
+def node_088
+	[RegisterVar13 ++] 
+	return 
+endf 
+
+def node_089
+	[RegisterVar14 ++] 
+	return 
+endf 
+
+def node_090
+	[RegisterVar15 ++] 
+	return 
+endf 
+
+def node_091
+	[RegisterVar16 ++] 
+	return 
+endf 
+
+def node_092
+	[RegisterVar17 ++] 
+	return 
+endf 
+
+def node_093
+	[RegisterVar18 ++] 
+	return 
+endf 
+

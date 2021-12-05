@@ -1,0 +1,802 @@
+importactions Nergigante as nergigante
+
+def node_000
+	conclude 
+endf 
+
+def node_001
+	if self.flying() 
+		>> node_003 
+	else 
+		>> node_002 
+	endif 
+	return 
+endf 
+
+def node_002
+	self.targetEnemy(16) 
+	if self.distance_3d_to_target().leq(600) 
+		return 
+	else 
+		-> nergigante.walk(2,1,5,3000,500) 
+	endif 
+	repeat 
+endf 
+
+def node_003
+	self.targetEnemy(16) 
+	if self.distance_3d_to_target().leq(600) 
+		return 
+	else 
+		-> nergigante.walk(2,1,5,3000,500) 
+	endif 
+	repeat 
+endf 
+
+def node_004
+	self.targetArea(14) 
+	if self.distance_3d_to_target().gt(600) 
+		>> node_008 
+		repeat 
+	else 
+	endif 
+	return 
+endf 
+
+def node_005
+	self.targetArea(19) 
+	if self.distance_3d_to_target().gt(1000) 
+		>> node_008 
+		repeat 
+	else 
+	endif 
+	return 
+endf 
+
+def node_006
+	>> node_049 
+	-> nergigante.dash(5) 
+	return 
+endf 
+
+def node_007
+	>> node_049 
+	-> nergigante.dash(1,5,0,1000) 
+	return 
+endf 
+
+def node_008
+	>> node_049 
+	-> nergigante.dash(2,5,0,3000) 
+	return 
+endf 
+
+def node_009
+	>> node_049 
+	-> nergigante.dash(2,1,5,1500,900) 
+	return 
+endf 
+
+def node_010
+	>> node_049 
+	-> nergigante.dash(2,1,0,4000,1000) 
+	return 
+endf 
+
+def node_011
+	>> node_049 
+	-> nergigante.dash(1,5,0,500) 
+	return 
+endf 
+
+def node_012
+	>> node_049 
+	-> nergigante.walk(5) 
+	return 
+endf 
+
+def node_013
+	>> node_049 
+	-> nergigante.walk(1,5,0,1000) 
+	return 
+endf 
+
+def node_014
+	>> node_049 
+	-> nergigante.walk(2,5,0,3000) 
+	return 
+endf 
+
+def node_015
+	>> node_049 
+	-> nergigante.walk(2,1,0,3000,1000) 
+	return 
+endf 
+
+def node_016
+	>> node_049 
+	-> nergigante.dying_walk(2,5,0,2000) 
+	return 
+endf 
+
+def node_017
+	if self.distance_3d_to_target().leq(500) 
+		>> node_021 
+	else 
+		>> node_022 
+	endif 
+	return 
+endf 
+
+def node_018
+	if self.angle_2d_cw_between(30,330) 
+		if self.flying() 
+			-> nergigante.normal_turn() 
+		else 
+			-> nergigante.normal_turn() 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_019
+	if self.angle_2d_cw_between(60,300) 
+		if self.flying() 
+			-> nergigante.normal_turn() 
+		else 
+			-> nergigante.normal_turn() 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_020
+	if self.angle_2d_cw_between(90,270) 
+		if self.flying() 
+			-> nergigante.normal_turn() 
+		else 
+			-> nergigante.normal_turn() 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_021
+	-> nergigante.back_turn() 
+	return 
+endf 
+
+def node_022
+	if self.angle_2d_cw_between(30,330) 
+		if self.flying() 
+			-> nergigante.quick_turn() 
+		else 
+			-> nergigante.quick_turn() 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_023
+	if self.angle_2d_cw_between(60,300) 
+		if self.flying() 
+			-> nergigante.quick_turn() 
+		else 
+			-> nergigante.quick_turn() 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_024
+	if self.angle_2d_cw_between(90,270) 
+		if self.flying() 
+			-> nergigante.quick_turn() 
+		else 
+			-> nergigante.quick_turn() 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_025
+	if self.angle_2d_cw_between(300,60) 
+		>> node_026 
+	else 
+		if self.current_quest().is_rank(rank.AT) 
+			if function#102() 
+				random (71) >> node_077 
+				elser (29) >> node_027 
+				endr 
+			else 
+				random (41) >> node_077 
+				elser (59) >> node_027 
+				endr 
+			endif 
+		else 
+			-> nergigante.side_step() 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_026
+	>> node_024 
+	-> nergigante.front_step() 
+	return 
+endf 
+
+def node_027
+	-> nergigante.side_step() 
+	return 
+endf 
+
+def node_028
+	-> nergigante.back_step() 
+	return 
+endf 
+
+def node_029
+	if function#102() 
+		-> nergigante.jump_punch_wing_mode() 
+	else 
+		-> nergigante.punch2() 
+	endif 
+	return 
+endf 
+
+def node_030
+	>> node_022 
+	if function#102() 
+		-> nergigante.rarm_jump_attack_smode() 
+	else 
+		-> nergigante.rarm_jump_attack() 
+	endif 
+	return 
+endf 
+
+def node_031
+	if self.angle_2d_cw_between(0,180) 
+		-> nergigante.rhand_jab() 
+	else 
+		-> nergigante.lhand_jab() 
+	endif 
+	return 
+endf 
+
+def node_032
+	-> nergigante.rarm_side_swing() 
+	return 
+endf 
+
+def node_033
+	-> nergigante.lhand_upper() 
+	return 
+endf 
+
+def node_034
+	>> node_024 
+	-> nergigante.head_attack() 
+	return 
+endf 
+
+def node_035
+	-> nergigante.left_side_tackle() 
+	return 
+endf 
+
+def node_036
+	-> nergigante.tail_sweep() 
+	return 
+endf 
+
+def node_037
+	-> nergigante.tail_slap() 
+	return 
+endf 
+
+def node_038
+	>> node_023 
+	-> nergigante.short_headbutt() 
+	return 
+endf 
+
+def node_039
+	if self.angle_2d_cw_between(190,170) 
+		-> nergigante.wing_attack() 
+	else 
+		>> node_038 
+	endif 
+	return 
+endf 
+
+def node_040
+	if self.angle_2d_cw_between(0,180) 
+		-> nergigante.r_l_hand_jab() 
+	else 
+		-> nergigante.l_r_hand_jab() 
+	endif 
+	return 
+endf 
+
+def node_041
+	if self.current_quest().is_rank(rank.AT) 
+		if function#102() 
+			random (19) >> node_031 
+			elser (81) >> node_040 
+			endr 
+		else 
+			>> node_031 
+		endif 
+	else 
+		if function#102() 
+			random (28) >> node_031 
+			elser (72) >> node_040 
+			endr 
+		else 
+			>> node_031 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_042
+	-> nergigante.long_range_attack() 
+	return 
+endf 
+
+def node_043
+	if self.current_quest().is_rank(rank.AT) 
+		random (41) >> node_076 
+		elser (59) -> nergigante.mid_range_punch() 
+		endr 
+	elif function#B9() 
+		-> nergigante.mid_range_punch() 
+	else 
+		>> node_023 
+		-> nergigante.mid_range_punch() 
+	endif 
+	return 
+endf 
+
+def node_044
+	if function#2D() 
+		if self.fatigued() 
+		else 
+			if self.distance_3d_to_target().leq(5000) 
+				if self.current_quest().is_rank(rank.AT) 
+					if self.hp_percent().gt(30) 
+						if function#101(1) 
+							>> node_046 
+						else 
+						endif 
+					elif self.hp_percent().gt(70) 
+						if function#101(2) 
+							>> node_046 
+						else 
+						endif 
+					else 
+						if function#101(2) 
+							>> node_046 
+						else 
+						endif 
+					endif 
+				elif function#B9() 
+					if function#101(2) 
+						>> node_046 
+					elif function#101(1) 
+						random (10) >> node_046 
+						elser (90) 
+						endr 
+					else 
+					endif 
+				else 
+					if function#101(3) 
+						>> node_046 
+					else 
+					endif 
+				endif 
+			else 
+			endif 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_045
+	if function#2D() 
+		if self.distance_3d_to_target().leq(4000) 
+			if self.fatigued() 
+			else 
+				if function#102() 
+				else 
+					if self.current_quest().is_rank(rank.AT) 
+						if self.hp_percent().gt(70) 
+							>> node_049 
+							-> nergigante.super_mode_begin() 
+						else 
+						endif 
+					else 
+						if self.hp_percent().gt(40) 
+							>> node_049 
+							-> nergigante.super_mode_begin() 
+						else 
+						endif 
+					endif 
+				endif 
+			endif 
+		else 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_046
+	if self.flying() 
+	else 
+		-> nergigante.flying_attack() 
+	endif 
+	return 
+endf 
+
+def node_047
+	>> node_049 
+	-> nergigante.tired() 
+	return 
+endf 
+
+def node_048
+	if self.flying() 
+	else 
+		-> nergigante.take_off() 
+	endif 
+	return 
+endf 
+
+def node_049
+	if self.flying() 
+		-> nergigante.landing() 
+	else 
+	endif 
+	return 
+endf 
+
+def node_050
+	>> node_049 
+	-> nergigante.search() 
+	return 
+endf 
+
+def node_051
+	>> node_049 
+	-> nergigante.lost_search() 
+	return 
+endf 
+
+def node_052
+	>> node_049 
+	-> nergigante.search() 
+	return 
+endf 
+
+def node_053
+	>> node_049 
+	-> nergigante.anger_search() 
+	return 
+endf 
+
+def node_054
+endf 
+
+def node_055
+	>> node_049 
+	-> nergigante.discover() 
+	return 
+endf 
+
+def node_056
+	>> node_049 
+	-> nergigante.threat_short() 
+	return 
+endf 
+
+def node_057
+	>> node_049 
+	-> nergigante.refresh() 
+	return 
+endf 
+
+def node_058
+	if self.in_map(st.Elder_Recess).in_area(14) 
+		if function#7D() 
+			if function#103() 
+				>> node_049 
+				function#104() 
+				-> nergigante.wall_break_attack() 
+			else 
+			endif 
+		else 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_059
+	>> node_049 
+	-> nergigante.marking() 
+	return 
+endf 
+
+def node_060
+	>> node_049 
+	-> nergigante.sleep() 
+	return 
+endf 
+
+def node_061
+	>> node_049 
+	if function#C9() 
+		-> nergigante.dying_sleep(3,0,0,150) 
+	else 
+		function#CA() 
+	endif 
+	return 
+endf 
+
+def node_062
+	random (33) 
+				self.targetEnemy(21) @ parameter2:1000 
+	elser (25) 
+				self.targetEnemy(22) @ parameter2:1000 
+	elser (18) 
+				self.targetEnemy(11) @ parameter2:1000 
+	elser (24) 
+				self.targetEnemy(12) @ parameter2:1000 
+	endr 
+	return 
+endf 
+
+def node_063
+	-> nergigante.ride_tired() 
+	return 
+endf 
+
+def node_064
+	-> nergigante.ride_wait() 
+	return 
+endf 
+
+def node_065
+	if self.mounted() 
+		-> nergigante.ride_rage_head() 
+	else 
+		>> node_062 
+		>> node_022 
+		-> nergigante.ride_rage_head_lv2() 
+	endif 
+	return 
+endf 
+
+def node_066
+	if self.mounted() 
+		-> nergigante.ride_rage_body() 
+	else 
+		-> nergigante.ride_rage_body_lv2() 
+	endif 
+	return 
+endf 
+
+def node_067
+	if self.mounted() 
+		-> nergigante.ride_rage_tail() 
+	else 
+		-> nergigante.ride_rage_tail_lv2() 
+	endif 
+	return 
+endf 
+
+def node_068
+	if function#29() 
+		self.targetEnemy(7) 
+		>> node_069 
+		self.targetEnemy(15) 
+		if self.mounted() 
+			self.target_on_part(0) -> nergigante.ride_rage_crash_head() => return 
+			self.target_on_part(1) -> nergigante.ride_rage_crash_body() => return 
+			self.target_on_part(2) -> nergigante.ride_rage_crash_tail() => return 
+		else 
+			self.target_on_part(0) -> nergigante.ride_rage_crash_head_lv2() => return 
+			self.target_on_part(1) -> nergigante.ride_rage_crash_body_lv2() => return 
+			self.target_on_part(2) -> nergigante.ride_rage_crash_tail_lv2() => return 
+		endif 
+	else 
+		self.target_on_part(0) >> node_065 => return 
+		self.target_on_part(1) >> node_066 => return 
+		self.target_on_part(2) >> node_067 => return 
+	endif 
+	return 
+endf 
+
+def node_069
+	if self.distance_3d_to_target().leq(500) 
+		>> node_028 
+	elif self.distance_3d_to_target().gt(1000) 
+		-> nergigante.dash(2,1,0,4000,600) => repeat 
+	else 
+	endif 
+	return 
+endf 
+
+def node_070
+	if self.distance_3d_to_target().leq(600) 
+	else 
+		-> nergigante.glide_direct_move(2,1,5,3000,500) 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_071
+	if self.distance_3d_to_target().leq(1000) 
+	else 
+		-> nergigante.glide_direct_move(2,1,5,3000,900) 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_072
+	if self.distance_3d_to_target().leq(600) 
+	else 
+		-> nergigante.glide(2,1,5,3000,500) 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_073
+	if self.flying() 
+		if function#AF(5000) 
+			-> nergigante.landing() 
+		else 
+			self.targetArea(target_area.area_aerial_center) 
+			>> node_070 
+			self.targetArea(target_area.area_center) 
+			-> nergigante.landing() 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_074
+	if self.distance_3d_to_target().leq(600) 
+	else 
+		-> nergigante.glide(2,1,5,3000,500) 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_075
+	-> nergigante.ex_jumping_punch() 
+	return 
+endf 
+
+def node_076
+	-> nergigante.mid_range_punch() @ comboSetting:1 
+	-> nergigante.ex_jumping_punch() 
+	return 
+endf 
+
+def node_077
+	-> nergigante.side_step() @ comboSetting:1 
+	-> nergigante.ex_jumping_punch() 
+	return 
+endf 
+
+def node_078
+	if self.targetEnemy(target_em.any_monster) 
+		if self.target_is(em.Zorah_Magdaros) @ parameter2:1 
+		elif self.target(13) 
+		elif self.distance_2d_to_target().leq(3000) 
+			if self.vertical_distance_to_target().leq(1000) 
+				random (100) >> node_017 
+							>> node_056 
+				elser (0) 
+				endr 
+			endif 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_079
+	if self.targetEnemy(target_em.any_monster) 
+		if self.target_is(em.Zorah_Magdaros) @ parameter2:1 
+		elif self.target(13) 
+		elif self.target(3) 
+		else 
+			if self.distance_3d_to_target().leq(1700) >> node_080 
+			elif self.distance_3d_to_target().leq(3000) 
+				if self.vertical_distance_to_target().leq(1000) >> node_030 
+				else >> node_057 
+				endif 
+			else 
+			endif 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_080
+	random (40) >> node_055 
+	elser (25) >> node_029 
+	elser (5) >> node_033 
+	elser (20) >> node_034 
+	elser (10) >> node_057 
+	endr 
+	return 
+endf 
+
+def node_081
+	>> node_049 
+	>> node_022 
+	if function#102() 
+		-> nergigante.jump_attack_up_smode() 
+	else 
+		-> nergigante.jump_attack_up() 
+	endif 
+	return 
+endf 
+
+def node_082
+	>> node_049 
+	>> node_022 
+	if function#102() 
+		-> nergigante.jump_attack_wall_down_smode() 
+	else 
+		-> nergigante.jump_attack_wall_down() 
+	endif 
+	return 
+endf 
+
+def node_083
+	if self.target(55) 
+		if function#7F() 
+			>> node_034 
+		elif function#7F(4) 
+			>> node_034 
+		elif function#7F(12) 
+			>> node_035 
+		elif function#7F(13) 
+			>> node_032 
+		elif function#7F(10) 
+			>> node_035 
+		elif function#7F(11) 
+			>> node_039 
+		elif function#7F(8) 
+			>> node_035 
+		elif function#7F(9) 
+			>> node_039 
+		elif function#7F(3) 
+			>> node_037 
+		elif function#7F(7) 
+			>> node_037 
+		else 
+			>> node_042 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+

@@ -1,0 +1,27 @@
+importactions Xeno'jiiva as xeno'jiiva
+importlibrary Global as Global
+
+def node_000
+	self.targetEnemy(target_em.random_player_or_cat) 
+	>> node_001 
+	>> node_002 
+	conclude 
+endf 
+
+def node_001
+	if self.flying() 
+		>> Global.node_059 
+	else 
+	endif 
+	return 
+endf 
+
+def node_002
+	if self.enraged() 
+		>> Global.node_065 
+	else 
+		>> Global.node_064 
+	endif 
+	return 
+endf 
+

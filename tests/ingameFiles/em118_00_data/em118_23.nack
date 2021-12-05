@@ -1,0 +1,24 @@
+importactions Bazelgeuse as bazelgeuse
+
+def node_000
+	self.targetEnemy(target_em.closest_entity) 
+	>> node_001 
+	conclude 
+endf 
+
+def node_001
+	if self.target_is(em.Deviljho) 
+		>> node_002 
+	endif 
+	return 
+endf 
+
+def node_002
+	if self.flying() 
+		-> bazelgeuse.grapple_with_em043_mediation_threat_fly() 
+	else 
+		-> bazelgeuse.grapple_with_em043_mediation_threat() 
+	endif 
+	return 
+endf 
+

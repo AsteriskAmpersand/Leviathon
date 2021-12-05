@@ -1,0 +1,57 @@
+importactions Shamos as shamos
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_048 
+	self.targetArea(1) 
+	if self.distance_3d_to_target().leq(700) 
+		>> node_001 
+	else 
+		>> node_005 
+		>> Global.node_061 
+	endif 
+	reset 
+endf 
+
+def node_001
+	>> Global.node_019 
+	return 
+endf 
+
+def node_002
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if self.target(7) 
+		>> node_003 
+	else 
+		>> node_004 
+	endif 
+	return 
+endf 
+
+def node_003
+	>> Global.node_034 
+	>> Global.node_112 
+	return 
+endf 
+
+def node_004
+	>> Global.node_034 
+	>> Global.node_080 
+	return 
+endf 
+
+def node_005
+	if function#62(315,45) 
+		self.targetArea(9) @ parameter2:1000 
+	elif function#62(45,135) 
+		self.targetArea(11) @ parameter2:1000 
+	elif function#62(135,225) 
+		self.targetArea(12) @ parameter2:1000 
+	elif function#62(225,315) 
+		self.targetArea(10) @ parameter2:1000 
+	else 
+		self.targetArea(9) @ parameter2:1000 
+	endif 
+	return 
+endf 
+

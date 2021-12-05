@@ -1,0 +1,84 @@
+importactions Brachydios as brachydios
+importlibrary Global as Global
+
+def node_000
+	function#52() 
+	>> node_001 
+	function#54() 
+	>> node_002 
+	reset 
+endf 
+
+def node_001
+	>> Global.node_001 
+	self.targetArea(target_area.nearest_entrance) 
+	if function#57(1) >> Global.node_086 
+	elif function#57(2) >> Global.node_076 
+	elif function#57(3) >> Global.node_082 
+	elif function#57(5) >> Global.node_076 
+	else 
+		random (70) >> Global.node_078 
+		elser (20) >> Global.node_079 
+		elser (10) >> Global.node_077 
+		endr 
+	endif 
+	self.targetArea(target_area.nearest_entrance) 
+	if self.distance_3d_to_target().gt(800) 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_002
+	if function#57(1) >> node_003 
+	elif function#57(2) >> node_004 
+	elif function#57(3) >> node_005 
+	elif function#57(5) >> node_006 
+	elif function#57(4) >> node_007 
+	else -> brachydios.quick_search() 
+	endif 
+	return 
+endf 
+
+def node_003
+	-> brachydios.combat_search() 
+	return 
+endf 
+
+def node_004
+	>> node_008 
+	-> brachydios.sleep() 
+	>> Global.node_064 
+	return 
+endf 
+
+def node_005
+	self.targetEnemy(17) 
+	>> node_008 
+	>> Global.node_072 
+	-> brachydios.drink() 
+	return 
+endf 
+
+def node_006
+	>> node_008 
+	>> Global.node_072 
+	-> brachydios.sunbath() 
+	>> Global.node_064 
+	return 
+endf 
+
+def node_007
+	>> node_008 
+	>> Global.node_072 
+	-> brachydios.marking() 
+	return 
+endf 
+
+def node_008
+	random (10) -> brachydios.quick_search() 
+	elser (90) 
+	endr 
+	return 
+endf 
+

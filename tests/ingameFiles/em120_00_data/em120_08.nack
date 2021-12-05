@@ -1,0 +1,18 @@
+importactions TzitziYaKu as tzitziyaku
+importlibrary Global as Global
+
+def node_000
+	conclude 
+endf 
+
+def node_001
+	if self.distance_3d_to_target().leq(650) 
+		>> Global.node_060 
+	elif self.distance_3d_to_target().leq(1300) 
+		>> Global.node_056 
+	else 
+		>> Global.node_048 
+	endif 
+	return 
+endf 
+

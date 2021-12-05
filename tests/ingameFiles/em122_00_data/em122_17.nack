@@ -1,0 +1,36 @@
+importactions Beotodus as beotodus
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_077 
+	>> Global.node_070 
+	if function#AB() 
+		function#AA() 
+		>> node_001 
+	else 
+	endif 
+	self.targetArea(14) 
+	>> node_002 
+	conclude 
+endf 
+
+def node_001
+	>> node_003 
+	>> Global.node_106 
+	return 
+endf 
+
+def node_002
+	if self.distance_3d_to_target().leq(800) 
+		return 
+	else 
+		>> Global.node_129 
+	endif 
+	repeat 
+endf 
+
+def node_003
+	[RegisterVar5 |-] 
+	return 
+endf 
+

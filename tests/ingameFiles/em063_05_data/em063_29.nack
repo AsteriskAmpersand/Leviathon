@@ -1,0 +1,58 @@
+importactions Raging_Brachydios as raging_brachydios
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_001 
+	>> Global.node_150 
+	if self.in_map(st.Guiding_Lands).in_area(14) >> node_005 
+	else >> node_001 
+	endif 
+	reset 
+endf 
+
+def node_001
+	self.targetEnemy(48) 
+	if self.in_map(st.Special_Arena).in_area(-1) >> node_004 
+	elif self.distance_3d_to_target().leq(3500) >> node_002 
+	else >> node_003 
+	endif 
+	return 
+endf 
+
+def node_002
+	>> Global.node_120 
+	if self.fatigued() -> raging_brachydios.tired_idle() 
+	else 
+		random (40) -> raging_brachydios.wait() 
+		elser (60) -> raging_brachydios.sniffs_s() 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_003
+	random (35) -> raging_brachydios.combat_search() 
+	elser (45) -> raging_brachydios.anger_search() 
+	elser (20) -> raging_brachydios.wait() 
+	endr 
+	return 
+endf 
+
+def node_004
+	>> Global.node_120 
+	random (35) -> raging_brachydios.combat_search() 
+	elser (20) -> raging_brachydios.anger_search() 
+	elser (45) -> raging_brachydios.wait() 
+	endr 
+	return 
+endf 
+
+def node_005
+	>> Global.node_181 
+	>> Global.node_183 
+	self.targetEnemy(48) 
+	>> Global.node_119 
+	-> raging_brachydios.threat_big() 
+	return 
+endf 
+

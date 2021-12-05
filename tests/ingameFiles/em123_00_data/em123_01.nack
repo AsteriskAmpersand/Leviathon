@@ -1,0 +1,186 @@
+importactions Banbaro as banbaro
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_103 
+	>> Global.node_004 
+	>> node_021 
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if self.target.mudded() 
+		>> Global.node_018 
+		reset 
+	else 
+	endif 
+	if self.distance_3d_to_target().leq(500) 
+		self.enraged() >> node_004 => reset 
+		self.fatigued() >> node_007 => reset 
+		>> node_001 => reset 
+	elif self.distance_3d_to_target().leq(5000) 
+		self.enraged() >> node_005 => reset 
+		self.fatigued() >> node_008 => reset 
+		>> node_002 => reset 
+	elif self.distance_3d_to_target().leq(10000) 
+		self.enraged() >> node_006 => reset 
+		self.fatigued() >> node_009 => reset 
+		>> node_003 => reset 
+	else 
+		>> node_012 => reset 
+	endif 
+	reset 
+endf 
+
+def node_001
+	>> node_013 
+	return 
+endf 
+
+def node_002
+	>> node_010 
+	return 
+endf 
+
+def node_003
+	random (70) >> node_010 
+	elser (30) >> node_011 
+	endr 
+	return 
+endf 
+
+def node_004
+	>> node_013 
+	return 
+endf 
+
+def node_005
+	>> node_010 
+	return 
+endf 
+
+def node_006
+	random (30) >> node_010 
+	elser (70) >> node_011 
+	endr 
+	return 
+endf 
+
+def node_007
+	>> node_013 
+	return 
+endf 
+
+def node_008
+	random (80) >> node_010 
+	elser (20) >> Global.node_097 
+	endr 
+	return 
+endf 
+
+def node_009
+	random (70) >> node_010 
+	elser (10) >> node_012 
+	elser (20) >> Global.node_097 
+	endr 
+	return 
+endf 
+
+def node_010
+	self.targetArea(4) 
+	>> node_019 
+	>> node_017 
+	return 
+endf 
+
+def node_011
+	self.targetArea(6) 
+	>> node_020 
+	>> node_017 
+	return 
+endf 
+
+def node_012
+	self.targetArea(21) @ parameter2:1000 
+	>> Global.node_023 
+	>> node_018 
+	return 
+endf 
+
+def node_013
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if self.target(7) 
+		>> node_015 
+	elif self.target(10) 
+		>> node_016 
+	else 
+		>> node_014 
+	endif 
+	return 
+endf 
+
+def node_014
+	>> Global.node_053 
+	return 
+endf 
+
+def node_015
+	>> Global.node_084 
+	return 
+endf 
+
+def node_016
+	>> Global.node_083 
+	return 
+endf 
+
+def node_017
+	if self.enraged() 
+		>> Global.node_165 
+	else 
+		>> Global.node_162 @ unkn6:65536 
+	endif 
+	if self.distance_3d_to_target().leq(800) 
+	else 
+		>> node_018 
+	endif 
+	return 
+endf 
+
+def node_018
+	if self.enraged() 
+		>> Global.node_180 
+	else 
+		>> Global.node_178 
+	endif 
+	return 
+endf 
+
+def node_019
+	if self.enraged() 
+		>> Global.node_176 
+	else 
+		>> Global.node_178 
+	endif 
+	return 
+endf 
+
+def node_020
+	if self.enraged() 
+		>> Global.node_177 
+	else 
+		>> Global.node_177 
+	endif 
+	return 
+endf 
+
+def node_021
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if self.target(10) 
+		if self.distance_3d_to_target().leq(1500) 
+			>> node_016 
+			reset 
+		else 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+

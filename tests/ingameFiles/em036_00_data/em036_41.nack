@@ -1,0 +1,32 @@
+importactions Lavasioth as lavasioth
+importlibrary Global as Global
+
+def node_000
+	>> node_002 
+	>> Global.node_079 
+	self.targetArea(20) 
+	>> node_001 
+	conclude 
+endf 
+
+def node_001
+	>> Global.node_085 
+	if self.distance_2d_to_target().gt(600) 
+		repeat 
+	else 
+	endif 
+	return 
+endf 
+
+def node_002
+	if self.quest_id(61607) 
+		if self.in_map(st.Elder_Recess).in_area(7) >> Global.node_109 
+		else >> Global.node_079 
+			self.targetArea(20) 
+			>> node_001 
+		endif 
+		conclude 
+	endif 
+	return 
+endf 
+

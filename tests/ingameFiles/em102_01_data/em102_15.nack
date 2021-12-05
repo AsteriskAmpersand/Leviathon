@@ -1,0 +1,134 @@
+importactions Coral_PukeiPukei as coral_pukeipukei
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_039 
+	>> Global.node_083 
+	>> Global.node_085 
+	>> Global.node_095 
+	>> Global.node_067 
+	function#52() 
+	>> node_001 
+	>> node_002 
+	reset 
+endf 
+
+def node_001
+	self.targetArea(target_area.nearest_entrance) 
+	if function#57(1) 
+		>> node_004 
+	elif function#57(2) 
+		>> node_005 
+	elif function#57(3) 
+		>> node_006 
+	elif function#57(5) 
+		>> node_007 
+	else 
+		>> node_003 
+	endif 
+	>> Global.node_085 
+	self.targetArea(target_area.nearest_entrance) 
+	if self.flying() 
+		if self.distance_3d_to_target().leq(1000) 
+			return 
+		else 
+			repeat 
+		endif 
+	else 
+		if self.distance_3d_to_target().leq(600) 
+			return 
+		else 
+			repeat 
+		endif 
+	endif 
+	reset 
+endf 
+
+def node_002
+	if function#57(1) 
+		>> node_009 
+		function#56(4) 
+	elif function#57(2) 
+		>> node_010 
+		function#56(4) 
+	elif function#57(3) 
+		>> node_011 
+		function#56(4) 
+	elif function#57(5) 
+		>> node_012 
+		function#56(4) 
+	elif function#57(4) 
+		>> node_008 
+	else 
+		function#54() 
+		>> Global.node_098 
+		function#56(4) 
+	endif 
+	return 
+endf 
+
+def node_003
+	self.targetArea(target_area.nearest_entrance) 
+	>> Global.node_154 
+	return 
+endf 
+
+def node_004
+	self.targetArea(target_area.nearest_entrance) 
+	>> Global.node_154 
+	return 
+endf 
+
+def node_005
+	self.targetArea(target_area.nearest_entrance) 
+	>> Global.node_154 
+	return 
+endf 
+
+def node_006
+	self.targetArea(target_area.nearest_entrance) 
+	>> Global.node_154 
+	return 
+endf 
+
+def node_007
+	self.targetArea(target_area.nearest_entrance) 
+	>> Global.node_154 
+	return 
+endf 
+
+def node_008
+	function#54() 
+	self.targetEnemy(17) 
+	>> Global.node_061 
+	return 
+endf 
+
+def node_009
+	function#54() 
+	self.targetEnemy(17) 
+	>> Global.node_062 
+	return 
+endf 
+
+def node_010
+	function#54() 
+	self.targetEnemy(17) 
+	>> Global.node_064 
+	return 
+endf 
+
+def node_011
+	function#54() 
+	self.targetEnemy(17) 
+	>> Global.node_063 
+	return 
+endf 
+
+def node_012
+	function#54() 
+	self.targetEnemy(17) 
+	>> Global.node_065 
+	return 
+endf 
+

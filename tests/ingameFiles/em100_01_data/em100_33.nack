@@ -1,0 +1,17 @@
+importactions Fulgur_Anjanath as fulgur_anjanath
+
+def node_000
+	self.targetEnemy(target_em.closest_entity) 
+	if self.distance_3d_to_target().leq(1000) 
+		-> fulgur_anjanath.back_turn() 
+	elif self.angle_2d_cw_between(30,330) 
+		-> fulgur_anjanath.turn() 
+	endif 
+	if self.target(13) 
+		-> fulgur_anjanath.walk() 
+		-> fulgur_anjanath.predator_eat() 
+	else 
+	endif 
+	conclude 
+endf 
+

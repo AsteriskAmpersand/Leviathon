@@ -1,0 +1,23 @@
+importactions Brute_Tigrex as brute_tigrex
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_020 
+	if function#41() 
+	else 
+		>> node_001 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	if self.enraged() 
+		random (70) -> brute_tigrex.lost_search_back() 
+		elser (30) -> brute_tigrex.lost_search_front() 
+		endr 
+	else 
+		-> brute_tigrex.lost_search_front() 
+	endif 
+	return 
+endf 
+

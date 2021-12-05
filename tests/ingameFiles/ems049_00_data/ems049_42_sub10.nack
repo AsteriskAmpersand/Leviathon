@@ -1,0 +1,19 @@
+importactions Jagras as jagras
+importlibrary Global as Global
+
+def node_000
+	>> node_001 
+	>> node_002 
+	conclude 
+endf 
+
+def node_001
+	self.targetEnemy(49) 
+	return 
+endf 
+
+def node_002
+	>> Global.node_001 
+	return 
+endf 
+

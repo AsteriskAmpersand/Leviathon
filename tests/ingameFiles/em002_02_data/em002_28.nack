@@ -1,0 +1,23 @@
+importactions Silver_Rathalos as silver_rathalos
+importlibrary Global as Global
+
+def node_000
+	>> node_001 
+	>> node_001 
+	>> node_001 
+	>> node_001 
+	>> node_001 
+	conclude 
+endf 
+
+def node_001
+	>> Global.node_273 
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if self.distance_3d_to_target().leq(3500) 
+		>> Global.node_267 
+	else 
+		>> Global.node_268 
+	endif 
+	return 
+endf 
+

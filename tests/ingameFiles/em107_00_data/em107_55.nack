@@ -1,0 +1,1928 @@
+importactions KuluYaKu as kuluyaku
+
+def node_000
+	conclude 
+endf 
+
+def node_001
+	if function#101(2) 
+		>> node_003 
+	elif function#101(1) 
+		>> node_004 
+	else 
+		>> node_002 
+	endif 
+	return 
+endf 
+
+def node_002
+	if self.fatigued() 
+		-> kuluyaku.tired_dash(6,2,0,350,1500) 
+	else 
+		-> kuluyaku.dash(6,2,0,350,1500) 
+	endif 
+	if self.distance_2d_to_target().leq(400) 
+	else 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_003
+	if self.fatigued() 
+		-> kuluyaku.carry_tired_dash(6,2,0,350,1500) 
+	else 
+		-> kuluyaku.carry_dash(6,2,0,350,1500) 
+	endif 
+	if self.distance_2d_to_target().leq(400) 
+	else 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_004
+	if self.fatigued() 
+		-> kuluyaku.carry_tired_dash(6,2,0,350,1500) 
+	else 
+		-> kuluyaku.carry_dash(6,2,0,350,1500) 
+	endif 
+	if self.distance_2d_to_target().leq(400) 
+	else 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_005
+	if function#101(2) 
+		>> node_003 
+	elif function#101(1) 
+		>> node_004 
+	else 
+		>> node_002 
+	endif 
+	return 
+endf 
+
+def node_006
+	-> kuluyaku.carry_dash(6,2,0,800,1500) 
+	if self.distance_2d_to_target().leq(850) 
+	else 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_007
+	if function#101(2) 
+		>> node_009 
+	elif function#101(1) 
+		>> node_010 
+	else 
+		>> node_008 
+	endif 
+	return 
+endf 
+
+def node_008
+	if self.fatigued() 
+		-> kuluyaku.tired_dash(6,2,0,400,1500) 
+	else 
+		-> kuluyaku.dash(6,2,0,400,1500) 
+	endif 
+	if self.distance_2d_to_target().leq(400) 
+	else 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_009
+	if self.fatigued() 
+		-> kuluyaku.carry_tired_dash(6,2,0,400,1500) 
+	else 
+		-> kuluyaku.carry_dash(6,2,0,400,1500) 
+	endif 
+	if self.distance_2d_to_target().leq(400) 
+	else 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_010
+	if self.fatigued() 
+		-> kuluyaku.carry_tired_dash(6,2,0,400,1500) 
+	else 
+		-> kuluyaku.carry_dash(6,2,0,400,1500) 
+	endif 
+	if self.distance_2d_to_target().leq(400) 
+	else 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_011
+	if function#101(2) 
+		>> node_009 
+	elif function#101(1) 
+		>> node_010 
+	else 
+		>> node_008 
+	endif 
+	return 
+endf 
+
+def node_012
+	function#52() 
+	self.targetEnemy(16) 
+	if function#101(3) 
+		>> node_014 
+	else 
+		>> node_013 
+	endif 
+	return 
+endf 
+
+def node_013
+	if function#101() 
+		-> kuluyaku.walk(2,6,0,1500,400) 
+	else 
+		-> kuluyaku.carry_walk(2,6,0,1500,400) 
+	endif 
+	if self.distance_2d_to_target().leq(400) 
+	else 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_014
+	>> node_042 
+	-> kuluyaku.carry_walk(2,6,0,1500,350) 
+	if self.distance_2d_to_target().leq(400) 
+	else 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_015
+	if function#101(3) 
+		>> node_016 
+	else 
+		>> node_017 
+	endif 
+	return 
+endf 
+
+def node_016
+	if self.distance_2d_to_target().leq(500) 
+	else 
+		if self.fatigued() 
+			-> kuluyaku.carry_tired() 
+			repeat 
+		else 
+			-> kuluyaku.carry_fox_walk(6,2,0,500,600) 
+			repeat 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_017
+	if self.distance_2d_to_target().leq(500) 
+	else 
+		if self.fatigued() 
+			-> kuluyaku.tired() 
+			repeat 
+		else 
+			-> kuluyaku.fox_walk(6,2,0,500,600) 
+			repeat 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_018
+	if function#101(3) 
+		>> node_019 
+	else 
+		>> node_020 
+	endif 
+	return 
+endf 
+
+def node_019
+	if self.fatigued() 
+		-> kuluyaku.carry_tired() 
+		repeat 
+	else 
+		-> kuluyaku.carry_fox_walk(0,2,0,0,800) 
+	endif 
+	return 
+endf 
+
+def node_020
+	if self.fatigued() 
+		-> kuluyaku.tired() 
+		repeat 
+	else 
+		-> kuluyaku.fox_walk(0,2,0,0,800) 
+	endif 
+	return 
+endf 
+
+def node_021
+	if function#101(3) 
+		-> kuluyaku.carry_dying_walk(2,1,0,3000,500) 
+	else 
+		-> kuluyaku.dying_walk(2,1,0,3000,500) 
+	endif 
+	return 
+endf 
+
+def node_022
+	self.targetArea(14) 
+	if self.distance_2d_to_target().gt(600) 
+		>> node_001 
+		repeat 
+	else 
+	endif 
+	return 
+endf 
+
+def node_023
+	self.targetArea(19) 
+	if self.distance_2d_to_target().gt(1000) 
+		if self.fatigued() 
+			if function#101(3) 
+				-> kuluyaku.carry_tired_dash(2,6,5,1500,800) 
+			else 
+				-> kuluyaku.tired_dash(2,6,5,1500,800) 
+			endif 
+		else 
+			if function#101(3) 
+				-> kuluyaku.carry_dash(2,6,5,1500,800) 
+			else 
+				-> kuluyaku.dash(2,6,5,1500,800) 
+			endif 
+		endif 
+		repeat 
+	else 
+	endif 
+	return 
+endf 
+
+def node_024
+	if self.current_quest().is_rank(rank.MR) 
+		>> node_113 
+	else 
+		if self.targetEnemy(target_em.any_monster) 
+			if self.target(13) 
+			else 
+				if self.vertical_distance_to_target().leq(1000) 
+					if self.distance_2d_to_target().leq(3000) 
+						if self.target.in_combat() 
+							>> node_026 
+						else 
+							>> node_031 
+						endif 
+					else 
+					endif 
+				else 
+				endif 
+			endif 
+		else 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_025
+	if function#45() 
+	else 
+		>> node_024 
+	endif 
+	return 
+endf 
+
+def node_026
+	if function#30(2) >> node_027 
+	else >> node_028 
+	endif 
+	return 
+endf 
+
+def node_027
+	if function#101(1) 
+		-> kuluyaku.surprise_drop_egg() 
+	else 
+	endif 
+	if self.target_is(em.Deviljho) 
+		if self.target(49) 
+			>> node_050 
+		else 
+			[RegisterVar1 |-] 
+		endif 
+	elif self.target_is(em.Savage_Deviljho) 
+		if self.target(49) 
+			>> node_050 
+		else 
+			[RegisterVar1 |-] 
+		endif 
+	else 
+	endif 
+	[RegisterVar1 ++] 
+	if function#101(4) 
+		if [RegisterVar1 < 30] 
+			random (15) >> node_044 
+			elser (15) >> node_045 
+			elser (70) >> node_049 
+			endr 
+		else 
+			>> node_030 
+		endif 
+	else 
+		if [RegisterVar1 < 3] 
+			if function#101(3) 
+				-> kuluyaku.surprise_drop_egg() 
+			else 
+			endif 
+			random (0) 
+			elser (15) >> node_044 
+			elser (15) >> node_045 
+			elser (0) >> node_046 
+			elser (0) >> node_049 
+			elser (70) >> node_050 
+			endr 
+		else 
+			if function#101() 
+				if function#44() 
+					-> kuluyaku.step_back() 
+				else 
+					random (70) -> kuluyaku.pick_rock() 
+					elser (30) 
+					endr 
+				endif 
+			else 
+			endif 
+			if function#101(2) 
+				>> node_029 
+			else 
+				random (0) 
+				elser (55) >> node_044 
+				elser (45) >> node_045 
+				endr 
+			endif 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_028
+	[RegisterVar1 ++] 
+	if function#101(4) 
+		if [RegisterVar1 < 30] 
+			random (20) 
+			elser (10) >> node_044 
+			elser (10) >> node_045 
+			elser (25) >> node_046 
+			elser (35) >> node_049 
+			endr 
+		else 
+			random (20) 
+			elser (5) >> node_044 
+			elser (5) >> node_045 
+			elser (10) >> node_046 
+			elser (30) >> node_047 
+			elser (30) >> node_048 
+			endr 
+		endif 
+	else 
+		if [RegisterVar1 < 4] 
+			random (30) 
+			elser (10) >> node_044 
+			elser (15) >> node_045 
+			elser (25) >> node_046 
+			elser (20) >> node_049 
+			endr 
+		else 
+			random (40) 
+			elser (10) >> node_044 
+			elser (10) >> node_045 
+			elser (10) >> node_046 
+			elser (15) >> node_047 
+			elser (15) >> node_048 
+			endr 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_029
+	[RegisterVar1 ++] 
+	random (0) 
+	elser (10) >> node_044 
+	elser (15) >> node_045 
+	elser (30) >> node_047 
+	elser (45) >> node_048 
+	endr 
+	return 
+endf 
+
+def node_030
+	[RegisterVar1 ++] 
+	if self.distance_2d_to_target().leq(1000) 
+		random (0) 
+		elser (0) >> node_044 
+		elser (0) >> node_045 
+		elser (30) >> node_051 
+		elser (30) >> node_052 
+		elser (30) >> node_046 
+		elser (10) >> node_047 
+		elser (0) >> node_048 
+		endr 
+	elif self.distance_2d_to_target().leq(2000) 
+		random (0) 
+		elser (0) >> node_044 
+		elser (10) >> node_045 
+		elser (10) >> node_051 
+		elser (15) >> node_046 
+		elser (30) >> node_047 
+		elser (35) >> node_048 
+		endr 
+	else 
+		random (0) 
+		elser (10) >> node_044 
+		elser (10) >> node_045 
+		elser (30) >> node_047 
+		elser (50) >> node_048 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_031
+	if function#30(2) >> node_032 
+	else >> node_033 
+	endif 
+	return 
+endf 
+
+def node_032
+	if function#101(1) 
+		-> kuluyaku.surprise_drop_egg() 
+	else 
+	endif 
+	if self.target_is(em.Deviljho) 
+		if self.target(49) 
+			>> node_050 
+		else 
+			[RegisterVar1 |-] 
+		endif 
+	elif self.target_is(em.Savage_Deviljho) 
+		if self.target(49) 
+			>> node_050 
+		else 
+			[RegisterVar1 |-] 
+		endif 
+	else 
+	endif 
+	[RegisterVar1 ++] 
+	if function#101(4) 
+		if [RegisterVar1 < 30] 
+			random (10) >> node_044 
+			elser (25) >> node_045 
+			elser (20) >> node_046 
+			elser (45) >> node_049 
+			endr 
+		else 
+			>> node_035 
+		endif 
+	else 
+		if [RegisterVar1 < 3] 
+			if function#101(3) 
+				-> kuluyaku.surprise_drop_egg() 
+			else 
+			endif 
+			random (0) 
+			elser (10) >> node_044 
+			elser (25) >> node_045 
+			elser (0) >> node_046 
+			elser (20) >> node_049 
+			elser (45) >> node_050 
+			endr 
+		else 
+			if function#101() 
+				if function#44() 
+					-> kuluyaku.step_back() 
+				else 
+					random (60) -> kuluyaku.pick_rock() 
+					elser (40) 
+					endr 
+				endif 
+			else 
+			endif 
+			if function#101(2) 
+				>> node_034 
+			else 
+				random (25) 
+				elser (40) >> node_044 
+				elser (35) >> node_045 
+				endr 
+			endif 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_033
+	[RegisterVar1 ++] 
+	if function#101(4) 
+		if [RegisterVar1 < 30] 
+			random (15) 
+			elser (10) >> node_044 
+			elser (15) >> node_045 
+			elser (25) >> node_046 
+			elser (35) >> node_049 
+			endr 
+		else 
+			random (20) 
+			elser (5) >> node_044 
+			elser (10) >> node_045 
+			elser (20) >> node_046 
+			elser (20) >> node_047 
+			elser (25) >> node_048 
+			endr 
+		endif 
+	else 
+		if [RegisterVar1 < 4] 
+			random (15) 
+			elser (20) >> node_044 
+			elser (20) >> node_045 
+			elser (0) >> node_046 
+			elser (15) >> node_049 
+			elser (30) >> node_050 
+			endr 
+		else 
+			random (40) 
+			elser (10) >> node_044 
+			elser (20) >> node_045 
+			elser (10) >> node_046 
+			elser (10) >> node_047 
+			elser (10) >> node_048 
+			endr 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_034
+	[RegisterVar1 ++] 
+	random (0) 
+	elser (15) >> node_044 
+	elser (20) >> node_045 
+	elser (30) >> node_047 
+	elser (35) >> node_048 
+	endr 
+	return 
+endf 
+
+def node_035
+	[RegisterVar1 ++] 
+	if self.distance_2d_to_target().leq(1000) 
+		random (0) 
+		elser (0) >> node_044 
+		elser (10) >> node_045 
+		elser (50) >> node_051 
+		elser (30) >> node_046 
+		elser (10) >> node_047 
+		elser (0) >> node_048 
+		endr 
+	elif self.distance_2d_to_target().leq(2000) 
+		random (0) 
+		elser (0) >> node_044 
+		elser (10) >> node_045 
+		elser (20) >> node_046 
+		elser (30) >> node_047 
+		elser (40) >> node_048 
+		endr 
+	else 
+		random (0) 
+		elser (0) >> node_044 
+		elser (10) >> node_045 
+		elser (30) >> node_047 
+		elser (60) >> node_048 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_036
+	if function#31(9,2000) 
+		>> node_046 
+		reset 
+	elif function#31(1,2000) 
+		>> node_046 
+		reset 
+	else 
+	endif 
+	return 
+endf 
+
+def node_037
+	function#52(0,1) 
+	self.targetEnemy(16) 
+	>> node_001 
+	*&
+	>> node_038 
+	return 
+endf 
+
+def node_038
+	if self.in_map(st.Special_Arena).in_area(-1) 
+		if function#101(3) 
+			-> kuluyaku.carry_quick_search2() 
+		else 
+			-> kuluyaku.quick_search2() 
+		endif 
+	elif self.in_map(st.Challenge_Arena).in_area(-1) 
+		if function#101(3) 
+			-> kuluyaku.carry_quick_search2() 
+		else 
+			-> kuluyaku.quick_search2() 
+		endif 
+	else 
+		if function#101(1) 
+			>> node_040 
+			-> kuluyaku.tired_eat_egg() 
+		elif function#101(2) 
+			>> node_086 
+			>> node_039 
+			>> node_040 
+			-> kuluyaku.tired_eat_egg() 
+		else 
+			>> node_039 
+			>> node_040 
+			-> kuluyaku.tired_eat_egg() 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_039
+	if self.in_map(st.Special_Arena).in_area(-1) 
+		if function#101(3) 
+			-> kuluyaku.carry_quick_search2() 
+		else 
+			-> kuluyaku.quick_search2() 
+		endif 
+	elif self.in_map(st.Challenge_Arena).in_area(-1) 
+		if function#101(3) 
+			-> kuluyaku.carry_quick_search2() 
+		else 
+			-> kuluyaku.quick_search2() 
+		endif 
+	else 
+		if function#5A() -> kuluyaku.pick_egg_sousyoku() 
+			*&
+		elif function#5A(1) -> kuluyaku.pick_egg_hiryuu() 
+			*&
+		else -> kuluyaku.pick_egg_sousyoku() 
+			*&
+		endif 
+	endif 
+	return 
+endf 
+
+def node_040
+	>> node_041 
+	if function#31(40,1000) 
+		>> node_072 
+		conclude 
+	elif function#31(9,2000) 
+		>> node_049 
+		conclude 
+	elif function#31(1,2000) 
+		>> node_049 
+		conclude 
+	else 
+	endif 
+	return 
+endf 
+
+def node_041
+	self.targetEnemy(target_em.closest_entity) 
+	if self.angle_2d_cw_between(20,340) 
+		if function#101(3) 
+			-> kuluyaku.carry_quick_turn() 
+		else 
+			-> kuluyaku.quick_turn() 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_042
+	if function#31(40,1000) 
+		if [RegisterVar4 <= 1] 
+		else 
+			>> node_041 
+			>> node_043 
+		endif 
+	elif function#31(9,2000) 
+		>> node_049 
+	elif function#31(1,2000) 
+		>> node_049 
+	else 
+	endif 
+	return 
+endf 
+
+def node_043
+	self.targetArea(20) 
+	if function#101(1) 
+		>> node_057 
+		random (10) -> kuluyaku.surprise_drop_egg() 
+					[RegisterVar4 |-] 
+					>> node_095 
+					>> node_057 
+		elser (90) 
+					[RegisterVar4 ++] 
+		endr 
+		>> node_001 
+	else 
+		-> kuluyaku.back_turn() 
+		>> node_001 
+	endif 
+	return 
+endf 
+
+def node_044
+	>> node_041 
+	>> node_057 
+	return 
+endf 
+
+def node_045
+	>> node_041 
+	>> node_094 
+	>> node_057 
+	return 
+endf 
+
+def node_046
+	>> node_069 
+	if function#101(4) 
+		>> node_006 
+	else 
+		>> node_001 
+	endif 
+	if self.fatigued() >> node_074 
+	else >> node_073 
+	endif 
+	return 
+endf 
+
+def node_047
+	if function#101(2) 
+		-> kuluyaku.rock_rush() 
+		[RegisterVar3 ++] 
+	else 
+		>> node_057 
+	endif 
+	return 
+endf 
+
+def node_048
+	if function#101(2) 
+		-> kuluyaku.rock_rush() >> node_084 
+		[RegisterVar3 ++] 
+	else 
+		>> node_057 
+	endif 
+	return 
+endf 
+
+def node_049
+	>> node_041 
+	>> node_095 
+	random (60) >> node_095 
+	elser (40) 
+	elser (0) 
+	endr 
+	[RegisterVar1 |-] 
+	self.targetArea(20) 
+	>> node_005 
+	return 
+endf 
+
+def node_050
+	>> node_095 
+	random (70) >> node_095 
+	elser (30) 
+	elser (0) 
+	endr 
+	if function#101(2) 
+		>> node_086 
+	else 
+	endif 
+	[RegisterVar1 |-] 
+	self.force_area_change2() 
+	return 
+endf 
+
+def node_051
+	>> node_069 
+	>> node_006 
+	>> node_071 
+	if function#101(3) 
+		-> kuluyaku.rock_slam() 
+	else 
+		-> kuluyaku.step_back() 
+	endif 
+	return 
+endf 
+
+def node_052
+	>> node_094 
+	>> node_071 
+	if function#101(3) 
+		-> kuluyaku.rock_slam() 
+	else 
+		-> kuluyaku.step_back() 
+	endif 
+	return 
+endf 
+
+def node_053
+	random (50) >> node_046 
+	elser (50) >> node_049 
+	endr 
+	return 
+endf 
+
+def node_054
+	random (50) >> node_044 
+	elser (50) >> node_049 
+	endr 
+	return 
+endf 
+
+def node_055
+	>> node_041 
+	if function#101(1) 
+		-> kuluyaku.surprise_drop_egg() 
+		-> kuluyaku.quick_turn() 
+		-> kuluyaku.threat_short() 
+	else 
+		-> kuluyaku.quick_turn() 
+		-> kuluyaku.threat_short() 
+	endif 
+	return 
+endf 
+
+def node_056
+	if function#101(3) 
+		-> kuluyaku.carry_threat() 
+	else 
+		-> kuluyaku.threat() 
+	endif 
+	return 
+endf 
+
+def node_057
+	if function#101(3) 
+		-> kuluyaku.carry_threat_short() 
+	else 
+		-> kuluyaku.threat_short() 
+	endif 
+	return 
+endf 
+
+def node_058
+	if function#101(3) 
+		-> kuluyaku.carry_sniff_l() 
+	else 
+		-> kuluyaku.sniff_l() 
+	endif 
+	return 
+endf 
+
+def node_059
+	if function#101(3) 
+		-> kuluyaku.carry_quick_search() 
+	else 
+		-> kuluyaku.quick_search() 
+	endif 
+	return 
+endf 
+
+def node_060
+	if function#101(3) 
+		-> kuluyaku.carry_lost_search() 
+	else 
+		-> kuluyaku.lost_search() 
+	endif 
+	return 
+endf 
+
+def node_061
+	if function#101(3) 
+		-> kuluyaku.carry_peep_grass_search() 
+	else 
+		-> kuluyaku.peep_grass_search() 
+	endif 
+	return 
+endf 
+
+def node_062
+	if function#101(3) 
+		-> kuluyaku.carry_sniff_s() 
+	else 
+		-> kuluyaku.sniff_s() 
+	endif 
+	return 
+endf 
+
+def node_063
+	if function#101(3) 
+		-> kuluyaku.carry_sniff_l() 
+	else 
+		-> kuluyaku.sniff_l() 
+	endif 
+	return 
+endf 
+
+def node_064
+	if function#101(3) 
+		-> kuluyaku.carry_anger_search_walk() 
+	else 
+		-> kuluyaku.anger_search_walk() 
+	endif 
+	return 
+endf 
+
+def node_065
+	if function#101(3) 
+		-> kuluyaku.carry_reflesh() 
+	else 
+		-> kuluyaku.reflesh() 
+	endif 
+	return 
+endf 
+
+def node_066
+	if function#101(3) 
+		-> kuluyaku.carry_wait() 
+	else 
+		-> kuluyaku.wait() 
+	endif 
+	return 
+endf 
+
+def node_067
+	if function#101(3) 
+		-> kuluyaku.carry_tired() 
+	else 
+		-> kuluyaku.tired() 
+	endif 
+	return 
+endf 
+
+def node_068
+	if function#101(3) 
+		-> kuluyaku.carry_back_turn() 
+	else 
+		-> kuluyaku.back_turn() 
+	endif 
+	return 
+endf 
+
+def node_069
+	if self.angle_2d_cw_between(10,350) 
+		if function#101(3) 
+			-> kuluyaku.carry_quick_turn() 
+		else 
+			-> kuluyaku.quick_turn() 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_070
+	if self.angle_2d_cw_between(30,330) 
+		if function#101(3) 
+			-> kuluyaku.carry_quick_turn() 
+		else 
+			-> kuluyaku.quick_turn() 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_071
+	if self.angle_2d_cw_between(90,270) 
+		if function#101(3) 
+			-> kuluyaku.carry_quick_turn() 
+		else 
+			-> kuluyaku.quick_turn() 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_072
+	if function#101(3) 
+		-> kuluyaku.surprise_drop_egg() 
+		[RegisterVar4 |-] 
+	else 
+	endif 
+	return 
+endf 
+
+def node_073
+	if function#101(3) 
+		>> node_069 
+		-> kuluyaku.carry_peck_attack() 
+	else 
+		>> node_070 
+		-> kuluyaku.peck_attack() 
+		[RegisterVar2 ++] 
+	endif 
+	[RegisterVar3 |-] 
+	return 
+endf 
+
+def node_074
+	if function#101(3) 
+		>> node_069 
+		-> kuluyaku.carry_tired_peck_attack() 
+	else 
+		>> node_070 
+		-> kuluyaku.tired_peck_attack() 
+		[RegisterVar2 ++] 
+	endif 
+	[RegisterVar3 |-] 
+	return 
+endf 
+
+def node_075
+endf 
+
+def node_076
+	>> node_071 
+	if function#101(3) 
+		-> kuluyaku.step_back() 
+	else 
+		-> kuluyaku.double_slap() 
+		[RegisterVar2 ++] 
+	endif 
+	return 
+endf 
+
+def node_077
+	>> node_071 
+	if function#101(3) 
+		-> kuluyaku.step_back() 
+	else 
+		if self.angle_2d_cw_between(0,180) 
+			-> kuluyaku.side_scrach_l() 
+			[RegisterVar2 ++] 
+		else 
+			-> kuluyaku.side_scrach_r() 
+			[RegisterVar2 ++] 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_078
+	return 
+endf 
+
+def node_079
+	>> node_071 
+	-> kuluyaku.rock_throw() 
+	return 
+endf 
+
+def node_080
+	>> node_071 
+	if function#101(3) 
+		-> kuluyaku.rock_slam() 
+	else 
+		-> kuluyaku.step_back() 
+	endif 
+	return 
+endf 
+
+def node_081
+	if function#101(3) 
+		-> kuluyaku.step_back() 
+	else 
+		[RegisterVar2 |-] 
+		-> kuluyaku.pick_rock() 
+	endif 
+	return 
+endf 
+
+def node_082
+	if function#101(3) 
+		-> kuluyaku.carry_low_jump_attack() 
+	else 
+		-> kuluyaku.low_jump_attack() 
+		[RegisterVar2 ++] 
+	endif 
+	return 
+endf 
+
+def node_083
+	if self.vertical_distance_to_target().leq(500) 
+		if function#101(3) 
+			-> kuluyaku.carry_jump_attack() 
+		else 
+			-> kuluyaku.jump_attack() 
+			[RegisterVar2 ++] 
+		endif 
+		[RegisterVar3 |-] 
+	else 
+		>> node_090 
+	endif 
+	return 
+endf 
+
+def node_084
+	if self.distance_2d_to_target().leq(600) 
+		>> node_095 
+		>> node_083 
+	elif self.distance_2d_to_target().leq(1200) 
+		>> node_083 
+	else 
+		>> node_093 
+		>> node_083 
+	endif 
+	[RegisterVar3 |-] 
+	return 
+endf 
+
+def node_085
+	if function#101(3) 
+		>> node_068 
+		-> kuluyaku.rock_guard() 
+	else 
+		-> kuluyaku.step_back() 
+	endif 
+	[RegisterVar3 |-] 
+	return 
+endf 
+
+def node_086
+	>> node_070 
+	if function#101(4) 
+		random (50) >> node_087 
+		elser (50) >> node_083 
+		endr 
+	else 
+		if function#101(2) 
+			-> kuluyaku.rock_throw() 
+			[RegisterVar2 ++] 
+			[RegisterVar2 ++] 
+			[RegisterVar2 ++] 
+		else 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_087
+	if function#101(3) 
+		if [RegisterVar3 < 2] 
+			>> node_084 
+		else 
+			-> kuluyaku.rock_rush() 
+			if self.enraged() 
+			else -> kuluyaku.rock_guard() 
+			endif 
+			[RegisterVar3 ++] 
+		endif 
+	else 
+		>> node_001 
+	endif 
+	return 
+endf 
+
+def node_088
+	if function#101(3) 
+		if [RegisterVar3 < 2] 
+			>> node_084 
+		else 
+			-> kuluyaku.rock_rush() 
+			-> kuluyaku.rock_rush() 
+			-> kuluyaku.carry_threat_short() 
+			[RegisterVar3 ++] 
+		endif 
+	else 
+		>> node_001 
+	endif 
+	return 
+endf 
+
+def node_089
+	if function#101(3) 
+		-> kuluyaku.rock_rush() 
+		[RegisterVar3 ++] 
+	else 
+		>> node_001 
+	endif 
+	return 
+endf 
+
+def node_090
+	if self.vertical_distance_to_target().leq(3500) 
+		if function#101(3) 
+			-> kuluyaku.carry_jump_attack_high() 
+		else 
+			-> kuluyaku.jump_attack_high() 
+			[RegisterVar2 ++] 
+		endif 
+		[RegisterVar3 |-] 
+	else 
+		>> node_057 
+	endif 
+	return 
+endf 
+
+def node_091
+	*&
+	if function#101(3) 
+		-> kuluyaku.carry_jump_attack_wall_down() 
+	else 
+		-> kuluyaku.jump_attack_wall_down() 
+	endif 
+	[RegisterVar3 |-] 
+	return 
+endf 
+
+def node_092
+	>> node_070 
+	if function#101(4) 
+		>> node_090 
+	elif function#101(2) 
+		-> kuluyaku.rock_throw() 
+		[RegisterVar2 ++] 
+		[RegisterVar2 ++] 
+		[RegisterVar2 ++] 
+	else 
+		>> node_090 
+	endif 
+	return 
+endf 
+
+def node_093
+	>> node_070 
+	if function#101(3) 
+		if self.distance_3d_to_target().leq(1000) 
+			-> kuluyaku.carry_step_front_short() 
+		else 
+			-> kuluyaku.carry_step_front_long() 
+		endif 
+	else 
+		if self.distance_3d_to_target().leq(1000) 
+			-> kuluyaku.step_front_short() 
+		else 
+			-> kuluyaku.step_front_long() 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_094
+	>> node_070 
+	if function#101(3) 
+		random (60) -> kuluyaku.carry_step_left() 
+		elser (40) -> kuluyaku.carry_step_right() 
+		endr 
+	else 
+		random (60) -> kuluyaku.step_left() 
+		elser (40) -> kuluyaku.step_right() 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_095
+	if function#101(3) 
+		-> kuluyaku.carry_step_back() 
+	else 
+		-> kuluyaku.step_back() 
+	endif 
+	return 
+endf 
+
+def node_096
+	if function#101(3) 
+		-> kuluyaku.carry_dash(1,2,0,500,800) 
+	else 
+		-> kuluyaku.dash(1,2,0,500,800) 
+	endif 
+	return 
+endf 
+
+def node_097
+	if function#101(3) 
+		-> kuluyaku.carry_dash(0,2,1,0,1000) @ unknExtra0:200 
+	else 
+		-> kuluyaku.dash(0,2,1,0,1000) @ unknExtra0:200 
+	endif 
+	return 
+endf 
+
+def node_098
+	if function#101(3) 
+	else 
+		if function#44() 
+		else 
+			if self.enraged() 
+				if [RegisterVar2 <= 4] 
+					>> node_100 
+				else 
+				endif 
+			elif self.fatigued() 
+				if [RegisterVar2 <= 6] 
+					>> node_101 
+				else 
+				endif 
+			else 
+				if [RegisterVar2 <= 5] 
+					>> node_099 
+				else 
+				endif 
+			endif 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_099
+	if function#101(3) 
+	else 
+		if [RegisterVar2 <= 6] 
+			>> node_081 
+		else 
+			if self.distance_3d_to_target().leq(800) 
+				random (25) >> node_081 
+				elser (75) 
+				endr 
+			elif self.distance_3d_to_target().leq(1400) 
+				random (40) >> node_081 
+				elser (60) 
+				endr 
+			elif self.distance_3d_to_target().leq(2200) 
+				random (50) >> node_081 
+				elser (50) 
+				endr 
+			else 
+				random (20) >> node_081 
+				elser (80) 
+				endr 
+			endif 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_100
+	if function#101(3) 
+	else 
+		if [RegisterVar2 <= 5] >> node_081 
+			*&
+		else 
+			if self.distance_3d_to_target().leq(800) 
+				random (35) >> node_081 
+				elser (65) 
+				endr 
+			elif self.distance_3d_to_target().leq(1400) 
+				random (50) >> node_081 
+				elser (50) 
+				endr 
+			elif self.distance_3d_to_target().leq(2200) 
+				random (65) >> node_081 
+				elser (35) 
+				endr 
+			else 
+				random (20) >> node_081 
+				elser (80) 
+				endr 
+			endif 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_101
+	if function#101(3) 
+	else 
+		if self.distance_3d_to_target().leq(800) 
+			random (10) >> node_081 
+			elser (90) 
+			endr 
+		elif self.distance_3d_to_target().leq(1400) 
+			random (20) >> node_081 
+			elser (80) 
+			endr 
+		elif self.distance_3d_to_target().leq(2200) 
+			random (30) >> node_081 
+			elser (70) 
+			endr 
+		else 
+			random (10) >> node_081 
+			elser (90) 
+			endr 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_102
+	if self.enraged() 
+		>> node_104 
+	elif self.fatigued() 
+	else 
+		>> node_103 
+	endif 
+	return 
+endf 
+
+def node_103
+	if self.target.helpless_0() 
+		if self.distance_2d_to_target().leq(600) 
+			random (40) >> node_095 
+						>> node_083 
+						>> node_057 
+			elser (60) 
+			endr 
+		elif self.distance_2d_to_target().leq(1400) 
+			random (40) >> node_083 
+						>> node_057 
+			elser (60) 
+			endr 
+		else 
+			>> node_096 
+		endif 
+	elif self.target.helpless_1() 
+		if self.distance_2d_to_target().leq(600) 
+			random (40) >> node_095 
+						>> node_083 
+						>> node_057 
+			elser (60) 
+			endr 
+		elif self.distance_2d_to_target().leq(1400) 
+			random (70) >> node_083 
+						>> node_057 
+			elser (30) 
+			endr 
+		else 
+			>> node_096 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_104
+	if self.target.helpless_0() 
+		if self.distance_2d_to_target().leq(600) 
+			random (70) >> node_095 
+						>> node_083 
+						>> node_057 
+			elser (30) 
+			endr 
+		elif self.distance_2d_to_target().leq(1400) 
+			random (70) >> node_083 
+						>> node_057 
+			elser (30) 
+			endr 
+		elif self.distance_2d_to_target().leq(2000) 
+			>> node_089 
+			>> node_057 
+		else 
+			>> node_096 
+		endif 
+	elif self.target.helpless_1() 
+		if self.distance_2d_to_target().leq(600) 
+			random (70) >> node_095 
+						>> node_083 
+						>> node_057 
+			elser (30) 
+			endr 
+		elif self.distance_2d_to_target().leq(1400) 
+			random (70) >> node_083 
+						>> node_057 
+			elser (30) 
+			endr 
+		elif self.distance_2d_to_target().leq(2000) 
+			>> node_089 
+			>> node_057 
+		else 
+			>> node_096 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_105
+	if function#101(3) 
+	else 
+		if function#44() 
+		else 
+			if self.enraged() 
+				if [RegisterVar2 <= 3] 
+					>> node_107 
+				else 
+				endif 
+			elif self.fatigued() 
+				if [RegisterVar2 <= 5] 
+					>> node_108 
+				else 
+				endif 
+			else 
+				if [RegisterVar2 <= 4] 
+					>> node_106 
+				else 
+				endif 
+			endif 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_106
+	if function#101(3) 
+	else 
+		if [RegisterVar2 <= 5] 
+			>> node_109 
+		else 
+			if self.distance_3d_to_target().leq(800) 
+				random (25) >> node_109 
+				elser (75) 
+				endr 
+			elif self.distance_3d_to_target().leq(1400) 
+				random (40) >> node_109 
+				elser (60) 
+				endr 
+			elif self.distance_3d_to_target().leq(2200) 
+				random (50) >> node_109 
+				elser (50) 
+				endr 
+			else 
+				random (20) >> node_109 
+				elser (80) 
+				endr 
+			endif 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_107
+	if function#101(3) 
+	else 
+		if [RegisterVar2 <= 4] 
+			>> node_109 
+		else 
+			if self.distance_3d_to_target().leq(800) 
+				random (35) >> node_109 
+				elser (65) 
+				endr 
+			elif self.distance_3d_to_target().leq(1400) 
+				random (50) >> node_109 
+				elser (50) 
+				endr 
+			elif self.distance_3d_to_target().leq(2200) 
+				random (65) >> node_109 
+				elser (35) 
+				endr 
+			else 
+				random (20) >> node_109 
+				elser (80) 
+				endr 
+			endif 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_108
+	if function#101(3) 
+	else 
+		if self.distance_3d_to_target().leq(800) 
+			random (10) >> node_109 
+			elser (90) 
+			endr 
+		elif self.distance_3d_to_target().leq(1400) 
+			random (20) >> node_109 
+			elser (80) 
+			endr 
+		elif self.distance_3d_to_target().leq(2200) 
+			random (30) >> node_109 
+			elser (70) 
+			endr 
+		else 
+			random (10) >> node_109 
+			elser (90) 
+			endr 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_109
+	if function#101(3) 
+		-> kuluyaku.step_back() 
+	else 
+		if function#44() 
+			-> kuluyaku.step_back() 
+		else 
+			[RegisterVar2 |-] 
+			>> node_110 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_110
+	if self.in_map(st.Ancient_Forest).in_area(2) 
+		>> node_112 
+	elif self.in_map(st.Ancient_Forest).in_area(5) 
+		>> node_112 
+	elif self.in_map(st.Wildspire_Waste).in_area(3) 
+		>> node_112 
+	elif self.in_map(st.Wildspire_Waste).in_area(4) 
+		>> node_112 
+	elif self.in_map(st.Wildspire_Waste).in_area(11) 
+		>> node_112 
+	elif self.in_map(st.Wildspire_Waste).in_area(14) 
+		>> node_112 
+	elif self.in_map(st.Special_Arena).in_area(0) 
+		>> node_112 
+	elif self.in_map(st.Guiding_Lands).in_area(8) 
+		>> node_112 
+	elif self.in_map(st.Guiding_Lands).in_area(9) 
+		>> node_112 
+	else 
+		>> node_111 
+	endif 
+	return 
+endf 
+
+def node_111
+	random (20) -> kuluyaku.pick_rock() 
+	elser (0) -> kuluyaku.pick_rock_bomb() 
+	elser (80) -> kuluyaku.pick_rock_hard() 
+	endr 
+	return 
+endf 
+
+def node_112
+	random (15) -> kuluyaku.pick_rock() 
+	elser (50) -> kuluyaku.pick_rock_bomb() 
+	elser (35) -> kuluyaku.pick_rock_hard() 
+	endr 
+	return 
+endf 
+
+def node_113
+	if self.targetEnemy(target_em.any_monster) 
+		if self.target(13) 
+		else 
+			if self.vertical_distance_to_target().leq(1000) 
+				if self.distance_2d_to_target().leq(3000) 
+					if self.target.in_combat() 
+						>> node_115 
+					else 
+						>> node_119 
+					endif 
+				else 
+				endif 
+			else 
+			endif 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_114
+	if function#45() 
+	else 
+		>> node_113 
+	endif 
+	return 
+endf 
+
+def node_115
+	if function#30(2) 
+		>> node_116 
+	else 
+		>> node_117 
+	endif 
+	return 
+endf 
+
+def node_116
+	if function#101(1) 
+		-> kuluyaku.surprise_drop_egg() 
+	else 
+	endif 
+	if self.target_is(em.Deviljho) 
+		if self.target(49) 
+			>> node_050 
+		else 
+			[RegisterVar1 |-] 
+		endif 
+	elif self.target_is(em.Savage_Deviljho) 
+		if self.target(49) 
+			>> node_050 
+		else 
+			[RegisterVar1 |-] 
+		endif 
+	else 
+	endif 
+	[RegisterVar1 ++] 
+	if [RegisterVar1 < 4] 
+		if function#101(3) 
+			-> kuluyaku.surprise_drop_egg() 
+		else 
+		endif 
+		random (0) 
+		elser (15) >> node_044 
+		elser (15) >> node_045 
+		elser (15) >> node_046 
+		elser (0) >> node_049 
+		elser (55) >> node_050 
+		endr 
+	else 
+		if function#101() 
+			random (85) >> node_109 
+			elser (15) 
+			endr 
+		else 
+		endif 
+		if function#101(2) 
+			>> node_118 
+		else 
+			random (0) 
+			elser (55) >> node_044 
+			elser (45) >> node_045 
+			endr 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_117
+	[RegisterVar1 ++] 
+	if [RegisterVar1 < 5] 
+		random (30) 
+		elser (10) >> node_044 
+		elser (15) >> node_045 
+		elser (25) >> node_046 
+		elser (20) >> node_049 
+		endr 
+	else 
+		random (20) 
+		elser (10) >> node_044 
+		elser (10) >> node_045 
+		elser (10) >> node_046 
+		elser (25) >> node_047 
+		elser (25) >> node_048 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_118
+	[RegisterVar1 ++] 
+	random (0) 
+	elser (5) >> node_044 
+	elser (10) >> node_045 
+	elser (25) >> node_048 
+	elser (15) >> node_047 
+	elser (30) >> node_123 
+	elser (15) >> node_050 
+	endr 
+	return 
+endf 
+
+def node_119
+	if function#30(2) 
+		>> node_120 
+	else 
+		>> node_121 
+	endif 
+	return 
+endf 
+
+def node_120
+	if function#101(1) 
+		-> kuluyaku.surprise_drop_egg() 
+	else 
+	endif 
+	if self.target_is(em.Deviljho) 
+		if self.target(49) 
+			>> node_050 
+		else 
+			[RegisterVar1 |-] 
+		endif 
+	elif self.target_is(em.Savage_Deviljho) 
+		if self.target(49) 
+			>> node_050 
+		else 
+			[RegisterVar1 |-] 
+		endif 
+	else 
+	endif 
+	[RegisterVar1 ++] 
+	if [RegisterVar1 < 4] 
+		if function#101(3) 
+			-> kuluyaku.surprise_drop_egg() 
+		else 
+		endif 
+		random (0) 
+		elser (10) >> node_044 
+		elser (25) >> node_045 
+		elser (0) >> node_046 
+		elser (20) >> node_049 
+		elser (45) >> node_050 
+		endr 
+	else 
+		if function#101() 
+			random (80) >> node_109 
+			elser (20) 
+			endr 
+		else 
+		endif 
+		if function#101(2) 
+			>> node_122 
+		else 
+			random (25) 
+			elser (40) >> node_044 
+			elser (35) >> node_045 
+			endr 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_121
+	[RegisterVar1 ++] 
+	if [RegisterVar1 < 5] 
+		random (10) 
+		elser (15) >> node_044 
+		elser (15) >> node_045 
+		elser (0) >> node_046 
+		elser (15) >> node_049 
+		elser (45) >> node_050 
+		endr 
+	else 
+		random (20) 
+		elser (10) >> node_044 
+		elser (10) >> node_045 
+		elser (10) >> node_046 
+		elser (25) >> node_047 
+		elser (25) >> node_048 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_122
+	[RegisterVar1 ++] 
+	random (0) 
+	elser (5) >> node_044 
+	elser (5) >> node_045 
+	elser (30) >> node_048 
+	elser (15) >> node_047 
+	elser (35) >> node_123 
+	elser (10) >> node_050 
+	endr 
+	return 
+endf 
+
+def node_123
+	if function#101(2) 
+		>> node_080 
+		[RegisterVar3 ++] 
+	else 
+		>> node_057 
+	endif 
+	return 
+endf 
+

@@ -1,0 +1,93 @@
+importactions Popo as popo
+
+def node_000
+	>> node_001 
+	conclude 
+endf 
+
+def node_001
+	if function#B0(2) >> node_004 
+	else >> node_003 
+	endif 
+	return 
+endf 
+
+def node_002
+endf 
+
+def node_003
+	random (20) >> node_007 
+	elser (80) 
+	endr 
+	return 
+endf 
+
+def node_004
+	random (0) 
+	elser (20) >> node_009 
+	elser (20) >> node_005 
+	elser (60) >> node_010 
+	endr 
+	return 
+endf 
+
+def node_005
+	function#EB(1000) 
+	function#DD(900) 
+	function#DE(2500) 
+	function#EC(5) 
+	if function#D2(11) 
+		>> node_006 
+	else 
+		>> node_010 
+	endif 
+	return 
+endf 
+
+def node_006
+	if self.distance_3d_to_target().leq(800) 
+		>> node_009 
+	else 
+		>> node_011 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_007
+	-> action#13() 
+	return 
+endf 
+
+def node_008
+	-> action#2E() 
+	return 
+endf 
+
+def node_009
+	self.targetEnemy(48) 
+	-> action#0E() 
+	return 
+endf 
+
+def node_010
+	-> action#25() 
+	return 
+endf 
+
+def node_011
+	-> action#05(2,0,0,300) 
+	>> node_013 
+	return 
+endf 
+
+def node_012
+endf 
+
+def node_013
+	if function#46() @ unknExtra2:1 
+		conclude 
+	endif 
+	return 
+endf 
+

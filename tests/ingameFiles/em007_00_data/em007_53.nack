@@ -1,0 +1,19 @@
+importactions Diablos as diablos
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_007 
+	self.targetEnemy(51) 
+	if self.in_map(st.Guiding_Lands).in_area(-1) 
+		>> Global.node_041 
+	else 
+		if self.distance_3d_to_target().leq(3000) 
+			>> Global.node_041 
+		else 
+			>> Global.node_047 
+		endif 
+	endif 
+	-> diablos.dive_to_ground() 
+	conclude 
+endf 
+

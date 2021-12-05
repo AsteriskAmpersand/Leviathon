@@ -1,0 +1,51 @@
+importactions Anjanath as anjanath
+
+def node_000
+	>> node_001 
+	>> node_002 
+	conclude 
+endf 
+
+def node_001
+	if function#41() 
+	else 
+		if function#AB() 
+			function#AA() 
+			-> anjanath.threat_short() 
+		else 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_002
+	self.targetArea(14) 
+	if self.distance_3d_to_target().gt(600) 
+		>> node_004 
+		repeat 
+	else 
+	endif 
+	return 
+endf 
+
+def node_003
+	self.targetEnemy(target_em.random_player_or_cat) 
+	-> anjanath.wait() 
+	if self.distance_3d_to_target().leq(800) 
+		-> anjanath.back_turn() 
+	elif self.angle_2d_cw_between(30,330) 
+		-> anjanath.turn() 
+	else 
+	endif 
+	return 
+endf 
+
+def node_004
+	if self.fatigued() 
+		-> anjanath.tired_dash(5,2,0,0,3000) 
+	else 
+		-> anjanath.dash(5,2,0,0,3000) 
+	endif 
+	return 
+endf 
+

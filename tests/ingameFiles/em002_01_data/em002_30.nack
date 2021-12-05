@@ -1,0 +1,46 @@
+importactions Azure_Rathalos as azure_rathalos
+importlibrary Global as Global
+
+def node_000
+	self.targetEnemy(target_em.closest_entity) 
+	>> node_001 
+	>> node_002 
+	if self.target_is(em.Aptonoth) @ parameter2:1 
+		if self.target(13) 
+		else 
+			repeat 
+		endif 
+	elif self.target_is(em.Apceros) @ parameter2:1 
+		if self.target(13) 
+		else 
+			repeat 
+		endif 
+	elif self.target_is(em.Gastodon) @ parameter2:1 
+		if self.target(13) 
+		else 
+			repeat 
+		endif 
+	else 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	if self.distance_3d_to_target().leq(2000) 
+	else 
+		>> Global.node_135 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_002
+	if self.target(11) 
+		>> Global.node_137 
+		conclude 
+	else 
+		>> Global.node_136 
+	endif 
+	return 
+endf 
+

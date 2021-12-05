@@ -1,0 +1,208 @@
+importactions Yian_Garuga as yian_garuga
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_163 
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if self.target(10) 
+		if self.distance_3d_to_target().leq(1500) 
+			>> node_004 => reset 
+		else 
+		endif 
+	else 
+	endif 
+	if self.distance_3d_to_target().leq(900) 
+		self.enraged() >> node_008 => reset 
+		self.fatigued() >> node_011 => reset 
+		>> node_005 => reset 
+	elif self.distance_3d_to_target().leq(5000) 
+		self.enraged() >> node_009 => reset 
+		self.fatigued() >> node_012 => reset 
+		>> node_006 => reset 
+	elif self.distance_3d_to_target().leq(10000) 
+		self.enraged() >> node_010 => reset 
+		self.fatigued() >> node_013 => reset 
+		>> node_007 => reset 
+	else 
+		>> node_016 => reset 
+	endif 
+	reset 
+endf 
+
+def node_001
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if self.target(7) 
+		>> node_003 
+	elif self.target(10) 
+		>> node_004 
+	else 
+		>> node_002 
+	endif 
+	return 
+endf 
+
+def node_002
+	if self.angle_2d_cw_between(60,300) 
+		>> Global.node_141 
+	else 
+	endif 
+	if self.distance_3d_to_target().leq(200) 
+		>> Global.node_160 @ unkn6:65536 
+	elif self.distance_3d_to_target().leq(450) 
+		>> Global.node_280 @ unkn6:65536 
+	else 
+		>> Global.node_281 @ unkn6:65536 
+	endif 
+	return 
+endf 
+
+def node_003
+	if self.distance_3d_to_target().leq(100) 
+		>> Global.node_160 @ comboSetting:2, unkn6:65536 
+	else 
+	endif 
+	if self.angle_2d_cw_between(60,300) 
+		>> Global.node_141 
+	else 
+	endif 
+	>> Global.node_280 
+	return 
+endf 
+
+def node_004
+	if self.distance_3d_to_target().leq(550) 
+		>> Global.node_160 @ comboSetting:2, unkn6:65536 
+	else 
+	endif 
+	if self.angle_2d_cw_between(60,300) 
+		>> Global.node_141 @ comboSetting:2, unkn6:65536 
+	else 
+	endif 
+	>> Global.node_281 
+	return 
+endf 
+
+def node_005
+	>> node_001 
+	return 
+endf 
+
+def node_006
+	>> node_014 
+	return 
+endf 
+
+def node_007
+	random (70) >> node_014 
+	elser (30) >> node_015 
+	endr 
+	return 
+endf 
+
+def node_008
+	>> node_001 
+	return 
+endf 
+
+def node_009
+	>> node_014 
+	return 
+endf 
+
+def node_010
+	random (30) >> node_014 
+	elser (70) >> node_015 
+	endr 
+	return 
+endf 
+
+def node_011
+	>> node_001 
+	return 
+endf 
+
+def node_012
+	random (80) >> node_014 
+	elser (20) >> Global.node_181 
+	endr 
+	return 
+endf 
+
+def node_013
+	random (70) >> node_014 
+	elser (10) >> node_016 
+	elser (20) >> Global.node_181 
+	endr 
+	return 
+endf 
+
+def node_014
+	self.targetArea(4) 
+	>> node_019 
+	>> node_017 
+	return 
+endf 
+
+def node_015
+	self.targetArea(6) 
+	>> node_020 
+	>> node_017 
+	return 
+endf 
+
+def node_016
+	self.targetArea(21) @ parameter2:1000 
+	>> Global.node_156 @ unkn6:65536 
+	>> node_018 
+	return 
+endf 
+
+def node_017
+	if self.enraged() 
+		-> yian_garuga.walk(1,5,0,600) @ comboSetting:2, unkn6:65536 
+	else 
+		if self.distance_2d_to_target().leq(1000) 
+			-> yian_garuga.walk(2,1,5,800,600) @ comboSetting:2, unkn6:65536 
+		else 
+			-> yian_garuga.walk(2,1,5,1500,600) @ comboSetting:2, unkn6:65536 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(600) 
+		return 
+	else 
+		>> node_018 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_018
+	>> Global.node_001 
+	if self.enraged() 
+		-> yian_garuga.half_lost_search_front() @ unkn6:65536 
+	else 
+		-> yian_garuga.half_lost_search_back() @ unkn6:65536 
+	endif 
+	return 
+endf 
+
+def node_019
+	>> Global.node_001 
+	if self.enraged() 
+		-> yian_garuga.sniff_s() @ unkn6:65536 
+	else 
+		-> yian_garuga.sniff_l() @ unkn6:65536 
+	endif 
+	return 
+endf 
+
+def node_020
+	>> Global.node_001 
+	if self.enraged() 
+		-> yian_garuga.sniff_l() @ unkn6:65536 
+	else 
+		-> yian_garuga.sniff_l() @ unkn6:65536 
+	endif 
+	return 
+endf 
+

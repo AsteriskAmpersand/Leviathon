@@ -1,0 +1,238 @@
+importactions Hornetaur as hornetaur
+
+def node_000
+	conclude 
+endf 
+
+def node_001
+endf 
+
+def node_002
+	if self.distance_3d_to_target().leq(1000) 
+		-> action#07(2,1,0,500,500) 
+		return 
+	else 
+		-> action#07(2,1,0,500,500) 
+	endif 
+	repeat 
+endf 
+
+def node_003
+	if self.distance_3d_to_target().leq(1300) 
+		-> action#07(2,1,0,500,800) 
+		return 
+	else 
+		-> action#07(2,1,0,500,800) 
+	endif 
+	repeat 
+endf 
+
+def node_004
+	if self.distance_2d_to_target().leq(1000) 
+		-> action#07(2,1,0,500,500) 
+		return 
+	else 
+		-> action#07(2,1,0,500,500) 
+	endif 
+	repeat 
+endf 
+
+def node_005
+	if self.distance_2d_to_target().leq(1300) 
+		-> action#07(2,1,0,500,800) 
+		return 
+	else 
+		-> action#07(2,1,0,500,800) 
+	endif 
+	repeat 
+endf 
+
+def node_006
+	if self.distance_3d_to_target().leq(500) 
+		return 
+	else 
+		-> action#07(2,1,0,500,500) 
+	endif 
+	if self.distance_3d_to_target().leq(500) 
+		return 
+	else 
+		-> action#07(2,1,0,500,500) 
+	endif 
+	if self.distance_3d_to_target().leq(500) 
+		return 
+	else 
+		-> action#07(2,1,0,500,500) 
+	endif 
+	return 
+endf 
+
+def node_007
+	-> action#06(2,0,0,300) 
+	return 
+endf 
+
+def node_008
+	if self.distance_3d_to_target().leq(700) 
+		-> action#07(2,1,0,500,200) 
+		return 
+	else 
+		-> action#07(2,1,0,500,200) 
+	endif 
+	repeat 
+endf 
+
+def node_009
+	random (50) -> action#09() 
+	elser (50) -> action#0A() 
+	endr 
+	return 
+endf 
+
+def node_010
+	-> action#0F() 
+	*&
+	*&
+	*&
+	return 
+endf 
+
+def node_011
+	random (40) >> node_015 
+	elser (10) >> node_009 
+	elser (50) 
+	endr 
+	return 
+endf 
+
+def node_012
+	-> action#02() 
+	return 
+endf 
+
+def node_013
+	-> action#03() 
+	return 
+endf 
+
+def node_014
+	-> action#04() 
+	return 
+endf 
+
+def node_015
+	random (20) >> node_012 
+	elser (10) >> node_013 
+	elser (10) >> node_014 
+	elser (5) >> node_014 
+				>> node_012 
+	elser (5) >> node_014 
+				>> node_013 
+	elser (5) >> node_014 
+				>> node_014 
+	elser (10) >> node_014 
+				>> node_014 
+				>> node_012 
+	elser (15) >> node_014 
+				>> node_014 
+				>> node_013 
+	elser (20) >> node_014 
+				>> node_014 
+				>> node_014 
+	endr 
+	return 
+endf 
+
+def node_016
+	random (20) >> node_012 
+	elser (40) >> node_013 
+	elser (40) >> node_014 
+	endr 
+	return 
+endf 
+
+def node_017
+	if self.angle_2d_cw_between(30,330) 
+		-> action#05() 
+	else 
+	endif 
+	return 
+endf 
+
+def node_018
+	if self.angle_2d_cw_between(30,330) 
+		-> action#21() 
+	else 
+	endif 
+	return 
+endf 
+
+def node_019
+	>> node_018 
+	-> action#1F() 
+	return 
+endf 
+
+def node_020
+	>> node_018 
+	-> action#0E() 
+	return 
+endf 
+
+def node_021
+	>> node_018 
+	-> action#23() 
+	return 
+endf 
+
+def node_022
+	random (10) >> node_019 
+	elser (30) >> node_020 
+	elser (20) >> node_021 
+	elser (40) >> node_016 
+	endr 
+	return 
+endf 
+
+def node_023
+	if self.angle_2d_cw_between(0,360) 
+		-> action#21() 
+	else 
+	endif 
+	return 
+endf 
+
+def node_024
+	if function#51(0,3000) 
+	elif function#51(1,3000) 
+	else 
+		return 
+	endif 
+	if self.distance_3d_recalc_to_target().leq(100) 
+		>> node_009 
+	else 
+		>> node_026 
+	endif 
+	reset 
+endf 
+
+def node_025
+	if function#51(0,3000) 
+	elif function#51(1,3000) 
+	else 
+		return 
+	endif 
+	if self.distance_3d_recalc_to_target().leq(100) 
+		>> node_009 
+	else 
+		>> node_026 
+	endif 
+	conclude 
+endf 
+
+def node_026
+	>> node_006 
+	>> node_019 
+	>> node_015 
+	return 
+endf 
+

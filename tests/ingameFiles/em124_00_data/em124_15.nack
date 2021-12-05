@@ -1,0 +1,116 @@
+importactions Velkhana as velkhana
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_185 
+	>> Global.node_431 
+	function#52() 
+	>> node_001 
+	function#54() 
+	>> Global.node_181 
+	>> node_003 
+	reset 
+endf 
+
+def node_001
+	self.targetArea(target_area.nearest_entrance) 
+	if function#57(1) 
+		>> node_002 
+	elif function#57(5) 
+		>> node_002 
+	elif function#57(2) 
+		>> node_002 
+	elif function#57(3) 
+		>> node_002 
+	else 
+		>> node_002 
+	endif 
+	return 
+endf 
+
+def node_002
+	>> Global.node_281 
+	return 
+endf 
+
+def node_003
+	self.targetArea(17) 
+	if function#57(1) 
+		>> node_005 
+	elif function#57(5) 
+		>> node_006 
+	elif function#57(2) 
+		>> node_007 
+	elif function#57(3) 
+		>> node_008 
+	elif function#57(4) 
+		>> node_004 
+	else 
+		>> node_004 
+	endif 
+	return 
+endf 
+
+def node_004
+	self.targetEnemy(17) 
+	if function#5A() 
+		>> Global.node_337 
+	elif function#5A(20) 
+		>> Global.node_337 
+	elif function#5A(1) 
+		>> Global.node_338 
+	elif function#5A(21) 
+		>> Global.node_338 
+	elif function#5A(2) 
+		>> Global.node_339 
+	elif function#5A(22) 
+		>> Global.node_339 
+	elif function#5A(3) 
+		>> Global.node_340 
+	elif function#5A(23) 
+		>> Global.node_340 
+	elif function#5A(10) 
+		>> Global.node_343 
+	elif function#5A(30) 
+		>> Global.node_343 
+	elif function#5A(11) 
+		>> Global.node_344 
+	elif function#5A(31) 
+		>> Global.node_344 
+	elif function#5A(12) 
+		>> Global.node_345 
+	elif function#5A(32) 
+		>> Global.node_345 
+	elif function#5A(15) 
+		>> Global.node_348 
+	elif function#5A(35) 
+		>> Global.node_348 
+	else 
+		>> Global.node_337 
+	endif 
+	return 
+endf 
+
+def node_005
+	random (50) >> Global.node_337 
+	elser (50) >> Global.node_339 
+	endr 
+	return 
+endf 
+
+def node_006
+	>> Global.node_340 
+	return 
+endf 
+
+def node_007
+	>> Global.node_337 
+	>> Global.node_342 
+	return 
+endf 
+
+def node_008
+	>> Global.node_341 
+	return 
+endf 
+

@@ -1,0 +1,555 @@
+importactions Gajau as gajau
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_013 
+	>> Global.node_010 
+	>> Global.node_011 
+	>> Global.node_017 
+	self.targetEnemy(target_em.random_player_or_cat) 
+	>> node_038 
+	>> node_001 
+	reset 
+endf 
+
+def node_001
+	if self.target(2) 
+		>> node_002 
+	else 
+		>> node_003 
+	endif 
+	return 
+endf 
+
+def node_002
+	if function#67(2) 
+		>> node_004 
+	else 
+		>> node_015 
+	endif 
+	return 
+endf 
+
+def node_003
+	if self.distance_2d_to_target().leq(1000) 
+		>> node_022 
+	else 
+		>> node_023 
+	endif 
+	return 
+endf 
+
+def node_004
+	if self.distance_2d_to_target().leq(1000) 
+		>> node_006 
+	else 
+		>> node_007 
+	endif 
+	return 
+endf 
+
+def node_005
+	random (70) >> Global.node_002 
+				-> action#0E() 
+	elser (30) >> Global.node_002 
+				>> node_025 
+	endr 
+	return 
+endf 
+
+def node_006
+	if function#2D(1) 
+		>> node_008 
+	else 
+		if function#32() 
+			if [RegisterVar0 == 0] 
+				random (100) >> node_008 
+							[RegisterVar0 |-] 
+				elser (0) 
+							[RegisterVar0 ++] 
+				endr 
+			elif [RegisterVar0 == 1] 
+				random (100) >> node_008 
+							[RegisterVar0 |-] 
+				elser (0) 
+							[RegisterVar0 ++] 
+				endr 
+			elif [RegisterVar0 == 2] 
+				random (100) >> node_008 
+							[RegisterVar0 |-] 
+				elser (0) 
+							[RegisterVar0 ++] 
+				endr 
+			elif [RegisterVar0 == 3] 
+				random (100) >> node_008 
+							[RegisterVar0 |-] 
+				elser (0) 
+							[RegisterVar0 ++] 
+				endr 
+			endif 
+			if function#2D(1) 
+				return 
+			else 
+			endif 
+		else 
+		endif 
+		>> node_009 
+	endif 
+	return 
+endf 
+
+def node_007
+	-> action#08(2,1,0,400,300) 
+	return 
+endf 
+
+def node_008
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if function#2D(1) 
+		>> node_025 
+		>> node_029 
+	else 
+		random (50) >> node_030 
+		elser (50) >> node_027 
+					>> node_029 
+		endr 
+	endif 
+	@ unkn3:4194304 
+	return 
+endf 
+
+def node_009
+	if function#B0() 
+		>> node_010 
+	elif function#B0(1) 
+		>> node_012 
+	elif function#B0(2) 
+		>> node_011 
+	elif function#B0(3) 
+		>> node_013 
+	elif function#B0(4) 
+		>> node_010 
+	elif function#B0(5) 
+		>> node_012 
+	elif function#B0(6) 
+		>> node_011 
+	else 
+		>> node_013 
+	endif 
+	return 
+endf 
+
+def node_010
+	function#102() 
+	function#104() 
+	function#105(0,800) 
+	>> node_037 
+	>> node_014 
+	function#105(45,800) 
+	>> node_037 
+	>> node_014 
+	function#105(90,800) 
+	>> node_037 
+	>> node_014 
+	function#105(135,800) 
+	>> node_037 
+	>> node_014 
+	function#105(180,800) 
+	>> node_037 
+	>> node_014 
+	function#105(225,800) 
+	>> node_037 
+	>> node_014 
+	function#105(270,800) 
+	>> node_037 
+	>> node_014 
+	function#105(315,800) 
+	>> node_037 
+	>> node_014 
+	return 
+endf 
+
+def node_011
+	function#102() 
+	function#104() 
+	function#105(180,800) 
+	>> node_037 
+	>> node_014 
+	function#105(225,800) 
+	>> node_037 
+	>> node_014 
+	function#105(270,800) 
+	>> node_037 
+	>> node_014 
+	function#105(315,800) 
+	>> node_037 
+	>> node_014 
+	function#105(0,800) 
+	>> node_037 
+	>> node_014 
+	function#105(45,800) 
+	>> node_037 
+	>> node_014 
+	function#105(90,800) 
+	>> node_037 
+	>> node_014 
+	function#105(135,800) 
+	>> node_037 
+	>> node_014 
+	return 
+endf 
+
+def node_012
+	function#102() 
+	function#104() 
+	function#105(90,800) 
+	>> node_037 
+	>> node_014 
+	function#105(45,800) 
+	>> node_037 
+	>> node_014 
+	function#105(0,800) 
+	>> node_037 
+	>> node_014 
+	function#105(315,800) 
+	>> node_037 
+	>> node_014 
+	function#105(270,800) 
+	>> node_037 
+	>> node_014 
+	function#105(225,800) 
+	>> node_037 
+	>> node_014 
+	function#105(180,800) 
+	>> node_037 
+	>> node_014 
+	function#105(135,800) 
+	>> node_037 
+	>> node_014 
+	return 
+endf 
+
+def node_013
+	function#102() 
+	function#104() 
+	function#105(270,800) 
+	>> node_037 
+	>> node_014 
+	function#105(225,800) 
+	>> node_037 
+	>> node_014 
+	function#105(180,800) 
+	>> node_037 
+	>> node_014 
+	function#105(135,800) 
+	>> node_037 
+	>> node_014 
+	function#105(90,800) 
+	>> node_037 
+	>> node_014 
+	function#105(45,800) 
+	>> node_037 
+	>> node_014 
+	function#105(0,800) 
+	>> node_037 
+	>> node_014 
+	function#105(315,800) 
+	>> node_037 
+	>> node_014 
+	return 
+endf 
+
+def node_014
+	if function#103(750) 
+	else 
+		reset 
+	endif 
+	return 
+endf 
+
+def node_015
+	if function#32() 
+		if self.distance_2d_to_target().leq(500) 
+			>> node_016 
+		elif self.distance_2d_to_target().leq(1000) 
+			>> node_017 
+		else 
+			>> node_018 
+		endif 
+		@ unkn3:4194304 
+	else 
+		if self.distance_2d_to_target().leq(500) 
+			>> node_019 
+		elif self.distance_2d_to_target().leq(1000) 
+			>> node_020 
+		else 
+			>> node_021 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_016
+	random (70) >> node_025 
+	elser (30) >> node_027 
+	endr 
+	>> node_029 
+	return 
+endf 
+
+def node_017
+	random (70) >> node_027 
+	elser (30) >> node_025 
+	endr 
+	>> node_029 
+	return 
+endf 
+
+def node_018
+	>> Global.node_019 
+	random (50) >> node_025 
+	elser (50) >> node_027 
+	endr 
+	>> node_029 
+	return 
+endf 
+
+def node_019
+	random (50) -> action#0E() 
+				>> Global.node_008 
+	elser (30) >> Global.node_002 
+				>> Global.node_008 
+	elser (20) >> Global.node_002 
+				>> Global.node_007 
+	endr 
+	return 
+endf 
+
+def node_020
+	random (20) -> action#0E() 
+				>> Global.node_008 
+	elser (50) >> Global.node_002 
+				>> Global.node_008 
+	elser (30) >> Global.node_002 
+				>> Global.node_007 
+	endr 
+	return 
+endf 
+
+def node_021
+	-> action#08(2,1,0,1000,1000) 
+	if self.distance_2d_to_target().leq(1000) 
+		>> Global.node_002 
+		>> Global.node_008 
+	else 
+	endif 
+	return 
+endf 
+
+def node_022
+	>> Global.node_002 
+	random (70) >> Global.node_008 
+	elser (30) >> Global.node_007 
+	endr 
+	if function#32() 
+		>> node_030 
+		@ unkn3:4194304 
+	else 
+	endif 
+	return 
+endf 
+
+def node_023
+	>> Global.node_002 
+	random (70) >> Global.node_008 
+	elser (30) >> Global.node_007 
+	endr 
+	if function#32() 
+		>> node_024 
+		>> node_030 
+		@ unkn3:4194304 
+	else 
+	endif 
+	return 
+endf 
+
+def node_024
+	if self.distance_2d_to_target().leq(1000) 
+		return 
+	else 
+		-> action#08(2,1,0,1000,1000) 
+	endif 
+	if self.distance_2d_to_target().leq(1000) 
+		return 
+	else 
+		-> action#08(2,1,0,1000,1000) 
+	endif 
+	if self.distance_2d_to_target().leq(1000) 
+		return 
+	else 
+		-> action#08(2,1,0,1000,1000) 
+	endif 
+	return 
+endf 
+
+def node_025
+	if self.distance_2d_to_target().leq(400) 
+		>> Global.node_002 
+		-> action#16() 
+	else 
+		>> Global.node_002 
+		-> action#08(2,1,0,1000,300) 
+		>> Global.node_002 
+		-> action#16() 
+	endif 
+	return 
+endf 
+
+def node_026
+	>> Global.node_002 
+	-> action#15() 
+	-> action#09(2,0,0,300) 
+	>> node_028 
+	-> action#09(2,0,0,300) 
+	>> node_028 
+	-> action#09(2,0,0,300) 
+	-> action#17() 
+	>> node_029 
+	return 
+endf 
+
+def node_027
+	-> action#0E() 
+	-> action#15() 
+	-> action#09(2,1,0,1200,500) 
+	-> action#17() 
+	return 
+endf 
+
+def node_028
+	if self.distance_2d_to_target().leq(600) 
+		-> action#17() 
+		>> node_029 
+		reset 
+	else 
+	endif 
+	return 
+endf 
+
+def node_029
+	random (40) >> Global.node_002 
+				>> Global.node_008 
+	elser (60) 
+	endr 
+	return 
+endf 
+
+def node_030
+	>> Global.node_002 
+	-> action#11() 
+	-> action#12() 
+	if function#43() 
+	else 
+		-> action#14() 
+	endif 
+	return 
+endf 
+
+def node_031
+endf 
+
+def node_032
+	>> node_033 
+	if self.distance_2d_to_target().leq(1000) 
+		random (60) >> Global.node_008 
+		elser (40) >> Global.node_007 
+		endr 
+	else 
+		>> node_037 
+	endif 
+	function#54() 
+	return 
+endf 
+
+def node_033
+	function#52(0,2) 
+	self.targetEnemy(16) 
+	return 
+endf 
+
+def node_034
+	if function#B0() 
+		>> node_035 
+	elif function#B0(1) 
+		>> node_036 
+	elif function#B0(2) 
+		>> node_035 
+	else 
+		>> node_036 
+	endif 
+	return 
+endf 
+
+def node_035
+	function#74(0,400) 
+	>> node_037 
+	function#74(45,400) 
+	>> node_037 
+	function#74(90,400) 
+	>> node_037 
+	function#74(135,400) 
+	>> node_037 
+	function#74(180,400) 
+	>> node_037 
+	function#74(225,400) 
+	>> node_037 
+	function#74(270,400) 
+	>> node_037 
+	function#74(315,400) 
+	>> node_037 
+	return 
+endf 
+
+def node_036
+	function#74(0,500) 
+	>> node_037 
+	function#74(315,500) 
+	>> node_037 
+	function#74(270,500) 
+	>> node_037 
+	function#74(225,500) 
+	>> node_037 
+	function#74(180,500) 
+	>> node_037 
+	function#74(135,500) 
+	>> node_037 
+	function#74(90,500) 
+	>> node_037 
+	function#74(45,500) 
+	>> node_037 
+	return 
+endf 
+
+def node_037
+	-> action#08(2,1,3,700,300) @ unknExtra0:3 
+	return 
+endf 
+
+def node_038
+	if self.vertical_distance_to_target().gt(400) 
+		>> node_032 
+		reset 
+	else 
+	endif 
+	return 
+endf 
+
+def node_039
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if self.distance_2d_to_target().leq(1000) 
+	else 
+		reset 
+	endif 
+	return 
+endf 
+

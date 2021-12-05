@@ -1,0 +1,63 @@
+importactions Fatalis as fatalis
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_142 
+	if function#103() 
+		if self.quest_id(51612) 
+			if function#109() 
+				self.targetEnemy(48) 
+				if self.target(3) 
+					>> Global.node_139 
+					reset 
+				elif self.target(4) 
+					>> Global.node_139 
+					reset 
+				elif self.target(7) 
+					>> Global.node_139 
+					reset 
+				elif self.distance_3d_to_target().gt(7000) 
+					>> Global.node_139 
+					reset 
+				else 
+					>> Global.node_053 
+					>> Global.node_011 
+					reset 
+				endif 
+			else 
+			endif 
+		else 
+		endif 
+	else 
+	endif 
+	function#54() 
+	>> Global.node_017 
+	if function#101(1) 
+		>> Global.node_016 
+	else 
+	endif 
+	>> Global.node_003 
+	self.targetEnemy(48) 
+	if self.target(3) 
+		function#52(0,4) 
+		self.targetEnemy(17) 
+		>> Global.node_050 
+	elif self.target(4) 
+		function#52(0,4) 
+		self.targetEnemy(17) 
+		>> Global.node_050 
+	elif self.target(7) 
+		function#52(0,4) 
+		self.targetEnemy(17) 
+		>> Global.node_050 
+	elif self.distance_3d_to_target().leq(7000) 
+		>> Global.node_053 
+	else 
+		function#52(0,4) 
+		self.targetEnemy(17) 
+		>> Global.node_050 
+	endif 
+	>> Global.node_011 
+	reset 
+endf 
+

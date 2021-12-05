@@ -1,0 +1,75 @@
+importactions Brute_Tigrex as brute_tigrex
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_020 
+	self.targetEnemy(34) 
+	if function#41() 
+	elif self.vertical_distance_to_target().gt(1000) 
+		>> node_003 
+	elif self.target_is(em.Rathalos) 
+		>> node_004 
+		self.target_is(em.Azure_Rathalos) 
+		>> node_004 
+	elif self.target_is(em.Diablos) 
+		>> node_005 
+	elif self.target_is(em.Black_Diablos) 
+		>> node_005 
+	else 
+		>> node_006 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	if self.distance_3d_to_target().leq(1500) 
+		-> brute_tigrex.quick_turn() 
+	elif self.angle_2d_cw_between(40,320) 
+		-> brute_tigrex.quick_turn() 
+	else 
+	endif 
+	return 
+endf 
+
+def node_002
+	if self.distance_3d_to_target().leq(1000) 
+		-> brute_tigrex.quick_turn() 
+	else 
+	endif 
+	return 
+endf 
+
+def node_003
+	if self.target_is(em.Rathalos) 
+		>> node_001 
+		-> brute_tigrex.roar() 
+	else 
+	endif 
+	return 
+endf 
+
+def node_004
+	if self.distance_3d_to_target().leq(4000) 
+		>> node_001 
+		-> brute_tigrex.discover() 
+	elif self.distance_3d_to_target().leq(5000) 
+		-> brute_tigrex.search() 
+	else 
+	endif 
+	return 
+endf 
+
+def node_005
+	if self.distance_3d_to_target().leq(1500) 
+		>> node_001 
+		-> brute_tigrex.search() 
+		>> Global.node_021 
+	else 
+	endif 
+	return 
+endf 
+
+def node_006
+	return 
+endf 
+

@@ -1,0 +1,27 @@
+importactions Boaboa as boaboa
+importlibrary Global as Global
+
+def node_000
+	function#54() 
+	self.targetEnemy(33) 
+	if self.target_is(em.Beotodus) 
+		conclude 
+	endif 
+	if self.distance_3d_to_target().leq(1200) 
+		>> Global.node_036 
+	else 
+		>> Global.node_038 
+		>> Global.node_054 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	if self.distance_3d_to_target().leq(600) 
+	else 
+		>> Global.node_015 
+		repeat 
+	endif 
+	return 
+endf 
+

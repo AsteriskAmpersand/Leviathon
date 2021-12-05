@@ -1,0 +1,326 @@
+importactions Coral_PukeiPukei as coral_pukeipukei
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_039 
+	>> Global.node_083 
+	>> Global.node_049 
+	>> Global.node_043 
+	>> Global.node_030 
+	>> node_001 
+	>> node_002 
+	>> node_003 
+	reset 
+endf 
+
+def node_001
+	>> Global.node_085 
+	>> Global.node_190 
+	return 
+endf 
+
+def node_002
+	if self.target(4) 
+		>> Global.node_197 => reset 
+	elif self.target(3) 
+		>> Global.node_197 => reset 
+	elif self.target(55) 
+		>> Global.node_205 => reset 
+	elif self.target(12) 
+		>> Global.node_199 => reset 
+	elif self.target(14) 
+		>> Global.node_200 => reset 
+	elif self.target(11) 
+		>> Global.node_204 => reset 
+	elif self.target(0) 
+		>> Global.node_200 => reset 
+	else 
+	endif 
+	return 
+endf 
+
+def node_003
+	>> Global.node_211 
+	>> Global.node_045 
+	if self.distance_3d_to_target().leq(400) 
+		self.enraged() >> node_009 => reset 
+		self.fatigued() >> node_014 => reset 
+		>> node_004 => reset 
+	elif self.distance_3d_to_target().leq(750) 
+		self.enraged() >> node_010 => reset 
+		self.fatigued() >> node_015 => reset 
+		>> node_005 => reset 
+	elif self.distance_3d_to_target().leq(1500) 
+		self.enraged() >> node_011 => reset 
+		self.fatigued() >> node_016 => reset 
+		>> node_006 => reset 
+	elif self.distance_3d_to_target().leq(2300) 
+		self.enraged() >> node_012 => reset 
+		self.fatigued() >> node_017 => reset 
+		>> node_007 => reset 
+	else 
+		self.enraged() >> node_013 => reset 
+		self.fatigued() >> node_018 => reset 
+		>> node_008 => reset 
+	endif 
+	reset 
+endf 
+
+def node_004
+	if function#105() 
+		random (15) >> Global.node_007 
+		elser (15) >> Global.node_025 
+		elser (10) >> Global.node_026 
+		elser (15) >> Global.node_027 
+		elser (15) >> Global.node_018 
+		elser (25) >> Global.node_024 
+		elser (5) >> Global.node_022 
+		endr 
+	elif function#105(2) 
+		if [RegisterVar6 == 0] 
+			random (15) >> Global.node_007 
+			elser (15) >> Global.node_025 
+			elser (10) >> Global.node_026 
+			elser (15) >> Global.node_027 
+			elser (15) >> Global.node_018 
+			elser (25) >> Global.node_024 
+			elser (5) >> Global.node_022 
+			endr 
+		else 
+			random (15) >> Global.node_007 
+			elser (15) >> Global.node_025 
+			elser (10) >> Global.node_026 
+			elser (15) >> Global.node_027 
+			elser (15) >> Global.node_018 
+			elser (25) >> Global.node_024 
+			elser (5) >> Global.node_022 
+			endr 
+		endif 
+	else 
+		if [RegisterVar6 == 0] 
+			random (20) >> Global.node_006 
+			elser (25) >> Global.node_009 
+			elser (25) >> Global.node_007 
+			elser (25) >> Global.node_018 
+			elser (5) >> Global.node_022 
+			endr 
+		else 
+			random (25) >> Global.node_006 
+			elser (30) >> Global.node_007 
+			elser (40) >> Global.node_018 
+			elser (5) >> Global.node_022 
+			endr 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_005
+	if function#105() 
+		random (15) >> Global.node_007 
+		elser (10) >> Global.node_025 
+		elser (10) >> Global.node_026 
+		elser (15) >> Global.node_027 
+		elser (20) >> Global.node_018 
+		elser (25) >> Global.node_024 
+		elser (5) >> Global.node_022 
+		endr 
+	elif function#105(2) 
+		if [RegisterVar6 == 0] 
+			random (15) >> Global.node_007 
+			elser (10) >> Global.node_025 
+			elser (10) >> Global.node_026 
+			elser (15) >> Global.node_027 
+			elser (20) >> Global.node_018 
+			elser (25) >> Global.node_024 
+			elser (5) >> Global.node_022 
+			endr 
+		else 
+			random (15) >> Global.node_007 
+			elser (10) >> Global.node_025 
+			elser (10) >> Global.node_026 
+			elser (15) >> Global.node_027 
+			elser (20) >> Global.node_018 
+			elser (25) >> Global.node_024 
+			elser (5) >> Global.node_022 
+			endr 
+		endif 
+	else 
+		if [RegisterVar6 == 0] 
+			random (10) >> Global.node_006 
+			elser (20) >> Global.node_009 
+			elser (25) >> Global.node_007 
+			elser (5) >> Global.node_011 
+			elser (5) >> Global.node_012 
+			elser (30) >> Global.node_018 
+			elser (5) >> Global.node_022 
+			endr 
+		else 
+			random (20) >> Global.node_006 
+			elser (25) >> Global.node_007 
+			elser (10) >> Global.node_011 
+			elser (5) >> Global.node_012 
+			elser (35) >> Global.node_018 
+			elser (5) >> Global.node_022 
+			endr 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_006
+	if function#105() 
+		random (15) >> Global.node_011 
+		elser (20) >> Global.node_012 
+		elser (25) >> Global.node_018 
+		elser (35) >> Global.node_024 
+		elser (5) >> Global.node_022 
+		endr 
+	elif function#105(2) 
+		if [RegisterVar6 == 0] 
+			random (15) >> Global.node_011 
+			elser (20) >> Global.node_012 
+			elser (25) >> Global.node_018 
+			elser (35) >> Global.node_024 
+			elser (5) >> Global.node_022 
+			endr 
+		else 
+			random (15) >> Global.node_011 
+			elser (20) >> Global.node_012 
+			elser (25) >> Global.node_018 
+			elser (35) >> Global.node_024 
+			elser (5) >> Global.node_022 
+			endr 
+		endif 
+	else 
+		if [RegisterVar6 == 0] 
+			random (10) >> Global.node_010 
+			elser (5) >> Global.node_005 
+			elser (5) >> Global.node_008 
+			elser (20) >> Global.node_011 
+			elser (25) >> Global.node_012 
+			elser (30) >> Global.node_018 
+			elser (5) >> Global.node_022 
+			endr 
+		else 
+			random (15) >> Global.node_005 
+			elser (5) >> Global.node_008 
+			elser (15) >> Global.node_011 
+			elser (25) >> Global.node_012 
+			elser (35) >> Global.node_018 
+			elser (5) >> Global.node_022 
+			endr 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_007
+	if function#105() 
+		random (25) >> Global.node_011 
+		elser (25) >> Global.node_018 
+		elser (35) >> Global.node_024 
+		elser (10) >> Global.node_028 
+		elser (5) >> Global.node_022 
+		endr 
+	elif function#105(2) 
+		if [RegisterVar6 == 0] 
+			random (25) >> Global.node_011 
+			elser (25) >> Global.node_018 
+			elser (35) >> Global.node_024 
+			elser (10) >> Global.node_028 
+			elser (5) >> Global.node_022 
+			endr 
+		else 
+			random (25) >> Global.node_011 
+			elser (25) >> Global.node_018 
+			elser (35) >> Global.node_024 
+			elser (10) >> Global.node_028 
+			elser (5) >> Global.node_022 
+			endr 
+		endif 
+	else 
+		if [RegisterVar6 == 0] 
+			random (20) >> Global.node_010 
+			elser (10) >> Global.node_005 
+			elser (15) >> Global.node_008 
+			elser (20) >> Global.node_011 
+			elser (30) >> Global.node_018 
+			elser (5) >> Global.node_022 
+			endr 
+		else 
+			random (25) >> Global.node_005 
+			elser (20) >> Global.node_008 
+			elser (20) >> Global.node_011 
+			elser (30) >> Global.node_018 
+			elser (5) >> Global.node_022 
+			endr 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_008
+	if self.flying() 
+		>> Global.node_148 
+	else 
+		>> Global.node_123 
+	endif 
+	return 
+endf 
+
+def node_009
+	>> node_004 
+	return 
+endf 
+
+def node_010
+	>> node_005 
+	return 
+endf 
+
+def node_011
+	>> node_006 
+	return 
+endf 
+
+def node_012
+	>> node_007 
+	return 
+endf 
+
+def node_013
+	>> node_008 
+	return 
+endf 
+
+def node_014
+	>> Global.node_051 
+	>> node_004 
+	return 
+endf 
+
+def node_015
+	>> Global.node_051 
+	>> node_005 
+	return 
+endf 
+
+def node_016
+	>> Global.node_051 
+	>> node_006 
+	return 
+endf 
+
+def node_017
+	>> Global.node_051 
+	>> node_007 
+	return 
+endf 
+
+def node_018
+	>> Global.node_051 
+	>> node_008 
+	return 
+endf 
+

@@ -1,0 +1,19 @@
+importactions Brachydios as brachydios
+
+def node_000
+	if self.in_map(st.Special_Arena).in_area(-1) 
+		self.targetArea(64) 
+		-> brachydios.dash(5) 
+	elif self.in_map(st.Challenge_Arena).in_area(-1) 
+		self.targetArea(64) 
+		-> brachydios.dash(5) 
+	endif 
+	>> node_001 
+	conclude 
+endf 
+
+def node_001
+	-> brachydios.discover() 
+	return 
+endf 
+

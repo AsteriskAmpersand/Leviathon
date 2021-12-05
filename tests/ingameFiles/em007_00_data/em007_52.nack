@@ -1,0 +1,16 @@
+importactions Diablos as diablos
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_007 
+	if self.in_map(st.Special_Arena).in_area(-1) 
+		self.targetArea(64) 
+		-> diablos.dash(5) 
+	elif self.in_map(st.Challenge_Arena).in_area(-1) 
+		self.targetArea(64) 
+		-> diablos.dash(5) 
+	else 
+	endif 
+	conclude 
+endf 
+

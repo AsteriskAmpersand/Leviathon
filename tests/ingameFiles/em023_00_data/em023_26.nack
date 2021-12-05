@@ -1,0 +1,30 @@
+importactions Rajang as rajang
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_104 
+	>> node_001 
+	>> node_002 
+	>> Global.node_195 
+	conclude 
+endf 
+
+def node_001
+	>> Global.node_173 
+	return 
+endf 
+
+def node_002
+	>> Global.node_192 
+	self.targetEnemy(34) 
+	if self.distance_3d_to_target().leq(500) 
+		>> Global.node_125 
+	elif self.distance_3d_to_target().leq(3000) 
+		>> Global.node_222 
+	else 
+		>> Global.node_222 
+		repeat 
+	endif 
+	return 
+endf 
+

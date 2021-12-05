@@ -1,0 +1,23 @@
+importactions Wulg as wulg
+
+def node_000
+	>> node_002 
+	>> node_001 
+	conclude 
+endf 
+
+def node_001
+	if function#D6() 
+		-> wulg.idle() 
+	else 
+		function#D3() 
+		-> wulg.idle() 
+	endif 
+	return 
+endf 
+
+def node_002
+	[RegisterVar8 |-] 
+	return 
+endf 
+

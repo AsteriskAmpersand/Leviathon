@@ -1,0 +1,72 @@
+importactions Nargacuga as nargacuga
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_120 
+	self.targetEnemy(target_em.closest_entity) 
+	>> node_001 
+	if self.target_is(em.Aptonoth) @ parameter2:1 
+	elif self.target_is(em.Raphinos) @ parameter2:1 
+	else 
+		conclude 
+	endif 
+	if self.target(13) 
+	else 
+		repeat 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	if self.target_is(em.Aptonoth) @ parameter2:1 
+		>> Global.node_172 
+	elif self.target_is(em.Raphinos) @ parameter2:1 
+		>> Global.node_172 
+	else 
+	endif 
+	if self.distance_3d_to_target().leq(4500) 
+		>> node_002 
+	else 
+		>> Global.node_159 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_002
+	if self.target_is(em.Aptonoth) 
+		>> node_003 
+	elif self.target_is(em.Raphinos) 
+		>> node_003 
+	else 
+		conclude 
+	endif 
+	return 
+endf 
+
+def node_003
+	if self.target(22) 
+		if self.target(11) 
+			>> Global.node_002 
+			>> Global.node_169 
+			conclude 
+		else 
+			>> Global.node_002 
+			>> Global.node_164 
+		endif 
+	else 
+		>> node_004 
+	endif 
+	return 
+endf 
+
+def node_004
+	if self.target(21) 
+		>> Global.node_163 
+	else 
+		>> Global.node_002 
+		>> Global.node_164 
+	endif 
+	return 
+endf 
+

@@ -1,0 +1,36 @@
+importactions Jagras as jagras
+
+def node_000
+	>> node_001 
+	>> node_002 
+	function#54() 
+	conclude 
+endf 
+
+def node_001
+	function#54() 
+	function#52(160) 
+	self.targetArea(target_area.nearest_entrance) 
+	return 
+endf 
+
+def node_002
+	if self.distance_2d_to_target().leq(700) 
+		>> node_003 
+	else 
+		-> action#09(2,0,0,500) 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_003
+	random (20) -> action#1A() 
+	elser (20) -> action#1B() 
+	elser (20) -> action#1C() 
+	elser (20) -> action#1D() 
+	elser (20) -> action#1E() 
+	endr 
+	return 
+endf 
+

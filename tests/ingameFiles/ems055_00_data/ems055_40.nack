@@ -1,0 +1,32 @@
+importactions Barnos as barnos
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_007 
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if self.target(20) 
+		if self.distance_2d_to_target().leq(500) >> node_001 
+		else >> node_002 
+		endif 
+	elif self.target(4) 
+		conclude 
+	else 
+		self.targetEnemy(35) 
+		-> action#13() 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	>> Global.node_021 
+	-> action#17(1,0,0,300) 
+	-> action#1E() 
+	>> Global.node_002 
+	return 
+endf 
+
+def node_002
+	-> action#13() 
+	return 
+endf 
+

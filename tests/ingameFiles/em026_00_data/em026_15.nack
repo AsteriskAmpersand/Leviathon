@@ -1,0 +1,114 @@
+importactions Lunastra as lunastra
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_188 
+	function#52() 
+	>> node_001 
+	function#54() 
+	>> node_003 
+	reset 
+endf 
+
+def node_001
+	self.targetArea(target_area.nearest_entrance) 
+	if function#57(1) 
+		>> node_002 
+	elif function#57(5) 
+		>> node_002 
+	elif function#57(2) 
+		>> node_002 
+	elif function#57(3) 
+		>> node_002 
+	else 
+		>> node_002 
+	endif 
+	return 
+endf 
+
+def node_002
+	>> Global.node_085 
+	return 
+endf 
+
+def node_003
+	self.targetArea(17) 
+	if function#57(1) 
+		>> node_005 
+	elif function#57(5) 
+		>> node_006 
+	elif function#57(2) 
+		>> node_007 
+	elif function#57(3) 
+		>> node_008 
+	elif function#57(4) 
+		>> node_004 
+	else 
+		>> node_004 
+	endif 
+	return 
+endf 
+
+def node_004
+	self.targetEnemy(17) 
+	if function#5A() 
+		>> Global.node_140 
+	elif function#5A(20) 
+		>> Global.node_140 
+	elif function#5A(1) 
+		>> Global.node_141 
+	elif function#5A(21) 
+		>> Global.node_141 
+	elif function#5A(2) 
+		>> Global.node_142 
+	elif function#5A(22) 
+		>> Global.node_142 
+	elif function#5A(3) 
+		>> Global.node_143 
+	elif function#5A(23) 
+		>> Global.node_143 
+	elif function#5A(10) 
+		>> Global.node_146 
+	elif function#5A(30) 
+		>> Global.node_146 
+	elif function#5A(11) 
+		>> Global.node_147 
+	elif function#5A(31) 
+		>> Global.node_147 
+	elif function#5A(12) 
+		>> Global.node_148 
+	elif function#5A(32) 
+		>> Global.node_148 
+	elif function#5A(15) 
+		>> Global.node_151 
+	elif function#5A(35) 
+		>> Global.node_151 
+	else 
+		>> Global.node_140 
+	endif 
+	return 
+endf 
+
+def node_005
+	random (50) >> Global.node_140 
+	elser (50) >> Global.node_142 
+	endr 
+	return 
+endf 
+
+def node_006
+	>> Global.node_143 
+	return 
+endf 
+
+def node_007
+	>> Global.node_140 
+	>> Global.node_145 
+	return 
+endf 
+
+def node_008
+	>> Global.node_144 
+	return 
+endf 
+

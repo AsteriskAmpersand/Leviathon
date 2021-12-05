@@ -1,0 +1,47 @@
+importactions Kushala_Daora as kushala_daora
+
+def node_000
+	self.targetEnemy(target_em.closest_entity) 
+	if self.target_is(em.Teostra) 
+		>> node_001 
+	elif self.target_is(em.Nergigante) 
+		>> node_002 
+	elif self.target_is(em.Ruiner_Nergigante) 
+		>> node_002 
+	elif self.target_is(em.Lunastra) 
+		>> node_003 
+	elif self.target_is(em.Rajang) 
+		>> node_004 
+	elif self.target_is(em.Velkhana) 
+		>> node_005 
+	elif self.target_is(em.Furious_Rajang) 
+		>> node_004 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	-> kushala_daora.grapple_to_em027_start() 
+	return 
+endf 
+
+def node_002
+	-> kushala_daora.grapple_with_em103_glide() 
+	return 
+endf 
+
+def node_003
+	-> kushala_daora.grapple_to_em026_start() 
+	return 
+endf 
+
+def node_004
+	-> kushala_daora.grapple_with_em023_glide() 
+	return 
+endf 
+
+def node_005
+	-> kushala_daora.grapple_with_em124_attacker_first() 
+	return 
+endf 
+

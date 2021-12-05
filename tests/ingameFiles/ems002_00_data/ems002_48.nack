@@ -1,0 +1,99 @@
+importactions Apceros as apceros
+importlibrary Global as Global
+
+def node_000
+	if self.targetEnemy(43) 
+		>> node_004 
+		>> node_005 
+		>> node_001 
+		>> node_003 
+		>> node_006 
+		if self.distance_3d_to_target().leq(600) 
+			>> node_007 
+			random (40) >> node_008 
+			elser (60) 
+			endr 
+		else 
+			-> apceros.idle_fly(2,1,0,500,400) 
+		endif 
+		repeat 
+	elif self.targetEnemy(target_em.random_player_or_cat) 
+		>> node_008 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	if self.target(4) 
+		random (50) -> apceros.double_floor_up() 
+		elser (50) -> apceros.sudden_rise() 
+		endr 
+		conclude 
+	else 
+	endif 
+	return 
+endf 
+
+def node_002
+	if self.vertical_distance_to_target().gt(500) 
+		>> node_008 
+		conclude 
+	else 
+	endif 
+	return 
+endf 
+
+def node_003
+	if self.target(0) 
+		>> Global.node_021 
+		conclude 
+	elif self.target(14) 
+		>> Global.node_021 
+		conclude 
+	else 
+	endif 
+	return 
+endf 
+
+def node_004
+	if self.target(7) 
+		random (50) -> apceros.double_floor_up() 
+		elser (50) -> apceros.sudden_rise() 
+		endr 
+		conclude 
+	else 
+	endif 
+	return 
+endf 
+
+def node_005
+	if self.target(10) 
+		random (50) -> apceros.double_floor_up() 
+		elser (50) -> apceros.sudden_rise() 
+		endr 
+		conclude 
+	else 
+	endif 
+	return 
+endf 
+
+def node_006
+	if self.target(12) 
+		>> Global.node_022 
+		conclude 
+	else 
+	endif 
+	return 
+endf 
+
+def node_007
+	>> Global.node_005 
+	>> Global.node_033 
+	return 
+endf 
+
+def node_008
+	>> Global.node_026 
+	return 
+endf 
+

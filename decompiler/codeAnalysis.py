@@ -175,11 +175,15 @@ def rootMatch(parentPath,childPath):
             root = list(parentPath.parents)[-index-1]
     return root
 
+def fallthroughMatch(parentPath,childPath):
+    childTrail = list(reversed(list(map(lambda x: x.stem,childPath.parents))[:-1]))
+    return parentPath.parents[len(childTrail)]
+
 def cojoinedMatching(parentPath, childPath):
     root = rootMatch(parentPath,childPath)
     if root:
         return (root / childPath)
-    return parentPath.parent
+    return fallthroughMatch(parentPath,childPath)/childPath
         
 class THKSummary():
     #Make a directed graph of the entire folder of thk
@@ -457,7 +461,7 @@ class THKParser():
     def codeAnalysis(self,file):
         pass
     def directoryAnalysis(self,folder,settings = None):
-        for header in folder.rglob("*.thklist"):
+        for header in folder.rglob("*.thklst"):
             if settings is not None:
                 settings.display()
             project = THKProject(header,settings=settings)

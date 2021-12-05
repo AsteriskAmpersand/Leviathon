@@ -1,0 +1,22 @@
+importactions Fulgur_Anjanath as fulgur_anjanath
+
+def node_000
+	conclude 
+endf 
+
+def node_001
+	[RegisterVar0 |-] 
+	if self.current_quest().is_rank(rank.MR) 
+		-> fulgur_anjanath.die_down() 
+	else 
+		if function#B9() 
+			-> fulgur_anjanath.breath_shoot_in() 
+		else 
+			-> fulgur_anjanath.breath_sign() 
+			-> fulgur_anjanath.breath_shoot_in() 
+			-> fulgur_anjanath.reflesh() 
+		endif 
+	endif 
+	return 
+endf 
+

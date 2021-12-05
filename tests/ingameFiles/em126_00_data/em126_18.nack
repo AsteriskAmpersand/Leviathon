@@ -1,0 +1,51 @@
+importactions Shara_Ishvalda as shara_ishvalda
+importlibrary Global as Global
+
+def node_000
+	self.targetEnemy(13) 
+	if self.target(4) 
+		>> Global.node_196 
+	else 
+		>> node_001 
+	endif 
+	>> node_002 
+	conclude 
+endf 
+
+def node_001
+	if self.distance_2d_to_target().leq(1200) 
+		return 
+	else 
+		>> Global.node_150 
+	endif 
+	return 
+endf 
+
+def node_002
+	self.targetEnemy(48) 
+	if self.target(7) 
+		>> node_003 
+	elif function#5F() 
+		>> node_003 
+	elif self.distance_3d_to_target().gt(3000) 
+		>> node_003 
+	else 
+		>> node_004 
+	endif 
+	return 
+endf 
+
+def node_003
+	>> Global.node_128 
+	return 
+endf 
+
+def node_004
+	if function#5F() 
+		>> Global.node_128 
+	else 
+		>> Global.node_134 
+	endif 
+	return 
+endf 
+

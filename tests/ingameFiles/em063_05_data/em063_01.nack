@@ -1,0 +1,135 @@
+importactions Raging_Brachydios as raging_brachydios
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_160 
+	>> Global.node_001 
+	self.targetEnemy(target_em.random_player_or_cat) 
+	>> node_008 
+	if self.distance_3d_to_target().leq(900) >> node_001 
+	elif self.distance_3d_to_target().leq(5000) >> node_002 
+	elif self.distance_3d_to_target().leq(10000) >> node_003 
+	else >> node_014 
+	endif 
+	reset 
+endf 
+
+def node_001
+	>> Global.node_120 
+	>> node_009 
+	>> Global.node_019 
+	return 
+endf 
+
+def node_002
+	>> node_007 
+	>> node_010 
+	return 
+endf 
+
+def node_003
+	if self.enraged() >> node_005 
+	elif self.fatigued() >> node_006 
+	else >> node_004 
+	endif 
+	return 
+endf 
+
+def node_004
+	random (70) >> node_010 
+	elser (30) >> node_011 
+	endr 
+	return 
+endf 
+
+def node_005
+	random (30) >> node_010 
+	elser (70) >> node_011 
+	endr 
+	return 
+endf 
+
+def node_006
+	random (70) >> node_010 
+	elser (20) -> raging_brachydios.tired_idle() 
+	elser (10) >> node_014 
+	endr 
+	return 
+endf 
+
+def node_007
+	if self.fatigued() 
+		random (80) 
+		elser (20) 
+					-> raging_brachydios.tired_idle() 
+					reset 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_008
+	if self.target(10) 
+		if self.distance_3d_to_target().leq(2200) 
+			>> Global.node_120 
+			>> Global.node_019 
+			reset 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_009
+	if self.target(7) 
+		if self.enraged() >> Global.node_019 
+		else -> raging_brachydios.peep_grass_search() 
+		endif 
+		reset 
+	endif 
+	return 
+endf 
+
+def node_010
+	self.targetArea(4) 
+	if self.enraged() -> raging_brachydios.sniffs_s() 
+	else -> raging_brachydios.quick_search() 
+	endif 
+	>> node_012 
+	return 
+endf 
+
+def node_011
+	self.targetArea(6) 
+	if self.enraged() -> raging_brachydios.sniffs_l() 
+	else -> raging_brachydios.sniffs_l() 
+	endif 
+	>> node_012 
+	return 
+endf 
+
+def node_012
+	if self.enraged() -> raging_brachydios.anger_search_walk(2,1,5,2000,800) 
+	else -> raging_brachydios.fox_walk(2,1,5,2000,800) 
+	endif 
+	if self.distance_3d_to_target().leq(800) 
+		return 
+	else >> node_013 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_013
+	if self.enraged() -> raging_brachydios.anger_search() 
+	else -> raging_brachydios.quick_search() 
+	endif 
+	return 
+endf 
+
+def node_014
+	self.targetArea(21) @ parameter2:1000 
+	>> Global.node_120 
+	>> node_013 
+	return 
+endf 
+

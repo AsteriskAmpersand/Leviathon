@@ -1,0 +1,96 @@
+importactions Girros as girros
+
+def node_000
+	>> node_003 
+	if function#F9(800) 
+		>> node_001 
+	else 
+		>> node_002 
+	endif 
+	reset 
+endf 
+
+def node_001
+	random (90) >> node_008 
+	elser (2) >> node_007 
+	elser (8) >> node_006 
+	endr 
+	reset 
+endf 
+
+def node_002
+	random (20) >> node_006 
+	elser (20) >> node_008 
+	elser (20) >> node_005 
+	elser (35) >> node_004 
+	elser (5) >> node_008 
+				>> node_007 
+	endr 
+	reset 
+endf 
+
+def node_003
+	function#EB(1000) 
+	function#DE(2000) 
+	if function#D2(8) 
+		if function#D8() 
+			if self.distance_3d_to_target().leq(1500) 
+				function#F2() 
+				>> node_009 
+				>> node_010 
+				function#E5() 
+				reset 
+			else 
+				function#F3() 
+				function#E5() 
+				return 
+			endif 
+		else 
+			function#E5() 
+			return 
+		endif 
+	else 
+		return 
+	endif 
+	reset 
+endf 
+
+def node_004
+	-> action#01() 
+	return 
+endf 
+
+def node_005
+	-> action#19() 
+	return 
+endf 
+
+def node_006
+	-> action#1A() 
+	return 
+endf 
+
+def node_007
+	-> action#23() 
+	return 
+endf 
+
+def node_008
+	-> action#20() 
+	return 
+endf 
+
+def node_009
+	if self.angle_2d_cw_between(90,270) 
+		-> action#0B() 
+	elif self.angle_2d_cw_between(20,340) 
+		-> action#0B() 
+	endif 
+	return 
+endf 
+
+def node_010
+	-> action#1E() 
+	return 
+endf 
+

@@ -1,0 +1,62 @@
+importactions PukeiPukei as pukeipukei
+importlibrary Global as Global
+
+def node_000
+	self.targetEnemy(51) 
+	>> node_001 
+	self.targetEnemy(51) 
+	>> Global.node_001 
+	>> Global.node_009 
+	conclude 
+endf 
+
+def node_001
+	if function#AD() 
+	else 
+		>> node_003 
+	endif 
+	return 
+endf 
+
+def node_002
+	>> Global.node_001 
+	>> Global.node_009 
+	return 
+endf 
+
+def node_003
+	>> node_004 
+	>> node_005 
+	return 
+endf 
+
+def node_004
+	if self.flying() 
+	else 
+		>> Global.node_002 
+	endif 
+	self.targetArea(target_area.area_aerial_center) 
+	>> Global.node_025 
+	return 
+endf 
+
+def node_005
+	if self.flying() 
+	else 
+		>> Global.node_002 
+	endif 
+	self.targetEnemy(51) 
+	self.targetArea(40) 
+	>> Global.node_024 
+	return 
+endf 
+
+def node_006
+	if self.flying() 
+	else 
+		>> Global.node_002 
+	endif 
+	>> Global.node_026 
+	return 
+endf 
+

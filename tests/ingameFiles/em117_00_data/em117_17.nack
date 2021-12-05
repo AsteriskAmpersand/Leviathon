@@ -1,0 +1,36 @@
+importactions Kulve_Taroth as kulve_taroth
+importlibrary Global as Global
+
+def node_000
+	>> node_001 
+	>> node_002 
+	>> Global.node_075 
+	self.targetArea(14) 
+	>> Global.node_099 
+	self.targetEnemy(48) 
+	>> Global.node_112 
+	conclude 
+endf 
+
+def node_001
+	if self.in_map(st.Caverns_Of_El_Dorado).in_area(2) 
+		if function#101() 
+			if [RegisterVar6 == 0] 
+				[RegisterVar6 ++] 
+			else 
+			endif 
+		else 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_002
+	if self.in_map(st.Caverns_Of_El_Dorado).in_area(3) 
+		>> Global.node_086 
+	else 
+	endif 
+	return 
+endf 
+

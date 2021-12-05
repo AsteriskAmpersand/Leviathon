@@ -1,0 +1,40 @@
+importactions Zinogre as zinogre
+importlibrary Global as Global
+
+def node_000
+	function#103() 
+	>> node_001 
+	>> node_002 
+	>> node_003 
+	conclude 
+endf 
+
+def node_001
+	>> Global.node_183 
+	return 
+endf 
+
+def node_002
+	self.targetArea(24) 
+	if self.distance_3d_to_target().gt(500) 
+		-> zinogre.dying_walk(2,1,0,1500,500) 
+		repeat 
+	else 
+	endif 
+	>> Global.node_024 
+	-> zinogre.dying_walk(2,1,0,800,200) 
+	return 
+endf 
+
+def node_003
+	if function#7C() 
+	else 
+		if function#C9() 
+			>> Global.node_174 
+		else 
+			function#CA() 
+		endif 
+	endif 
+	return 
+endf 
+

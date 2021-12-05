@@ -1,0 +1,30 @@
+importactions KestodonF as kestodonf
+importlibrary Global as Global
+
+def node_000
+	self.targetEnemy(34) 
+	if self.distance_2d_to_target().leq(2500) 
+		>> Global.node_002 
+		>> node_001 
+	else 
+		>> node_002 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	random (30) -> action#1B() 
+	elser (30) -> action#58() 
+	elser (20) -> action#0A() 
+	elser (20) -> action#0B() 
+	endr 
+	return 
+endf 
+
+def node_002
+	random (50) -> action#1E() 
+	elser (50) -> action#1F() 
+	endr 
+	return 
+endf 
+

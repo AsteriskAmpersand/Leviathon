@@ -1,0 +1,20 @@
+importactions Jyuratodus as jyuratodus
+
+def node_000
+	if self.in_map(st.Special_Arena).in_area(-1) 
+		self.targetArea(64) 
+		>> node_001 
+	elif self.in_map(st.Challenge_Arena).in_area(-1) 
+		self.targetArea(64) 
+		>> node_001 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	if function#101() -> jyuratodus.dash() 
+	else -> jyuratodus.swim_dash() 
+	endif 
+	return 
+endf 
+

@@ -1,0 +1,18 @@
+importactions Dodogama as dodogama
+
+def node_000
+	self.targetEnemy(51) 
+	>> node_001 
+	-> dodogama.in_ground() 
+	conclude 
+endf 
+
+def node_001
+	if self.distance_3d_to_target().leq(600) 
+	else 
+		-> dodogama.run(2,1,0,1500,500) 
+		repeat 
+	endif 
+	return 
+endf 
+

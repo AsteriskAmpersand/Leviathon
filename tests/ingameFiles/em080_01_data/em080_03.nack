@@ -1,0 +1,36 @@
+importactions Acidic_Glavenus as acidic_glavenus
+importlibrary Global as Global
+
+def node_000
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if function#41() 
+		>> Global.node_019 
+	elif self.target(7) 
+		>> node_002 
+	elif self.target(10) 
+		>> node_003 
+	else 
+		>> node_001 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	-> acidic_glavenus.threat() 
+	return 
+endf 
+
+def node_002
+	-> acidic_glavenus.threat() 
+	return 
+endf 
+
+def node_003
+	if self.angle_2d_cw_between(30,330) 
+		-> acidic_glavenus.turn() 
+	else 
+	endif 
+	-> acidic_glavenus.dash_bite2() 
+	return 
+endf 
+

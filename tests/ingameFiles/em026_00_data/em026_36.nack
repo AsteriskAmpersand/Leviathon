@@ -1,0 +1,108 @@
+importactions Lunastra as lunastra
+importlibrary Global as Global
+
+def node_000
+	>> node_004 
+	>> node_001 
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if self.distance_2d_to_target().leq(650) >> node_002 
+	else >> node_003 
+	endif 
+	reset 
+endf 
+
+def node_001
+	if function#101(0,2) 
+		if self.current_quest().is_rank(rank.AT) >> Global.node_026 
+		else >> Global.node_024 
+		endif 
+		>> Global.node_245 
+		>> Global.node_195 
+	elif function#101() 
+		>> Global.node_001 
+		-> lunastra.charge() 
+		>> Global.node_245 
+	endif 
+	return 
+endf 
+
+def node_002
+	if self.flying() 
+	else 
+		random (40) >> Global.node_012 
+		elser (30) >> Global.node_010 
+		elser (30) 
+		endr 
+		>> Global.node_002 
+	endif 
+	>> Global.node_196 
+	random (50) >> Global.node_202 
+	elser (50) >> Global.node_201 
+	endr 
+	return 
+endf 
+
+def node_003
+	if self.flying() >> Global.node_201 
+	endif 
+	>> Global.node_197 
+	random (30) >> Global.node_012 
+	elser (60) >> Global.node_203 
+	elser (10) >> Global.node_005 
+	endr 
+	return 
+endf 
+
+def node_004
+	if self.target_on_part(0) 
+		>> node_005 
+	elif self.target_on_part(1) 
+		>> node_005 
+	else 
+	endif 
+	return 
+endf 
+
+def node_005
+	>> Global.node_002 
+	>> node_006 
+	>> node_007 
+	reset 
+endf 
+
+def node_006
+	random (50) >> Global.node_166 
+	elser (50) 
+	endr 
+	return 
+endf 
+
+def node_007
+	if self.mounted() 
+		>> node_008 
+	else 
+		>> node_009 
+	endif 
+	return 
+endf 
+
+def node_008
+	>> Global.node_154 
+	if self.target_on_part(0) 
+		>> Global.node_155 
+	else 
+		>> Global.node_157 
+	endif 
+	return 
+endf 
+
+def node_009
+	>> Global.node_154 
+	if self.target_on_part(0) 
+		>> Global.node_156 
+	else 
+		>> Global.node_158 
+	endif 
+	return 
+endf 
+

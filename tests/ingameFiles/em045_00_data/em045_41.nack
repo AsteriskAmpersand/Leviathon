@@ -1,0 +1,19 @@
+importactions Uragaan as uragaan
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_009 
+	>> node_001 
+	conclude 
+endf 
+
+def node_001
+	self.targetArea(20) 
+	if self.distance_3d_to_target().gt(600) 
+		>> Global.node_059 
+		repeat 
+	else 
+	endif 
+	return 
+endf 
+

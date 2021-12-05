@@ -95,7 +95,7 @@ def fandCompile(fand,settings,output = print):
 if __name__ in "__main__":
     settings = CompilerSettings()
     settings.verbose = True
-    settings.thklistPath = r"test.thklist"
+    settings.thklistPath = r"test.thklst"
     settings.outputRoot = r"D:\Games SSD\MHW-AI-Analysis\TestOutput"
     populateDefaultSettings(settings)
-    fandCompile(r"D:\Games SSD\MHW-AI-Analysis\InlineTest\em001.fand",settings)
+    fandCompile(r"D:\Games SSD\MHW-AI-Analysis\KushalaTest\em024.fand",settings)

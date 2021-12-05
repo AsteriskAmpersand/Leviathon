@@ -1,0 +1,57 @@
+importactions Rajang as rajang
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_104 
+	>> Global.node_146 
+	>> Global.node_254 
+	>> node_001 
+	reset 
+endf 
+
+def node_001
+	self.targetEnemy(48) 
+	if self.in_map(st.Challenge_Arena).in_area(-1) 
+		>> node_004 
+	elif self.distance_3d_to_target().leq(3500) 
+		>> node_002 
+	else 
+		>> node_003 
+	endif 
+	return 
+endf 
+
+def node_002
+	if self.fatigued() 
+		>> Global.node_175 
+	else 
+		if self.target(7) 
+			>> Global.node_255 
+		else 
+			>> Global.node_116 
+			>> Global.node_256 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_003
+	if self.targetEnemy(target_em.any_monster) 
+		random (20) >> Global.node_170 
+		elser (80) 
+		endr 
+	else 
+	endif 
+	>> Global.node_255 
+	return 
+endf 
+
+def node_004
+	>> Global.node_114 
+	random (55) >> Global.node_256 
+	elser (35) >> Global.node_170 
+	elser (10) >> Global.node_177 
+	endr 
+	return 
+endf 
+

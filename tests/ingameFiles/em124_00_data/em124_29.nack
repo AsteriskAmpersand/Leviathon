@@ -1,0 +1,19 @@
+importactions Velkhana as velkhana
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_432 
+	>> Global.node_412 
+	self.targetEnemy(48) 
+	if self.in_map(st.Challenge_Arena).in_area(-1) 
+		>> Global.node_396 
+	elif self.target(7) 
+		>> Global.node_395 
+	elif self.distance_3d_to_target().leq(3500) 
+		>> Global.node_394 
+	else 
+		>> Global.node_395 
+	endif 
+	reset 
+endf 
+

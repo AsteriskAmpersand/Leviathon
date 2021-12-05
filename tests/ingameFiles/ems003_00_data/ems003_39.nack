@@ -1,0 +1,28 @@
+importactions Kelbi as kelbi
+importlibrary Global as Global
+
+def node_000
+	function#52(128) 
+	if function#66() >> node_001 
+	else >> node_002 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	return 
+endf 
+
+def node_002
+	>> node_003 
+	return 
+endf 
+
+def node_003
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if self.distance_3d_to_target().leq(400) 
+		>> Global.node_006 
+	endif 
+	return 
+endf 
+

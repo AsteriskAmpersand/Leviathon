@@ -1,0 +1,29 @@
+importactions Nargacuga as nargacuga
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_120 
+	self.targetArea(24) 
+	if self.distance_3d_to_target().gt(600) 
+		-> nargacuga.walk_dying(2,1,0,2000,600) 
+		repeat 
+	else 
+		>> node_001 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	if function#7C() 
+		conclude 
+	else 
+		if function#C9() 
+			-> nargacuga.dying_sleep(3,0,0,150) 
+		else 
+			function#CA() 
+			conclude 
+		endif 
+	endif 
+	return 
+endf 
+

@@ -1,0 +1,30 @@
+importactions Stygian_Zinogre as stygian_zinogre
+
+def node_000
+	function#103() 
+	self.targetEnemy(target_em.closest_entity) 
+	>> node_001 
+	conclude 
+endf 
+
+def node_001
+	if self.target_is(em.Brachydios) 
+		-> stygian_zinogre.grapple_with_em063_mediation() 
+	elif self.target_is(em.Glavenus) 
+		-> stygian_zinogre.grapple_with_em080_mediation() 
+	elif self.target_is(em.Acidic_Glavenus) 
+		-> stygian_zinogre.grapple_with_em080_mediation() 
+	elif self.target_is(em.Fulgur_Anjanath) 
+		-> stygian_zinogre.grapple_with_em100_01_mediation() 
+	elif self.target_is(em.Rathalos) 
+		-> stygian_zinogre.grapple_with_em002_mediation() 
+	elif self.target_is(em.Azure_Rathalos) 
+		-> stygian_zinogre.grapple_with_em002_mediation() 
+	elif self.target_is(em.Yian_Garuga) 
+		-> stygian_zinogre.grapple_with_em018_mediation() 
+	elif self.target_is(em.Scarred_Yian_Garuga) 
+		-> stygian_zinogre.grapple_with_em018_mediation() 
+	endif 
+	return 
+endf 
+

@@ -1,0 +1,33 @@
+importactions Ebony_Odogaron as ebony_odogaron
+importlibrary Global as Global
+
+def node_000
+	if function#109() 
+	else 
+		-> ebony_odogaron.sniff_s() 
+		>> node_001 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	>> Global.node_273 
+	>> Global.node_184 
+	>> Global.node_170 
+	>> Global.node_177 
+	>> Global.node_172 
+	>> node_002 
+	return 
+endf 
+
+def node_002
+	self.targetEnemy(34) 
+	if self.distance_3d_to_target().leq(1000) 
+		-> ebony_odogaron.quick_turn() @ unkn6:65536 
+	else 
+		-> ebony_odogaron.dash() @ unkn6:65536 
+		repeat 
+	endif 
+	return 
+endf 
+

@@ -1,0 +1,183 @@
+importactions Brute_Tigrex as brute_tigrex
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_020 
+	self.targetEnemy(21) @ parameter2:700 
+	function#41() >> Global.node_027 => reset 
+	self.enraged() >> node_002 => reset 
+	self.fatigued() >> node_003 => reset 
+	>> node_001 => reset 
+endf 
+
+def node_001
+	if self.target_on_part(0) 
+		random (42) >> node_011 
+		elser (33) >> node_012 
+		elser (25) >> node_017 
+		endr 
+	elif self.target_on_part(1) 
+		random (42) >> node_013 
+		elser (33) >> node_014 
+		elser (25) >> node_017 
+		endr 
+	elif self.target_on_part(2) 
+		random (42) >> node_015 
+		elser (33) >> node_016 
+		elser (25) >> node_017 
+		endr 
+	else 
+		random (25) >> node_005 
+		elser (30) >> node_006 
+		elser (25) >> node_008 
+		elser (20) >> node_007 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_002
+	if self.target_on_part(0) 
+		random (47) >> node_011 
+		elser (38) >> node_012 
+		elser (15) >> node_017 
+		endr 
+	elif self.target_on_part(1) 
+		random (47) >> node_013 
+		elser (38) >> node_014 
+		elser (15) >> node_017 
+		endr 
+	elif self.target_on_part(2) 
+		random (47) >> node_015 
+		elser (38) >> node_016 
+		elser (15) >> node_017 
+		endr 
+	else 
+		random (20) >> node_005 
+		elser (10) >> node_006 
+		elser (25) >> node_007 
+		elser (20) >> node_008 
+		elser (25) >> node_009 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_003
+	if self.target_on_part(0) 
+		random (37) >> node_011 
+		elser (28) >> node_012 
+		elser (35) >> node_017 
+		endr 
+	elif self.target_on_part(1) 
+		random (37) >> node_013 
+		elser (28) >> node_014 
+		elser (35) >> node_017 
+		endr 
+	elif self.target_on_part(2) 
+		random (37) >> node_015 
+		elser (28) >> node_016 
+		elser (35) >> node_017 
+		endr 
+	else 
+		random (15) >> node_005 
+		elser (10) >> node_006 
+		elser (5) >> node_007 
+		elser (70) >> node_010 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_004
+endf 
+
+def node_005
+	-> brute_tigrex.bite_min() 
+	return 
+endf 
+
+def node_006
+	-> brute_tigrex.lost_search_front() 
+	return 
+endf 
+
+def node_007
+	-> brute_tigrex.rotate_attack_r() 
+	return 
+endf 
+
+def node_008
+	-> brute_tigrex.min_roar_single() 
+	return 
+endf 
+
+def node_009
+	-> brute_tigrex.quick_turn() 
+	-> brute_tigrex.jump_attack() 
+	return 
+endf 
+
+def node_010
+	-> brute_tigrex.tired() 
+	return 
+endf 
+
+def node_011
+	-> brute_tigrex.ride_rage_head() 
+	return 
+endf 
+
+def node_012
+	>> node_018 
+	-> brute_tigrex.bite_max() 
+	return 
+endf 
+
+def node_013
+	>> node_018 
+	-> brute_tigrex.bite_min() 
+	return 
+endf 
+
+def node_014
+	-> brute_tigrex.ride_rage_body() 
+	return 
+endf 
+
+def node_015
+	-> brute_tigrex.ride_rage_tail() 
+	return 
+endf 
+
+def node_016
+	-> brute_tigrex.rotate_attack_r() 
+	return 
+endf 
+
+def node_017
+	-> brute_tigrex.wait() 
+	return 
+endf 
+
+def node_018
+	random (55) >> node_019 
+	elser (45) >> node_020 
+	endr 
+	if self.angular_17(300,60) 
+		-> brute_tigrex.turn() 
+	else 
+	endif 
+	return 
+endf 
+
+def node_019
+	self.targetEnemy(21) @ parameter2:3000 
+	return 
+endf 
+
+def node_020
+	self.targetEnemy(22) @ parameter2:3000 
+	return 
+endf 
+

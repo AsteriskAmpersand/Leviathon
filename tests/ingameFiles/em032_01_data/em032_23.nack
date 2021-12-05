@@ -1,0 +1,29 @@
+importactions Brute_Tigrex as brute_tigrex
+
+def node_000
+	self.targetEnemy(target_em.closest_entity) 
+	>> node_001 
+	conclude 
+endf 
+
+def node_001
+	if self.target_is(em.Brachydios) 
+		-> brute_tigrex.grapple_with_em063_mediation() 
+	elif self.target_is(em.Glavenus) 
+		-> brute_tigrex.grapple_with_em080_mediation() 
+	elif self.target_is(em.Acidic_Glavenus) 
+		-> brute_tigrex.grapple_with_em080_mediation() 
+	elif self.target_is(em.Fulgur_Anjanath) 
+		-> brute_tigrex.grapple_with_em100_01_mediation() 
+	elif self.target_is(em.Odogaron) 
+		-> brute_tigrex.grapple_with_em113_mediation() 
+	elif self.target_is(em.Ebony_Odogaron) 
+		-> brute_tigrex.grapple_with_em113_mediation() 
+	elif self.target_is(em.Rathalos) 
+		-> brute_tigrex.grapple_with_em002_mediation() 
+	elif self.target_is(em.Azure_Rathalos) 
+		-> brute_tigrex.grapple_with_em002_mediation() 
+	endif 
+	return 
+endf 
+

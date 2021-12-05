@@ -1,0 +1,95 @@
+importactions Legiana as legiana
+importlibrary Global as Global
+
+def node_000
+	self.targetEnemy(13) 
+	if self.target(4) 
+		>> Global.node_358 
+		>> Global.node_359 
+	else 
+		if self.flying() 
+			if self.enraged() >> node_004 
+			else >> node_003 
+			endif 
+		else 
+			if self.enraged() >> node_002 
+			else >> node_001 
+			endif 
+		endif 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	>> Global.node_246 
+	>> Global.node_248 
+	>> node_005 
+	return 
+endf 
+
+def node_002
+	>> Global.node_246 
+	>> Global.node_248 
+	>> node_005 
+	return 
+endf 
+
+def node_003
+	>> Global.node_247 
+	>> Global.node_249 
+	>> node_005 
+	return 
+endf 
+
+def node_004
+	>> Global.node_247 
+	>> Global.node_249 
+	>> node_005 
+	return 
+endf 
+
+def node_005
+	if self.target(10) 
+		>> node_007 
+	else 
+		self.targetEnemy(48) 
+		if self.distance_3d_to_target().leq(2000) 
+			if self.angle_2d_cw_between(300,60) 
+				if self.target(10) 
+					>> node_007 
+				elif function#5F() 
+					>> node_006 
+				elif self.target(7) 
+					>> node_006 
+				else 
+					>> Global.node_226 
+					>> Global.node_037 
+				endif 
+			else 
+				>> node_006 
+			endif 
+		else 
+			>> node_006 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_006
+	if self.flying() 
+		>> Global.node_251 
+	else 
+		>> Global.node_250 
+	endif 
+	return 
+endf 
+
+def node_007
+	if self.flying() 
+		>> Global.node_111 
+	else 
+		>> Global.node_092 
+	endif 
+	return 
+endf 
+

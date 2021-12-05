@@ -1,0 +1,20 @@
+importactions Ebony_Odogaron as ebony_odogaron
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_246 
+	>> Global.node_259 
+	>> Global.node_274 
+	self.targetEnemy(48) 
+	if self.in_map(st.Challenge_Arena).in_area(-1) 
+		>> Global.node_241 
+	elif self.target(7) 
+		>> Global.node_240 
+	elif self.distance_3d_to_target().leq(3500) 
+		>> Global.node_239 
+	else 
+		>> Global.node_240 
+	endif 
+	reset 
+endf 
+

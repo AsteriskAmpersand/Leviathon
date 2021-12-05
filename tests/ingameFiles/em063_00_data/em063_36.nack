@@ -1,0 +1,80 @@
+importactions Brachydios as brachydios
+importlibrary Global as Global
+
+def node_000
+	>> node_004 
+	>> Global.node_098 
+	>> node_008 
+	if self.enraged() >> node_002 
+	elif self.fatigued() >> node_003 
+	else >> node_001 
+	endif 
+	reset 
+endf 
+
+def node_001
+	random (30) >> Global.node_019 
+	elser (40) >> Global.node_016 
+	elser (30) >> Global.node_030 
+	endr 
+	return 
+endf 
+
+def node_002
+	random (30) >> Global.node_019 
+	elser (35) >> Global.node_016 
+	elser (35) >> Global.node_030 
+	endr 
+	return 
+endf 
+
+def node_003
+	random (40) >> Global.node_019 
+	elser (30) >> Global.node_016 
+	elser (30) >> Global.node_030 
+	endr 
+	return 
+endf 
+
+def node_004
+	if self.target_on_part(0) >> node_005 
+	elif self.target_on_part(1) >> node_006 
+	elif self.target_on_part(2) >> node_007 
+	else 
+		return 
+	endif 
+	reset 
+endf 
+
+def node_005
+	-> brachydios.ride_rage_head() 
+	return 
+endf 
+
+def node_006
+	-> brachydios.ride_rage_body() 
+	return 
+endf 
+
+def node_007
+	-> brachydios.ride_rage_tail() 
+	return 
+endf 
+
+def node_008
+	if self.fatigued() 
+		random (15) >> Global.node_065 
+		elser (85) 
+		endr 
+	elif self.enraged() 
+		random (10) >> Global.node_065 
+		elser (90) 
+		endr 
+	else 
+		random (5) >> Global.node_065 
+		elser (95) 
+		endr 
+	endif 
+	return 
+endf 
+

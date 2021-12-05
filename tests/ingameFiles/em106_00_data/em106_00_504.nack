@@ -1,0 +1,515 @@
+importactions Zorah_Magdaros as zorah_magdaros
+importlibrary Global as Global
+
+def node_000
+	if function#106() 
+		if function#B0(1) 
+			function#105() 
+			-> zorah_magdaros.threat_short_4leg() 
+			-> zorah_magdaros.wait_long_4leg() 
+			repeat 
+		elif function#36(1,900) 
+			function#105() 
+			-> zorah_magdaros.state_shift_2_to_4() 
+			-> zorah_magdaros.threat_short_4leg() 
+			repeat 
+		else 
+		endif 
+		>> node_001 
+	elif function#106(1) 
+		>> node_002 
+	elif function#106(2) 
+		if function#B0(1) 
+			>> node_011 
+		else 
+			>> node_007 
+		endif 
+	elif function#106(3) 
+		if function#36(1,10000) 
+			function#105() 
+			repeat 
+		endif 
+		>> node_015 
+	elif function#106(4) 
+		>> node_024 
+	endif 
+	reset 
+endf 
+
+def node_001
+	if function#102() 
+		function#101() 
+		repeat 
+	elif function#102(1) 
+		function#101() 
+		>> Global.node_032 
+	elif function#102(2) 
+		>> Global.node_027 
+		function#101() 
+		repeat 
+	elif function#102(3) 
+		if function#107() 
+			function#105() 
+			-> zorah_magdaros.wait_long_4leg() 
+			-> zorah_magdaros.wait_long_4leg() 
+		endif 
+		>> Global.node_034 
+	else 
+		>> Global.node_034 
+	endif 
+	return 
+endf 
+
+def node_002
+	if function#102() 
+		function#104(3,6) 
+		>> node_003 
+	elif function#102(1) 
+		function#101() 
+		>> node_004 
+		>> Global.node_034 
+	elif function#102(2) 
+		function#101() 
+		-> zorah_magdaros.wait_long_4leg() 
+	elif function#102(3) 
+		function#104(3,7) 
+		>> node_003 
+	elif function#102(4) 
+		function#101() 
+		>> node_005 
+	elif function#102(5) 
+		function#101() 
+		>> Global.node_034 
+	elif function#102(6) 
+		>> node_006 
+	else 
+		>> Global.node_034 
+	endif 
+	return 
+endf 
+
+def node_003
+	if self.distance_2d_to_target().leq(3000) 
+		function#101() 
+		>> Global.node_034 
+	elif self.distance_2d_to_target().leq(5000) 
+		>> Global.node_019 
+	else 
+		>> Global.node_016 
+	endif 
+	return 
+endf 
+
+def node_004
+	-> zorah_magdaros.wait_long_4leg() 
+	-> zorah_magdaros.shake_4leg() 
+	-> zorah_magdaros.wait_long_4leg() 
+	return 
+endf 
+
+def node_005
+	-> zorah_magdaros.lava_cannon_4leg() 
+	function#108(1) 
+	-> zorah_magdaros.wait_short_4leg() 
+	return 
+endf 
+
+def node_006
+	function#104(3,1) 
+	if function#10B() 
+		function#105() 
+		function#10C(1) 
+		[RegisterVar3 |-] 
+		>> Global.node_034 
+	elif self.distance_2d_to_target().leq(5000) 
+		>> Global.node_012 
+	else 
+		>> Global.node_016 
+	endif 
+	return 
+endf 
+
+def node_007
+	if function#102() 
+		>> Global.node_034 
+		function#101() 
+		[RegisterVar0 |-] 
+		>> Global.node_034 
+	elif function#102(1) 
+		>> node_009 
+		[RegisterVar0 ++] 
+		if [RegisterVar0 <= 5] 
+			[RegisterVar0 |-] 
+			function#101() 
+		endif 
+		-> zorah_magdaros.wait_nav_const_4leg() 
+	elif function#102(2) 
+		>> node_026 
+		>> Global.node_028 
+		function#101() 
+	elif function#102(3) 
+		>> node_010 
+		if [RegisterVar0 <= 5] 
+			function#101() 
+			[RegisterVar0 |-] => repeat 
+		else 
+			[RegisterVar0 ++] 
+		endif 
+		>> node_008 
+	elif function#102(4) 
+		function#108(1) 
+		-> zorah_magdaros.eruption_2leg() 
+		>> Global.node_027 
+		function#10C() 
+		function#105() 
+	else 
+		>> Global.node_034 
+	endif 
+	return 
+endf 
+
+def node_008
+	random (70) -> zorah_magdaros.wait_nav_const_2leg() 
+	elser (30) 
+	endr 
+	self.targetUnknown(50,0) 
+	if self.distance_2d_to_target().leq(3500) 
+		random (25) -> zorah_magdaros.lava_back_breath_nav_const_2leg_l() 
+		elser (25) -> zorah_magdaros.lava_back_breath_nav_const_2leg_r() 
+		elser (50) -> zorah_magdaros.wait_nav_const_2leg() 
+		endr 
+	else 
+		if self.angle_2d_cw_between(0,180) 
+			-> zorah_magdaros.lava_back_breath_nav_const_2leg_l() 
+		else 
+			-> zorah_magdaros.lava_back_breath_nav_const_2leg_r() 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_009
+	if function#36(1,2350) 
+		-> zorah_magdaros.wait_item_drop_4leg() 
+		function#10C() 
+		function#105() 
+		reset 
+	endif 
+	return 
+endf 
+
+def node_010
+	if function#36(1,2350) 
+		if function#10A(1) 
+			-> zorah_magdaros.wait_nav_const_2leg() 
+		else 
+		endif 
+		>> Global.node_027 
+		-> zorah_magdaros.wait_item_drop_4leg() 
+		function#105() 
+		function#10C() 
+		reset 
+	endif 
+	return 
+endf 
+
+def node_011
+	if function#102() 
+		>> Global.node_034 
+		function#101() 
+		[RegisterVar0 |-] 
+		>> Global.node_034 
+	elif function#102(1) 
+		>> node_009 
+		[RegisterVar0 ++] 
+		if [RegisterVar0 <= 5] 
+			[RegisterVar0 |-] 
+			function#101() 
+		endif 
+		-> zorah_magdaros.wait_nav_const_4leg() 
+	elif function#102(2) 
+		>> node_026 
+		>> Global.node_028 
+		function#101() 
+	elif function#102(3) 
+		>> node_010 
+		if self.current_quest().is_rank(rank.AT) 
+			>> node_014 
+		else 
+			>> node_012 
+		endif 
+	elif function#102(4) 
+		function#108(1) 
+		-> zorah_magdaros.eruption_2leg() 
+		>> Global.node_027 
+		function#10C() 
+		function#105() 
+	else 
+		>> Global.node_034 
+	endif 
+	return 
+endf 
+
+def node_012
+	if [RegisterVar4 <= 4] 
+		function#101() 
+		-> zorah_magdaros.wait_nav_const_2leg() 
+		[RegisterVar4 |-] => reset 
+	elif [RegisterVar4 <= 3] 
+		-> zorah_magdaros.wait_nav_const_2leg() 
+		if function#36(1,2340) 
+			[RegisterVar4 ++] 
+			-> zorah_magdaros.wait_item_drop_nav_const_2leg() 
+			>> node_013 
+			>> node_013 
+		else 
+			function#101() 
+			[RegisterVar4 |-] => reset 
+		endif 
+	elif [RegisterVar4 <= 2] 
+		-> zorah_magdaros.wait_nav_const_2leg() 
+		if function#36(1,2330) 
+			[RegisterVar4 ++] 
+			-> zorah_magdaros.wait_item_drop_nav_const_2leg() 
+			>> node_013 
+			>> node_013 
+		else 
+			function#101() 
+			[RegisterVar4 |-] => reset 
+		endif 
+	elif [RegisterVar4 <= 1] 
+		-> zorah_magdaros.wait_nav_const_2leg() 
+		if function#36(1,2310) 
+			[RegisterVar4 ++] 
+			-> zorah_magdaros.wait_item_drop_nav_const_2leg() 
+			>> node_013 
+			>> node_013 
+		else 
+			function#101() 
+			[RegisterVar4 |-] => reset 
+		endif 
+	else 
+		[RegisterVar4 ++] 
+		>> node_013 
+		>> node_013 
+	endif 
+	return 
+endf 
+
+def node_013
+	self.targetUnknown(50,0) 
+	if self.distance_2d_to_target().leq(3500) 
+		random (50) -> zorah_magdaros.lava_back_breath_nav_const_2leg_l() 
+		elser (50) -> zorah_magdaros.lava_back_breath_nav_const_2leg_r() 
+		endr 
+	else 
+		if self.angle_2d_cw_between(0,180) 
+			-> zorah_magdaros.lava_back_breath_nav_const_2leg_l() 
+		else 
+			-> zorah_magdaros.lava_back_breath_nav_const_2leg_r() 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_014
+	if self.hp_percent().gt(60) 
+		-> zorah_magdaros.wait_recovering_nav_const_2leg() 
+	else 
+		-> zorah_magdaros.wait_nav_const_2leg() 
+	endif 
+	>> node_013 
+	return 
+endf 
+
+def node_015
+	if function#102() 
+		function#10C() 
+		>> node_027 
+		>> node_016 
+	elif function#102(1) 
+		>> node_017 
+		function#101() 
+		[RegisterVar0 |-] 
+		>> Global.node_034 
+	elif function#102(2) 
+		>> node_017 
+		if self.current_quest().is_rank(rank.AT) 
+			>> node_020 
+		else 
+			>> node_018 
+			>> node_019 
+		endif 
+	else 
+		>> Global.node_034 
+	endif 
+	return 
+endf 
+
+def node_016
+	>> Global.node_027 
+	function#104(3,2) 
+	if function#10B() 
+		function#101() 
+		>> Global.node_034 
+	elif self.distance_2d_to_target().leq(5000) 
+		>> Global.node_012 
+	else 
+		>> Global.node_016 
+	endif 
+	return 
+endf 
+
+def node_017
+	>> Global.node_028 
+	function#104(3,5) 
+	if function#10B() 
+	elif self.distance_2d_to_target().leq(3000) 
+		>> Global.node_012 
+	else 
+		>> Global.node_004 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_018
+	function#104(3,8) 
+	>> Global.node_000 
+	random (0) 
+	elser (30) >> node_021 
+	elser (50) -> zorah_magdaros.chance_arm_slap_2leg() 
+	elser (20) -> zorah_magdaros.chance_headbutt_2leg() 
+	elser (0) 
+	endr 
+	random (0) -> zorah_magdaros.chance_wait_long_2leg() 
+	elser (0) -> zorah_magdaros.chance_wait_2leg() 
+	elser (50) -> zorah_magdaros.chance_wait_short_2leg() 
+	elser (50) 
+	endr 
+	return 
+endf 
+
+def node_019
+	if [RegisterVar0 <= 4] 
+		[RegisterVar0 |-] 
+		>> node_023 
+		if [RegisterVar1 <= 2] 
+			*&
+			-> zorah_magdaros.back_walk_2leg() 
+			function#103(3) 
+			-> zorah_magdaros.eruption_2leg() 
+		else 
+			-> zorah_magdaros.chance_threat_short_2leg() 
+			function#104(3,8) 
+			if function#B0(1) 
+				-> zorah_magdaros.super_lava_breath_free_2leg() 
+			else 
+				-> zorah_magdaros.super_lava_breath_2leg() 
+			endif 
+		endif 
+	else 
+		[RegisterVar0 ++] 
+	endif 
+	return 
+endf 
+
+def node_020
+	if [RegisterVar0 == 0] 
+		>> node_023 
+		[RegisterVar0 ++] 
+		if [RegisterVar1 <= 2] 
+			-> zorah_magdaros.back_walk_2leg() 
+			function#103(3) 
+			-> zorah_magdaros.eruption_2leg() 
+		else 
+			function#104(3,8) 
+			-> zorah_magdaros.super_lava_breath_free_2leg() 
+		endif 
+	else 
+		[RegisterVar0 |-] 
+		function#104(3,8) 
+		>> Global.node_000 
+		if function#109(1) 
+			-> zorah_magdaros.chance_arm_slap_2leg() 
+		else 
+			-> zorah_magdaros.chance_headbutt_2leg() 
+		endif 
+		-> zorah_magdaros.chance_wait_2leg() 
+	endif 
+	return 
+endf 
+
+def node_021
+	self.targetUnknown(50,0) 
+	-> zorah_magdaros.chance_wait_short_2leg() 
+	if self.angle_2d_cw_between(45,320) 
+		>> node_022 
+	else 
+		-> zorah_magdaros.chance_lava_breath_2leg() 
+	endif 
+	return 
+endf 
+
+def node_022
+	[RegisterVar2 ++] 
+	if [RegisterVar2 == 1] 
+		function#104(3,9) 
+	elif [RegisterVar2 == 2] 
+		function#104(3,10) 
+	else 
+		function#104(3,11) 
+		[RegisterVar2 |-] 
+	endif 
+	-> zorah_magdaros.chance_lava_breath_2leg() 
+	return 
+endf 
+
+def node_023
+	[RegisterVar1 |-] 
+	if function#109() 
+		[RegisterVar1 ++] 
+	endif 
+	if function#109(1) 
+		[RegisterVar1 ++] 
+	endif 
+	return 
+endf 
+
+def node_024
+	if function#102() 
+		function#104(3,12) 
+		>> Global.node_003 
+		-> zorah_magdaros.state_shift_2_to_4() 
+		function#101() 
+	elif function#102(1) 
+		>> node_025 
+	else 
+		>> Global.node_034 
+	endif 
+	return 
+endf 
+
+def node_025
+	function#104(3,12) 
+	-> zorah_magdaros.walk_no_navi_4leg(2,0,0,10000) 
+	return 
+endf 
+
+def node_026
+	if function#109() 
+	else 
+		function#103(1,1) 
+		[RegisterVar3 ++] 
+	endif 
+	return 
+endf 
+
+def node_027
+	if [RegisterVar3 <= 1] 
+		function#103(1) 
+		[RegisterVar3 |-] 
+	endif 
+	return 
+endf 
+

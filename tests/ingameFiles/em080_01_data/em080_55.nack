@@ -1,0 +1,1185 @@
+importactions Acidic_Glavenus as acidic_glavenus
+
+def node_000
+	conclude 
+endf 
+
+def node_001
+	if self.targetEnemy(target_em.any_monster) 
+		if self.target(13) 
+		else 
+			if self.vertical_distance_to_target().leq(1000) 
+				if self.distance_3d_to_target().leq(3000) 
+					if self.target.in_combat() 
+						>> node_002 
+					else 
+						>> node_003 
+					endif 
+				else 
+				endif 
+			else 
+			endif 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_002
+	if function#30(2) 
+		random (35) 
+		elser (0) >> node_004 
+		elser (10) >> node_007 
+		elser (55) >> node_006 
+		endr 
+	elif function#30(4) 
+		random (35) 
+		elser (10) >> node_004 
+		elser (55) >> node_007 
+		elser (0) >> node_006 
+		endr 
+	else 
+		random (35) 
+		elser (0) >> node_004 
+		elser (50) >> node_007 
+		elser (15) >> node_007 
+					>> node_006 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_003
+	if function#30(2) 
+		random (10) 
+		elser (35) >> node_004 
+		elser (0) >> node_007 
+		elser (55) >> node_006 
+		endr 
+	else 
+		random (35) 
+		elser (55) >> node_004 
+		elser (10) >> node_007 
+		elser (0) >> node_006 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_004
+	if function#41() 
+	else 
+		>> node_008 
+		-> acidic_glavenus.threat() 
+	endif 
+	return 
+endf 
+
+def node_005
+	if function#41() 
+	else 
+		>> node_008 
+		-> acidic_glavenus.threat_big() 
+	endif 
+	return 
+endf 
+
+def node_006
+	if function#41() 
+	else 
+		if self.target_is(em.Ebony_Odogaron) 
+			if self.target(39) 
+				self.force_area_change2() 
+			else 
+				>> node_004 
+			endif 
+		elif self.target_is(em.Tigrex) 
+			if self.target(39) 
+				self.force_area_change2() 
+			else 
+				>> node_004 
+			endif 
+		else 
+			self.force_area_change2() 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_007
+	if function#41() -> acidic_glavenus.bite() 
+	else 
+		if self.vertical_distance_to_target().gt(500) 
+			>> node_017 
+		elif self.distance_3d_to_target().gt(2000) 
+			>> node_017 
+		else 
+			>> node_012 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_008
+	if self.distance_3d_to_target().leq(500) 
+		-> acidic_glavenus.back_turn() 
+	else 
+	endif 
+	if self.angle_2d_cw_between(20,340) 
+		-> acidic_glavenus.quick_turn() 
+	else 
+	endif 
+	return 
+endf 
+
+def node_009
+	if self.fatigued() 
+		-> acidic_glavenus.tired_dash(2,1,5,1500,700) 
+	else 
+		-> acidic_glavenus.dash(2,1,5,1500,700) 
+	endif 
+	return 
+endf 
+
+def node_010
+	if self.fatigued() 
+		-> acidic_glavenus.tired_dash(2,1,5,3000,1200) 
+	else 
+		-> acidic_glavenus.dash(2,1,5,3000,1200) 
+	endif 
+	return 
+endf 
+
+def node_011
+	if self.fatigued() 
+		-> acidic_glavenus.tired_walk(2,1,5,1500,700) 
+	else 
+		-> acidic_glavenus.walk(2,1,5,1500,700) 
+	endif 
+	return 
+endf 
+
+def node_012
+	if function#103(3) 
+		if self.distance_3d_to_target().leq(1000) 
+			random (50) -> acidic_glavenus.two_combo_tail_attack_one_shot() 
+			elser (50) -> acidic_glavenus.two_combo_tail_attack() 
+			endr 
+		elif self.distance_3d_to_target().leq(1800) 
+			-> acidic_glavenus.two_combo_tail_attack() 
+		else 
+			-> acidic_glavenus.idle_sword_to_idle() 
+			repeat 
+		endif 
+	else 
+		if self.distance_3d_to_target().leq(1000) 
+			random (50) -> acidic_glavenus.bite() 
+			elser (50) -> acidic_glavenus.nagiharai() 
+			endr 
+		elif self.distance_3d_to_target().leq(1800) 
+			random (50) -> acidic_glavenus.dash_bite2() 
+			elser (50) -> acidic_glavenus.nagiharai() 
+			endr 
+		elif self.distance_3d_to_target().leq(2500) 
+			-> acidic_glavenus.jump_tail_attack() 
+		else 
+			>> node_010 
+			-> acidic_glavenus.nagiharai() 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_013
+	-> acidic_glavenus.bite() 
+	return 
+endf 
+
+def node_014
+	if self.angle_2d_cw_between(345,15) 
+		-> acidic_glavenus.dash_bite() 
+	elif self.angle_2d_cw_between(15,40) 
+		-> acidic_glavenus.dash_bite() 
+	elif self.angle_2d_cw_between(40,110) 
+		-> acidic_glavenus.turn_bite() 
+	elif self.angle_2d_cw_between(110,250) 
+		-> acidic_glavenus.dash_bite() 
+	elif self.angle_2d_cw_between(250,320) 
+		-> acidic_glavenus.dash_bite() 
+	else 
+		-> acidic_glavenus.dash_bite() 
+	endif 
+	return 
+endf 
+
+def node_015
+	-> acidic_glavenus.dash_bite2() 
+	return 
+endf 
+
+def node_016
+	-> acidic_glavenus.dash_bite2() 
+	return 
+endf 
+
+def node_017
+	>> node_008 
+	-> acidic_glavenus.jump_tail_attack() 
+	return 
+endf 
+
+def node_018
+	if self.target(0) 
+		>> node_019 
+	else 
+		>> node_019 
+	endif 
+	reset 
+endf 
+
+def node_019
+	-> acidic_glavenus.dash() 
+	return 
+endf 
+
+def node_020
+	self.targetArea(14) 
+	if self.distance_3d_to_target().gt(600) 
+		>> node_010 
+		repeat 
+	else 
+	endif 
+	return 
+endf 
+
+def node_021
+	self.targetArea(19) 
+	if self.distance_3d_to_target().gt(1000) 
+		>> node_009 
+		repeat 
+	else 
+	endif 
+	return 
+endf 
+
+def node_022
+	if function#41() 
+		>> node_009 => repeat 
+	else 
+	endif 
+	return 
+endf 
+
+def node_023
+endf 
+
+def node_024
+	>> node_027 
+	-> acidic_glavenus.meat_eat() 
+	return 
+endf 
+
+def node_025
+	-> acidic_glavenus.sleep() 
+	return 
+endf 
+
+def node_026
+	-> acidic_glavenus.drink() 
+	return 
+endf 
+
+def node_027
+	-> acidic_glavenus.turn() 
+	return 
+endf 
+
+def node_028
+	if self.angle_2d_cw_between(30,330) 
+		-> acidic_glavenus.turn() 
+	else 
+	endif 
+	return 
+endf 
+
+def node_029
+	if self.angle_2d_cw_between(80,280) 
+		-> acidic_glavenus.turn() 
+	else 
+	endif 
+	return 
+endf 
+
+def node_030
+	-> acidic_glavenus.step_back() 
+	return 
+endf 
+
+def node_031
+	-> acidic_glavenus.step_back_short() 
+	return 
+endf 
+
+def node_032
+	-> acidic_glavenus.refresh() 
+	return 
+endf 
+
+def node_033
+	-> acidic_glavenus.tired_wait() 
+	return 
+endf 
+
+def node_034
+endf 
+
+def node_035
+endf 
+
+def node_036
+	-> acidic_glavenus.combat_search() 
+	return 
+endf 
+
+def node_037
+	-> acidic_glavenus.short_search() 
+	return 
+endf 
+
+def node_038
+	-> acidic_glavenus.search() 
+	return 
+endf 
+
+def node_039
+	-> acidic_glavenus.combat_search() 
+	return 
+endf 
+
+def node_040
+	if self.enraged() 
+		-> acidic_glavenus.anger_search() @ unkn6:65536 
+	else 
+		-> acidic_glavenus.search() @ unkn6:65536 
+	endif 
+	return 
+endf 
+
+def node_041
+endf 
+
+def node_042
+	-> acidic_glavenus.wait() 
+	return 
+endf 
+
+def node_043
+	if self.fatigued() 
+		-> acidic_glavenus.tired_dash(1,0,2,1000) @ unknExtra0:3000 
+	else 
+		-> acidic_glavenus.dash(1,0,2,1000) @ unknExtra0:3000 
+	endif 
+	return 
+endf 
+
+def node_044
+	-> acidic_glavenus.discover() 
+	return 
+endf 
+
+def node_045
+	-> acidic_glavenus.threat() 
+	return 
+endf 
+
+def node_046
+	-> acidic_glavenus.threat_big() 
+	return 
+endf 
+
+def node_047
+	if self.distance_3d_to_target().leq(500) 
+		if self.angle_2d_cw_between(80,160) 
+			random (70) -> acidic_glavenus.turn_bite() 
+			elser (30) -> acidic_glavenus.bite() 
+			endr 
+		elif self.angle_2d_cw_between(200,270) 
+			random (70) -> acidic_glavenus.turn_bite() 
+			elser (30) -> acidic_glavenus.bite() 
+			endr 
+		else 
+			-> acidic_glavenus.bite() 
+		endif 
+	else 
+		-> acidic_glavenus.bite() 
+	endif 
+	return 
+endf 
+
+def node_048
+	-> acidic_glavenus.bite() 
+	return 
+endf 
+
+def node_049
+	-> acidic_glavenus.turn_bite() 
+	return 
+endf 
+
+def node_050
+	>> node_056 
+	>> node_066 
+	return 
+endf 
+
+def node_051
+	>> node_056 
+	>> node_073 
+	return 
+endf 
+
+def node_052
+	>> node_056 
+	>> node_060 
+	if self.target.helpless_0() 
+		>> node_073 
+	else 
+		>> node_066 
+	endif 
+	return 
+endf 
+
+def node_053
+	>> node_060 
+	if self.target.helpless_0() 
+		>> node_073 
+	else 
+		>> node_066 
+	endif 
+	return 
+endf 
+
+def node_054
+	>> node_060 
+	>> node_060 
+	if self.target.helpless_0() 
+		>> node_073 
+	else 
+		>> node_066 
+	endif 
+	return 
+endf 
+
+def node_055
+	if self.distance_2d_to_target().leq(800) 
+	else 
+		if self.fatigued() 
+			-> acidic_glavenus.tired_dash(6,2,0,800,1500) 
+		else 
+			-> acidic_glavenus.dash(1,2,0,800,1500) 
+		endif 
+	endif 
+	if self.distance_2d_to_target().leq(800) 
+	else 
+		if self.fatigued() 
+			-> acidic_glavenus.tired_dash(6,2,0,800,1500) 
+		else 
+			-> acidic_glavenus.dash(1,2,0,800,1500) 
+		endif 
+	endif 
+	if self.distance_2d_to_target().leq(800) 
+	else 
+		if self.fatigued() 
+			-> acidic_glavenus.tired_dash(6,2,0,800,1500) 
+		else 
+			-> acidic_glavenus.dash(1,2,0,800,1500) 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_056
+	if self.angle_2d_cw_between(135,225) 
+		>> node_057 
+	else 
+		>> node_058 
+	endif 
+	return 
+endf 
+
+def node_057
+	-> acidic_glavenus.step_back_short() 
+	return 
+endf 
+
+def node_058
+	if function#101(2) 
+		if self.angle_2d_cw_between(0,180) 
+			random (50) -> acidic_glavenus.side_step_e_f_r() 
+						>> node_085 
+			elser (50) -> acidic_glavenus.step_side_r() 
+						>> node_078 
+			endr 
+		else 
+			random (50) -> acidic_glavenus.side_step_e_f_l() 
+						>> node_085 
+			elser (50) -> acidic_glavenus.step_side_l() 
+						>> node_078 
+			endr 
+		endif 
+	else 
+		if self.angle_2d_cw_between(0,180) 
+			-> acidic_glavenus.step_side_r() 
+		else 
+			-> acidic_glavenus.step_side_l() 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_059
+	>> node_060 
+	if self.distance_2d_to_target().leq(650) 
+	elif self.distance_2d_to_target().leq(1300) 
+		if function#101(2) 
+			random (50) -> acidic_glavenus.switch_two_combo_move_bite_before() 
+			elser (50) 
+			endr 
+		else 
+			random (50) -> acidic_glavenus.dash_bite2() 
+			elser (50) 
+			endr 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_060
+	if self.distance_2d_to_target().leq(200) 
+		>> node_064 
+	elif self.distance_2d_to_target().leq(700) 
+		if self.angle_2d_cw_between(270,90) 
+			>> node_061 
+		else 
+			>> node_064 
+		endif 
+	else 
+		>> node_061 
+	endif 
+	return 
+endf 
+
+def node_061
+	if self.distance_2d_to_target().leq(850) 
+		>> node_062 
+	elif self.distance_2d_to_target().leq(1400) 
+		>> node_063 
+	elif self.distance_2d_to_target().leq(1750) 
+		if function#101(2) 
+			>> node_080 
+		else 
+			-> acidic_glavenus.dash_bite2() 
+		endif 
+	else 
+		>> node_055 
+		if function#101(2) 
+			random (20) -> acidic_glavenus.side_step_e_f_r() 
+						>> node_085 
+			elser (20) -> acidic_glavenus.side_step_e_f_l() 
+						>> node_085 
+			elser (20) >> node_078 
+			elser (20) -> acidic_glavenus.step_side_r() 
+						>> node_078 
+			elser (20) -> acidic_glavenus.step_side_l() 
+						>> node_078 
+			endr 
+		else 
+			-> acidic_glavenus.bite() 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_062
+	if self.distance_2d_to_target().leq(400) 
+		-> acidic_glavenus.back_turn() 
+	else 
+	endif 
+	if self.angle_2d_cw_between(0,360) 
+		if function#101(2) 
+			>> node_078 
+		else 
+			-> acidic_glavenus.bite() 
+		endif 
+	elif self.angle_2d_cw_between(45,180) 
+		-> acidic_glavenus.quick_turn() 
+		-> acidic_glavenus.bite_no_blend_r() 
+	else 
+		-> acidic_glavenus.quick_turn() 
+		-> acidic_glavenus.bite_no_blend_l() 
+	endif 
+	return 
+endf 
+
+def node_063
+	if self.angle_2d_cw_between(0,360) 
+		if function#101(2) 
+			>> node_079 
+		else 
+			-> acidic_glavenus.dash_bite() 
+		endif 
+	elif self.angle_2d_cw_between(45,180) 
+		-> acidic_glavenus.quick_turn() 
+		-> acidic_glavenus.dash_bite_no_blend_r() 
+	else 
+		-> acidic_glavenus.quick_turn() 
+		-> acidic_glavenus.dash_bite_no_blend_l() 
+	endif 
+	return 
+endf 
+
+def node_064
+	-> acidic_glavenus.turn_tail_attack_l() 
+	return 
+endf 
+
+def node_065
+	if self.distance_2d_to_target().leq(650) 
+		>> node_058 
+	else 
+	endif 
+	if self.angle_2d_cw_between(0,360) 
+		if function#101(2) 
+			>> node_080 
+		else 
+			-> acidic_glavenus.dash_bite2() 
+		endif 
+	elif self.angle_2d_cw_between(45,180) 
+		-> acidic_glavenus.quick_turn() 
+		-> acidic_glavenus.dash_bite2_no_blend_r() 
+	else 
+		-> acidic_glavenus.quick_turn() 
+		-> acidic_glavenus.dash_bite2_no_blend_l() 
+	endif 
+	return 
+endf 
+
+def node_066
+	if self.distance_2d_to_target().leq(500) 
+		if function#101(2) 
+			>> node_059 
+		else 
+			>> node_070 
+		endif 
+	elif self.distance_2d_to_target().leq(750) 
+		random (40) >> node_069 
+		elser (60) >> node_068 
+		endr 
+	elif self.distance_2d_to_target().leq(1000) 
+		random (80) >> node_069 
+		elser (20) >> node_068 
+		endr 
+	elif self.distance_2d_to_target().leq(1500) 
+		>> node_069 
+	else 
+		>> node_071 
+	endif 
+	return 
+endf 
+
+def node_067
+	if self.enraged() 
+		if self.angle_2d_cw_between(0,180) 
+			>> node_068 
+		else 
+			>> node_069 
+		endif 
+	else 
+		if self.angle_2d_cw_between(0,180) 
+			>> node_069 
+		else 
+			>> node_068 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_068
+	if function#101(1) 
+		-> acidic_glavenus.nagiharai() 
+	else 
+		-> acidic_glavenus.nagiharai() 
+	endif 
+	return 
+endf 
+
+def node_069
+	if self.enraged() 
+		if function#101(1) 
+			-> acidic_glavenus.tail_vertical_attack_slash_combo() 
+			>> node_072 
+		else 
+			-> acidic_glavenus.tail_vertical_attack_step_combo() 
+			>> node_072 
+		endif 
+	else 
+		-> acidic_glavenus.tail_vertical_attack() 
+	endif 
+	return 
+endf 
+
+def node_070
+	if function#101(2) 
+		if function#103(3) 
+			>> node_088 
+		else 
+			if self.distance_2d_to_target().leq(500) 
+				-> acidic_glavenus.step_back_short() 
+			else 
+			endif 
+			>> node_060 
+		endif 
+	else 
+		-> acidic_glavenus.tail_fire_attack_back() 
+	endif 
+	return 
+endf 
+
+def node_071
+	if function#101(2) 
+		if function#103(3) 
+			>> node_088 
+		else 
+			if self.distance_2d_to_target().leq(500) 
+				-> acidic_glavenus.step_back_short() 
+			else 
+			endif 
+			>> node_060 
+		endif 
+	else 
+		-> acidic_glavenus.tail_fire_attack() 
+	endif 
+	return 
+endf 
+
+def node_072
+	if self.distance_2d_to_target().leq(500) 
+		>> node_070 
+	elif self.distance_2d_to_target().leq(1000) 
+		>> node_068 
+	elif self.distance_2d_to_target().leq(2500) 
+		random (30) >> node_071 
+		elser (70) >> node_074 
+		endr 
+	else 
+	endif 
+	return 
+endf 
+
+def node_073
+	if self.distance_2d_to_target().leq(1000) 
+		>> node_066 
+	else 
+		>> node_074 
+	endif 
+	return 
+endf 
+
+def node_074
+	if function#101(2) 
+		>> node_075 
+	else 
+		if self.enraged() 
+			if self.distance_2d_to_target().leq(1500) 
+				-> acidic_glavenus.jump_tail_attack2_start_near() 
+			elif self.vertical_distance_to_target().gt(700) 
+				if function#101(2) 
+					-> acidic_glavenus.switch_two_combo_jump_tail_attack_up() 
+					>> node_086 
+				else 
+					-> acidic_glavenus.jump_tail_attack2_start_up() 
+				endif 
+			else 
+				if function#101(2) 
+					-> acidic_glavenus.switch_two_combo_jump_tail_attack() 
+					>> node_086 
+				else 
+					-> acidic_glavenus.jump_tail_attack2_start() 
+				endif 
+			endif 
+		else 
+			if self.distance_2d_to_target().leq(1500) 
+				-> acidic_glavenus.jump_tail_attack_near() 
+			elif self.vertical_distance_to_target().gt(700) 
+				if function#101(2) 
+					-> acidic_glavenus.switch_jump_tail_attack_before_up() 
+					>> node_086 
+				else 
+					-> acidic_glavenus.jump_tail_attack_up() 
+				endif 
+			else 
+				if function#101(2) 
+					-> acidic_glavenus.switch_jump_tail_attack_before() 
+					>> node_086 
+				else 
+					-> acidic_glavenus.jump_tail_attack() 
+				endif 
+			endif 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_075
+	if function#103(3) 
+	else 
+		if self.angle_2d_cw_between(0,180) 
+			-> acidic_glavenus.idle_to_idle_sword_f() 
+		else 
+			-> acidic_glavenus.idle_to_idle_sword_e() 
+		endif 
+	endif 
+	if self.vertical_distance_to_target().gt(600) 
+		-> acidic_glavenus.asyu_jump_tail_attack_up() 
+	else 
+		-> acidic_glavenus.asyu_jump_tail_attack() 
+	endif 
+	return 
+endf 
+
+def node_076
+	-> acidic_glavenus.asyu_move_bite() 
+	return 
+endf 
+
+def node_077
+	if self.angle_2d_cw_between(330,30) 
+		random (50) -> acidic_glavenus.asyu_move_nagiharai() 
+		elser (50) -> acidic_glavenus.asyu_move_nagiharai_r() 
+		endr 
+	elif self.angle_2d_cw_between(31,100) 
+		-> acidic_glavenus.asyu_move_nagiharai() 
+	elif self.angle_2d_cw_between(260,329) 
+		-> acidic_glavenus.asyu_move_nagiharai_r() 
+	else 
+		random (50) -> acidic_glavenus.asyu_move_nagiharai() 
+		elser (50) -> acidic_glavenus.asyu_move_nagiharai_r() 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_078
+	-> acidic_glavenus.switch_bite_before() 
+	>> node_085 
+	return 
+endf 
+
+def node_079
+	-> acidic_glavenus.switch_move_bite_before() 
+	>> node_085 
+	return 
+endf 
+
+def node_080
+	-> acidic_glavenus.switch_two_combo_move_bite_before() 
+	>> node_085 
+	return 
+endf 
+
+def node_081
+	if self.angle_2d_ccw_between(45,0) 
+		random (50) -> acidic_glavenus.side_step_e_f_l() 
+		elser (50) -> acidic_glavenus.side_step_e_f_r() 
+		endr 
+	else 
+		if self.distance_3d_to_target().leq(500) 
+			-> acidic_glavenus.back_min() 
+		else 
+			if self.angle_2d_cw_between(0,180) 
+				-> acidic_glavenus.idle_to_idle_sword_e() 
+			else 
+				-> acidic_glavenus.idle_to_idle_sword_f() 
+			endif 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_082
+	if function#103(1) 
+		if self.angle_2d_cw_between(0,180) 
+			-> acidic_glavenus.move_tail_cleave() 
+		else 
+			random (50) >> node_089 
+			elser (50) >> node_084 
+			endr 
+			-> acidic_glavenus.move_tail_cleave() 
+		endif 
+	elif function#103(2) 
+		if self.angle_2d_cw_between(180,360) 
+			-> acidic_glavenus.move_tail_cleave() 
+		else 
+			random (50) >> node_089 
+			elser (50) >> node_084 
+			endr 
+			-> acidic_glavenus.move_tail_cleave() 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_083
+	if function#103(1) 
+		if self.angle_2d_cw_between(0,180) 
+			-> acidic_glavenus.move_tail_cleave() 
+		else 
+			>> node_089 
+		endif 
+	elif function#103(2) 
+		if self.angle_2d_cw_between(0,180) 
+			>> node_089 
+		else 
+			-> acidic_glavenus.move_tail_cleave() 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_084
+	if self.enraged() 
+		if self.distance_3d_to_target().leq(700) 
+			-> acidic_glavenus.two_combo_tail_attack_start_near() 
+		elif self.distance_3d_to_target().leq(1500) 
+			-> acidic_glavenus.two_combo_tail_attack_start() 
+		else 
+		endif 
+	else 
+		if self.distance_3d_to_target().leq(700) 
+			-> acidic_glavenus.two_combo_tail_attack_one_shot_near() 
+		elif self.distance_3d_to_target().leq(1500) 
+			-> acidic_glavenus.two_combo_tail_attack_one_shot() 
+		else 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_085
+	if function#101(2) 
+		if self.fatigued() 
+			>> node_090 
+			reset 
+		else 
+		endif 
+	else 
+		>> node_090 
+		reset 
+	endif 
+	if [RegisterVar0 >= 5] 
+		[RegisterVar0 ++] 
+		>> node_086 
+	else 
+		[RegisterVar0 |-] 
+		random (100) >> node_090 
+					reset 
+		elser (0) >> node_091 
+		endr 
+	endif 
+	repeat 
+endf 
+
+def node_086
+	if self.distance_2d_to_target().leq(500) 
+		random (15) >> node_087 
+		elser (15) >> node_089 
+		elser (25) >> node_088 
+		elser (35) >> node_084 
+		elser (0) >> node_082 
+		elser (10) >> node_090 
+					reset 
+		endr 
+	elif self.distance_2d_to_target().leq(1000) 
+		random (15) >> node_087 
+		elser (15) >> node_089 
+		elser (20) >> node_088 
+		elser (15) >> node_084 
+		elser (20) >> node_082 
+		elser (15) >> node_090 
+					reset 
+		endr 
+	elif self.distance_2d_to_target().leq(1500) 
+		random (0) >> node_087 
+		elser (35) >> node_089 
+		elser (15) >> node_088 
+		elser (0) >> node_084 
+		elser (35) >> node_082 
+		elser (15) >> node_090 
+					reset 
+		endr 
+	else 
+		random (55) >> node_090 
+					reset 
+		elser (45) >> node_075 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_087
+	-> acidic_glavenus.back_turn_e_f() 
+	-> acidic_glavenus.switch_tail_attack() 
+	return 
+endf 
+
+def node_088
+	if function#103(1) 
+		if self.angle_2d_cw_between(0,180) 
+			-> acidic_glavenus.move_back_tail_attack() @ comboSetting:1 
+			-> acidic_glavenus.quick_turn_e_f() 
+		else 
+			>> node_089 
+		endif 
+	else 
+		if self.angle_2d_cw_between(0,180) 
+			>> node_089 
+		else 
+			-> acidic_glavenus.move_back_tail_attack() @ comboSetting:1 
+			-> acidic_glavenus.quick_turn_e_f() 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_089
+	if function#103(1) 
+		-> acidic_glavenus.tail_thrust_attack() @ comboSetting:1 
+		-> acidic_glavenus.quick_turn_e_f() 
+	else 
+		-> acidic_glavenus.tail_thrust_attack() @ comboSetting:1 
+		-> acidic_glavenus.quick_turn_e_f() 
+	endif 
+	return 
+endf 
+
+def node_090
+	if self.distance_2d_to_target().leq(1000) 
+		>> node_093 
+	elif self.distance_2d_to_target().leq(1500) 
+		random (50) >> node_093 
+		elser (50) >> node_094 
+		endr 
+	elif self.distance_2d_to_target().leq(2000) 
+		>> node_094 
+	else 
+		>> node_075 
+		-> acidic_glavenus.idle_sword_to_idle() 
+	endif 
+	reset 
+endf 
+
+def node_091
+	random (50) >> node_092 
+				-> acidic_glavenus.asyu_special_attack_e_f() 
+	elser (50) -> acidic_glavenus.somer_sault_e_f() 
+	endr 
+	return 
+endf 
+
+def node_092
+	if self.distance_3d_to_target().leq(500) 
+		if self.angle_2d_ccw_between(90,0) 
+			*&
+		else 
+			-> acidic_glavenus.back_turn_e_f() 
+		endif 
+	else 
+		if self.angle_2d_ccw_between(90,0) 
+		else 
+			-> acidic_glavenus.quick_turn_e_f() 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_093
+	if function#103(1) 
+		if self.angle_2d_cw_between(0,180) 
+			-> acidic_glavenus.asyu_special_attack() @ comboSetting:1 
+			-> acidic_glavenus.wait() 
+		else 
+			>> node_094 
+		endif 
+	else 
+		if self.angle_2d_cw_between(0,180) 
+			>> node_094 
+		else 
+			-> acidic_glavenus.asyu_special_attack() @ comboSetting:1 
+			-> acidic_glavenus.wait() 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_094
+	if self.distance_2d_to_target().leq(500) 
+		-> acidic_glavenus.back_turn_e_f() 
+	else 
+	endif 
+	-> acidic_glavenus.somer_sault() @ comboSetting:1 
+	-> acidic_glavenus.wait() 
+	return 
+endf 
+
+def node_095
+	[RegisterVar2 |-] 
+	-> acidic_glavenus.special_attack() 
+	return 
+endf 
+
+def node_096
+	if function#103(3) 
+		if self.in_combat() 
+			>> node_090 
+		else 
+			-> acidic_glavenus.idle_sword_to_idle() 
+		endif 
+	else 
+		*&
+	endif 
+	return 
+endf 
+
+def node_097
+	if self.vertical_distance_to_target().gt(600) 
+		-> acidic_glavenus.asyu_jump_tail_attack_up() 
+	else 
+		-> acidic_glavenus.asyu_jump_tail_attack() 
+	endif 
+	return 
+endf 
+
+def node_098
+	>> node_100 
+	-> acidic_glavenus.jump_attack_high() 
+	return 
+endf 
+
+def node_099
+	>> node_100 
+	-> acidic_glavenus.jump_attack() 
+	return 
+endf 
+
+def node_100
+	if self.angle_2d_cw_between(50,310) 
+		-> acidic_glavenus.quick_turn() 
+	else 
+		*&
+	endif 
+	return 
+endf 
+

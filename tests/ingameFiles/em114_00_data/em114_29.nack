@@ -1,0 +1,104 @@
+importactions Radobaan as radobaan
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_008 
+	>> Global.node_001 
+	>> Global.node_010 
+	>> node_001 
+	reset 
+endf 
+
+def node_001
+	self.targetEnemy(48) 
+	if self.in_map(st.Challenge_Arena).in_area(-1) 
+		>> node_004 
+	elif self.distance_3d_to_target().leq(3500) 
+		>> node_002 
+	else 
+		>> node_003 
+	endif 
+	return 
+endf 
+
+def node_002
+	>> node_005 
+	if self.enraged() 
+		-> radobaan.combat_search() 
+		>> Global.node_020 
+	elif self.fatigued() 
+		-> radobaan.tired() 
+	else 
+		-> radobaan.combat_search() 
+		>> Global.node_019 
+	endif 
+	return 
+endf 
+
+def node_003
+	if self.targetEnemy(target_em.any_monster) 
+		random (20) >> node_005 
+		elser (80) 
+		endr 
+	else 
+	endif 
+	if self.enraged() 
+		random (15) -> radobaan.combat_search() 
+		elser (40) -> radobaan.anger_search() 
+		elser (10) -> radobaan.sniff_s() 
+		elser (20) -> radobaan.sniff_l() 
+		elser (15) -> radobaan.wait() 
+		endr 
+	elif self.fatigued() 
+		random (35) -> radobaan.combat_search() 
+		elser (20) -> radobaan.sniff_s() 
+		elser (25) -> radobaan.sniff_l() 
+		elser (20) -> radobaan.tired() 
+		endr 
+	else 
+		random (35) -> radobaan.combat_search() 
+		elser (20) -> radobaan.anger_search() 
+		elser (10) -> radobaan.sniff_s() 
+		elser (20) -> radobaan.sniff_l() 
+		elser (15) -> radobaan.wait() 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_004
+	>> node_005 
+	if self.fatigued() 
+		random (35) -> radobaan.tired() 
+		elser (45) -> radobaan.combat_search() 
+		elser (20) -> radobaan.threat_short() 
+		endr 
+	else 
+		random (35) -> radobaan.wait() 
+		elser (45) -> radobaan.combat_search() 
+		elser (20) -> radobaan.threat_short() 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_005
+	if self.distance_3d_to_target().leq(800) 
+		-> radobaan.back_turn() 
+	elif self.angle_2d_cw_between(50,310) 
+		-> radobaan.quick_turn() 
+	else 
+		*&
+	endif 
+	return 
+endf 
+
+def node_006
+	if self.angle_2d_cw_between(120,240) 
+		-> radobaan.quick_turn() 
+	else 
+		*&
+	endif 
+	return 
+endf 
+

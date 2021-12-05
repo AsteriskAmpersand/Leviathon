@@ -1,0 +1,15 @@
+importactions Raging_Brachydios as raging_brachydios
+importlibrary Global as Global
+
+def node_000
+	self.targetArea(24) 
+	if self.distance_3d_to_target().gt(500) -> raging_brachydios.dash(2,5,0,1500) 
+		repeat 
+	else 
+		self.targetEnemy(48) 
+		>> Global.node_119 
+		-> raging_brachydios.threat_big() 
+	endif 
+	conclude 
+endf 
+

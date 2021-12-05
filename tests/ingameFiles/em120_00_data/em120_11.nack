@@ -1,0 +1,258 @@
+importactions TzitziYaKu as tzitziyaku
+importlibrary Global as Global
+
+def node_000
+	if self.fatigued() 
+		random (40) >> node_018 
+		elser (60) >> Global.node_039 
+		endr 
+	else 
+	endif 
+	if self.mounted() 
+		random (52) >> node_001 
+		elser (48) >> node_002 
+		endr 
+	else 
+		random (42) >> node_001 
+		elser (58) >> node_002 
+		endr 
+	endif 
+	reset 
+endf 
+
+def node_001
+	>> node_026 
+	function#A8() 
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if function#A9(0,1) 
+		>> node_008 => repeat 
+	elif function#A9(0,2) 
+		self.target_on_part(0) >> node_003 => repeat 
+		self.target_on_part(1) >> node_004 => repeat 
+	elif function#A9(0,3) 
+		>> node_005 => repeat 
+	else 
+		function#A8(1) 
+		self.target_on_part(1) >> node_004 => return 
+		self.target_on_part(0) >> node_003 => return 
+	endif 
+	return 
+endf 
+
+def node_002
+	>> node_026 
+	function#A8() 
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if function#A9(0,1) 
+		>> node_008 => repeat 
+	elif function#A9(0,2) 
+		self.target_on_part(0) >> node_003 => repeat 
+		self.target_on_part(1) >> node_004 => repeat 
+	elif function#A9(0,3) 
+		>> node_015 => repeat 
+	else 
+		function#A8(1) 
+		>> node_005 
+	endif 
+	return 
+endf 
+
+def node_003
+	if self.mounted() 
+		>> node_010 
+	else 
+		>> node_011 
+	endif 
+	return 
+endf 
+
+def node_004
+	if self.mounted() 
+		>> node_012 
+	else 
+		>> node_013 
+	endif 
+	return 
+endf 
+
+def node_005
+	if self.mounted() 
+		>> node_006 
+	else 
+		>> node_007 
+	endif 
+	return 
+endf 
+
+def node_006
+	if function#29() 
+		self.targetArea(7) 
+		>> node_016 
+		self.targetArea(15) 
+		>> node_016 
+		self.target_on_part(0) -> tzitziyaku.ride_rage_crash_head() => return 
+		self.target_on_part(1) -> tzitziyaku.ride_rage_crash_body() => return 
+	else 
+		self.target_on_part(0) >> node_011 => return 
+		self.target_on_part(1) >> node_013 => return 
+	endif 
+	return 
+endf 
+
+def node_007
+	if function#29() 
+		self.targetArea(7) 
+		>> node_016 
+		self.targetArea(15) 
+		>> node_016 
+		self.target_on_part(0) -> tzitziyaku.ride_rage_crash_head_lv2() => return 
+		self.target_on_part(1) -> tzitziyaku.ride_rage_crash_body_lv2() => return 
+	else 
+		>> node_014 => return 
+	endif 
+	return 
+endf 
+
+def node_008
+	if self.mounted() 
+		>> node_017 
+	else 
+	endif 
+	return 
+endf 
+
+def node_009
+endf 
+
+def node_010
+	-> tzitziyaku.ride_rage_head() 
+	return 
+endf 
+
+def node_011
+	>> node_019 
+	-> tzitziyaku.ride_rage_crash_head() 
+	return 
+endf 
+
+def node_012
+	>> node_019 
+	>> Global.node_060 
+	return 
+endf 
+
+def node_013
+	-> tzitziyaku.ride_rage_body() 
+	return 
+endf 
+
+def node_014
+	>> node_019 
+	-> tzitziyaku.ride_rage_crash_body_lv2() 
+	return 
+endf 
+
+def node_015
+	>> Global.node_054 
+	random (50) >> Global.node_057 
+	elser (50) >> Global.node_060 
+	endr 
+	return 
+endf 
+
+def node_016
+	if self.fatigued() 
+		-> tzitziyaku.tired_dash(1,2,0,600,3000) 
+	else 
+		-> tzitziyaku.dash(1,2,0,600,3000) 
+	endif 
+	return 
+endf 
+
+def node_017
+	-> tzitziyaku.wait() 
+	return 
+endf 
+
+def node_018
+	-> tzitziyaku.tired() 
+	return 
+endf 
+
+def node_019
+	random (20) >> node_020 
+	elser (80) >> node_021 
+	endr 
+	>> node_025 
+	return 
+endf 
+
+def node_020
+	self.targetEnemy(21) @ parameter2:1000 
+	return 
+endf 
+
+def node_021
+	self.targetEnemy(22) @ parameter2:1000 
+	return 
+endf 
+
+def node_022
+	random (48) >> node_023 
+	elser (52) >> node_024 
+	endr 
+	return 
+endf 
+
+def node_023
+	self.targetEnemy(12) @ parameter2:1000 
+	return 
+endf 
+
+def node_024
+	self.targetEnemy(11) @ parameter2:1000 
+	return 
+endf 
+
+def node_025
+	>> Global.node_053 
+	return 
+endf 
+
+def node_026
+	if function#3B() 
+		if self.mount_staggered_twice() 
+			>> node_027 
+		endif 
+	else 
+		if self.mount_finisher_ready() 
+			if self.mounted() 
+				random (60) >> node_027 
+				elser (40) 
+				endr 
+			else 
+				random (100) >> node_027 
+				elser (0) 
+				endr 
+			elif self.mount_finisher_ready() 
+			endif 
+		elif self.mount_stabbed() 
+			if self.mounted() 
+				random (40) >> node_027 
+				elser (60) 
+				endr 
+			else 
+				random (100) >> node_027 
+				elser (0) 
+				endr 
+			endif 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_027
+	-> tzitziyaku.ride_tired() 
+	return 
+endf 
+

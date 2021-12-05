@@ -18,5 +18,5 @@ class CompilerSettings():
         self.forceError = False
         self.repeatedProperty = "Warning"
         
-        self.thklistPath = "em000.thklist"
+        self.thklistPath = "em000.thklst"
         self.outputRoot = ""

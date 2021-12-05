@@ -1,0 +1,235 @@
+importactions Apceros as apceros
+
+def node_000
+	>> node_002 
+	>> node_005 
+	conclude 
+endf 
+
+def node_001
+endf 
+
+def node_002
+	function#54() 
+	>> node_003 
+	return 
+endf 
+
+def node_003
+	function#E4(4) 
+	function#E4(1) 
+	function#E4(2) 
+	function#E4(11) 
+	function#E7(1) 
+	function#E7(11) 
+	function#E7(2) 
+	function#E7(3) 
+	function#E7(4) 
+	function#E7(5) 
+	return 
+endf 
+
+def node_004
+endf 
+
+def node_005
+	if [RegisterVar1 <= 1] 
+		>> node_006 
+	else 
+		>> node_031 
+		>> node_017 
+	endif 
+	return 
+endf 
+
+def node_006
+	if [RegisterVar8 <= 2] 
+		>> node_016 
+		>> node_008 
+	elif [RegisterVar8 <= 1] 
+		>> node_014 
+	else 
+		>> node_016 
+	endif 
+	>> node_030 
+	return 
+endf 
+
+def node_007
+endf 
+
+def node_008
+	self.targetEnemy(48) 
+	>> node_010 
+	if self.distance_3d_to_target().leq(500) 
+		>> node_009 
+		>> node_034 
+	else 
+		if [RegisterVar9 <= 10] 
+			>> node_016 
+			>> node_034 
+			>> node_033 
+		else 
+			>> node_019 
+		endif 
+	endif 
+	repeat 
+endf 
+
+def node_009
+	if self.vertical_distance_to_target().gt(800) 
+		>> node_017 
+		>> node_033 
+		conclude 
+	elif self.angular_15(60,0) 
+		>> node_014 
+		>> node_033 
+	else 
+		>> node_015 
+		>> node_033 
+	endif 
+	return 
+endf 
+
+def node_010
+	if [RegisterVar10 <= 5] 
+		>> node_035 
+		>> node_020 
+		conclude 
+	elif self.distance_3d_to_target().gt(1500) 
+		>> node_035 
+		>> node_017 
+		conclude 
+	endif 
+	return 
+endf 
+
+def node_011
+endf 
+
+def node_012
+	if function#46() 
+		>> node_026 
+		conclude 
+	else 
+		return 
+	endif 
+	reset 
+endf 
+
+def node_013
+endf 
+
+def node_014
+	self.targetEnemy(48) 
+	>> node_022 
+	return 
+endf 
+
+def node_015
+	>> node_023 
+	return 
+endf 
+
+def node_016
+	self.targetEnemy(48) 
+	>> node_024 
+	return 
+endf 
+
+def node_017
+	>> node_026 
+	return 
+endf 
+
+def node_018
+	if self.angle_2d_cw_between(30,330) 
+		>> node_025 
+	else 
+	endif 
+	return 
+endf 
+
+def node_019
+	>> node_027 
+	>> node_012 
+	>> node_032 
+	return 
+endf 
+
+def node_020
+	>> node_028 
+	return 
+endf 
+
+def node_021
+endf 
+
+def node_022
+	-> apceros.dash_tunnel() 
+	return 
+endf 
+
+def node_023
+	-> apceros.dash_tight() 
+	return 
+endf 
+
+def node_024
+	-> apceros.fox_walk() 
+	return 
+endf 
+
+def node_025
+	-> apceros.landing() 
+	return 
+endf 
+
+def node_026
+	-> apceros.glide_combat_no_use_flyway() 
+	return 
+endf 
+
+def node_027
+	-> apceros.idle_fly(1,0,0,300) 
+	return 
+endf 
+
+def node_028
+	-> apceros.sudden_rise() 
+	return 
+endf 
+
+def node_029
+endf 
+
+def node_030
+	[RegisterVar8 ++] 
+	return 
+endf 
+
+def node_031
+	[RegisterVar8 |-] 
+	return 
+endf 
+
+def node_032
+	[RegisterVar9 ++] 
+	return 
+endf 
+
+def node_033
+	[RegisterVar9 |-] 
+	return 
+endf 
+
+def node_034
+	[RegisterVar10 ++] 
+	return 
+endf 
+
+def node_035
+	[RegisterVar10 |-] 
+	return 
+endf 
+

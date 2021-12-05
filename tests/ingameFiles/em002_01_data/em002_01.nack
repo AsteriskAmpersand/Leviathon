@@ -1,0 +1,202 @@
+importactions Azure_Rathalos as azure_rathalos
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_273 
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if self.flying() 
+		>> node_002 
+	else 
+		>> node_001 
+	endif 
+	reset 
+endf 
+
+def node_001
+	if self.distance_2d_to_target().leq(700) 
+		if self.vertical_distance_to_target().leq(750) 
+			if self.enraged() >> node_007 
+			elif self.fatigued() >> node_010 
+			else >> node_004 
+			endif 
+		else 
+			if self.enraged() >> node_009 
+			elif self.fatigued() >> node_012 
+			else >> node_006 
+			endif 
+		endif 
+	elif self.distance_3d_to_target().leq(1700) 
+		if self.target(10) 
+			if self.enraged() >> node_007 
+			elif self.fatigued() >> node_010 
+			else >> node_004 
+			endif 
+		else 
+			if self.enraged() >> node_008 
+			elif self.fatigued() >> node_011 
+			else >> node_005 
+			endif 
+		endif 
+	else 
+		if self.enraged() >> node_009 
+		elif self.fatigued() >> node_012 
+		else >> node_006 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_002
+	>> node_003 
+	if self.distance_2d_to_target().leq(850) 
+		if self.vertical_distance_to_target().leq(1200) 
+			if self.enraged() >> node_016 
+			else >> node_013 
+			endif 
+		else 
+			if self.enraged() >> node_018 
+			else >> node_015 
+			endif 
+		endif 
+	elif self.distance_3d_to_target().leq(2000) 
+		if self.target(10) 
+			if self.enraged() >> node_016 
+			else >> node_013 
+			endif 
+		else 
+			if self.enraged() >> node_017 
+			else >> node_014 
+			endif 
+		endif 
+	else 
+		if self.enraged() >> node_018 
+		else >> node_015 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_003
+	if self.fatigued() 
+		>> Global.node_001 
+	else 
+	endif 
+	return 
+endf 
+
+def node_004
+	if self.target(7) 
+		>> Global.node_183 
+		>> Global.node_098 
+	else 
+		>> Global.node_099 
+	endif 
+	return 
+endf 
+
+def node_005
+	>> Global.node_096 
+	>> Global.node_094 
+	return 
+endf 
+
+def node_006
+	>> Global.node_097 
+	>> Global.node_095 
+	return 
+endf 
+
+def node_007
+	if self.target(7) 
+		>> Global.node_183 
+		>> Global.node_098 
+	else 
+		>> Global.node_099 
+	endif 
+	return 
+endf 
+
+def node_008
+	>> Global.node_096 
+	>> Global.node_094 
+	return 
+endf 
+
+def node_009
+	>> Global.node_097 
+	>> Global.node_095 
+	return 
+endf 
+
+def node_010
+	if self.target(7) 
+		>> Global.node_183 
+		>> Global.node_098 
+	else 
+		>> Global.node_099 
+	endif 
+	return 
+endf 
+
+def node_011
+	random (70) 
+				>> Global.node_096 
+				>> Global.node_094 
+	elser (30) 
+				>> Global.node_100 
+	endr 
+	return 
+endf 
+
+def node_012
+	random (70) 
+				>> Global.node_097 
+				>> Global.node_095 
+	elser (30) 
+				>> Global.node_100 
+	endr 
+	return 
+endf 
+
+def node_013
+	if self.target(7) 
+		>> Global.node_107 
+	else 
+		>> Global.node_108 
+	endif 
+	return 
+endf 
+
+def node_014
+	>> Global.node_105 
+	>> Global.node_103 
+	return 
+endf 
+
+def node_015
+	>> Global.node_106 
+	>> Global.node_104 
+	return 
+endf 
+
+def node_016
+	if self.target(7) 
+		>> Global.node_107 
+	else 
+		>> Global.node_108 
+	endif 
+	return 
+endf 
+
+def node_017
+	>> Global.node_105 
+	>> Global.node_103 
+	return 
+endf 
+
+def node_018
+	>> Global.node_106 
+	>> Global.node_104 
+	return 
+endf 
+

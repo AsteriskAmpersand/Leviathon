@@ -1,0 +1,67 @@
+importactions Vespoid as vespoid
+importlibrary Global as Global
+
+def node_000
+	>> node_001 
+	if self.targetEnemy(48) 
+		if function#3A() 
+			self.targetEnemy(target_em.any_monster) 
+			>> Global.node_067 
+		elif self.target(7) 
+			self.targetEnemy(target_em.any_monster) 
+			>> Global.node_067 
+		elif self.target(10) 
+			self.targetEnemy(target_em.any_monster) 
+			>> Global.node_067 
+		elif self.distance_3d_to_target().leq(500) 
+			random (50) >> node_002 
+			elser (50) >> Global.node_055 
+			endr 
+		elif self.distance_3d_to_target().leq(600) 
+			self.targetEnemy(target_em.any_monster) 
+			>> Global.node_067 
+		else 
+			self.targetEnemy(target_em.any_monster) 
+			>> Global.node_067 
+		endif 
+	else 
+		self.targetEnemy(target_em.any_monster) 
+		>> Global.node_067 
+	endif 
+	reset 
+endf 
+
+def node_001
+	function#52(0,5) 
+	self.targetEnemy(16) 
+	>> Global.node_041 
+	function#54() 
+	return 
+endf 
+
+def node_002
+	if self.target(0) 
+		>> Global.node_030 
+	elif self.target(14) 
+		>> Global.node_030 
+	else 
+		>> Global.node_012 
+	endif 
+	if self.current_quest().is_rank(rank.MR) 
+		random (10) >> Global.node_045 
+		elser (20) >> Global.node_046 
+		elser (15) >> Global.node_047 
+		elser (20) >> Global.node_045 
+					>> Global.node_047 
+		elser (35) >> Global.node_046 
+					>> Global.node_047 
+		endr 
+	else 
+		random (35) >> Global.node_045 
+		elser (45) >> Global.node_046 
+		elser (20) >> Global.node_047 
+		endr 
+	endif 
+	return 
+endf 
+

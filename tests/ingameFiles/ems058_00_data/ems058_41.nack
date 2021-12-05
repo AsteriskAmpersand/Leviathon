@@ -1,0 +1,31 @@
+importactions Gastodon as gastodon
+
+def node_000
+	>> node_001 
+	conclude 
+endf 
+
+def node_001
+	-> action#09(2,1,0,500,500) 
+	if self.distance_2d_to_target().leq(500) 
+		function#54() 
+	else 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_002
+	random (33) -> action#19() 
+	elser (34) -> action#3B() 
+	elser (33) -> action#1C() 
+	endr 
+	return 
+endf 
+
+def node_003
+	function#52(4) 
+	self.targetArea(target_area.nearest_entrance) @ unkn3:2097152, actionUnkn0:4, actionUnkn3:300 
+	return 
+endf 
+

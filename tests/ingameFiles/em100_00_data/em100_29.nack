@@ -1,0 +1,65 @@
+importactions Anjanath as anjanath
+importlibrary Global as Global
+
+def node_000
+	if function#41() 
+		>> Global.node_043 => reset 
+	else 
+	endif 
+	>> Global.node_001 
+	>> Global.node_044 
+	>> node_001 => reset 
+	reset 
+endf 
+
+def node_001
+	self.targetEnemy(48) 
+	if self.in_map(st.Challenge_Arena).in_area(-1) 
+		>> node_004 
+	elif self.distance_3d_to_target().leq(3500) 
+		>> node_002 
+	else 
+		>> node_003 
+	endif 
+	return 
+endf 
+
+def node_002
+	>> Global.node_009 
+	if self.fatigued() 
+		-> anjanath.tired() 
+	else 
+		random (40) -> anjanath.wait() 
+		elser (60) -> anjanath.sniff_s() 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_003
+	if self.targetEnemy(target_em.any_monster) 
+		random (20) >> Global.node_008 
+		elser (80) 
+		endr 
+	else 
+	endif 
+	random (20) -> anjanath.combat_search() 
+	elser (35) -> anjanath.anger_search() 
+	elser (10) -> anjanath.sniff_s() 
+	elser (20) -> anjanath.sniff_l() 
+	elser (15) -> anjanath.wait() 
+	endr 
+	return 
+endf 
+
+def node_004
+	>> Global.node_008 
+	random (30) -> anjanath.wait() 
+	elser (25) -> anjanath.sniff_s() 
+	elser (10) -> anjanath.sniff_l() 
+	elser (15) -> anjanath.combat_search() 
+	elser (20) -> anjanath.threat_short() 
+	endr 
+	return 
+endf 
+

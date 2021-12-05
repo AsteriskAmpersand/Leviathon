@@ -1,0 +1,97 @@
+importactions Aptonoth as aptonoth
+importlibrary Global as Global
+
+def node_000
+	>> node_005 
+	self.targetUnknown(1,0) 
+	if function#3A() 
+		>> Global.node_000 
+		-> aptonoth.walk_tired() 
+	else 
+		>> node_003 
+		if function#32() 
+			>> node_001 
+		else 
+			>> node_002 
+		endif 
+	endif 
+	reset 
+endf 
+
+def node_001
+	if self.distance_2d_to_target().leq(600) 
+		random (70) -> aptonoth.dash() 
+		elser (20) >> Global.node_007 
+		elser (10) -> aptonoth.walk_tired() 
+		endr 
+	elif self.distance_2d_to_target().leq(1000) 
+		random (40) >> Global.node_007 
+		elser (30) >> Global.node_002 
+		elser (10) -> aptonoth.walk_combat() 
+		elser (20) -> aptonoth.walk_tired() 
+		endr 
+	else 
+		random (70) >> Global.node_002 
+		elser (10) -> aptonoth.walk_combat() 
+		elser (20) -> aptonoth.walk_tired() 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_002
+	random (25) 
+				-> aptonoth.walk_tired() 
+	elser (20) 
+				-> aptonoth.walk_combat() 
+	elser (20) 
+				-> aptonoth.quick_turn_fly() 
+	elser (15) 
+				-> aptonoth.jump_up() 
+	elser (20) 
+				-> aptonoth.jump_attack_wall_down() 
+	endr 
+	return 
+endf 
+
+def node_003
+	if self.target(20) 
+		if self.target(10) 
+			>> Global.node_000 
+			-> aptonoth.walk_tired() 
+		elif function#5C() 
+			>> Global.node_000 
+			-> aptonoth.walk_combat() 
+		elif self.target(0) 
+			>> Global.node_000 
+			-> aptonoth.walk_tired() 
+		elif self.target(14) 
+			>> Global.node_000 
+			-> aptonoth.walk_tired() 
+		else 
+		endif 
+	else 
+		>> node_004 
+	endif 
+	return 
+endf 
+
+def node_004
+	function#52(50,4) 
+	self.targetArea(target_area.nearest_entrance) 
+	function#54() 
+	>> Global.node_002 
+	self.targetEnemy(target_em.random_player_or_cat) 
+	>> Global.node_000 
+	-> aptonoth.walk_tired() 
+	reset 
+endf 
+
+def node_005
+	if function#51(0,2000) 
+		>> Global.node_006 => reset 
+	else 
+	endif 
+	return 
+endf 
+

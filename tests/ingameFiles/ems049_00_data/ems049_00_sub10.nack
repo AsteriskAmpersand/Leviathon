@@ -1,0 +1,378 @@
+importactions Jagras as jagras
+importlibrary Global as Global
+
+def node_000
+	if function#B0(10) 
+		if function#102() 
+			>> node_023 
+		else 
+		endif 
+	else 
+	endif 
+	>> node_001 
+	reset 
+endf 
+
+def node_001
+	if function#B0(10) 
+		if function#32() 
+			>> node_002 
+		else 
+			>> node_003 
+		endif 
+	else 
+		if function#32() 
+			>> node_004 
+		else 
+			>> node_005 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_002
+	>> node_024 
+	>> node_006 
+	if function#3A() 
+		>> node_017 
+	elif function#106() 
+		>> node_017 
+	else 
+		>> node_011 
+	endif 
+	return 
+endf 
+
+def node_003
+	>> node_024 
+	>> node_006 
+	>> node_017 
+	return 
+endf 
+
+def node_004
+	self.targetEnemy(target_em.random_player_or_cat) 
+	>> node_006 
+	if function#3A() 
+		>> node_017 
+	else 
+		>> node_011 
+	endif 
+	return 
+endf 
+
+def node_005
+	self.targetEnemy(target_em.random_player_or_cat) 
+	>> node_006 
+	>> node_017 
+	return 
+endf 
+
+def node_006
+	if self.target(20) 
+		if self.target(10) 
+			>> node_008 
+		elif function#5C() 
+			>> node_009 
+		elif self.target(0) 
+			>> node_010 
+		elif self.target(14) 
+			>> node_010 
+		else 
+		endif 
+	else 
+		>> node_007 
+	endif 
+	return 
+endf 
+
+def node_007
+	>> Global.node_008 
+	>> Global.node_049 
+	reset 
+endf 
+
+def node_008
+	>> Global.node_008 
+	>> Global.node_063 
+	reset 
+endf 
+
+def node_009
+	>> node_017 
+	return 
+endf 
+
+def node_010
+	if self.distance_2d_to_target().leq(800) 
+		>> Global.node_024 
+	else 
+		>> Global.node_006 
+		>> Global.node_003 
+	endif 
+	if function#3A() 
+		>> Global.node_063 
+	elif function#32() 
+		if self.above_area() 
+			if function#11(300) 
+				>> node_013 
+			else 
+				>> Global.node_063 
+			endif 
+		else 
+			>> Global.node_063 
+		endif 
+	else 
+		>> Global.node_063 
+	endif 
+	reset 
+endf 
+
+def node_011
+	if self.distance_3d_to_target().leq(350) 
+		>> node_012 
+	elif self.distance_3d_to_target().leq(500) 
+		>> node_013 
+	elif self.distance_3d_to_target().leq(800) 
+		>> node_014 
+	elif self.distance_3d_to_target().leq(1200) 
+		>> node_015 
+	else 
+		>> node_016 
+	endif 
+	return 
+endf 
+
+def node_012
+	random (85) >> Global.node_018 
+	elser (15) >> Global.node_022 
+				>> Global.node_019 
+	endr 
+	return 
+endf 
+
+def node_013
+	random (85) >> Global.node_018 
+	elser (15) >> Global.node_022 
+				>> Global.node_019 
+	endr 
+	return 
+endf 
+
+def node_014
+	random (30) >> Global.node_019 
+	elser (70) >> node_027 
+				if function#B0(10) 
+					if function#106() 
+						>> node_029 
+					else 
+						>> Global.node_018 
+					endif 
+				else 
+					>> Global.node_018 
+				endif 
+	endr 
+	return 
+endf 
+
+def node_015
+	>> Global.node_006 
+	>> node_027 
+	if function#B0(10) 
+		if function#106() 
+			>> node_029 
+		else 
+			>> Global.node_018 
+		endif 
+	else 
+		>> Global.node_018 
+	endif 
+	return 
+endf 
+
+def node_016
+	>> Global.node_006 
+	>> node_027 
+	if function#B0(10) 
+		if function#106() 
+			>> node_029 
+		else 
+			>> Global.node_018 
+		endif 
+	else 
+		>> Global.node_018 
+	endif 
+	return 
+endf 
+
+def node_017
+	if self.distance_3d_to_target().leq(400) 
+		>> node_018 
+	elif self.distance_3d_to_target().leq(900) 
+		>> node_019 
+	elif self.distance_3d_to_target().leq(1500) 
+		>> node_020 
+	elif self.distance_3d_to_target().leq(1800) 
+		>> node_021 
+	else 
+		>> node_022 
+	endif 
+	return 
+endf 
+
+def node_018
+	random (65) >> Global.node_022 
+	elser (35) >> Global.node_021 
+	endr 
+	return 
+endf 
+
+def node_019
+	random (75) >> Global.node_025 
+	elser (25) >> Global.node_026 
+	endr 
+	return 
+endf 
+
+def node_020
+	random (75) >> Global.node_027 
+	elser (25) >> Global.node_028 
+	endr 
+	return 
+endf 
+
+def node_021
+	>> Global.node_006 
+	>> node_027 
+	return 
+endf 
+
+def node_022
+	>> Global.node_006 
+	>> node_027 
+	return 
+endf 
+
+def node_023
+	if function#4B() 
+		self.targetEnemy(49) 
+		if self.distance_3d_to_target().gt(8000) 
+			>> node_027 
+		else 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_024
+	if self.targetEnemy(33) 
+		if self.target_is(em.PukeiPukei) 
+			self.targetEnemy(target_em.random_player_or_cat) 
+			if self.distance_3d_to_target().leq(1000) 
+				>> node_025 
+			else 
+				self.targetEnemy(33) 
+				if self.distance_3d_to_target().leq(5000) 
+					>> node_026 
+					reset 
+				else 
+					>> node_025 
+				endif 
+			endif 
+		else 
+			>> node_025 
+		endif 
+	else 
+		>> node_025 
+	endif 
+	return 
+endf 
+
+def node_025
+	if function#103() 
+	elif self.targetEnemy(target_em.random_player_or_cat) 
+	endif 
+	return 
+endf 
+
+def node_026
+	if self.distance_3d_to_target().leq(500) 
+		random (30) >> Global.node_018 
+		elser (40) >> node_017 
+		elser (30) >> Global.node_022 
+					>> Global.node_019 
+		endr 
+	elif self.distance_3d_to_target().leq(800) 
+		random (30) >> Global.node_019 
+		elser (40) >> node_017 
+		elser (30) >> node_027 
+					>> Global.node_018 
+		endr 
+	else 
+		random (60) >> Global.node_006 
+					>> node_027 
+					>> Global.node_018 
+		elser (40) >> node_017 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_027
+	>> node_028 
+	if self.distance_3d_to_target().leq(500) 
+	else 
+		>> node_028 
+	endif 
+	if self.distance_3d_to_target().leq(500) 
+	else 
+		>> node_028 
+	endif 
+	if self.distance_3d_to_target().leq(500) 
+	else 
+		>> node_028 
+	endif 
+	if self.distance_3d_to_target().leq(500) 
+	else 
+		>> node_028 
+	endif 
+	if self.distance_3d_to_target().leq(500) 
+	else 
+		>> node_028 
+	endif 
+	if self.distance_3d_to_target().leq(500) 
+	else 
+		>> node_028 
+	endif 
+	if self.distance_3d_to_target().leq(500) 
+	else 
+		>> node_028 
+	endif 
+	if self.distance_3d_to_target().leq(500) 
+	else 
+		>> node_028 
+	endif 
+	if self.distance_3d_to_target().leq(500) 
+	else 
+		>> node_028 
+	endif 
+	return 
+endf 
+
+def node_028
+	if function#40() 
+		-> action#0C(2,0,0,500) 
+	else 
+		-> action#09(2,0,0,500) 
+	endif 
+	return 
+endf 
+
+def node_029
+	random (50) -> action#3D() 
+	elser (50) -> action#3E() 
+	endr 
+	return 
+endf 
+

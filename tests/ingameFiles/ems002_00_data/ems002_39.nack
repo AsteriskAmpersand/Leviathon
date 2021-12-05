@@ -1,0 +1,235 @@
+importactions Apceros as apceros
+importlibrary Global as Global
+
+def node_000
+	function#54() 
+	if function#103() 
+		conclude 
+	elif function#72(5) 
+		>> node_001 
+		>> Global.node_010 
+		self.targetEnemy(16) 
+		>> Global.node_035 
+	elif function#72(4) 
+		>> node_002 
+		self.targetEnemy(33) 
+		if function#78() 
+			>> Global.node_003 
+			>> Global.node_020 
+		elif function#68(3) 
+			>> Global.node_019 
+		else 
+			>> Global.node_003 
+			>> Global.node_020 
+		endif 
+		self.targetEnemy(16) 
+		>> Global.node_035 
+	elif function#72(8) 
+		>> node_003 
+		>> Global.node_010 
+		self.targetEnemy(16) 
+		>> Global.node_035 
+	elif function#72() 
+		function#52() 
+		function#54() 
+		>> node_004 
+		function#54() 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	if function#77() 
+		function#52(66) 
+	else 
+		function#52(133) 
+	endif 
+	return 
+endf 
+
+def node_002
+	if function#77() 
+		function#52(66) 
+	else 
+		if function#68(3) 
+			function#52(386) 
+		else 
+			function#52(162) 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_003
+	if function#77() 
+		function#52(66) 
+	else 
+		function#52(162) 
+	endif 
+	return 
+endf 
+
+def node_004
+	if function#3A() 
+		self.targetEnemy(target_em.random_player_or_cat) 
+		>> Global.node_004 
+		>> Global.node_015 
+	else 
+		self.targetEnemy(13) 
+		if function#66() 
+			self.targetEnemy(target_em.random_player_or_cat) 
+			>> node_006 
+			self.targetEnemy(target_em.random_player_or_cat) 
+			>> node_006 
+		else 
+			>> node_005 
+			self.targetEnemy(13) 
+			>> node_005 
+			self.targetEnemy(13) 
+			>> node_005 
+			self.targetEnemy(13) 
+			>> Global.node_008 
+			>> Global.node_015 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_005
+	if self.distance_2d_to_target().gt(2000) 
+		>> Global.node_015 
+		conclude 
+	else 
+		if function#2D() 
+			if self.target(7) 
+				>> Global.node_015 
+			elif self.target(10) 
+				>> Global.node_015 
+			elif self.target(12) 
+				>> Global.node_015 
+			elif self.target(0) 
+				>> Global.node_015 
+			elif self.target(14) 
+				>> Global.node_015 
+			elif self.target(4) 
+				>> Global.node_015 
+			elif self.distance_2d_to_target().leq(600) 
+				>> node_010 
+			else 
+				>> node_007 
+			endif 
+		else 
+			>> Global.node_015 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_006
+	if self.distance_2d_to_target().gt(2000) 
+		>> Global.node_015 
+		conclude 
+	else 
+		if self.target(7) 
+			>> Global.node_015 
+		elif self.target(10) 
+			>> Global.node_015 
+		elif self.target(12) 
+			>> Global.node_015 
+		elif self.target(0) 
+			>> Global.node_015 
+		elif self.target(14) 
+			>> Global.node_015 
+		elif self.target(4) 
+			>> Global.node_015 
+		elif self.distance_2d_to_target().leq(600) 
+			random (65) >> Global.node_008 
+						>> Global.node_015 
+			elser (35) 
+						>> node_010 
+			endr 
+		elif self.distance_2d_to_target().leq(1500) 
+			random (65) >> Global.node_008 
+						>> Global.node_015 
+			elser (35) 
+						>> node_007 
+			endr 
+		else 
+			random (65) 
+						>> node_008 
+						>> Global.node_008 
+						>> Global.node_015 
+			elser (35) 
+						>> node_007 
+			endr 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_007
+	>> node_009 
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if self.distance_2d_to_target().leq(1000) 
+		>> node_010 
+	else 
+		>> Global.node_015 
+	endif 
+	return 
+endf 
+
+def node_008
+	if self.distance_2d_to_target().leq(1000) 
+	else 
+		-> apceros.idle_fly(2,1,0,1000,1000) 
+	endif 
+	if self.distance_2d_to_target().leq(1000) 
+	else 
+		-> apceros.idle_fly(2,1,0,1000,1000) 
+	endif 
+	if self.distance_2d_to_target().leq(1000) 
+	else 
+		-> apceros.idle_fly(2,1,0,1000,1000) 
+	endif 
+	return 
+endf 
+
+def node_009
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if self.distance_2d_to_target().leq(600) 
+	else 
+		-> apceros.idle_fly(2,1,0,1000,600) 
+	endif 
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if self.distance_2d_to_target().leq(600) 
+	else 
+		-> apceros.idle_fly(2,1,0,1000,600) 
+	endif 
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if self.distance_2d_to_target().leq(600) 
+	else 
+		-> apceros.idle_fly(2,1,0,1000,600) 
+	endif 
+	return 
+endf 
+
+def node_010
+	if self.distance_2d_to_target().leq(600) 
+		if self.angle_2d_cw_between(90,270) 
+			random (70) >> Global.node_034 
+			elser (30) >> Global.node_007 
+						>> Global.node_033 
+			endr 
+		else 
+			random (30) >> Global.node_034 
+			elser (70) >> Global.node_007 
+						>> Global.node_033 
+			endr 
+		endif 
+	else 
+		>> Global.node_007 
+		>> Global.node_033 
+	endif 
+	return 
+endf 
+

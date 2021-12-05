@@ -1,0 +1,134 @@
+importactions Deviljho as deviljho
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_120 
+	>> Global.node_121 
+	self.targetEnemy(13) 
+	if function#41() 
+	elif function#101() 
+		if self.target(4) 
+			>> Global.node_111 
+		else 
+			if self.distance_3d_to_target().leq(800) 
+				>> Global.node_100 
+			elif self.angle_2d_cw_between(15,345) 
+				>> Global.node_098 
+			else 
+			endif 
+			random (30) >> Global.node_106 
+			elser (40) >> Global.node_109 
+			elser (30) >> Global.node_095 
+			endr 
+		endif 
+	else 
+		if self.target(4) 
+			>> Global.node_080 
+		else 
+			if self.enraged() 
+				>> node_005 
+			else 
+				>> node_001 
+			endif 
+		endif 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	>> node_002 
+	>> node_003 
+	>> node_004 
+	return 
+endf 
+
+def node_002
+	if self.distance_3d_to_target().leq(800) 
+		-> deviljho.back_turn() 
+	elif self.angle_2d_cw_between(30,330) 
+		-> deviljho.quick_turn() 
+	else 
+	endif 
+	return 
+endf 
+
+def node_003
+	self.targetEnemy(13) 
+	if self.distance_2d_to_target().leq(1000) 
+		return 
+	else 
+		>> node_007 
+	endif 
+	if self.distance_2d_to_target().leq(1000) 
+		return 
+	else 
+		>> node_007 
+	endif 
+	if self.distance_2d_to_target().leq(1000) 
+		return 
+	else 
+		>> node_007 
+	endif 
+	return 
+endf 
+
+def node_004
+	self.targetEnemy(48) 
+	if self.target(7) 
+		>> node_008 
+	elif self.target(10) 
+		>> node_010 
+	elif self.distance_3d_to_target().gt(1000) 
+		>> node_008 
+	elif self.angle_2d_cw_between(45,315) 
+		>> node_008 
+	else 
+		>> node_009 
+	endif 
+	return 
+endf 
+
+def node_005
+	>> node_002 
+	>> node_006 
+	return 
+endf 
+
+def node_006
+	random (50) >> Global.node_046 
+	elser (30) >> Global.node_047 
+	elser (20) >> Global.node_061 
+	endr 
+	return 
+endf 
+
+def node_007
+	if self.fatigued() 
+		-> deviljho.tired_dash(2,6,5,1500,900) 
+	else 
+		-> deviljho.dash(2,6,5,1500,900) 
+	endif 
+	return 
+endf 
+
+def node_008
+	-> deviljho.sniff_s() 
+	-> deviljho.search() 
+	return 
+endf 
+
+def node_009
+	if function#5F() 
+		-> deviljho.sniff_s() 
+	else 
+		-> deviljho.threat_short() 
+	endif 
+	return 
+endf 
+
+def node_010
+	self.targetEnemy(9) @ parameter2:1000 
+	>> Global.node_061 
+	return 
+endf 
+

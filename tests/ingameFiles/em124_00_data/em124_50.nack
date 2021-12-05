@@ -1,0 +1,58 @@
+importactions Velkhana as velkhana
+
+def node_000
+	self.targetEnemy(target_em.closest_entity) 
+	if self.target_is(em.Ruiner_Nergigante) 
+		>> node_001 
+	elif self.target_is(em.Savage_Deviljho) 
+		>> node_002 
+	elif self.target_is(em.Rajang) 
+		>> node_003 
+	elif self.target_is(em.Kushala_Daora) 
+		>> node_004 
+	elif self.target_is(em.Lunastra) 
+		>> node_005 
+	elif self.target_is(em.Teostra) 
+		>> node_006 
+	elif self.target_is(em.Furious_Rajang) 
+		>> node_003 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	-> velkhana.grapple_with_em103_05_glide() 
+	return 
+endf 
+
+def node_002
+	if self.distance_3d_to_target().gt(1800) 
+		-> velkhana.dash(1,0,0,1800) 
+	else 
+	endif 
+	-> velkhana.quick_turn() 
+	-> velkhana.grapple_with_em043_05_first() 
+	return 
+endf 
+
+def node_003
+	-> velkhana.quick_turn_fly() 
+	-> velkhana.grapple_with_em023_glide() 
+	return 
+endf 
+
+def node_004
+	-> velkhana.grapple_with_em024_attacker_first() 
+	return 
+endf 
+
+def node_005
+	-> velkhana.grapple_with_em026_attacker_first() 
+	return 
+endf 
+
+def node_006
+	-> velkhana.grapple_with_em027_attacker_first() 
+	return 
+endf 
+

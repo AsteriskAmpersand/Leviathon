@@ -1,0 +1,118 @@
+importactions Banbaro as banbaro
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_103 
+	self.targetEnemy(21) @ parameter2:700 
+	if self.target_on_part(0) >> node_004 
+	elif self.target_on_part(1) >> node_005 
+	elif self.target_on_part(2) >> node_006 
+	else 
+		function#41() -> banbaro.damage_fly() => reset 
+		self.enraged() >> node_002 => reset 
+		self.fatigued() >> node_003 => reset 
+		>> node_001 => reset 
+	endif 
+	reset 
+endf 
+
+def node_001
+	random (20) >> Global.node_053 
+	elser (5) >> Global.node_086 
+	elser (25) >> Global.node_054 
+	elser (15) >> Global.node_055 
+	elser (10) >> Global.node_056 
+	elser (15) >> Global.node_059 
+	elser (10) >> Global.node_062 
+	elser (0) >> Global.node_102 
+	endr 
+	return 
+endf 
+
+def node_002
+	random (20) >> Global.node_053 
+	elser (20) >> Global.node_054 
+	elser (0) >> Global.node_086 
+	elser (0) >> Global.node_102 
+	elser (20) >> Global.node_055 
+	elser (20) >> Global.node_056 
+	elser (20) >> Global.node_059 
+	elser (0) >> Global.node_062 
+	elser (0) >> Global.node_063 
+	endr 
+	return 
+endf 
+
+def node_003
+	random (15) >> Global.node_053 
+	elser (10) >> Global.node_086 
+	elser (20) >> Global.node_054 
+	elser (15) >> Global.node_055 
+	elser (10) >> Global.node_056 
+	elser (10) >> Global.node_059 
+	elser (10) >> Global.node_062 
+	elser (10) >> Global.node_097 
+	elser (0) >> Global.node_102 
+	endr 
+	return 
+endf 
+
+def node_004
+	random (47) >> node_007 
+	elser (38) >> node_008 
+	elser (15) >> node_013 
+	endr 
+	return 
+endf 
+
+def node_005
+	random (47) >> node_009 
+	elser (38) >> node_010 
+	elser (15) >> node_013 
+	endr 
+	return 
+endf 
+
+def node_006
+	random (47) >> node_011 
+	elser (38) >> node_012 
+	elser (15) >> node_013 
+	endr 
+	return 
+endf 
+
+def node_007
+	-> banbaro.ride_rage_head() 
+	return 
+endf 
+
+def node_008
+	>> Global.node_054 
+	return 
+endf 
+
+def node_009
+	-> banbaro.ride_rage_body() 
+	return 
+endf 
+
+def node_010
+	>> Global.node_056 
+	return 
+endf 
+
+def node_011
+	-> banbaro.ride_rage_tail() 
+	return 
+endf 
+
+def node_012
+	-> banbaro.ride_rage_tail_lv2() 
+	return 
+endf 
+
+def node_013
+	>> Global.node_102 
+	return 
+endf 
+

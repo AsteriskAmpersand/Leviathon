@@ -1,0 +1,57 @@
+importactions Frostfang_Barioth as frostfang_barioth
+
+def node_000
+	self.targetEnemy(target_em.closest_entity) 
+	if self.target_is(em.Fulgur_Anjanath) 
+		>> node_001 
+	elif self.target_is(em.Legiana) 
+		>> node_002 
+	elif self.target_is(em.Shrieking_Legiana) 
+		>> node_002 
+	elif self.target_is(em.Odogaron) 
+		>> node_003 
+	elif self.target_is(em.Ebony_Odogaron) 
+		>> node_003 
+	elif self.target_is(em.Banbaro) 
+		>> node_004 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	if self.distance_3d_to_target().gt(1600) 
+		-> frostfang_barioth.dash(1,0,0,1500) 
+	endif 
+	-> frostfang_barioth.grapple_with_em100_adjust() 
+	return 
+endf 
+
+def node_002
+	if self.distance_3d_to_target().gt(1600) 
+		-> frostfang_barioth.dash(1,0,0,1550) 
+	endif 
+	-> frostfang_barioth.grapple_with_em111_first() 
+	return 
+endf 
+
+def node_003
+	if self.distance_3d_to_target().gt(1600) 
+		-> frostfang_barioth.dash(1,0,0,1550) 
+	endif 
+	-> frostfang_barioth.grapple_with_em113_first() 
+	return 
+endf 
+
+def node_004
+	if self.distance_2d_to_target().gt(2100) 
+		-> frostfang_barioth.dash(1,0,0,2000) 
+	endif 
+	if self.distance_2d_to_target().leq(1700) 
+		-> frostfang_barioth.turn_back_step() 
+	else 
+		-> frostfang_barioth.turn_quick() 
+	endif 
+	-> frostfang_barioth.grapple_with_em123_start() 
+	return 
+endf 
+

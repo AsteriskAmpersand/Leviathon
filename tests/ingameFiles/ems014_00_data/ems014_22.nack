@@ -1,0 +1,53 @@
+importactions Popo as popo
+importlibrary Global as Global
+
+def node_000
+	self.targetEnemy(33) 
+	if function#B0(3) 
+		>> node_001 
+	elif function#B0(4) 
+		>> node_001 
+	elif function#B0(5) 
+		>> node_001 
+	else 
+		>> Global.node_003 
+		>> Global.node_003 
+	endif 
+	reset 
+endf 
+
+def node_001
+	function#52(128,3) 
+	self.targetEnemy(16) 
+	if self.distance_3d_to_target().leq(5500) 
+		function#54() 
+		if [RegisterVar2 <= 20] 
+			[RegisterVar2 |-] 
+			conclude 
+		else 
+		endif 
+		[RegisterVar2 ++] 
+		random (33) -> action#26() 
+		elser (33) -> action#27() 
+		elser (34) -> action#0E() 
+		endr 
+	else 
+		function#54() 
+		random (33) -> action#26() 
+		elser (33) -> action#27() 
+		elser (34) -> action#0E() 
+		endr 
+		random (33) -> action#26() 
+		elser (33) -> action#27() 
+		elser (34) -> action#0E() 
+		endr 
+		random (33) -> action#26() 
+		elser (33) -> action#27() 
+		elser (34) -> action#0E() 
+		endr 
+		reset 
+	endif 
+	repeat 
+	return 
+endf 
+

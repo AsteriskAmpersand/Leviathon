@@ -1,0 +1,20 @@
+importactions Acidic_Glavenus as acidic_glavenus
+
+def node_000
+	self.targetEnemy(target_em.closest_entity) 
+	if self.distance_3d_to_target().leq(1000) 
+		-> acidic_glavenus.back_turn() 
+	elif self.angle_2d_cw_between(30,330) 
+		-> acidic_glavenus.turn() 
+	endif 
+	if self.target(13) 
+		if self.distance_3d_to_target().leq(500) 
+		else 
+			-> acidic_glavenus.walk(1,0,0,500) 
+		endif 
+		-> acidic_glavenus.predator_eat() 
+	else 
+	endif 
+	conclude 
+endf 
+

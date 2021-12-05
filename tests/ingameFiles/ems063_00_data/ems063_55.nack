@@ -1,0 +1,1398 @@
+importactions Wulg as wulg
+
+def node_000
+	conclude 
+endf 
+
+def node_001
+	if self.distance_3d_to_target().leq(500) 
+	else 
+		>> node_098 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_002
+	if self.distance_3d_to_target().leq(500) 
+	else 
+		>> node_098 
+	endif 
+	if self.distance_3d_to_target().leq(500) 
+	else 
+		>> node_098 
+	endif 
+	if self.distance_3d_to_target().leq(500) 
+	else 
+		>> node_098 
+	endif 
+	if self.distance_3d_to_target().leq(500) 
+	else 
+		>> node_098 
+	endif 
+	if self.distance_3d_to_target().leq(500) 
+	else 
+		>> node_098 
+	endif 
+	return 
+endf 
+
+def node_003
+	if self.distance_2d_to_target().leq(750) 
+	else 
+		>> node_098 
+	endif 
+	if self.distance_2d_to_target().leq(750) 
+	else 
+		>> node_098 
+	endif 
+	if self.distance_2d_to_target().leq(750) 
+	else 
+		>> node_098 
+	endif 
+	if self.distance_2d_to_target().leq(750) 
+	else 
+		>> node_098 
+	endif 
+	if self.distance_2d_to_target().leq(750) 
+	else 
+		>> node_098 
+	endif 
+	return 
+endf 
+
+def node_004
+	if self.distance_3d_to_target().leq(500) 
+	else 
+		>> node_098 
+	endif 
+	if function#46() 
+		>> node_005 
+		return 
+	else 
+	endif 
+	if self.distance_3d_to_target().leq(500) 
+	else 
+		>> node_098 
+	endif 
+	if function#46() 
+		>> node_005 
+		return 
+	else 
+	endif 
+	if self.distance_3d_to_target().leq(500) 
+	else 
+		>> node_098 
+	endif 
+	if function#46() 
+		>> node_005 
+		return 
+	else 
+	endif 
+	if self.distance_3d_to_target().leq(500) 
+	else 
+		>> node_098 
+	endif 
+	if function#46() 
+		>> node_005 
+		return 
+	else 
+	endif 
+	if self.distance_3d_to_target().leq(500) 
+	else 
+		>> node_098 
+	endif 
+	if function#46() 
+		>> node_005 
+		return 
+	else 
+	endif 
+	return 
+endf 
+
+def node_005
+	if function#40() 
+		-> wulg.fox_walk() 
+	else 
+		random (50) -> wulg.idle() 
+		elser (15) -> wulg.sniffs_l() 
+		elser (15) -> wulg.wait() 
+		elser (5) -> wulg.tired_idle() 
+		elser (15) -> wulg.side_step_left() 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_006
+	>> node_132 
+	return 
+endf 
+
+def node_007
+	if self.angle_2d_cw_between(15,345) 
+		>> node_132 
+	else 
+	endif 
+	return 
+endf 
+
+def node_008
+	if self.angle_2d_cw_between(30,330) 
+		>> node_132 
+	else 
+	endif 
+	return 
+endf 
+
+def node_009
+	if self.angle_2d_cw_between(45,315) 
+		>> node_132 
+	else 
+	endif 
+	return 
+endf 
+
+def node_010
+	if self.angle_2d_cw_between(60,300) 
+		>> node_132 
+	else 
+	endif 
+	return 
+endf 
+
+def node_011
+	if self.angle_2d_cw_between(90,270) 
+		>> node_132 
+	else 
+	endif 
+	return 
+endf 
+
+def node_012
+	>> node_008 
+	>> node_083 
+	return 
+endf 
+
+def node_013
+	if self.angle_2d_cw_between(0,180) 
+		>> node_128 
+	else 
+		>> node_129 
+	endif 
+	return 
+endf 
+
+def node_014
+	if self.angle_2d_cw_between(330,30) 
+		>> node_012 
+	elif self.angle_2d_cw_between(210,150) 
+		>> node_013 
+	else 
+		>> node_012 
+	endif 
+	return 
+endf 
+
+def node_015
+	>> node_008 
+	>> node_084 
+	return 
+endf 
+
+def node_016
+	random (65) >> node_014 
+	elser (35) >> node_015 
+	endr 
+	return 
+endf 
+
+def node_017
+	>> node_008 
+	>> node_016 
+	return 
+endf 
+
+def node_018
+	if self.angle_2d_cw_between(330,30) 
+		>> node_016 
+	elif self.angle_2d_cw_between(270,90) 
+		>> node_017 
+	else 
+		>> node_016 
+	endif 
+	return 
+endf 
+
+def node_019
+	>> node_010 
+	>> node_130 
+	return 
+endf 
+
+def node_020
+	if self.angle_2d_cw_between(0,180) 
+		>> node_122 
+	else 
+		>> node_123 
+	endif 
+	return 
+endf 
+
+def node_021
+	if self.angle_2d_cw_between(315,45) 
+		>> node_121 
+	elif self.angle_2d_cw_between(0,180) 
+		>> node_123 
+	else 
+		>> node_122 
+	endif 
+	return 
+endf 
+
+def node_022
+	>> node_011 
+	>> node_121 
+	return 
+endf 
+
+def node_023
+	if self.angle_2d_cw_between(0,180) 
+		>> node_123 
+	else 
+		>> node_122 
+	endif 
+	return 
+endf 
+
+def node_024
+	random (40) >> node_121 
+	elser (30) >> node_122 
+	elser (30) >> node_123 
+	endr 
+	return 
+endf 
+
+def node_025
+	if self.distance_3d_to_target().leq(600) 
+		self.targetEnemy(target_em.random_player_or_cat) @ unkn3:2097152, unkn12:4, unknExtra1:500 
+	elif self.distance_3d_to_target().leq(700) 
+		self.targetEnemy(target_em.random_player_or_cat) @ unkn3:2097152, unkn12:4, unknExtra1:600 
+	else 
+		self.targetEnemy(target_em.random_player_or_cat) @ unkn3:2097152, unkn12:4, unknExtra1:700 
+	endif 
+	if self.distance_3d_to_target().leq(350) 
+		>> node_022 
+	else 
+		>> node_144 
+	endif 
+	return 
+endf 
+
+def node_026
+	>> node_006 
+	if function#40() 
+		-> wulg.threat_short(0,2,0,0,300) 
+	else 
+		-> wulg.dying_walk(0,2,0,0,200) 
+	endif 
+	return 
+endf 
+
+def node_027
+	self.targetEnemy(target_em.random_player_or_cat) @ unkn3:2097152, unkn12:4, unknExtra1:500 
+	>> node_143 
+	return 
+endf 
+
+def node_028
+	>> node_006 
+	if function#40() 
+		-> wulg.threat_big(0,2,0,0,600) 
+	else 
+		-> wulg.quick_turn(0,2,0,0,500) 
+	endif 
+	return 
+endf 
+
+def node_029
+	if function#62(330,30) 
+		>> node_121 
+	elif function#62(30,180) 
+		>> node_123 
+	elif function#62(180,330) 
+		>> node_122 
+	endif 
+	return 
+endf 
+
+def node_030
+	if function#67(0,2) 
+	else 
+		self.targetArea(26) @ parameter2:500 
+		>> node_097 
+	endif 
+	return 
+endf 
+
+def node_031
+	if self.distance_3d_to_target().leq(500) 
+	else 
+		>> node_088 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_032
+	>> node_093 
+	>> node_033 
+	return 
+endf 
+
+def node_033
+	if self.distance_3d_to_target().leq(350) 
+	else 
+		>> node_098 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_034
+	if self.distance_3d_to_target().leq(400) 
+	else 
+		if function#40() 
+			-> wulg.threat_big(1,2,0,300,1500) 
+		else 
+			-> wulg.quick_turn(1,2,0,300,1500) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(400) 
+	else 
+		if function#40() 
+			-> wulg.threat_big(1,2,0,300,1500) 
+		else 
+			-> wulg.quick_turn(1,2,0,300,1500) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(400) 
+	else 
+		if function#40() 
+			-> wulg.threat_big(1,2,0,300,1500) 
+		else 
+			-> wulg.quick_turn(1,2,0,300,1500) 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_035
+	if self.distance_2d_to_target().leq(600) 
+	else 
+		>> node_100 
+	endif 
+	if self.distance_2d_to_target().leq(600) 
+	else 
+		>> node_100 
+	endif 
+	if self.distance_2d_to_target().leq(600) 
+	else 
+		>> node_100 
+	endif 
+	return 
+endf 
+
+def node_036
+	if self.distance_3d_to_target().leq(1300) 
+	else 
+		>> node_101 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_037
+	if self.distance_3d_to_target().leq(400) 
+	else 
+		-> wulg.dying_walk(2,0,0,400) 
+		if function#107(3000) 
+			reset 
+		else 
+			repeat 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_038
+	if self.angle_2d_cw_between(30,330) 
+		>> node_131 
+	else 
+	endif 
+	return 
+endf 
+
+def node_039
+	if self.angle_2d_cw_between(45,315) 
+		>> node_131 
+	else 
+	endif 
+	return 
+endf 
+
+def node_040
+	if self.angle_2d_cw_between(90,270) 
+		>> node_131 
+	else 
+	endif 
+	return 
+endf 
+
+def node_041
+	if self.angle_2d_cw_between(30,330) 
+		>> node_085 
+	else 
+	endif 
+	return 
+endf 
+
+def node_042
+	if self.angle_2d_cw_between(45,315) 
+		>> node_085 
+	else 
+	endif 
+	return 
+endf 
+
+def node_043
+	if self.angle_2d_cw_between(90,270) 
+		>> node_085 
+	else 
+	endif 
+	return 
+endf 
+
+def node_044
+	>> node_074 
+	return 
+endf 
+
+def node_045
+	>> node_075 
+	>> node_107 
+	return 
+endf 
+
+def node_046
+	if function#101() 
+		>> node_077 
+	else 
+		>> node_076 
+	endif 
+	return 
+endf 
+
+def node_047
+	>> node_114 
+	return 
+endf 
+
+def node_048
+	if self.distance_3d_to_target().leq(750) 
+		>> node_022 
+	else 
+	endif 
+	>> node_008 
+	>> node_064 
+	return 
+endf 
+
+def node_049
+	if self.distance_3d_to_target().leq(750) 
+		>> node_022 
+		>> node_008 
+		>> node_064 
+	elif self.distance_3d_to_target().leq(1500) 
+		>> node_008 
+		>> node_064 
+	else 
+	endif 
+	return 
+endf 
+
+def node_050
+	>> node_082 
+	return 
+endf 
+
+def node_051
+	>> node_111 
+	return 
+endf 
+
+def node_052
+	>> node_075 
+	>> node_107 
+	return 
+endf 
+
+def node_053
+	if self.distance_3d_to_target().leq(1600) 
+		>> node_022 
+		>> node_050 
+	else 
+		>> node_081 
+	endif 
+	return 
+endf 
+
+def node_054
+	>> node_111 
+	return 
+endf 
+
+def node_055
+	if function#51(0,2000) 
+		>> node_057 
+		reset 
+	else 
+	endif 
+	return 
+endf 
+
+def node_056
+	if function#51(0,1500) 
+		>> node_057 
+		conclude 
+	else 
+	endif 
+	return 
+endf 
+
+def node_057
+	if self.distance_3d_to_target().leq(800) 
+		>> node_011 
+		>> node_022 
+	else 
+		>> node_008 
+	endif 
+	>> node_050 
+	return 
+endf 
+
+def node_058
+	if function#6B(4000) 
+		[RegisterVar0 ++] 
+		self.targetEnemy(26) @ unkn3:2097152, unkn12:4, unknExtra1:75 
+		>> node_059 
+		>> node_060 
+		>> node_061 
+	else 
+	endif 
+	return 
+endf 
+
+def node_059
+	if self.distance_3d_to_target().leq(500) 
+	else 
+		>> node_098 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_060
+	>> node_008 
+	>> node_046 
+	return 
+endf 
+
+def node_061
+	[RegisterVar0 |-] 
+	if self.in_combat() 
+		self.targetEnemy(target_em.random_player_or_cat) 
+		>> node_008 
+		>> node_064 
+	else 
+	endif 
+	return 
+endf 
+
+def node_062
+	>> node_119 
+	return 
+endf 
+
+def node_063
+	>> node_147 
+	return 
+endf 
+
+def node_064
+	>> node_078 
+	return 
+endf 
+
+def node_065
+	>> node_079 
+	return 
+endf 
+
+def node_066
+	>> node_079 
+	return 
+endf 
+
+def node_067
+	>> node_080 
+	return 
+endf 
+
+def node_068
+	if self.distance_2d_to_target().leq(1500) 
+		if self.angle_2d_cw_between(15,345) 
+			-> wulg.die_down() 
+		else 
+		endif 
+		-> wulg.damage_clawgrab_falldown() 
+	else 
+		-> wulg.sniffs_l() 
+	endif 
+	return 
+endf 
+
+def node_069
+	-> wulg.die_down() 
+	-> wulg.tail_swing() 
+	return 
+endf 
+
+def node_070
+	if self.distance_2d_to_target().leq(400) 
+		if self.angle_2d_cw_between(90,270) 
+			-> wulg.die_down() 
+		else 
+		endif 
+		-> wulg.die_hole_fall() 
+	elif self.distance_2d_to_target().leq(900) 
+	else 
+		-> wulg.die_down() 
+		>> node_071 
+	endif 
+	random (100) 
+				if self.angle_2d_cw_between(20,340) 
+					-> wulg.die_down() 
+				else 
+				endif 
+				-> wulg.die_fly() 
+	elser (0) 
+				>> node_122 
+				if self.angle_2d_cw_between(20,340) 
+					-> wulg.die_down() 
+				else 
+				endif 
+				-> wulg.die_fly() 
+	elser (0) 
+				>> node_123 
+				if self.angle_2d_cw_between(20,340) 
+					-> wulg.die_down() 
+				else 
+				endif 
+				-> wulg.die_fly() 
+	endr 
+	return 
+endf 
+
+def node_071
+	if self.distance_3d_to_target().leq(900) 
+	else 
+		-> wulg.die_water_slide(2,6,0,300,800) 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_072
+	if self.distance_3d_to_target().leq(1000) 
+		-> wulg.hook_right() 
+	else 
+		-> wulg.die_water_slide(2,6,0,300,800) 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_073
+	function#11A() 
+	-> wulg.sleep_end() 
+	return 
+endf 
+
+def node_074
+	if function#33(0,2) 
+		>> node_102 
+	else 
+		>> node_103 
+	endif 
+	return 
+endf 
+
+def node_075
+	if function#33(0,2) 
+		>> node_105 
+	else 
+		>> node_106 
+	endif 
+	return 
+endf 
+
+def node_076
+	if function#33(0,2) 
+		>> node_108 
+	else 
+		>> node_109 
+	endif 
+	return 
+endf 
+
+def node_077
+	if function#33(0,2) 
+		-> wulg.predator_walk_r() 
+	else 
+		-> wulg.peep_grass_search() 
+	endif 
+	return 
+endf 
+
+def node_078
+	if function#33(0,2) 
+		>> node_136 
+	else 
+		>> node_137 
+	endif 
+	return 
+endf 
+
+def node_079
+	if function#33(0,2) 
+		>> node_112 
+	else 
+		>> node_113 
+	endif 
+	return 
+endf 
+
+def node_080
+	if function#33(0,2) 
+		>> node_141 
+	else 
+		>> node_142 
+	endif 
+	return 
+endf 
+
+def node_081
+	if function#33(0,2) 
+		>> node_120 
+	else 
+		>> node_139 
+	endif 
+	return 
+endf 
+
+def node_082
+	if function#33(0,2) 
+		>> node_138 
+	else 
+		>> node_140 
+	endif 
+	return 
+endf 
+
+def node_083
+	if function#33(0,2) 
+		>> node_124 
+	else 
+		>> node_125 
+	endif 
+	return 
+endf 
+
+def node_084
+	if self.angle_2d_cw_between(0,180) 
+		>> node_126 
+	else 
+		>> node_127 
+	endif 
+	return 
+endf 
+
+def node_085
+	if function#33(0,2) 
+		>> node_133 
+	else 
+		>> node_134 
+	endif 
+	return 
+endf 
+
+def node_086
+	if function#40() 
+		-> wulg.walk() 
+	else 
+		-> wulg.idle() 
+	endif 
+	return 
+endf 
+
+def node_087
+	if function#40() 
+		-> wulg.threat_short() 
+	else 
+		-> wulg.dying_walk() 
+	endif 
+	return 
+endf 
+
+def node_088
+	if function#40() 
+		-> wulg.threat_short(2,0,0,600) 
+	else 
+		-> wulg.dying_walk(2,0,0,600) 
+	endif 
+	return 
+endf 
+
+def node_089
+	if function#40() 
+		-> wulg.threat_2hand_reload() 
+	else 
+		-> wulg.tired_walk() 
+	endif 
+	return 
+endf 
+
+def node_090
+	if function#40() 
+		-> wulg.threat_2hand_reload(2,0,0,300) 
+	else 
+		-> wulg.tired_walk(2,0,0,300) 
+	endif 
+	return 
+endf 
+
+def node_091
+	if function#40() 
+		-> wulg.anger_voice() 
+	else 
+		-> wulg.normal_turn() 
+	endif 
+	return 
+endf 
+
+def node_092
+	if function#40() 
+		-> wulg.anger_voice(2,0,0,500) 
+	else 
+		-> wulg.normal_turn(2,0,0,500) 
+	endif 
+	return 
+endf 
+
+def node_093
+	if function#40() 
+		-> wulg.anger_voice(2,0,0,1500) 
+	else 
+		-> wulg.normal_turn(2,0,0,1500) 
+	endif 
+	return 
+endf 
+
+def node_094
+	if function#40() 
+		-> wulg.threat_big() 
+	else 
+		-> wulg.quick_turn() 
+	endif 
+	return 
+endf 
+
+def node_095
+	if function#40() 
+		-> wulg.threat_big(2,0,0,1000) 
+	else 
+		-> wulg.quick_turn(2,0,0,1000) 
+	endif 
+	return 
+endf 
+
+def node_096
+	if function#40() 
+		-> wulg.threat_big(0,1,0,0,800) 
+	else 
+		-> wulg.quick_turn(0,1,0,0,800) 
+	endif 
+	return 
+endf 
+
+def node_097
+	if function#40() 
+		-> wulg.threat_big() 
+	else 
+		-> wulg.quick_turn() 
+	endif 
+	return 
+endf 
+
+def node_098
+	if function#40() 
+		-> wulg.threat_big(2,0,0,1000) 
+	else 
+		-> wulg.quick_turn(2,0,0,1000) 
+	endif 
+	return 
+endf 
+
+def node_099
+	if function#40() 
+		-> wulg.threat_big(2,0,0,1500) 
+	else 
+		-> wulg.quick_turn(2,0,0,1500) 
+	endif 
+	return 
+endf 
+
+def node_100
+	if function#40() 
+		-> wulg.threat_big(2,3,0,1000,5) 
+	else 
+		-> wulg.quick_turn(2,3,0,1000,5) 
+	endif 
+	return 
+endf 
+
+def node_101
+	if function#40() 
+		-> wulg.threat_big(2,1,0,1000,1000) 
+	else 
+		-> wulg.quick_turn(2,1,0,1000,1000) 
+	endif 
+	return 
+endf 
+
+def node_102
+	if function#40() 
+		-> wulg.fox_walk() 
+	else 
+		-> wulg.quick_search() 
+	endif 
+	return 
+endf 
+
+def node_103
+	if function#40() 
+		-> wulg.fox_walk() 
+	else 
+		-> wulg.combat_search() 
+	endif 
+	return 
+endf 
+
+def node_104
+	if function#40() 
+		-> wulg.fox_walk() 
+	else 
+		-> wulg.anger_search() 
+	endif 
+	return 
+endf 
+
+def node_105
+	if function#40() 
+		-> wulg.fox_walk() 
+	else 
+		-> wulg.anger_search_walk() 
+	endif 
+	return 
+endf 
+
+def node_106
+	if function#40() 
+		-> wulg.fox_walk() 
+	else 
+		-> wulg.short_search_low() 
+	endif 
+	return 
+endf 
+
+def node_107
+	if function#40() 
+		-> wulg.fox_walk() 
+	else 
+		-> wulg.short_search_high() 
+	endif 
+	return 
+endf 
+
+def node_108
+	if function#40() 
+		-> wulg.fox_walk() 
+	else 
+		-> wulg.discover() 
+	endif 
+	return 
+endf 
+
+def node_109
+	if function#40() 
+		-> wulg.fox_walk() 
+	else 
+		-> wulg.predator_walk_l() 
+	endif 
+	return 
+endf 
+
+def node_110
+	if function#40() 
+		-> wulg.fox_walk() 
+	else 
+		-> wulg.sniffs_s() 
+	endif 
+	return 
+endf 
+
+def node_111
+	if function#40() 
+		-> wulg.fox_walk() 
+	else 
+		-> wulg.sniffs_l() 
+	endif 
+	return 
+endf 
+
+def node_112
+	if function#40() 
+		-> wulg.fox_walk() 
+	else 
+		-> wulg.wait() 
+	endif 
+	return 
+endf 
+
+def node_113
+	if function#40() 
+		-> wulg.fox_walk() 
+	else 
+		-> wulg.tired_idle() 
+	endif 
+	return 
+endf 
+
+def node_114
+	if function#40() 
+		-> wulg.fox_walk() 
+	else 
+		-> wulg.side_step_left() 
+	endif 
+	return 
+endf 
+
+def node_115
+	if function#40() 
+		-> wulg.fox_walk() 
+	else 
+		-> wulg.side_step_right() 
+	endif 
+	return 
+endf 
+
+def node_116
+	if function#40() 
+		-> wulg.threat_short() 
+	else 
+		-> wulg.back_step_l_hand_reload() 
+	endif 
+	return 
+endf 
+
+def node_117
+	if function#40() 
+		-> wulg.threat_short(2,0,0,500) 
+	else 
+		-> wulg.back_step_l_hand_reload(2,0,0,500) 
+	endif 
+	return 
+endf 
+
+def node_118
+	if function#40() 
+		-> wulg.threat_2hand_reload() 
+	else 
+		-> wulg.back_step_r_hand_reload() 
+	endif 
+	return 
+endf 
+
+def node_119
+	if function#40() 
+		-> wulg.threat_2hand_reload(2,0,0,500) 
+	else 
+		-> wulg.back_step_r_hand_reload(2,0,0,500) 
+	endif 
+	return 
+endf 
+
+def node_120
+	if function#40() 
+		-> wulg.refresh() 
+	else 
+		-> wulg.back_step_2hand_reload() 
+	endif 
+	return 
+endf 
+
+def node_121
+	if function#40() 
+		-> wulg.threat_big() 
+	else 
+		-> wulg.wall_idle() 
+	endif 
+	return 
+endf 
+
+def node_122
+	if function#40() 
+		-> wulg.threat_big() 
+	else 
+		-> wulg.wall_wait() 
+	endif 
+	return 
+endf 
+
+def node_123
+	if function#40() 
+		-> wulg.threat_big() 
+	else 
+		-> wulg.jump() 
+	endif 
+	return 
+endf 
+
+def node_124
+	if function#40() 
+		-> wulg.climb_move() 
+	else 
+		-> wulg.jump_high_wall() 
+	endif 
+	return 
+endf 
+
+def node_125
+	if function#40() 
+		-> wulg.climb_move() 
+	else 
+		-> wulg.jump_attack_wall_down() 
+	endif 
+	return 
+endf 
+
+def node_126
+	if function#40() 
+		-> wulg.climb_move() 
+	else 
+		-> wulg.jump_attack_high() 
+	endif 
+	return 
+endf 
+
+def node_127
+	if function#40() 
+		-> wulg.climb_move() 
+	else 
+		-> wulg.climb_low_wall() 
+	endif 
+	return 
+endf 
+
+def node_128
+	if function#40() 
+		-> wulg.climb_move() 
+	else 
+		-> wulg.climb_high_wall() 
+	endif 
+	return 
+endf 
+
+def node_129
+	if function#40() 
+		-> wulg.climb_move() 
+	else 
+		-> wulg.climb_begin() 
+	endif 
+	return 
+endf 
+
+def node_130
+	if function#40() 
+		-> wulg.climb_move() 
+	else 
+		-> wulg.climb_begin_jump() 
+	endif 
+	return 
+endf 
+
+def node_131
+	if function#40() 
+		-> wulg.climb_end_jump() 
+	else 
+		-> wulg.double_floor_jump_down() 
+	endif 
+	return 
+endf 
+
+def node_132
+	if function#40() 
+		-> wulg.double_floor_jump_up() 
+	else 
+		-> wulg.in_ground() 
+	endif 
+	return 
+endf 
+
+def node_133
+	if function#40() 
+		-> wulg.climb_end_jump() 
+	else 
+		-> wulg.out_ground() 
+	endif 
+	return 
+endf 
+
+def node_134
+	if function#40() 
+		-> wulg.climb_end_jump() 
+	else 
+		-> wulg.marking() 
+	endif 
+	return 
+endf 
+
+def node_135
+	if function#40() 
+		-> wulg.damage_high() 
+	else 
+		-> wulg.sleep_dying() 
+	endif 
+	return 
+endf 
+
+def node_136
+	if function#40() 
+		-> wulg.damage_high() 
+	else 
+		-> wulg.sleep_end() 
+	endif 
+	return 
+endf 
+
+def node_137
+	if function#40() 
+		-> wulg.damage_high() 
+	else 
+		-> wulg.damage_low() 
+	endif 
+	return 
+endf 
+
+def node_138
+	if function#40() 
+		-> wulg.damage_high() 
+	else 
+		-> wulg.damage_petit() 
+	endif 
+	return 
+endf 
+
+def node_139
+	if function#40() 
+		-> wulg.damage_high() 
+	else 
+		-> wulg.damage_turn_around() 
+	endif 
+	return 
+endf 
+
+def node_140
+	if function#40() 
+		-> wulg.damage_high() 
+	else 
+		-> wulg.damage_head_low() 
+	endif 
+	return 
+endf 
+
+def node_141
+	if function#40() 
+		-> wulg.damage_high() 
+	else 
+		-> wulg.damage_super() 
+	endif 
+	return 
+endf 
+
+def node_142
+	if function#40() 
+		-> wulg.damage_high() 
+	else 
+		-> wulg.damage_wall() 
+	endif 
+	return 
+endf 
+
+def node_143
+	if function#40() 
+		-> wulg.threat_big() 
+	else 
+		-> wulg.damage_down() 
+	endif 
+	return 
+endf 
+
+def node_144
+	if function#40() 
+		-> wulg.threat_2hand_reload() 
+	else 
+		-> wulg.damage_ride_down() 
+	endif 
+	return 
+endf 
+
+def node_145
+	if function#40() 
+		-> wulg.threat_big() 
+	else 
+		-> wulg.damage_rock() 
+	endif 
+	return 
+endf 
+
+def node_146
+	if function#40() 
+		-> wulg.threat_big() 
+	else 
+		-> wulg.damage_stun() 
+	endif 
+	return 
+endf 
+
+def node_147
+	if function#40() 
+		-> wulg.damage_high() 
+	else 
+		-> wulg.damage_paralyse() 
+	endif 
+	return 
+endf 
+

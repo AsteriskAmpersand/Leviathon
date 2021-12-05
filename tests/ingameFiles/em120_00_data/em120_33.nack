@@ -1,0 +1,71 @@
+importactions TzitziYaKu as tzitziyaku
+importlibrary Global as Global
+
+def node_000
+	self.targetEnemy(target_em.closest_entity) 
+	if self.target(13) 
+		>> Global.node_024 
+		conclude 
+	elif self.target.stunned_1() 
+		>> Global.node_010 
+		>> Global.node_023 
+		repeat 
+	else 
+		>> node_001 
+		repeat 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	if self.target(4) 
+		-> tzitziyaku.anger_search() 
+		conclude 
+	elif self.target(21) 
+		-> tzitziyaku.anger_search() 
+		conclude 
+	else 
+		>> node_002 
+	endif 
+	return 
+endf 
+
+def node_002
+	if self.part(0).is_broken(2) 
+		if [RegisterVar6 < 1] 
+			-> tzitziyaku.refresh_predator_desire_reset() 
+			[RegisterVar6 |-] 
+			conclude 
+		else 
+			if self.distance_2d_to_target().leq(800) 
+				>> Global.node_073 
+				>> Global.node_089 
+				[RegisterVar6 ++] 
+			elif self.distance_2d_to_target().leq(1500) 
+				>> Global.node_089 
+				[RegisterVar6 ++] 
+			else 
+				>> Global.node_011 
+			endif 
+		endif 
+	else 
+		if [RegisterVar6 < 4] 
+			-> tzitziyaku.refresh_predator_desire_reset() 
+			[RegisterVar6 |-] 
+			conclude 
+		else 
+			if self.distance_2d_to_target().leq(800) 
+				>> Global.node_073 
+				>> Global.node_089 
+				[RegisterVar6 ++] 
+			elif self.distance_2d_to_target().leq(1500) 
+				>> Global.node_089 
+				[RegisterVar6 ++] 
+			else 
+				>> Global.node_011 
+			endif 
+		endif 
+	endif 
+	return 
+endf 
+

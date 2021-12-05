@@ -1,0 +1,31 @@
+importactions Paolumu as paolumu
+importlibrary Global as Global
+
+def node_000
+	if self.in_combat() 
+		conclude 
+	else 
+	endif 
+	self.targetEnemy(34) 
+	if self.vertical_distance_to_target().gt(1000) 
+		conclude 
+	else 
+		>> node_001 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	if self.distance_3d_to_target().leq(2000) 
+		>> Global.node_074 
+		>> Global.node_092 
+	elif self.distance_3d_to_target().leq(4000) 
+		>> Global.node_174 
+		>> Global.node_092 
+	elif self.distance_3d_to_target().leq(6000) 
+		>> Global.node_087 
+	else 
+	endif 
+	return 
+endf 
+

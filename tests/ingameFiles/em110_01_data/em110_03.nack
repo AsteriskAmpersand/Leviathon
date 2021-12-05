@@ -1,0 +1,37 @@
+importactions Nightshade_Paolumu as nightshade_paolumu
+importlibrary Global as Global
+
+def node_000
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if self.target(7) 
+		>> node_002 
+	elif self.target(10) 
+		>> node_003 
+	else 
+		>> node_001 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	>> Global.node_126 
+	return 
+endf 
+
+def node_002
+	>> Global.node_126 
+	return 
+endf 
+
+def node_003
+	if self.flying() 
+		if function#101(2) >> Global.call#170 // -THK_55 is missing NodeID 170. 
+		elif function#101(1) >> Global.call#170 // -THK_55 is missing NodeID 170. 
+		else >> Global.node_067 
+		endif 
+	else 
+		>> Global.node_074 
+	endif 
+	return 
+endf 
+

@@ -1,0 +1,51 @@
+importactions Tigrex as tigrex
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_020 
+	>> node_001 
+	>> node_002 
+	conclude 
+endf 
+
+def node_001
+	if function#41() 
+	else 
+		if function#AB() 
+			function#AA() 
+			>> Global.node_021 
+		else 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_002
+	self.targetArea(14) 
+	if self.distance_3d_to_target().gt(800) 
+		>> node_004 
+		repeat 
+	else 
+	endif 
+	return 
+endf 
+
+def node_003
+	self.targetEnemy(target_em.random_player_or_cat) 
+	-> tigrex.wait() 
+	if self.angle_2d_cw_between(30,330) 
+		-> tigrex.turn() 
+	else 
+	endif 
+	return 
+endf 
+
+def node_004
+	if self.fatigued() 
+		-> tigrex.dash_tired(2,5,0,3000) 
+	else 
+		-> tigrex.dash(2,5,0,3000) 
+	endif 
+	return 
+endf 
+

@@ -1,0 +1,28 @@
+importactions Rathian as rathian
+importlibrary Global as Global
+
+def node_000
+	self.targetEnemy(target_em.closest_entity) 
+	if self.target_is(em.Anjanath) 
+		>> node_001 
+	else 
+		>> node_002 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	>> Global.node_002 
+	>> Global.node_090 
+	-> rathian.grapple_mediation_threat() 
+	return 
+endf 
+
+def node_002
+	>> Global.node_090 
+	>> Global.node_039 
+	>> Global.node_092 
+	>> Global.call#326 // -THK_55 is missing NodeID 326. 
+	return 
+endf 
+

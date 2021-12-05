@@ -1,0 +1,85 @@
+importactions KuluYaKu as kuluyaku
+importlibrary Global as Global
+
+def node_000
+	self.targetArea(24) 
+	if function#101(3) 
+		if self.distance_3d_to_target().gt(500) 
+			-> kuluyaku.carry_dying_walk(2,5,0,2000) 
+			repeat 
+		else 
+			>> node_001 
+		endif 
+	else 
+		if self.distance_3d_to_target().gt(500) 
+			-> kuluyaku.dying_walk(2,5,0,2000) 
+			repeat 
+		else 
+			>> node_001 
+		endif 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	if function#101(4) 
+		if function#7C() 
+			conclude 
+		else 
+			-> kuluyaku.guard_recovering() 
+			-> kuluyaku.carry_quick_search() 
+			self.targetEnemy(48) 
+			if self.distance_2d_to_target().leq(1000) 
+				conclude 
+			else 
+			endif 
+			self.targetEnemy(10) @ parameter2:500 
+			>> Global.node_071 
+			-> kuluyaku.guard_recovering() 
+			>> Global.node_063 
+			self.targetEnemy(48) 
+			if self.distance_2d_to_target().leq(1000) 
+				conclude 
+			else 
+			endif 
+			self.targetEnemy(10) @ parameter2:500 
+			>> Global.node_071 
+			-> kuluyaku.carry_quick_search() 
+		endif 
+	elif function#101(2) 
+		if function#7C() 
+			conclude 
+		else 
+			-> kuluyaku.rock_throw() 
+			>> node_002 
+		endif 
+	else 
+		if function#7C() 
+			conclude 
+		else 
+			>> node_002 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_002
+	if self.in_map(st.Special_Arena).in_area(-1) 
+		if function#101(3) 
+			-> kuluyaku.carry_quick_search2() 
+		else 
+			-> kuluyaku.quick_search2() 
+		endif 
+	elif self.in_map(st.Challenge_Arena).in_area(-1) 
+		if function#101(3) 
+			-> kuluyaku.carry_quick_search2() 
+		else 
+			-> kuluyaku.quick_search2() 
+		endif 
+	else 
+		-> kuluyaku.pick_egg_sousyoku() 
+		-> kuluyaku.dying_eat_egg() 
+	endif 
+	return 
+endf 
+

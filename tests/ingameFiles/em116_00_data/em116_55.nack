@@ -1,0 +1,2393 @@
+importactions Dodogama as dodogama
+
+def node_000
+	conclude 
+endf 
+
+def node_001
+	self.targetArea(14) 
+	if self.distance_3d_to_target().gt(600) 
+		>> node_029 
+		repeat 
+	else 
+		>> node_014 
+	endif 
+	return 
+endf 
+
+def node_002
+	self.targetArea(19) 
+	if self.distance_3d_to_target().gt(1000) 
+		>> node_029 
+		repeat 
+	else 
+		>> node_014 
+	endif 
+	return 
+endf 
+
+def node_003
+	if self.current_quest().is_rank(rank.MR) 
+		>> node_307 
+	else 
+		if self.targetEnemy(target_em.any_monster) 
+			if self.target(13) 
+			else 
+				if self.vertical_distance_to_target().leq(1000) 
+					if self.distance_3d_to_target().leq(3000) 
+						if self.target.in_combat() 
+							>> node_004 
+						else 
+							>> node_005 
+						endif 
+					else 
+					endif 
+				else 
+				endif 
+			endif 
+		else 
+		endif 
+		if self.defense_downed() 
+			>> node_012 
+		else 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_004
+	if self.target_is(em.Deviljho) 
+		if self.target(49) 
+			>> node_008 
+		else 
+			random (30) 
+			elser (50) >> node_006 
+			elser (20) >> node_009 
+			elser (0) >> node_008 
+			endr 
+		endif 
+	elif self.target_is(em.Savage_Deviljho) 
+		if self.target(49) 
+			>> node_008 
+		else 
+			random (30) 
+			elser (50) >> node_006 
+			elser (20) >> node_009 
+			elser (0) >> node_008 
+			endr 
+		endif 
+	elif function#30(2) 
+		random (0) 
+		elser (30) >> node_006 
+		elser (70) >> node_009 
+					>> node_008 
+		elser (0) >> node_008 
+		endr 
+	else 
+		random (20) 
+		elser (10) >> node_006 
+		elser (70) >> node_009 
+					>> node_008 
+		elser (0) >> node_008 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_005
+	if self.target_is(em.Deviljho) 
+		if self.target(49) 
+			>> node_008 
+		else 
+			random (30) 
+			elser (50) >> node_006 
+			elser (20) >> node_009 
+			elser (0) >> node_008 
+			endr 
+		endif 
+	elif self.target_is(em.Savage_Deviljho) 
+		if self.target(49) 
+			>> node_008 
+		else 
+			random (30) 
+			elser (50) >> node_006 
+			elser (20) >> node_009 
+			elser (0) >> node_008 
+			endr 
+		endif 
+	elif function#30(2) 
+		random (0) 
+		elser (30) >> node_006 
+		elser (70) >> node_009 
+					>> node_008 
+		elser (0) >> node_008 
+		endr 
+	else 
+		random (10) 
+		elser (20) >> node_006 
+		elser (70) >> node_009 
+					>> node_008 
+		elser (0) >> node_008 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_006
+	>> node_034 
+	>> node_014 
+	return 
+endf 
+
+def node_007
+	>> node_040 
+	>> node_014 
+	return 
+endf 
+
+def node_008
+	if [RegisterVar0 >= 2] 
+		[RegisterVar0 ++] 
+	else 
+		[RegisterVar0 |-] 
+		self.force_area_change2() 
+	endif 
+	return 
+endf 
+
+def node_009
+	if self.vertical_distance_to_target().gt(1000) 
+		if function#101() 
+			>> node_122 
+			self.targetEnemy(target_em.any_monster) 
+			>> node_028 
+			>> node_040 
+			>> node_110 
+		else 
+			if self.distance_2d_to_target().leq(1000) 
+				>> node_040 
+				>> node_110 
+			else 
+				>> node_028 
+				>> node_110 
+			endif 
+		endif 
+	else 
+		if function#101() 
+			>> node_122 
+			self.targetEnemy(target_em.any_monster) 
+			>> node_028 
+			random (60) >> node_110 
+			elser (40) >> node_111 
+			endr 
+		elif function#101(1) 
+			random (60) >> node_028 
+						>> node_110 
+			elser (40) >> node_122 
+						self.targetEnemy(target_em.any_monster) 
+						>> node_028 
+						>> node_111 
+			endr 
+		elif function#101(2) 
+			random (60) >> node_028 
+						>> node_110 
+			elser (40) >> node_028 
+						>> node_111 
+			endr 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_010
+	>> node_007 
+	self.force_area_change2() 
+	return 
+endf 
+
+def node_011
+	>> node_009 
+	[RegisterVar0 ++] 
+	[RegisterVar0 ++] 
+	[RegisterVar0 ++] 
+	>> node_008 
+	return 
+endf 
+
+def node_012
+	if function#31(49,1500) 
+		self.targetEnemy(target_em.closest_entity) 
+		if self.target(13) 
+		else 
+			>> node_033 
+			>> node_014 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_013
+	-> dodogama.threat() 
+	return 
+endf 
+
+def node_014
+	-> dodogama.threat_short() 
+	return 
+endf 
+
+def node_015
+	random (50) -> dodogama.search() 
+	elser (50) -> dodogama.short_search() 
+	endr 
+	return 
+endf 
+
+def node_016
+	>> node_262 
+	return 
+endf 
+
+def node_017
+	if self.distance_2d_to_target().leq(800) 
+	else 
+		>> node_016 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_018
+	-> dodogama.run(2,1,0,1500,600) 
+	return 
+endf 
+
+def node_019
+	>> node_018 
+	if self.distance_2d_to_target().leq(800) 
+	else 
+		>> node_018 
+	endif 
+	return 
+endf 
+
+def node_020
+	>> node_018 
+	if self.distance_2d_to_target().leq(800) 
+	else 
+		>> node_018 
+	endif 
+	if self.distance_2d_to_target().leq(800) 
+	else 
+		>> node_018 
+	endif 
+	return 
+endf 
+
+def node_021
+	if self.distance_3d_to_target().leq(300) 
+		>> node_040 
+	else 
+	endif 
+	>> node_023 
+	return 
+endf 
+
+def node_022
+	>> node_259 
+	return 
+endf 
+
+def node_023
+	if self.distance_3d_to_target().leq(600) 
+	else 
+		>> node_022 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_024
+	if self.distance_2d_to_target().leq(800) 
+		return 
+	else 
+		>> node_018 
+	endif 
+	if self.distance_2d_to_target().leq(800) 
+		return 
+	else 
+		>> node_018 
+	endif 
+	if self.distance_2d_to_target().leq(800) 
+		return 
+	else 
+		>> node_018 
+	endif 
+	return 
+endf 
+
+def node_025
+	if self.distance_2d_to_target().leq(2000) 
+		>> node_047 
+	else 
+		return 
+	endif 
+	return 
+endf 
+
+def node_026
+	if self.distance_2d_to_target().gt(500) 
+		-> dodogama.run(1,2,0,500,1000) 
+	else 
+	endif 
+	if self.distance_2d_to_target().gt(500) 
+		-> dodogama.run(1,2,0,500,1000) 
+	else 
+	endif 
+	if self.distance_2d_to_target().gt(500) 
+		-> dodogama.run(1,2,0,500,1000) 
+	else 
+	endif 
+	if self.distance_2d_to_target().gt(500) 
+		-> dodogama.run(1,2,0,500,1000) 
+	else 
+	endif 
+	if self.distance_2d_to_target().gt(500) 
+		-> dodogama.run(1,2,0,500,1000) 
+	else 
+	endif 
+	return 
+endf 
+
+def node_027
+	if self.distance_2d_to_target().gt(900) 
+		-> dodogama.run(1,2,0,900,1000) 
+	else 
+	endif 
+	if self.distance_2d_to_target().gt(900) 
+		-> dodogama.run(1,2,0,900,1000) 
+	else 
+	endif 
+	if self.distance_2d_to_target().gt(900) 
+		-> dodogama.run(1,2,0,900,1000) 
+	else 
+	endif 
+	if self.distance_2d_to_target().gt(900) 
+		-> dodogama.run(1,2,0,900,1000) 
+	else 
+	endif 
+	if self.distance_2d_to_target().gt(900) 
+		-> dodogama.run(1,2,0,900,1000) 
+	else 
+	endif 
+	return 
+endf 
+
+def node_028
+	if self.distance_2d_to_target().gt(2400) 
+		-> dodogama.run(1,2,0,2400,2500) 
+	else 
+	endif 
+	if self.distance_2d_to_target().gt(2400) 
+		-> dodogama.run(1,2,0,2400,2500) 
+	else 
+	endif 
+	if self.distance_2d_to_target().gt(2400) 
+		-> dodogama.run(1,2,0,2400,2500) 
+	else 
+	endif 
+	if self.distance_2d_to_target().gt(2400) 
+		-> dodogama.run(1,2,0,2400,2500) 
+	else 
+	endif 
+	if self.distance_2d_to_target().gt(2400) 
+		-> dodogama.run(1,2,0,2400,2500) 
+	else 
+	endif 
+	return 
+endf 
+
+def node_029
+	-> dodogama.run(2,1,5,1500,500) 
+	return 
+endf 
+
+def node_030
+	-> dodogama.walk(2,1,5,1000,500) 
+	return 
+endf 
+
+def node_031
+	-> dodogama.run(1,2,0,450,1000) 
+	if self.distance_3d_to_target().gt(450) 
+		-> dodogama.run(1,2,0,450,1000) 
+	else 
+	endif 
+	if self.distance_3d_to_target().gt(450) 
+		-> dodogama.run(1,2,0,450,1000) 
+	else 
+	endif 
+	if self.distance_3d_to_target().gt(450) 
+		-> dodogama.run(1,2,0,450,1000) 
+	else 
+	endif 
+	if self.distance_3d_to_target().gt(450) 
+		-> dodogama.run(1,2,0,450,1000) 
+	else 
+	endif 
+	if self.distance_3d_to_target().gt(450) 
+		-> dodogama.run(1,2,0,450,1000) 
+	else 
+	endif 
+	return 
+endf 
+
+def node_032
+	if self.angle_2d_cw_between(10,350) 
+		-> dodogama.turn() 
+	else 
+	endif 
+	return 
+endf 
+
+def node_033
+	if self.angle_2d_cw_between(15,345) 
+		if self.distance_2d_to_target().leq(300) 
+			-> dodogama.back_turn() 
+		else 
+			-> dodogama.turn() 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_034
+	if self.angle_2d_cw_between(30,330) 
+		if self.distance_2d_to_target().leq(300) 
+			-> dodogama.back_turn() 
+		else 
+			-> dodogama.turn() 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_035
+	if self.angle_2d_cw_between(90,270) 
+		if self.distance_2d_to_target().leq(300) 
+			-> dodogama.back_turn() 
+		else 
+			-> dodogama.turn() 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_036
+	if self.distance_2d_to_target().leq(300) 
+		-> dodogama.back_turn() 
+	elif self.angle_2d_cw_between(15,345) 
+		-> dodogama.turn() 
+	else 
+	endif 
+	return 
+endf 
+
+def node_037
+	if self.distance_2d_to_target().leq(300) 
+		-> dodogama.back_turn() 
+	elif self.angle_2d_cw_between(30,330) 
+		-> dodogama.turn() 
+	else 
+	endif 
+	return 
+endf 
+
+def node_038
+	if self.distance_2d_to_target().leq(300) 
+		-> dodogama.back_turn() 
+	elif self.angle_2d_cw_between(60,300) 
+		-> dodogama.turn() 
+	else 
+	endif 
+	return 
+endf 
+
+def node_039
+	if self.distance_2d_to_target().leq(300) 
+		-> dodogama.back_turn() 
+	elif self.angle_2d_cw_between(90,270) 
+		-> dodogama.turn() 
+	else 
+	endif 
+	return 
+endf 
+
+def node_040
+	-> dodogama.back_turn() 
+	return 
+endf 
+
+def node_041
+	if self.angle_2d_cw_between(15,345) 
+		-> dodogama.back_turn() 
+	else 
+	endif 
+	return 
+endf 
+
+def node_042
+	if self.angle_2d_cw_between(30,330) 
+		-> dodogama.back_turn() 
+	else 
+	endif 
+	return 
+endf 
+
+def node_043
+	>> node_269 
+	return 
+endf 
+
+def node_044
+	if self.distance_2d_to_target().leq(750) 
+		>> node_189 
+	else 
+		>> node_018 
+	endif 
+	return 
+endf 
+
+def node_045
+	if self.distance_2d_to_target().leq(750) 
+		>> node_272 
+	else 
+		>> node_018 
+	endif 
+	return 
+endf 
+
+def node_046
+	>> node_045 
+	return 
+endf 
+
+def node_047
+	>> node_040 
+	return 
+endf 
+
+def node_048
+	>> node_270 
+	return 
+endf 
+
+def node_049
+	if self.angle_2d_cw_between(15,345) 
+		>> node_043 
+	else 
+	endif 
+	return 
+endf 
+
+def node_050
+	if self.angle_2d_cw_between(30,330) 
+		>> node_043 
+	else 
+	endif 
+	return 
+endf 
+
+def node_051
+	if self.angle_2d_cw_between(45,315) 
+		>> node_043 
+	else 
+	endif 
+	return 
+endf 
+
+def node_052
+	if self.angle_2d_cw_between(60,300) 
+		>> node_043 
+	else 
+	endif 
+	return 
+endf 
+
+def node_053
+	if self.angle_2d_cw_between(75,285) 
+		>> node_043 
+	else 
+	endif 
+	return 
+endf 
+
+def node_054
+	if self.angle_2d_cw_between(90,270) 
+		>> node_043 
+	else 
+	endif 
+	return 
+endf 
+
+def node_055
+	if self.angle_2d_cw_between(10,320) 
+		>> node_043 
+	else 
+	endif 
+	return 
+endf 
+
+def node_056
+	if self.angle_2d_cw_between(15,345) 
+		>> node_046 
+	else 
+	endif 
+	return 
+endf 
+
+def node_057
+	if self.angle_2d_cw_between(30,330) 
+		>> node_046 
+	else 
+	endif 
+	return 
+endf 
+
+def node_058
+	if self.angle_2d_cw_between(45,315) 
+		>> node_046 
+	else 
+	endif 
+	return 
+endf 
+
+def node_059
+	if self.angle_2d_cw_between(60,300) 
+		>> node_046 
+	else 
+	endif 
+	return 
+endf 
+
+def node_060
+	if self.angle_2d_cw_between(75,285) 
+		>> node_046 
+	else 
+	endif 
+	return 
+endf 
+
+def node_061
+	if self.angle_2d_cw_between(90,270) 
+		>> node_046 
+	else 
+	endif 
+	return 
+endf 
+
+def node_062
+	if self.angle_2d_cw_between(10,320) 
+		>> node_046 
+	else 
+	endif 
+	return 
+endf 
+
+def node_063
+	if self.angle_2d_cw_between(15,345) 
+		>> node_047 
+	else 
+	endif 
+	return 
+endf 
+
+def node_064
+	if self.angle_2d_cw_between(30,330) 
+		>> node_047 
+	else 
+	endif 
+	return 
+endf 
+
+def node_065
+	if self.angle_2d_cw_between(45,315) 
+		>> node_047 
+	else 
+	endif 
+	return 
+endf 
+
+def node_066
+	if self.angle_2d_cw_between(60,300) 
+		>> node_047 
+	else 
+	endif 
+	return 
+endf 
+
+def node_067
+	if self.angle_2d_cw_between(90,270) 
+		>> node_047 
+	else 
+	endif 
+	return 
+endf 
+
+def node_068
+	if self.angle_2d_cw_between(15,345) 
+		>> node_048 
+	else 
+	endif 
+	return 
+endf 
+
+def node_069
+	if self.angle_2d_cw_between(30,330) 
+		>> node_048 
+	else 
+	endif 
+	return 
+endf 
+
+def node_070
+	if self.angle_2d_cw_between(45,315) 
+		>> node_048 
+	else 
+	endif 
+	return 
+endf 
+
+def node_071
+	if self.angle_2d_cw_between(60,300) 
+		>> node_048 
+	else 
+	endif 
+	return 
+endf 
+
+def node_072
+	if self.angle_2d_cw_between(90,270) 
+		>> node_048 
+	else 
+	endif 
+	return 
+endf 
+
+def node_073
+	if self.angle_2d_cw_between(0,180) 
+		>> node_223 
+	else 
+		>> node_224 
+	endif 
+	return 
+endf 
+
+def node_074
+	if self.angle_2d_cw_between(0,180) 
+		>> node_220 
+	else 
+		>> node_221 
+	endif 
+	return 
+endf 
+
+def node_075
+	if self.angle_2d_cw_between(270,90) 
+		>> node_073 
+	else 
+		>> node_074 
+	endif 
+	return 
+endf 
+
+def node_076
+	if self.angle_2d_cw_between(270,90) 
+		>> node_073 
+	else 
+		>> node_074 
+	endif 
+	if self.enraged() 
+		>> node_086 
+	else 
+		>> node_085 
+	endif 
+	return 
+endf 
+
+def node_077
+	>> node_217 
+	return 
+endf 
+
+def node_078
+	>> node_225 
+	return 
+endf 
+
+def node_079
+	>> node_222 
+	return 
+endf 
+
+def node_080
+	>> node_227 
+	>> node_081 
+	return 
+endf 
+
+def node_081
+	if self.target.helpless_1() 
+		>> node_082 
+		>> node_083 
+		>> node_084 
+	else 
+	endif 
+	return 
+endf 
+
+def node_082
+	if self.distance_3d_to_target().leq(800) 
+		>> node_228 
+	else 
+		>> node_017 
+	endif 
+	return 
+endf 
+
+def node_083
+	>> node_230 
+	return 
+endf 
+
+def node_084
+	>> node_231 
+	return 
+endf 
+
+def node_085
+	if self.distance_2d_to_target().leq(800) 
+		random (25) >> node_050 
+					>> node_077 
+		elser (15) >> node_055 
+					>> node_078 
+		elser (10) >> node_051 
+					>> node_079 
+		elser (50) 
+		endr 
+	else 
+	endif 
+	return 
+endf 
+
+def node_086
+	if self.distance_2d_to_target().leq(800) 
+		random (50) >> node_050 
+					>> node_077 
+		elser (30) >> node_055 
+					>> node_078 
+		elser (20) >> node_051 
+					>> node_079 
+		endr 
+	else 
+	endif 
+	return 
+endf 
+
+def node_087
+	random (50) >> node_077 
+	elser (25) >> node_075 
+	elser (25) >> node_079 
+	endr 
+	return 
+endf 
+
+def node_088
+	>> node_201 
+	return 
+endf 
+
+def node_089
+	>> node_226 
+	return 
+endf 
+
+def node_090
+	if self.angle_2d_cw_between(0,180) 
+		>> node_292 
+	else 
+		>> node_293 
+	endif 
+	return 
+endf 
+
+def node_091
+	if self.angle_2d_cw_between(0,180) 
+		>> node_296 
+	else 
+		>> node_297 
+	endif 
+	return 
+endf 
+
+def node_092
+	if self.angle_2d_cw_between(270,90) 
+		>> node_090 
+	else 
+		>> node_091 
+	endif 
+	return 
+endf 
+
+def node_093
+	>> node_291 
+	return 
+endf 
+
+def node_094
+	if self.angle_2d_cw_between(0,180) 
+		>> node_294 
+	else 
+		>> node_295 
+	endif 
+	return 
+endf 
+
+def node_095
+	if self.angle_2d_cw_between(315,45) 
+		>> node_093 
+	elif self.angle_2d_cw_between(45,135) 
+		>> node_094 
+	elif self.angle_2d_cw_between(135,225) 
+		>> node_043 
+		>> node_093 
+	else 
+		>> node_094 
+	endif 
+	return 
+endf 
+
+def node_096
+	>> node_298 
+	return 
+endf 
+
+def node_097
+	>> node_299 
+	>> node_300 
+	return 
+endf 
+
+def node_098
+	>> node_303 
+	return 
+endf 
+
+def node_099
+	>> node_304 
+	return 
+endf 
+
+def node_100
+	if self.distance_2d_to_target().leq(1000) 
+		random (50) >> node_095 
+		elser (50) 
+		endr 
+	else 
+		random (50) >> node_054 
+					if self.enraged() 
+						>> node_097 
+					else 
+						>> node_096 
+					endif 
+		elser (50) 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_101
+	if self.distance_2d_to_target().leq(1000) 
+		>> node_095 
+	else 
+		>> node_054 
+		if self.enraged() 
+			>> node_097 
+		else 
+			>> node_096 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_102
+	>> node_301 
+	return 
+endf 
+
+def node_103
+	>> node_302 
+	return 
+endf 
+
+def node_104
+	>> node_290 
+	return 
+endf 
+
+def node_105
+	>> node_035 
+	-> dodogama.eat_ore_attack() 
+	return 
+endf 
+
+def node_106
+	>> node_035 
+	-> dodogama.rush_eat_ore() 
+	if function#101(2) 
+		-> dodogama.rush_eat_ore_ok() 
+	else 
+		if self.part(1).is_broken(1) 
+			random (35) -> dodogama.rush_eat_ore_ng() 
+			elser (65) -> dodogama.rush_eat_ore_ok() 
+			endr 
+		else 
+			-> dodogama.rush_eat_ore_ok() 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_107
+	>> node_035 
+	-> dodogama.rush_eat_ore() 
+	-> dodogama.rush_eat_ore_ok() 
+	return 
+endf 
+
+def node_108
+	>> node_039 
+	if self.distance_2d_to_target().leq(700) 
+		>> node_109 
+	else 
+		>> node_110 
+	endif 
+	return 
+endf 
+
+def node_109
+	-> dodogama.breath_short() 
+	return 
+endf 
+
+def node_110
+	-> dodogama.breath_long() 
+	return 
+endf 
+
+def node_111
+	if self.distance_2d_to_target().leq(700) 
+		>> node_038 
+		>> node_112 
+	else 
+		>> node_039 
+		>> node_113 
+	endif 
+	return 
+endf 
+
+def node_112
+	-> dodogama.full_burst_short() 
+	return 
+endf 
+
+def node_113
+	-> dodogama.full_burst_long() 
+	return 
+endf 
+
+def node_114
+	if self.angle_2d_cw_between(0,180) 
+		-> dodogama.tail_attack_l() 
+	else 
+		-> dodogama.tail_attack_r() 
+	endif 
+	return 
+endf 
+
+def node_115
+	if self.distance_2d_to_target().gt(500) 
+		-> dodogama.run(2,1,0,100,500) 
+		repeat 
+	else 
+		>> node_035 
+		if self.angle_2d_cw_between(0,180) 
+			-> dodogama.scratch_attack_l() 
+		else 
+			-> dodogama.scratch_attack_r() 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_116
+	if self.angle_2d_cw_between(0,180) 
+		-> dodogama.overturn_l() 
+	else 
+		-> dodogama.overturn_r() 
+	endif 
+	return 
+endf 
+
+def node_117
+	>> node_035 
+	-> dodogama.body_press() 
+	return 
+endf 
+
+def node_118
+	if self.angle_2d_cw_between(270,90) 
+		>> node_115 
+	else 
+		>> node_114 
+	endif 
+	return 
+endf 
+
+def node_119
+	if self.angle_2d_cw_between(315,45) 
+		>> node_117 
+	elif self.angle_2d_cw_between(45,135) 
+		>> node_116 
+	elif self.angle_2d_cw_between(135,225) 
+		>> node_033 
+		>> node_117 
+	else 
+		>> node_116 
+	endif 
+	return 
+endf 
+
+def node_120
+	>> node_035 
+	-> dodogama.dash_attack() 
+	return 
+endf 
+
+def node_121
+	>> node_035 
+	-> dodogama.dash_attack_no_end() 
+	-> dodogama.overturn_dash() 
+	return 
+endf 
+
+def node_122
+	-> dodogama.eat_ore_combat() 
+	return 
+endf 
+
+def node_123
+	-> dodogama.eat_ore_life() 
+	return 
+endf 
+
+def node_124
+	-> dodogama.refresh() 
+	return 
+endf 
+
+def node_125
+	-> dodogama.tired() 
+	return 
+endf 
+
+def node_126
+	-> dodogama.sleep() 
+	return 
+endf 
+
+def node_127
+	if self.distance_3d_to_target().leq(3500) 
+		>> node_182 
+	else 
+		random (65) >> node_181 
+		elser (35) >> node_182 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_128
+	if self.distance_3d_to_target().leq(1500) 
+	elif self.distance_3d_to_target().leq(3500) 
+		random (50) >> node_193 
+		elser (50) >> node_195 
+		elser (0) 
+		endr 
+	else 
+	endif 
+	return 
+endf 
+
+def node_129
+	random (50) >> node_193 
+	elser (50) >> node_195 
+	endr 
+	return 
+endf 
+
+def node_130
+	-> dodogama.idle() 
+	return 
+endf 
+
+def node_131
+	if self.distance_3d_to_target().leq(500) 
+		>> node_047 
+	elif self.distance_3d_to_target().leq(750) 
+		>> node_064 
+	else 
+		>> node_050 
+	endif 
+	return 
+endf 
+
+def node_132
+	if self.distance_3d_to_target().leq(500) 
+		>> node_040 
+	elif self.distance_3d_to_target().leq(750) 
+		>> node_042 
+	else 
+		>> node_034 
+	endif 
+	return 
+endf 
+
+def node_133
+	if self.distance_2d_to_target().leq(1000) 
+		return 
+	else 
+		>> node_177 
+	endif 
+	if self.distance_2d_to_target().leq(1000) 
+		return 
+	else 
+		>> node_177 
+	endif 
+	if self.distance_2d_to_target().leq(1000) 
+		return 
+	else 
+		>> node_177 
+	endif 
+	return 
+endf 
+
+def node_134
+	if self.distance_2d_to_target().leq(1000) 
+		return 
+	else 
+		>> node_260 
+	endif 
+	if self.distance_2d_to_target().leq(1000) 
+		return 
+	else 
+		>> node_260 
+	endif 
+	if self.distance_2d_to_target().leq(1000) 
+		return 
+	else 
+		>> node_260 
+	endif 
+	return 
+endf 
+
+def node_135
+	>> node_191 
+	return 
+endf 
+
+def node_136
+	>> node_277 
+	return 
+endf 
+
+def node_137
+	>> node_197 
+	return 
+endf 
+
+def node_138
+	>> node_197 
+	>> node_197 
+	return 
+endf 
+
+def node_139
+	>> node_197 
+	return 
+endf 
+
+def node_140
+	>> node_197 
+	>> node_197 
+	return 
+endf 
+
+def node_141
+	>> node_194 
+	return 
+endf 
+
+def node_142
+	>> node_194 
+	return 
+endf 
+
+def node_143
+	>> node_195 
+	return 
+endf 
+
+def node_144
+	>> node_196 
+	return 
+endf 
+
+def node_145
+	if self.enraged() 
+		>> node_183 
+	else 
+		>> node_173 
+	endif 
+	return 
+endf 
+
+def node_146
+	if self.enraged() 
+		>> node_184 
+	else 
+		>> node_174 
+	endif 
+	return 
+endf 
+
+def node_147
+	if self.enraged() 
+		>> node_077 
+	else 
+		>> node_199 
+	endif 
+	return 
+endf 
+
+def node_148
+	if self.target(10) 
+		-> dodogama.run(2,3,0,1000,2) 
+	else 
+	endif 
+	>> node_053 
+	>> node_079 
+	return 
+endf 
+
+def node_149
+	>> node_280 
+	return 
+endf 
+
+def node_150
+	>> node_280 
+	return 
+endf 
+
+def node_151
+	>> node_281 
+	return 
+endf 
+
+def node_152
+	>> node_282 
+	return 
+endf 
+
+def node_153
+	if self.enraged() 
+		>> node_264 
+	else 
+		>> node_256 
+	endif 
+	return 
+endf 
+
+def node_154
+	if self.enraged() 
+		>> node_265 
+	else 
+		>> node_257 
+	endif 
+	return 
+endf 
+
+def node_155
+	if self.enraged() 
+		>> node_117 
+	else 
+		-> dodogama.peep_grass_search() 
+	endif 
+	return 
+endf 
+
+def node_156
+	if self.target(10) 
+		-> dodogama.run(2,3,0,1000,2) 
+	else 
+	endif 
+	>> node_034 
+	>> node_117 
+	return 
+endf 
+
+def node_157
+	>> node_203 
+	return 
+endf 
+
+def node_158
+	>> node_203 
+	return 
+endf 
+
+def node_159
+	>> node_284 
+	return 
+endf 
+
+def node_160
+	>> node_284 
+	return 
+endf 
+
+def node_161
+	random (35) 
+				self.targetArea(21) @ parameter2:450 
+	elser (35) 
+				self.targetArea(22) @ parameter2:450 
+	elser (15) 
+				self.targetArea(21) @ parameter2:600 
+	elser (15) 
+				self.targetArea(22) @ parameter2:600 
+	endr 
+	return 
+endf 
+
+def node_162
+	if self.above_target() 
+		if self.vertical_distance_to_target().leq(1000) 
+			if function#101() 
+				>> node_122 
+			else 
+			endif 
+			if self.distance_2d_to_target().leq(1000) 
+				>> node_040 
+			elif self.distance_2d_to_target().leq(2000) 
+				random (80) >> node_110 
+				elser (20) >> node_026 
+							>> node_119 
+				endr 
+			else 
+				-> dodogama.run(2,6,0,1000,1500) 
+			endif 
+		else 
+			if self.distance_2d_to_target().gt(1500) 
+				-> dodogama.run(2,6,0,1500,1000) 
+			elif self.distance_2d_to_target().leq(500) 
+				>> node_040 
+			else 
+				>> node_032 
+				random (70) -> dodogama.jump_attack() 
+				elser (30) >> node_013 
+				endr 
+			endif 
+		endif 
+	else 
+		-> dodogama.run(2,6,0,1500,500) 
+		if self.distance_2d_to_target().leq(500) 
+			>> node_032 
+			-> dodogama.fall_attack() 
+		else 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_163
+	if function#11(500) 
+		if function#101() 
+			>> node_122 
+		else 
+		endif 
+		if self.distance_2d_to_target().leq(1000) 
+			>> node_040 
+		elif self.distance_2d_to_target().leq(2000) 
+			>> node_110 
+		else 
+			-> dodogama.run(2,6,0,1000,1500) 
+		endif 
+	else 
+		if self.distance_2d_to_target().gt(1500) 
+			-> dodogama.run(2,6,0,1500,1000) 
+		elif self.distance_2d_to_target().leq(500) 
+			>> node_040 
+		else 
+			>> node_032 
+			random (70) -> dodogama.jump_attack() 
+			elser (30) >> node_013 
+			endr 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_164
+	if self.distance_2d_to_target().leq(1000) 
+		>> node_106 
+	else 
+		-> dodogama.run(2,1,0,1000,900) 
+	endif 
+	return 
+endf 
+
+def node_165
+	random (30) >> node_105 
+	elser (20) >> node_118 
+	elser (15) >> node_119 
+	elser (5) >> node_122 
+	elser (30) >> node_106 
+	endr 
+	return 
+endf 
+
+def node_166
+	-> dodogama.idle() 
+	return 
+endf 
+
+def node_167
+	-> dodogama.walk() 
+	return 
+endf 
+
+def node_168
+	-> dodogama.walk(2,0,0,500) 
+	return 
+endf 
+
+def node_169
+	-> dodogama.walk(2,0,0,1000) 
+	return 
+endf 
+
+def node_170
+	-> dodogama.walk(2,1,0,500,650) 
+	return 
+endf 
+
+def node_171
+	-> dodogama.walk(2,1,0,1000,650) 
+	return 
+endf 
+
+def node_172
+	-> dodogama.walk(2,1,0,2000,1000) 
+	return 
+endf 
+
+def node_173
+	-> dodogama.walk(2,1,5,500,650) 
+	return 
+endf 
+
+def node_174
+	-> dodogama.walk(2,1,5,1000,650) 
+	return 
+endf 
+
+def node_175
+	-> dodogama.run() 
+	return 
+endf 
+
+def node_176
+	-> dodogama.run(2,0,0,1000) 
+	return 
+endf 
+
+def node_177
+	-> dodogama.run(2,3,0,1000,5) 
+	return 
+endf 
+
+def node_178
+	-> dodogama.run(2,1,0,500,650) 
+	return 
+endf 
+
+def node_179
+	-> dodogama.run(2,1,0,1000,650) 
+	return 
+endf 
+
+def node_180
+	-> dodogama.run(2,1,0,1000,1000) 
+	return 
+endf 
+
+def node_181
+	-> dodogama.run(2,1,0,6000,3000) 
+	return 
+endf 
+
+def node_182
+	-> dodogama.run(2,1,0,6000,1000) 
+	return 
+endf 
+
+def node_183
+	-> dodogama.run(2,1,5,500,650) 
+	return 
+endf 
+
+def node_184
+	-> dodogama.run(2,1,5,1000,650) 
+	return 
+endf 
+
+def node_185
+	-> dodogama.dying_walk() 
+	return 
+endf 
+
+def node_186
+	-> dodogama.dying_walk(2,0,0,1000) 
+	return 
+endf 
+
+def node_187
+	-> dodogama.turn() 
+	return 
+endf 
+
+def node_188
+	-> dodogama.back_turn() 
+	return 
+endf 
+
+def node_189
+	-> dodogama.idle() 
+	return 
+endf 
+
+def node_190
+	-> dodogama.idle() 
+	return 
+endf 
+
+def node_191
+	-> dodogama.search() 
+	return 
+endf 
+
+def node_192
+	-> dodogama.search() 
+	return 
+endf 
+
+def node_193
+	-> dodogama.short_search() 
+	return 
+endf 
+
+def node_194
+	-> dodogama.lost_search() 
+	return 
+endf 
+
+def node_195
+	-> dodogama.smell() 
+	return 
+endf 
+
+def node_196
+	-> dodogama.smell_max() 
+	return 
+endf 
+
+def node_197
+	-> dodogama.anger_search() 
+	return 
+endf 
+
+def node_198
+	-> dodogama.anger_search_walk() 
+	return 
+endf 
+
+def node_199
+	-> dodogama.peep_grass_search() 
+	return 
+endf 
+
+def node_200
+	-> dodogama.idle() 
+	return 
+endf 
+
+def node_201
+	-> dodogama.tired() 
+	return 
+endf 
+
+def node_202
+	-> dodogama.threat() 
+	return 
+endf 
+
+def node_203
+	-> dodogama.threat_short() 
+	return 
+endf 
+
+def node_204
+	-> dodogama.idle() 
+	return 
+endf 
+
+def node_205
+	-> dodogama.idle() 
+	return 
+endf 
+
+def node_206
+	-> dodogama.idle() 
+	return 
+endf 
+
+def node_207
+	-> dodogama.idle() 
+	return 
+endf 
+
+def node_208
+	-> dodogama.idle() 
+	return 
+endf 
+
+def node_209
+	-> dodogama.idle() 
+	return 
+endf 
+
+def node_210
+	-> dodogama.idle() 
+	return 
+endf 
+
+def node_211
+	-> dodogama.idle() 
+	return 
+endf 
+
+def node_212
+	-> dodogama.sleep() 
+	return 
+endf 
+
+def node_213
+	-> dodogama.sleep_end() 
+	return 
+endf 
+
+def node_214
+	-> dodogama.dying_sleep() 
+	return 
+endf 
+
+def node_215
+	-> dodogama.dying_sleep_end() 
+	return 
+endf 
+
+def node_216
+	-> dodogama.refresh() 
+	return 
+endf 
+
+def node_217
+	-> dodogama.idle() 
+	return 
+endf 
+
+def node_218
+	-> dodogama.idle() 
+	return 
+endf 
+
+def node_219
+	-> dodogama.idle() 
+	return 
+endf 
+
+def node_220
+	-> dodogama.tail_attack_l() 
+	return 
+endf 
+
+def node_221
+	-> dodogama.tail_attack_r() 
+	return 
+endf 
+
+def node_222
+	-> dodogama.idle() 
+	return 
+endf 
+
+def node_223
+	-> dodogama.idle() 
+	return 
+endf 
+
+def node_224
+	-> dodogama.idle() 
+	return 
+endf 
+
+def node_225
+	-> dodogama.idle() 
+	return 
+endf 
+
+def node_226
+	-> dodogama.idle() 
+	return 
+endf 
+
+def node_227
+	-> dodogama.idle() 
+	return 
+endf 
+
+def node_228
+	-> dodogama.idle() 
+	return 
+endf 
+
+def node_229
+	-> dodogama.idle() 
+	return 
+endf 
+
+def node_230
+	-> dodogama.idle() 
+	return 
+endf 
+
+def node_231
+	-> dodogama.idle() 
+	return 
+endf 
+
+def node_232
+	-> dodogama.ride_rage_head() 
+	return 
+endf 
+
+def node_233
+	-> dodogama.ride_rage_body() 
+	return 
+endf 
+
+def node_234
+	-> dodogama.ride_rage_crash_head() 
+	return 
+endf 
+
+def node_235
+	-> dodogama.ride_rage_crash_head_lv2() 
+	return 
+endf 
+
+def node_236
+	-> dodogama.ride_rage_crash_body() 
+	return 
+endf 
+
+def node_237
+	-> dodogama.ride_rage_crash_body_lv2() 
+	return 
+endf 
+
+def node_238
+	-> dodogama.ride_tired() 
+	return 
+endf 
+
+def node_239
+	-> dodogama.ride_rage_head() 
+	return 
+endf 
+
+def node_240
+	-> dodogama.ride_rage_body() 
+	return 
+endf 
+
+def node_241
+	-> dodogama.ride_rage_crash_head() 
+	return 
+endf 
+
+def node_242
+	-> dodogama.ride_rage_crash_head_lv2() 
+	return 
+endf 
+
+def node_243
+	-> dodogama.ride_rage_crash_body() 
+	return 
+endf 
+
+def node_244
+	-> dodogama.ride_rage_crash_body_lv2() 
+	return 
+endf 
+
+def node_245
+	-> dodogama.ride_tired() 
+	return 
+endf 
+
+def node_246
+	-> dodogama.idle() 
+	return 
+endf 
+
+def node_247
+	-> dodogama.idle() 
+	return 
+endf 
+
+def node_248
+	-> dodogama.idle() 
+	return 
+endf 
+
+def node_249
+	-> dodogama.idle() 
+	return 
+endf 
+
+def node_250
+	-> dodogama.idle() 
+	return 
+endf 
+
+def node_251
+	-> dodogama.walk() 
+	return 
+endf 
+
+def node_252
+	-> dodogama.walk(2,0,0,500) 
+	return 
+endf 
+
+def node_253
+	-> dodogama.walk(2,0,0,1000) 
+	return 
+endf 
+
+def node_254
+	-> dodogama.walk(2,1,0,500,650) 
+	return 
+endf 
+
+def node_255
+	-> dodogama.walk(2,1,0,1000,650) 
+	return 
+endf 
+
+def node_256
+	-> dodogama.walk(2,1,5,500,650) 
+	return 
+endf 
+
+def node_257
+	-> dodogama.walk(2,1,5,1000,650) 
+	return 
+endf 
+
+def node_258
+	-> dodogama.run() 
+	return 
+endf 
+
+def node_259
+	-> dodogama.run(2,0,0,1000) 
+	return 
+endf 
+
+def node_260
+	-> dodogama.run(2,3,0,1000,5) 
+	return 
+endf 
+
+def node_261
+	-> dodogama.run(2,1,0,500,650) 
+	return 
+endf 
+
+def node_262
+	-> dodogama.run(2,1,0,1000,650) 
+	return 
+endf 
+
+def node_263
+	-> dodogama.run(2,1,0,1000,1000) 
+	return 
+endf 
+
+def node_264
+	-> dodogama.run(2,1,5,500,650) 
+	return 
+endf 
+
+def node_265
+	-> dodogama.run(2,1,5,1000,650) 
+	return 
+endf 
+
+def node_266
+	-> dodogama.anger_search_walk() 
+	return 
+endf 
+
+def node_267
+	-> dodogama.dying_walk() 
+	return 
+endf 
+
+def node_268
+	-> dodogama.dying_walk(2,0,0,1000) 
+	return 
+endf 
+
+def node_269
+	-> dodogama.turn() 
+	return 
+endf 
+
+def node_270
+	-> dodogama.turn() 
+	return 
+endf 
+
+def node_271
+	-> dodogama.back_turn() 
+	return 
+endf 
+
+def node_272
+	-> dodogama.idle() 
+	return 
+endf 
+
+def node_273
+	-> dodogama.idle() 
+	return 
+endf 
+
+def node_274
+	-> dodogama.peep_grass_search() 
+	return 
+endf 
+
+def node_275
+	-> dodogama.idle() 
+	return 
+endf 
+
+def node_276
+	-> dodogama.tired() 
+	return 
+endf 
+
+def node_277
+	-> dodogama.search() 
+	return 
+endf 
+
+def node_278
+	-> dodogama.short_search() 
+	return 
+endf 
+
+def node_279
+	-> dodogama.anger_search() 
+	return 
+endf 
+
+def node_280
+	-> dodogama.lost_search() 
+	return 
+endf 
+
+def node_281
+	-> dodogama.smell() 
+	return 
+endf 
+
+def node_282
+	-> dodogama.smell_max() 
+	return 
+endf 
+
+def node_283
+	-> dodogama.threat() 
+	return 
+endf 
+
+def node_284
+	-> dodogama.threat_short() 
+	return 
+endf 
+
+def node_285
+	-> dodogama.sleep() 
+	return 
+endf 
+
+def node_286
+	-> dodogama.sleep_end() 
+	return 
+endf 
+
+def node_287
+	if function#C9() 
+		-> dodogama.dying_sleep() 
+	else 
+		function#CA() 
+	endif 
+	return 
+endf 
+
+def node_288
+	-> dodogama.dying_sleep_end() 
+	return 
+endf 
+
+def node_289
+	-> dodogama.refresh() 
+	return 
+endf 
+
+def node_290
+	-> dodogama.idle() 
+	return 
+endf 
+
+def node_291
+	-> dodogama.body_press() 
+	return 
+endf 
+
+def node_292
+	-> dodogama.idle() 
+	return 
+endf 
+
+def node_293
+	-> dodogama.idle() 
+	return 
+endf 
+
+def node_294
+	-> dodogama.overturn_l() 
+	return 
+endf 
+
+def node_295
+	-> dodogama.overturn_r() 
+	return 
+endf 
+
+def node_296
+	-> dodogama.tail_attack_l() 
+	return 
+endf 
+
+def node_297
+	-> dodogama.tail_attack_r() 
+	return 
+endf 
+
+def node_298
+	-> dodogama.idle() 
+	return 
+endf 
+
+def node_299
+	-> dodogama.idle() 
+	return 
+endf 
+
+def node_300
+	-> dodogama.idle() 
+	return 
+endf 
+
+def node_301
+	-> dodogama.idle() 
+	return 
+endf 
+
+def node_302
+	-> dodogama.idle() 
+	return 
+endf 
+
+def node_303
+	-> dodogama.idle() 
+	return 
+endf 
+
+def node_304
+	-> dodogama.idle() 
+	return 
+endf 
+
+def node_305
+	-> dodogama.idle() 
+	return 
+endf 
+
+def node_306
+	-> dodogama.idle() 
+	return 
+endf 
+
+def node_307
+	if self.targetEnemy(target_em.any_monster) 
+		if self.target(13) 
+		else 
+			if self.vertical_distance_to_target().leq(1000) 
+				if self.distance_3d_to_target().leq(3000) 
+					if self.target.in_combat() 
+						>> node_308 
+					else 
+						>> node_309 
+					endif 
+				else 
+				endif 
+			else 
+			endif 
+		endif 
+	else 
+	endif 
+	if self.defense_downed() 
+		>> node_012 
+	else 
+	endif 
+	return 
+endf 
+
+def node_308
+	if self.target_is(em.Deviljho) 
+		if self.target(49) 
+			>> node_008 
+		else 
+			random (30) 
+			elser (50) >> node_006 
+			elser (20) >> node_009 
+			elser (0) >> node_008 
+			elser (0) >> node_011 
+			endr 
+		endif 
+	elif self.target_is(em.Savage_Deviljho) 
+		if self.target(49) 
+			>> node_008 
+		else 
+			random (30) 
+			elser (50) >> node_006 
+			elser (20) >> node_009 
+			elser (0) >> node_008 
+			elser (0) >> node_011 
+			endr 
+		endif 
+	elif function#30(2) 
+		random (0) 
+		elser (30) >> node_006 
+		elser (70) >> node_009 
+					>> node_008 
+		elser (0) >> node_008 
+		elser (0) >> node_011 
+		endr 
+	else 
+		random (20) 
+		elser (10) >> node_006 
+		elser (70) >> node_009 
+					>> node_008 
+		elser (0) >> node_008 
+		elser (0) >> node_011 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_309
+	if self.target_is(em.Deviljho) 
+		if self.target(49) 
+			>> node_008 
+		else 
+			random (30) 
+			elser (50) >> node_006 
+			elser (20) >> node_009 
+			elser (0) >> node_008 
+			elser (0) >> node_011 
+			endr 
+		endif 
+	elif self.target_is(em.Savage_Deviljho) 
+		if self.target(49) 
+			>> node_008 
+		else 
+			random (30) 
+			elser (50) >> node_006 
+			elser (20) >> node_009 
+			elser (0) >> node_008 
+			elser (0) >> node_011 
+			endr 
+		endif 
+	elif function#30(2) 
+		random (0) 
+		elser (30) >> node_006 
+		elser (70) >> node_009 
+					>> node_008 
+		elser (0) >> node_008 
+		elser (0) >> node_011 
+		endr 
+	else 
+		random (10) 
+		elser (20) >> node_006 
+		elser (70) >> node_009 
+					>> node_008 
+		elser (0) >> node_008 
+		elser (0) >> node_011 
+		endr 
+	endif 
+	return 
+endf 
+

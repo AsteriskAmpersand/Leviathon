@@ -1,0 +1,75 @@
+importactions Shrieking_Legiana as shrieking_legiana
+importlibrary Global as Global
+
+def node_000
+	self.targetEnemy(target_em.closest_entity) 
+	if self.target_is(em.Shrieking_Legiana) 
+	else 
+		>> node_001 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	if self.target_is(em.Barioth) 
+		>> node_002 
+	elif self.target_is(em.Frostfang_Barioth) 
+		>> node_002 
+	elif self.target_is(em.Paolumu) 
+		>> node_003 
+	elif self.target_is(em.Odogaron) 
+		>> node_004 
+	elif self.target_is(em.Ebony_Odogaron) 
+		>> node_004 
+	elif self.target_is(em.Nightshade_Paolumu) 
+		>> node_003 
+	endif 
+	return 
+endf 
+
+def node_002
+	>> Global.node_002 
+	>> Global.node_271 
+	-> shrieking_legiana.grapple_with_em042_mediation() 
+	return 
+endf 
+
+def node_003
+	>> Global.node_002 
+	>> Global.node_271 
+	-> shrieking_legiana.grapple_mediation_threat_fly() 
+	return 
+endf 
+
+def node_004
+	>> Global.node_002 
+	>> Global.node_271 
+	-> shrieking_legiana.grapple_with_em113_mediation() 
+	return 
+endf 
+
+def node_005
+	self.targetEnemy(target_em.closest_entity) 
+	if self.target_is(em.Anjanath) 
+		>> node_006 
+	else 
+		>> node_007 
+	endif 
+	conclude 
+endf 
+
+def node_006
+	>> Global.node_002 
+	>> Global.node_271 
+	-> shrieking_legiana.die_fly() 
+	return 
+endf 
+
+def node_007
+	>> Global.node_271 
+	>> Global.node_039 
+	>> Global.node_273 
+	>> Global.call#326 // -THK_55 is missing NodeID 326. 
+	return 
+endf 
+

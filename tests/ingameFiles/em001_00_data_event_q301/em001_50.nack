@@ -1,0 +1,27 @@
+importactions Rathian as rathian
+
+def node_000
+	self.targetEnemy(target_em.closest_entity) 
+	-> rathian.grapple_to_em100_start() 
+	-> rathian.grapple_to_em100() 
+	conclude 
+endf 
+
+def node_001
+	if self.distance_2d_to_target().leq(3000) 
+		>> node_002 
+	else 
+		-> rathian.damage_sleep_end() 
+	endif 
+	return 
+endf 
+
+def node_002
+	if self.vertical_distance_to_target().gt(1000) 
+		-> rathian.glide_combat_no_directmove() 
+	else 
+		-> rathian.damage_sleep_end() 
+	endif 
+	return 
+endf 
+

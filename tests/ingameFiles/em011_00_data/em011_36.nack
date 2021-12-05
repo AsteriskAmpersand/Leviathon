@@ -1,0 +1,200 @@
+importactions Kirin as kirin
+importlibrary Global as Global
+
+def node_000
+	self.targetArea(21) @ parameter2:700 
+	if self.target_on_part(0) >> node_004 
+	elif self.target_on_part(1) >> node_004 
+	elif self.target_on_part(2) >> node_004 
+	elif self.in_combat() 
+		self.enraged() >> node_002 => reset 
+		>> node_001 => reset 
+	else >> node_003 
+	endif 
+	reset 
+endf 
+
+def node_001
+	random (20) >> Global.node_039 
+	elser (25) >> Global.node_009 
+	elser (35) >> Global.node_015 
+	elser (20) >> Global.node_007 
+	endr 
+	return 
+endf 
+
+def node_002
+	random (10) >> Global.node_039 
+	elser (20) >> Global.node_007 
+	elser (35) >> Global.node_001 
+	elser (35) >> Global.node_020 
+	endr 
+	return 
+endf 
+
+def node_003
+	random (30) >> Global.node_039 
+	elser (20) >> Global.node_007 
+	elser (35) >> Global.node_001 
+	elser (15) >> Global.node_020 
+	endr 
+	return 
+endf 
+
+def node_004
+	function#A8() 
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if function#A9(0,1) 
+		self.target_on_part(1) >> node_005 => repeat 
+		self.target_on_part(2) >> node_008 => repeat 
+	elif function#A9(0,2) 
+		self.target_on_part(1) >> node_005 => repeat 
+		self.target_on_part(2) >> node_008 => repeat 
+	elif function#A9(0,3) 
+		self.target_on_part(1) >> node_014 => repeat 
+		self.target_on_part(2) >> node_014 => repeat 
+	else 
+		function#A8(1) 
+		return 
+	endif 
+	return 
+endf 
+
+def node_005
+	if self.mounted() 
+		>> node_006 
+	else 
+		>> node_007 
+	endif 
+	return 
+endf 
+
+def node_006
+	-> kirin.ride_rage_body() 
+	return 
+endf 
+
+def node_007
+	-> kirin.ride_rage_body_lv2() 
+	return 
+endf 
+
+def node_008
+	if self.mounted() 
+		>> node_009 
+	else 
+		>> node_010 
+	endif 
+	return 
+endf 
+
+def node_009
+	-> kirin.ride_rage_tail() 
+	return 
+endf 
+
+def node_010
+	-> kirin.ride_rage_tail_lv2() 
+	return 
+endf 
+
+def node_011
+	>> node_016 
+	-> kirin.ride_rage_all() 
+	return 
+endf 
+
+def node_012
+	if function#3B() 
+		if self.mount_staggered_twice() 
+			>> node_013 
+		else 
+		endif 
+	else 
+		if self.mount_finisher_ready() 
+			if self.mounted() 
+				random (0) >> node_013 
+				elser (100) 
+				endr 
+			else 
+				random (100) >> node_013 
+				elser (0) 
+				endr 
+			endif 
+		elif self.mount_stabbed() 
+			if self.mounted() 
+				random (0) >> node_013 
+				elser (100) 
+				endr 
+			else 
+				random (50) >> node_013 
+				elser (50) 
+				endr 
+			endif 
+		else 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_013
+	-> kirin.ride_tired() 
+	return 
+endf 
+
+def node_014
+	if self.mounted() 
+		>> node_015 
+	else 
+	endif 
+	return 
+endf 
+
+def node_015
+	-> kirin.wait() 
+	return 
+endf 
+
+def node_016
+	random (20) >> node_017 
+	elser (80) >> node_018 
+	endr 
+	>> node_022 
+	return 
+endf 
+
+def node_017
+	self.targetEnemy(21) @ parameter2:1000 
+	return 
+endf 
+
+def node_018
+	self.targetEnemy(22) @ parameter2:1000 
+	return 
+endf 
+
+def node_019
+	random (48) >> node_020 
+	elser (52) >> node_021 
+	endr 
+	return 
+endf 
+
+def node_020
+	self.targetEnemy(12) @ parameter2:1000 
+	return 
+endf 
+
+def node_021
+	self.targetEnemy(11) @ parameter2:1000 
+	return 
+endf 
+
+def node_022
+	if self.angular_17(300,60) 
+		-> kirin.quick_turn() 
+	else 
+	endif 
+	return 
+endf 
+

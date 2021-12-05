@@ -1,0 +1,30 @@
+importactions Jyuratodus as jyuratodus
+importlibrary Global as Global
+
+def node_000
+	self.targetEnemy(target_em.closest_entity) 
+	if self.target_is(em.Barroth) 
+		>> node_001 
+	else 
+		>> node_002 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	>> Global.node_062 
+	>> Global.node_012 
+	return 
+endf 
+
+def node_002
+	>> Global.node_062 
+	>> Global.node_073 
+	if function#101() 
+		>> Global.node_023 
+	else 
+		>> Global.node_035 
+	endif 
+	return 
+endf 
+

@@ -1,0 +1,46 @@
+importactions Nightshade_Paolumu as nightshade_paolumu
+importlibrary Global as Global
+
+def node_000
+	self.targetArea(51) 
+	>> node_001 
+	>> node_002 
+	>> node_003 
+	conclude 
+endf 
+
+def node_001
+	if self.flying() 
+		self.targetArea(target_area.area_aerial_center) 
+		>> Global.node_152 
+	else 
+		self.targetArea(target_area.area_center) 
+		>> Global.node_133 
+		self.targetArea(target_area.area_aerial_center) 
+		>> Global.node_002 
+	endif 
+	return 
+endf 
+
+def node_002
+	self.targetArea(51) 
+	if self.flying() 
+		>> Global.node_153 
+	else 
+		>> Global.node_002 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_003
+	self.targetArea(51) 
+	if self.flying() 
+		>> Global.node_163 
+	else 
+		>> Global.node_002 
+		repeat 
+	endif 
+	return 
+endf 
+

@@ -1,0 +1,51 @@
+importactions Fulgur_Anjanath as fulgur_anjanath
+
+def node_000
+	>> node_001 
+	>> node_002 
+	conclude 
+endf 
+
+def node_001
+	if function#41() 
+	else 
+		if function#AB() 
+			function#AA() 
+			-> fulgur_anjanath.threat_short() 
+		else 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_002
+	self.targetArea(14) 
+	if self.distance_3d_to_target().gt(600) 
+		>> node_004 
+		repeat 
+	else 
+	endif 
+	return 
+endf 
+
+def node_003
+	self.targetEnemy(target_em.random_player_or_cat) 
+	-> fulgur_anjanath.wait() 
+	if self.distance_3d_to_target().leq(800) 
+		-> fulgur_anjanath.back_turn() 
+	elif self.angle_2d_cw_between(30,330) 
+		-> fulgur_anjanath.turn() 
+	else 
+	endif 
+	return 
+endf 
+
+def node_004
+	if self.fatigued() 
+		-> fulgur_anjanath.tired_dash(5,2,0,0,3000) 
+	else 
+		-> fulgur_anjanath.dash(5,2,0,0,3000) 
+	endif 
+	return 
+endf 
+

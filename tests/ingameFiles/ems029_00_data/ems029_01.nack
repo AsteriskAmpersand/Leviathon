@@ -1,0 +1,68 @@
+importactions Gajau as gajau
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_013 
+	-> action#05() 
+	>> node_001 
+	reset 
+endf 
+
+def node_001
+	>> node_002 
+	if self.distance_2d_to_target().leq(1000) 
+		>> node_003 
+	else 
+		-> action#08(2,0,0,200) 
+	endif 
+	function#54() 
+	return 
+endf 
+
+def node_002
+	function#52(0,2) 
+	self.targetArea(target_area.nearest_entrance) 
+	return 
+endf 
+
+def node_003
+	self.targetEnemy(16) 
+	function#74(0,400) 
+	>> Global.node_004 
+	>> node_004 
+	self.targetEnemy(16) 
+	function#74(45,400) 
+	>> Global.node_004 
+	>> node_004 
+	self.targetEnemy(16) 
+	function#74(90,400) 
+	>> Global.node_004 
+	>> node_004 
+	self.targetEnemy(16) 
+	function#74(135,400) 
+	>> Global.node_004 
+	>> node_004 
+	self.targetEnemy(16) 
+	function#74(180,400) 
+	>> Global.node_004 
+	>> node_004 
+	self.targetEnemy(16) 
+	function#74(225,400) 
+	>> Global.node_004 
+	>> node_004 
+	self.targetEnemy(16) 
+	function#74(270,400) 
+	>> Global.node_004 
+	>> node_004 
+	self.targetEnemy(16) 
+	function#74(315,400) 
+	>> Global.node_004 
+	>> node_004 
+	return 
+endf 
+
+def node_004
+	-> action#08(1,0,0,200) 
+	return 
+endf 
+

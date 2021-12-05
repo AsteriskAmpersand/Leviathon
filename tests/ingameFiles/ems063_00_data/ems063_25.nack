@@ -1,0 +1,123 @@
+importactions Wulg as wulg
+importlibrary Global as Global
+
+def node_000
+	if function#B0() 
+		if function#110() 
+			>> node_001 
+		else 
+			if function#105() 
+				if function#3F() 
+					-> wulg.damage_clawgrab_initiate() 
+				else 
+					>> node_003 
+				endif 
+			else 
+				if function#3F() 
+					-> wulg.damage_clawgrab_turn_r() 
+				else 
+					if self.target.helpless_1() 
+						>> node_003 
+					else 
+						>> node_001 
+					endif 
+				endif 
+			endif 
+		endif 
+	else 
+		>> node_001 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	if function#102() 
+		>> node_004 
+		>> node_005 
+	else 
+		self.targetEnemy(34) 
+		if function#3F() 
+			-> wulg.damage_clawgrab_turn_r() 
+		else 
+			>> node_002 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_002
+	if function#3F() 
+		-> wulg.damage_clawgrab_turn_r() 
+	else 
+		>> Global.node_041 
+		>> Global.node_053 
+		>> Global.node_041 
+		>> Global.node_053 
+	endif 
+	return 
+endf 
+
+def node_003
+	>> Global.node_072 
+	return 
+endf 
+
+def node_004
+	if self.target(20) 
+		if self.target(10) 
+			>> node_002 
+		elif function#5C() 
+			>> node_002 
+		elif self.target(0) 
+			>> node_002 
+		elif self.target(14) 
+			>> node_002 
+		else 
+		endif 
+	else 
+		>> node_002 
+	endif 
+	return 
+endf 
+
+def node_005
+	if self.distance_2d_to_target().leq(200) 
+		>> node_007 
+		>> node_007 
+	elif self.distance_2d_to_target().leq(400) 
+		>> node_007 
+	elif function#116() 
+	else 
+		>> node_006 
+	endif 
+	>> node_004 
+	if function#10B() 
+	else 
+		>> Global.node_068 
+	endif 
+	return 
+endf 
+
+def node_006
+	if self.distance_3d_to_target().leq(700) 
+	else 
+		-> wulg.die_water_slide(2,6,0,300,600) 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_007
+	>> node_008 
+	-> wulg.die_hole_fall() 
+	return 
+endf 
+
+def node_008
+	if self.angle_2d_cw_between(90,270) 
+		-> wulg.die_down() 
+	else 
+	endif 
+	return 
+endf 
+

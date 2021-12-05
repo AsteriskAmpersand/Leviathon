@@ -1,0 +1,24 @@
+importactions Deviljho as deviljho
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_120 
+	>> Global.node_121 
+	self.targetEnemy(target_em.closest_entity) 
+	if function#101() 
+		>> Global.node_096 
+	else 
+		if self.distance_3d_to_target().leq(1000) 
+			-> deviljho.back_turn() 
+		elif self.angle_2d_cw_between(30,330) 
+			-> deviljho.quick_turn() 
+		endif 
+		if self.target(13) 
+			-> deviljho.walk() 
+			-> deviljho.predator_eat() 
+		else 
+		endif 
+	endif 
+	conclude 
+endf 
+

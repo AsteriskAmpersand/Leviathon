@@ -1,0 +1,19 @@
+importactions Shrieking_Legiana as shrieking_legiana
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_387 
+	>> Global.node_411 
+	self.targetEnemy(48) 
+	if self.in_map(st.Challenge_Arena).in_area(-1) 
+		>> Global.node_380 
+	elif self.target(7) 
+		>> Global.node_379 
+	elif self.distance_3d_to_target().leq(3500) 
+		>> Global.node_378 
+	else 
+		>> Global.node_379 
+	endif 
+	reset 
+endf 
+

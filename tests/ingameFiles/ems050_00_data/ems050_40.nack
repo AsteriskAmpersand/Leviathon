@@ -1,0 +1,27 @@
+importactions Mernos as mernos
+importlibrary Global as Global
+
+def node_000
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if self.target(4) 
+		conclude 
+	elif self.target(20) 
+		if self.distance_2d_to_target().leq(750) >> node_001 
+		else >> node_002 
+		endif 
+	endif 
+	>> Global.node_002 
+	conclude 
+endf 
+
+def node_001
+	>> Global.node_008 
+	return 
+endf 
+
+def node_002
+	-> mernos.reversal_take_off() 
+	>> Global.node_008 
+	return 
+endf 
+

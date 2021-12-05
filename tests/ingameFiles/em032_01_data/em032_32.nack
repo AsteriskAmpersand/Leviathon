@@ -1,0 +1,25 @@
+importactions Brute_Tigrex as brute_tigrex
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_020 
+	*&
+	self.targetEnemy(target_em.closest_entity) 
+	>> node_001 
+	>> node_002 
+	conclude 
+endf 
+
+def node_001
+	if self.angle_2d_cw_between(60,300) 
+		-> brute_tigrex.quick_turn() 
+	else 
+	endif 
+	return 
+endf 
+
+def node_002
+	-> brute_tigrex.discover() 
+	return 
+endf 
+

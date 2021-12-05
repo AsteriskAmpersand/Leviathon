@@ -1,0 +1,6486 @@
+importactions Frostfang_Barioth as frostfang_barioth
+
+def node_000
+	self.targetUnknown(50,0) 
+	>> node_003 
+	>> node_005 
+	-> frostfang_barioth.counter_adjust() 
+	>> node_214 
+	>> node_266 
+	reset 
+	if self.distance_2d_to_target().leq(1500) 
+		if self.angle_2d_cw_between(0,180) 
+			function#105(40,500) 
+		else 
+			function#105(320,500) 
+		endif 
+	else 
+		if self.angle_2d_cw_between(0,180) 
+			function#105(30,500) 
+		else 
+			function#105(330,500) 
+		endif 
+	endif 
+	-> frostfang_barioth.frozen_breath_connect() 
+	>> node_266 
+	>> node_265 
+	>> node_266 
+	reset 
+	if self.flying() 
+		-> frostfang_barioth.deadly_bite_slammed_fly() @ comboSetting:1 
+		-> frostfang_barioth.deadly_bite_slammed_second() 
+		-> frostfang_barioth.take_off() 
+	else 
+		>> node_003 
+		>> node_005 
+		-> frostfang_barioth.deadly_bite_slammed() @ comboSetting:1 
+		-> frostfang_barioth.deadly_bite_slammed_second() 
+	endif 
+	reset 
+endf 
+
+def node_001
+	if function#101() 
+		-> frostfang_barioth.idle_wall_no_interrupt_s() 
+	elif self.flying() 
+		-> frostfang_barioth.idle_fly_no_interrupt_s() 
+	elif self.fatigued() 
+		-> frostfang_barioth.idle_tired() 
+	else 
+		-> frostfang_barioth.idle_no_interrupt_s() 
+	endif 
+	return 
+endf 
+
+def node_002
+	if function#101() 
+		-> frostfang_barioth.idle_wall_no_interrupt_l() 
+	elif self.flying() 
+		-> frostfang_barioth.idle_fly_no_interrupt_l() 
+	elif self.fatigued() 
+		-> frostfang_barioth.idle_tired() 
+	else 
+		-> frostfang_barioth.idle_no_interrupt_l() 
+	endif 
+	return 
+endf 
+
+def node_003
+	if function#101() 
+		>> node_103 
+	elif self.flying() 
+		if function#AF(5000) 
+			-> frostfang_barioth.landing() 
+		else 
+			>> node_023 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_004
+	if function#101() 
+		>> node_103 
+	else 
+	endif 
+	if self.flying() 
+	else 
+		-> frostfang_barioth.take_off() 
+	endif 
+	return 
+endf 
+
+def node_005
+	if self.flying() 
+	elif self.in_combat() 
+	else 
+		-> frostfang_barioth.trans_combat() 
+	endif 
+	return 
+endf 
+
+def node_006
+	if self.flying() 
+	elif self.in_combat() 
+		-> frostfang_barioth.trans_normal() 
+	else 
+	endif 
+	return 
+endf 
+
+def node_007
+	if self.flying() 
+		if self.in_combat() 
+			-> frostfang_barioth.turn_fly_quick() 
+		else 
+			-> frostfang_barioth.turn_fly() 
+		endif 
+	else 
+		if self.in_combat() 
+			-> frostfang_barioth.turn_quick() 
+		else 
+			-> frostfang_barioth.turn() 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_008
+	if self.angle_2d_cw_between(30,330) 
+		>> node_007 
+	else 
+	endif 
+	return 
+endf 
+
+def node_009
+	if self.angle_2d_cw_between(60,300) 
+		>> node_007 
+	else 
+	endif 
+	return 
+endf 
+
+def node_010
+	if self.angle_2d_cw_between(90,270) 
+		>> node_007 
+	else 
+	endif 
+	return 
+endf 
+
+def node_011
+	if self.angle_2d_cw_between(120,240) 
+		>> node_007 
+	else 
+	endif 
+	return 
+endf 
+
+def node_012
+	>> node_003 
+	if self.distance_2d_to_target().gt(500) 
+		if self.in_combat() 
+			-> frostfang_barioth.dash_combat(6,0,0,500) 
+		else 
+			-> frostfang_barioth.dash(6,0,0,500) 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_013
+	>> node_003 
+	if self.distance_2d_to_target().gt(1000) 
+		if self.in_combat() 
+			-> frostfang_barioth.dash_combat(6,0,0,1000) 
+		else 
+			-> frostfang_barioth.dash(6,0,0,1000) 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_014
+	>> node_003 
+	if self.distance_2d_to_target().gt(1500) 
+		if self.in_combat() 
+			-> frostfang_barioth.dash_combat(6,0,0,1500) 
+		else 
+			-> frostfang_barioth.dash(6,0,0,1500) 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_015
+	>> node_003 
+	if self.in_combat() 
+		-> frostfang_barioth.dash_combat(1,2,0,800,1500) 
+	else 
+		-> frostfang_barioth.dash(1,2,0,800,1500) 
+	endif 
+	return 
+endf 
+
+def node_016
+	>> node_003 
+	if self.in_combat() 
+		-> frostfang_barioth.dash_combat(1,2,0,800,3000) 
+	else 
+		-> frostfang_barioth.dash(1,2,0,800,3000) 
+	endif 
+	return 
+endf 
+
+def node_017
+	>> node_003 
+	if self.distance_2d_to_target().leq(500) 
+	else 
+		if self.in_combat() 
+			-> frostfang_barioth.dash_combat(6,2,0,500,1000) 
+		else 
+			-> frostfang_barioth.dash(6,2,0,500,1000) 
+		endif 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_018
+	>> node_003 
+	if self.distance_2d_to_target().leq(800) 
+	else 
+		if self.in_combat() 
+			-> frostfang_barioth.dash_combat(6,2,0,800,1500) 
+		else 
+			-> frostfang_barioth.dash(6,2,0,800,1500) 
+		endif 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_019
+	>> node_003 
+	if self.fatigued() 
+		-> frostfang_barioth.walk_tired(1,2,5,800,1500) 
+	elif self.in_combat() 
+		-> frostfang_barioth.walk_combat(1,2,5,800,1500) 
+	else 
+		-> frostfang_barioth.walk(1,2,5,800,1500) 
+	endif 
+	return 
+endf 
+
+def node_020
+	>> node_003 
+	if self.fatigued() 
+		-> frostfang_barioth.walk_tired(6,0,0,500) 
+	elif self.in_combat() 
+		-> frostfang_barioth.walk_combat(6,0,0,500) 
+	else 
+		-> frostfang_barioth.walk(6,0,0,500) 
+	endif 
+	return 
+endf 
+
+def node_021
+	>> node_003 
+	if self.distance_2d_to_target().leq(500) 
+	else 
+		if self.fatigued() 
+			-> frostfang_barioth.walk_tired(6,2,0,500,1000) 
+		elif self.in_combat() 
+			-> frostfang_barioth.walk_combat(6,2,0,500,1000) 
+		else 
+			-> frostfang_barioth.walk(6,2,0,500,1000) 
+		endif 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_022
+	>> node_003 
+	if self.distance_2d_to_target().gt(2000) 
+		if self.in_combat() 
+			-> frostfang_barioth.dash_combat(6,2,0,2000,3000) 
+		else 
+			-> frostfang_barioth.dash(6,2,0,2000,3000) 
+		endif 
+		repeat 
+	elif self.distance_2d_to_target().gt(500) 
+		if self.fatigued() 
+			-> frostfang_barioth.walk_tired(6,2,0,500,1000) 
+		elif self.in_combat() 
+			-> frostfang_barioth.walk_combat(6,2,0,500,1000) 
+		else 
+			-> frostfang_barioth.walk(6,2,0,500,1000) 
+		endif 
+		repeat 
+	elif self.distance_2d_to_target().leq(200) 
+		-> frostfang_barioth.turn_back_step() 
+	else 
+	endif 
+	return 
+endf 
+
+def node_023
+	self.targetArea(target_area.area_aerial_center) 
+	>> node_210 
+	self.targetArea(target_area.area_center) 
+	-> frostfang_barioth.landing() 
+	return 
+endf 
+
+def node_024
+	if self.distance_2d_to_target().leq(600) 
+	else 
+		-> frostfang_barioth.glide_combat(6,2,0,500,3000) 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_025
+	>> node_003 
+	[RegisterVar2 |-] 
+	-> frostfang_barioth.threat() 
+	return 
+endf 
+
+def node_026
+	>> node_003 
+	[RegisterVar2 |-] 
+	if self.angle_2d_cw_between(0,180) 
+		-> frostfang_barioth.short_threat() 
+	else 
+		-> frostfang_barioth.short_threat_r() 
+	endif 
+	return 
+endf 
+
+def node_027
+	>> node_003 
+	>> node_005 
+	if self.fatigued() 
+		-> frostfang_barioth.idle_tired() 
+	else 
+		-> frostfang_barioth.intimidation() 
+	endif 
+	return 
+endf 
+
+def node_028
+	random (50) >> node_027 
+	elser (50) 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_029
+	if self.enraged() 
+	else 
+		>> node_027 
+	endif 
+	return 
+endf 
+
+def node_030
+	if self.part(1).is_broken(0) 
+		if self.part(2).is_broken(0) 
+			>> node_027 
+		else 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_031
+	>> node_003 
+	-> frostfang_barioth.refresh() 
+	return 
+endf 
+
+def node_032
+	>> node_003 
+	>> node_005 
+	-> frostfang_barioth.turn_back_step() 
+	return 
+endf 
+
+def node_033
+	>> node_003 
+	if self.distance_2d_to_target().leq(600) 
+		>> node_005 
+		-> frostfang_barioth.turn_back_step() 
+	else 
+	endif 
+	return 
+endf 
+
+def node_034
+	>> node_003 
+	if self.distance_2d_to_target().leq(1000) 
+		>> node_005 
+		-> frostfang_barioth.turn_back_step() 
+	else 
+	endif 
+	return 
+endf 
+
+def node_035
+	>> node_032 
+	>> node_364 
+	return 
+endf 
+
+def node_036
+	>> node_032 
+	>> node_405 
+	return 
+endf 
+
+def node_037
+	>> node_003 
+	>> node_005 
+	>> node_010 
+	-> frostfang_barioth.battle_walk() 
+	return 
+endf 
+
+def node_038
+	>> node_037 
+	>> node_364 
+	return 
+endf 
+
+def node_039
+	>> node_037 
+	>> node_417 
+	return 
+endf 
+
+def node_040
+	>> node_003 
+	>> node_005 
+	>> node_010 
+	-> frostfang_barioth.bite() 
+	return 
+endf 
+
+def node_041
+	>> node_040 
+	>> node_364 
+	return 
+endf 
+
+def node_042
+	>> node_040 
+	>> node_405 
+	return 
+endf 
+
+def node_043
+	>> node_003 
+	>> node_005 
+	-> frostfang_barioth.bite_slammed() 
+	return 
+endf 
+
+def node_044
+	>> node_003 
+	>> node_005 
+	-> frostfang_barioth.tackle() 
+	return 
+endf 
+
+def node_045
+	>> node_003 
+	>> node_005 
+	if self.angle_2d_cw_between(0,180) 
+		-> frostfang_barioth.tail_attack_clockwise() 
+	else 
+		-> frostfang_barioth.tail_attack_counter_clockwise() 
+	endif 
+	return 
+endf 
+
+def node_046
+	>> node_003 
+	>> node_005 
+	>> node_008 
+	if self.angle_2d_cw_between(0,180) 
+		-> frostfang_barioth.advance_and_jab_l() 
+	else 
+		-> frostfang_barioth.advance_and_jab_r() 
+	endif 
+	return 
+endf 
+
+def node_047
+	>> node_003 
+	>> node_005 
+	self.targetEnemy(67) @ parameter2:1 
+	>> node_008 
+	if self.distance_2d_to_target().leq(2000) 
+		self.targetEnemy(target_em.random_player_or_cat) 
+		if self.angle_2d_cw_between(0,180) 
+			-> frostfang_barioth.advance_and_jab_l() 
+		else 
+			-> frostfang_barioth.advance_and_jab_r() 
+		endif 
+		>> node_364 
+	else 
+		function#103() 
+		self.targetEnemy(target_em.random_player_or_cat) 
+		if self.angle_2d_cw_between(0,180) 
+			if self.part(1).is_broken(0) 
+				-> frostfang_barioth.jump_turn_attack() 
+			else 
+				-> frostfang_barioth.jump_turn_attack_drift() 
+				>> node_363 
+			endif 
+		else 
+			if self.part(2).is_broken(0) 
+				-> frostfang_barioth.jump_turn_attack() 
+			else 
+				-> frostfang_barioth.jump_turn_attack_drift() 
+				>> node_363 
+			endif 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_048
+	>> node_003 
+	>> node_005 
+	self.targetEnemy(67) @ parameter2:1 
+	>> node_008 
+	if self.distance_2d_to_target().leq(2000) 
+		self.targetEnemy(target_em.random_player_or_cat) 
+		if self.angle_2d_cw_between(0,180) 
+			-> frostfang_barioth.advance_and_jab_l() 
+		else 
+			-> frostfang_barioth.advance_and_jab_r() 
+		endif 
+		>> node_405 
+	else 
+		function#103() 
+		self.targetEnemy(target_em.random_player_or_cat) 
+		if self.angle_2d_cw_between(0,180) 
+			if self.part(1).is_broken(0) 
+				-> frostfang_barioth.jump_turn_attack() 
+			else 
+				-> frostfang_barioth.jump_turn_attack_drift() 
+				>> node_363 
+			endif 
+		else 
+			if self.part(2).is_broken(0) 
+				-> frostfang_barioth.jump_turn_attack() 
+			else 
+				-> frostfang_barioth.jump_turn_attack_drift() 
+				>> node_363 
+			endif 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_049
+	if [RegisterVar3 == 0] 
+		[RegisterVar3 ++] 
+		[RegisterVar4 |-] 
+		>> node_050 
+	elif [RegisterVar4 <= 2] 
+		[RegisterVar3 ++] 
+		[RegisterVar4 |-] 
+		>> node_050 
+	else 
+		[RegisterVar3 |-] 
+		>> node_052 
+	endif 
+	return 
+endf 
+
+def node_050
+	>> node_003 
+	>> node_005 
+	if self.target.helpless_0() 
+		>> node_007 
+		self.targetEnemy(9) @ parameter2:1000 
+	else 
+	endif 
+	-> frostfang_barioth.breath_normal() 
+	if self.fatigued() 
+	else 
+		[RegisterVar3 ++] 
+	endif 
+	return 
+endf 
+
+def node_051
+	>> node_003 
+	>> node_005 
+	if function#104() 
+		>> node_040 
+	else 
+		-> frostfang_barioth.rush() 
+	endif 
+	if function#104() 
+		>> node_364 
+	else 
+	endif 
+	return 
+endf 
+
+def node_052
+	>> node_003 
+	>> node_005 
+	-> frostfang_barioth.jump_turn_attack() 
+	return 
+endf 
+
+def node_053
+	>> node_003 
+	>> node_005 
+	self.targetEnemy(67) @ parameter2:1 
+	function#103() 
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if self.angle_2d_cw_between(0,180) 
+		if self.part(1).is_broken(0) 
+			-> frostfang_barioth.jump_turn_attack() 
+		else 
+			-> frostfang_barioth.jump_turn_attack_drift() @ comboSetting:1 
+			-> frostfang_barioth.jump_turn_attack() 
+		endif 
+	else 
+		if self.part(2).is_broken(0) 
+			-> frostfang_barioth.jump_turn_attack() 
+		else 
+			-> frostfang_barioth.jump_turn_attack_drift() @ comboSetting:1 
+			-> frostfang_barioth.jump_turn_attack() 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_054
+	>> node_056 
+	if function#101() 
+	else 
+		>> node_364 
+	endif 
+	return 
+endf 
+
+def node_055
+	>> node_056 
+	if function#101() 
+	else 
+		>> node_417 
+	endif 
+	return 
+endf 
+
+def node_056
+	>> node_003 
+	>> node_005 
+	-> frostfang_barioth.wrap() 
+	return 
+endf 
+
+def node_057
+	if self.angle_2d_cw_between(0,90) 
+		>> node_058 
+	elif self.angle_2d_cw_between(270,360) 
+		>> node_059 
+	else 
+		>> node_060 
+	endif 
+	return 
+endf 
+
+def node_058
+	>> node_003 
+	>> node_005 
+	if function#102() 
+		-> frostfang_barioth.wrap_wall_priority_l_grd_fast() 
+		>> node_104 
+	else 
+		>> node_060 
+	endif 
+	return 
+endf 
+
+def node_059
+	>> node_003 
+	>> node_005 
+	if function#102(1) 
+		-> frostfang_barioth.wrap_wall_priority_r_grd_fast() 
+		>> node_104 
+	else 
+		>> node_060 
+	endif 
+	return 
+endf 
+
+def node_060
+	>> node_061 
+	if function#101() 
+	else 
+		>> node_364 
+	endif 
+	return 
+endf 
+
+def node_061
+	>> node_003 
+	>> node_005 
+	if self.angle_2d_cw_between(0,180) 
+		-> frostfang_barioth.wrap_r() 
+	else 
+		-> frostfang_barioth.wrap_l() 
+	endif 
+	return 
+endf 
+
+def node_062
+	if self.angle_2d_cw_between(0,90) 
+		>> node_063 
+	elif self.angle_2d_cw_between(270,360) 
+		>> node_064 
+	else 
+		>> node_065 
+	endif 
+	return 
+endf 
+
+def node_063
+	>> node_003 
+	>> node_005 
+	if function#102() 
+		-> frostfang_barioth.wrap_wall_priority_l_grd_fast() 
+		>> node_104 
+	else 
+		>> node_065 
+	endif 
+	return 
+endf 
+
+def node_064
+	>> node_003 
+	>> node_005 
+	if function#102(1) 
+		-> frostfang_barioth.wrap_wall_priority_r_grd_fast() 
+		>> node_104 
+	else 
+		>> node_065 
+	endif 
+	return 
+endf 
+
+def node_065
+	>> node_061 
+	if function#101() 
+	else 
+		>> node_417 
+	endif 
+	return 
+endf 
+
+def node_066
+	if self.angle_2d_cw_between(0,90) 
+		>> node_067 
+	elif self.angle_2d_cw_between(270,360) 
+		>> node_068 
+	else 
+		>> node_069 
+	endif 
+	return 
+endf 
+
+def node_067
+	>> node_003 
+	>> node_005 
+	if function#102() 
+		-> frostfang_barioth.wrap_wall_priority_l_grd_fast() 
+		>> node_104 
+	else 
+		>> node_069 
+	endif 
+	return 
+endf 
+
+def node_068
+	>> node_003 
+	>> node_005 
+	if function#102(1) 
+		-> frostfang_barioth.wrap_wall_priority_r_grd_fast() 
+		>> node_104 
+	else 
+		>> node_069 
+	endif 
+	return 
+endf 
+
+def node_069
+	>> node_003 
+	>> node_005 
+	if self.angle_2d_cw_between(0,180) 
+		-> frostfang_barioth.wrap_r() @ comboSetting:1 
+		-> frostfang_barioth.bite() 
+	else 
+		-> frostfang_barioth.wrap_l() @ comboSetting:1 
+		-> frostfang_barioth.bite() 
+	endif 
+	if function#101() 
+	else 
+		>> node_364 
+	endif 
+	return 
+endf 
+
+def node_070
+	if self.angle_2d_cw_between(0,90) 
+		>> node_071 
+	elif self.angle_2d_cw_between(270,360) 
+		>> node_072 
+	else 
+		>> node_073 
+	endif 
+	return 
+endf 
+
+def node_071
+	>> node_003 
+	>> node_005 
+	if function#102() 
+		-> frostfang_barioth.wrap_wall_priority_l_grd_fast() 
+		>> node_104 
+	else 
+		>> node_073 
+	endif 
+	return 
+endf 
+
+def node_072
+	>> node_003 
+	>> node_005 
+	if function#102(1) 
+		-> frostfang_barioth.wrap_wall_priority_r_grd_fast() 
+		>> node_104 
+	else 
+		>> node_073 
+	endif 
+	return 
+endf 
+
+def node_073
+	>> node_003 
+	>> node_005 
+	if self.angle_2d_cw_between(0,180) 
+		-> frostfang_barioth.wrap_r() @ comboSetting:1 
+		-> frostfang_barioth.bite() 
+	else 
+		-> frostfang_barioth.wrap_l() @ comboSetting:1 
+		-> frostfang_barioth.bite() 
+	endif 
+	if function#101() 
+	else 
+		>> node_405 
+	endif 
+	return 
+endf 
+
+def node_074
+	>> node_061 
+	if function#101() 
+	else 
+		>> node_027 
+	endif 
+	return 
+endf 
+
+def node_075
+	>> node_003 
+	>> node_005 
+	-> frostfang_barioth.back_jump_take_off() 
+	return 
+endf 
+
+def node_076
+	>> node_003 
+	>> node_005 
+	if self.angle_2d_cw_between(0,180) 
+		-> frostfang_barioth.wrap_takeoff_r() 
+	else 
+		-> frostfang_barioth.wrap_takeoff_l() 
+	endif 
+	return 
+endf 
+
+def node_077
+	>> node_003 
+	>> node_005 
+	if self.angle_2d_cw_between(0,180) 
+		-> frostfang_barioth.wrap_takeoff_l() 
+	else 
+		-> frostfang_barioth.wrap_takeoff_r() 
+	endif 
+	return 
+endf 
+
+def node_078
+	>> node_003 
+	>> node_005 
+	-> frostfang_barioth.take_off_switch_pattern_adjust() 
+	return 
+endf 
+
+def node_079
+	>> node_003 
+	>> node_005 
+	if self.angle_2d_cw_between(0,180) 
+		-> frostfang_barioth.tail_cleave_r_to_fly() 
+	else 
+		-> frostfang_barioth.tail_cleave_l_to_fly() 
+	endif 
+	return 
+endf 
+
+def node_080
+	>> node_079 
+	>> node_088 
+	return 
+endf 
+
+def node_081
+	>> node_003 
+	>> node_005 
+	-> frostfang_barioth.back_jump() 
+	return 
+endf 
+
+def node_082
+	>> node_081 
+	if function#101() 
+	else 
+		>> node_027 
+	endif 
+	return 
+endf 
+
+def node_083
+	>> node_003 
+	>> node_005 
+	if function#102(2) 
+		-> frostfang_barioth.back_jump_wall_priority_grd_fast() 
+		>> node_104 
+	else 
+		>> node_009 
+		>> node_084 
+	endif 
+	return 
+endf 
+
+def node_084
+	>> node_081 
+	if function#101() 
+	else 
+		>> node_364 
+	endif 
+	return 
+endf 
+
+def node_085
+	>> node_003 
+	>> node_005 
+	if function#102(2) 
+		-> frostfang_barioth.back_jump_wall_priority_grd_fast() 
+		>> node_104 
+	else 
+		>> node_009 
+		>> node_086 
+	endif 
+	return 
+endf 
+
+def node_086
+	>> node_081 
+	if function#101() 
+	else 
+		>> node_405 
+	endif 
+	return 
+endf 
+
+def node_087
+	if function#101() 
+		-> frostfang_barioth.flying_triangle() 
+	elif self.flying() 
+		if function#AF(5000) 
+			-> frostfang_barioth.landing() 
+		else 
+			>> node_023 
+		endif 
+	else 
+		-> frostfang_barioth.idle_no_interrupt_s() 
+	endif 
+	return 
+endf 
+
+def node_088
+	>> node_004 
+	-> frostfang_barioth.breath_fly() 
+	return 
+endf 
+
+def node_089
+	>> node_088 
+	>> node_098 
+	return 
+endf 
+
+def node_090
+	>> node_088 
+	>> node_098 
+	if self.flying() 
+	else 
+		>> node_152 
+	endif 
+	return 
+endf 
+
+def node_091
+	>> node_088 
+	>> node_093 
+	return 
+endf 
+
+def node_092
+	>> node_004 
+	-> frostfang_barioth.rush_fly() 
+	return 
+endf 
+
+def node_093
+	>> node_092 
+	>> node_094 
+	return 
+endf 
+
+def node_094
+	if function#B9() 
+		if self.enraged() 
+			if [RegisterVar2 <= 2] 
+				[RegisterVar2 |-] 
+				>> node_027 
+			else 
+				[RegisterVar2 ++] 
+			endif 
+		else 
+			if [RegisterVar2 <= 1] 
+				[RegisterVar2 |-] 
+				>> node_027 
+			else 
+				[RegisterVar2 ++] 
+			endif 
+		endif 
+	else 
+		if self.enraged() 
+			if [RegisterVar2 <= 1] 
+				[RegisterVar2 |-] 
+				>> node_027 
+			else 
+				[RegisterVar2 ++] 
+			endif 
+		else 
+			[RegisterVar2 |-] 
+			>> node_027 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_095
+	>> node_004 
+	-> frostfang_barioth.turn_attack_fly() 
+	return 
+endf 
+
+def node_096
+	>> node_004 
+	if self.angle_2d_cw_between(0,180) 
+		if self.part(1).is_broken(0) 
+			-> frostfang_barioth.turn_attack_fly() 
+			>> node_094 
+		else 
+			-> frostfang_barioth.turn_attack_fly_to_fly() 
+			>> node_357 
+		endif 
+	else 
+		if self.part(2).is_broken(0) 
+			-> frostfang_barioth.turn_attack_fly() 
+			>> node_094 
+		else 
+			-> frostfang_barioth.turn_attack_fly_to_fly() 
+			>> node_357 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_097
+	>> node_004 
+	self.targetEnemy(67) @ parameter2:1 
+	function#103() 
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if self.angle_2d_cw_between(0,180) 
+		if self.part(1).is_broken(0) 
+			-> frostfang_barioth.turn_attack_fly() 
+		else 
+			-> frostfang_barioth.turn_attack_fly_drift() 
+			>> node_363 
+		endif 
+	else 
+		if self.part(2).is_broken(0) 
+			-> frostfang_barioth.turn_attack_fly() 
+		else 
+			-> frostfang_barioth.turn_attack_fly_drift() 
+			>> node_363 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_098
+	>> node_004 
+	if function#106(282) 
+		if self.angle_2d_cw_between(180,360) 
+			-> frostfang_barioth.wrap_landing_l() 
+		else 
+			-> frostfang_barioth.wrap_landing_r() 
+		endif 
+	elif function#106(282) 
+		if self.angle_2d_cw_between(180,360) 
+			-> frostfang_barioth.wrap_landing_l() 
+		else 
+			-> frostfang_barioth.wrap_landing_r() 
+		endif 
+	else 
+		if self.angle_2d_cw_between(180,360) 
+			-> frostfang_barioth.wrap_landing_r() 
+		else 
+			-> frostfang_barioth.wrap_landing_l() 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_099
+	>> node_098 
+	if self.flying() 
+	else 
+		>> node_364 
+	endif 
+	return 
+endf 
+
+def node_100
+	if function#101() 
+		-> frostfang_barioth.breath_wall() 
+	else 
+		>> node_001 
+	endif 
+	return 
+endf 
+
+def node_101
+	>> node_100 
+	>> node_104 
+	return 
+endf 
+
+def node_102
+	>> node_100 
+	>> node_105 
+	return 
+endf 
+
+def node_103
+	if function#101() 
+		-> frostfang_barioth.flying_triangle() 
+	else 
+		>> node_001 
+	endif 
+	return 
+endf 
+
+def node_104
+	>> node_103 
+	if function#101() 
+	else 
+		>> node_364 
+	endif 
+	return 
+endf 
+
+def node_105
+	if function#101() 
+		-> frostfang_barioth.turn_attack_wall() 
+	else 
+		>> node_001 
+	endif 
+	return 
+endf 
+
+def node_106
+	if function#101() 
+		if self.angle_2d_cw_between(0,180) 
+			if self.part(1).is_broken(0) 
+				-> frostfang_barioth.turn_attack_wall() 
+			else 
+				-> frostfang_barioth.turn_attack_wall_to_fly() 
+				>> node_357 
+			endif 
+		else 
+			if self.part(2).is_broken(0) 
+				-> frostfang_barioth.turn_attack_wall() 
+			else 
+				-> frostfang_barioth.turn_attack_wall_to_fly() 
+				>> node_357 
+			endif 
+		endif 
+	else 
+		>> node_001 
+	endif 
+	return 
+endf 
+
+def node_107
+	if function#101() 
+		-> frostfang_barioth.turn_attack_wall() 
+	elif self.flying() 
+		-> frostfang_barioth.turn_attack_fly() 
+	else 
+		>> node_005 
+		-> frostfang_barioth.jump_turn_attack() 
+	endif 
+	return 
+endf 
+
+def node_108
+	>> node_003 
+	self.targetArea(14) 
+	if self.distance_3d_to_target().gt(800) 
+		>> node_015 
+		repeat 
+	else 
+		>> node_027 
+	endif 
+	return 
+endf 
+
+def node_109
+	>> node_003 
+	self.targetArea(19) 
+	if self.distance_3d_to_target().gt(800) 
+		>> node_015 
+		repeat 
+	else 
+		>> node_027 
+	endif 
+	return 
+endf 
+
+def node_110
+	if self.distance_2d_to_target().leq(500) 
+		self.enraged() >> node_121 => reset 
+		self.fatigued() >> node_116 => reset 
+		>> node_111 => reset 
+	elif self.distance_2d_to_target().leq(1000) 
+		self.enraged() >> node_122 => reset 
+		self.fatigued() >> node_117 => reset 
+		>> node_112 => reset 
+	elif self.distance_2d_to_target().leq(1800) 
+		self.enraged() >> node_123 => reset 
+		self.fatigued() >> node_118 => reset 
+		>> node_113 => reset 
+	elif self.distance_2d_to_target().leq(2500) 
+		self.enraged() >> node_124 => reset 
+		self.fatigued() >> node_119 => reset 
+		>> node_114 => reset 
+	else 
+		self.enraged() >> node_125 => reset 
+		self.fatigued() >> node_120 => reset 
+		>> node_115 => reset 
+	endif 
+	return 
+endf 
+
+def node_111
+	random (0) 
+	elser (0) >> node_027 
+	elser (25) >> node_036 
+	elser (0) >> node_039 
+	elser (0) >> node_040 
+	elser (0) >> node_042 
+	elser (0) >> node_043 
+	elser (20) >> node_044 
+	elser (0) >> node_045 
+	elser (20) >> node_048 
+	elser (0) >> node_049 
+	elser (0) >> node_051 
+	elser (0) >> node_052 
+	elser (0) >> node_053 
+	elser (15) >> node_055 
+	elser (0) >> node_062 
+	elser (0) >> node_070 
+	elser (0) >> node_074 
+	elser (0) >> node_082 
+	elser (10) >> node_075 
+	elser (0) >> node_076 
+	elser (0) >> node_077 
+	elser (0) >> node_078 
+	elser (0) >> node_079 
+	elser (0) >> node_080 
+	elser (10) >> node_085 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_112
+	random (0) 
+	elser (0) >> node_027 
+	elser (10) >> node_036 
+	elser (10) >> node_039 
+	elser (0) >> node_040 
+	elser (10) >> node_042 
+	elser (0) >> node_043 
+	elser (20) >> node_044 
+	elser (0) >> node_045 
+	elser (15) >> node_048 
+	elser (0) >> node_049 
+	elser (0) >> node_051 
+	elser (0) >> node_052 
+	elser (0) >> node_053 
+	elser (10) >> node_055 
+	elser (15) >> node_062 
+	elser (0) >> node_070 
+	elser (0) >> node_074 
+	elser (0) >> node_082 
+	elser (10) >> node_075 
+	elser (0) >> node_076 
+	elser (0) >> node_077 
+	elser (0) >> node_078 
+	elser (0) >> node_079 
+	elser (0) >> node_080 
+	elser (0) >> node_085 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_113
+	random (0) 
+	elser (0) >> node_027 
+	elser (0) >> node_036 
+	elser (10) >> node_039 
+	elser (0) >> node_040 
+	elser (20) >> node_042 
+	elser (0) >> node_043 
+	elser (0) >> node_044 
+	elser (0) >> node_045 
+	elser (0) >> node_048 
+	elser (10) >> node_049 
+	elser (15) >> node_051 
+	elser (10) >> node_052 
+	elser (0) >> node_053 
+	elser (0) >> node_055 
+	elser (25) >> node_062 
+	elser (0) >> node_070 
+	elser (0) >> node_074 
+	elser (0) >> node_082 
+	elser (0) >> node_075 
+	elser (10) >> node_076 
+	elser (0) >> node_077 
+	elser (0) >> node_078 
+	elser (0) >> node_079 
+	elser (0) >> node_080 
+	elser (0) >> node_085 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_114
+	random (0) 
+	elser (0) >> node_027 
+	elser (0) >> node_036 
+	elser (0) >> node_039 
+	elser (0) >> node_040 
+	elser (0) >> node_042 
+	elser (0) >> node_043 
+	elser (0) >> node_044 
+	elser (0) >> node_045 
+	elser (0) >> node_048 
+	elser (15) >> node_049 
+	elser (30) >> node_051 
+	elser (15) >> node_052 
+	elser (0) >> node_053 
+	elser (0) >> node_055 
+	elser (25) >> node_062 
+	elser (0) >> node_070 
+	elser (0) >> node_074 
+	elser (0) >> node_082 
+	elser (0) >> node_075 
+	elser (0) >> node_076 
+	elser (15) >> node_077 
+	elser (0) >> node_078 
+	elser (0) >> node_079 
+	elser (0) >> node_080 
+	elser (0) >> node_085 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_115
+	random (0) 
+	elser (0) >> node_027 
+	elser (0) >> node_036 
+	elser (0) >> node_039 
+	elser (0) >> node_040 
+	elser (0) >> node_042 
+	elser (0) >> node_043 
+	elser (0) >> node_044 
+	elser (0) >> node_045 
+	elser (0) >> node_048 
+	elser (20) >> node_049 
+	elser (35) >> node_051 
+	elser (25) >> node_052 
+	elser (0) >> node_053 
+	elser (0) >> node_055 
+	elser (0) >> node_062 
+	elser (0) >> node_070 
+	elser (0) >> node_074 
+	elser (0) >> node_082 
+	elser (0) >> node_075 
+	elser (0) >> node_076 
+	elser (0) >> node_077 
+	elser (20) >> node_078 
+	elser (0) >> node_079 
+	elser (0) >> node_080 
+	elser (0) >> node_085 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_116
+	random (0) 
+	elser (0) >> node_027 
+	elser (20) >> node_036 
+	elser (0) >> node_039 
+	elser (0) >> node_040 
+	elser (0) >> node_042 
+	elser (0) >> node_043 
+	elser (30) >> node_044 
+	elser (10) >> node_045 
+	elser (0) >> node_048 
+	elser (0) >> node_049 
+	elser (0) >> node_051 
+	elser (0) >> node_052 
+	elser (0) >> node_053 
+	elser (25) >> node_055 
+	elser (0) >> node_062 
+	elser (0) >> node_070 
+	elser (0) >> node_074 
+	elser (15) >> node_082 
+	elser (0) >> node_075 
+	elser (0) >> node_076 
+	elser (0) >> node_077 
+	elser (0) >> node_078 
+	elser (0) >> node_079 
+	elser (0) >> node_080 
+	elser (0) >> node_085 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_117
+	random (0) 
+	elser (0) >> node_027 
+	elser (20) >> node_036 
+	elser (0) >> node_039 
+	elser (0) >> node_040 
+	elser (15) >> node_042 
+	elser (0) >> node_043 
+	elser (20) >> node_044 
+	elser (15) >> node_045 
+	elser (0) >> node_048 
+	elser (0) >> node_049 
+	elser (0) >> node_051 
+	elser (0) >> node_052 
+	elser (0) >> node_053 
+	elser (25) >> node_055 
+	elser (0) >> node_062 
+	elser (0) >> node_070 
+	elser (0) >> node_074 
+	elser (5) >> node_082 
+	elser (0) >> node_075 
+	elser (0) >> node_076 
+	elser (0) >> node_077 
+	elser (0) >> node_078 
+	elser (0) >> node_079 
+	elser (0) >> node_080 
+	elser (0) >> node_085 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_118
+	random (0) 
+	elser (0) >> node_027 
+	elser (5) >> node_036 
+	elser (0) >> node_039 
+	elser (0) >> node_040 
+	elser (20) >> node_042 
+	elser (0) >> node_043 
+	elser (0) >> node_044 
+	elser (15) >> node_045 
+	elser (0) >> node_048 
+	elser (20) >> node_049 
+	elser (15) >> node_051 
+	elser (0) >> node_052 
+	elser (0) >> node_053 
+	elser (0) >> node_055 
+	elser (0) >> node_062 
+	elser (0) >> node_070 
+	elser (25) >> node_074 
+	elser (0) >> node_082 
+	elser (0) >> node_075 
+	elser (0) >> node_076 
+	elser (0) >> node_077 
+	elser (0) >> node_078 
+	elser (0) >> node_079 
+	elser (0) >> node_080 
+	elser (0) >> node_085 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_119
+	random (0) 
+	elser (0) >> node_027 
+	elser (0) >> node_036 
+	elser (0) >> node_039 
+	elser (0) >> node_040 
+	elser (10) >> node_042 
+	elser (0) >> node_043 
+	elser (0) >> node_044 
+	elser (0) >> node_045 
+	elser (0) >> node_048 
+	elser (30) >> node_049 
+	elser (30) >> node_051 
+	elser (0) >> node_052 
+	elser (0) >> node_053 
+	elser (0) >> node_055 
+	elser (0) >> node_062 
+	elser (0) >> node_070 
+	elser (30) >> node_074 
+	elser (0) >> node_082 
+	elser (0) >> node_075 
+	elser (0) >> node_076 
+	elser (0) >> node_077 
+	elser (0) >> node_078 
+	elser (0) >> node_079 
+	elser (0) >> node_080 
+	elser (0) >> node_085 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_120
+	random (0) 
+	elser (0) >> node_027 
+	elser (0) >> node_036 
+	elser (0) >> node_039 
+	elser (0) >> node_040 
+	elser (0) >> node_042 
+	elser (0) >> node_043 
+	elser (0) >> node_044 
+	elser (0) >> node_045 
+	elser (0) >> node_048 
+	elser (35) >> node_049 
+	elser (35) >> node_051 
+	elser (0) >> node_052 
+	elser (0) >> node_053 
+	elser (0) >> node_055 
+	elser (0) >> node_062 
+	elser (0) >> node_070 
+	elser (30) >> node_074 
+	elser (0) >> node_082 
+	elser (0) >> node_075 
+	elser (0) >> node_076 
+	elser (0) >> node_077 
+	elser (0) >> node_078 
+	elser (0) >> node_079 
+	elser (0) >> node_080 
+	elser (0) >> node_085 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_121
+	random (0) 
+	elser (0) >> node_027 
+	elser (15) >> node_036 
+	elser (0) >> node_039 
+	elser (0) >> node_040 
+	elser (0) >> node_042 
+	elser (0) >> node_043 
+	elser (25) >> node_044 
+	elser (0) >> node_045 
+	elser (25) >> node_048 
+	elser (0) >> node_049 
+	elser (0) >> node_051 
+	elser (0) >> node_052 
+	elser (0) >> node_053 
+	elser (15) >> node_055 
+	elser (0) >> node_062 
+	elser (0) >> node_070 
+	elser (0) >> node_074 
+	elser (0) >> node_082 
+	elser (0) >> node_075 
+	elser (0) >> node_076 
+	elser (0) >> node_077 
+	elser (0) >> node_078 
+	elser (0) >> node_079 
+	elser (15) >> node_080 
+	elser (5) >> node_085 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_122
+	random (0) 
+	elser (0) >> node_027 
+	elser (12) >> node_036 
+	elser (0) >> node_039 
+	elser (0) >> node_040 
+	elser (10) >> node_042 
+	elser (0) >> node_043 
+	elser (15) >> node_044 
+	elser (0) >> node_045 
+	elser (18) >> node_048 
+	elser (0) >> node_049 
+	elser (0) >> node_051 
+	elser (0) >> node_052 
+	elser (0) >> node_053 
+	elser (10) >> node_055 
+	elser (0) >> node_062 
+	elser (20) >> node_070 
+	elser (0) >> node_074 
+	elser (0) >> node_082 
+	elser (0) >> node_075 
+	elser (0) >> node_076 
+	elser (0) >> node_077 
+	elser (0) >> node_078 
+	elser (0) >> node_079 
+	elser (15) >> node_080 
+	elser (0) >> node_085 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_123
+	random (0) 
+	elser (0) >> node_027 
+	elser (0) >> node_036 
+	elser (0) >> node_039 
+	elser (0) >> node_040 
+	elser (25) >> node_042 
+	elser (0) >> node_043 
+	elser (0) >> node_044 
+	elser (0) >> node_045 
+	elser (0) >> node_048 
+	elser (10) >> node_049 
+	elser (20) >> node_051 
+	elser (0) >> node_052 
+	elser (10) >> node_053 
+	elser (0) >> node_055 
+	elser (0) >> node_062 
+	elser (25) >> node_070 
+	elser (0) >> node_074 
+	elser (0) >> node_082 
+	elser (0) >> node_075 
+	elser (10) >> node_076 
+	elser (0) >> node_077 
+	elser (0) >> node_078 
+	elser (0) >> node_079 
+	elser (0) >> node_080 
+	elser (0) >> node_085 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_124
+	random (0) 
+	elser (0) >> node_027 
+	elser (0) >> node_036 
+	elser (0) >> node_039 
+	elser (0) >> node_040 
+	elser (0) >> node_042 
+	elser (0) >> node_043 
+	elser (0) >> node_044 
+	elser (0) >> node_045 
+	elser (0) >> node_048 
+	elser (15) >> node_049 
+	elser (25) >> node_051 
+	elser (0) >> node_052 
+	elser (15) >> node_053 
+	elser (0) >> node_055 
+	elser (0) >> node_062 
+	elser (25) >> node_070 
+	elser (0) >> node_074 
+	elser (0) >> node_082 
+	elser (0) >> node_075 
+	elser (0) >> node_076 
+	elser (20) >> node_077 
+	elser (0) >> node_078 
+	elser (0) >> node_079 
+	elser (0) >> node_080 
+	elser (0) >> node_085 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_125
+	random (0) 
+	elser (0) >> node_027 
+	elser (0) >> node_036 
+	elser (0) >> node_039 
+	elser (0) >> node_040 
+	elser (0) >> node_042 
+	elser (0) >> node_043 
+	elser (0) >> node_044 
+	elser (0) >> node_045 
+	elser (0) >> node_048 
+	elser (15) >> node_049 
+	elser (30) >> node_051 
+	elser (0) >> node_052 
+	elser (30) >> node_053 
+	elser (0) >> node_055 
+	elser (0) >> node_062 
+	elser (0) >> node_070 
+	elser (0) >> node_074 
+	elser (0) >> node_082 
+	elser (0) >> node_075 
+	elser (0) >> node_076 
+	elser (0) >> node_077 
+	elser (25) >> node_078 
+	elser (0) >> node_079 
+	elser (0) >> node_080 
+	elser (0) >> node_085 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_126
+	[RegisterVar0 |-] 
+	if self.part(0).is_broken(0) 
+		[RegisterVar0 ++] 
+	else 
+	endif 
+	if self.part(1).is_broken(0) 
+		[RegisterVar0 ++] 
+	else 
+	endif 
+	if self.part(2).is_broken(0) 
+		[RegisterVar0 ++] 
+	else 
+	endif 
+	if self.part(3).is_broken(0) 
+		[RegisterVar0 ++] 
+	else 
+	endif 
+	return 
+endf 
+
+def node_127
+	if self.fatigued() 
+		>> node_152 
+	else 
+		>> node_126 
+		if [RegisterVar0 == 0] 
+			random (60) >> node_128 
+			elser (40) >> node_152 
+			elser (0) 
+			endr 
+		elif [RegisterVar0 == 1] 
+			random (40) >> node_128 
+			elser (60) >> node_152 
+			elser (0) 
+			endr 
+		elif [RegisterVar0 == 2] 
+			random (20) >> node_128 
+			elser (80) >> node_152 
+			elser (0) 
+			endr 
+		else 
+			>> node_152 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_128
+	if self.distance_2d_to_target().leq(600) 
+		if self.enraged() 
+			>> node_134 
+		else 
+			>> node_129 
+		endif 
+	elif self.distance_2d_to_target().leq(1300) 
+		if self.enraged() 
+			>> node_135 
+		else 
+			>> node_130 
+		endif 
+	elif self.distance_2d_to_target().leq(1800) 
+		if self.enraged() 
+			>> node_136 
+		else 
+			>> node_131 
+		endif 
+	elif self.distance_2d_to_target().leq(3000) 
+		if self.enraged() 
+			>> node_137 
+		else 
+			>> node_132 
+		endif 
+	else 
+		if self.enraged() 
+			>> node_138 
+		else 
+			>> node_133 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_129
+	random (0) 
+	elser (0) >> node_038 
+	elser (30) >> node_054 
+	elser (45) >> node_057 
+	elser (0) >> node_066 
+	elser (10) >> node_075 
+	elser (15) >> node_076 
+	elser (0) >> node_077 
+	elser (0) >> node_078 
+	elser (0) >> node_080 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_130
+	random (0) 
+	elser (10) >> node_038 
+	elser (20) >> node_054 
+	elser (45) >> node_057 
+	elser (0) >> node_066 
+	elser (10) >> node_075 
+	elser (15) >> node_076 
+	elser (0) >> node_077 
+	elser (0) >> node_078 
+	elser (0) >> node_080 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_131
+	random (0) 
+	elser (10) >> node_038 
+	elser (20) >> node_054 
+	elser (45) >> node_057 
+	elser (0) >> node_066 
+	elser (0) >> node_075 
+	elser (25) >> node_076 
+	elser (0) >> node_077 
+	elser (0) >> node_078 
+	elser (0) >> node_080 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_132
+	random (0) 
+	elser (0) >> node_038 
+	elser (0) >> node_054 
+	elser (70) >> node_057 
+	elser (0) >> node_066 
+	elser (0) >> node_075 
+	elser (0) >> node_076 
+	elser (30) >> node_077 
+	elser (0) >> node_078 
+	elser (0) >> node_080 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_133
+	random (0) 
+	elser (0) >> node_038 
+	elser (0) >> node_054 
+	elser (70) >> node_057 
+	elser (0) >> node_066 
+	elser (0) >> node_075 
+	elser (0) >> node_076 
+	elser (0) >> node_077 
+	elser (30) >> node_078 
+	elser (0) >> node_080 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_134
+	random (0) 
+	elser (0) >> node_038 
+	elser (35) >> node_054 
+	elser (0) >> node_057 
+	elser (35) >> node_066 
+	elser (10) >> node_075 
+	elser (0) >> node_076 
+	elser (0) >> node_077 
+	elser (0) >> node_078 
+	elser (20) >> node_080 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_135
+	random (0) 
+	elser (0) >> node_038 
+	elser (20) >> node_054 
+	elser (0) >> node_057 
+	elser (50) >> node_066 
+	elser (0) >> node_075 
+	elser (10) >> node_076 
+	elser (0) >> node_077 
+	elser (0) >> node_078 
+	elser (20) >> node_080 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_136
+	random (0) 
+	elser (0) >> node_038 
+	elser (20) >> node_054 
+	elser (0) >> node_057 
+	elser (50) >> node_066 
+	elser (0) >> node_075 
+	elser (0) >> node_076 
+	elser (30) >> node_077 
+	elser (0) >> node_078 
+	elser (0) >> node_080 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_137
+	random (0) 
+	elser (0) >> node_038 
+	elser (0) >> node_054 
+	elser (0) >> node_057 
+	elser (60) >> node_066 
+	elser (0) >> node_075 
+	elser (0) >> node_076 
+	elser (30) >> node_077 
+	elser (10) >> node_078 
+	elser (0) >> node_080 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_138
+	random (0) 
+	elser (0) >> node_038 
+	elser (0) >> node_054 
+	elser (0) >> node_057 
+	elser (70) >> node_066 
+	elser (0) >> node_075 
+	elser (0) >> node_076 
+	elser (0) >> node_077 
+	elser (30) >> node_078 
+	elser (0) >> node_080 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_139
+	if self.fatigued() 
+		>> node_152 
+	else 
+		>> node_126 
+		if [RegisterVar0 == 0] 
+			random (60) >> node_140 
+			elser (40) >> node_152 
+			elser (0) 
+			endr 
+		elif [RegisterVar0 == 1] 
+			random (40) >> node_140 
+			elser (60) >> node_152 
+			elser (0) 
+			endr 
+		elif [RegisterVar0 == 2] 
+			random (20) >> node_140 
+			elser (80) >> node_152 
+			elser (0) 
+			endr 
+		else 
+			>> node_152 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_140
+	if self.distance_2d_to_target().leq(600) 
+		if self.enraged() 
+			>> node_146 
+		else 
+			>> node_141 
+		endif 
+	elif self.distance_2d_to_target().leq(1300) 
+		if self.enraged() 
+			>> node_147 
+		else 
+			>> node_142 
+		endif 
+	elif self.distance_2d_to_target().leq(1800) 
+		if self.enraged() 
+			>> node_148 
+		else 
+			>> node_143 
+		endif 
+	elif self.distance_2d_to_target().leq(3000) 
+		if self.enraged() 
+			>> node_149 
+		else 
+			>> node_144 
+		endif 
+	else 
+		if self.enraged() 
+			>> node_150 
+		else 
+			>> node_145 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_141
+	random (0) 
+	elser (0) >> node_027 
+	elser (50) >> node_035 
+	elser (15) >> node_041 
+	elser (0) >> node_047 
+	elser (0) >> node_051 
+	elser (10) >> node_083 
+	elser (10) >> node_075 
+	elser (15) >> node_076 
+	elser (0) >> node_077 
+	elser (0) >> node_078 
+	elser (0) >> node_080 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_142
+	random (0) 
+	elser (0) >> node_027 
+	elser (10) >> node_035 
+	elser (30) >> node_041 
+	elser (35) >> node_047 
+	elser (0) >> node_051 
+	elser (0) >> node_083 
+	elser (10) >> node_075 
+	elser (15) >> node_076 
+	elser (0) >> node_077 
+	elser (0) >> node_078 
+	elser (0) >> node_080 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_143
+	random (0) 
+	elser (0) >> node_027 
+	elser (0) >> node_035 
+	elser (60) >> node_041 
+	elser (0) >> node_047 
+	elser (15) >> node_051 
+	elser (0) >> node_083 
+	elser (0) >> node_075 
+	elser (25) >> node_076 
+	elser (0) >> node_077 
+	elser (0) >> node_078 
+	elser (0) >> node_080 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_144
+	random (0) 
+	elser (0) >> node_027 
+	elser (0) >> node_035 
+	elser (0) >> node_041 
+	elser (0) >> node_047 
+	elser (70) >> node_051 
+	elser (0) >> node_083 
+	elser (0) >> node_075 
+	elser (0) >> node_076 
+	elser (30) >> node_077 
+	elser (0) >> node_078 
+	elser (0) >> node_080 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_145
+	random (0) 
+	elser (0) >> node_027 
+	elser (0) >> node_035 
+	elser (0) >> node_041 
+	elser (0) >> node_047 
+	elser (70) >> node_051 
+	elser (0) >> node_083 
+	elser (0) >> node_075 
+	elser (0) >> node_076 
+	elser (0) >> node_077 
+	elser (30) >> node_078 
+	elser (0) >> node_080 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_146
+	random (0) 
+	elser (0) >> node_027 
+	elser (40) >> node_035 
+	elser (20) >> node_041 
+	elser (0) >> node_047 
+	elser (0) >> node_051 
+	elser (10) >> node_083 
+	elser (10) >> node_075 
+	elser (0) >> node_076 
+	elser (0) >> node_077 
+	elser (0) >> node_078 
+	elser (20) >> node_080 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_147
+	random (0) 
+	elser (0) >> node_027 
+	elser (0) >> node_035 
+	elser (30) >> node_041 
+	elser (40) >> node_047 
+	elser (0) >> node_051 
+	elser (0) >> node_083 
+	elser (10) >> node_075 
+	elser (0) >> node_076 
+	elser (0) >> node_077 
+	elser (0) >> node_078 
+	elser (20) >> node_080 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_148
+	random (0) 
+	elser (0) >> node_027 
+	elser (0) >> node_035 
+	elser (50) >> node_041 
+	elser (0) >> node_047 
+	elser (20) >> node_051 
+	elser (0) >> node_083 
+	elser (0) >> node_075 
+	elser (0) >> node_076 
+	elser (30) >> node_077 
+	elser (0) >> node_078 
+	elser (0) >> node_080 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_149
+	random (0) 
+	elser (0) >> node_027 
+	elser (0) >> node_035 
+	elser (0) >> node_041 
+	elser (0) >> node_047 
+	elser (60) >> node_051 
+	elser (0) >> node_083 
+	elser (0) >> node_075 
+	elser (0) >> node_076 
+	elser (30) >> node_077 
+	elser (10) >> node_078 
+	elser (0) >> node_080 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_150
+	random (0) 
+	elser (0) >> node_027 
+	elser (0) >> node_035 
+	elser (0) >> node_041 
+	elser (0) >> node_047 
+	elser (70) >> node_051 
+	elser (0) >> node_083 
+	elser (0) >> node_075 
+	elser (0) >> node_076 
+	elser (0) >> node_077 
+	elser (30) >> node_078 
+	elser (0) >> node_080 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_151
+	self.targetEnemy(target_em.random_player_or_cat) 
+	>> node_152 
+	return 
+endf 
+
+def node_152
+	if self.distance_2d_to_target().leq(600) 
+		if self.enraged() 
+			>> node_163 
+		elif self.fatigued() 
+			>> node_158 
+		else 
+			>> node_153 
+		endif 
+	elif self.distance_2d_to_target().leq(1300) 
+		if self.enraged() 
+			>> node_164 
+		elif self.fatigued() 
+			>> node_159 
+		else 
+			>> node_154 
+		endif 
+	elif self.distance_2d_to_target().leq(1800) 
+		if self.enraged() 
+			>> node_165 
+		elif self.fatigued() 
+			>> node_160 
+		else 
+			>> node_155 
+		endif 
+	elif self.distance_2d_to_target().leq(3000) 
+		if self.enraged() 
+			>> node_166 
+		elif self.fatigued() 
+			>> node_161 
+		else 
+			>> node_156 
+		endif 
+	else 
+		if self.enraged() 
+			>> node_167 
+		elif self.fatigued() 
+			>> node_162 
+		else 
+			>> node_157 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_153
+	random (0) 
+	elser (0) >> node_001 
+	elser (25) >> node_043 
+	elser (60) >> node_044 
+	elser (15) >> node_045 
+	elser (0) >> node_049 
+	elser (0) >> node_051 
+	elser (0) >> node_052 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_154
+	random (0) 
+	elser (0) >> node_001 
+	elser (20) >> node_043 
+	elser (35) >> node_044 
+	elser (45) >> node_045 
+	elser (0) >> node_049 
+	elser (0) >> node_051 
+	elser (0) >> node_052 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_155
+	random (0) 
+	elser (0) >> node_001 
+	elser (0) >> node_043 
+	elser (0) >> node_044 
+	elser (50) >> node_045 
+	elser (30) >> node_049 
+	elser (0) >> node_051 
+	elser (20) >> node_052 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_156
+	random (0) 
+	elser (0) >> node_001 
+	elser (0) >> node_043 
+	elser (0) >> node_044 
+	elser (0) >> node_045 
+	elser (50) >> node_049 
+	elser (0) >> node_051 
+	elser (50) >> node_052 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_157
+	random (0) 
+	elser (0) >> node_001 
+	elser (0) >> node_043 
+	elser (0) >> node_044 
+	elser (0) >> node_045 
+	elser (35) >> node_049 
+	elser (0) >> node_051 
+	elser (65) >> node_052 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_158
+	random (0) 
+	elser (10) >> node_001 
+	elser (0) >> node_043 
+	elser (40) >> node_044 
+	elser (0) >> node_045 
+	elser (50) >> node_049 
+	elser (0) >> node_051 
+	elser (0) >> node_052 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_159
+	random (0) 
+	elser (20) >> node_001 
+	elser (0) >> node_043 
+	elser (30) >> node_044 
+	elser (0) >> node_045 
+	elser (50) >> node_049 
+	elser (0) >> node_051 
+	elser (0) >> node_052 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_160
+	random (0) 
+	elser (30) >> node_001 
+	elser (0) >> node_043 
+	elser (0) >> node_044 
+	elser (0) >> node_045 
+	elser (45) >> node_049 
+	elser (25) >> node_051 
+	elser (0) >> node_052 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_161
+	random (0) 
+	elser (30) >> node_001 
+	elser (0) >> node_043 
+	elser (0) >> node_044 
+	elser (0) >> node_045 
+	elser (50) >> node_049 
+	elser (20) >> node_051 
+	elser (0) >> node_052 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_162
+	random (0) 
+	elser (30) >> node_001 
+	elser (0) >> node_043 
+	elser (0) >> node_044 
+	elser (0) >> node_045 
+	elser (35) >> node_049 
+	elser (35) >> node_051 
+	elser (0) >> node_052 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_163
+	random (0) 
+	elser (0) >> node_001 
+	elser (50) >> node_043 
+	elser (35) >> node_044 
+	elser (15) >> node_045 
+	elser (0) >> node_049 
+	elser (0) >> node_051 
+	elser (0) >> node_052 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_164
+	random (0) 
+	elser (0) >> node_001 
+	elser (40) >> node_043 
+	elser (15) >> node_044 
+	elser (45) >> node_045 
+	elser (0) >> node_049 
+	elser (0) >> node_051 
+	elser (0) >> node_052 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_165
+	random (0) 
+	elser (0) >> node_001 
+	elser (0) >> node_043 
+	elser (0) >> node_044 
+	elser (40) >> node_045 
+	elser (30) >> node_049 
+	elser (0) >> node_051 
+	elser (30) >> node_052 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_166
+	random (0) 
+	elser (0) >> node_001 
+	elser (0) >> node_043 
+	elser (0) >> node_044 
+	elser (0) >> node_045 
+	elser (40) >> node_049 
+	elser (0) >> node_051 
+	elser (60) >> node_052 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_167
+	random (0) 
+	elser (0) >> node_001 
+	elser (0) >> node_043 
+	elser (0) >> node_044 
+	elser (0) >> node_045 
+	elser (20) >> node_049 
+	elser (0) >> node_051 
+	elser (80) >> node_052 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_168
+	if self.distance_2d_to_target().leq(1000) 
+		self.enraged() >> node_174 => reset 
+		self.fatigued() >> node_179 => reset 
+		>> node_169 => reset 
+	elif self.distance_2d_to_target().leq(1500) 
+		self.enraged() >> node_175 => reset 
+		self.fatigued() >> node_179 => reset 
+		>> node_170 => reset 
+	elif self.distance_2d_to_target().leq(2000) 
+		self.enraged() >> node_176 => reset 
+		self.fatigued() >> node_179 => reset 
+		>> node_171 => reset 
+	elif self.distance_2d_to_target().leq(2500) 
+		self.enraged() >> node_177 => reset 
+		self.fatigued() >> node_179 => reset 
+		>> node_172 => reset 
+	else 
+		self.enraged() >> node_178 => reset 
+		self.fatigued() >> node_179 => reset 
+		>> node_173 => reset 
+	endif 
+	return 
+endf 
+
+def node_169
+	random (0) 
+	elser (0) >> node_087 
+	elser (0) >> node_088 
+	elser (30) >> node_089 
+	elser (0) >> node_090 
+	elser (0) >> node_091 
+	elser (70) >> node_093 
+	elser (0) >> node_095 
+	elser (0) >> node_096 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_170
+	random (0) 
+	elser (0) >> node_087 
+	elser (0) >> node_088 
+	elser (60) >> node_089 
+	elser (0) >> node_090 
+	elser (0) >> node_091 
+	elser (40) >> node_093 
+	elser (0) >> node_095 
+	elser (0) >> node_096 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_171
+	random (0) 
+	elser (0) >> node_087 
+	elser (0) >> node_088 
+	elser (50) >> node_089 
+	elser (0) >> node_090 
+	elser (0) >> node_091 
+	elser (50) >> node_093 
+	elser (0) >> node_095 
+	elser (0) >> node_096 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_172
+	random (0) 
+	elser (0) >> node_087 
+	elser (0) >> node_088 
+	elser (30) >> node_089 
+	elser (0) >> node_090 
+	elser (0) >> node_091 
+	elser (0) >> node_093 
+	elser (70) >> node_095 
+	elser (0) >> node_096 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_173
+	random (0) 
+	elser (0) >> node_087 
+	elser (0) >> node_088 
+	elser (0) >> node_089 
+	elser (0) >> node_090 
+	elser (0) >> node_091 
+	elser (0) >> node_093 
+	elser (100) >> node_095 
+	elser (0) >> node_096 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_174
+	random (0) 
+	elser (0) >> node_087 
+	elser (0) >> node_088 
+	elser (0) >> node_089 
+	elser (30) >> node_090 
+	elser (20) >> node_091 
+	elser (0) >> node_093 
+	elser (0) >> node_095 
+	elser (50) >> node_096 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_175
+	random (0) 
+	elser (0) >> node_087 
+	elser (0) >> node_088 
+	elser (0) >> node_089 
+	elser (20) >> node_090 
+	elser (30) >> node_091 
+	elser (0) >> node_093 
+	elser (0) >> node_095 
+	elser (50) >> node_096 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_176
+	random (0) 
+	elser (0) >> node_087 
+	elser (0) >> node_088 
+	elser (0) >> node_089 
+	elser (20) >> node_090 
+	elser (30) >> node_091 
+	elser (0) >> node_093 
+	elser (0) >> node_095 
+	elser (50) >> node_096 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_177
+	random (0) 
+	elser (0) >> node_087 
+	elser (0) >> node_088 
+	elser (0) >> node_089 
+	elser (25) >> node_090 
+	elser (0) >> node_091 
+	elser (0) >> node_093 
+	elser (0) >> node_095 
+	elser (75) >> node_096 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_178
+	random (0) 
+	elser (0) >> node_087 
+	elser (0) >> node_088 
+	elser (0) >> node_089 
+	elser (0) >> node_090 
+	elser (0) >> node_091 
+	elser (0) >> node_093 
+	elser (0) >> node_095 
+	elser (100) >> node_096 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_179
+	random (0) 
+	elser (100) >> node_087 
+	elser (0) >> node_088 
+	elser (0) >> node_089 
+	elser (0) >> node_090 
+	elser (0) >> node_091 
+	elser (0) >> node_093 
+	elser (0) >> node_095 
+	elser (0) >> node_096 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_180
+	if self.distance_2d_to_target().leq(1000) 
+		self.enraged() >> node_181 => return 
+		self.fatigued() >> node_181 => return 
+		>> node_181 => return 
+	elif self.distance_2d_to_target().leq(1500) 
+		self.enraged() >> node_182 => return 
+		self.fatigued() >> node_182 => return 
+		>> node_182 => return 
+	elif self.distance_2d_to_target().leq(2000) 
+		self.enraged() >> node_183 => return 
+		self.fatigued() >> node_183 => return 
+		>> node_183 => return 
+	elif self.distance_2d_to_target().leq(2500) 
+		self.enraged() >> node_184 => return 
+		self.fatigued() >> node_184 => return 
+		>> node_184 => return 
+	else 
+		self.enraged() >> node_185 => return 
+		self.fatigued() >> node_185 => return 
+		>> node_185 => return 
+	endif 
+	return 
+endf 
+
+def node_181
+	random (0) 
+	elser (10) >> node_089 
+	elser (30) >> node_090 
+	elser (10) >> node_091 
+	elser (50) >> node_093 
+	elser (0) >> node_095 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_182
+	random (0) 
+	elser (10) >> node_089 
+	elser (35) >> node_090 
+	elser (10) >> node_091 
+	elser (45) >> node_093 
+	elser (0) >> node_095 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_183
+	random (0) 
+	elser (10) >> node_089 
+	elser (15) >> node_090 
+	elser (35) >> node_091 
+	elser (40) >> node_093 
+	elser (0) >> node_095 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_184
+	random (0) 
+	elser (0) >> node_089 
+	elser (20) >> node_090 
+	elser (20) >> node_091 
+	elser (0) >> node_093 
+	elser (60) >> node_095 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_185
+	random (0) 
+	elser (0) >> node_089 
+	elser (0) >> node_090 
+	elser (30) >> node_091 
+	elser (0) >> node_093 
+	elser (70) >> node_095 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_186
+	if self.distance_2d_to_target().leq(600) 
+		self.enraged() >> node_190 => reset 
+		self.fatigued() >> node_193 => reset 
+		>> node_187 => reset 
+	elif self.distance_2d_to_target().leq(1800) 
+		self.enraged() >> node_191 => reset 
+		self.fatigued() >> node_193 => reset 
+		>> node_188 => reset 
+	else 
+		self.enraged() >> node_192 => reset 
+		self.fatigued() >> node_193 => reset 
+		>> node_189 => reset 
+	endif 
+	return 
+endf 
+
+def node_187
+	random (0) 
+	elser (0) >> node_101 
+	elser (0) >> node_102 
+	elser (0) >> node_103 
+	elser (50) >> node_104 
+	elser (50) >> node_105 
+	elser (0) >> node_106 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_188
+	random (0) 
+	elser (25) >> node_101 
+	elser (25) >> node_102 
+	elser (0) >> node_103 
+	elser (25) >> node_104 
+	elser (25) >> node_105 
+	elser (0) >> node_106 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_189
+	random (0) 
+	elser (0) >> node_101 
+	elser (0) >> node_102 
+	elser (0) >> node_103 
+	elser (0) >> node_104 
+	elser (100) >> node_105 
+	elser (0) >> node_106 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_190
+	random (0) 
+	elser (0) >> node_101 
+	elser (0) >> node_102 
+	elser (0) >> node_103 
+	elser (50) >> node_104 
+	elser (0) >> node_105 
+	elser (50) >> node_106 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_191
+	random (0) 
+	elser (50) >> node_101 
+	elser (0) >> node_102 
+	elser (0) >> node_103 
+	elser (0) >> node_104 
+	elser (0) >> node_105 
+	elser (50) >> node_106 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_192
+	random (0) 
+	elser (0) >> node_101 
+	elser (0) >> node_102 
+	elser (0) >> node_103 
+	elser (0) >> node_104 
+	elser (0) >> node_105 
+	elser (100) >> node_106 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_193
+	random (0) 
+	elser (0) >> node_101 
+	elser (0) >> node_102 
+	elser (100) >> node_103 
+	elser (0) >> node_104 
+	elser (0) >> node_105 
+	elser (0) >> node_106 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_194
+	>> node_199 
+	if self.targetEnemy(target_em.any_monster) 
+		if self.target(13) 
+		else 
+			if self.vertical_distance_to_target().leq(1000) 
+				if self.distance_3d_to_target().leq(3000) 
+					if self.target_is(em.Fulgur_Anjanath) 
+						>> node_198 
+					elif self.target_is(em.Odogaron) 
+						>> node_198 
+					elif self.target_is(em.Ebony_Odogaron) 
+						>> node_198 
+					elif self.target_is(em.Legiana) 
+						>> node_198 
+					elif self.target_is(em.Shrieking_Legiana) 
+						>> node_198 
+					elif self.target_is(em.Banbaro) 
+						>> node_198 
+					elif function#30(2) 
+						>> node_195 
+					elif function#30(4) 
+						>> node_196 
+					else 
+						>> node_197 
+					endif 
+				else 
+				endif 
+			else 
+			endif 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_195
+	if self.target.in_combat() 
+		random (35) >> node_201 
+		elser (0) >> node_202 
+		elser (10) >> node_203 
+		elser (55) >> node_204 
+		elser (0) >> node_206 
+		endr 
+	else 
+		random (10) >> node_201 
+		elser (35) >> node_202 
+		elser (0) >> node_203 
+		elser (55) >> node_204 
+		elser (0) >> node_206 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_196
+	if self.target.in_combat() 
+		random (35) >> node_201 
+		elser (10) >> node_202 
+		elser (55) >> node_203 
+		elser (0) >> node_204 
+		elser (0) >> node_206 
+		endr 
+	else 
+		random (35) >> node_201 
+		elser (55) >> node_202 
+		elser (10) >> node_203 
+		elser (0) >> node_204 
+		elser (0) >> node_206 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_197
+	if self.target.in_combat() 
+		random (35) >> node_201 
+		elser (0) >> node_202 
+		elser (50) >> node_203 
+		elser (0) >> node_204 
+		elser (15) >> node_206 
+		endr 
+	else 
+		random (35) >> node_201 
+		elser (55) >> node_202 
+		elser (10) >> node_203 
+		elser (0) >> node_204 
+		elser (0) >> node_206 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_198
+	if self.target(39) 
+		>> node_195 
+	else 
+		if self.in_combat() 
+			if self.target.in_combat() 
+				random (75) >> node_201 
+				elser (15) >> node_202 
+				elser (10) >> node_203 
+				elser (0) >> node_204 
+				endr 
+			else 
+				random (40) >> node_201 
+				elser (60) >> node_202 
+				elser (0) >> node_203 
+				elser (0) >> node_204 
+				endr 
+			endif 
+		else 
+			if self.target.in_combat() 
+				random (10) >> node_201 
+				elser (5) >> node_202 
+				elser (65) >> node_203 
+				elser (20) >> node_204 
+				endr 
+			else 
+				random (10) >> node_201 
+				elser (5) >> node_202 
+				elser (65) >> node_203 
+				elser (20) >> node_204 
+				endr 
+			endif 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_199
+	if function#38(0,10003) 
+		>> node_200 
+	elif self.quest_id(1102) 
+		>> node_200 
+	else 
+	endif 
+	return 
+endf 
+
+def node_200
+	if function#CE(1,1) 
+		function#CF() 
+	else 
+	endif 
+	return 
+endf 
+
+def node_201
+	return 
+endf 
+
+def node_202
+	>> node_003 
+	>> node_008 
+	>> node_026 
+	return 
+endf 
+
+def node_203
+	>> node_003 
+	if self.vertical_distance_to_target().gt(500) 
+		>> node_078 
+		>> node_095 
+	else 
+		if self.distance_3d_to_target().leq(700) 
+			random (0) 
+			elser (45) >> node_045 
+			elser (45) >> node_044 
+			elser (10) >> node_218 
+			endr 
+		else 
+			random (60) >> node_052 
+			elser (20) >> node_259 
+			elser (20) >> node_255 
+			endr 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_204
+	>> node_003 
+	if [RegisterVar1 == 0] 
+		[RegisterVar1 ++] 
+	else 
+		[RegisterVar1 |-] 
+		self.force_area_change2() 
+	endif 
+	>> node_205 
+	return 
+endf 
+
+def node_205
+	>> node_003 
+	>> node_032 
+	>> node_027 
+	return 
+endf 
+
+def node_206
+	>> node_203 
+	[RegisterVar1 |-] 
+	self.force_area_change2() 
+	return 
+endf 
+
+def node_207
+	self.targetArea(target_area.nearest_entrance) 
+	if self.flying() 
+		self.targetArea(40) 
+		>> node_208 
+	else 
+		self.targetArea(39) 
+		>> node_209 
+	endif 
+	return 
+endf 
+
+def node_208
+	if self.distance_3d_to_target().leq(1000) 
+	else 
+		-> frostfang_barioth.glide(6,2,5,900,3000) 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_209
+	>> node_194 
+	self.targetArea(39) 
+	if self.distance_3d_to_target().leq(600) 
+	else 
+		if self.fatigued() 
+			-> frostfang_barioth.walk_tired(2,5,0,1500) 
+		else 
+			-> frostfang_barioth.walk(2,5,0,1500) 
+		endif 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_210
+	if self.distance_3d_to_target().leq(600) 
+	else 
+		-> frostfang_barioth.glide(2,1,0,3000,500) 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_211
+	if self.distance_3d_to_target().leq(1000) 
+	else 
+		-> frostfang_barioth.glide(2,1,0,3000,900) 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_212
+endf 
+
+def node_213
+	>> node_003 
+	>> node_005 
+	-> frostfang_barioth.frozen_breath() 
+	return 
+endf 
+
+def node_214
+	>> node_003 
+	>> node_005 
+	-> frostfang_barioth.frozen_breath_butsugiri() 
+	return 
+endf 
+
+def node_215
+	>> node_003 
+	>> node_005 
+	-> frostfang_barioth.frozen_breath_connect() 
+	return 
+endf 
+
+def node_216
+	>> node_003 
+	>> node_005 
+	-> frostfang_barioth.sweep_frozen_breath() 
+	return 
+endf 
+
+def node_217
+	>> node_003 
+	>> node_005 
+	if self.angle_2d_cw_between(270,90) 
+		-> frostfang_barioth.deadly_breath_normal() 
+	else 
+		>> node_007 
+		-> frostfang_barioth.deadly_breath_normal_no_blend() 
+	endif 
+	return 
+endf 
+
+def node_218
+	>> node_003 
+	>> node_005 
+	if self.enraged() 
+		-> frostfang_barioth.deadly_bite_slammed() @ comboSetting:1 
+		-> frostfang_barioth.deadly_bite_slammed_second() 
+	else 
+		-> frostfang_barioth.deadly_bite_slammed() 
+	endif 
+	return 
+endf 
+
+def node_219
+	>> node_003 
+	>> node_005 
+	-> frostfang_barioth.back_jump_breath() 
+	return 
+endf 
+
+def node_220
+	>> node_003 
+	>> node_005 
+	-> frostfang_barioth.back_jump_breath_fly() 
+	return 
+endf 
+
+def node_221
+	>> node_003 
+	>> node_005 
+	if self.distance_2d_to_target().leq(900) 
+		-> frostfang_barioth.bite_slammed_right_then() 
+	else 
+		>> node_044 
+	endif 
+	return 
+endf 
+
+def node_222
+	>> node_003 
+	>> node_005 
+	-> frostfang_barioth.counter_adjust() @ comboSetting:1 
+	if self.distance_2d_to_target().leq(1000) 
+		-> frostfang_barioth.turn_back_step() 
+		-> frostfang_barioth.frozen_breath_butsugiri() 
+	else 
+		if self.angle_2d_cw_between(0,180) 
+			-> frostfang_barioth.wrap_r_2() @ comboSetting:1 
+			-> frostfang_barioth.sweep_frozen_breath() 
+		else 
+			-> frostfang_barioth.wrap_l_2() @ comboSetting:1 
+			-> frostfang_barioth.sweep_frozen_breath() 
+		endif 
+	endif 
+	if self.target(57) 
+		>> node_266 
+	else 
+		-> frostfang_barioth.after_counter_unguard() 
+	endif 
+	return 
+endf 
+
+def node_223
+	>> node_213 
+	>> node_364 
+	return 
+endf 
+
+def node_224
+	>> node_213 
+	>> node_405 
+	return 
+endf 
+
+def node_225
+	>> node_216 
+	>> node_364 
+	return 
+endf 
+
+def node_226
+	>> node_216 
+	>> node_417 
+	return 
+endf 
+
+def node_227
+	>> node_219 
+	>> node_364 
+	return 
+endf 
+
+def node_228
+	>> node_219 
+	>> node_405 
+	return 
+endf 
+
+def node_229
+	>> node_220 
+	>> node_364 
+	return 
+endf 
+
+def node_230
+	>> node_220 
+	>> node_405 
+	return 
+endf 
+
+def node_231
+	>> node_079 
+	>> node_320 
+	return 
+endf 
+
+def node_232
+	>> node_003 
+	>> node_005 
+	-> frostfang_barioth.frozen_breath_butsugiri() 
+	return 
+endf 
+
+def node_233
+	>> node_003 
+	>> node_005 
+	>> node_010 
+	if self.angle_2d_cw_between(0,180) 
+		-> frostfang_barioth.advance_and_jab_l() 
+	else 
+		-> frostfang_barioth.advance_and_jab_r() 
+	endif 
+	return 
+endf 
+
+def node_234
+	>> node_003 
+	>> node_005 
+	if self.angle_2d_cw_between(315,45) 
+	else 
+		>> node_007 
+	endif 
+	-> frostfang_barioth.bite() 
+	return 
+endf 
+
+def node_235
+	if self.distance_2d_to_target().leq(1500) 
+	else 
+	endif 
+	if self.enraged() 
+		>> node_244 
+	else 
+		>> node_052 
+	endif 
+	return 
+endf 
+
+def node_236
+	>> node_003 
+	if self.in_combat() 
+		-> frostfang_barioth.dash_combat(1,2,0,1000,2000) 
+	else 
+		-> frostfang_barioth.dash(1,2,0,1000,2000) 
+	endif 
+	if self.in_combat() 
+		-> frostfang_barioth.dash_combat(1,2,0,1000,2000) 
+	else 
+		-> frostfang_barioth.dash(1,2,0,1000,2000) 
+	endif 
+	if self.in_combat() 
+		-> frostfang_barioth.dash_combat(1,2,0,1000,2000) 
+	else 
+		-> frostfang_barioth.dash(1,2,0,1000,2000) 
+	endif 
+	return 
+endf 
+
+def node_237
+	random (50) >> node_238 
+	elser (50) >> node_239 
+	endr 
+	return 
+endf 
+
+def node_238
+	if self.angle_2d_cw_between(0,180) 
+		-> frostfang_barioth.wrap_l() 
+	else 
+		-> frostfang_barioth.wrap_r() 
+	endif 
+	>> node_266 
+	return 
+endf 
+
+def node_239
+	if self.angle_2d_cw_between(0,180) 
+		-> frostfang_barioth.wrap_r() 
+	else 
+		-> frostfang_barioth.wrap_l() 
+	endif 
+	>> node_266 
+	return 
+endf 
+
+def node_240
+	random (50) >> node_241 
+	elser (50) >> node_242 
+	endr 
+	return 
+endf 
+
+def node_241
+	if self.angle_2d_cw_between(0,180) 
+		-> frostfang_barioth.wrap_l_2() 
+	else 
+		-> frostfang_barioth.wrap_r_2() 
+	endif 
+	>> node_266 
+	return 
+endf 
+
+def node_242
+	if self.angle_2d_cw_between(0,180) 
+		-> frostfang_barioth.wrap_r_2() 
+	else 
+		-> frostfang_barioth.wrap_l_2() 
+	endif 
+	>> node_266 
+	return 
+endf 
+
+def node_243
+	if self.angle_2d_cw_between(0,180) 
+		function#105(270,500) 
+	else 
+		function#105(90,500) 
+	endif 
+	return 
+endf 
+
+def node_244
+	>> node_003 
+	>> node_005 
+	if self.angle_2d_cw_between(0,180) 
+		if self.part(1).is_broken(0) 
+			-> frostfang_barioth.jump_turn_attack() 
+		else 
+			-> frostfang_barioth.jump_turn_attack_drift() @ comboSetting:1 
+			-> frostfang_barioth.jump_turn_attack() 
+		endif 
+	else 
+		if self.part(2).is_broken(0) 
+			-> frostfang_barioth.jump_turn_attack() 
+		else 
+			-> frostfang_barioth.jump_turn_attack_drift() @ comboSetting:1 
+			-> frostfang_barioth.jump_turn_attack() 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_245
+	>> node_003 
+	>> node_005 
+	if self.distance_2d_to_target().leq(1000) 
+		-> frostfang_barioth.sweep_frozen_breath() 
+	else 
+		if self.angle_2d_cw_between(0,180) 
+			-> frostfang_barioth.wrap_r_3() @ comboSetting:1 
+			-> frostfang_barioth.sweep_frozen_breath() 
+		else 
+			-> frostfang_barioth.wrap_l_3() @ comboSetting:1 
+			-> frostfang_barioth.sweep_frozen_breath() 
+		endif 
+	endif 
+	>> node_266 
+	if self.distance_2d_to_target().leq(1000) 
+		>> node_265 
+	else 
+		>> node_260 
+	endif 
+	>> node_266 
+	return 
+endf 
+
+def node_246
+	>> node_003 
+	>> node_005 
+	if self.distance_2d_to_target().leq(1000) 
+		if self.angle_2d_cw_between(0,180) 
+			-> frostfang_barioth.wrap_r_2() @ comboSetting:1 
+			-> frostfang_barioth.frozen_breath() 
+		else 
+			-> frostfang_barioth.wrap_l_2() @ comboSetting:1 
+			-> frostfang_barioth.frozen_breath() 
+		endif 
+	else 
+		-> frostfang_barioth.frozen_breath() 
+	endif 
+	>> node_266 
+	if self.distance_2d_to_target().leq(1000) 
+		>> node_265 
+	else 
+		>> node_260 
+	endif 
+	>> node_266 
+	return 
+endf 
+
+def node_247
+	>> node_003 
+	>> node_005 
+	if self.angle_2d_cw_between(0,180) 
+		-> frostfang_barioth.wrap_r_3() @ comboSetting:1 
+		-> frostfang_barioth.sweep_frozen_breath() 
+	else 
+		-> frostfang_barioth.wrap_l_3() @ comboSetting:1 
+		-> frostfang_barioth.sweep_frozen_breath() 
+	endif 
+	>> node_266 
+	>> node_265 
+	>> node_266 
+	return 
+endf 
+
+def node_248
+	>> node_003 
+	>> node_005 
+	if self.angle_2d_cw_between(0,180) 
+		-> frostfang_barioth.wrap_r_3() @ comboSetting:1 
+		-> frostfang_barioth.sweep_frozen_breath() 
+	else 
+		-> frostfang_barioth.wrap_l_3() @ comboSetting:1 
+		-> frostfang_barioth.sweep_frozen_breath() 
+	endif 
+	>> node_266 
+	if self.angle_2d_cw_between(0,180) 
+		-> frostfang_barioth.wrap_r_3() @ comboSetting:1 
+		-> frostfang_barioth.sweep_frozen_breath() 
+	else 
+		-> frostfang_barioth.wrap_l_3() @ comboSetting:1 
+		-> frostfang_barioth.sweep_frozen_breath() 
+	endif 
+	>> node_266 
+	>> node_265 
+	>> node_266 
+	return 
+endf 
+
+def node_249
+	>> node_216 
+	>> node_266 
+	>> node_265 
+	>> node_266 
+	return 
+endf 
+
+def node_250
+	>> node_216 
+	>> node_266 
+	if self.part(1).is_broken(0) 
+		if self.part(2).is_broken(0) 
+			if self.angle_2d_cw_between(0,180) 
+				-> frostfang_barioth.wrap_l() 
+			else 
+				-> frostfang_barioth.wrap_r() 
+			endif 
+		else 
+			if self.angle_2d_cw_between(0,180) 
+				-> frostfang_barioth.wrap_l() 
+			else 
+				-> frostfang_barioth.wrap_r() @ comboSetting:1 
+				-> frostfang_barioth.bite() 
+			endif 
+		endif 
+	elif self.part(2).is_broken(0) 
+		if self.angle_2d_cw_between(0,180) 
+			-> frostfang_barioth.wrap_l() @ comboSetting:1 
+			-> frostfang_barioth.bite() 
+		else 
+			-> frostfang_barioth.wrap_r() 
+		endif 
+	else 
+		if self.angle_2d_cw_between(0,180) 
+			-> frostfang_barioth.wrap_l() @ comboSetting:1 
+			-> frostfang_barioth.bite() 
+		else 
+			-> frostfang_barioth.wrap_r() @ comboSetting:1 
+			-> frostfang_barioth.bite() 
+		endif 
+	endif 
+	>> node_266 
+	>> node_277 
+	return 
+endf 
+
+def node_251
+	>> node_216 
+	>> node_266 
+	if self.angle_2d_cw_between(0,180) 
+		-> frostfang_barioth.wrap_r_3() @ comboSetting:1 
+		-> frostfang_barioth.sweep_frozen_breath() 
+	else 
+		-> frostfang_barioth.wrap_l_3() @ comboSetting:1 
+		-> frostfang_barioth.sweep_frozen_breath() 
+	endif 
+	>> node_266 
+	>> node_265 
+	>> node_266 
+	return 
+endf 
+
+def node_252
+	>> node_003 
+	>> node_005 
+	if self.angle_2d_cw_between(0,180) 
+		-> frostfang_barioth.wrap_r_2() @ comboSetting:1 
+		-> frostfang_barioth.frozen_breath() 
+	else 
+		-> frostfang_barioth.wrap_l_2() @ comboSetting:1 
+		-> frostfang_barioth.frozen_breath() 
+	endif 
+	>> node_266 
+	>> node_265 
+	>> node_266 
+	return 
+endf 
+
+def node_253
+	>> node_003 
+	>> node_005 
+	if self.angle_2d_cw_between(0,180) 
+		-> frostfang_barioth.wrap_r_2() @ comboSetting:1 
+		-> frostfang_barioth.frozen_breath_butsugiri() 
+	else 
+		-> frostfang_barioth.wrap_l_2() @ comboSetting:1 
+		-> frostfang_barioth.frozen_breath_butsugiri() 
+	endif 
+	>> node_266 
+	if self.distance_2d_to_target().leq(1500) 
+		if self.angle_2d_cw_between(0,180) 
+			function#105(40,500) 
+		else 
+			function#105(320,500) 
+		endif 
+	else 
+		if self.angle_2d_cw_between(0,180) 
+			function#105(30,500) 
+		else 
+			function#105(330,500) 
+		endif 
+	endif 
+	>> node_215 
+	>> node_266 
+	>> node_265 
+	>> node_266 
+	return 
+endf 
+
+def node_254
+	>> node_213 
+	>> node_266 
+	>> node_265 
+	>> node_266 
+	return 
+endf 
+
+def node_255
+	>> node_213 
+	>> node_266 
+	if self.part(1).is_broken(0) 
+		if self.part(2).is_broken(0) 
+			if self.angle_2d_cw_between(0,180) 
+				-> frostfang_barioth.wrap_l() 
+			else 
+				-> frostfang_barioth.wrap_r() 
+			endif 
+		else 
+			if self.angle_2d_cw_between(0,180) 
+				-> frostfang_barioth.wrap_l() 
+			else 
+				-> frostfang_barioth.wrap_r() @ comboSetting:1 
+				-> frostfang_barioth.bite() 
+			endif 
+		endif 
+	elif self.part(2).is_broken(0) 
+		if self.angle_2d_cw_between(0,180) 
+			-> frostfang_barioth.wrap_l() @ comboSetting:1 
+			-> frostfang_barioth.bite() 
+		else 
+			-> frostfang_barioth.wrap_r() 
+		endif 
+	else 
+		if self.angle_2d_cw_between(0,180) 
+			-> frostfang_barioth.wrap_l() @ comboSetting:1 
+			-> frostfang_barioth.bite() 
+		else 
+			-> frostfang_barioth.wrap_r() @ comboSetting:1 
+			-> frostfang_barioth.bite() 
+		endif 
+	endif 
+	>> node_266 
+	>> node_277 
+	return 
+endf 
+
+def node_256
+	>> node_214 
+	>> node_266 
+	if self.distance_2d_to_target().leq(1500) 
+		if self.angle_2d_cw_between(0,180) 
+			function#105(40,500) 
+		else 
+			function#105(320,500) 
+		endif 
+	else 
+		if self.angle_2d_cw_between(0,180) 
+			function#105(30,500) 
+		else 
+			function#105(330,500) 
+		endif 
+	endif 
+	>> node_215 
+	>> node_266 
+	>> node_265 
+	>> node_266 
+	return 
+endf 
+
+def node_257
+	>> node_273 
+	>> node_274 
+	return 
+endf 
+
+def node_258
+	>> node_003 
+	>> node_005 
+	>> node_008 
+	if self.angle_2d_cw_between(0,180) 
+		-> frostfang_barioth.advance_and_jab_l() @ comboSetting:1 
+		-> frostfang_barioth.wrap_l_3() 
+	else 
+		-> frostfang_barioth.advance_and_jab_r() @ comboSetting:1 
+		-> frostfang_barioth.wrap_r_3() 
+	endif 
+	>> node_274 
+	return 
+endf 
+
+def node_259
+	if self.part(1).is_broken(0) 
+		if self.part(2).is_broken(0) 
+			if self.angle_2d_cw_between(0,180) 
+				-> frostfang_barioth.wrap_r() 
+			else 
+				-> frostfang_barioth.wrap_l() 
+			endif 
+		else 
+			if self.angle_2d_cw_between(0,180) 
+				-> frostfang_barioth.wrap_r() @ comboSetting:1 
+				-> frostfang_barioth.bite() 
+			else 
+				-> frostfang_barioth.wrap_l() 
+			endif 
+		endif 
+	elif self.part(2).is_broken(0) 
+		if self.angle_2d_cw_between(0,180) 
+			-> frostfang_barioth.wrap_r() 
+		else 
+			-> frostfang_barioth.wrap_l() @ comboSetting:1 
+			-> frostfang_barioth.bite() 
+		endif 
+	else 
+		if self.angle_2d_cw_between(0,180) 
+			-> frostfang_barioth.wrap_r() @ comboSetting:1 
+			-> frostfang_barioth.bite() 
+		else 
+			-> frostfang_barioth.wrap_l() @ comboSetting:1 
+			-> frostfang_barioth.bite() 
+		endif 
+	endif 
+	>> node_266 
+	>> node_274 
+	return 
+endf 
+
+def node_260
+	if self.part(1).is_broken(0) 
+		if self.part(2).is_broken(0) 
+			if self.angle_2d_cw_between(0,180) 
+				-> frostfang_barioth.wrap_l() 
+			else 
+				-> frostfang_barioth.wrap_r() 
+			endif 
+		else 
+			if self.angle_2d_cw_between(0,180) 
+				-> frostfang_barioth.wrap_l() 
+			else 
+				-> frostfang_barioth.wrap_r() @ comboSetting:1 
+				-> frostfang_barioth.bite() 
+			endif 
+		endif 
+	elif self.part(2).is_broken(0) 
+		if self.angle_2d_cw_between(0,180) 
+			-> frostfang_barioth.wrap_l() @ comboSetting:1 
+			-> frostfang_barioth.bite() 
+		else 
+			-> frostfang_barioth.wrap_r() 
+		endif 
+	else 
+		if self.angle_2d_cw_between(0,180) 
+			-> frostfang_barioth.wrap_l() @ comboSetting:1 
+			-> frostfang_barioth.bite() 
+		else 
+			-> frostfang_barioth.wrap_r() @ comboSetting:1 
+			-> frostfang_barioth.bite() 
+		endif 
+	endif 
+	>> node_266 
+	>> node_277 
+	return 
+endf 
+
+def node_261
+	if self.angle_2d_cw_between(315,45) 
+	else 
+		-> frostfang_barioth.turn_quick() 
+	endif 
+	>> node_266 
+	>> node_032 
+	>> node_266 
+	if self.distance_2d_to_target().leq(1500) 
+		>> node_218 
+	else 
+		>> node_217 
+	endif 
+	>> node_266 
+	return 
+endf 
+
+def node_262
+	>> node_239 
+	>> node_235 
+	>> node_266 
+	return 
+endf 
+
+def node_263
+	>> node_007 
+	>> node_235 
+	>> node_266 
+	return 
+endf 
+
+def node_264
+	if self.enraged() 
+		if self.distance_2d_to_target().leq(1000) 
+			random (30) >> node_251 
+			elser (30) >> node_258 
+			elser (30) >> node_274 
+			elser (10) >> node_275 
+			endr 
+		else 
+			random (30) >> node_256 
+			elser (30) >> node_259 
+			elser (10) >> node_263 
+			elser (20) >> node_274 
+			elser (10) >> node_275 
+			endr 
+		endif 
+	else 
+		if self.distance_2d_to_target().leq(1000) 
+			random (10) >> node_249 
+			elser (20) >> node_250 
+			elser (20) >> node_258 
+			elser (10) >> node_257 
+			elser (30) >> node_274 
+			elser (10) >> node_275 
+			endr 
+		else 
+			random (10) >> node_254 
+			elser (20) >> node_255 
+			elser (20) >> node_259 
+			elser (10) >> node_263 
+			elser (30) >> node_274 
+			elser (10) >> node_275 
+			endr 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_265
+	if self.distance_2d_to_target().leq(500) 
+		random (80) >> node_044 
+		elser (20) >> node_218 
+		endr 
+	elif self.distance_2d_to_target().leq(1000) 
+		random (30) >> node_044 
+		elser (50) >> node_221 
+		elser (20) >> node_218 
+		endr 
+	elif self.distance_2d_to_target().leq(1500) 
+		random (80) >> node_045 
+		elser (20) >> node_218 
+		endr 
+	else 
+		random (55) >> node_235 
+		elser (45) >> node_217 
+		endr 
+	endif 
+	>> node_266 
+	return 
+endf 
+
+def node_266
+	if self.target(57) 
+		if self.enraged() 
+			random (100) >> node_275 
+			elser (0) >> node_274 
+			endr 
+		else 
+			random (50) >> node_275 
+			elser (50) >> node_274 
+			endr 
+		endif 
+		reset 
+	else 
+	endif 
+	return 
+endf 
+
+def node_267
+	-> frostfang_barioth.frozen_breath_butsugiri() 
+	-> frostfang_barioth.wrap_r_2() 
+	>> node_218 
+	return 
+endf 
+
+def node_268
+	if self.distance_2d_to_target().leq(1000) 
+		if self.angle_2d_cw_between(0,180) 
+			-> frostfang_barioth.wrap_r_2() @ comboSetting:1 
+			-> frostfang_barioth.turn_back_step() 
+		else 
+			-> frostfang_barioth.wrap_l_2() @ comboSetting:1 
+			-> frostfang_barioth.turn_back_step() 
+		endif 
+		>> node_266 
+	elif self.distance_2d_to_target().leq(1500) 
+		>> node_032 
+		>> node_266 
+	else 
+	endif 
+	>> node_213 
+	>> node_266 
+	if self.angle_2d_cw_between(0,180) 
+		-> frostfang_barioth.wrap_l_2() @ comboSetting:1 
+		-> frostfang_barioth.sweep_frozen_breath() 
+	else 
+		-> frostfang_barioth.wrap_r_2() @ comboSetting:1 
+		-> frostfang_barioth.sweep_frozen_breath() 
+	endif 
+	>> node_266 
+	>> node_265 
+	return 
+endf 
+
+def node_269
+	>> node_007 
+	-> frostfang_barioth.back_jump_breath() 
+	>> node_266 
+	>> node_272 
+	>> node_266 
+	>> node_277 
+	return 
+endf 
+
+def node_270
+	if self.part(1).is_broken(0) 
+		if self.part(2).is_broken(0) 
+			if self.angle_2d_cw_between(0,180) 
+				-> frostfang_barioth.wrap_l() 
+			else 
+				-> frostfang_barioth.wrap_r() 
+			endif 
+		else 
+			if self.angle_2d_cw_between(0,180) 
+				-> frostfang_barioth.wrap_l() 
+			else 
+				-> frostfang_barioth.wrap_r() @ comboSetting:1 
+				-> frostfang_barioth.bite() 
+			endif 
+		endif 
+	elif self.part(2).is_broken(0) 
+		if self.angle_2d_cw_between(0,180) 
+			-> frostfang_barioth.wrap_l() @ comboSetting:1 
+			-> frostfang_barioth.bite() 
+		else 
+			-> frostfang_barioth.wrap_r() 
+		endif 
+	else 
+		if self.angle_2d_cw_between(0,180) 
+			-> frostfang_barioth.wrap_l() @ comboSetting:1 
+			-> frostfang_barioth.bite() 
+		else 
+			-> frostfang_barioth.wrap_r() @ comboSetting:1 
+			-> frostfang_barioth.bite() 
+		endif 
+	endif 
+	>> node_027 
+	>> node_266 
+	return 
+endf 
+
+def node_271
+	if self.angle_2d_cw_between(0,180) 
+		-> frostfang_barioth.wrap_r() 
+	else 
+		-> frostfang_barioth.wrap_l() 
+	endif 
+	>> node_032 
+	>> node_217 
+	return 
+endf 
+
+def node_272
+	if self.distance_2d_to_target().leq(1000) 
+		>> node_216 
+	else 
+		>> node_213 
+	endif 
+	>> node_266 
+	return 
+endf 
+
+def node_273
+	if self.distance_2d_to_target().leq(1000) 
+		>> node_233 
+	elif self.distance_2d_to_target().leq(1500) 
+		>> node_234 
+	else 
+		>> node_051 
+	endif 
+	>> node_266 
+	return 
+endf 
+
+def node_274
+	if self.distance_3d_to_target().leq(500) 
+		>> node_044 
+	elif self.distance_2d_to_target().leq(1000) 
+		random (25) >> node_044 
+		elser (55) >> node_221 
+		elser (20) >> node_045 
+		endr 
+	elif self.distance_2d_to_target().leq(1500) 
+		random (50) >> node_045 
+		elser (50) >> node_051 
+		endr 
+	else 
+		random (100) >> node_051 
+		elser (0) >> node_235 
+		endr 
+	endif 
+	>> node_266 
+	return 
+endf 
+
+def node_275
+	if self.distance_2d_to_target().leq(1700) 
+		>> node_218 
+	else 
+		>> node_217 
+	endif 
+	return 
+endf 
+
+def node_276
+	if self.distance_2d_to_target().leq(1700) 
+		>> node_032 
+	else 
+		>> node_016 
+	endif 
+	if self.distance_2d_to_target().leq(1700) 
+		>> node_218 
+	else 
+		>> node_217 
+	endif 
+	return 
+endf 
+
+def node_277
+	if self.fatigued() 
+		>> node_274 
+	else 
+		random (80) >> node_274 
+		elser (20) >> node_275 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_278
+	if [RegisterVar5 < 0] 
+		return 
+	elif self.fatigued() 
+		return 
+	else 
+	endif 
+	random (15) 
+				if function#102(2) 
+					[RegisterVar5 ++] 
+					>> node_281 
+					>> node_282 
+				elif function#102() 
+					[RegisterVar5 ++] 
+					>> node_279 
+					>> node_283 
+				elif function#102(1) 
+					[RegisterVar5 ++] 
+					>> node_280 
+					>> node_283 
+				else 
+					return 
+				endif 
+				reset 
+	elser (85) 
+	endr 
+	return 
+endf 
+
+def node_279
+	>> node_003 
+	>> node_005 
+	-> frostfang_barioth.wrap_wall_priority_l_grd_fast() 
+	return 
+endf 
+
+def node_280
+	>> node_003 
+	>> node_005 
+	-> frostfang_barioth.wrap_wall_priority_r_grd_fast() 
+	return 
+endf 
+
+def node_281
+	>> node_003 
+	>> node_005 
+	-> frostfang_barioth.back_jump_breath_no_blend() 
+	return 
+endf 
+
+def node_282
+	if function#101() 
+		random (25) >> node_285 
+		elser (25) >> node_286 
+					>> node_292 
+		elser (25) >> node_287 
+		elser (25) >> node_288 
+					>> node_293 
+		endr 
+	else 
+		>> node_001 
+	endif 
+	return 
+endf 
+
+def node_283
+	if function#101() 
+		random (0) >> node_285 
+		elser (50) >> node_286 
+					>> node_292 
+		elser (0) >> node_287 
+		elser (50) >> node_288 
+					>> node_293 
+		endr 
+	else 
+		>> node_001 
+	endif 
+	return 
+endf 
+
+def node_284
+	random (40) >> node_285 
+	elser (20) >> node_287 
+	elser (40) >> node_288 
+				>> node_293 
+	endr 
+	return 
+endf 
+
+def node_285
+	-> frostfang_barioth.flying_triangle() 
+	>> node_265 
+	return 
+endf 
+
+def node_286
+	-> frostfang_barioth.wrap_wall_to_fly() 
+	return 
+endf 
+
+def node_287
+	if self.enraged() 
+		-> frostfang_barioth.turn_attack_wall_drift() @ comboSetting:1 
+		-> frostfang_barioth.jump_turn_attack() 
+	else 
+		-> frostfang_barioth.turn_attack_wall() 
+	endif 
+	return 
+endf 
+
+def node_288
+	-> frostfang_barioth.turn_attack_wall_to_fly() 
+	return 
+endf 
+
+def node_289
+	if [RegisterVar5 < 0] 
+		[RegisterVar5 |-] 
+		return 
+	elif self.fatigued() 
+		return 
+	else 
+	endif 
+	if self.enraged() 
+		random (15) 
+					if self.distance_2d_to_target().leq(1000) 
+						[RegisterVar5 ++] 
+						>> node_079 
+						>> node_290 
+					elif self.distance_2d_to_target().leq(3000) 
+						[RegisterVar5 ++] 
+						>> node_077 
+						>> node_291 
+					else 
+						return 
+					endif 
+					reset 
+		elser (85) 
+		endr 
+	else 
+		random (15) 
+					if self.distance_2d_to_target().leq(1000) 
+						[RegisterVar5 ++] 
+						>> node_079 
+						>> node_290 
+					elif self.distance_2d_to_target().leq(3000) 
+						[RegisterVar5 ++] 
+						>> node_077 
+						>> node_291 
+					else 
+						return 
+					endif 
+					reset 
+		elser (85) 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_290
+	random (30) >> node_305 
+	elser (70) >> node_309 
+				>> node_266 
+				>> node_265 
+				reset 
+	endr 
+	return 
+endf 
+
+def node_291
+	random (30) >> node_304 
+	elser (70) >> node_308 
+				>> node_266 
+				>> node_265 
+				reset 
+	endr 
+	return 
+endf 
+
+def node_292
+	random (30) >> node_304 
+	elser (70) >> node_308 
+				>> node_266 
+				>> node_265 
+				reset 
+	endr 
+	return 
+endf 
+
+def node_293
+	random (30) >> node_303 
+	elser (70) >> node_098 
+				>> node_266 
+				>> node_265 
+				reset 
+	endr 
+	return 
+endf 
+
+def node_294
+	if self.angle_2d_cw_between(0,180) 
+		-> frostfang_barioth.wrap_fly_to_fly_r() 
+	else 
+		-> frostfang_barioth.wrap_fly_to_fly_l() 
+	endif 
+	return 
+endf 
+
+def node_295
+	if self.angle_2d_cw_between(0,180) 
+		if function#102() 
+			-> frostfang_barioth.wrap_fly_wall_priority_l_fast() 
+		else 
+			-> frostfang_barioth.wrap_fly_to_fly_l() 
+		endif 
+	else 
+		if function#102(1) 
+			-> frostfang_barioth.wrap_fly_wall_priority_r_fast() 
+		else 
+			-> frostfang_barioth.wrap_fly_to_fly_r() 
+		endif 
+	endif 
+	if function#101() 
+		>> node_284 
+		reset 
+	else 
+	endif 
+	return 
+endf 
+
+def node_296
+	if self.angle_2d_cw_between(0,180) 
+		if function#102(1) 
+			-> frostfang_barioth.wrap_fly_wall_priority_r_fast() 
+		else 
+			-> frostfang_barioth.wrap_fly_to_fly_r() 
+		endif 
+	else 
+		if function#102() 
+			-> frostfang_barioth.wrap_fly_wall_priority_l_fast() 
+		else 
+			-> frostfang_barioth.wrap_fly_to_fly_l() 
+		endif 
+	endif 
+	if function#101() 
+		>> node_284 
+		reset 
+	else 
+	endif 
+	return 
+endf 
+
+def node_297
+	if self.angle_2d_cw_between(270,90) 
+		-> frostfang_barioth.wide_range_fly_breath() 
+		*&
+	else 
+		-> frostfang_barioth.turn_fly_quick() 
+		-> frostfang_barioth.wide_range_fly_breath_no_blend() 
+	endif 
+	return 
+endf 
+
+def node_298
+	-> frostfang_barioth.turn_attack_fly_to_fly() 
+	return 
+endf 
+
+def node_299
+	if self.enraged() 
+		-> frostfang_barioth.turn_attack_fly_drift() @ comboSetting:1 
+		-> frostfang_barioth.jump_turn_attack() 
+	else 
+		-> frostfang_barioth.turn_attack_fly() 
+	endif 
+	return 
+endf 
+
+def node_300
+	if self.enraged() 
+		-> frostfang_barioth.deadly_bite_slammed_fly() @ comboSetting:1 
+		-> frostfang_barioth.deadly_bite_slammed_second() 
+	else 
+		-> frostfang_barioth.deadly_bite_slammed_fly() 
+	endif 
+	return 
+endf 
+
+def node_301
+	if self.angle_2d_cw_between(270,90) 
+		-> frostfang_barioth.deadly_breath_fly_after_landing() 
+	else 
+		-> frostfang_barioth.turn_fly_quick() 
+		-> frostfang_barioth.deadly_breath_fly_after_landing_no_blend() 
+	endif 
+	return 
+endf 
+
+def node_302
+	if self.distance_2d_to_target().leq(1500) 
+		>> node_297 
+	elif self.distance_2d_to_target().leq(2000) 
+		random (50) >> node_297 
+		elser (50) >> node_298 
+		endr 
+	else 
+		>> node_298 
+	endif 
+	return 
+endf 
+
+def node_303
+	if self.distance_2d_to_target().leq(1500) 
+		>> node_300 
+	elif self.distance_2d_to_target().leq(3000) 
+		>> node_301 
+	else 
+		>> node_299 
+	endif 
+	return 
+endf 
+
+def node_304
+	>> node_302 
+	>> node_319 
+	>> node_303 
+	return 
+endf 
+
+def node_305
+	>> node_296 
+	>> node_319 
+	>> node_302 
+	>> node_319 
+	>> node_303 
+	return 
+endf 
+
+def node_306
+	>> node_302 
+	>> node_319 
+	>> node_295 
+	>> node_319 
+	>> node_303 
+	return 
+endf 
+
+def node_307
+	>> node_296 
+	>> node_319 
+	>> node_302 
+	>> node_319 
+	>> node_295 
+	>> node_319 
+	>> node_303 
+	return 
+endf 
+
+def node_308
+	>> node_302 
+	>> node_319 
+	>> node_098 
+	return 
+endf 
+
+def node_309
+	>> node_296 
+	>> node_319 
+	>> node_302 
+	>> node_319 
+	>> node_098 
+	return 
+endf 
+
+def node_310
+	if self.distance_2d_to_target().leq(1500) 
+		>> node_297 
+		>> node_098 
+	elif self.distance_2d_to_target().leq(2000) 
+		random (50) >> node_297 
+					>> node_098 
+		elser (50) >> node_095 
+		endr 
+		*&
+	else 
+		>> node_095 
+	endif 
+	return 
+endf 
+
+def node_311
+	if self.distance_2d_to_target().leq(1500) 
+		>> node_098 
+	elif self.distance_2d_to_target().leq(2000) 
+		random (50) >> node_098 
+		elser (50) >> node_095 
+		endr 
+	else 
+		>> node_095 
+	endif 
+	return 
+endf 
+
+def node_312
+	if self.distance_2d_to_target().leq(1500) 
+		>> node_098 
+	elif self.distance_2d_to_target().leq(2000) 
+		random (50) >> node_098 
+		elser (50) >> node_095 
+		endr 
+	else 
+		>> node_095 
+	endif 
+	return 
+endf 
+
+def node_313
+	>> node_302 
+	>> node_319 
+	>> node_294 
+	>> node_310 
+	return 
+endf 
+
+def node_314
+	>> node_294 
+	>> node_302 
+	if self.target(57) 
+		>> node_319 
+	else 
+		>> node_294 
+		>> node_310 
+	endif 
+	return 
+endf 
+
+def node_315
+	>> node_302 
+	>> node_294 
+	if self.target(57) 
+		>> node_319 
+	else 
+		>> node_302 
+		>> node_303 
+	endif 
+	return 
+endf 
+
+def node_316
+	>> node_294 
+	>> node_302 
+	>> node_294 
+	if self.target(57) 
+		>> node_319 
+	else 
+		>> node_302 
+		>> node_303 
+	endif 
+	return 
+endf 
+
+def node_317
+	>> node_320 
+	if self.target(57) 
+		>> node_319 
+	else 
+		>> node_311 
+	endif 
+	return 
+endf 
+
+def node_318
+	>> node_294 
+	>> node_320 
+	if self.target(57) 
+		>> node_319 
+	else 
+		>> node_311 
+	endif 
+	return 
+endf 
+
+def node_319
+	if self.target(57) 
+		>> node_303 
+		reset 
+	else 
+	endif 
+	return 
+endf 
+
+def node_320
+	>> node_004 
+	if self.angle_2d_cw_between(270,90) 
+		-> frostfang_barioth.wide_range_fly_breath() 
+	else 
+		>> node_007 
+		-> frostfang_barioth.wide_range_fly_breath_no_blend() 
+	endif 
+	return 
+endf 
+
+def node_321
+	>> node_004 
+	if self.angle_2d_cw_between(270,90) 
+		-> frostfang_barioth.deadly_breath_fly() 
+	else 
+		>> node_007 
+		-> frostfang_barioth.deadly_breath_fly_no_blend() 
+	endif 
+	return 
+endf 
+
+def node_322
+	>> node_004 
+	if self.enraged() 
+		-> frostfang_barioth.deadly_bite_slammed_fly() @ comboSetting:1 
+		-> frostfang_barioth.deadly_bite_slammed_second() 
+	else 
+		-> frostfang_barioth.deadly_bite_slammed_fly() 
+	endif 
+	return 
+endf 
+
+def node_323
+	>> node_004 
+	if self.angle_2d_cw_between(0,180) 
+		-> frostfang_barioth.wrap_fly_to_fly_r() 
+	else 
+		-> frostfang_barioth.wrap_fly_to_fly_l() 
+	endif 
+	return 
+endf 
+
+def node_324
+	>> node_004 
+	-> frostfang_barioth.wrap_fly() 
+	return 
+endf 
+
+def node_325
+	>> node_323 
+	>> node_388 
+	return 
+endf 
+
+def node_326
+	>> node_320 
+	>> node_388 
+	return 
+endf 
+
+def node_327
+	>> node_320 
+	>> node_323 
+	>> node_388 
+	return 
+endf 
+
+def node_328
+	>> node_320 
+	>> node_098 
+	>> node_388 
+	return 
+endf 
+
+def node_329
+	if self.distance_2d_to_target().leq(500) 
+		self.enraged() >> node_340 => reset 
+		self.fatigued() >> node_335 => reset 
+		>> node_330 => reset 
+	elif self.distance_2d_to_target().leq(1000) 
+		self.enraged() >> node_341 => reset 
+		self.fatigued() >> node_336 => reset 
+		>> node_331 => reset 
+	elif self.distance_2d_to_target().leq(1800) 
+		self.enraged() >> node_342 => reset 
+		self.fatigued() >> node_337 => reset 
+		>> node_332 => reset 
+	elif self.distance_2d_to_target().leq(2500) 
+		self.enraged() >> node_343 => reset 
+		self.fatigued() >> node_338 => reset 
+		>> node_333 => reset 
+	else 
+		self.enraged() >> node_344 => reset 
+		self.fatigued() >> node_339 => reset 
+		>> node_334 => reset 
+	endif 
+	return 
+endf 
+
+def node_330
+	random (0) 
+	elser (0) >> node_027 
+	elser (0) >> node_217 
+	elser (0) >> node_213 
+	elser (10) >> node_216 
+	elser (20) >> node_219 
+	elser (0) >> node_220 
+	elser (0) >> node_223 
+	elser (0) >> node_224 
+	elser (20) >> node_225 
+	elser (20) >> node_226 
+	elser (10) >> node_227 
+	elser (20) >> node_228 
+	elser (0) >> node_229 
+	elser (0) >> node_230 
+	elser (0) >> node_076 
+	elser (0) >> node_077 
+	elser (0) >> node_078 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_331
+	random (0) 
+	elser (0) >> node_027 
+	elser (0) >> node_217 
+	elser (20) >> node_213 
+	elser (20) >> node_216 
+	elser (0) >> node_219 
+	elser (0) >> node_220 
+	elser (0) >> node_223 
+	elser (20) >> node_224 
+	elser (0) >> node_225 
+	elser (20) >> node_226 
+	elser (10) >> node_227 
+	elser (10) >> node_228 
+	elser (0) >> node_229 
+	elser (0) >> node_230 
+	elser (0) >> node_076 
+	elser (0) >> node_077 
+	elser (0) >> node_078 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_332
+	random (0) 
+	elser (0) >> node_027 
+	elser (30) >> node_217 
+	elser (10) >> node_213 
+	elser (0) >> node_216 
+	elser (0) >> node_219 
+	elser (0) >> node_220 
+	elser (20) >> node_223 
+	elser (20) >> node_224 
+	elser (0) >> node_225 
+	elser (0) >> node_226 
+	elser (0) >> node_227 
+	elser (0) >> node_228 
+	elser (0) >> node_229 
+	elser (0) >> node_230 
+	elser (10) >> node_076 
+	elser (10) >> node_077 
+	elser (0) >> node_078 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_333
+	random (0) 
+	elser (0) >> node_027 
+	elser (50) >> node_217 
+	elser (0) >> node_213 
+	elser (0) >> node_216 
+	elser (0) >> node_219 
+	elser (0) >> node_220 
+	elser (0) >> node_223 
+	elser (0) >> node_224 
+	elser (0) >> node_225 
+	elser (0) >> node_226 
+	elser (0) >> node_227 
+	elser (0) >> node_228 
+	elser (0) >> node_229 
+	elser (0) >> node_230 
+	elser (0) >> node_076 
+	elser (20) >> node_077 
+	elser (30) >> node_078 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_334
+	random (0) 
+	elser (0) >> node_027 
+	elser (50) >> node_217 
+	elser (0) >> node_213 
+	elser (0) >> node_216 
+	elser (0) >> node_219 
+	elser (0) >> node_220 
+	elser (0) >> node_223 
+	elser (0) >> node_224 
+	elser (0) >> node_225 
+	elser (0) >> node_226 
+	elser (0) >> node_227 
+	elser (0) >> node_228 
+	elser (0) >> node_229 
+	elser (0) >> node_230 
+	elser (0) >> node_076 
+	elser (0) >> node_077 
+	elser (50) >> node_078 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_335
+	random (0) 
+	elser (0) >> node_027 
+	elser (0) >> node_217 
+	elser (0) >> node_213 
+	elser (10) >> node_216 
+	elser (20) >> node_219 
+	elser (0) >> node_220 
+	elser (0) >> node_223 
+	elser (0) >> node_224 
+	elser (20) >> node_225 
+	elser (20) >> node_226 
+	elser (10) >> node_227 
+	elser (20) >> node_228 
+	elser (0) >> node_229 
+	elser (0) >> node_230 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_336
+	random (0) 
+	elser (0) >> node_027 
+	elser (0) >> node_217 
+	elser (0) >> node_213 
+	elser (10) >> node_216 
+	elser (20) >> node_219 
+	elser (0) >> node_220 
+	elser (0) >> node_223 
+	elser (0) >> node_224 
+	elser (20) >> node_225 
+	elser (20) >> node_226 
+	elser (10) >> node_227 
+	elser (20) >> node_228 
+	elser (0) >> node_229 
+	elser (0) >> node_230 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_337
+	random (0) 
+	elser (0) >> node_027 
+	elser (0) >> node_217 
+	elser (0) >> node_213 
+	elser (10) >> node_216 
+	elser (20) >> node_219 
+	elser (0) >> node_220 
+	elser (0) >> node_223 
+	elser (0) >> node_224 
+	elser (20) >> node_225 
+	elser (20) >> node_226 
+	elser (10) >> node_227 
+	elser (20) >> node_228 
+	elser (0) >> node_229 
+	elser (0) >> node_230 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_338
+	random (0) 
+	elser (0) >> node_027 
+	elser (0) >> node_217 
+	elser (0) >> node_213 
+	elser (10) >> node_216 
+	elser (20) >> node_219 
+	elser (0) >> node_220 
+	elser (0) >> node_223 
+	elser (0) >> node_224 
+	elser (20) >> node_225 
+	elser (20) >> node_226 
+	elser (10) >> node_227 
+	elser (20) >> node_228 
+	elser (0) >> node_229 
+	elser (0) >> node_230 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_339
+	random (0) 
+	elser (0) >> node_027 
+	elser (0) >> node_217 
+	elser (0) >> node_213 
+	elser (10) >> node_216 
+	elser (20) >> node_219 
+	elser (0) >> node_220 
+	elser (0) >> node_223 
+	elser (0) >> node_224 
+	elser (20) >> node_225 
+	elser (20) >> node_226 
+	elser (10) >> node_227 
+	elser (20) >> node_228 
+	elser (0) >> node_229 
+	elser (0) >> node_230 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_340
+	random (0) 
+	elser (0) >> node_027 
+	elser (0) >> node_217 
+	elser (0) >> node_213 
+	elser (10) >> node_216 
+	elser (20) >> node_219 
+	elser (0) >> node_220 
+	elser (0) >> node_223 
+	elser (0) >> node_224 
+	elser (20) >> node_225 
+	elser (20) >> node_226 
+	elser (10) >> node_227 
+	elser (20) >> node_228 
+	elser (0) >> node_229 
+	elser (0) >> node_230 
+	elser (0) >> node_076 
+	elser (0) >> node_077 
+	elser (0) >> node_078 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_341
+	random (0) 
+	elser (0) >> node_027 
+	elser (0) >> node_217 
+	elser (20) >> node_213 
+	elser (20) >> node_216 
+	elser (0) >> node_219 
+	elser (0) >> node_220 
+	elser (0) >> node_223 
+	elser (20) >> node_224 
+	elser (0) >> node_225 
+	elser (20) >> node_226 
+	elser (0) >> node_227 
+	elser (0) >> node_228 
+	elser (10) >> node_229 
+	elser (10) >> node_230 
+	elser (0) >> node_076 
+	elser (0) >> node_077 
+	elser (0) >> node_078 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_342
+	random (0) 
+	elser (0) >> node_027 
+	elser (30) >> node_217 
+	elser (10) >> node_213 
+	elser (0) >> node_216 
+	elser (0) >> node_219 
+	elser (0) >> node_220 
+	elser (20) >> node_223 
+	elser (20) >> node_224 
+	elser (0) >> node_225 
+	elser (0) >> node_226 
+	elser (0) >> node_227 
+	elser (0) >> node_228 
+	elser (0) >> node_229 
+	elser (0) >> node_230 
+	elser (10) >> node_076 
+	elser (10) >> node_077 
+	elser (0) >> node_078 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_343
+	random (0) 
+	elser (0) >> node_027 
+	elser (50) >> node_217 
+	elser (0) >> node_213 
+	elser (0) >> node_216 
+	elser (0) >> node_219 
+	elser (0) >> node_220 
+	elser (0) >> node_223 
+	elser (0) >> node_224 
+	elser (0) >> node_225 
+	elser (0) >> node_226 
+	elser (0) >> node_227 
+	elser (0) >> node_228 
+	elser (0) >> node_229 
+	elser (0) >> node_230 
+	elser (0) >> node_076 
+	elser (20) >> node_077 
+	elser (30) >> node_078 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_344
+	random (0) 
+	elser (0) >> node_027 
+	elser (50) >> node_217 
+	elser (0) >> node_213 
+	elser (0) >> node_216 
+	elser (0) >> node_219 
+	elser (0) >> node_220 
+	elser (0) >> node_223 
+	elser (0) >> node_224 
+	elser (0) >> node_225 
+	elser (0) >> node_226 
+	elser (0) >> node_227 
+	elser (0) >> node_228 
+	elser (0) >> node_229 
+	elser (0) >> node_230 
+	elser (0) >> node_076 
+	elser (0) >> node_077 
+	elser (50) >> node_078 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_345
+	if self.distance_2d_to_target().leq(1000) 
+		self.enraged() >> node_351 => reset 
+		self.fatigued() >> node_356 => reset 
+		>> node_346 => reset 
+	elif self.distance_2d_to_target().leq(1500) 
+		self.enraged() >> node_352 => reset 
+		self.fatigued() >> node_356 => reset 
+		>> node_347 => reset 
+	elif self.distance_2d_to_target().leq(2000) 
+		self.enraged() >> node_353 => reset 
+		self.fatigued() >> node_356 => reset 
+		>> node_348 => reset 
+	elif self.distance_2d_to_target().leq(2500) 
+		self.enraged() >> node_354 => reset 
+		self.fatigued() >> node_356 => reset 
+		>> node_349 => reset 
+	else 
+		self.enraged() >> node_355 => reset 
+		self.fatigued() >> node_356 => reset 
+		>> node_350 => reset 
+	endif 
+	return 
+endf 
+
+def node_346
+	random (0) 
+	elser (0) >> node_087 
+	elser (40) >> node_093 
+	elser (0) >> node_095 
+	elser (60) >> node_325 
+	elser (0) >> node_326 
+	elser (0) >> node_327 
+	elser (0) >> node_096 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_347
+	random (0) 
+	elser (0) >> node_087 
+	elser (40) >> node_093 
+	elser (0) >> node_095 
+	elser (40) >> node_325 
+	elser (20) >> node_326 
+	elser (0) >> node_327 
+	elser (0) >> node_096 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_348
+	random (0) 
+	elser (0) >> node_087 
+	elser (30) >> node_093 
+	elser (0) >> node_095 
+	elser (30) >> node_325 
+	elser (40) >> node_326 
+	elser (0) >> node_327 
+	elser (0) >> node_096 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_349
+	random (0) 
+	elser (0) >> node_087 
+	elser (0) >> node_093 
+	elser (60) >> node_095 
+	elser (0) >> node_325 
+	elser (40) >> node_326 
+	elser (0) >> node_327 
+	elser (0) >> node_096 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_350
+	random (0) 
+	elser (0) >> node_087 
+	elser (0) >> node_093 
+	elser (100) >> node_095 
+	elser (0) >> node_325 
+	elser (0) >> node_326 
+	elser (0) >> node_327 
+	elser (0) >> node_096 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_351
+	random (0) 
+	elser (0) >> node_087 
+	elser (20) >> node_093 
+	elser (0) >> node_095 
+	elser (80) >> node_325 
+	elser (0) >> node_326 
+	elser (0) >> node_327 
+	elser (0) >> node_096 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_352
+	random (0) 
+	elser (0) >> node_087 
+	elser (0) >> node_093 
+	elser (0) >> node_095 
+	elser (60) >> node_325 
+	elser (20) >> node_326 
+	elser (20) >> node_327 
+	elser (0) >> node_096 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_353
+	random (0) 
+	elser (0) >> node_087 
+	elser (20) >> node_093 
+	elser (0) >> node_095 
+	elser (20) >> node_325 
+	elser (30) >> node_326 
+	elser (30) >> node_327 
+	elser (0) >> node_096 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_354
+	random (0) 
+	elser (0) >> node_087 
+	elser (0) >> node_093 
+	elser (20) >> node_095 
+	elser (0) >> node_325 
+	elser (20) >> node_326 
+	elser (20) >> node_327 
+	elser (40) >> node_096 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_355
+	random (0) 
+	elser (0) >> node_087 
+	elser (0) >> node_093 
+	elser (50) >> node_095 
+	elser (0) >> node_325 
+	elser (0) >> node_326 
+	elser (0) >> node_327 
+	elser (50) >> node_096 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_356
+	random (0) 
+	elser (0) >> node_087 
+	elser (100) >> node_093 
+	elser (0) >> node_095 
+	elser (0) >> node_325 
+	elser (0) >> node_326 
+	elser (0) >> node_327 
+	elser (0) >> node_096 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_357
+	if self.distance_2d_to_target().leq(1000) 
+		self.enraged() >> node_358 => return 
+		self.fatigued() >> node_358 => return 
+		>> node_358 => return 
+	elif self.distance_2d_to_target().leq(1500) 
+		self.enraged() >> node_359 => return 
+		self.fatigued() >> node_359 => return 
+		>> node_359 => return 
+	elif self.distance_2d_to_target().leq(2000) 
+		self.enraged() >> node_360 => return 
+		self.fatigued() >> node_360 => return 
+		>> node_360 => return 
+	elif self.distance_2d_to_target().leq(2500) 
+		self.enraged() >> node_361 => return 
+		self.fatigued() >> node_361 => return 
+		>> node_361 => return 
+	else 
+		self.enraged() >> node_362 => return 
+		self.fatigued() >> node_362 => return 
+		>> node_362 => return 
+	endif 
+	return 
+endf 
+
+def node_358
+	random (0) 
+	elser (100) >> node_093 
+	elser (0) >> node_095 
+	elser (0) >> node_326 
+	elser (0) >> node_328 
+	elser (0) >> node_322 
+	elser (0) >> node_321 
+				>> node_087 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_359
+	random (0) 
+	elser (100) >> node_093 
+	elser (0) >> node_095 
+	elser (0) >> node_326 
+	elser (0) >> node_328 
+	elser (0) >> node_322 
+	elser (0) >> node_321 
+				>> node_087 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_360
+	random (0) 
+	elser (100) >> node_093 
+	elser (0) >> node_095 
+	elser (0) >> node_326 
+	elser (0) >> node_328 
+	elser (0) >> node_322 
+	elser (0) >> node_321 
+				>> node_087 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_361
+	random (0) 
+	elser (100) >> node_093 
+	elser (0) >> node_095 
+	elser (0) >> node_326 
+	elser (0) >> node_328 
+	elser (0) >> node_322 
+	elser (0) >> node_321 
+				>> node_087 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_362
+	random (0) 
+	elser (100) >> node_093 
+	elser (0) >> node_095 
+	elser (0) >> node_326 
+	elser (0) >> node_328 
+	elser (0) >> node_322 
+	elser (0) >> node_321 
+				>> node_087 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_363
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if self.flying() 
+		*&
+	else 
+		>> node_364 
+	endif 
+	return 
+endf 
+
+def node_364
+	if self.distance_2d_to_target().leq(600) 
+		if self.enraged() 
+			>> node_375 
+		elif self.fatigued() 
+			>> node_370 
+		else 
+			>> node_365 
+		endif 
+	elif self.distance_2d_to_target().leq(1300) 
+		if self.enraged() 
+			>> node_376 
+		elif self.fatigued() 
+			>> node_371 
+		else 
+			>> node_366 
+		endif 
+	elif self.distance_2d_to_target().leq(1800) 
+		if self.enraged() 
+			>> node_377 
+		elif self.fatigued() 
+			>> node_372 
+		else 
+			>> node_367 
+		endif 
+	elif self.distance_2d_to_target().leq(3000) 
+		if self.enraged() 
+			>> node_378 
+		elif self.fatigued() 
+			>> node_373 
+		else 
+			>> node_368 
+		endif 
+	else 
+		if self.enraged() 
+			>> node_379 
+		elif self.fatigued() 
+			>> node_374 
+		else 
+			>> node_369 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_365
+	random (0) 
+	elser (0) >> node_001 
+	elser (25) >> node_218 
+	elser (60) >> node_044 
+	elser (15) >> node_045 
+	elser (0) >> node_217 
+	elser (0) >> node_051 
+	elser (0) >> node_052 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_366
+	random (0) 
+	elser (0) >> node_001 
+	elser (25) >> node_218 
+	elser (60) >> node_044 
+	elser (15) >> node_045 
+	elser (0) >> node_217 
+	elser (0) >> node_051 
+	elser (0) >> node_052 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_367
+	random (0) 
+	elser (0) >> node_001 
+	elser (0) >> node_218 
+	elser (0) >> node_044 
+	elser (50) >> node_045 
+	elser (30) >> node_217 
+	elser (0) >> node_051 
+	elser (20) >> node_052 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_368
+	random (0) 
+	elser (0) >> node_001 
+	elser (0) >> node_218 
+	elser (0) >> node_044 
+	elser (0) >> node_045 
+	elser (20) >> node_217 
+	elser (30) >> node_051 
+	elser (50) >> node_052 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_369
+	random (0) 
+	elser (0) >> node_001 
+	elser (0) >> node_043 
+	elser (0) >> node_044 
+	elser (0) >> node_045 
+	elser (15) >> node_217 
+	elser (20) >> node_051 
+	elser (65) >> node_052 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_370
+	random (0) 
+	elser (10) >> node_001 
+	elser (0) >> node_218 
+	elser (40) >> node_044 
+	elser (0) >> node_045 
+	elser (50) >> node_217 
+	elser (0) >> node_051 
+	elser (0) >> node_052 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_371
+	random (0) 
+	elser (20) >> node_001 
+	elser (0) >> node_218 
+	elser (30) >> node_044 
+	elser (0) >> node_045 
+	elser (50) >> node_217 
+	elser (0) >> node_051 
+	elser (0) >> node_052 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_372
+	random (0) 
+	elser (30) >> node_001 
+	elser (0) >> node_218 
+	elser (0) >> node_044 
+	elser (0) >> node_045 
+	elser (45) >> node_217 
+	elser (25) >> node_051 
+	elser (0) >> node_052 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_373
+	random (0) 
+	elser (30) >> node_001 
+	elser (0) >> node_218 
+	elser (0) >> node_044 
+	elser (0) >> node_045 
+	elser (50) >> node_217 
+	elser (20) >> node_051 
+	elser (0) >> node_052 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_374
+	random (0) 
+	elser (30) >> node_001 
+	elser (0) >> node_218 
+	elser (0) >> node_044 
+	elser (0) >> node_045 
+	elser (35) >> node_217 
+	elser (35) >> node_051 
+	elser (0) >> node_052 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_375
+	random (0) 
+	elser (0) >> node_001 
+	elser (50) >> node_218 
+	elser (35) >> node_044 
+	elser (15) >> node_045 
+	elser (0) >> node_217 
+	elser (0) >> node_051 
+	elser (0) >> node_052 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_376
+	random (0) 
+	elser (0) >> node_001 
+	elser (40) >> node_218 
+	elser (15) >> node_044 
+	elser (45) >> node_045 
+	elser (0) >> node_217 
+	elser (0) >> node_051 
+	elser (0) >> node_052 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_377
+	random (0) 
+	elser (0) >> node_001 
+	elser (0) >> node_218 
+	elser (0) >> node_044 
+	elser (40) >> node_045 
+	elser (30) >> node_217 
+	elser (0) >> node_051 
+	elser (30) >> node_052 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_378
+	random (0) 
+	elser (0) >> node_001 
+	elser (0) >> node_218 
+	elser (0) >> node_044 
+	elser (0) >> node_045 
+	elser (40) >> node_217 
+	elser (0) >> node_051 
+	elser (60) >> node_052 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_379
+	random (0) 
+	elser (0) >> node_001 
+	elser (0) >> node_218 
+	elser (0) >> node_044 
+	elser (0) >> node_045 
+	elser (20) >> node_217 
+	elser (0) >> node_051 
+	elser (80) >> node_052 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_380
+	if self.distance_2d_to_target().leq(600) 
+		self.enraged() >> node_384 => reset 
+		self.fatigued() >> node_387 => reset 
+		>> node_381 => reset 
+	elif self.distance_2d_to_target().leq(1800) 
+		self.enraged() >> node_385 => reset 
+		self.fatigued() >> node_387 => reset 
+		>> node_382 => reset 
+	else 
+		self.enraged() >> node_386 => reset 
+		self.fatigued() >> node_387 => reset 
+		>> node_383 => reset 
+	endif 
+	return 
+endf 
+
+def node_381
+	random (0) 
+	elser (0) >> node_101 
+	elser (0) >> node_102 
+	elser (0) >> node_103 
+	elser (50) >> node_104 
+	elser (50) >> node_105 
+	elser (0) >> node_106 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_382
+	random (0) 
+	elser (0) >> node_101 
+	elser (0) >> node_102 
+	elser (0) >> node_103 
+	elser (50) >> node_104 
+	elser (50) >> node_105 
+	elser (0) >> node_106 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_383
+	random (0) 
+	elser (0) >> node_101 
+	elser (0) >> node_102 
+	elser (0) >> node_103 
+	elser (0) >> node_104 
+	elser (100) >> node_105 
+	elser (0) >> node_106 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_384
+	random (0) 
+	elser (0) >> node_101 
+	elser (0) >> node_102 
+	elser (0) >> node_103 
+	elser (50) >> node_104 
+	elser (50) >> node_105 
+	elser (0) >> node_106 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_385
+	random (0) 
+	elser (0) >> node_101 
+	elser (0) >> node_102 
+	elser (0) >> node_103 
+	elser (50) >> node_104 
+	elser (50) >> node_105 
+	elser (0) >> node_106 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_386
+	random (0) 
+	elser (0) >> node_101 
+	elser (0) >> node_102 
+	elser (0) >> node_103 
+	elser (0) >> node_104 
+	elser (100) >> node_105 
+	elser (0) >> node_106 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_387
+	random (0) 
+	elser (0) >> node_101 
+	elser (0) >> node_102 
+	elser (100) >> node_103 
+	elser (0) >> node_104 
+	elser (0) >> node_105 
+	elser (0) >> node_106 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_388
+	if self.distance_2d_to_target().leq(600) 
+		if self.enraged() 
+			>> node_399 
+		elif self.fatigued() 
+			>> node_394 
+		else 
+			>> node_389 
+		endif 
+	elif self.distance_2d_to_target().leq(1300) 
+		if self.enraged() 
+			>> node_400 
+		elif self.fatigued() 
+			>> node_395 
+		else 
+			>> node_390 
+		endif 
+	elif self.distance_2d_to_target().leq(1800) 
+		if self.enraged() 
+			>> node_401 
+		elif self.fatigued() 
+			>> node_396 
+		else 
+			>> node_391 
+		endif 
+	elif self.distance_2d_to_target().leq(3000) 
+		if self.enraged() 
+			>> node_402 
+		elif self.fatigued() 
+			>> node_397 
+		else 
+			>> node_392 
+		endif 
+	else 
+		if self.enraged() 
+			>> node_403 
+		elif self.fatigued() 
+			>> node_398 
+		else 
+			>> node_393 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_389
+	random (0) 
+	elser (0) >> node_087 
+	elser (50) >> node_322 
+	elser (0) >> node_321 
+				>> node_087 
+	elser (50) >> node_093 
+	elser (0) >> node_095 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_390
+	random (0) 
+	elser (0) >> node_087 
+	elser (50) >> node_322 
+	elser (0) >> node_321 
+				>> node_087 
+	elser (50) >> node_093 
+	elser (0) >> node_095 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_391
+	random (0) 
+	elser (0) >> node_087 
+	elser (50) >> node_322 
+	elser (0) >> node_321 
+				>> node_087 
+	elser (50) >> node_093 
+	elser (0) >> node_095 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_392
+	random (0) 
+	elser (0) >> node_087 
+	elser (0) >> node_322 
+	elser (50) >> node_321 
+				>> node_087 
+	elser (0) >> node_093 
+	elser (50) >> node_095 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_393
+	random (0) 
+	elser (0) >> node_087 
+	elser (0) >> node_322 
+	elser (50) >> node_321 
+				>> node_087 
+	elser (0) >> node_093 
+	elser (50) >> node_095 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_394
+	random (0) 
+	elser (0) >> node_087 
+	elser (50) >> node_322 
+	elser (50) >> node_321 
+				>> node_087 
+	elser (0) >> node_093 
+	elser (0) >> node_095 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_395
+	random (0) 
+	elser (0) >> node_087 
+	elser (50) >> node_322 
+	elser (50) >> node_321 
+				>> node_087 
+	elser (0) >> node_093 
+	elser (0) >> node_095 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_396
+	random (0) 
+	elser (0) >> node_087 
+	elser (50) >> node_322 
+	elser (50) >> node_321 
+				>> node_087 
+	elser (0) >> node_093 
+	elser (0) >> node_095 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_397
+	random (0) 
+	elser (0) >> node_087 
+	elser (50) >> node_322 
+	elser (50) >> node_321 
+				>> node_087 
+	elser (0) >> node_093 
+	elser (0) >> node_095 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_398
+	random (0) 
+	elser (0) >> node_087 
+	elser (50) >> node_322 
+	elser (50) >> node_321 
+				>> node_087 
+	elser (0) >> node_093 
+	elser (0) >> node_095 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_399
+	random (0) 
+	elser (0) >> node_087 
+	elser (50) >> node_322 
+	elser (0) >> node_321 
+				>> node_087 
+	elser (50) >> node_093 
+	elser (0) >> node_095 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_400
+	random (0) 
+	elser (0) >> node_087 
+	elser (50) >> node_322 
+	elser (0) >> node_321 
+				>> node_087 
+	elser (50) >> node_093 
+	elser (0) >> node_095 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_401
+	random (0) 
+	elser (0) >> node_087 
+	elser (50) >> node_322 
+	elser (20) >> node_321 
+				>> node_087 
+	elser (0) >> node_093 
+	elser (30) >> node_095 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_402
+	random (0) 
+	elser (0) >> node_087 
+	elser (0) >> node_322 
+	elser (50) >> node_321 
+				>> node_087 
+	elser (0) >> node_093 
+	elser (50) >> node_095 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_403
+	random (0) 
+	elser (0) >> node_087 
+	elser (0) >> node_322 
+	elser (50) >> node_321 
+				>> node_087 
+	elser (0) >> node_093 
+	elser (50) >> node_095 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_404
+	[RegisterVar0 |-] 
+	if self.part(0).is_broken(0) 
+		[RegisterVar0 ++] 
+	else 
+	endif 
+	if self.part(1).is_broken(0) 
+		[RegisterVar0 ++] 
+	else 
+	endif 
+	if self.part(2).is_broken(0) 
+		[RegisterVar0 ++] 
+	else 
+	endif 
+	if self.part(3).is_broken(0) 
+		[RegisterVar0 ++] 
+	else 
+	endif 
+	return 
+endf 
+
+def node_405
+	if self.fatigued() 
+		>> node_364 
+	else 
+		>> node_404 
+		if [RegisterVar0 == 0] 
+			random (60) >> node_406 
+			elser (40) >> node_364 
+			elser (0) 
+			endr 
+		elif [RegisterVar0 == 1] 
+			random (40) >> node_406 
+			elser (60) >> node_364 
+			elser (0) 
+			endr 
+		elif [RegisterVar0 == 2] 
+			random (20) >> node_406 
+			elser (80) >> node_364 
+			elser (0) 
+			endr 
+		else 
+			>> node_364 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_406
+	if self.distance_2d_to_target().leq(600) 
+		if self.enraged() 
+			>> node_412 
+		else 
+			>> node_407 
+		endif 
+	elif self.distance_2d_to_target().leq(1300) 
+		if self.enraged() 
+			>> node_413 
+		else 
+			>> node_408 
+		endif 
+	elif self.distance_2d_to_target().leq(1800) 
+		if self.enraged() 
+			>> node_414 
+		else 
+			>> node_409 
+		endif 
+	elif self.distance_2d_to_target().leq(3000) 
+		if self.enraged() 
+			>> node_415 
+		else 
+			>> node_410 
+		endif 
+	else 
+		if self.enraged() 
+			>> node_416 
+		else 
+			>> node_411 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_407
+	random (0) 
+	elser (0) >> node_038 
+	elser (30) >> node_054 
+	elser (45) >> node_057 
+	elser (0) >> node_066 
+	elser (10) >> node_075 
+	elser (15) >> node_076 
+	elser (0) >> node_077 
+	elser (0) >> node_078 
+	elser (0) >> node_231 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_408
+	random (0) 
+	elser (10) >> node_038 
+	elser (20) >> node_054 
+	elser (45) >> node_057 
+	elser (0) >> node_066 
+	elser (10) >> node_075 
+	elser (15) >> node_076 
+	elser (0) >> node_077 
+	elser (0) >> node_078 
+	elser (0) >> node_231 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_409
+	random (0) 
+	elser (10) >> node_038 
+	elser (20) >> node_054 
+	elser (45) >> node_057 
+	elser (0) >> node_066 
+	elser (0) >> node_075 
+	elser (25) >> node_076 
+	elser (0) >> node_077 
+	elser (0) >> node_078 
+	elser (0) >> node_231 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_410
+	random (0) 
+	elser (0) >> node_038 
+	elser (0) >> node_054 
+	elser (70) >> node_057 
+	elser (0) >> node_066 
+	elser (0) >> node_075 
+	elser (0) >> node_076 
+	elser (30) >> node_077 
+	elser (0) >> node_078 
+	elser (0) >> node_231 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_411
+	random (0) 
+	elser (0) >> node_038 
+	elser (0) >> node_054 
+	elser (70) >> node_057 
+	elser (0) >> node_066 
+	elser (0) >> node_075 
+	elser (0) >> node_076 
+	elser (0) >> node_077 
+	elser (30) >> node_078 
+	elser (0) >> node_231 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_412
+	random (0) 
+	elser (0) >> node_038 
+	elser (35) >> node_054 
+	elser (0) >> node_057 
+	elser (35) >> node_066 
+	elser (10) >> node_075 
+	elser (0) >> node_076 
+	elser (0) >> node_077 
+	elser (0) >> node_078 
+	elser (20) >> node_231 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_413
+	random (0) 
+	elser (0) >> node_038 
+	elser (20) >> node_054 
+	elser (0) >> node_057 
+	elser (50) >> node_066 
+	elser (0) >> node_075 
+	elser (10) >> node_076 
+	elser (0) >> node_077 
+	elser (0) >> node_078 
+	elser (20) >> node_231 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_414
+	random (0) 
+	elser (0) >> node_038 
+	elser (20) >> node_054 
+	elser (0) >> node_057 
+	elser (50) >> node_066 
+	elser (0) >> node_075 
+	elser (0) >> node_076 
+	elser (30) >> node_077 
+	elser (0) >> node_078 
+	elser (0) >> node_231 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_415
+	random (0) 
+	elser (0) >> node_038 
+	elser (0) >> node_054 
+	elser (0) >> node_057 
+	elser (60) >> node_066 
+	elser (0) >> node_075 
+	elser (0) >> node_076 
+	elser (30) >> node_077 
+	elser (10) >> node_078 
+	elser (0) >> node_231 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_416
+	random (0) 
+	elser (0) >> node_038 
+	elser (0) >> node_054 
+	elser (0) >> node_057 
+	elser (70) >> node_066 
+	elser (0) >> node_075 
+	elser (0) >> node_076 
+	elser (0) >> node_077 
+	elser (30) >> node_078 
+	elser (0) >> node_231 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_417
+	if self.fatigued() 
+		>> node_364 
+	else 
+		>> node_404 
+		if [RegisterVar0 == 0] 
+			random (60) >> node_418 
+			elser (40) >> node_364 
+			elser (0) 
+			endr 
+		elif [RegisterVar0 == 1] 
+			random (40) >> node_418 
+			elser (60) >> node_364 
+			elser (0) 
+			endr 
+		elif [RegisterVar0 == 2] 
+			random (20) >> node_418 
+			elser (80) >> node_364 
+			elser (0) 
+			endr 
+		else 
+			>> node_364 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_418
+	if self.distance_2d_to_target().leq(600) 
+		if self.enraged() 
+			>> node_424 
+		else 
+			>> node_419 
+		endif 
+	elif self.distance_2d_to_target().leq(1300) 
+		if self.enraged() 
+			>> node_425 
+		else 
+			>> node_420 
+		endif 
+	elif self.distance_2d_to_target().leq(1800) 
+		if self.enraged() 
+			>> node_426 
+		else 
+			>> node_421 
+		endif 
+	elif self.distance_2d_to_target().leq(3000) 
+		if self.enraged() 
+			>> node_427 
+		else 
+			>> node_422 
+		endif 
+	else 
+		if self.enraged() 
+			>> node_428 
+		else 
+			>> node_423 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_419
+	random (0) 
+	elser (0) >> node_027 
+	elser (50) >> node_035 
+	elser (15) >> node_041 
+	elser (0) >> node_047 
+	elser (0) >> node_051 
+	elser (10) >> node_083 
+	elser (10) >> node_075 
+	elser (15) >> node_076 
+	elser (0) >> node_077 
+	elser (0) >> node_078 
+	elser (0) >> node_231 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_420
+	random (0) 
+	elser (0) >> node_027 
+	elser (10) >> node_035 
+	elser (30) >> node_041 
+	elser (35) >> node_047 
+	elser (0) >> node_051 
+	elser (0) >> node_083 
+	elser (10) >> node_075 
+	elser (15) >> node_076 
+	elser (0) >> node_077 
+	elser (0) >> node_078 
+	elser (0) >> node_231 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_421
+	random (0) 
+	elser (0) >> node_027 
+	elser (0) >> node_035 
+	elser (60) >> node_041 
+	elser (0) >> node_047 
+	elser (15) >> node_051 
+	elser (0) >> node_083 
+	elser (0) >> node_075 
+	elser (25) >> node_076 
+	elser (0) >> node_077 
+	elser (0) >> node_078 
+	elser (0) >> node_231 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_422
+	random (0) 
+	elser (0) >> node_027 
+	elser (0) >> node_035 
+	elser (0) >> node_041 
+	elser (0) >> node_047 
+	elser (70) >> node_051 
+	elser (0) >> node_083 
+	elser (0) >> node_075 
+	elser (0) >> node_076 
+	elser (30) >> node_077 
+	elser (0) >> node_078 
+	elser (0) >> node_231 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_423
+	random (0) 
+	elser (0) >> node_027 
+	elser (0) >> node_035 
+	elser (0) >> node_041 
+	elser (0) >> node_047 
+	elser (70) >> node_051 
+	elser (0) >> node_083 
+	elser (0) >> node_075 
+	elser (0) >> node_076 
+	elser (0) >> node_077 
+	elser (30) >> node_078 
+	elser (0) >> node_231 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_424
+	random (0) 
+	elser (0) >> node_027 
+	elser (40) >> node_035 
+	elser (20) >> node_041 
+	elser (0) >> node_047 
+	elser (0) >> node_051 
+	elser (10) >> node_083 
+	elser (10) >> node_075 
+	elser (0) >> node_076 
+	elser (0) >> node_077 
+	elser (0) >> node_078 
+	elser (20) >> node_231 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_425
+	random (0) 
+	elser (0) >> node_027 
+	elser (0) >> node_035 
+	elser (30) >> node_041 
+	elser (40) >> node_047 
+	elser (0) >> node_051 
+	elser (0) >> node_083 
+	elser (10) >> node_075 
+	elser (0) >> node_076 
+	elser (0) >> node_077 
+	elser (0) >> node_078 
+	elser (20) >> node_231 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_426
+	random (0) 
+	elser (0) >> node_027 
+	elser (0) >> node_035 
+	elser (50) >> node_041 
+	elser (0) >> node_047 
+	elser (20) >> node_051 
+	elser (0) >> node_083 
+	elser (0) >> node_075 
+	elser (0) >> node_076 
+	elser (30) >> node_077 
+	elser (0) >> node_078 
+	elser (0) >> node_231 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_427
+	random (0) 
+	elser (0) >> node_027 
+	elser (0) >> node_035 
+	elser (0) >> node_041 
+	elser (0) >> node_047 
+	elser (60) >> node_051 
+	elser (0) >> node_083 
+	elser (0) >> node_075 
+	elser (0) >> node_076 
+	elser (30) >> node_077 
+	elser (10) >> node_078 
+	elser (0) >> node_231 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_428
+	random (0) 
+	elser (0) >> node_027 
+	elser (0) >> node_035 
+	elser (0) >> node_041 
+	elser (0) >> node_047 
+	elser (70) >> node_051 
+	elser (0) >> node_083 
+	elser (0) >> node_075 
+	elser (0) >> node_076 
+	elser (0) >> node_077 
+	elser (30) >> node_078 
+	elser (0) >> node_231 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_429
+	random (0) 
+	elser (0) >> node_101 
+	elser (0) >> node_102 
+	elser (100) >> node_103 
+	elser (0) >> node_104 
+	elser (0) >> node_105 
+	elser (0) >> node_106 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_430
+	random (0) 
+	elser (0) >> node_101 
+	elser (0) >> node_102 
+	elser (100) >> node_103 
+	elser (0) >> node_104 
+	elser (0) >> node_105 
+	elser (0) >> node_106 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_431
+	random (0) 
+	elser (0) >> node_101 
+	elser (0) >> node_102 
+	elser (100) >> node_103 
+	elser (0) >> node_104 
+	elser (0) >> node_105 
+	elser (0) >> node_106 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_432
+	random (0) 
+	elser (0) >> node_101 
+	elser (0) >> node_102 
+	elser (100) >> node_103 
+	elser (0) >> node_104 
+	elser (0) >> node_105 
+	elser (0) >> node_106 
+	elser (0) 
+	endr 
+	return 
+endf 
+

@@ -1,0 +1,127 @@
+importactions Aptonoth as aptonoth
+
+def node_000
+	>> node_002 
+	>> node_008 
+	>> node_006 
+	conclude 
+endf 
+
+def node_001
+endf 
+
+def node_002
+	function#54() 
+	>> node_003 
+	>> node_004 
+	return 
+endf 
+
+def node_003
+	function#E4(4) 
+	function#E4(1) 
+	function#E4(2) 
+	function#E4(11) 
+	function#E4(12) 
+	function#E4(9) 
+	function#E4(3) 
+	function#E4(5) 
+	function#E7(4) 
+	function#E7(1) 
+	function#E7(2) 
+	function#E7(11) 
+	function#E7(12) 
+	function#E7(9) 
+	function#E7(3) 
+	function#E7(5) 
+	return 
+endf 
+
+def node_004
+	>> node_018 
+	>> node_019 
+	>> node_020 
+	return 
+endf 
+
+def node_005
+endf 
+
+def node_006
+	if function#B0(2) >> node_011 
+	else >> node_010 
+	endif 
+	return 
+endf 
+
+def node_007
+endf 
+
+def node_008
+	if function#FA() 
+		>> node_014 
+	endif 
+	return 
+endf 
+
+def node_009
+endf 
+
+def node_010
+	random (15) >> node_016 
+	elser (25) >> node_013 
+	elser (60) 
+	endr 
+	return 
+endf 
+
+def node_011
+	random (80) >> node_013 
+	elser (20) >> node_016 
+	endr 
+	return 
+endf 
+
+def node_012
+	>> node_014 
+	return 
+endf 
+
+def node_013
+	-> aptonoth.glide_direct_move() 
+	return 
+endf 
+
+def node_014
+	-> aptonoth.glide_end() 
+	return 
+endf 
+
+def node_015
+	-> aptonoth.dash_tired() 
+	return 
+endf 
+
+def node_016
+	-> aptonoth.jump_attack_wall_up() 
+	return 
+endf 
+
+def node_017
+endf 
+
+def node_018
+	[RegisterVar0 |-] 
+	return 
+endf 
+
+def node_019
+	[RegisterVar1 |-] 
+	return 
+endf 
+
+def node_020
+	[RegisterVar3 |-] 
+	return 
+endf 
+

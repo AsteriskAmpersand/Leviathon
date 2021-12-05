@@ -1,0 +1,171 @@
+importactions Odogaron as odogaron
+importlibrary Global as Global
+
+def node_000
+	if self.current_quest().is_rank(rank.MR) 
+		>> node_001 
+	else 
+		>> node_002 
+	endif 
+	reset 
+endf 
+
+def node_001
+	>> Global.node_271 
+	>> Global.node_272 
+	>> Global.node_274 
+	function#52() 
+	self.targetArea(target_area.nearest_entrance) 
+	>> node_003 
+	function#54() 
+	>> node_010 
+	reset @ comboSetting:256 
+endf 
+
+def node_002
+	>> Global.node_154 
+	>> Global.node_163 
+	function#52() 
+	self.targetArea(target_area.nearest_entrance) 
+	>> node_003 
+	function#54() 
+	>> node_010 
+	reset @ comboSetting:256 
+endf 
+
+def node_003
+	>> Global.node_245 
+	self.targetArea(target_area.nearest_entrance) 
+	if function#104(1) 
+		>> node_009 
+	elif function#57(1) 
+		>> Global.node_171 
+		>> node_005 
+	elif function#57(2) 
+		>> node_006 
+	elif function#57(3) 
+		>> node_007 
+	elif function#57(4) 
+		>> node_004 
+	elif function#57(5) 
+		>> node_008 
+	else 
+		>> node_004 
+	endif 
+	if self.distance_3d_to_target().leq(700) 
+		return 
+	else 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_004
+	>> Global.node_207 
+	return 
+endf 
+
+def node_005
+	>> Global.node_208 
+	return 
+endf 
+
+def node_006
+	>> Global.node_207 
+	return 
+endf 
+
+def node_007
+	>> Global.node_207 
+	return 
+endf 
+
+def node_008
+	>> Global.node_207 
+	return 
+endf 
+
+def node_009
+	>> Global.node_207 
+	return 
+endf 
+
+def node_010
+	self.targetArea(target_area.nearest_entrance) 
+	if function#104(1) 
+		>> node_016 
+	elif function#57(1) 
+		>> Global.node_171 
+		>> node_012 
+	elif function#57(2) 
+		>> node_013 
+	elif function#57(3) 
+		>> node_014 
+	elif function#57(4) 
+		>> node_011 
+	elif function#57(5) 
+		>> node_015 
+	else 
+		>> node_011 
+	endif 
+	return 
+endf 
+
+def node_011
+	self.targetArea(17) 
+	>> Global.node_036 
+	if self.in_map(st.Special_Arena).in_area(-1) 
+		>> Global.node_209 
+	elif self.in_map(st.Challenge_Arena).in_area(-1) 
+		>> Global.node_209 
+	else 
+		if function#5A(10) 
+			>> Global.node_210 
+		else 
+			random (80) >> Global.node_209 
+			elser (20) >> Global.node_211 
+			endr 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_012
+	self.targetArea(17) 
+	>> Global.node_036 
+	>> Global.node_209 
+	return 
+endf 
+
+def node_013
+	self.targetArea(17) 
+	>> Global.node_036 
+	>> Global.node_216 
+	return 
+endf 
+
+def node_014
+	self.targetArea(17) 
+	>> Global.node_036 
+	>> Global.node_209 
+	return 
+endf 
+
+def node_015
+	self.targetArea(17) 
+	>> Global.node_036 
+	>> Global.node_209 
+	return 
+endf 
+
+def node_016
+	self.targetArea(17) 
+	>> Global.node_036 
+	if function#5A(10) 
+		>> Global.node_168 
+	else 
+		>> Global.node_209 
+	endif 
+	return 
+endf 
+

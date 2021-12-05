@@ -1,0 +1,53 @@
+importactions Ebony_Odogaron as ebony_odogaron
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_015 
+	self.targetEnemy(target_em.closest_entity) 
+	>> node_001 
+	conclude 
+endf 
+
+def node_001
+	if self.target_is(em.Rathalos) 
+		-> ebony_odogaron.grapple_with_em002_mediation() 
+	elif self.target_is(em.Azure_Rathalos) 
+		-> ebony_odogaron.grapple_with_em002_01_mediation() 
+	elif self.target_is(em.Tigrex) 
+		-> ebony_odogaron.grapple_with_em032_mediation() 
+	elif self.target_is(em.Brute_Tigrex) 
+		-> ebony_odogaron.grapple_with_em032_mediation() 
+	elif self.target_is(em.Nargacuga) 
+		-> ebony_odogaron.grapple_with_em037_mediation() 
+	elif self.target_is(em.Barioth) 
+		-> ebony_odogaron.grapple_with_em042_mediation() 
+	elif self.target_is(em.Frostfang_Barioth) 
+		-> ebony_odogaron.grapple_with_em042_mediation() 
+	elif self.target_is(em.Uragaan) 
+		-> ebony_odogaron.grapple_with_em045_mediation_threat() 
+	elif self.target_is(em.Brachydios) 
+		-> ebony_odogaron.grapple_with_em063_mediation() 
+	elif self.target_is(em.Glavenus) 
+		-> ebony_odogaron.grapple_with_em080_mediation() 
+	elif self.target_is(em.Acidic_Glavenus) 
+		-> ebony_odogaron.grapple_with_em080_01_mediation() 
+	elif self.target_is(em.Paolumu) 
+		-> ebony_odogaron.grapple_with_em110_mediation_threat() 
+	elif self.target_is(em.Nightshade_Paolumu) 
+		-> ebony_odogaron.grapple_with_em110_mediation_threat() 
+	elif self.target_is(em.Legiana) 
+		-> ebony_odogaron.grapple_with_em111_05_mediation() 
+	elif self.target_is(em.Shrieking_Legiana) 
+		-> ebony_odogaron.grapple_with_em111_05_mediation() 
+	elif self.target_is(em.Radobaan) 
+		-> ebony_odogaron.grapple_with_em114_mediation_threat() 
+	elif self.target_is(em.Vaal_Hazak) 
+		-> ebony_odogaron.grapple_with_em115_mediation_threat() 
+	elif self.target_is(em.Blackveil_Vaal_Hazak) 
+		-> ebony_odogaron.grapple_with_em115_05_mediation_threat() 
+	elif self.target_is(em.TzitziYaKu) 
+		-> ebony_odogaron.grapple_with_em120_mediation_threat() 
+	endif 
+	return 
+endf 
+

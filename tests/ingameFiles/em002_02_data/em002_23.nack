@@ -1,0 +1,107 @@
+importactions Silver_Rathalos as silver_rathalos
+importlibrary Global as Global
+
+def node_000
+	conclude 
+endf 
+
+def node_001
+	if self.target_is(em.Anjanath) 
+		>> node_003 
+	elif self.target_is(em.Odogaron) 
+		>> node_007 
+	elif self.target_is(em.Ebony_Odogaron) 
+		>> node_007 
+	else 
+		>> node_003 
+	endif 
+	return 
+endf 
+
+def node_002
+	if self.target_is(em.Anjanath) 
+		>> node_006 
+	elif self.target_is(em.Odogaron) 
+		>> node_007 
+	elif self.target_is(em.Ebony_Odogaron) 
+		>> node_007 
+	elif self.target_is(em.Nargacuga) 
+		>> node_008 
+	elif self.target_is(em.Tigrex) 
+		>> node_009 
+	elif self.target_is(em.Glavenus) 
+		>> node_010 
+	else 
+		>> node_003 
+	endif 
+	return 
+endf 
+
+def node_003
+	>> Global.node_089 
+	>> Global.node_037 
+	>> Global.node_091 
+	>> node_004 
+	return 
+endf 
+
+def node_004
+	if self.flying() 
+		-> silver_rathalos.breath_fly() 
+	else 
+		-> silver_rathalos.normal_breath() 
+	endif 
+	return 
+endf 
+
+def node_005
+	>> Global.node_002 
+	>> Global.node_089 
+	>> Global.node_037 
+	>> Global.node_033 
+	>> Global.node_215 
+	>> Global.node_215 
+	>> Global.node_203 
+	>> Global.node_122 
+	>> Global.node_203 
+	>> Global.node_122 
+	>> Global.node_037 
+	[RegisterVar2 |-] 
+	return 
+endf 
+
+def node_006
+	>> Global.node_002 
+	>> Global.node_089 
+	-> silver_rathalos.grapple_mediation_threat() 
+	return 
+endf 
+
+def node_007
+	>> Global.node_002 
+	>> Global.node_089 
+	-> silver_rathalos.grapple_with_em113_mediation() 
+	return 
+endf 
+
+def node_008
+	>> Global.node_002 
+	>> Global.node_089 
+	-> silver_rathalos.grapple_with_em037_mediation() 
+	return 
+endf 
+
+def node_009
+	>> Global.node_002 
+	>> Global.node_089 
+	-> silver_rathalos.grapple_with_em032_mediation() 
+	return 
+endf 
+
+def node_010
+	>> Global.node_002 
+	>> Global.node_089 
+	-> silver_rathalos.grapple_with_em080_ver1_mediation() 
+	return 
+endf 
+

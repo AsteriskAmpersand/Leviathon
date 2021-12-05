@@ -1,0 +1,23 @@
+importactions Savage_Deviljho as savage_deviljho
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_184 
+	>> Global.node_185 
+	if function#41() 
+	elif function#101() 
+	else 
+		>> node_001 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	if self.enraged() 
+		-> savage_deviljho.anger_search() @ unkn6:65536 
+	else 
+		-> savage_deviljho.search() @ unkn6:65536 
+	endif 
+	return 
+endf 
+

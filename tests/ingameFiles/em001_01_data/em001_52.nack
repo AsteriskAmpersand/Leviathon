@@ -1,0 +1,20 @@
+importactions Pink_Rathian as pink_rathian
+importlibrary Global as Global
+
+def node_000
+	if self.in_map(st.Special_Arena).in_area(-1) 
+		self.targetArea(64) 
+		>> Global.node_010 
+	elif self.in_map(st.Challenge_Arena).in_area(-1) 
+		self.targetArea(64) 
+		>> Global.node_010 
+	else 
+		function#52(0,4) 
+		self.targetArea(target_area.nearest_entrance) 
+		self.targetArea(40) 
+		>> Global.node_002 
+		>> Global.node_057 
+	endif 
+	conclude 
+endf 
+

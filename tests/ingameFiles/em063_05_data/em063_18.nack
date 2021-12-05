@@ -1,0 +1,70 @@
+importactions Raging_Brachydios as raging_brachydios
+importlibrary Global as Global
+
+def node_000
+	self.targetEnemy(13) 
+	if function#41() 
+	elif self.target(4) >> Global.node_150 
+	elif self.enraged() >> node_004 
+	else >> node_001 
+	endif 
+	*&
+	*&
+	conclude 
+endf 
+
+def node_001
+	>> Global.node_120 
+	>> node_002 
+	return 
+endf 
+
+def node_002
+	>> node_005 
+	>> node_005 
+	>> node_005 
+	return 
+endf 
+
+def node_003
+	self.targetEnemy(48) 
+	if self.target(7) >> node_006 
+	elif self.target(10) >> node_007 
+	elif self.distance_3d_to_target().gt(1000) >> node_006 
+	elif self.angle_2d_cw_between(45,315) >> node_006 
+	else >> node_008 
+	endif 
+	return 
+endf 
+
+def node_004
+	>> Global.node_120 
+	>> Global.node_037 
+	return 
+endf 
+
+def node_005
+	if self.distance_2d_to_target().gt(1000) >> Global.node_132 
+	endif 
+	return 
+endf 
+
+def node_006
+	-> raging_brachydios.sniffs_s() 
+	-> raging_brachydios.quick_search() 
+	return 
+endf 
+
+def node_007
+	self.targetEnemy(9) @ parameter2:1000 
+	>> Global.node_035 
+	return 
+endf 
+
+def node_008
+	if function#5C() -> raging_brachydios.sniffs_s() 
+	else -> raging_brachydios.threat_short() 
+	endif 
+	return 
+endf 
+

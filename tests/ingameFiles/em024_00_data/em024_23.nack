@@ -1,0 +1,27 @@
+importactions Kushala_Daora as kushala_daora
+
+def node_000
+	self.targetEnemy(target_em.closest_entity) 
+	>> node_001 
+	conclude 
+endf 
+
+def node_001
+	if self.target_is(em.Teostra) 
+		-> kushala_daora.grapple_mediation_threat_fly() 
+	elif self.target_is(em.Nergigante) 
+		-> kushala_daora.grapple_with_em103_mediation_threat() 
+	elif self.target_is(em.Ruiner_Nergigante) 
+		-> kushala_daora.grapple_with_em103_mediation_threat() 
+	elif self.target_is(em.Lunastra) 
+		-> kushala_daora.grapple_em026_mediation() 
+	elif self.target_is(em.Rajang) 
+		-> kushala_daora.grapple_with_em023_mediation() 
+	elif self.target_is(em.Velkhana) 
+		-> kushala_daora.grapple_with_em124_attacker_mediation() 
+	elif self.target_is(em.Furious_Rajang) 
+		-> kushala_daora.grapple_with_em023_mediation() 
+	endif 
+	return 
+endf 
+

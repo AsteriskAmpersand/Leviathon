@@ -1,0 +1,192 @@
+importactions Gajau as gajau
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_013 
+	>> node_001 
+	conclude 
+endf 
+
+def node_001
+	self.targetUnknown(1,0) 
+	if self.target(2) 
+		>> node_002 
+	else 
+		>> node_006 
+	endif 
+	return 
+endf 
+
+def node_002
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if self.distance_2d_to_target().leq(500) 
+		>> node_003 
+	else 
+		>> node_004 
+		>> node_005 
+	endif 
+	return 
+endf 
+
+def node_003
+	>> node_005 
+	return 
+endf 
+
+def node_004
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if self.distance_2d_to_target().leq(500) 
+		return 
+	elif self.target(3) 
+		return 
+	else 
+		-> action#08(2,6,0,500,400) 
+	endif 
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if self.distance_2d_to_target().leq(500) 
+		return 
+	elif self.target(3) 
+		return 
+	else 
+		-> action#08(2,6,0,500,400) 
+	endif 
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if self.distance_2d_to_target().leq(500) 
+		return 
+	elif self.target(3) 
+		return 
+	else 
+		-> action#08(2,6,0,500,400) 
+	endif 
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if self.distance_2d_to_target().leq(500) 
+		return 
+	elif self.target(3) 
+		return 
+	else 
+		-> action#08(2,6,0,500,400) 
+	endif 
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if self.distance_2d_to_target().leq(500) 
+		return 
+	elif self.target(3) 
+		return 
+	else 
+		-> action#08(2,6,0,500,400) 
+	endif 
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if self.distance_2d_to_target().leq(500) 
+		return 
+	elif self.target(3) 
+		return 
+	else 
+		-> action#08(2,6,0,500,400) 
+	endif 
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if self.distance_2d_to_target().leq(500) 
+		return 
+	elif self.target(3) 
+		return 
+	else 
+		-> action#08(2,6,0,500,400) 
+	endif 
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if self.distance_2d_to_target().leq(500) 
+		return 
+	elif self.target(3) 
+		return 
+	else 
+		-> action#08(2,6,0,500,400) 
+	endif 
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if self.distance_2d_to_target().leq(500) 
+		return 
+	elif self.target(3) 
+		return 
+	else 
+		-> action#08(2,6,0,500,400) 
+	endif 
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if self.distance_2d_to_target().leq(500) 
+		return 
+	elif self.target(3) 
+		return 
+	else 
+		-> action#08(2,6,0,500,400) 
+	endif 
+	return 
+endf 
+
+def node_005
+	>> Global.node_002 
+	>> Global.node_007 
+	>> Global.node_002 
+	>> Global.node_007 
+	>> Global.node_002 
+	>> Global.node_007 
+	return 
+endf 
+
+def node_006
+	>> node_007 
+	if self.distance_2d_to_target().leq(1000) 
+		>> node_008 
+	else 
+		>> node_009 
+	endif 
+	function#54() 
+	return 
+endf 
+
+def node_007
+	function#52(0,2) 
+	self.targetArea(target_area.nearest_entrance) 
+	return 
+endf 
+
+def node_008
+	self.targetEnemy(16) 
+	function#74(0,400) 
+	>> Global.node_004 
+	>> node_010 
+	self.targetEnemy(16) 
+	function#74(45,400) 
+	>> Global.node_004 
+	>> node_010 
+	self.targetEnemy(16) 
+	function#74(90,400) 
+	>> Global.node_004 
+	>> node_010 
+	self.targetEnemy(16) 
+	function#74(135,400) 
+	>> Global.node_004 
+	>> node_010 
+	self.targetEnemy(16) 
+	function#74(180,400) 
+	>> Global.node_004 
+	>> node_010 
+	self.targetEnemy(16) 
+	function#74(225,400) 
+	>> Global.node_004 
+	>> node_010 
+	self.targetEnemy(16) 
+	function#74(270,400) 
+	>> Global.node_004 
+	>> node_010 
+	self.targetEnemy(16) 
+	function#74(315,400) 
+	>> Global.node_004 
+	>> node_010 
+	return 
+endf 
+
+def node_009
+	-> action#08(2,0,0,400) 
+	return 
+endf 
+
+def node_010
+	-> action#08(1,0,0,200) 
+	return 
+endf 
+

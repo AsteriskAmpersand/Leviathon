@@ -1,0 +1,79 @@
+importactions Legiana as legiana
+importlibrary Global as Global
+
+def node_000
+	self.targetEnemy(target_em.closest_entity) 
+	if self.target(11) 
+	else 
+		if self.target_is(em.Raphinos) 
+			>> node_001 
+		elif self.target_is(em.Cortos) 
+			if function#102() 
+				>> node_003 
+			endif 
+		else 
+			>> node_004 
+		endif 
+	endif 
+	>> Global.node_277 
+	conclude 
+endf 
+
+def node_001
+	if self.target_is(em.Raphinos) 
+		if self.target(47) 
+			if self.distance_2d_to_target().leq(1500) 
+				>> node_002 
+			else 
+				>> Global.node_272 
+				repeat 
+			endif 
+		else 
+			>> Global.node_277 
+			conclude 
+		endif 
+	else 
+		>> Global.node_277 
+		conclude 
+	endif 
+	return 
+endf 
+
+def node_002
+	if self.target(11) 
+		>> Global.node_221 
+		>> Global.node_277 
+		conclude 
+	elif self.target(47) 
+		>> Global.node_274 
+		>> Global.node_039 
+		>> Global.node_277 
+		conclude 
+	else 
+		>> Global.node_277 
+		conclude 
+	endif 
+	return 
+endf 
+
+def node_003
+	>> Global.node_029 
+	>> Global.node_274 
+	conclude 
+endf 
+
+def node_004
+	>> Global.node_002 
+	>> Global.node_029 
+	>> Global.node_035 
+	>> Global.node_224 
+	>> Global.node_276 
+	if self.target(13) 
+		>> Global.node_278 
+		>> Global.node_279 
+	else 
+		>> Global.node_277 
+	endif 
+	return 
+endf 
+

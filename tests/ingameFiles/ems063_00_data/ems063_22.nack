@@ -1,0 +1,346 @@
+importactions Wulg as wulg
+importlibrary Global as Global
+
+def node_000
+	if function#105() 
+		if self.target.helpless_1() 
+			if function#3F() 
+				-> wulg.damage_clawgrab_initiate() 
+			else 
+				-> wulg.die_down() 
+			endif 
+		else 
+			if function#B0() 
+				if function#110() 
+					>> node_001 
+				else 
+					if function#3F() 
+						-> wulg.damage_clawgrab_turn_r() 
+					else 
+						self.targetEnemy(target_em.nearest_monster) 
+						if self.distance_3d_to_target().leq(400) 
+							-> wulg.damage_capture_falled() 
+							-> wulg.damage_clawgrab_turn_r() 
+							reset 
+						else 
+							if function#10D() 
+								-> wulg.damage_capture_falled() 
+								-> wulg.damage_clawgrab_turn_r() 
+								reset 
+							else 
+								-> wulg.quick_turn(2,0,0,500) 
+								repeat 
+							endif 
+						endif 
+						reset 
+					endif 
+				endif 
+			else 
+				>> node_001 
+			endif 
+		endif 
+	else 
+		if function#B0() 
+			if function#110() 
+				>> node_001 
+			else 
+				if function#3F() 
+					-> wulg.damage_clawgrab_turn_r() 
+				else 
+					self.targetEnemy(target_em.nearest_monster) 
+					if self.distance_3d_to_target().leq(400) 
+						-> wulg.damage_capture_falled() 
+						-> wulg.damage_clawgrab_turn_r() 
+						reset 
+					else 
+						if function#10D() 
+							-> wulg.damage_capture_falled() 
+							-> wulg.damage_clawgrab_turn_r() 
+							reset 
+						else 
+							-> wulg.quick_turn(2,0,0,500) 
+							repeat 
+						endif 
+					endif 
+					reset 
+				endif 
+			endif 
+		else 
+			>> node_001 
+		endif 
+	endif 
+	reset 
+endf 
+
+def node_001
+	if function#3F() 
+		-> wulg.damage_clawgrab_turn_r() 
+	else 
+		self.targetEnemy(33) 
+		if self.distance_2d_to_target().leq(1000) 
+			>> node_002 
+		else 
+			self.targetEnemy(target_em.random_player_or_cat) 
+			if self.distance_2d_to_target().leq(1500) 
+				>> node_005 
+			else 
+				self.targetEnemy(33) 
+			endif 
+		endif 
+		>> node_003 
+		>> node_004 
+		function#54() 
+	endif 
+	return 
+endf 
+
+def node_002
+	if function#67(1) 
+		function#52(2,6) 
+	else 
+		function#52(2,6) 
+	endif 
+	self.targetArea(target_area.nearest_entrance) 
+	if self.distance_3d_to_target().leq(500) 
+	else 
+		self.targetArea(target_area.nearest_entrance) @ unkn3:2097152, unkn12:4, unknExtra1:200 
+		>> Global.node_032 
+	endif 
+	return 
+endf 
+
+def node_003
+	self.targetEnemy(33) 
+	if self.target(20) 
+	else 
+		self.targetEnemy(target_em.random_player_or_cat) 
+	endif 
+	return 
+endf 
+
+def node_004
+	>> Global.node_008 
+	>> Global.node_050 
+	return 
+endf 
+
+def node_005
+	if function#3A() 
+	else 
+		>> node_007 
+		>> node_006 
+	endif 
+	return 
+endf 
+
+def node_006
+	if function#102() 
+		>> node_014 
+		>> node_009 
+	else 
+	endif 
+	if function#103() 
+		>> node_014 
+		>> node_008 
+	else 
+	endif 
+	return 
+endf 
+
+def node_007
+	if function#10B() 
+		>> node_014 
+		>> Global.node_070 
+		reset 
+	else 
+	endif 
+	if function#10C() 
+		>> node_014 
+		>> node_010 
+		reset 
+	else 
+	endif 
+	return 
+endf 
+
+def node_008
+	if self.distance_2d_to_target().leq(200) 
+		>> Global.node_022 
+	elif self.distance_2d_to_target().leq(400) 
+	else 
+		>> node_011 
+	endif 
+	>> node_014 
+	if function#10C() 
+	else 
+		>> Global.node_069 
+	endif 
+	return 
+endf 
+
+def node_009
+	if self.distance_2d_to_target().leq(200) 
+		>> node_012 
+		>> node_012 
+	elif self.distance_2d_to_target().leq(400) 
+		>> node_012 
+	elif function#116() 
+	else 
+		>> node_011 
+	endif 
+	>> node_014 
+	if function#10B() 
+	else 
+		>> Global.node_068 
+	endif 
+	return 
+endf 
+
+def node_010
+	if function#32() 
+		random (50) 
+					>> Global.node_070 
+		elser (25) 
+					>> Global.node_136 
+		elser (25) 
+					>> Global.node_135 
+		endr 
+	else 
+		if self.distance_2d_to_target().leq(400) 
+			>> Global.node_021 
+		elif self.distance_2d_to_target().leq(900) 
+			>> Global.node_025 
+		elif self.distance_2d_to_target().leq(1500) 
+			>> Global.node_027 
+		else 
+			>> Global.node_006 
+			>> Global.node_002 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_011
+	if self.distance_3d_to_target().leq(400) 
+	else 
+		-> wulg.quick_turn(2,6,0,300,800) 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_012
+	>> node_013 
+	-> wulg.die_hole_fall() 
+	return 
+endf 
+
+def node_013
+	if self.angle_2d_cw_between(90,270) 
+		-> wulg.die_down() 
+	else 
+	endif 
+	return 
+endf 
+
+def node_014
+	if self.target(20) 
+		if self.target(10) 
+			>> node_016 
+		elif function#5C() 
+			>> node_017 
+		elif self.target(0) 
+			>> node_018 
+		elif self.target(14) 
+			>> node_018 
+		else 
+		endif 
+	else 
+		>> node_015 
+	endif 
+	return 
+endf 
+
+def node_015
+	self.targetUnknown(33,0) 
+	>> node_003 
+	>> node_004 
+	reset 
+endf 
+
+def node_016
+	self.targetUnknown(33,0) 
+	>> node_003 
+	>> node_004 
+	reset 
+endf 
+
+def node_017
+	self.targetUnknown(33,0) 
+	>> node_003 
+	>> node_004 
+	reset 
+endf 
+
+def node_018
+	if function#3A() 
+	else 
+		if function#32() 
+			if self.above_area() 
+				if function#11(300) 
+					return 
+				else 
+				endif 
+			else 
+			endif 
+		else 
+		endif 
+	endif 
+	self.targetUnknown(33,0) 
+	>> node_003 
+	>> node_004 
+	reset 
+endf 
+
+def node_019
+	if function#B0() 
+		if function#110() 
+		else 
+			if function#105() 
+				if function#3F() 
+					-> wulg.damage_clawgrab_initiate() 
+				endif 
+				return 
+			elif function#112() 
+				if function#3F() 
+					-> wulg.damage_clawgrab_turn_l() 
+				endif 
+				return 
+			else 
+				if function#3F() 
+					-> wulg.damage_clawgrab_turn_r() 
+				else 
+					self.targetEnemy(target_em.nearest_monster) 
+					if self.distance_3d_to_target().leq(400) 
+						-> wulg.damage_capture_falled() 
+						-> wulg.damage_clawgrab_turn_r() 
+						reset 
+					else 
+						if function#10D() 
+							-> wulg.damage_capture_falled() 
+							-> wulg.damage_clawgrab_turn_r() 
+							reset 
+						else 
+							-> wulg.quick_turn(2,0,0,500) 
+							repeat 
+						endif 
+					endif 
+				endif 
+				reset 
+			endif 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+

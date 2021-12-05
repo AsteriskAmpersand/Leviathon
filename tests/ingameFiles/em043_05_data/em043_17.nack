@@ -1,0 +1,68 @@
+importactions Savage_Deviljho as savage_deviljho
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_184 
+	>> Global.node_185 
+	>> node_001 
+	>> node_002 
+	conclude 
+endf 
+
+def node_001
+	if function#41() 
+	elif function#101() 
+	else 
+		if function#AB() 
+			function#AA() 
+			-> savage_deviljho.threat_short() 
+		else 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_002
+	self.targetArea(14) 
+	if function#101() 
+		if self.distance_3d_to_target().gt(800) 
+			>> node_005 
+			repeat 
+		else 
+		endif 
+	else 
+		if self.distance_3d_to_target().gt(800) 
+			>> node_004 
+			repeat 
+		else 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_003
+	self.targetEnemy(target_em.random_player_or_cat) 
+	-> savage_deviljho.wait() 
+	if self.distance_3d_to_target().leq(800) 
+		-> savage_deviljho.back_turn() 
+	elif self.angle_2d_cw_between(30,330) 
+		-> savage_deviljho.quick_turn() 
+	else 
+	endif 
+	return 
+endf 
+
+def node_004
+	if self.fatigued() 
+		-> savage_deviljho.tired_dash(5,2,0,0,3000) 
+	else 
+		-> savage_deviljho.dash(5,2,0,0,3000) 
+	endif 
+	return 
+endf 
+
+def node_005
+	-> savage_deviljho.hold_em_dash(5,2,0,0,3000) 
+	return 
+endf 
+

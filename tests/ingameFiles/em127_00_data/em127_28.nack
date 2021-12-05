@@ -1,0 +1,87 @@
+importactions Leshen as leshen
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_005 
+	>> node_004 
+	if [RegisterVar2 <= 15] 
+		[RegisterVar2 |-] 
+		conclude 
+	else 
+	endif 
+	[RegisterVar2 ++] 
+	>> node_001 
+	repeat 
+	conclude 
+endf 
+
+def node_001
+	self.targetEnemy(48) 
+	if self.distance_3d_to_target().leq(8000) 
+		>> node_002 
+	else 
+		>> node_003 
+	endif 
+	return 
+endf 
+
+def node_002
+	if self.target(7) 
+	elif self.target(10) 
+	else 
+		>> Global.node_018 
+	endif 
+	-> leshen.search() 
+	return 
+endf 
+
+def node_003
+	self.targetEnemy(58) 
+	random (20) -> leshen.walk(2,1,5,1500,400) 
+	elser (80) 
+	endr 
+	self.targetEnemy(22) @ parameter2:2000 
+	random (40) >> Global.node_018 
+	elser (60) 
+	endr 
+	-> leshen.search() 
+	return 
+endf 
+
+def node_004
+	if function#103() 
+	else 
+		if self.targetEnemy(target_em.any_monster) 
+			if self.target(13) 
+			else 
+				if self.target(3) 
+				else 
+					if self.in_map(st.Ancient_Forest).in_area(4) 
+						if self.distance_3d_to_target().leq(1000) 
+							>> node_005 
+							reset 
+						else 
+						endif 
+					else 
+						if self.distance_3d_to_target().leq(1000) 
+							>> node_005 
+							reset 
+						else 
+						endif 
+					endif 
+				endif 
+			endif 
+		else 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_005
+	self.targetEnemy(target_em.any_monster) 
+	random (50) >> Global.node_097 
+	elser (50) >> Global.node_100 
+	endr 
+	return 
+endf 
+

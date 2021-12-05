@@ -1,0 +1,4778 @@
+importactions Rajang as rajang
+
+def node_000
+	conclude 
+endf 
+
+def node_001
+	if function#2D(2) 
+		-> rajang.dempsey_attack_3() 
+	else 
+		if self.distance_3d_to_target().leq(700) 
+			-> rajang.dempsey_attack_2() 
+			if function#D0(5) 
+				if function#101() 
+					if self.distance_3d_to_target().leq(700) 
+						if self.angle_2d_cw_between(90,270) 
+							random (70) 
+										if self.angle_2d_cw_between(0,180) 
+											-> rajang.quadruple_punch_b() 
+										else 
+											-> rajang.quadruple_punch_d() 
+										endif 
+							elser (30) 
+							endr 
+						else 
+						endif 
+					else 
+					endif 
+				else 
+				endif 
+			else 
+			endif 
+		else 
+			-> rajang.dempsey_attack() 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_002
+	>> node_119 
+	if self.distance_3d_to_target().leq(1000) 
+		if self.angle_2d_cw_between(30,330) 
+			-> rajang.spin_attack() 
+		else 
+			-> rajang.spin_attack_straight() 
+		endif 
+	else 
+		-> rajang.spin_attack() 
+	endif 
+	>> node_087 
+	return 
+endf 
+
+def node_003
+	-> rajang.spin_attack_straight() 
+	>> node_087 
+	return 
+endf 
+
+def node_004
+	if function#D0(5) 
+		-> rajang.ex_jump_rolling_attack() 
+	else 
+		-> rajang.jump_rolling_attack() 
+	endif 
+	>> node_059 
+	return 
+endf 
+
+def node_005
+	-> rajang.body_press() 
+	>> node_087 
+	return 
+endf 
+
+def node_006
+	if self.angle_2d_cw_between(0,180) 
+		-> rajang.turn_hook_l() 
+	else 
+		-> rajang.turn_hook_r() 
+	endif 
+	return 
+endf 
+
+def node_007
+	-> rajang.head_butt() 
+	>> node_059 
+	return 
+endf 
+
+def node_008
+	if self.distance_3d_to_target().leq(1500) 
+		-> rajang.rush_long_horn_2() 
+	else 
+		-> rajang.rush_long_horn() 
+	endif 
+	if function#2D(1) 
+	elif self.distance_3d_to_target().leq(1000) 
+		random (60) >> node_087 
+		elser (40) >> node_018 
+		endr 
+	elif self.distance_3d_to_target().leq(1500) 
+		random (30) >> node_087 
+		elser (20) >> node_018 
+		elser (50) 
+		endr 
+	else 
+	endif 
+	return 
+endf 
+
+def node_009
+	-> rajang.rush_long_horn_2() 
+	return 
+endf 
+
+def node_010
+	if self.distance_3d_to_target().leq(1200) 
+		if self.angle_2d_cw_between(60,300) 
+			>> node_008 
+		else 
+			-> rajang.zigzag_step_straight() 
+		endif 
+	elif self.distance_3d_to_target().leq(2500) 
+		>> node_119 
+		-> rajang.zigzag_step() 
+	else 
+		>> node_119 
+		-> rajang.zigzag_step_2() 
+	endif 
+	return 
+endf 
+
+def node_011
+	>> node_215 
+	if self.distance_3d_to_target().leq(600) 
+		if self.angle_2d_cw_between(30,330) 
+			>> node_114 
+			-> rajang.catch_attack_straight() 
+		else 
+			-> rajang.catch_attack() 
+		endif 
+	elif self.distance_3d_to_target().leq(800) 
+		if self.angle_2d_cw_between(25,335) 
+			>> node_114 
+			-> rajang.catch_attack_straight() 
+		else 
+			-> rajang.catch_attack() 
+		endif 
+	elif self.distance_3d_to_target().leq(1200) 
+		if self.angle_2d_cw_between(20,340) 
+			>> node_114 
+			-> rajang.catch_attack_straight() 
+		else 
+			-> rajang.catch_attack() 
+		endif 
+	elif self.distance_3d_to_target().leq(1500) 
+		if self.angle_2d_cw_between(15,345) 
+			>> node_114 
+			-> rajang.catch_attack_straight() 
+		else 
+			-> rajang.catch_attack() 
+		endif 
+	else 
+		if self.angle_2d_cw_between(10,350) 
+			>> node_114 
+			-> rajang.catch_attack_straight() 
+		else 
+			-> rajang.catch_attack() 
+		endif 
+	endif 
+	if self.target.pinned() 
+		function#103() 
+		if self.vertical_distance_to_target().gt(500) 
+			-> rajang.catch_attack_miss_l() 
+			>> node_087 
+		else 
+			if function#D0(5) 
+				if function#101() 
+					-> rajang.ex_catch_attack_success_l() 
+					function#109(3000,1) 
+					-> rajang.ex_catch_attack_success_punch_l() 
+				else 
+					-> rajang.ex_n_catch_attack_success_l() 
+					-> rajang.ex_n_catch_finish_punch_l() 
+				endif 
+			else 
+				-> rajang.catch_attack_success_l() 
+				-> rajang.catch_finish_punch_l() 
+			endif 
+		endif 
+	else 
+		-> rajang.catch_attack_miss_l() 
+		>> node_087 
+	endif 
+	return 
+endf 
+
+def node_012
+	>> node_215 
+	-> rajang.catch_attack() 
+	if self.target.pinned() 
+		function#103() 
+		if self.vertical_distance_to_target().gt(500) 
+			-> rajang.catch_attack_miss_l() 
+			>> node_087 
+		else 
+			if function#D0(5) 
+				if function#101() 
+					-> rajang.ex_catch_attack_success_l() 
+					-> rajang.ex_catch_attack_success_punch_l() 
+				else 
+					-> rajang.ex_n_catch_attack_success_l() 
+					-> rajang.ex_n_catch_finish_punch_l() 
+				endif 
+			else 
+				-> rajang.catch_attack_success_l() 
+				-> rajang.catch_finish_punch_l() 
+			endif 
+		endif 
+	else 
+		-> rajang.catch_attack_miss_l() 
+		>> node_087 
+	endif 
+	return 
+endf 
+
+def node_013
+	if function#D0(5) 
+		if self.angle_2d_cw_between(0,180) 
+			-> rajang.turn_hook_l() 
+		else 
+			-> rajang.turn_hook_r() 
+		endif 
+		if function#101() 
+			if self.distance_3d_to_target().leq(700) 
+				if self.angle_2d_cw_between(0,180) 
+					-> rajang.quadruple_punch_b() 
+				else 
+					-> rajang.quadruple_punch_d() 
+				endif 
+			else 
+			endif 
+		else 
+		endif 
+	else 
+		if self.angle_2d_cw_between(50,310) 
+			if self.angle_2d_cw_between(0,180) 
+				-> rajang.triple_punch_b() 
+				>> node_087 
+			else 
+				-> rajang.triple_punch_d() 
+				>> node_087 
+			endif 
+		else 
+			-> rajang.dig_up_ground_straight() 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_014
+	-> rajang.special_jump_attack() 
+	return 
+endf 
+
+def node_015
+	>> node_122 
+	>> node_014 
+	return 
+endf 
+
+def node_016
+	>> node_009 
+	if self.distance_3d_to_target().leq(300) 
+		>> node_015 
+	else 
+		>> node_014 
+	endif 
+	return 
+endf 
+
+def node_017
+	>> node_220 
+	>> node_014 
+	return 
+endf 
+
+def node_018
+	>> node_110 
+	if function#D0(5) 
+		-> rajang.ex_kiai_beam() 
+	else 
+		-> rajang.kiai_beam() 
+	endif 
+	return 
+endf 
+
+def node_019
+	>> node_110 
+	-> rajang.jump_kiai_bullet() 
+	return 
+endf 
+
+def node_020
+	>> node_110 
+	if self.angle_2d_cw_between(90,270) 
+		-> rajang.swing_kiai_beam_r2() 
+	else 
+		-> rajang.swing_kiai_beam_r() 
+	endif 
+	return 
+endf 
+
+def node_021
+	-> rajang.jump_kiai_multi_bullet_start() 
+	return 
+endf 
+
+def node_022
+	if self.distance_3d_to_target().leq(1000) 
+		random (50) >> node_030 
+		elser (50) >> node_031 
+		endr 
+	elif self.distance_3d_to_target().leq(2300) 
+		if self.angle_2d_cw_between(45,315) 
+			-> rajang.dive_punch_start() 
+		else 
+			-> rajang.dive_punch_start3() 
+		endif 
+	else 
+		>> node_032 
+	endif 
+	>> node_066 
+	return 
+endf 
+
+def node_023
+	if self.distance_3d_to_target().leq(1000) 
+		random (50) >> node_030 
+		elser (50) >> node_031 
+		endr 
+	elif self.distance_3d_to_target().leq(2300) 
+		if self.angle_2d_cw_between(45,315) 
+			-> rajang.dive_punch_start() 
+		else 
+			-> rajang.dive_punch_start3() 
+		endif 
+	else 
+		>> node_032 
+	endif 
+	>> node_059 
+	return 
+endf 
+
+def node_024
+	-> rajang.jump_punch_5way_thunder() 
+	return 
+endf 
+
+def node_025
+	if self.distance_3d_to_target().leq(1000) 
+		random (50) >> node_051 
+		elser (50) 
+		endr 
+	else 
+	endif 
+	if self.distance_3d_to_target().leq(1000) 
+		>> node_043 
+	elif self.distance_3d_to_target().leq(2300) 
+		>> node_024 
+	else 
+		>> node_044 
+	endif 
+	return 
+endf 
+
+def node_026
+	if self.distance_3d_to_target().leq(1000) 
+		>> node_009 
+	else 
+	endif 
+	>> node_018 
+	return 
+endf 
+
+def node_027
+	if self.distance_3d_to_target().leq(1000) 
+		>> node_009 
+	else 
+	endif 
+	>> node_021 
+	>> node_039 
+	return 
+endf 
+
+def node_028
+	>> node_122 
+	if self.angle_2d_cw_between(45,315) 
+		-> rajang.dive_punch_start() 
+	else 
+		-> rajang.dive_punch_start3() 
+	endif 
+	return 
+endf 
+
+def node_029
+	if function#D0(5) 
+		>> node_053 
+	else 
+		>> node_052 
+	endif 
+	if self.angle_2d_cw_between(45,315) 
+		-> rajang.dive_punch_start() 
+	else 
+		-> rajang.dive_punch_start3() 
+	endif 
+	return 
+endf 
+
+def node_030
+	>> node_009 
+	if self.angle_2d_cw_between(45,315) 
+		-> rajang.dive_punch_start() 
+	else 
+		-> rajang.dive_punch_start3() 
+	endif 
+	return 
+endf 
+
+def node_031
+	>> node_122 
+	if function#D0(5) 
+		-> rajang.ex_jump_rolling_attack() 
+	else 
+		-> rajang.jump_rolling_attack() 
+	endif 
+	if self.angle_2d_cw_between(45,315) 
+		-> rajang.dive_punch_start() 
+	else 
+		-> rajang.dive_punch_start3() 
+	endif 
+	return 
+endf 
+
+def node_032
+	>> node_225 
+	if self.angle_2d_cw_between(45,315) 
+		-> rajang.dive_punch_start() 
+	else 
+		-> rajang.dive_punch_start3() 
+	endif 
+	return 
+endf 
+
+def node_033
+	>> node_122 
+	>> node_021 
+	>> node_022 
+	return 
+endf 
+
+def node_034
+	>> node_122 
+	>> node_021 
+	>> node_020 
+	return 
+endf 
+
+def node_035
+	>> node_009 
+	if self.distance_3d_to_target().leq(500) 
+		>> node_033 
+	else 
+		>> node_021 
+		>> node_022 
+	endif 
+	return 
+endf 
+
+def node_036
+	>> node_009 
+	if self.distance_3d_to_target().leq(500) 
+		>> node_034 
+	else 
+		>> node_021 
+		>> node_020 
+	endif 
+	return 
+endf 
+
+def node_037
+	if self.angle_2d_cw_between(50,310) 
+		>> node_024 
+	else 
+		if function#D0(5) 
+			if self.angle_2d_cw_between(0,180) 
+				-> rajang.turn_hook_l() 
+			else 
+				-> rajang.turn_hook_r() 
+			endif 
+			if self.angle_2d_cw_between(0,180) 
+				-> rajang.quadruple_punch_b() 
+			else 
+				-> rajang.quadruple_punch_d() 
+			endif 
+		else 
+			if self.angle_2d_cw_between(0,180) 
+				-> rajang.triple_punch_b() 
+				>> node_087 
+			else 
+				-> rajang.triple_punch_d() 
+				>> node_087 
+			endif 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_038
+	>> node_021 
+	>> node_039 
+	return 
+endf 
+
+def node_039
+	if self.distance_3d_to_target().leq(1000) 
+	else 
+		random (30) >> node_022 
+		elser (70) 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_040
+	>> node_022 
+	>> node_059 
+	return 
+endf 
+
+def node_041
+	>> node_122 
+	>> node_024 
+	return 
+endf 
+
+def node_042
+	if function#D0(5) 
+		>> node_053 
+	else 
+		>> node_052 
+	endif 
+	>> node_024 
+	return 
+endf 
+
+def node_043
+	>> node_009 
+	if self.distance_3d_to_target().leq(500) 
+		>> node_041 
+	else 
+		>> node_024 
+	endif 
+	return 
+endf 
+
+def node_044
+	>> node_225 
+	>> node_024 
+	return 
+endf 
+
+def node_045
+	if function#D0(5) 
+		if self.distance_3d_to_target().leq(700) 
+			>> node_048 
+		else 
+			if self.angle_2d_cw_between(0,135) 
+				>> node_055 
+			elif self.angle_2d_cw_between(135,225) 
+				>> node_058 
+			else 
+				>> node_056 
+			endif 
+		endif 
+	else 
+		if self.distance_3d_to_target().leq(700) 
+			random (50) >> node_046 
+			elser (50) >> node_047 
+			endr 
+		else 
+			if self.angle_2d_cw_between(45,315) 
+				if self.angle_2d_cw_between(0,135) 
+					>> node_055 
+				elif self.angle_2d_cw_between(135,225) 
+					>> node_058 
+				else 
+					>> node_056 
+				endif 
+			else 
+				>> node_057 
+			endif 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_046
+	if self.distance_3d_to_target().leq(700) 
+		if self.angle_2d_cw_between(45,315) 
+			if self.angle_2d_cw_between(0,135) 
+				random (30) >> node_055 
+				elser (70) >> node_058 
+				endr 
+			elif self.angle_2d_cw_between(135,225) 
+				random (60) >> node_058 
+				elser (40) >> node_050 
+				endr 
+			else 
+				random (30) >> node_056 
+				elser (70) >> node_058 
+				endr 
+			endif 
+		else 
+			random (30) >> node_057 
+			elser (70) >> node_050 
+			endr 
+		endif 
+	else 
+		if self.angle_2d_cw_between(45,315) 
+			if self.angle_2d_cw_between(0,135) 
+				>> node_055 
+			elif self.angle_2d_cw_between(135,225) 
+				>> node_058 
+			else 
+				>> node_056 
+			endif 
+		else 
+			>> node_057 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_047
+	if self.angle_2d_cw_between(0,180) 
+		>> node_056 
+	else 
+		>> node_055 
+	endif 
+	return 
+endf 
+
+def node_048
+	>> node_214 
+	if self.distance_3d_to_target().leq(700) 
+		if self.angle_2d_cw_between(45,315) 
+			if self.angle_2d_cw_between(0,135) 
+				random (60) >> node_055 
+				elser (20) >> node_052 
+				elser (20) >> node_058 
+				endr 
+			elif self.angle_2d_cw_between(135,225) 
+				random (50) >> node_058 
+				elser (20) >> node_052 
+				elser (30) >> node_050 
+				endr 
+			else 
+				random (60) >> node_056 
+				elser (20) >> node_052 
+				elser (20) >> node_058 
+				endr 
+			endif 
+		else 
+			>> node_050 
+		endif 
+	else 
+		if self.angle_2d_cw_between(135,225) 
+			>> node_058 
+		else 
+		endif 
+		if self.angle_2d_cw_between(0,180) 
+			>> node_055 
+		else 
+			>> node_056 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_049
+	random (50) 
+				>> node_009 
+	elser (50) 
+				if self.distance_3d_to_target().leq(1000) 
+					>> node_122 
+				else 
+				endif 
+				if function#D0(5) 
+					-> rajang.ex_jump_rolling_attack() 
+				else 
+					-> rajang.jump_rolling_attack() 
+				endif 
+	endr 
+	return 
+endf 
+
+def node_050
+	if self.angle_2d_cw_between(0,180) 
+		>> node_055 
+	else 
+		>> node_056 
+	endif 
+	return 
+endf 
+
+def node_051
+	if self.angle_2d_cw_between(45,315) 
+		if self.angle_2d_cw_between(0,135) 
+			>> node_056 
+		elif self.angle_2d_cw_between(135,225) 
+			>> node_057 
+		else 
+			>> node_055 
+		endif 
+	else 
+		>> node_058 
+	endif 
+	return 
+endf 
+
+def node_052
+	if self.angle_2d_cw_between(45,315) 
+		if self.angle_2d_cw_between(0,180) 
+			>> node_056 
+		else 
+			>> node_055 
+		endif 
+	else 
+		>> node_058 
+	endif 
+	return 
+endf 
+
+def node_053
+	if self.distance_3d_to_target().leq(600) 
+		if self.angle_2d_cw_between(30,330) 
+		else 
+			return 
+		endif 
+	elif self.distance_3d_to_target().leq(800) 
+		if self.angle_2d_cw_between(25,335) 
+		else 
+			return 
+		endif 
+	elif self.distance_3d_to_target().leq(1200) 
+		if self.angle_2d_cw_between(20,340) 
+		else 
+			return 
+		endif 
+	elif self.distance_3d_to_target().leq(1400) 
+		if self.angle_2d_cw_between(15,345) 
+		else 
+			return 
+		endif 
+	else 
+	endif 
+	if self.angle_2d_cw_between(90,270) 
+		if self.angle_2d_cw_between(0,180) 
+			>> node_123 
+			>> node_055 
+		else 
+			>> node_123 
+			>> node_056 
+		endif 
+	else 
+		if self.angle_2d_cw_between(0,180) 
+			>> node_055 
+		else 
+			>> node_056 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_054
+	if self.distance_3d_to_target().leq(600) 
+		if self.angle_2d_cw_between(45,315) 
+			if self.angle_2d_cw_between(0,135) 
+				random (30) >> node_055 
+				elser (70) >> node_058 
+				endr 
+			elif self.angle_2d_cw_between(135,225) 
+				random (60) >> node_058 
+				elser (40) >> node_050 
+				endr 
+			else 
+				random (30) >> node_056 
+				elser (70) >> node_058 
+				endr 
+			endif 
+		else 
+			random (30) >> node_057 
+			elser (70) >> node_050 
+			endr 
+		endif 
+	else 
+		if self.angle_2d_cw_between(45,315) 
+			if self.angle_2d_cw_between(0,135) 
+				>> node_055 
+			elif self.angle_2d_cw_between(135,225) 
+				>> node_058 
+			else 
+				>> node_056 
+			endif 
+		else 
+			>> node_057 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_055
+	-> rajang.step_l() 
+	return 
+endf 
+
+def node_056
+	-> rajang.step_r() 
+	return 
+endf 
+
+def node_057
+	-> rajang.step_front() 
+	return 
+endf 
+
+def node_058
+	-> rajang.back_kick() 
+	return 
+endf 
+
+def node_059
+	if self.distance_3d_to_target().leq(500) >> node_061 
+	elif self.distance_3d_to_target().leq(700) >> node_062 
+	elif self.distance_3d_to_target().leq(1000) >> node_063 
+	elif self.distance_3d_to_target().leq(1500) >> node_064 
+	else >> node_065 
+	endif 
+	return 
+endf 
+
+def node_060
+	>> node_054 
+	if self.distance_3d_to_target().leq(500) >> node_061 
+	elif self.distance_3d_to_target().leq(700) >> node_062 
+	elif self.distance_3d_to_target().leq(1000) >> node_063 
+	elif self.distance_3d_to_target().leq(1500) >> node_064 
+	elif self.distance_3d_to_target().leq(2300) >> node_065 
+	else 
+	endif 
+	return 
+endf 
+
+def node_061
+	if function#D0(5) 
+		if function#101() 
+			random (20) >> node_001 
+			elser (15) >> node_013 
+			elser (15) >> node_005 
+			elser (10) >> node_018 
+			elser (10) >> node_022 
+			elser (5) >> node_027 
+			elser (15) >> node_024 
+			elser (10) >> node_025 
+			endr 
+		else 
+			random (25) >> node_001 
+			elser (25) >> node_005 
+			elser (20) >> node_006 
+			elser (15) >> node_018 
+			elser (10) >> node_022 
+			elser (5) >> node_027 
+			endr 
+		endif 
+	else 
+		if function#101() 
+			random (35) >> node_001 
+			elser (10) >> node_002 
+			elser (20) >> node_005 
+			elser (25) >> node_006 
+			elser (10) >> node_018 
+			endr 
+		else 
+			random (30) >> node_001 
+			elser (10) >> node_002 
+			elser (20) >> node_005 
+			elser (20) >> node_006 
+			elser (20) >> node_018 
+			endr 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_062
+	if function#D0(5) 
+		if function#101() 
+			random (20) >> node_001 
+			elser (15) >> node_013 
+			elser (20) >> node_005 
+			elser (10) >> node_018 
+			elser (10) >> node_022 
+			elser (5) >> node_027 
+			elser (10) >> node_024 
+			elser (10) >> node_025 
+			endr 
+		else 
+			random (35) >> node_001 
+			elser (30) >> node_005 
+			elser (20) >> node_018 
+			elser (10) >> node_022 
+			elser (5) >> node_027 
+			endr 
+		endif 
+	else 
+		if function#101() 
+			random (50) >> node_001 
+			elser (15) >> node_002 
+			elser (25) >> node_005 
+			elser (10) >> node_018 
+			endr 
+		else 
+			random (40) >> node_001 
+			elser (15) >> node_002 
+			elser (25) >> node_005 
+			elser (20) >> node_018 
+			endr 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_063
+	if function#D0(5) 
+		if function#101() 
+			random (15) >> node_001 
+			elser (15) >> node_002 
+			elser (15) >> node_005 
+			elser (5) >> node_018 
+			elser (15) >> node_023 
+			elser (10) >> node_038 
+			elser (15) >> node_024 
+			elser (10) >> node_025 
+			endr 
+		else 
+			random (20) >> node_001 
+			elser (15) >> node_002 
+			elser (20) >> node_005 
+			elser (10) >> node_018 
+			elser (25) >> node_022 
+			elser (10) >> node_038 
+			endr 
+		endif 
+	else 
+		if function#101() 
+			random (40) >> node_001 
+			elser (30) >> node_002 
+			elser (15) >> node_005 
+			elser (15) >> node_018 
+			endr 
+		else 
+			random (40) >> node_001 
+			elser (25) >> node_002 
+			elser (15) >> node_005 
+			elser (20) >> node_018 
+			endr 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_064
+	if function#D0(5) 
+		if function#101() 
+			random (10) >> node_001 
+			elser (25) >> node_002 
+			elser (0) >> node_023 
+			elser (10) >> node_038 
+			elser (25) >> node_018 
+			elser (30) >> node_024 
+			endr 
+		else 
+			random (25) >> node_001 
+			elser (35) >> node_002 
+			elser (0) >> node_023 
+			elser (10) >> node_038 
+			elser (30) >> node_018 
+			endr 
+		endif 
+	else 
+		if function#101() 
+			random (10) >> node_001 
+			elser (20) >> node_002 
+			elser (40) >> node_019 
+			elser (30) >> node_018 
+			endr 
+		else 
+			random (10) >> node_001 
+			elser (30) >> node_002 
+			elser (30) >> node_019 
+			elser (30) >> node_018 
+			endr 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_065
+	if function#D0(5) 
+		if function#101() 
+			random (15) >> node_008 
+			elser (15) >> node_010 
+			elser (35) >> node_023 
+			elser (10) >> node_038 
+			elser (25) >> node_024 
+			endr 
+		else 
+			random (20) >> node_008 
+			elser (20) >> node_010 
+			elser (50) >> node_023 
+			elser (10) >> node_038 
+			endr 
+		endif 
+	else 
+		if function#101() 
+			random (30) >> node_008 
+			elser (30) >> node_010 
+			elser (20) >> node_018 
+			elser (20) >> node_019 
+			endr 
+		else 
+			random (30) >> node_008 
+			elser (30) >> node_010 
+			elser (20) >> node_018 
+			elser (20) >> node_019 
+			endr 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_066
+	if self.distance_3d_to_target().leq(500) >> node_067 
+	elif self.distance_3d_to_target().leq(700) >> node_068 
+	elif self.distance_3d_to_target().leq(1000) >> node_069 
+	elif self.distance_3d_to_target().leq(1500) >> node_070 
+	else >> node_071 
+	endif 
+	return 
+endf 
+
+def node_067
+	if function#101() 
+		random (20) >> node_001 
+					>> node_072 
+		elser (20) >> node_005 
+		elser (20) >> node_006 
+					>> node_072 
+		elser (20) >> node_018 
+		elser (20) >> node_024 
+		endr 
+	else 
+		random (25) >> node_001 
+					>> node_072 
+		elser (25) >> node_005 
+		elser (25) >> node_006 
+					>> node_072 
+		elser (25) >> node_018 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_068
+	if function#101() 
+		random (25) >> node_001 
+					>> node_072 
+		elser (25) >> node_005 
+		elser (25) >> node_018 
+		elser (25) >> node_024 
+		endr 
+	else 
+		random (40) >> node_001 
+					>> node_072 
+		elser (30) >> node_005 
+		elser (30) >> node_018 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_069
+	if function#101() 
+		random (25) >> node_001 
+					>> node_072 
+		elser (25) >> node_005 
+		elser (25) >> node_018 
+		elser (25) >> node_024 
+		endr 
+	else 
+		random (40) >> node_001 
+					>> node_072 
+		elser (30) >> node_005 
+		elser (30) >> node_018 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_070
+	if function#101() 
+		random (25) >> node_001 
+					>> node_072 
+		elser (25) >> node_002 
+		elser (25) >> node_018 
+		elser (25) >> node_024 
+		endr 
+	else 
+		random (40) >> node_001 
+					>> node_072 
+		elser (30) >> node_002 
+		elser (30) >> node_018 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_071
+	if function#101() 
+		random (35) >> node_010 
+					>> node_072 
+		elser (30) >> node_018 
+		elser (35) >> node_024 
+		endr 
+	else 
+		random (50) >> node_010 
+					>> node_072 
+		elser (50) >> node_018 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_072
+	if self.distance_3d_to_target().leq(500) >> node_073 
+	elif self.distance_3d_to_target().leq(700) >> node_074 
+	elif self.distance_3d_to_target().leq(1000) >> node_075 
+	elif self.distance_3d_to_target().leq(1500) >> node_076 
+	else >> node_077 
+	endif 
+	return 
+endf 
+
+def node_073
+	if function#101() 
+		random (30) >> node_005 
+		elser (30) >> node_018 
+		elser (40) >> node_024 
+		endr 
+	else 
+		random (50) >> node_005 
+		elser (50) >> node_018 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_074
+	if function#101() 
+		random (30) >> node_005 
+		elser (30) >> node_018 
+		elser (40) >> node_024 
+		endr 
+	else 
+		random (50) >> node_005 
+		elser (50) >> node_018 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_075
+	if function#101() 
+		random (25) >> node_002 
+		elser (25) >> node_005 
+		elser (25) >> node_018 
+		elser (25) >> node_024 
+		endr 
+	else 
+		random (30) >> node_002 
+		elser (35) >> node_005 
+		elser (35) >> node_018 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_076
+	if function#101() 
+		random (30) >> node_002 
+		elser (35) >> node_018 
+		elser (35) >> node_024 
+		endr 
+	else 
+		random (50) >> node_002 
+		elser (50) >> node_018 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_077
+	if function#101() 
+		random (50) >> node_018 
+		elser (50) >> node_024 
+		endr 
+	else 
+		random (100) >> node_018 
+		elser (0) >> node_018 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_078
+	if function#D0(5) 
+		if self.distance_3d_to_target().leq(1200) 
+			if self.angle_2d_cw_between(45,315) 
+				>> node_045 
+				>> node_097 
+			else 
+				>> node_059 
+			endif 
+		else 
+			>> node_045 
+			>> node_097 
+		endif 
+	else 
+		>> node_045 
+		>> node_097 
+	endif 
+	return 
+endf 
+
+def node_079
+	>> node_006 
+	>> node_059 
+	return 
+endf 
+
+def node_080
+	>> node_122 
+	>> node_004 
+	return 
+endf 
+
+def node_081
+	>> node_010 
+	if function#2D(1) 
+	elif self.distance_3d_to_target().leq(1500) 
+	else 
+		if function#D0(5) 
+			>> node_038 
+		else 
+			>> node_019 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_082
+	>> node_010 
+	if function#2D(1) 
+	elif self.distance_3d_to_target().leq(1500) 
+	else 
+		>> node_008 
+	endif 
+	return 
+endf 
+
+def node_083
+	if function#D0(5) 
+		>> node_053 
+	else 
+		>> node_052 
+	endif 
+	>> node_011 
+	return 
+endf 
+
+def node_084
+	if function#D0(5) 
+		-> rajang.ex_jump_rolling_attack() 
+	else 
+		-> rajang.jump_rolling_attack() 
+	endif 
+	>> node_011 
+	return 
+endf 
+
+def node_085
+	>> node_022 
+	>> node_011 
+	return 
+endf 
+
+def node_086
+	if function#D0(5) 
+		>> node_216 
+		if self.distance_3d_to_target().leq(600) 
+			if self.angle_2d_cw_between(30,330) 
+				>> node_083 
+			else 
+				>> node_011 
+			endif 
+		elif self.distance_3d_to_target().leq(1400) 
+			>> node_011 
+		elif self.distance_3d_to_target().leq(2000) 
+			>> node_084 
+		else 
+			>> node_216 
+			>> node_011 
+		endif 
+	else 
+		>> node_210 
+		if self.distance_3d_to_target().leq(400) 
+			>> node_083 
+		elif self.distance_3d_to_target().leq(1000) 
+			>> node_011 
+		elif self.distance_3d_to_target().leq(2000) 
+			>> node_084 
+		else 
+			>> node_210 
+			>> node_011 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_087
+	if function#D0(5) 
+		-> rajang.attack_chance2() 
+	else 
+		-> rajang.attack_chance() 
+	endif 
+	return 
+endf 
+
+def node_088
+	-> rajang.pump_up() 
+	return 
+endf 
+
+def node_089
+	if self.enraged() 
+		if function#102() 
+			if self.quest_id(63149) 
+				if [RegisterVar12 <= 3] 
+					[RegisterVar12 |-] 
+					>> node_088 
+				else 
+				endif 
+			else 
+				if self.hp_percent().gt(25) 
+					if [RegisterVar12 <= 2] 
+						[RegisterVar12 |-] 
+						>> node_088 
+					else 
+					endif 
+				elif self.hp_percent().gt(50) 
+					if [RegisterVar12 <= 4] 
+						[RegisterVar12 |-] 
+						>> node_088 
+					else 
+					endif 
+				elif self.hp_percent().gt(75) 
+					if [RegisterVar12 <= 6] 
+						[RegisterVar12 |-] 
+						>> node_088 
+					else 
+					endif 
+				else 
+					if [RegisterVar12 <= 8] 
+						[RegisterVar12 |-] 
+						>> node_088 
+					else 
+					endif 
+				endif 
+			endif 
+		else 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_090
+	if self.enraged() 
+		if function#102() 
+			[RegisterVar12 ++] 
+		else 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_091
+	if [RegisterVar15 <= 1] 
+	else 
+		[RegisterVar14 ++] 
+	endif 
+	return 
+endf 
+
+def node_092
+	if self.target.helpless_0() 
+	elif self.target.pinned() 
+	elif function#2D() 
+		if function#D0(5) 
+			if [RegisterVar15 <= 1] 
+				if self.distance_3d_to_target().leq(600) 
+					[RegisterVar15 |-] 
+					if self.angle_2d_cw_between(30,330) 
+						>> node_083 
+					else 
+						>> node_011 
+					endif 
+					reset 
+				elif self.distance_3d_to_target().leq(1400) 
+					[RegisterVar15 |-] 
+					>> node_011 
+					reset 
+				elif self.distance_3d_to_target().leq(2000) 
+					[RegisterVar15 |-] 
+					random (60) >> node_084 
+					elser (40) >> node_085 
+					endr 
+					reset 
+				elif self.distance_3d_to_target().leq(2300) 
+					[RegisterVar15 |-] 
+					>> node_085 
+					reset 
+				else 
+					[RegisterVar15 |-] 
+					>> node_086 
+					reset 
+				endif 
+			else 
+				if [RegisterVar14 <= 15] 
+					[RegisterVar14 |-] 
+					[RegisterVar15 ++] 
+				else 
+				endif 
+			endif 
+		else 
+			if [RegisterVar15 <= 1] 
+				if self.distance_3d_to_target().leq(400) 
+					[RegisterVar15 |-] 
+					>> node_083 
+					reset 
+				elif self.distance_3d_to_target().leq(1000) 
+					[RegisterVar15 |-] 
+					>> node_011 
+					reset 
+				elif self.distance_3d_to_target().leq(2000) 
+					[RegisterVar15 |-] 
+					>> node_084 
+					reset 
+				else 
+					[RegisterVar15 |-] 
+					>> node_086 
+					reset 
+				endif 
+			else 
+				if [RegisterVar14 <= 15] 
+					[RegisterVar14 |-] 
+					[RegisterVar15 ++] 
+				else 
+				endif 
+			endif 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_093
+	if self.target.pinned() 
+	elif function#2D() 
+		if function#D0(5) 
+			if [RegisterVar15 <= 1] 
+				>> node_094 
+			elif [RegisterVar14 <= 5] 
+				random (30) 
+							>> node_094 
+				elser (70) 
+				endr 
+			elif [RegisterVar14 <= 8] 
+				random (50) 
+							>> node_094 
+				elser (50) 
+				endr 
+			elif [RegisterVar14 <= 10] 
+				random (70) 
+							>> node_094 
+				elser (30) 
+				endr 
+			else 
+			endif 
+		else 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_094
+	if self.distance_3d_to_target().leq(500) 
+		return 
+	elif self.distance_3d_to_target().leq(600) 
+		if self.angle_2d_cw_between(30,330) 
+			return 
+		else 
+		endif 
+	elif self.distance_3d_to_target().leq(800) 
+		if self.angle_2d_cw_between(25,335) 
+			return 
+		else 
+		endif 
+	elif self.distance_3d_to_target().leq(1200) 
+		if self.angle_2d_cw_between(20,340) 
+			return 
+		else 
+		endif 
+	elif self.distance_3d_to_target().leq(1400) 
+		if self.angle_2d_cw_between(15,345) 
+			return 
+		else 
+		endif 
+	else 
+		return 
+	endif 
+	[RegisterVar15 |-] 
+	[RegisterVar14 |-] 
+	>> node_011 
+	reset 
+endf 
+
+def node_095
+	if function#2D() 
+		if function#D0(5) 
+			if self.target.helpless_0() 
+				if [RegisterVar15 <= 1] 
+					[RegisterVar15 |-] 
+					if self.distance_3d_to_target().leq(600) 
+						if self.angle_2d_cw_between(30,330) 
+							>> node_083 
+						else 
+							>> node_012 
+						endif 
+						reset 
+					elif self.distance_3d_to_target().leq(1400) 
+						>> node_012 
+						reset 
+					else 
+						>> node_086 
+						reset 
+					endif 
+				elif self.hp_percent().gt(50) 
+					if [RegisterVar14 <= 6] 
+						[RegisterVar14 |-] 
+						if self.distance_3d_to_target().leq(600) 
+							if self.angle_2d_cw_between(30,330) 
+								>> node_083 
+							else 
+								>> node_012 
+							endif 
+							reset 
+						elif self.distance_3d_to_target().leq(1400) 
+							>> node_012 
+							reset 
+						else 
+							>> node_086 
+							reset 
+						endif 
+					else 
+					endif 
+				else 
+					if [RegisterVar14 <= 10] 
+						[RegisterVar14 |-] 
+						if self.distance_3d_to_target().leq(600) 
+							if self.angle_2d_cw_between(30,330) 
+								>> node_083 
+							else 
+								>> node_012 
+							endif 
+							reset 
+						elif self.distance_3d_to_target().leq(1400) 
+							>> node_012 
+							reset 
+						else 
+							>> node_086 
+							reset 
+						endif 
+					else 
+					endif 
+				else 
+				endif 
+			else 
+			endif 
+		else 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_096
+	if self.distance_3d_to_target().leq(2000) 
+		[RegisterVar13 ++] 
+		if self.distance_3d_to_target().leq(700) 
+			if [RegisterVar13 <= 3] 
+				[RegisterVar13 |-] 
+				>> node_045 
+				>> node_097 
+			else 
+			endif 
+		else 
+			if [RegisterVar13 <= 2] 
+				[RegisterVar13 |-] 
+				>> node_045 
+				>> node_097 
+			else 
+			endif 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_097
+	if function#D0(5) 
+		if self.distance_3d_to_target().leq(550) 
+		elif self.distance_3d_to_target().leq(1200) 
+			if self.angle_2d_cw_between(45,315) 
+				if function#101() 
+					random (70) >> node_007 
+					elser (30) 
+					endr 
+				else 
+					random (70) >> node_007 
+					elser (30) 
+					endr 
+				endif 
+			else 
+			endif 
+		elif self.distance_3d_to_target().leq(1500) 
+			if function#101() 
+				random (70) >> node_007 
+				elser (30) 
+				endr 
+			else 
+				random (70) >> node_007 
+				elser (30) 
+				endr 
+			endif 
+		else 
+		endif 
+	else 
+		if self.distance_3d_to_target().leq(550) 
+		elif self.distance_3d_to_target().leq(800) 
+			if function#101() 
+				random (50) >> node_007 
+				elser (50) 
+				endr 
+			else 
+				random (50) >> node_007 
+				elser (50) 
+				endr 
+			endif 
+		elif self.distance_3d_to_target().leq(1000) 
+			if function#101() 
+				random (60) >> node_007 
+				elser (40) 
+				endr 
+			else 
+				random (60) >> node_007 
+				elser (40) 
+				endr 
+			endif 
+		elif self.distance_3d_to_target().leq(1500) 
+			if function#101() 
+				random (70) >> node_007 
+				elser (30) 
+				endr 
+			else 
+				random (70) >> node_007 
+				elser (30) 
+				endr 
+			endif 
+		else 
+		endif 
+	endif 
+	>> node_059 
+	reset 
+	return 
+endf 
+
+def node_098
+	if function#101() 
+		if [RegisterVar11 <= 1] 
+		else 
+			[RegisterVar10 ++] 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_099
+	if function#101() 
+		if function#2D() 
+			if [RegisterVar11 <= 1] 
+				[RegisterVar11 |-] 
+				if self.distance_3d_to_target().leq(300) 
+					>> node_015 
+					reset 
+				elif self.distance_3d_to_target().leq(700) 
+					>> node_016 
+					reset 
+				elif self.distance_3d_to_target().leq(2000) 
+					>> node_014 
+					reset 
+				else 
+					>> node_017 
+					reset 
+				endif 
+			else 
+				if [RegisterVar10 <= 7] 
+					random (100) 
+								[RegisterVar10 |-] 
+								[RegisterVar11 ++] 
+					elser (0) 
+					endr 
+				elif [RegisterVar10 <= 6] 
+					random (75) 
+								[RegisterVar10 |-] 
+								[RegisterVar11 ++] 
+					elser (25) 
+					endr 
+				elif [RegisterVar10 <= 5] 
+					random (50) 
+								[RegisterVar10 |-] 
+								[RegisterVar11 ++] 
+					elser (50) 
+					endr 
+				else 
+				endif 
+			endif 
+		else 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_100
+	if [RegisterVar5 <= 1] 
+	else 
+		[RegisterVar4 ++] 
+	endif 
+	return 
+endf 
+
+def node_101
+	if function#2D() 
+		if [RegisterVar5 <= 1] 
+			[RegisterVar5 |-] 
+			>> node_038 
+			reset 
+		else 
+			if [RegisterVar4 <= 12] 
+				random (100) 
+							[RegisterVar4 |-] 
+							[RegisterVar5 ++] 
+				elser (0) 
+				endr 
+			elif [RegisterVar4 <= 8] 
+				random (30) 
+							[RegisterVar4 |-] 
+							[RegisterVar5 ++] 
+				elser (70) 
+				endr 
+			elif [RegisterVar4 <= 4] 
+				random (10) 
+							[RegisterVar4 |-] 
+							[RegisterVar5 ++] 
+				elser (90) 
+				endr 
+			else 
+			endif 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_102
+	if [RegisterVar6 <= 15] 
+		[RegisterVar6 |-] 
+		repeat 
+	elif [RegisterVar6 <= 11] 
+		random (50) 
+					[RegisterVar6 |-] 
+					repeat 
+		elser (50) 
+					[RegisterVar6 ++] 
+		endr 
+	elif [RegisterVar6 <= 7] 
+		random (20) 
+					[RegisterVar6 |-] 
+					repeat 
+		elser (80) 
+					[RegisterVar6 ++] 
+		endr 
+	elif [RegisterVar6 <= 3] 
+		random (10) 
+					[RegisterVar6 |-] 
+					repeat 
+		elser (90) 
+					[RegisterVar6 ++] 
+		endr 
+	elif [RegisterVar6 <= 1] 
+		[RegisterVar6 ++] 
+	else 
+		if self.hp_percent().gt(20) 
+			random (30) >> node_103 
+			elser (70) 
+			endr 
+		elif self.hp_percent().gt(40) 
+			random (50) >> node_103 
+			elser (50) 
+			endr 
+		elif self.hp_percent().gt(60) 
+			random (80) >> node_103 
+			elser (20) 
+			endr 
+		elif self.hp_percent().gt(80) 
+			random (30) >> node_103 
+			elser (70) 
+			endr 
+		else 
+			random (60) >> node_103 
+			elser (40) 
+			endr 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_103
+	if function#7F(1) 
+		[RegisterVar6 ++] 
+		-> rajang.catch_claw_attack_l() 
+		self.targetEnemy(48) 
+		if self.target.pinned() 
+			function#103() 
+			if self.vertical_distance_to_target().gt(500) 
+				-> rajang.catch_claw_attack_miss_l() 
+			else 
+				if function#D0(5) 
+					if function#101() 
+						-> rajang.ex_catch_claw_attack_success_r() 
+						function#109(3000,1) 
+						-> rajang.ex_catch_attack_success_punch_r() 
+						reset 
+					else 
+						-> rajang.ex_n_catch_claw_attack_success_r() 
+						-> rajang.ex_n_catch_finish_punch_r() 
+						reset 
+					endif 
+				else 
+					-> rajang.catch_claw_attack_success_l() 
+					-> rajang.catch_finish_punch_l() 
+					reset 
+				endif 
+			endif 
+		else 
+			-> rajang.catch_claw_attack_miss_l() 
+		endif 
+	elif function#7F(4) 
+		[RegisterVar6 ++] 
+		-> rajang.catch_claw_attack_r() 
+		self.targetEnemy(48) 
+		if self.target.pinned() 
+			function#103() 
+			if self.vertical_distance_to_target().gt(500) 
+				-> rajang.catch_claw_attack_miss_l() 
+			else 
+				if function#D0(5) 
+					if function#101() 
+						-> rajang.ex_catch_claw_attack_success_l() 
+						function#109(3000,1) 
+						-> rajang.ex_catch_attack_success_punch_l() 
+						reset 
+					else 
+						-> rajang.ex_n_catch_claw_attack_success_l() 
+						-> rajang.ex_n_catch_finish_punch_l() 
+						reset 
+					endif 
+				else 
+					-> rajang.catch_claw_attack_success_l() 
+					-> rajang.catch_finish_punch_l() 
+					reset 
+				endif 
+			endif 
+		else 
+			-> rajang.catch_claw_attack_miss_l() 
+		endif 
+	else 
+	endif 
+	if function#7F(1) 
+		random (50) >> node_001 
+		elser (50) >> node_003 
+		endr 
+	elif function#7F(4) 
+		random (50) >> node_001 
+		elser (50) >> node_003 
+		endr 
+	elif function#7F(2) 
+		random (50) >> node_058 
+		elser (50) >> node_003 
+		endr 
+	elif function#7F(3) 
+		random (50) >> node_058 
+		elser (50) >> node_003 
+		endr 
+	else 
+	endif 
+	return 
+endf 
+
+def node_104
+	if function#104() 
+		if function#D0(5) 
+			if self.hp_percent().leq(30) 
+				random (0) >> node_105 
+				elser (30) >> node_106 
+				elser (70) >> node_107 
+				endr 
+			elif self.hp_percent().leq(60) 
+				random (0) >> node_105 
+				elser (30) >> node_106 
+				elser (70) >> node_107 
+				endr 
+			else 
+				random (0) >> node_105 
+				elser (100) >> node_106 
+				elser (0) >> node_107 
+				endr 
+			endif 
+		else 
+			>> node_105 
+		endif 
+	elif function#106() 
+		>> node_174 
+	else 
+	endif 
+	return 
+endf 
+
+def node_105
+	self.targetEnemy(48) 
+	-> rajang.damage_down_avoid_success_attack() 
+	return 
+endf 
+
+def node_106
+	self.targetEnemy(48) 
+	if self.angle_2d_cw_between(0,180) 
+		-> rajang.grab_wall_swing_kiai_beam_to_idle_r() 
+	else 
+		-> rajang.grab_wall_swing_kiai_beam_to_idle_l() 
+	endif 
+	return 
+endf 
+
+def node_107
+	self.targetEnemy(48) 
+	if self.angle_2d_cw_between(0,180) 
+		-> rajang.grab_wall_swing_kiai_beam_r() 
+	else 
+		-> rajang.grab_wall_swing_kiai_beam_l() 
+	endif 
+	self.targetEnemy(48) 
+	-> rajang.damage_down_avoid_success_attack() 
+	return 
+endf 
+
+def node_108
+	if self.distance_3d_to_target().leq(1000) 
+		if [RegisterVar2 <= 1] 
+		else 
+			[RegisterVar1 ++] 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_109
+	if function#2D() 
+		if self.distance_3d_to_target().leq(1000) 
+			if [RegisterVar2 <= 1] 
+				[RegisterVar2 |-] 
+				>> node_049 
+			else 
+				if [RegisterVar1 <= 16] 
+					random (100) 
+								[RegisterVar1 |-] 
+								[RegisterVar2 ++] 
+					elser (0) 
+					endr 
+				elif [RegisterVar1 <= 10] 
+					random (30) 
+								[RegisterVar1 |-] 
+								[RegisterVar2 ++] 
+					elser (70) 
+					endr 
+				elif [RegisterVar1 <= 4] 
+					random (10) 
+								[RegisterVar1 |-] 
+								[RegisterVar2 ++] 
+					elser (90) 
+					endr 
+				else 
+				endif 
+			endif 
+		else 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_110
+	[RegisterVar9 ++] 
+	return 
+endf 
+
+def node_111
+	[RegisterVar9 |-] 
+	return 
+endf 
+
+def node_112
+	if self.vertical_distance_to_target().gt(800) 
+		if self.fatigued() 
+			-> rajang.jump_attack_wall_up() 
+		else 
+			>> node_018 
+		endif 
+	elif self.distance_3d_to_target().leq(500) 
+		if self.angle_2d_cw_between(15,130) 
+			>> node_001 
+		elif self.angle_2d_cw_between(130,230) 
+			>> node_058 
+		elif self.angle_2d_cw_between(230,345) 
+			>> node_001 
+		else 
+			if self.fatigued() 
+				>> node_002 
+			else 
+				>> node_018 
+			endif 
+		endif 
+	else 
+		if self.angle_2d_cw_between(15,130) 
+			>> node_010 
+		elif self.angle_2d_cw_between(130,230) 
+			>> node_010 
+		elif self.angle_2d_cw_between(230,345) 
+			>> node_010 
+		else 
+			if self.fatigued() 
+				>> node_002 
+			else 
+				>> node_018 
+			endif 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_113
+	>> node_018 
+	return 
+endf 
+
+def node_114
+	if self.in_combat() 
+		-> rajang.quick_turn() 
+	else 
+		-> rajang.turn() 
+	endif 
+	return 
+endf 
+
+def node_115
+	if self.angle_2d_cw_between(10,350) 
+		>> node_114 
+	else 
+	endif 
+	return 
+endf 
+
+def node_116
+	if self.angle_2d_cw_between(30,330) 
+		>> node_114 
+	else 
+	endif 
+	return 
+endf 
+
+def node_117
+	if self.angle_2d_cw_between(60,300) 
+		>> node_114 
+	else 
+	endif 
+	return 
+endf 
+
+def node_118
+	if self.angle_2d_cw_between(80,280) 
+		>> node_114 
+	else 
+	endif 
+	return 
+endf 
+
+def node_119
+	if self.angle_2d_cw_between(90,270) 
+		>> node_114 
+	else 
+	endif 
+	return 
+endf 
+
+def node_120
+	if self.angle_2d_cw_between(100,260) 
+		>> node_114 
+	else 
+	endif 
+	return 
+endf 
+
+def node_121
+	if self.angle_2d_cw_between(120,240) 
+		>> node_114 
+	else 
+	endif 
+	return 
+endf 
+
+def node_122
+	-> rajang.back_turn() 
+	return 
+endf 
+
+def node_123
+	-> rajang.back_turn_straight() 
+	return 
+endf 
+
+def node_124
+	-> rajang.back_turn_short() 
+	return 
+endf 
+
+def node_125
+	if self.distance_3d_to_target().leq(800) 
+		>> node_124 
+	elif self.angle_2d_cw_between(30,330) 
+		>> node_114 
+	else 
+	endif 
+	return 
+endf 
+
+def node_126
+	-> rajang.spin_attack() 
+	>> node_087 
+	return 
+endf 
+
+def node_127
+	-> rajang.body_press() 
+	>> node_087 
+	return 
+endf 
+
+def node_128
+	if self.angle_2d_cw_between(90,270) 
+		>> node_006 
+	else 
+	endif 
+	-> rajang.dig_up_ground_straight() 
+	return 
+endf 
+
+def node_129
+	if function#D0(5) 
+		if self.angle_2d_cw_between(0,180) 
+			-> rajang.turn_hook_l() 
+		else 
+			-> rajang.turn_hook_r() 
+		endif 
+		if self.angle_2d_cw_between(0,180) 
+			-> rajang.quadruple_punch_b() 
+			>> node_087 
+		else 
+			-> rajang.quadruple_punch_d() 
+			>> node_087 
+		endif 
+	else 
+		if self.angle_2d_cw_between(0,180) 
+			-> rajang.triple_punch_b() 
+			>> node_087 
+		else 
+			-> rajang.triple_punch_d() 
+			>> node_087 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_130
+	if self.angle_2d_cw_between(45,315) 
+		-> rajang.dive_punch_start() 
+	else 
+		-> rajang.dive_punch_start3() 
+	endif 
+	return 
+endf 
+
+def node_131
+	self.targetEnemy(48) 
+	if self.distance_3d_to_target().leq(700) 
+		self.targetArea(21) @ parameter2:700 
+		if function#D0(5) 
+			if self.angle_2d_cw_between(0,180) 
+				-> rajang.turn_hook_l() 
+			else 
+				-> rajang.turn_hook_r() 
+			endif 
+			if self.angle_2d_cw_between(0,180) 
+				-> rajang.quadruple_punch_b() 
+				>> node_087 
+			else 
+				-> rajang.quadruple_punch_d() 
+				>> node_087 
+			endif 
+		else 
+			if self.angle_2d_cw_between(0,180) 
+				-> rajang.triple_punch_b() 
+				>> node_087 
+			else 
+				-> rajang.triple_punch_d() 
+				>> node_087 
+			endif 
+		endif 
+	else 
+		self.targetArea(21) @ parameter2:700 
+		-> rajang.jump_punch_5way_thunder() 
+	endif 
+	return 
+endf 
+
+def node_132
+	if self.fatigued() 
+		random (5) >> node_175 
+		elser (95) 
+		endr 
+	else 
+	endif 
+	return 
+endf 
+
+def node_133
+	if function#5A() 
+		>> node_134 
+	elif function#5A(1) 
+		>> node_136 
+	elif function#5A(2) 
+		>> node_137 
+	elif function#5A(3) 
+		>> node_138 
+	elif function#5A(4) 
+		>> node_180 
+	elif function#5A(5) 
+		>> node_135 
+	elif function#5A(6) 
+		>> node_168 
+	elif function#5A(7) 
+		>> node_169 
+	else 
+		>> node_170 
+	endif 
+	return 
+endf 
+
+def node_134
+	random (30) >> node_167 
+	elser (5) >> node_168 
+	elser (5) >> node_169 
+	elser (10) >> node_170 
+	elser (25) >> node_172 
+	elser (25) >> node_173 
+	endr 
+	return 
+endf 
+
+def node_135
+	random (30) >> node_167 
+	elser (10) >> node_169 
+	elser (10) >> node_170 
+	elser (25) >> node_172 
+	elser (25) >> node_173 
+	endr 
+	return 
+endf 
+
+def node_136
+	>> node_167 
+	return 
+endf 
+
+def node_137
+	random (50) >> node_168 
+	elser (50) >> node_169 
+	endr 
+	return 
+endf 
+
+def node_138
+	random (45) >> node_170 
+	elser (30) >> node_172 
+	elser (25) >> node_173 
+	endr 
+	return 
+endf 
+
+def node_139
+	>> node_116 
+	-> rajang.sunbath() 
+	reset 
+endf 
+
+def node_140
+	-> rajang.sleep() 
+	return 
+endf 
+
+def node_141
+	>> node_114 
+	-> rajang.drink() 
+	reset 
+endf 
+
+def node_142
+	>> node_114 
+	-> rajang.eat() 
+	return 
+endf 
+
+def node_143
+	if function#2D(1) 
+		>> node_144 
+		>> node_161 
+		reset 
+	else 
+	endif 
+	return 
+endf 
+
+def node_144
+	if self.distance_3d_to_target().leq(2000) 
+		if function#101() 
+		else 
+			random (60) 
+						>> node_045 
+						>> node_145 
+			elser (40) 
+			endr 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_145
+	if self.distance_3d_to_target().leq(550) 
+	elif self.distance_3d_to_target().leq(1000) 
+		random (50) >> node_007 
+		elser (50) 
+		endr 
+	else 
+	endif 
+	return 
+endf 
+
+def node_146
+	if self.targetEnemy(target_em.any_monster) 
+		if self.target(13) 
+		else 
+			if self.vertical_distance_to_target().leq(1500) 
+				if self.distance_3d_to_target().leq(3000) 
+					if self.target_is(em.Rathian) 
+						>> node_151 
+					elif self.target_is(em.Pink_Rathian) 
+						>> node_151 
+					elif self.target_is(em.Rathalos) 
+						>> node_151 
+					elif self.target_is(em.Azure_Rathalos) 
+						>> node_151 
+					elif self.target_is(em.Yian_Garuga) 
+						>> node_151 
+					elif self.target_is(em.Scarred_Yian_Garuga) 
+						>> node_151 
+					elif self.target_is(em.PukeiPukei) 
+						>> node_151 
+					elif self.target_is(em.Coral_PukeiPukei) 
+						>> node_151 
+					elif self.target_is(em.Paolumu) 
+						>> node_151 
+					elif self.target_is(em.Nightshade_Paolumu) 
+						>> node_151 
+					elif self.target_is(em.Legiana) 
+						>> node_151 
+					elif self.target_is(em.Shrieking_Legiana) 
+						>> node_151 
+					elif self.target_is(em.Deviljho) 
+						>> node_150 
+					elif self.target_is(em.Savage_Deviljho) 
+						>> node_150 
+					elif self.target_is(em.Kirin) 
+						>> node_150 
+					elif self.target_is(em.Nergigante) 
+						>> node_150 
+					elif self.target_is(em.Ruiner_Nergigante) 
+						>> node_150 
+					elif self.target_is(em.Kushala_Daora) 
+						>> node_150 
+					elif self.target_is(em.Velkhana) 
+						>> node_150 
+					elif self.target_is(em.Lunastra) 
+						>> node_150 
+					elif self.target_is(em.Teostra) 
+						>> node_150 
+					elif self.target_is(em.Vaal_Hazak) 
+						>> node_150 
+					elif self.target_is(em.Blackveil_Vaal_Hazak) 
+						>> node_150 
+					elif self.target_is(em.Namielle) 
+						>> node_150 
+					elif function#30(1) 
+						>> node_148 
+					else 
+						>> node_149 
+					endif 
+				else 
+				endif 
+			else 
+			endif 
+		endif 
+	else 
+	endif 
+	if self.defense_downed() 
+		>> node_152 
+	else 
+	endif 
+	return 
+endf 
+
+def node_147
+	if self.in_map(st.Special_Arena).in_area(-1) 
+	elif self.in_map(st.Challenge_Arena).in_area(-1) 
+	else 
+		if [RegisterVar3 <= 10] 
+			>> node_159 
+			return 
+		else 
+			[RegisterVar3 ++] 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_148
+	if self.in_map(st.Special_Arena).in_area(-1) 
+	elif self.in_map(st.Challenge_Arena).in_area(-1) 
+	else 
+		if [RegisterVar3 <= 6] 
+			>> node_159 
+			return 
+		else 
+		endif 
+	endif 
+	if self.target.in_combat() 
+		if function#105() 
+			if self.target_is(em.Gold_Rathian) 
+				random (25) >> node_153 
+				elser (10) >> node_155 
+				elser (15) >> node_157 
+				elser (50) >> node_160 
+				endr 
+			elif self.target_is(em.Silver_Rathalos) 
+				random (25) >> node_153 
+				elser (10) >> node_155 
+				elser (15) >> node_157 
+				elser (50) >> node_160 
+				endr 
+			elif self.target_is(em.Lavasioth) 
+				if self.in_map(st.Guiding_Lands).in_area(-1) 
+					random (25) >> node_153 
+					elser (10) >> node_155 
+					elser (15) >> node_157 
+					elser (50) >> node_160 
+					endr 
+				else 
+					if self.in_combat() 
+						random (0) >> node_154 
+						elser (0) >> node_156 
+						elser (100) >> node_158 
+						endr 
+					else 
+						random (25) >> node_154 
+						elser (15) >> node_156 
+						elser (60) >> node_158 
+						endr 
+					endif 
+				endif 
+			else 
+				if self.in_combat() 
+					random (0) >> node_154 
+					elser (0) >> node_156 
+					elser (100) >> node_158 
+					endr 
+				else 
+					random (25) >> node_154 
+					elser (15) >> node_156 
+					elser (60) >> node_158 
+					endr 
+				endif 
+			endif 
+		else 
+			random (25) >> node_153 
+			elser (10) >> node_155 
+			elser (55) >> node_157 
+			elser (10) >> node_160 
+			endr 
+		endif 
+	else 
+		random (35) >> node_153 
+		elser (40) >> node_155 
+		elser (10) >> node_157 
+		elser (15) >> node_160 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_149
+	if self.in_map(st.Special_Arena).in_area(-1) 
+	elif self.in_map(st.Challenge_Arena).in_area(-1) 
+	else 
+		if [RegisterVar3 <= 10] 
+			>> node_159 
+			return 
+		else 
+		endif 
+	endif 
+	if self.target.in_combat() 
+		if function#105() 
+			if self.target_is(em.Gold_Rathian) 
+				random (25) >> node_153 
+				elser (10) >> node_155 
+				elser (15) >> node_157 
+				elser (50) >> node_160 
+				endr 
+			elif self.target_is(em.Silver_Rathalos) 
+				random (25) >> node_153 
+				elser (10) >> node_155 
+				elser (15) >> node_157 
+				elser (50) >> node_160 
+				endr 
+			elif self.target_is(em.Lavasioth) 
+				if self.in_map(st.Guiding_Lands).in_area(-1) 
+					random (25) >> node_153 
+					elser (10) >> node_155 
+					elser (15) >> node_157 
+					elser (50) >> node_160 
+					endr 
+				else 
+					if self.in_combat() 
+						random (0) >> node_154 
+						elser (0) >> node_156 
+						elser (100) >> node_158 
+						endr 
+					else 
+						random (20) >> node_154 
+						elser (10) >> node_156 
+						elser (70) >> node_158 
+						endr 
+					endif 
+				endif 
+			else 
+				if self.in_combat() 
+					random (0) >> node_154 
+					elser (0) >> node_156 
+					elser (100) >> node_158 
+					endr 
+				else 
+					random (20) >> node_154 
+					elser (10) >> node_156 
+					elser (70) >> node_158 
+					endr 
+				endif 
+			endif 
+		else 
+			if self.target_is(em.Lavasioth) 
+				if self.in_map(st.Guiding_Lands).in_area(-1) 
+					random (35) >> node_153 
+					elser (10) >> node_155 
+					elser (5) >> node_157 
+					elser (50) >> node_160 
+					endr 
+				else 
+					random (35) >> node_153 
+					elser (10) >> node_155 
+					elser (55) >> node_157 
+					elser (0) >> node_160 
+					endr 
+				endif 
+			else 
+				random (35) >> node_153 
+				elser (10) >> node_155 
+				elser (55) >> node_157 
+				elser (0) >> node_160 
+				endr 
+			endif 
+		endif 
+	else 
+		random (35) >> node_153 
+		elser (55) >> node_155 
+		elser (10) >> node_157 
+		elser (0) >> node_160 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_150
+	if self.target(39) 
+		>> node_148 
+	else 
+		if self.in_combat() 
+			if self.target.in_combat() 
+				if function#105() 
+					if self.in_combat() 
+						random (0) >> node_154 
+						elser (0) >> node_156 
+						elser (100) >> node_158 
+						endr 
+					else 
+						random (25) >> node_154 
+						elser (15) >> node_156 
+						elser (60) >> node_158 
+						endr 
+					endif 
+				else 
+					random (25) >> node_153 
+					elser (10) >> node_155 
+					elser (65) >> node_157 
+					endr 
+				endif 
+			else 
+				random (35) >> node_153 
+				elser (40) >> node_155 
+				elser (25) >> node_157 
+				endr 
+			endif 
+		else 
+			>> node_148 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_151
+	if self.target(39) 
+		>> node_149 
+	else 
+		if self.target.in_combat() 
+			if function#105() 
+				if self.in_combat() 
+					random (0) >> node_154 
+					elser (0) >> node_156 
+					elser (100) >> node_158 
+					endr 
+				else 
+					random (20) >> node_154 
+					elser (10) >> node_156 
+					elser (70) >> node_158 
+					endr 
+				endif 
+			else 
+				random (35) >> node_153 
+				elser (10) >> node_155 
+				elser (55) >> node_157 
+				endr 
+			endif 
+		else 
+			random (35) >> node_153 
+			elser (55) >> node_155 
+			elser (10) >> node_157 
+			endr 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_152
+	if function#31(49,3000) 
+		random (50) 
+					self.targetEnemy(target_em.closest_entity) 
+					>> node_018 
+		elser (50) 
+		endr 
+	else 
+	endif 
+	return 
+endf 
+
+def node_153
+	[RegisterVar3 ++] 
+	return 
+endf 
+
+def node_154
+	return 
+endf 
+
+def node_155
+	[RegisterVar3 ++] 
+	>> node_116 
+	>> node_176 
+	return 
+endf 
+
+def node_156
+	>> node_116 
+	>> node_176 
+	return 
+endf 
+
+def node_157
+	>> node_220 
+	[RegisterVar3 ++] 
+	>> node_161 
+	return 
+endf 
+
+def node_158
+	>> node_220 
+	>> node_161 
+	return 
+endf 
+
+def node_159
+	[RegisterVar3 |-] 
+	self.force_area_change2() 
+	return 
+endf 
+
+def node_160
+	[RegisterVar3 ++] 
+	[RegisterVar3 ++] 
+	[RegisterVar3 ++] 
+	[RegisterVar3 ++] 
+	[RegisterVar3 ++] 
+	>> node_157 
+	>> node_159 
+	return 
+endf 
+
+def node_161
+	if self.target(44) 
+		if self.vertical_distance_to_target().gt(800) >> node_018 
+		elif self.distance_3d_to_target().leq(500) >> node_162 
+		elif self.distance_3d_to_target().leq(700) >> node_163 
+		elif self.distance_3d_to_target().leq(1000) >> node_164 
+		elif self.distance_3d_to_target().leq(1500) >> node_165 
+		else >> node_166 
+		endif 
+	else 
+		if self.vertical_distance_to_target().gt(800) 
+			random (25) >> node_207 
+			elser (25) >> node_209 
+			elser (25) >> node_212 
+			elser (25) >> node_217 
+			endr 
+		else 
+		endif 
+		if self.distance_3d_to_target().leq(500) >> node_162 
+		elif self.distance_3d_to_target().leq(700) >> node_163 
+		elif self.distance_3d_to_target().leq(1000) >> node_164 
+		elif self.distance_3d_to_target().leq(1500) >> node_165 
+		else >> node_166 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_162
+	if function#D0(5) 
+		if function#101() 
+			if self.target(44) 
+				random (15) >> node_006 
+				elser (20) >> node_129 
+				elser (25) >> node_001 
+				elser (10) >> node_022 
+				elser (5) >> node_026 
+				elser (5) >> node_027 
+				elser (20) >> node_024 
+				endr 
+			else 
+				random (5) >> node_006 
+				elser (15) >> node_129 
+				elser (20) >> node_001 
+				elser (25) >> node_015 
+				elser (10) >> node_022 
+				elser (5) >> node_026 
+				elser (5) >> node_027 
+				elser (15) >> node_024 
+				endr 
+			endif 
+		else 
+			random (40) >> node_006 
+			elser (40) >> node_001 
+			elser (10) >> node_022 
+			elser (5) >> node_026 
+			elser (5) >> node_027 
+			endr 
+		endif 
+	else 
+		if function#101() 
+			if self.target(44) 
+				random (15) >> node_008 
+				elser (20) >> node_128 
+				elser (20) >> node_129 
+				elser (20) >> node_013 
+				elser (25) >> node_001 
+				endr 
+			else 
+				random (5) >> node_008 
+				elser (15) >> node_128 
+				elser (15) >> node_129 
+				elser (15) >> node_013 
+				elser (20) >> node_001 
+				elser (30) >> node_015 
+				endr 
+			endif 
+		else 
+			random (35) >> node_008 
+			elser (40) >> node_006 
+			elser (25) >> node_001 
+			endr 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_163
+	if function#D0(5) 
+		if function#101() 
+			if self.target(44) 
+				random (25) >> node_129 
+				elser (30) >> node_001 
+				elser (5) >> node_005 
+				elser (10) >> node_022 
+				elser (5) >> node_026 
+				elser (5) >> node_027 
+				elser (20) >> node_024 
+				endr 
+			else 
+				random (15) >> node_129 
+				elser (20) >> node_001 
+				elser (5) >> node_005 
+				elser (25) >> node_015 
+				elser (10) >> node_022 
+				elser (5) >> node_026 
+				elser (5) >> node_027 
+				elser (15) >> node_024 
+				endr 
+			endif 
+		else 
+			random (75) >> node_001 
+			elser (5) >> node_005 
+			elser (10) >> node_022 
+			elser (5) >> node_026 
+			elser (5) >> node_027 
+			endr 
+		endif 
+	else 
+		if function#101() 
+			if self.target(44) 
+				random (15) >> node_008 
+				elser (10) >> node_005 
+				elser (25) >> node_129 
+				elser (25) >> node_013 
+				elser (25) >> node_001 
+				endr 
+			else 
+				random (5) >> node_008 
+				elser (5) >> node_005 
+				elser (20) >> node_129 
+				elser (20) >> node_013 
+				elser (20) >> node_001 
+				elser (30) >> node_016 
+				endr 
+			endif 
+		else 
+			random (35) >> node_008 
+			elser (40) >> node_005 
+			elser (25) >> node_001 
+			endr 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_164
+	if function#D0(5) 
+		if function#101() 
+			if self.target(44) 
+				random (20) >> node_008 
+				elser (5) >> node_002 
+				elser (10) >> node_005 
+				elser (20) >> node_001 
+				elser (25) >> node_022 
+				elser (20) >> node_024 
+				endr 
+			else 
+				random (5) >> node_008 
+				elser (5) >> node_002 
+				elser (5) >> node_005 
+				elser (15) >> node_001 
+				elser (25) >> node_022 
+				elser (25) >> node_014 
+				elser (20) >> node_024 
+				endr 
+			endif 
+		else 
+			random (20) >> node_008 
+			elser (15) >> node_002 
+			elser (20) >> node_005 
+			elser (20) >> node_001 
+			elser (25) >> node_022 
+			endr 
+		endif 
+	else 
+		if function#101() 
+			if self.target(44) 
+				random (25) >> node_008 
+				elser (30) >> node_002 
+				elser (20) >> node_005 
+				elser (25) >> node_001 
+				endr 
+			else 
+				random (15) >> node_008 
+				elser (20) >> node_002 
+				elser (15) >> node_005 
+				elser (20) >> node_001 
+				elser (30) >> node_014 
+				endr 
+			endif 
+		else 
+			random (25) >> node_008 
+			elser (30) >> node_002 
+			elser (20) >> node_005 
+			elser (25) >> node_001 
+			endr 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_165
+	if function#D0(5) 
+		if function#101() 
+			if self.target(44) 
+				random (25) >> node_008 
+				elser (30) >> node_010 
+				elser (20) >> node_222 
+							>> node_022 
+				elser (25) >> node_001 
+				endr 
+			else 
+				random (15) >> node_008 
+				elser (20) >> node_010 
+				elser (20) >> node_222 
+							>> node_022 
+				elser (15) >> node_001 
+				elser (30) >> node_014 
+				endr 
+			endif 
+		else 
+			random (25) >> node_008 
+			elser (30) >> node_010 
+			elser (20) >> node_222 
+						>> node_022 
+			elser (25) >> node_001 
+			endr 
+		endif 
+	else 
+		if function#101() 
+			if self.target(44) 
+				random (25) >> node_008 
+				elser (30) >> node_010 
+				elser (20) >> node_019 
+				elser (25) >> node_001 
+				endr 
+			else 
+				random (15) >> node_008 
+				elser (20) >> node_010 
+				elser (15) >> node_019 
+				elser (20) >> node_001 
+				elser (30) >> node_014 
+				endr 
+			endif 
+		else 
+			random (25) >> node_008 
+			elser (30) >> node_010 
+			elser (20) >> node_019 
+			elser (25) >> node_001 
+			endr 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_166
+	if function#D0(5) 
+		if function#101() 
+			if self.target(44) 
+				random (25) >> node_008 
+				elser (30) >> node_010 
+				elser (20) >> node_222 
+							>> node_022 
+				elser (25) >> node_214 
+							>> node_001 
+				endr 
+			else 
+				random (15) >> node_008 
+				elser (20) >> node_010 
+				elser (20) >> node_222 
+							>> node_022 
+				elser (15) >> node_214 
+							>> node_001 
+				elser (30) >> node_220 
+							>> node_014 
+				endr 
+			endif 
+		else 
+			random (25) >> node_008 
+			elser (30) >> node_010 
+			elser (20) >> node_222 
+						>> node_022 
+			elser (25) >> node_214 
+						>> node_001 
+			endr 
+		endif 
+	else 
+		if function#101() 
+			if self.target(44) 
+				random (25) >> node_008 
+				elser (30) >> node_010 
+				elser (20) >> node_019 
+				elser (25) >> node_214 
+							>> node_001 
+				endr 
+			else 
+				random (15) >> node_008 
+				elser (20) >> node_010 
+				elser (15) >> node_019 
+				elser (20) >> node_214 
+							>> node_001 
+				elser (30) >> node_220 
+							>> node_014 
+				endr 
+			endif 
+		else 
+			random (25) >> node_008 
+			elser (30) >> node_010 
+			elser (20) >> node_019 
+			elser (25) >> node_214 
+						>> node_001 
+			endr 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_167
+	if function#3C() 
+		-> rajang.life_search_2() 
+	else 
+		-> rajang.life_search_3() 
+	endif 
+	return 
+endf 
+
+def node_168
+	-> rajang.life_search_4() 
+	return 
+endf 
+
+def node_169
+	-> rajang.life_search_5() 
+	return 
+endf 
+
+def node_170
+	-> rajang.life_search_1() 
+	return 
+endf 
+
+def node_171
+	if self.enraged() 
+		-> rajang.lost_search() 
+	else 
+		-> rajang.lost_search() 
+	endif 
+	return 
+endf 
+
+def node_172
+	if self.in_combat() 
+		-> rajang.sniff_combat_s() 
+	else 
+		-> rajang.sniff_s() 
+	endif 
+	return 
+endf 
+
+def node_173
+	if self.in_combat() 
+		-> rajang.sniff_combat_l() 
+	else 
+		-> rajang.sniff_l() 
+	endif 
+	return 
+endf 
+
+def node_174
+	-> rajang.refresh() 
+	return 
+endf 
+
+def node_175
+	-> rajang.idle_tired() 
+	return 
+endf 
+
+def node_176
+	-> rajang.roar() 
+	return 
+endf 
+
+def node_177
+	-> rajang.threat_short() 
+	return 
+endf 
+
+def node_178
+	-> rajang.threat() 
+	return 
+endf 
+
+def node_179
+	-> rajang.intimidation() 
+	return 
+endf 
+
+def node_180
+	>> node_116 
+	-> rajang.marking() 
+	return 
+endf 
+
+def node_181
+	if self.distance_3d_to_target().leq(5000) 
+		>> node_182 
+	else 
+		>> node_183 
+	endif 
+	return 
+endf 
+
+def node_182
+	-> rajang.walk(2,1,0,2000,4000) 
+	return 
+endf 
+
+def node_183
+	-> rajang.dash(2,1,0,6000,4000) 
+	return 
+endf 
+
+def node_184
+	if self.distance_3d_to_target().leq(1500) 
+	elif self.distance_3d_to_target().leq(3500) 
+		random (50) >> node_172 
+		elser (25) >> node_173 
+		elser (25) >> node_176 
+		endr 
+	else 
+	endif 
+	return 
+endf 
+
+def node_185
+	random (50) >> node_172 
+	elser (25) >> node_173 
+	elser (25) >> node_176 
+	endr 
+	return 
+endf 
+
+def node_186
+	>> node_187 
+	>> node_188 
+	return 
+endf 
+
+def node_187
+	if self.target_is(em.Aptonoth) 
+		if self.distance_3d_to_target().leq(1000) 
+			>> node_122 
+		else 
+		endif 
+		>> node_222 
+		if self.vertical_distance_to_target().gt(450) 
+			>> node_207 
+		else 
+		endif 
+	elif self.target_is(em.Apceros) 
+		if self.distance_3d_to_target().leq(1000) 
+			>> node_122 
+		else 
+		endif 
+		>> node_222 
+		if self.vertical_distance_to_target().gt(450) 
+			>> node_207 
+		else 
+		endif 
+	elif self.target_is(em.Raphinos) 
+		>> node_212 
+	elif self.target_is(em.Gastodon) 
+		if self.distance_3d_to_target().leq(1000) 
+			>> node_122 
+		else 
+		endif 
+		>> node_222 
+		if self.vertical_distance_to_target().gt(450) 
+			>> node_207 
+		else 
+		endif 
+	elif self.target_is(em.Popo) 
+		if self.distance_3d_to_target().leq(1000) 
+			>> node_122 
+		else 
+		endif 
+		>> node_222 
+		if self.vertical_distance_to_target().gt(450) 
+			>> node_207 
+		else 
+		endif 
+	elif self.target_is(em.Anteka) 
+		if self.distance_3d_to_target().leq(1000) 
+			>> node_122 
+		else 
+		endif 
+		>> node_222 
+		if self.vertical_distance_to_target().gt(450) 
+			>> node_207 
+		else 
+		endif 
+	elif self.target_is(em.Cortos) 
+		>> node_212 
+	else 
+		>> node_222 
+	endif 
+	return 
+endf 
+
+def node_188
+	if self.target_is(em.Aptonoth) 
+		-> rajang.predator_attack() 
+	elif self.target_is(em.Apceros) 
+		-> rajang.predator_attack() 
+	elif self.target_is(em.Raphinos) 
+		-> rajang.predator_attack3() 
+	elif self.target_is(em.Gastodon) 
+		-> rajang.predator_attack() 
+	elif self.target_is(em.Popo) 
+		-> rajang.predator_attack() 
+	elif self.target_is(em.Anteka) 
+		-> rajang.predator_attack() 
+	elif self.target_is(em.Cortos) 
+		-> rajang.predator_attack3() 
+	else 
+		-> rajang.predator_attack3() 
+	endif 
+	return 
+endf 
+
+def node_189
+	-> rajang.predator_give_up() 
+	return 
+endf 
+
+def node_190
+	if self.target_is(em.Aptonoth) 
+		>> node_207 
+		>> node_114 
+	elif self.target_is(em.Apceros) 
+		>> node_207 
+		>> node_114 
+	elif self.target_is(em.Raphinos) 
+		>> node_207 
+		>> node_114 
+	elif self.target_is(em.Gastodon) 
+		>> node_207 
+		>> node_114 
+	elif self.target_is(em.Popo) 
+		>> node_207 
+		>> node_114 
+	elif self.target_is(em.Anteka) 
+		>> node_207 
+		>> node_114 
+	elif self.target_is(em.Cortos) 
+		>> node_207 
+		>> node_114 
+	else 
+		if self.distance_3d_to_target().leq(500) 
+			>> node_125 
+		else 
+		endif 
+		>> node_207 
+		>> node_114 
+	endif 
+	-> rajang.predator_eat() 
+	return 
+endf 
+
+def node_191
+	if function#6B(10000) 
+		self.targetEnemy(26) 
+		>> node_172 
+		>> node_193 
+		if function#6B(600) 
+			>> node_194 
+			reset 
+		else 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_192
+	if function#6B(10000) 
+		self.targetEnemy(26) 
+		>> node_172 
+		>> node_193 
+		if function#6B(600) 
+			>> node_194 
+			conclude 
+		else 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_193
+	>> node_204 
+	return 
+endf 
+
+def node_194
+	>> node_116 
+	-> rajang.eat() 
+	return 
+endf 
+
+def node_195
+	if function#C4(15000) 
+		self.targetArea(60) 
+		>> node_204 
+		>> node_114 
+		if function#C4(600) 
+			-> rajang.eat() 
+		else 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_196
+	if self.distance_3d_to_target().leq(500) 
+		return 
+	else 
+		>> node_197 
+	endif 
+	if self.distance_3d_to_target().leq(500) 
+		return 
+	else 
+		>> node_197 
+	endif 
+	if self.distance_3d_to_target().leq(500) 
+		return 
+	else 
+		>> node_197 
+	endif 
+	return 
+endf 
+
+def node_197
+	if self.in_combat() 
+		-> rajang.walk_combat(2,1,5,1500,400) 
+	elif self.fatigued() 
+		-> rajang.walk_tired(2,1,5,1500,400) 
+	else 
+		-> rajang.walk(2,1,5,1500,400) 
+	endif 
+	return 
+endf 
+
+def node_198
+	>> node_199 
+	if self.distance_3d_to_target().leq(800) 
+		return 
+	else 
+		>> node_171 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_199
+	if self.in_combat() 
+		-> rajang.walk_combat(2,1,5,500,800) 
+	elif self.fatigued() 
+		-> rajang.walk_tired(2,1,5,500,800) 
+	else 
+		-> rajang.walk(2,1,5,500,800) 
+	endif 
+	return 
+endf 
+
+def node_200
+	if self.distance_3d_to_target().leq(600) 
+		return 
+	else 
+		>> node_201 
+	endif 
+	if self.distance_3d_to_target().leq(600) 
+		return 
+	else 
+		>> node_201 
+	endif 
+	if self.distance_3d_to_target().leq(600) 
+		return 
+	else 
+		>> node_201 
+	endif 
+	return 
+endf 
+
+def node_201
+	if self.in_combat() 
+		-> rajang.dash_combat(2,1,0,500,500) 
+	elif self.fatigued() 
+		-> rajang.dash_tired(2,1,0,500,500) 
+	else 
+		-> rajang.dash(2,1,0,500,500) 
+	endif 
+	return 
+endf 
+
+def node_202
+	if self.distance_3d_to_target().leq(800) 
+		return 
+	else 
+		>> node_203 
+	endif 
+	if self.distance_3d_to_target().leq(800) 
+		return 
+	else 
+		>> node_203 
+	endif 
+	if self.distance_3d_to_target().leq(800) 
+		return 
+	else 
+		>> node_203 
+	endif 
+	return 
+endf 
+
+def node_203
+	if self.in_combat() 
+		-> rajang.dash_combat(2,1,0,500,800) 
+	elif self.fatigued() 
+		-> rajang.dash_tired(2,1,0,500,800) 
+	else 
+		-> rajang.dash(2,1,0,500,800) 
+	endif 
+	return 
+endf 
+
+def node_204
+	if self.distance_3d_to_target().leq(500) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,500,500) 
+		elif self.fatigued() 
+			-> rajang.dash_tired(2,1,0,500,500) 
+		else 
+			-> rajang.dash(2,1,0,500,500) 
+		endif 
+	endif 
+	repeat 
+endf 
+
+def node_205
+	if self.distance_3d_to_target().leq(600) 
+		return 
+	else 
+		>> node_206 
+	endif 
+	if self.distance_3d_to_target().leq(600) 
+		return 
+	else 
+		>> node_206 
+	endif 
+	if self.distance_3d_to_target().leq(600) 
+		return 
+	else 
+		>> node_206 
+	endif 
+	return 
+endf 
+
+def node_206
+	if self.in_combat() 
+		-> rajang.dash_combat(2,1,0,1000,500) 
+	elif self.fatigued() 
+		-> rajang.dash_tired(2,1,0,1000,500) 
+	else 
+		-> rajang.dash(2,1,0,1000,500) 
+	endif 
+	return 
+endf 
+
+def node_207
+	if self.distance_3d_to_target().leq(500) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,500) 
+		else 
+			-> rajang.dash(2,1,0,800,500) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(500) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,500) 
+		else 
+			-> rajang.dash(2,1,0,800,500) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(500) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,500) 
+		else 
+			-> rajang.dash(2,1,0,800,500) 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_208
+	if self.distance_3d_to_target().leq(600) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,600) 
+		else 
+			-> rajang.dash(2,1,0,800,600) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(600) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,600) 
+		else 
+			-> rajang.dash(2,1,0,800,600) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(600) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,600) 
+		else 
+			-> rajang.dash(2,1,0,800,600) 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_209
+	if self.distance_3d_to_target().leq(700) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,700) 
+		else 
+			-> rajang.dash(2,1,0,800,700) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(700) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,700) 
+		else 
+			-> rajang.dash(2,1,0,800,700) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(700) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,700) 
+		else 
+			-> rajang.dash(2,1,0,800,700) 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_210
+	if self.distance_3d_to_target().leq(800) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,800) 
+		else 
+			-> rajang.dash(2,1,0,800,800) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(800) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,800) 
+		else 
+			-> rajang.dash(2,1,0,800,800) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(800) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,800) 
+		else 
+			-> rajang.dash(2,1,0,800,800) 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_211
+	if self.distance_3d_to_target().leq(900) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,900) 
+		else 
+			-> rajang.dash(2,1,0,800,900) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(900) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,900) 
+		else 
+			-> rajang.dash(2,1,0,800,900) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(900) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,900) 
+		else 
+			-> rajang.dash(2,1,0,800,900) 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_212
+	if self.distance_3d_to_target().leq(1000) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,1000) 
+		else 
+			-> rajang.dash(2,1,0,800,1000) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(1000) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,1000) 
+		else 
+			-> rajang.dash(2,1,0,800,1000) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(1000) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,1000) 
+		else 
+			-> rajang.dash(2,1,0,800,1000) 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_213
+	if self.distance_3d_to_target().leq(1100) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,1100) 
+		else 
+			-> rajang.dash(2,1,0,800,1100) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(1100) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,1100) 
+		else 
+			-> rajang.dash(2,1,0,800,1100) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(1100) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,1100) 
+		else 
+			-> rajang.dash(2,1,0,800,1100) 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_214
+	if self.distance_3d_to_target().leq(1200) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,1200) 
+		else 
+			-> rajang.dash(2,1,0,800,1200) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(1200) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,1200) 
+		else 
+			-> rajang.dash(2,1,0,800,1200) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(1200) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,1200) 
+		else 
+			-> rajang.dash(2,1,0,800,1200) 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_215
+	if self.distance_3d_to_target().leq(1300) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,1300) 
+		else 
+			-> rajang.dash(2,1,0,800,1300) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(1300) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,1300) 
+		else 
+			-> rajang.dash(2,1,0,800,1300) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(1300) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,1300) 
+		else 
+			-> rajang.dash(2,1,0,800,1300) 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_216
+	if self.distance_3d_to_target().leq(1400) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,1400) 
+		else 
+			-> rajang.dash(2,1,0,800,1400) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(1400) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,1400) 
+		else 
+			-> rajang.dash(2,1,0,800,1400) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(1400) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,1400) 
+		else 
+			-> rajang.dash(2,1,0,800,1400) 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_217
+	if self.distance_3d_to_target().leq(1500) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,1500) 
+		else 
+			-> rajang.dash(2,1,0,800,1500) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(1500) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,1500) 
+		else 
+			-> rajang.dash(2,1,0,800,1500) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(1500) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,1500) 
+		else 
+			-> rajang.dash(2,1,0,800,1500) 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_218
+	if self.distance_3d_to_target().leq(1600) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,1600) 
+		else 
+			-> rajang.dash(2,1,0,800,1600) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(1600) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,1600) 
+		else 
+			-> rajang.dash(2,1,0,800,1600) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(1600) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,1600) 
+		else 
+			-> rajang.dash(2,1,0,800,1600) 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_219
+	if self.distance_3d_to_target().leq(1700) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,1700) 
+		else 
+			-> rajang.dash(2,1,0,800,1700) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(1700) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,1700) 
+		else 
+			-> rajang.dash(2,1,0,800,1700) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(1700) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,1700) 
+		else 
+			-> rajang.dash(2,1,0,800,1700) 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_220
+	if self.distance_3d_to_target().leq(1800) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,1800) 
+		else 
+			-> rajang.dash(2,1,0,800,1800) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(1800) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,1800) 
+		else 
+			-> rajang.dash(2,1,0,800,1800) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(1800) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,1800) 
+		else 
+			-> rajang.dash(2,1,0,800,1800) 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_221
+	if self.distance_3d_to_target().leq(1900) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,1900) 
+		else 
+			-> rajang.dash(2,1,0,800,1900) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(1900) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,1900) 
+		else 
+			-> rajang.dash(2,1,0,800,1900) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(1900) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,1900) 
+		else 
+			-> rajang.dash(2,1,0,800,1900) 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_222
+	if self.distance_3d_to_target().leq(2000) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,2000) 
+		else 
+			-> rajang.dash(2,1,0,800,2000) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(2000) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,2000) 
+		else 
+			-> rajang.dash(2,1,0,800,2000) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(2000) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,2000) 
+		else 
+			-> rajang.dash(2,1,0,800,2000) 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_223
+	if self.distance_3d_to_target().leq(2100) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,2100) 
+		else 
+			-> rajang.dash(2,1,0,800,2100) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(2100) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,2100) 
+		else 
+			-> rajang.dash(2,1,0,800,2100) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(2100) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,2100) 
+		else 
+			-> rajang.dash(2,1,0,800,2100) 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_224
+	if self.distance_3d_to_target().leq(2200) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,2200) 
+		else 
+			-> rajang.dash(2,1,0,800,2200) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(2200) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,2200) 
+		else 
+			-> rajang.dash(2,1,0,800,2200) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(2200) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,2200) 
+		else 
+			-> rajang.dash(2,1,0,800,2200) 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_225
+	if self.distance_3d_to_target().leq(2300) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,2300) 
+		else 
+			-> rajang.dash(2,1,0,800,2300) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(2300) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,2300) 
+		else 
+			-> rajang.dash(2,1,0,800,2300) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(2300) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,2300) 
+		else 
+			-> rajang.dash(2,1,0,800,2300) 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_226
+	if self.distance_3d_to_target().leq(2400) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,2400) 
+		else 
+			-> rajang.dash(2,1,0,800,2400) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(2400) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,2400) 
+		else 
+			-> rajang.dash(2,1,0,800,2400) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(2400) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,2400) 
+		else 
+			-> rajang.dash(2,1,0,800,2400) 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_227
+	if self.distance_3d_to_target().leq(2500) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,2500) 
+		else 
+			-> rajang.dash(2,1,0,800,2500) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(2500) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,2500) 
+		else 
+			-> rajang.dash(2,1,0,800,2500) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(2500) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,2500) 
+		else 
+			-> rajang.dash(2,1,0,800,2500) 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_228
+	if self.distance_3d_to_target().leq(2600) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,2600) 
+		else 
+			-> rajang.dash(2,1,0,800,2600) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(2600) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,2600) 
+		else 
+			-> rajang.dash(2,1,0,800,2600) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(2600) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,2600) 
+		else 
+			-> rajang.dash(2,1,0,800,2600) 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_229
+	if self.distance_3d_to_target().leq(2700) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,2700) 
+		else 
+			-> rajang.dash(2,1,0,800,2700) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(2700) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,2700) 
+		else 
+			-> rajang.dash(2,1,0,800,2700) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(2700) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,2700) 
+		else 
+			-> rajang.dash(2,1,0,800,2700) 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_230
+	if self.distance_3d_to_target().leq(2800) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,2800) 
+		else 
+			-> rajang.dash(2,1,0,800,2800) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(2800) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,2800) 
+		else 
+			-> rajang.dash(2,1,0,800,2800) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(2800) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,2800) 
+		else 
+			-> rajang.dash(2,1,0,800,2800) 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_231
+	if self.distance_3d_to_target().leq(2900) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,2900) 
+		else 
+			-> rajang.dash(2,1,0,800,2900) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(2900) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,2900) 
+		else 
+			-> rajang.dash(2,1,0,800,2900) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(2900) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,2900) 
+		else 
+			-> rajang.dash(2,1,0,800,2900) 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_232
+	if self.distance_3d_to_target().leq(3000) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,3000) 
+		else 
+			-> rajang.dash(2,1,0,800,3000) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(3000) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,3000) 
+		else 
+			-> rajang.dash(2,1,0,800,3000) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(3000) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,3000) 
+		else 
+			-> rajang.dash(2,1,0,800,3000) 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_233
+	if self.distance_3d_to_target().leq(500) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,1,0,800,500) 
+		else 
+			-> rajang.dash(2,1,0,800,500) 
+		endif 
+	endif 
+	repeat 
+endf 
+
+def node_234
+	if self.in_combat() 
+		-> rajang.dash_combat(2,6,0,800,1000) 
+	else 
+		-> rajang.dash(2,6,0,800,1000) 
+	endif 
+	if self.distance_2d_to_target().leq(1000) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,6,0,800,1000) 
+		else 
+			-> rajang.dash(2,6,0,800,1000) 
+		endif 
+	endif 
+	if self.distance_2d_to_target().leq(1000) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,6,0,800,1000) 
+		else 
+			-> rajang.dash(2,6,0,800,1000) 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_235
+	if self.in_combat() 
+		-> rajang.dash_combat(2,6,0,800,1500) 
+	else 
+		-> rajang.dash(2,6,0,800,1500) 
+	endif 
+	if self.distance_2d_to_target().leq(1500) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,6,0,800,1500) 
+		else 
+			-> rajang.dash(2,6,0,800,1500) 
+		endif 
+	endif 
+	if self.distance_2d_to_target().leq(1500) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,6,0,800,1500) 
+		else 
+			-> rajang.dash(2,6,0,800,1500) 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_236
+	if self.in_combat() 
+		-> rajang.dash_combat(2,6,0,800,2000) 
+	else 
+		-> rajang.dash(2,6,0,800,2000) 
+	endif 
+	if self.distance_2d_to_target().leq(2000) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,6,0,800,2000) 
+		else 
+			-> rajang.dash(2,6,0,800,2000) 
+		endif 
+	endif 
+	if self.distance_2d_to_target().leq(2000) 
+		return 
+	else 
+		if self.in_combat() 
+			-> rajang.dash_combat(2,6,0,800,2000) 
+		else 
+			-> rajang.dash(2,6,0,800,2000) 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_237
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if self.target.mudded() 
+		>> node_217 
+		>> node_113 
+	else 
+	endif 
+	if function#5D() 
+		function#5E() 
+		self.targetEnemy(target_em.random_player_or_cat) 
+		>> node_238 
+		self.targetArea(4) 
+	else 
+		self.targetEnemy(target_em.random_player_or_cat) 
+	endif 
+	return 
+endf 
+
+def node_238
+	if self.angle_2d_cw_between(90,270) 
+		>> node_240 
+	elif self.distance_3d_to_target().gt(3000) 
+		>> node_240 
+	else 
+		>> node_239 
+	endif 
+	return 
+endf 
+
+def node_239
+	-> rajang.half_lost_search_front() 
+	return 
+endf 
+
+def node_240
+	-> rajang.half_lost_search_back() 
+	return 
+endf 
+
+def node_241
+	self.targetArea(19) 
+	if self.distance_2d_to_target().gt(1000) 
+		>> node_233 
+	else 
+		>> node_242 
+	endif 
+	>> node_244 
+	return 
+endf 
+
+def node_242
+	self.targetEnemy(target_em.random_player_or_cat) 
+	>> node_116 
+	>> node_243 
+	return 
+endf 
+
+def node_243
+	random (37) >> node_172 
+	elser (23) >> node_173 
+	elser (40) >> node_177 
+	endr 
+	return 
+endf 
+
+def node_244
+	[RegisterVar8 ++] 
+	return 
+endf 
+
+def node_245
+	if self.target(52) 
+		>> node_207 
+		>> node_060 
+	elif self.vertical_distance_to_target().gt(450) 
+		>> node_207 
+		>> node_060 
+	elif self.in_map(st.Elder_Recess).in_area(3) 
+		if self.vertical_distance_to_target().gt(400) 
+			>> node_207 
+			>> node_060 
+		else 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_246
+	if self.in_map(st.Ancient_Forest).in_area(13) 
+		>> node_234 
+		>> node_247 
+	else 
+		>> node_222 
+		>> node_112 
+	endif 
+	return 
+endf 
+
+def node_247
+	if self.vertical_distance_to_target().gt(800) 
+		if self.fatigued() 
+			random (70) >> node_019 
+			elser (30) -> rajang.jump_attack_wall_up() 
+			endr 
+		else 
+			random (40) >> node_018 
+			elser (50) >> node_019 
+			elser (10) -> rajang.jump_attack_wall_up() 
+			endr 
+		endif 
+	elif self.distance_3d_to_target().leq(500) 
+		if self.angle_2d_cw_between(15,130) 
+			>> node_001 
+		elif self.angle_2d_cw_between(130,230) 
+			>> node_058 
+		elif self.angle_2d_cw_between(230,345) 
+			>> node_001 
+		else 
+			if self.fatigued() 
+				>> node_002 
+			else 
+				>> node_018 
+			endif 
+		endif 
+	else 
+		if self.angle_2d_cw_between(15,130) 
+			>> node_010 
+		elif self.angle_2d_cw_between(130,230) 
+			>> node_010 
+		elif self.angle_2d_cw_between(230,345) 
+			>> node_010 
+		else 
+			if self.fatigued() 
+				>> node_002 
+			else 
+				>> node_018 
+			endif 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_248
+	>> node_234 
+	if self.target(0) @ parameter2:1 
+		>> node_249 
+	elif self.target(0) 
+		>> node_250 
+	elif self.target(14) 
+		>> node_249 
+	else 
+		>> node_251 
+	endif 
+	return 
+endf 
+
+def node_249
+	if self.distance_2d_to_target().leq(1200) 
+		if self.above_target() 
+			-> rajang.jump_attack_wall_up() 
+			>> node_251 
+		else 
+			-> rajang.jump_attack_wall_down() 
+		endif 
+	else 
+		>> node_176 
+	endif 
+	return 
+endf 
+
+def node_250
+	if self.distance_2d_to_target().leq(1200) 
+		if self.above_target() 
+			-> rajang.jump_attack_wall_up() 
+			>> node_251 
+		else 
+			self.targetArea(77) 
+			>> node_244 
+			-> rajang.dash_combat(2,0,0,1000) 
+		endif 
+	else 
+		>> node_176 
+	endif 
+	return 
+endf 
+
+def node_251
+	if self.target.helpless_0() 
+	else 
+		if self.fatigued() 
+			>> node_005 
+		else 
+			random (75) >> node_018 
+			elser (25) >> node_005 
+			endr 
+		endif self.fatigued() 
+	endif 
+	return 
+endf 
+
+def node_252
+	>> node_207 
+	>> node_112 
+	return 
+endf 
+
+def node_253
+	if function#101() 
+		random (30) >> node_013 
+		elser (40) >> node_001 
+		elser (30) >> node_126 
+		endr 
+	else 
+		random (30) >> node_127 
+		elser (40) >> node_001 
+		elser (30) >> node_126 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_254
+	self.targetArea(19) 
+	if self.distance_3d_recalc_to_target().gt(1000) 
+		>> node_233 
+	else 
+	endif 
+	return 
+endf 
+
+def node_255
+	random (15) >> node_176 
+	elser (5) >> node_172 
+	elser (20) >> node_173 
+	elser (20) >> node_170 
+	elser (30) >> node_239 
+	elser (10) >> node_240 
+	endr 
+	return 
+endf 
+
+def node_256
+	>> node_176 
+	return 
+endf 
+
+def node_257
+	>> node_116 
+	-> rajang.peep_grass_search() 
+	return 
+endf 
+
+def node_258
+	if self.quest_id(51601) 
+		if function#107() 
+			>> node_259 
+			>> node_260 
+			if function#7F(-999) 
+				>> node_261 
+			else 
+			endif 
+		else 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_259
+	>> node_176 
+	return 
+endf 
+
+def node_260
+	self.targetEnemy(target_em.random_player_or_cat) 
+	>> node_018 
+	return 
+endf 
+
+def node_261
+	>> node_179 
+	return 
+endf 
+

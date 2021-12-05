@@ -1,0 +1,30 @@
+importactions Zinogre as zinogre
+
+def node_000
+	function#103() 
+	self.targetEnemy(target_em.closest_entity) 
+	>> node_001 
+	conclude 
+endf 
+
+def node_001
+	if self.target_is(em.Brachydios) 
+		-> zinogre.grapple_with_em063_mediation() 
+	elif self.target_is(em.Glavenus) 
+		-> zinogre.grapple_with_em080_mediation() 
+	elif self.target_is(em.Acidic_Glavenus) 
+		-> zinogre.grapple_with_em080_mediation() 
+	elif self.target_is(em.Fulgur_Anjanath) 
+		-> zinogre.grapple_with_em100_01_mediation() 
+	elif self.target_is(em.Rathalos) 
+		-> zinogre.grapple_with_em002_mediation() 
+	elif self.target_is(em.Azure_Rathalos) 
+		-> zinogre.grapple_with_em002_mediation() 
+	elif self.target_is(em.Yian_Garuga) 
+		-> zinogre.grapple_with_em018_mediation() 
+	elif self.target_is(em.Scarred_Yian_Garuga) 
+		-> zinogre.grapple_with_em018_mediation() 
+	endif 
+	return 
+endf 
+

@@ -1,0 +1,22 @@
+importactions Great_Jagras as great_jagras
+importlibrary Global as Global
+
+def node_000
+	if self.in_combat() 
+		>> node_001 
+	else 
+		>> node_002 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	>> Global.node_017 
+	return 
+endf 
+
+def node_002
+	>> Global.node_019 
+	return 
+endf 
+

@@ -1,0 +1,46 @@
+importactions Paolumu as paolumu
+importlibrary Global as Global
+
+def node_000
+	if function#C0(1) 
+		self.targetArea(34) 
+		>> node_001 
+		>> node_002 
+	else 
+		>> Global.node_090 
+		conclude 
+	endif 
+	if [RegisterVar7 <= 3] 
+		>> Global.node_070 
+		>> Global.node_090 
+	else 
+		repeat 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	>> Global.node_005 
+	if self.flying() 
+		if self.distance_2d_to_target().leq(500) 
+		else 
+			>> Global.node_113 
+		endif 
+	else 
+		>> Global.node_002 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_002
+	>> Global.node_002 
+	>> Global.node_068 
+	return 
+endf 
+
+def node_003
+	>> Global.node_091 
+	return 
+endf 
+

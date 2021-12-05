@@ -1,0 +1,34 @@
+importactions Brachydios as brachydios
+importlibrary Global as Global
+
+def node_000
+	self.targetEnemy(target_em.closest_entity) 
+	>> node_002 
+	>> node_001 
+	reset 
+endf 
+
+def node_001
+	if self.distance_3d_to_target().leq(0) >> Global.node_072 
+	else >> Global.node_081 
+	endif 
+	return 
+endf 
+
+def node_002
+	if self.target_is(em.Gastodon) 
+	elif self.target_is(em.Aptonoth) 
+	else 
+		conclude 
+	endif 
+	if self.target(13) 
+		conclude 
+	else 
+	endif 
+	if self.target(11) 
+		conclude 
+	else 
+	endif 
+	return 
+endf 
+

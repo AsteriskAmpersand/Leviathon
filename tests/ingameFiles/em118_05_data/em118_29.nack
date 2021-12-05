@@ -1,0 +1,56 @@
+importactions Seething_Bazelgeuse as seething_bazelgeuse
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_001 
+	>> Global.node_230 
+	>> node_001 
+	reset 
+endf 
+
+def node_001
+	self.targetEnemy(48) 
+	if self.in_map(st.Challenge_Arena).in_area(-1) 
+		>> node_004 
+	elif self.distance_3d_to_target().leq(5000) 
+		>> node_002 
+	else 
+		>> node_003 
+	endif 
+	return 
+endf 
+
+def node_002
+	if self.fatigued() 
+		>> Global.node_109 
+	else 
+		if self.target(7) 
+			>> Global.node_231 
+		else 
+			>> Global.node_088 
+			>> Global.node_233 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_003
+	if self.targetEnemy(target_em.any_monster) 
+		random (20) >> Global.node_107 
+		elser (80) 
+		endr 
+	else 
+	endif 
+	>> Global.node_231 
+	return 
+endf 
+
+def node_004
+	>> Global.node_065 
+	random (55) >> Global.node_233 
+	elser (35) >> Global.node_107 
+	elser (10) >> Global.node_112 
+	endr 
+	return 
+endf 
+

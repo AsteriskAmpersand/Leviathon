@@ -1,0 +1,55 @@
+importactions Gastodon as gastodon
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_005 
+	>> node_003 
+	>> node_001 
+	>> node_002 
+	reset 
+endf 
+
+def node_001
+	self.targetEnemy(33) 
+	if self.target(20) 
+	else 
+		self.targetEnemy(target_em.random_player_or_cat) 
+	endif 
+	return 
+endf 
+
+def node_002
+	>> Global.node_002 
+	random (34) -> action#19() 
+	elser (33) -> action#1A() 
+	elser (33) -> action#3B() 
+	endr 
+	return 
+endf 
+
+def node_003
+	>> node_004 
+	if self.distance_2d_to_target().gt(1000) 
+		>> Global.node_002 
+		-> action#09(2,1,0,500,500) 
+		reset 
+	else 
+		function#54() 
+	endif 
+	return 
+endf 
+
+def node_004
+	function#52(34,6) 
+	self.targetArea(target_area.nearest_entrance) 
+	return 
+endf 
+
+def node_005
+	*&
+	*&
+	*&
+	*&
+	return 
+endf 
+

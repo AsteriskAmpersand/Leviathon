@@ -1,0 +1,43 @@
+importactions Bazelgeuse as bazelgeuse
+importlibrary Global as Global
+
+def node_000
+	self.targetArea(51) 
+	>> node_001 
+	>> node_002 
+	>> node_003 
+	conclude 
+endf 
+
+def node_001
+	self.targetArea(target_area.area_aerial_center) 
+	if self.flying() 
+		>> Global.node_101 
+	else 
+		>> Global.node_008 
+	endif 
+	return 
+endf 
+
+def node_002
+	self.targetArea(51) 
+	if self.flying() 
+		>> Global.node_102 
+	else 
+		>> Global.node_002 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_003
+	self.targetArea(51) 
+	if self.flying() 
+		>> Global.node_107 
+	else 
+		>> Global.node_002 
+		repeat 
+	endif 
+	return 
+endf 
+

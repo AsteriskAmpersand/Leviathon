@@ -1,0 +1,168 @@
+importactions Savage_Deviljho as savage_deviljho
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_184 
+	>> Global.node_185 
+	if function#101() 
+		>> Global.node_160 
+	else 
+	endif 
+	>> node_001 
+	conclude 
+endf 
+
+def node_001
+	self.targetEnemy(target_em.closest_entity) 
+	if self.target_is(em.Rathalos) 
+		>> node_002 
+	elif self.target_is(em.Legiana) 
+		>> node_003 
+	elif self.target_is(em.Diablos) 
+		>> node_004 
+	elif self.target_is(em.Bazelgeuse) 
+		>> node_005 
+	elif self.target_is(em.Ruiner_Nergigante) 
+		>> node_006 
+	elif self.target_is(em.Azure_Rathalos) 
+		>> node_002 
+	elif self.target_is(em.Shrieking_Legiana) 
+		>> node_003 
+	elif self.target_is(em.Black_Diablos) 
+		>> node_004 
+	elif self.target_is(em.Seething_Bazelgeuse) 
+		>> node_005 
+	elif self.target_is(em.Velkhana) 
+		>> node_007 
+	elif self.target_is(em.Blackveil_Vaal_Hazak) 
+		>> node_008 
+	elif self.target_is(em.Namielle) 
+		>> node_009 
+	elif self.target_is(em.Rajang) 
+		>> node_010 
+	elif self.target_is(em.Furious_Rajang) 
+		>> node_010 
+	endif 
+	return 
+endf 
+
+def node_002
+	if self.distance_2d_to_target().gt(1900) 
+		-> savage_deviljho.dash(6,0,0,1800) 
+	else 
+	endif 
+	if self.distance_2d_to_target().leq(1100) 
+		-> savage_deviljho.back_turn() 
+	else 
+		-> savage_deviljho.quick_turn() 
+	endif 
+	function#104() 
+	-> savage_deviljho.grapple_with_em002_start() 
+	return 
+endf 
+
+def node_003
+	if self.distance_2d_to_target().gt(1900) 
+		-> savage_deviljho.dash(6,0,0,1800) 
+	else 
+	endif 
+	if self.distance_2d_to_target().leq(1100) 
+		-> savage_deviljho.back_turn() 
+	else 
+		-> savage_deviljho.quick_turn() 
+	endif 
+	function#104() 
+	-> savage_deviljho.grapple_with_em111_start() 
+	return 
+endf 
+
+def node_004
+	if self.distance_3d_to_target().gt(1800) 
+		-> savage_deviljho.dash(1,0,0,1700) 
+	else 
+	endif 
+	if self.distance_3d_to_target().leq(1100) 
+		-> savage_deviljho.back_turn() 
+	else 
+		-> savage_deviljho.quick_turn() 
+	endif 
+	function#104() 
+	-> savage_deviljho.grapple_with_em007_start() 
+	return 
+endf 
+
+def node_005
+	if self.distance_3d_to_target().gt(1350) 
+		-> savage_deviljho.dash(1,0,0,1250) 
+	else 
+	endif 
+	if self.distance_3d_to_target().leq(800) 
+		-> savage_deviljho.back_turn() 
+	else 
+		-> savage_deviljho.quick_turn() 
+	endif 
+	function#104() 
+	-> savage_deviljho.grapple_with_em118_start() 
+	return 
+endf 
+
+def node_006
+	if self.distance_3d_to_target().gt(2100) 
+		-> savage_deviljho.dash(6,0,0,2000) 
+	else 
+	endif 
+	if self.distance_3d_to_target().leq(1000) 
+		-> savage_deviljho.back_turn() 
+	else 
+		-> savage_deviljho.quick_turn() 
+	endif 
+	function#104() 
+	-> savage_deviljho.grapple_with_em103_05_first() 
+	return 
+endf 
+
+def node_007
+	if self.distance_3d_to_target().gt(1800) 
+		-> savage_deviljho.dash(6,0,0,1800) 
+	endif 
+	-> savage_deviljho.quick_turn() 
+	function#104() 
+	-> savage_deviljho.grapple_with_em124_first() 
+	return 
+endf 
+
+def node_008
+	if self.distance_3d_to_target().gt(1800) 
+		-> savage_deviljho.dash(6,0,0,1800) 
+	endif 
+	-> savage_deviljho.quick_turn() 
+	function#104() 
+	-> savage_deviljho.grapple_with_em115_05_first() 
+	return 
+endf 
+
+def node_009
+	if self.distance_3d_to_target().gt(1800) 
+		-> savage_deviljho.dash(6,0,0,1800) 
+	endif 
+	-> savage_deviljho.quick_turn() 
+	function#104() 
+	-> savage_deviljho.grapple_with_em125_first() 
+	return 
+endf 
+
+def node_010
+	if self.distance_3d_to_target().gt(1800) 
+		-> savage_deviljho.dash(1,0,0,1700) 
+	else 
+	endif 
+	if self.distance_3d_to_target().leq(1100) 
+		-> savage_deviljho.back_turn() 
+	else 
+		-> savage_deviljho.quick_turn() 
+	endif 
+	function#104() 
+	-> savage_deviljho.grapple_with_em023_first() 
+	return 
+endf 
+

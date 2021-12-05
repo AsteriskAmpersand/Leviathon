@@ -1,0 +1,152 @@
+importactions Kushala_Daora as kushala_daora
+importlibrary Global as Global
+
+def node_000
+	if self.current_quest().is_rank(rank.MR) 
+		>> node_001 
+	else 
+		>> node_002 
+	endif 
+	reset 
+endf 
+
+def node_001
+	>> Global.node_110 
+	self.enraged() >> node_006 => reset 
+	self.fatigued() >> node_008 => reset 
+	>> node_007 => reset 
+	reset 
+endf 
+
+def node_002
+	>> Global.node_110 
+	self.enraged() >> node_003 => reset 
+	self.fatigued() >> node_005 => reset 
+	>> node_004 => reset 
+	reset 
+endf 
+
+def node_003
+	if self.target_on_part(0) 
+		random (80) >> Global.node_113 
+		elser (20) >> Global.node_112 
+		endr 
+	elif self.target_on_part(1) 
+		random (80) >> Global.node_114 
+		elser (20) >> Global.node_112 
+		endr 
+	else 
+		if self.flying() 
+			random (10) >> Global.node_018 
+			elser (25) >> Global.node_020 
+			elser (47) >> Global.node_019 
+			elser (18) >> Global.node_112 
+			endr 
+		else 
+			random (25) >> Global.node_003 
+			elser (15) >> Global.node_004 
+			elser (40) >> Global.node_005 
+			elser (15) >> Global.node_010 
+			elser (5) >> Global.node_033 
+			endr 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_004
+	if self.target_on_part(0) 
+		random (90) >> Global.node_113 
+		elser (10) >> Global.node_112 
+		endr 
+	elif self.target_on_part(1) 
+		random (90) >> Global.node_114 
+		elser (10) >> Global.node_112 
+		endr 
+	else 
+		if self.flying() 
+			random (10) >> Global.node_018 
+			elser (22) >> Global.node_020 
+			elser (42) >> Global.node_019 
+			elser (26) >> Global.node_112 
+			endr 
+		else 
+			random (25) >> Global.node_003 
+			elser (15) >> Global.node_004 
+			elser (35) >> Global.node_005 
+			elser (10) >> Global.node_010 
+			elser (15) >> Global.node_033 
+			endr 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_005
+	>> node_004 
+	return 
+endf 
+
+def node_006
+	if self.target_on_part(0) 
+		random (80) >> Global.node_113 
+		elser (20) >> Global.node_112 
+		endr 
+	elif self.target_on_part(1) 
+		random (80) >> Global.node_114 
+		elser (20) >> Global.node_112 
+		endr 
+	else 
+		if self.flying() 
+			random (13) >> Global.node_018 
+			elser (31) >> Global.node_020 
+			elser (56) >> Global.node_019 
+			elser (0) >> Global.node_112 
+			endr 
+		else 
+			random (20) >> Global.node_003 
+			elser (15) >> Global.node_004 
+			elser (30) >> Global.node_005 
+			elser (25) >> Global.node_010 
+			elser (0) >> Global.node_033 
+			elser (10) >> Global.node_007 
+			endr 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_007
+	if self.target_on_part(0) 
+		random (90) >> Global.node_113 
+		elser (10) >> Global.node_112 
+		endr 
+	elif self.target_on_part(1) 
+		random (90) >> Global.node_114 
+		elser (10) >> Global.node_112 
+		endr 
+	else 
+		if self.flying() 
+			random (13) >> Global.node_018 
+			elser (31) >> Global.node_020 
+			elser (56) >> Global.node_019 
+			elser (0) >> Global.node_112 
+			endr 
+		else 
+			random (25) >> Global.node_003 
+			elser (15) >> Global.node_004 
+			elser (30) >> Global.node_005 
+			elser (25) >> Global.node_010 
+			elser (0) >> Global.node_033 
+			elser (5) >> Global.node_007 
+			endr 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_008
+	>> node_004 
+	return 
+endf 
+

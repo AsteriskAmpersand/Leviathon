@@ -1,0 +1,96 @@
+importactions Radobaan as radobaan
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_008 
+	if function#41() 
+		>> Global.node_009 
+	else 
+	endif 
+	if [RegisterVar1 <= 15] 
+		[RegisterVar1 |-] 
+		conclude 
+	else 
+	endif 
+	[RegisterVar1 ++] 
+	>> node_001 
+	repeat 
+	conclude 
+endf 
+
+def node_001
+	>> Global.node_001 
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if self.distance_3d_to_target().leq(3500) 
+		>> node_002 
+	else 
+		>> node_003 
+	endif 
+	return 
+endf 
+
+def node_002
+	>> node_004 
+	if self.enraged() 
+		-> radobaan.search() 
+	elif self.fatigued() 
+		-> radobaan.tired() 
+	else 
+		-> radobaan.search() 
+	endif 
+	return 
+endf 
+
+def node_003
+	self.targetEnemy(58) 
+	random (10) >> node_006 
+	elser (90) 
+	endr 
+	self.targetEnemy(22) @ parameter2:2000 
+	random (40) 
+	elser (60) >> node_004 
+	endr 
+	if self.enraged() 
+		random (70) -> radobaan.search() 
+		elser (30) -> radobaan.sniff_s() 
+		endr 
+	elif self.fatigued() 
+		random (50) -> radobaan.search() 
+		elser (30) -> radobaan.sniff_s() 
+		elser (20) -> radobaan.tired() 
+		endr 
+	else 
+		random (70) -> radobaan.search() 
+		elser (30) -> radobaan.sniff_s() 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_004
+	if self.angle_2d_cw_between(50,310) 
+		-> radobaan.quick_turn() 
+	else 
+		*&
+	endif 
+	return 
+endf 
+
+def node_005
+	if self.angle_2d_cw_between(120,240) 
+		-> radobaan.quick_turn() 
+	else 
+		*&
+	endif 
+	return 
+endf 
+
+def node_006
+	if self.fatigued() 
+		-> radobaan.tired_walk(0,2,1,0,1500) @ unkn12:5, unknExtra0:800 
+	else 
+		-> radobaan.walk(0,2,1,0,1500) @ unkn12:5, unknExtra0:800 
+	endif 
+	return 
+endf 
+

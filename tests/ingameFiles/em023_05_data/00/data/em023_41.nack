@@ -1,0 +1,28 @@
+importactions Rajang as rajang
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_104 
+	>> node_002 
+	self.targetArea(20) 
+	if self.distance_3d_to_target().leq(1000) 
+	else 
+		>> node_001 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	if self.distance_3d_to_target().leq(800) 
+		return 
+	else 
+		>> Global.node_233 
+	endif 
+	repeat 
+endf 
+
+def node_002
+	[RegisterVar8 ++] 
+	return 
+endf 
+

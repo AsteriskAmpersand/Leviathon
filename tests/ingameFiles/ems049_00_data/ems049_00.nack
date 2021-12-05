@@ -1,0 +1,401 @@
+importactions Jagras as jagras
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_054 
+	>> node_001 
+	>> node_002 
+	>> node_003 
+	reset 
+endf 
+
+def node_001
+	if function#7B() 
+		>> node_015 
+		repeat 
+	else 
+	endif 
+	return 
+endf 
+
+def node_002
+	if function#4B() 
+	else 
+		return 
+	endif 
+	if self.target(20) 
+	else 
+		return 
+	endif 
+	if self.target(23) 
+	else 
+	endif 
+	if self.target(17) 
+		return 
+	else 
+	endif 
+	if self.target.in_combat() 
+	else 
+		return 
+	endif 
+	if self.target(16) 
+		return 
+	else 
+	endif 
+	>> node_019 
+	reset 
+endf 
+
+def node_003
+	if function#67(1) 
+		if self.quest_id(101) 
+			if [RegisterVar2 < 0] 
+				>> node_005 
+			else 
+				>> node_022 
+			endif 
+		else 
+			>> node_022 
+		endif 
+	else 
+		>> node_005 
+	endif 
+	return 
+endf 
+
+def node_004
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if self.distance_3d_to_target().leq(1500) 
+		>> Global.node_008 
+		>> Global.node_063 
+		>> node_008 
+	else 
+	endif 
+	*&
+	function#4B() 
+	return 
+endf 
+
+def node_005
+	if function#32() 
+		>> node_006 
+	else 
+		>> node_009 
+	endif 
+	return 
+endf 
+
+def node_006
+	if function#4B() 
+		if self.target(20) 
+			>> node_007 
+		else 
+			>> node_008 
+		endif 
+	else 
+		>> node_008 
+	endif 
+	return 
+endf 
+
+def node_007
+	if self.target(13) 
+		>> node_009 
+	elif self.target.in_combat() 
+		random (20) >> node_008 
+		elser (80) >> node_009 
+		endr 
+	else 
+		>> node_008 
+	endif 
+	return 
+endf 
+
+def node_008
+	self.targetEnemy(target_em.random_player_or_cat) 
+	>> node_010 
+	if function#3A() 
+		>> node_009 
+	else 
+		>> node_025 
+	endif 
+	return 
+endf 
+
+def node_009
+	self.targetEnemy(target_em.random_player_or_cat) 
+	>> node_010 
+	>> node_031 
+	return 
+endf 
+
+def node_010
+	if self.target(20) 
+		if self.target(10) 
+			>> node_012 
+		elif function#5C() 
+			>> node_013 
+		elif self.target(0) 
+			>> node_014 
+		elif self.target(14) 
+			>> node_014 
+		else 
+		endif 
+	else 
+		>> node_011 
+	endif 
+	return 
+endf 
+
+def node_011
+	function#52(50,2) 
+	self.targetArea(target_area.nearest_entrance) 
+	function#54() 
+	>> Global.node_001 
+	self.targetEnemy(target_em.random_player_or_cat) 
+	>> Global.node_008 
+	>> Global.node_049 
+	reset 
+endf 
+
+def node_012
+	>> Global.node_008 
+	>> Global.node_063 
+	reset 
+endf 
+
+def node_013
+	>> node_031 
+	return 
+endf 
+
+def node_014
+	if self.distance_2d_to_target().leq(800) 
+		>> Global.node_024 
+	else 
+		>> Global.node_006 
+		>> Global.node_003 
+	endif 
+	if function#3A() 
+		>> Global.node_063 
+	elif function#32() 
+		if self.above_area() 
+			if function#11(300) 
+				>> node_027 
+			else 
+				>> Global.node_063 
+			endif 
+		else 
+			>> Global.node_063 
+		endif 
+	else 
+		>> Global.node_063 
+	endif 
+	reset 
+endf 
+
+def node_015
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if self.distance_3d_to_target().leq(750) 
+		>> node_016 
+	elif self.distance_3d_to_target().leq(1200) 
+		>> node_018 
+	else 
+		>> node_018 
+	endif 
+	>> Global.node_063 
+	return 
+endf 
+
+def node_016
+	>> Global.node_008 
+	return 
+endf 
+
+def node_017
+	self.targetArea(1) @ unkn3:2097152, unkn12:4, unknExtra1:200 
+	>> Global.node_082 
+	return 
+endf 
+
+def node_018
+	self.targetArea(1) @ unkn3:2097152, unkn12:4, unknExtra1:200 
+	>> Global.node_002 
+	return 
+endf 
+
+def node_019
+	>> node_020 
+	>> node_021 
+	return 
+endf 
+
+def node_020
+	function#54() 
+	function#52(50,2) 
+	self.targetArea(target_area.nearest_entrance) 
+	if self.distance_3d_to_target().leq(750) 
+	else 
+		self.targetArea(target_area.nearest_entrance) @ unkn3:2097152, unkn12:4, unknExtra1:200 
+		>> Global.node_001 
+	endif 
+	return 
+endf 
+
+def node_021
+	self.targetEnemy(target_em.random_player_or_cat) 
+	>> Global.node_008 
+	>> Global.node_049 
+	return 
+endf 
+
+def node_022
+	function#52(22,2) 
+	self.targetArea(target_area.nearest_entrance) 
+	if self.distance_2d_to_target().leq(1000) 
+		self.targetEnemy(target_em.random_player_or_cat) 
+		if self.target(10) 
+			>> node_023 
+		elif function#5C() 
+			>> node_023 
+		elif self.target(0) 
+			>> node_023 
+		elif self.target(14) 
+			>> node_023 
+		else 
+			if self.distance_2d_to_target().leq(500) 
+				>> node_024 
+			else 
+				>> node_023 
+			endif 
+		endif 
+	else 
+		>> node_023 
+	endif 
+	return 
+endf 
+
+def node_023
+	function#52(50,2) 
+	self.targetArea(target_area.nearest_entrance) 
+	>> Global.node_001 
+	self.targetEnemy(target_em.random_player_or_cat) 
+	>> Global.node_008 
+	>> Global.node_063 
+	return 
+endf 
+
+def node_024
+	self.targetEnemy(target_em.random_player_or_cat) 
+	>> Global.node_002 
+	if function#32() 
+		>> node_008 
+	else 
+		>> node_009 
+	endif 
+	return 
+endf 
+
+def node_025
+	if self.distance_3d_to_target().leq(350) 
+		>> node_026 
+	elif self.distance_3d_to_target().leq(500) 
+		>> node_027 
+	elif self.distance_3d_to_target().leq(800) 
+		>> node_028 
+	elif self.distance_3d_to_target().leq(1200) 
+		>> node_029 
+	else 
+		>> node_030 
+	endif 
+	return 
+endf 
+
+def node_026
+	random (85) >> Global.node_018 
+	elser (15) >> Global.node_022 
+				>> Global.node_019 
+	endr 
+	return 
+endf 
+
+def node_027
+	random (85) >> Global.node_018 
+	elser (15) >> Global.node_022 
+				>> Global.node_019 
+	endr 
+	return 
+endf 
+
+def node_028
+	random (30) >> Global.node_019 
+	elser (70) >> Global.node_002 
+				>> Global.node_018 
+	endr 
+	return 
+endf 
+
+def node_029
+	>> Global.node_006 
+	>> Global.node_002 
+	>> Global.node_018 
+	return 
+endf 
+
+def node_030
+	>> Global.node_006 
+	>> Global.node_002 
+	>> Global.node_018 
+	return 
+endf 
+
+def node_031
+	if self.distance_3d_to_target().leq(400) 
+		>> node_032 
+	elif self.distance_3d_to_target().leq(900) 
+		>> node_033 
+	elif self.distance_3d_to_target().leq(1500) 
+		>> node_034 
+	elif self.distance_3d_to_target().leq(1800) 
+		>> node_035 
+	else 
+		>> node_036 
+	endif 
+	return 
+endf 
+
+def node_032
+	random (65) >> Global.node_022 
+	elser (35) >> Global.node_021 
+	endr 
+	return 
+endf 
+
+def node_033
+	random (75) >> Global.node_025 
+	elser (25) >> Global.node_026 
+	endr 
+	return 
+endf 
+
+def node_034
+	random (75) >> Global.node_027 
+	elser (25) >> Global.node_028 
+	endr 
+	return 
+endf 
+
+def node_035
+	self.targetEnemy(target_em.random_player_or_cat) @ unkn3:8388608, unkn12:4, unknExtra1:700 
+	>> Global.node_006 
+	>> Global.node_002 
+	return 
+endf 
+
+def node_036
+	self.targetEnemy(target_em.random_player_or_cat) @ unkn3:8388608, unkn12:4, unknExtra1:700 
+	>> Global.node_006 
+	>> Global.node_002 
+	return 
+endf 
+

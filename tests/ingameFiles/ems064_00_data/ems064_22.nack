@@ -1,0 +1,174 @@
+importactions Cortos as cortos
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_009 
+	if function#77() >> node_005 
+	else 
+		self.targetEnemy(target_em.random_player_or_cat) 
+		if self.target.helpless_0() 
+			>> node_011 
+		else 
+			>> node_003 
+		endif 
+	endif 
+	reset 
+endf 
+
+def node_001
+	>> Global.node_009 
+	if function#77() >> node_005 
+	elif function#B0(1) >> node_011 
+	else >> node_003 
+	endif 
+	reset 
+endf 
+
+def node_002
+	function#54() 
+	function#52(2,4) 
+	self.targetEnemy(16) 
+	-> action#14(1,0,0,900) 
+	>> node_004 
+	function#54() 
+	return 
+endf 
+
+def node_003
+	function#52(2,6) 
+	self.targetEnemy(16) 
+	>> node_013 
+	function#54() 
+	return 
+endf 
+
+def node_004
+	random (80) 
+	elser (20) >> Global.node_002 
+	endr 
+	return 
+endf 
+
+def node_005
+	-> action#1D() 
+	self.targetEnemy(33) 
+	>> Global.node_006 
+	>> Global.node_001 
+	return 
+endf 
+
+def node_006
+	if function#31(32,30000) >> node_002 
+	else 
+		>> Global.node_025 
+		random (50) >> Global.node_026 
+		elser (50) >> Global.node_027 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_007
+	self.targetEnemy(33) 
+	if self.target(20) 
+		if self.target_is(em.Vaal_Hazak) >> node_009 
+			return 
+		endif 
+	endif 
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if self.target(4) >> node_002 
+	elif self.target(20) >> node_008 
+	else >> node_002 
+	endif 
+	return 
+endf 
+
+def node_008
+	if function#3A() >> Global.node_036 
+	elif self.target(7) >> Global.node_036 
+	else 
+		random (50) >> Global.node_031 
+		elser (50) >> Global.node_036 
+		elser (0) >> Global.node_002 
+		elser (0) >> Global.node_006 
+					>> Global.node_001 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_009
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if self.target(4) 
+	elif self.target(20) 
+		if self.target(7) 
+		elif self.distance_2d_to_target().gt(1500) >> node_010 
+			return 
+		endif 
+	endif 
+	self.targetEnemy(33) 
+	>> Global.node_037 
+	return 
+endf 
+
+def node_010
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if self.distance_2d_to_target().leq(800) 
+		-> action#18() 
+		>> Global.node_031 
+	else 
+		>> Global.node_036 
+		self.targetEnemy(33) 
+		if self.distance_2d_to_target().leq(500) >> Global.node_037 
+			return 
+		endif 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_011
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if self.target(4) >> node_013 
+	elif self.target(20) >> node_012 
+	else >> node_013 
+	endif 
+	return 
+endf 
+
+def node_012
+	if function#3A() >> Global.node_036 
+	elif self.target(7) >> Global.node_036 
+	elif self.target(20) 
+		random (70) >> Global.node_031 
+		elser (30) >> Global.node_036 
+		elser (0) >> Global.node_002 
+		elser (0) >> Global.node_006 
+					>> Global.node_001 
+		endr 
+	else 
+		>> node_013 
+	endif 
+	return 
+endf 
+
+def node_013
+	>> Global.node_009 
+	function#54() 
+	function#52(2,6) 
+	self.targetEnemy(16) @ unkn3:2097152, actionUnkn0:4, actionUnkn3:1500 
+	-> action#14(1,0,0,500) 
+	function#54() 
+	self.targetEnemy(48) 
+	if self.distance_2d_to_target().leq(1000) 
+	else 
+		self.targetEnemy(target_em.any_monster) 
+	endif 
+	>> Global.node_007 
+	random (0) 
+	elser (50) >> Global.node_002 
+	elser (50) >> Global.node_001 
+	endr 
+	return 
+endf 
+

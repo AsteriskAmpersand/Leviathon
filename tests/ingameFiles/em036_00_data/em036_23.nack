@@ -1,0 +1,20 @@
+importactions Lavasioth as lavasioth
+importlibrary Global as Global
+
+def node_000
+	self.targetEnemy(target_em.closest_entity) 
+	>> node_001 
+	conclude 
+endf 
+
+def node_001
+	>> Global.node_088 
+	>> Global.node_100 
+	if function#101() 
+		>> Global.node_033 
+	else 
+		>> Global.node_059 
+	endif 
+	return 
+endf 
+

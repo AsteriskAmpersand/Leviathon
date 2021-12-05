@@ -1,0 +1,249 @@
+importactions Anjanath as anjanath
+importlibrary Global as Global
+
+def node_000
+	function#52() 
+	>> node_001 
+	>> node_002 
+	reset 
+endf 
+
+def node_001
+	>> Global.node_001 
+	self.targetArea(target_area.nearest_entrance) 
+	if function#57(1) 
+		>> node_016 
+		>> node_007 
+	elif function#57(5) 
+		>> node_008 
+	elif function#57(2) 
+		>> node_009 
+	elif function#57(3) 
+		>> node_010 
+	else 
+		>> node_003 
+	endif 
+	self.targetArea(target_area.nearest_entrance) 
+	if self.distance_3d_to_target().leq(600) 
+		return 
+	else 
+		repeat 
+	endif 
+	reset 
+endf 
+
+def node_002
+	if function#57(1) 
+		>> node_016 
+		>> node_012 
+	elif function#57(5) 
+		>> node_013 
+	elif function#57(2) 
+		>> node_014 
+	elif function#57(3) 
+		>> node_015 
+	elif function#57(4) 
+		>> node_011 
+	else 
+		function#54() 
+		-> anjanath.search() 
+	endif 
+	return 
+endf 
+
+def node_003
+	random (70) >> node_004 
+	elser (20) >> node_005 
+	elser (10) >> node_006 
+	endr 
+	>> node_019 
+	return 
+endf 
+
+def node_004
+	if function#59(2) 
+		>> node_021 
+	else 
+		>> node_021 
+	endif 
+	return 
+endf 
+
+def node_005
+	if function#59(2) 
+		>> node_022 
+	else 
+		>> node_022 
+	endif 
+	return 
+endf 
+
+def node_006
+	if function#59(2) 
+		>> node_020 
+	else 
+		>> node_020 
+	endif 
+	return 
+endf 
+
+def node_007
+	>> node_023 
+	return 
+endf 
+
+def node_008
+	>> node_021 
+	return 
+endf 
+
+def node_009
+	>> node_021 
+	return 
+endf 
+
+def node_010
+	>> node_025 
+	return 
+endf 
+
+def node_011
+	self.targetEnemy(17) 
+	>> node_019 
+	if self.angular_17(340,20) 
+		-> anjanath.normal_turn() 
+	else 
+	endif 
+	-> anjanath.marking() 
+	function#54() 
+	return 
+endf 
+
+def node_012
+	function#54() 
+	-> anjanath.combat_search() 
+	return 
+endf 
+
+def node_013
+	function#54() 
+	>> node_019 
+	if self.angle_2d_cw_between(30,330) 
+		-> anjanath.normal_turn() 
+	else 
+	endif 
+	-> anjanath.sunbath() 
+	return 
+endf 
+
+def node_014
+	function#54() 
+	>> node_019 
+	-> anjanath.sleep() 
+	return 
+endf 
+
+def node_015
+	function#54() 
+	self.targetEnemy(17) 
+	>> node_019 
+	if self.angle_2d_cw_between(30,330) 
+		-> anjanath.normal_turn() 
+	else 
+	endif 
+	-> anjanath.drink() 
+	return 
+endf 
+
+def node_016
+	if function#6B(20000) 
+		-> anjanath.sniff_l() 
+		>> node_017 
+		>> node_018 
+	else 
+	endif 
+	return 
+endf 
+
+def node_017
+	self.targetEnemy(26) 
+	if self.distance_3d_to_target().leq(600) 
+	else 
+		-> anjanath.tired_dash(2,1,5,1500,500) @ unkn6:65536 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_018
+	if self.distance_3d_to_target().leq(300) 
+		-> anjanath.back_turn() @ unkn6:65536 
+	elif self.angle_2d_cw_between(30,330) 
+		-> anjanath.turn() @ unkn6:65536 
+	else 
+	endif 
+	-> anjanath.meat_eat() 
+	reset 
+endf 
+
+def node_019
+	if self.in_map(st.Special_Arena).in_area(-1) 
+	elif self.in_map(st.Challenge_Arena).in_area(-1) 
+	else 
+		random (10) -> anjanath.search() 
+		elser (90) 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_020
+	if self.fatigued() 
+		-> anjanath.tired_walk(2,1,5,1500,600) 
+	else 
+		-> anjanath.walk(2,1,5,1500,600) 
+	endif 
+	return 
+endf 
+
+def node_021
+	if self.fatigued() 
+		-> anjanath.tired_walk(2,1,5,3000,600) 
+	else 
+		-> anjanath.walk(2,1,5,3000,600) 
+	endif 
+	return 
+endf 
+
+def node_022
+	if self.fatigued() 
+		-> anjanath.tired_walk(2,1,5,4000,600) 
+	else 
+		-> anjanath.walk(2,1,5,4000,600) 
+	endif 
+	return 
+endf 
+
+def node_023
+	-> anjanath.tired_dash(2,1,5,3000,600) @ unkn6:65536 
+	return 
+endf 
+
+def node_024
+	if self.fatigued() 
+		-> anjanath.tired_dash(2,1,5,1500,600) 
+	else 
+		-> anjanath.dash(2,1,5,1500,600) 
+	endif 
+	return 
+endf 
+
+def node_025
+	if self.fatigued() 
+		-> anjanath.tired_dash(2,1,5,3000,600) 
+	else 
+		-> anjanath.dash(2,1,5,3000,600) 
+	endif 
+	return 
+endf 
+

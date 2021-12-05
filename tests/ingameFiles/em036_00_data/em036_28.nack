@@ -1,0 +1,62 @@
+importactions Lavasioth as lavasioth
+importlibrary Global as Global
+
+def node_000
+	>> node_001 
+	>> Global.node_125 
+	>> node_007 
+	conclude 
+endf 
+
+def node_001
+	>> Global.node_001 
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if self.distance_3d_to_target().leq(3500) >> node_002 
+	else >> node_003 
+	endif 
+	return 
+endf 
+
+def node_002
+	>> Global.node_088 
+	>> Global.node_095 
+	return 
+endf 
+
+def node_003
+	>> node_004 
+	>> node_005 
+	>> node_006 
+	return 
+endf 
+
+def node_004
+	self.targetEnemy(58) 
+	random (10) >> Global.node_082 
+	elser (90) 
+	endr 
+	return 
+endf 
+
+def node_005
+	self.targetEnemy(22) @ parameter2:2000 
+	random (40) >> Global.node_089 
+	elser (60) 
+	endr 
+	return 
+endf 
+
+def node_006
+	random (70) >> Global.node_095 
+	elser (30) >> Global.node_103 
+	endr 
+	return 
+endf 
+
+def node_007
+	if [RegisterVar4 <= 15] >> Global.node_126 
+		conclude 
+	endif 
+	return 
+endf 
+

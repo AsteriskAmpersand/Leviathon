@@ -1,0 +1,226 @@
+importactions Alatreon as alatreon
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_002 
+	>> node_001 
+	if function#A9(1,5) 
+		>> node_003 
+	elif function#A9(1,1) 
+		>> node_002 
+	elif self.mounted() 
+		random (50) >> node_002 
+		elser (50) >> node_003 
+		endr 
+	else 
+		random (50) >> node_002 
+		elser (50) >> node_003 
+		endr 
+	endif 
+	reset 
+endf 
+
+def node_001
+	if function#3B() 
+		if self.mount_staggered_twice() 
+			>> node_013 
+		endif 
+	else 
+		if self.mount_stabbed() 
+			[RegisterVar12 |-] 
+			if self.mounted() 
+				random (0) >> node_013 
+				elser (100) >> node_014 
+				endr 
+			else 
+				random (100) >> node_013 
+				elser (0) >> node_014 
+				endr 
+			endif 
+		elif self.mount_finisher_ready() 
+			[RegisterVar12 |-] 
+			if self.mounted() 
+				random (0) >> node_013 
+				elser (100) >> node_014 
+				endr 
+			else 
+				random (100) >> node_013 
+				elser (0) >> node_014 
+				endr 
+			endif 
+		else 
+			function#A8(1) 
+			>> node_014 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_002
+	if function#A9() 
+		function#A8() 
+	endif 
+	if function#A9(0,1) 
+		function#A8() 
+		>> node_004 
+	endif 
+	if function#A9(0,2) 
+		function#A8() 
+		>> node_007 
+	endif 
+	if function#A9(0,3) 
+		function#A8() 
+		>> node_004 
+	endif 
+	function#A8(1) 
+	return 
+endf 
+
+def node_003
+	if function#A9() 
+		function#A8() 
+		function#A8() 
+		function#A8() 
+		function#A8() 
+		function#A8() 
+	endif 
+	if function#A9(0,5) 
+		function#A8() 
+		>> node_007 
+	endif 
+	if function#A9(0,6) 
+		function#A8() 
+		>> node_004 
+	endif 
+	if function#A9(0,7) 
+		function#A8() 
+		>> node_004 
+	endif 
+	function#A8(1) 
+	return 
+endf 
+
+def node_004
+	if self.mounted() 
+		>> node_005 
+	else 
+		>> node_006 
+	endif 
+	return 
+endf 
+
+def node_005
+	if self.target_on_part(0) 
+		>> Global.node_315 
+	else 
+		>> Global.node_317 
+	endif 
+	return 
+endf 
+
+def node_006
+	if self.target_on_part(0) 
+		>> Global.node_316 
+	else 
+		>> Global.node_318 
+	endif 
+	return 
+endf 
+
+def node_007
+	if self.mounted() 
+		>> node_008 
+	else 
+		>> node_010 
+	endif 
+	return 
+endf 
+
+def node_008
+	if function#29() 
+		self.targetArea(7) 
+		>> Global.node_319 
+		self.targetArea(15) 
+		if function#11(1000) 
+			>> node_009 
+		else 
+			>> node_005 
+		endif 
+	else 
+		>> node_015 
+	endif 
+	return 
+endf 
+
+def node_009
+	if self.target_on_part(0) 
+		>> Global.node_321 
+	else 
+		>> Global.node_323 
+	endif 
+	return 
+endf 
+
+def node_010
+	if function#29() 
+		self.targetArea(7) 
+		>> Global.node_319 
+		self.targetArea(15) 
+		if function#11(1000) 
+			>> node_011 
+		else 
+			>> node_006 
+		endif 
+	else 
+		>> node_015 
+	endif 
+	return 
+endf 
+
+def node_011
+	if self.target_on_part(0) 
+		>> Global.node_322 
+	else 
+		>> Global.node_324 
+	endif 
+	return 
+endf 
+
+def node_012
+	if self.mounted() 
+		>> Global.node_325 
+	else 
+	endif 
+	return 
+endf 
+
+def node_013
+	>> Global.node_326 
+	return 
+endf 
+
+def node_014
+	if self.fatigued() 
+		random (35) >> Global.node_325 
+		elser (65) 
+		endr 
+	else 
+	endif 
+	return 
+endf 
+
+def node_015
+	random (30) 
+				self.targetArea(11) @ parameter2:3500 
+	elser (30) 
+				self.targetArea(12) @ parameter2:3500 
+	elser (40) 
+				self.targetArea(10) @ parameter2:3500 
+	endr 
+	>> Global.node_291 
+	random (100) >> Global.node_164 
+	elser (0) >> Global.node_163 
+	endr 
+	return 
+endf 
+

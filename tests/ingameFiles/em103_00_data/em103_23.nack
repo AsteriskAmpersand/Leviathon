@@ -1,0 +1,17 @@
+importactions Nergigante as nergigante
+
+def node_000
+	self.targetEnemy(target_em.closest_entity) 
+	>> node_001 
+	conclude 
+endf 
+
+def node_001
+	if self.target_is(em.Rajang) 
+		-> nergigante.grapple_with_em023_mediation() 
+	elif self.target_is(em.Furious_Rajang) 
+		-> nergigante.grapple_with_em023_mediation() 
+	endif 
+	return 
+endf 
+

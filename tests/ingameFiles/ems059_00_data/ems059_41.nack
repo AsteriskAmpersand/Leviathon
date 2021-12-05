@@ -1,0 +1,60 @@
+importactions Noios as noios
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_016 
+	self.targetEnemy(16) 
+	>> node_001 
+	function#54() 
+	conclude 
+endf 
+
+def node_001
+	if self.hookable() -> action#14(6,0,0,500) 
+	else -> action#13(6,0,0,500) 
+	endif 
+	return 
+endf 
+
+def node_002
+	>> Global.node_007 
+	if function#72() 
+		if self.hookable() 
+			>> node_005 
+		else 
+			>> node_003 
+		endif 
+	else 
+		>> node_004 
+	endif 
+	conclude 
+endf 
+
+def node_003
+	function#52(136) 
+	self.targetEnemy(16) 
+	if self.hookable() 
+		>> node_005 
+	else 
+		-> action#13(1,0,0,500) 
+	endif 
+	function#54() 
+	return 
+endf 
+
+def node_004
+	function#52(16) 
+	self.targetEnemy(16) 
+	-> action#13(1,0,0,500) 
+	function#54() 
+	return 
+endf 
+
+def node_005
+	function#52() 
+	self.targetEnemy(16) 
+	-> action#14() 
+	function#54() 
+	return 
+endf 
+

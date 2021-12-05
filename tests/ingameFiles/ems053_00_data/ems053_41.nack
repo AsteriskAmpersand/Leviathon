@@ -1,0 +1,39 @@
+importactions Raphinos as raphinos
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_009 
+	>> node_003 
+	self.targetEnemy(16) @ unkn3:8388608, actionUnkn0:4, actionUnkn3:800 
+	>> node_001 
+	>> node_002 
+	-> action#1E() 
+	>> Global.node_016 
+	function#54() 
+	conclude 
+endf 
+
+def node_001
+	if self.hookable() -> action#14(1,0,0,2000) 
+	else -> action#13(1,0,0,2000) 
+	endif 
+	return 
+endf 
+
+def node_002
+	if self.hookable() -> action#14() 
+	else -> action#13() 
+	endif 
+	return 
+endf 
+
+def node_003
+	if function#B0(1) 
+		if function#77() 
+		else 
+			conclude 
+		endif 
+	endif 
+	return 
+endf 
+

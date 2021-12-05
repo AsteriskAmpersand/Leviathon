@@ -1,0 +1,17 @@
+importactions TzitziYaKu as tzitziyaku
+
+def node_000
+	self.targetArea(20) 
+	>> node_001 
+	conclude 
+endf 
+
+def node_001
+	if self.distance_3d_to_target().leq(1000) 
+	else 
+		-> tzitziyaku.dash(1,0,0,200) 
+		repeat 
+	endif 
+	return 
+endf 
+

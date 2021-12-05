@@ -1,0 +1,22 @@
+importactions Gold_Rathian as gold_rathian
+importlibrary Global as Global
+
+def node_000
+	conclude 
+endf 
+
+def node_001
+	>> Global.node_002 
+	>> Global.node_089 
+	-> gold_rathian.grapple_mediation_threat() 
+	return 
+endf 
+
+def node_002
+	>> Global.node_089 
+	>> Global.node_038 
+	>> Global.node_091 
+	>> Global.call#326 // -THK_55 is missing NodeID 326. 
+	return 
+endf 
+

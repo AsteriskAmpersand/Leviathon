@@ -1,0 +1,28 @@
+importactions Acidic_Glavenus as acidic_glavenus
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_096 
+	self.targetArea(24) 
+	if self.distance_3d_to_target().gt(500) 
+		-> acidic_glavenus.dying_walk() 
+		repeat 
+	else 
+		>> node_001 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	if function#7C() 
+		conclude 
+	else 
+		if function#C9() 
+			-> acidic_glavenus.dying_sleep(3,0,0,150) 
+		else 
+			function#CA() 
+		endif 
+	endif 
+	return 
+endf 
+

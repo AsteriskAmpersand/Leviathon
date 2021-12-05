@@ -1,0 +1,55 @@
+importactions Popo as popo
+importlibrary Global as Global
+
+def node_000
+	if function#B0(3) 
+		>> node_001 
+	elif function#B0(4) 
+		>> node_001 
+	elif function#B0(5) 
+		>> node_001 
+	else 
+		>> node_002 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	if [RegisterVar0 == 0] 
+		[RegisterVar0 ++] 
+		-> action#1F() 
+	else 
+		random (40) >> node_003 
+		elser (20) -> action#26() 
+		elser (20) -> action#27() 
+		elser (0) -> action#28() 
+		elser (20) -> action#29() 
+		endr 
+	endif 
+	repeat 
+	conclude 
+endf 
+
+def node_002
+	if function#10A() 
+	else 
+		random (35) -> action#26() 
+		elser (35) -> action#27() 
+		elser (0) -> action#28() 
+		elser (30) -> action#29() 
+		endr 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_003
+	if function#10C() 
+		>> Global.node_000 
+		-> action#10() 
+	else 
+		-> action#0F() 
+	endif 
+	return 
+endf 
+

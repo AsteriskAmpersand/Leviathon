@@ -1,0 +1,34 @@
+importactions Barroth as barroth
+importlibrary Global as Global
+
+def node_000
+	if function#AB() 
+		function#AA() 
+		>> node_001 
+	else 
+	endif 
+	self.targetArea(14) 
+	>> node_002 
+	conclude 
+endf 
+
+def node_001
+	>> node_003 
+	>> Global.node_031 
+	return 
+endf 
+
+def node_002
+	if self.distance_3d_to_target().leq(800) 
+		return 
+	else 
+		>> Global.node_039 
+	endif 
+	repeat 
+endf 
+
+def node_003
+	[RegisterVar3 |-] 
+	return 
+endf 
+

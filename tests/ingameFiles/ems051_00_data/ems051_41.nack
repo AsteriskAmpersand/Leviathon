@@ -1,0 +1,40 @@
+importactions KestodonM as kestodonm
+importlibrary Global as Global
+
+def node_000
+	>> node_002 
+	if function#72(4) 
+		>> node_003 
+		>> Global.node_002 
+		>> node_001 
+	elif function#72(5) 
+		>> node_003 
+		>> Global.node_002 
+		>> node_001 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	if self.distance_3d_to_target().gt(500) 
+		-> action#09(2,0,0,500) 
+		repeat 
+	else 
+	endif 
+	return 
+endf 
+
+def node_002
+	random (33) -> action#19() 
+	elser (34) -> action#3B() 
+	elser (33) -> action#1C() 
+	endr 
+	return 
+endf 
+
+def node_003
+	function#52(4) 
+	self.targetArea(target_area.nearest_entrance) @ unkn3:2097152, actionUnkn0:4, actionUnkn3:300 
+	return 
+endf 
+

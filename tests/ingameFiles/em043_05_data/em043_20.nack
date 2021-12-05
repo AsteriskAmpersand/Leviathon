@@ -1,0 +1,33 @@
+importactions Savage_Deviljho as savage_deviljho
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_184 
+	>> Global.node_185 
+	if function#101() 
+		>> Global.node_159 
+	else 
+	endif 
+	self.targetArea(24) 
+	if self.distance_3d_to_target().gt(500) 
+		-> savage_deviljho.dying_walk(2,5,0,1500) 
+		repeat 
+	else 
+		>> node_001 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	if function#7C() 
+		conclude 
+	else 
+		if function#C9() 
+			-> savage_deviljho.dying_sleep(3,0,0,150) 
+		else 
+			function#CA() 
+		endif 
+	endif 
+	return 
+endf 
+

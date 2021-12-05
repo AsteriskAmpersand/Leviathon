@@ -1,0 +1,24 @@
+importactions Fulgur_Anjanath as fulgur_anjanath
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_044 
+	self.targetEnemy(target_em.closest_entity) 
+	>> node_001 
+	>> node_002 
+	conclude 
+endf 
+
+def node_001
+	if self.angle_2d_cw_between(60,300) 
+		-> fulgur_anjanath.back_turn() @ unkn6:65536 
+	else 
+	endif 
+	return 
+endf 
+
+def node_002
+	-> fulgur_anjanath.discover() 
+	return 
+endf 
+

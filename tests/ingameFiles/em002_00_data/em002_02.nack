@@ -1,0 +1,19 @@
+importactions Rathalos as rathalos
+importlibrary Global as Global
+
+def node_000
+	if self.quest_id(66852) 
+		self.targetEnemy(48) 
+		>> Global.node_088 
+		>> Global.node_038 
+	else 
+		>> Global.node_302 
+		>> Global.node_038 
+		if self.flying() 
+		else 
+			>> Global.node_170 
+		endif 
+	endif 
+	conclude 
+endf 
+

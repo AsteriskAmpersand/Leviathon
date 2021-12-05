@@ -1,0 +1,46 @@
+importactions Legiana as legiana
+importlibrary Global as Global
+
+def node_000
+	if function#C2() 
+		>> Global.node_038 
+		>> Global.node_197 
+		if self.in_map(st.Hoarfrost_Reach).in_area(17) >> node_001 
+		else >> node_002 
+		endif 
+	else 
+		self.targetArea(14) 
+		>> Global.node_038 
+		>> Global.node_196 
+	endif 
+	>> Global.node_377 
+	conclude 
+endf 
+
+def node_001
+	function#101() 
+	>> Global.node_002 
+	if [RegisterVar2 == 0] 
+		>> Global.node_375 
+		>> Global.node_035 
+		self.targetEnemy(38) 
+		>> Global.node_224 
+		>> Global.node_036 
+		>> Global.node_378 
+		>> Global.node_027 
+	endif 
+	self.targetEnemy(target_em.random_player_or_cat) 
+	>> Global.node_035 
+	>> Global.node_224 
+	>> Global.node_346 
+	return 
+endf 
+
+def node_002
+	self.targetEnemy(target_em.any_monster) 
+	if self.flying() >> Global.node_032 
+	else >> Global.node_010 
+	endif 
+	return 
+endf 
+

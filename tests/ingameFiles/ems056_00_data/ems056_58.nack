@@ -1,0 +1,99 @@
+importactions Girros as girros
+importlibrary Global as Global
+
+def node_000
+	function#C6() 
+	if self.targetEnemy(target_em.closest_entity) 
+		if self.target.helpless_0() 
+			if self.distance_2d_to_target().leq(3000) 
+				>> node_001 
+			else 
+				>> node_005 
+				>> node_006 
+				>> node_007 
+			endif 
+		else 
+			>> node_005 
+			>> node_006 
+			>> node_007 
+		endif 
+		if function#C7() 
+			repeat 
+		endif 
+	else 
+		>> node_005 
+		>> node_006 
+		>> node_007 
+		if function#C7() 
+			repeat 
+		endif 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	if self.vertical_distance_to_target().leq(1000) 
+		>> node_002 
+	else 
+		>> node_004 
+		>> node_002 
+	endif 
+	return 
+endf 
+
+def node_002
+	self.targetEnemy(target_em.closest_entity) 
+	if self.distance_3d_to_target().leq(300) 
+		>> Global.node_020 
+		self.targetEnemy(target_em.closest_entity) 
+		>> Global.node_015 
+	elif self.distance_3d_to_target().leq(800) 
+		>> Global.node_015 
+	elif self.distance_3d_to_target().leq(1300) 
+		>> Global.node_016 
+	else 
+		self.targetEnemy(target_em.closest_entity) @ unkn3:2097152, unkn12:4, unknExtra1:900 
+		>> Global.node_005 
+		self.targetEnemy(target_em.closest_entity) 
+		>> Global.node_015 
+	endif 
+	return 
+endf 
+
+def node_003
+	>> Global.node_010 
+	>> Global.node_048 
+	return 
+endf 
+
+def node_004
+	-> action#04(2,1,0,1000,800) 
+	return 
+endf 
+
+def node_005
+	function#54() 
+	function#52(128,3) 
+	self.targetArea(target_area.nearest_entrance) @ unkn3:2097152, unkn12:4, unknExtra1:200 
+	if self.distance_3d_to_target().leq(500) 
+	else 
+		>> Global.node_002 
+	endif 
+	return 
+endf 
+
+def node_006
+	self.targetEnemy(33) 
+	if self.target(20) 
+	else 
+		self.targetEnemy(target_em.random_player_or_cat) 
+	endif 
+	return 
+endf 
+
+def node_007
+	>> Global.node_010 
+	>> Global.node_048 
+	return 
+endf 
+

@@ -1,0 +1,16 @@
+importactions TzitziYaKu as tzitziyaku
+
+def node_000
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if self.distance_3d_to_target().leq(600) 
+		-> tzitziyaku.back_turn() 
+	else 
+	endif 
+	if self.angle_2d_cw_between(60,300) 
+		-> tzitziyaku.turn() 
+	else 
+	endif 
+	-> tzitziyaku.threat_short() 
+	conclude 
+endf 
+

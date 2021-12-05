@@ -1,0 +1,67 @@
+importactions Lavasioth as lavasioth
+importlibrary Global as Global
+
+def node_000
+	if self.quest_id(61607) >> node_005 
+	elif self.in_map(st.Elder_Recess).in_area(7) >> node_002 
+	elif self.in_map(st.Elder_Recess).in_area(9) >> node_002 
+	elif self.in_map(st.Elder_Recess).in_area(10) >> node_002 
+	else >> node_002 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	>> Global.node_069 
+	self.targetArea(55) 
+	>> Global.node_086 
+	if function#101() >> Global.node_054 
+	else >> Global.node_065 
+	endif 
+	self.targetArea(14) 
+	>> node_004 
+	return 
+endf 
+
+def node_002
+	self.targetArea(14) 
+	if function#AB() 
+		>> Global.node_079 
+		function#AA() 
+		>> Global.node_069 
+	endif 
+	>> node_003 
+	return 
+endf 
+
+def node_003
+	if self.distance_3d_to_target().leq(600) 
+	else 
+		>> Global.node_085 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_004
+	if self.distance_2d_to_target().leq(500) 
+	else 
+		-> lavasioth.dash_diving(2,6,0,1000,500) 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_005
+	if function#AB() 
+		function#AA() 
+		>> Global.node_069 
+	endif 
+	if self.in_map(st.Elder_Recess).in_area(7) >> Global.node_109 
+	else >> Global.node_079 
+		self.targetArea(14) 
+		>> node_003 
+	endif 
+	return 
+endf 
+

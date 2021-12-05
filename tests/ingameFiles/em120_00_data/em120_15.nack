@@ -1,0 +1,116 @@
+importactions TzitziYaKu as tzitziyaku
+importlibrary Global as Global
+
+def node_000
+	function#52() 
+	self.targetArea(target_area.nearest_entrance) 
+	>> node_001 
+	function#54() 
+	>> node_007 
+	reset 
+endf 
+
+def node_001
+	>> Global.node_025 
+	>> Global.node_014 
+	if function#57(4) 
+		>> node_002 
+	elif function#57(1) 
+		>> node_003 
+	elif function#57(2) 
+		>> node_004 
+	elif function#57(3) 
+		>> node_005 
+	elif function#57(5) 
+		>> node_006 
+	else 
+		function#52(1,4) 
+		>> node_002 
+	endif 
+	return 
+endf 
+
+def node_002
+	>> Global.node_003 
+	return 
+endf 
+
+def node_003
+	>> Global.node_005 
+	return 
+endf 
+
+def node_004
+	>> Global.node_003 
+	return 
+endf 
+
+def node_005
+	>> Global.node_004 
+	return 
+endf 
+
+def node_006
+	>> Global.node_004 
+	return 
+endf 
+
+def node_007
+	if function#57(4) 
+		>> node_008 
+	elif function#57(1) 
+		>> node_009 
+	elif function#57(2) 
+		>> node_010 
+	elif function#57(3) 
+		>> node_011 
+	elif function#57(5) 
+		>> node_012 
+	else 
+		function#52(0,4) 
+		>> node_008 
+	endif 
+	return 
+endf 
+
+def node_008
+	if [RegisterVar3 <= 3] 
+		[RegisterVar3 |-] 
+		-> tzitziyaku.sniff_s() 
+	else 
+		[RegisterVar3 ++] 
+		>> Global.node_053 
+		-> tzitziyaku.side_kick() 
+	endif 
+	return 
+endf 
+
+def node_009
+	-> tzitziyaku.quick_search2() 
+	return 
+endf 
+
+def node_010
+	>> Global.node_053 
+	-> tzitziyaku.sleep() 
+	return 
+endf 
+
+def node_011
+	>> Global.node_053 
+	-> tzitziyaku.drink_water() 
+	return 
+endf 
+
+def node_012
+	self.targetEnemy(target_em.any_monster) 
+	>> Global.node_053 
+	>> Global.node_041 
+	>> Global.node_017 
+	-> tzitziyaku.sunbath() 
+	>> Global.node_017 
+	>> Global.node_041 
+	>> Global.node_017 
+	return 
+endf 
+

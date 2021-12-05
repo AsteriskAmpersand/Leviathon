@@ -1,0 +1,39 @@
+importactions Barnos as barnos
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_014 
+	if self.hp_percent().gt(30) >> node_001 
+	elif self.hookable() >> node_002 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	function#54() 
+	function#52(4,4) 
+	self.targetEnemy(16) 
+	if self.hookable() -> action#14() 
+	else -> action#13() 
+	endif 
+	self.targetEnemy(17) 
+	if self.hookable() -> action#19() 
+	else -> action#15() 
+	endif 
+	-> action#20() 
+	function#54() 
+	return 
+endf 
+
+def node_002
+	function#54() 
+	function#52(1,1) 
+	self.targetEnemy(16) 
+	-> action#14() 
+	self.targetEnemy(17) 
+	-> action#19() 
+	-> action#20() 
+	function#54() 
+	return 
+endf 
+

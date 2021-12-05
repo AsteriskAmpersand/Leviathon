@@ -1,0 +1,50 @@
+importactions Brachydios as brachydios
+importlibrary Global as Global
+
+def node_000
+	if function#41() >> Global.node_101 
+	else 
+		>> Global.node_001 
+		>> Global.node_102 
+		>> node_001 
+	endif 
+	reset 
+endf 
+
+def node_001
+	self.targetEnemy(48) 
+	if self.in_map(st.Special_Arena).in_area(-1) >> node_004 
+	elif self.distance_3d_to_target().leq(3500) >> node_002 
+	else >> node_003 
+	endif 
+	return 
+endf 
+
+def node_002
+	>> Global.node_072 
+	if self.fatigued() -> brachydios.tired_idle() 
+	else 
+		random (40) -> brachydios.wait() 
+		elser (60) -> brachydios.sniffs_s() 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_003
+	random (35) -> brachydios.combat_search() 
+	elser (45) -> brachydios.anger_search() 
+	elser (20) -> brachydios.wait() 
+	endr 
+	return 
+endf 
+
+def node_004
+	>> Global.node_072 
+	random (35) -> brachydios.combat_search() 
+	elser (20) -> brachydios.anger_search() 
+	elser (45) -> brachydios.wait() 
+	endr 
+	return 
+endf 
+

@@ -1,0 +1,187 @@
+importactions TobiKadachi as tobikadachi
+importlibrary Global as Global
+
+def node_000
+	if self.current_quest().is_rank(rank.MR) 
+		>> node_001 
+	else 
+		>> node_002 
+	endif 
+	reset 
+endf 
+
+def node_001
+	>> Global.node_077 
+	self.targetEnemy(21) @ parameter2:700 
+	if self.target_on_part(0) >> node_019 
+	elif self.target_on_part(1) >> node_020 
+	elif self.target_on_part(2) >> node_021 
+	else 
+		function#41() -> tobikadachi.damage_fly() => reset 
+		self.enraged() >> node_017 => reset 
+		self.fatigued() >> node_018 => reset 
+		>> node_016 => reset 
+	endif 
+	reset 
+endf 
+
+def node_002
+	>> Global.node_077 
+	self.targetEnemy(21) @ parameter2:700 
+	if self.target_on_part(0) >> node_006 
+	elif self.target_on_part(1) >> node_007 
+	elif self.target_on_part(2) >> node_008 
+	else 
+		function#41() -> tobikadachi.damage_fly() => reset 
+		self.enraged() >> node_004 => reset 
+		self.fatigued() >> node_005 => reset 
+		>> node_003 => reset 
+	endif 
+	reset 
+endf 
+
+def node_003
+	random (45) >> Global.node_058 
+	elser (25) >> Global.node_081 
+	elser (20) >> Global.node_059 
+	elser (10) >> Global.node_084 
+	endr 
+	return 
+endf 
+
+def node_004
+	random (45) >> Global.node_058 
+	elser (20) >> Global.node_059 
+	elser (15) >> Global.node_081 
+	elser (15) >> Global.node_084 
+	elser (5) >> Global.node_061 
+	endr 
+	return 
+endf 
+
+def node_005
+	random (20) >> Global.node_058 
+	elser (20) >> Global.node_059 
+	elser (0) >> Global.node_081 
+	elser (60) >> Global.node_075 
+	endr 
+	return 
+endf 
+
+def node_006
+	random (47) >> node_009 
+	elser (38) >> node_010 
+	elser (15) >> node_015 
+	endr 
+	return 
+endf 
+
+def node_007
+	random (47) >> node_011 
+	elser (38) >> node_012 
+	elser (15) >> node_015 
+	endr 
+	return 
+endf 
+
+def node_008
+	random (47) >> node_013 
+	elser (38) >> node_014 
+	elser (15) >> node_015 
+	endr 
+	return 
+endf 
+
+def node_009
+	-> tobikadachi.ride_rage_head() 
+	return 
+endf 
+
+def node_010
+	>> Global.node_066 
+	return 
+endf 
+
+def node_011
+	-> tobikadachi.ride_rage_body() 
+	return 
+endf 
+
+def node_012
+	-> tobikadachi.side_rush_bite() 
+	return 
+endf 
+
+def node_013
+	-> tobikadachi.ride_rage_tail() 
+	return 
+endf 
+
+def node_014
+	if self.part(3).is_broken(1) 
+		-> tobikadachi.broken_side_tail_attack() 
+	elif function#104(1) 
+		-> tobikadachi.shock_side_tail_attack() 
+	else 
+		-> tobikadachi.side_tail_attack() 
+	endif 
+	return 
+endf 
+
+def node_015
+	-> tobikadachi.threat() 
+	return 
+endf 
+
+def node_016
+	random (60) >> Global.node_058 
+	elser (0) >> Global.node_081 
+	elser (35) >> Global.node_059 
+	elser (5) >> Global.node_084 
+	endr 
+	return 
+endf 
+
+def node_017
+	random (55) >> Global.node_058 
+	elser (30) >> Global.node_059 
+	elser (0) >> Global.node_081 
+	elser (0) >> Global.node_084 
+	elser (15) >> Global.node_061 
+	endr 
+	return 
+endf 
+
+def node_018
+	random (45) >> Global.node_058 
+	elser (45) >> Global.node_059 
+	elser (5) >> Global.node_081 
+	elser (5) >> Global.node_075 
+	endr 
+	return 
+endf 
+
+def node_019
+	random (55) >> node_009 
+	elser (45) >> node_010 
+	elser (0) >> node_015 
+	endr 
+	return 
+endf 
+
+def node_020
+	random (55) >> node_011 
+	elser (45) >> node_012 
+	elser (0) >> node_015 
+	endr 
+	return 
+endf 
+
+def node_021
+	random (55) >> node_013 
+	elser (45) >> node_014 
+	elser (0) >> node_015 
+	endr 
+	return 
+endf 
+

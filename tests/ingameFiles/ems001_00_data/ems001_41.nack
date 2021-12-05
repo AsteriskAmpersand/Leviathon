@@ -1,0 +1,39 @@
+importactions Aptonoth as aptonoth
+
+def node_000
+	if self.miasmaed() 
+		if function#77() 
+		else 
+			conclude 
+		endif 
+	endif 
+	if function#72(4) 
+		>> node_002 
+	else 
+		>> node_001 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	if self.distance_3d_to_target().leq(700) 
+	else 
+		random (52) -> aptonoth.idle_tired(2,1,0,3000,500) 
+		elser (48) -> aptonoth.idle_tired_combat(2,1,0,3000,500) 
+		endr 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_002
+	if self.distance_3d_to_target().leq(700) 
+	else 
+		random (52) -> aptonoth.idle_tired(2,1,0,2000,500) 
+		elser (48) -> aptonoth.idle_tired_combat(2,1,0,2000,500) 
+		endr 
+		repeat 
+	endif 
+	return 
+endf 
+

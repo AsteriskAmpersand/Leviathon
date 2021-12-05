@@ -1,0 +1,126 @@
+importactions Black_Diablos as black_diablos
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_007 
+	self.targetEnemy(target_em.closest_entity) 
+	if self.target_is(em.Rathian) 
+		>> node_001 
+	elif self.target_is(em.Pink_Rathian) 
+		>> node_001 
+	elif self.target_is(em.Barroth) 
+		>> node_002 
+	elif self.target_is(em.Diablos) 
+		>> node_003 
+	elif self.target_is(em.Black_Diablos) 
+		>> node_003 
+	elif self.target_is(em.Glavenus) 
+		>> node_004 
+	elif self.target_is(em.Acidic_Glavenus) 
+		>> node_004 
+	elif self.target_is(em.Fulgur_Anjanath) 
+		>> node_005 
+	else 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	self.targetEnemy(target_em.closest_entity) 
+	if self.distance_3d_to_target().gt(2500) 
+		-> black_diablos.grapple_dash_to_em001(1,0,0,2500) 
+		if self.distance_3d_to_target().leq(2500) 
+			repeat 
+		else 
+			>> node_008 
+		endif 
+	else 
+		-> black_diablos.grapple_notice_to_dive_attack() 
+	endif 
+	return 
+endf 
+
+def node_002
+	>> Global.node_056 
+	if self.distance_3d_to_target().leq(1000) 
+		-> black_diablos.short_back_step() 
+	elif self.distance_3d_to_target().gt(2000) 
+		-> black_diablos.dash(1,0,0,2000) 
+	endif 
+	-> black_diablos.grapple_with_em044_start() 
+	return 
+endf 
+
+def node_003
+	if function#C1() 
+		if self.distance_3d_to_target().gt(1851) 
+			-> black_diablos.dash(1,0,0,1851) 
+		else 
+		endif 
+	else 
+		-> black_diablos.grapple_with_em007_wait_threat() 
+	endif 
+	self.targetEnemy(target_em.closest_entity) 
+	>> Global.node_056 
+	if self.target_is(em.Diablos) 
+		random (70) >> node_006 
+		elser (30) >> node_007 
+		endr 
+	elif self.target_is(em.Black_Diablos) 
+		random (50) >> node_006 
+		elser (50) >> node_007 
+		endr 
+	else 
+		random (50) >> node_006 
+		elser (50) >> node_007 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_004
+	>> Global.node_056 
+	if self.distance_3d_to_target().leq(1700) 
+		-> black_diablos.short_back_step() 
+		-> black_diablos.dash(1,0,0,1770) 
+	elif self.distance_3d_to_target().gt(1800) 
+		-> black_diablos.dash(1,0,0,1770) 
+		-> black_diablos.quick_turn() 
+	endif 
+	-> black_diablos.grapple_with_em080_start() 
+	return 
+endf 
+
+def node_005
+	if self.distance_2d_to_target().gt(1800) 
+		-> black_diablos.dash(6,0,0,1700) 
+	endif 
+	if self.distance_2d_to_target().leq(1200) 
+		-> black_diablos.short_back_step() 
+	else 
+		-> black_diablos.quick_turn() 
+	endif 
+	-> black_diablos.grapple_with_em100_01_start() 
+	return 
+endf 
+
+def node_006
+	-> black_diablos.grapple_with_em007_start_attacker_win() 
+	return 
+endf 
+
+def node_007
+	-> black_diablos.grapple_with_em007_start_attacker_lose() 
+	return 
+endf 
+
+def node_008
+	if self.distance_3d_to_target().leq(2500) 
+		return 
+	else 
+		-> black_diablos.dash(1,0,0,2500) 
+		repeat 
+	endif 
+	return 
+endf 
+

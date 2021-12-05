@@ -12,16 +12,7 @@ from compiler.compilerUtils import Autonumber
 from common import thklist
 
 from pathlib import Path
-import networkx as nx
 import queue
-
-
-def hasCycles(g):
-    try:
-        nx.find_cycle(g)
-    except:
-        return False
-    return True
 
 THK_Enumeration = {"THK_%02d"%ix:ix for ix in range(100)}
 

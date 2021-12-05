@@ -1,0 +1,57 @@
+importactions Deviljho as deviljho
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_120 
+	>> Global.node_121 
+	if function#41() 
+		>> Global.node_079 
+	else 
+	endif 
+	if [RegisterVar2 <= 15] 
+		[RegisterVar2 |-] 
+		conclude 
+	else 
+	endif 
+	[RegisterVar2 ++] 
+	if function#101() 
+		>> Global.node_093 
+	else 
+		>> node_001 
+	endif 
+	repeat 
+	conclude 
+endf 
+
+def node_001
+	>> Global.node_001 
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if self.distance_3d_to_target().leq(3500) 
+		>> node_002 
+	else 
+		>> node_003 
+	endif 
+	return 
+endf 
+
+def node_002
+	>> Global.node_015 
+	-> deviljho.sniff_s() 
+	return 
+endf 
+
+def node_003
+	self.targetEnemy(58) 
+	random (10) >> Global.node_023 
+	elser (90) 
+	endr 
+	self.targetEnemy(22) @ parameter2:2000 
+	random (40) >> Global.node_012 
+	elser (60) 
+	endr 
+	random (70) -> deviljho.search() 
+	elser (30) -> deviljho.sniff_s() 
+	endr 
+	return 
+endf 
+

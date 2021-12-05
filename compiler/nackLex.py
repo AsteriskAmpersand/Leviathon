@@ -36,7 +36,7 @@ class NackLexer(Lexer):
     directives = [ key.REGISTER, key.IMPORTACT, key.IMPORTLIB, key.AS ]
     control = [ key.RETURN, key.RESET, key.REPEAT ]
     node_keywords = [ key.DEF, key.ENDF, key.ENDF2, key.ENDF3 ]
-    chance_keywords = [key.CHANCE, key.ELSEC, key.ELSEC2, key.ENDC, key.ENDC2, key.ENDCW, key.ENDCW2] 
+    chance_keywords = [key.RANDOM, key.ELSER, key.ELSER2, key.ENDR, key.ENDR2, key.ENDRW, key.ENDRW2] 
     if_keywords = [key.IF, key.ELSE, key.ELIF, key.ENDIF, key.ENDIFW]
     init_keywords = [key.ENDALL]
     id_keywords = {keyword:keyword.upper() 

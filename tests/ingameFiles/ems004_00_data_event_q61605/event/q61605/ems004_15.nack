@@ -1,0 +1,142 @@
+importactions Mosswine as mosswine
+
+def node_000
+	self.targetEnemy(target_em.random_player_or_cat) 
+	>> node_014 
+	>> node_010 
+	>> node_011 
+	if function#B0(3) >> node_004 
+	elif [RegisterVar0 < 30] >> node_004 
+	elif [RegisterVar0 < 15] >> node_003 
+	elif [RegisterVar0 < 5] >> node_002 
+	else >> node_001 
+	endif 
+	reset 
+endf 
+
+def node_001
+	if self.distance_3d_to_target().leq(2000) 
+		random (50) >> node_007 
+		elser (50) >> node_005 
+		elser (0) >> node_006 
+		endr 
+	else 
+		random (70) >> node_008 
+		elser (30) >> node_005 
+		elser (0) >> node_006 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_002
+	if self.distance_3d_to_target().leq(2000) 
+		random (30) >> node_007 
+		elser (70) >> node_005 
+		elser (0) >> node_006 
+		endr 
+	else 
+		random (50) >> node_008 
+		elser (50) >> node_005 
+		elser (0) >> node_006 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_003
+	if self.distance_3d_to_target().leq(2000) 
+		random (30) >> node_007 
+		elser (60) >> node_005 
+		elser (10) >> node_006 
+		endr 
+	else 
+		random (30) >> node_008 
+		elser (60) >> node_005 
+		elser (10) >> node_006 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_004
+	random (30) >> node_007 
+	elser (0) >> node_005 
+	elser (70) >> node_006 
+	endr 
+	return 
+endf 
+
+def node_005
+	-> action#20() 
+	return 
+endf 
+
+def node_006
+	-> action#24() 
+	return 
+endf 
+
+def node_007
+	>> node_012 
+	if self.angular_15(30,0) -> action#05() 
+	endif 
+	-> action#0A() 
+	return 
+endf 
+
+def node_008
+	>> node_012 
+	function#52() 
+	self.targetArea(target_area.nearest_entrance) 
+	-> action#06() 
+	>> node_009 
+	function#54() 
+	-> action#07() 
+	return 
+endf 
+
+def node_009
+	-> action#03(1,2,0,400,800) 
+	if self.distance_3d_recalc_to_target().gt(500) 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_010
+	if self.target(20) 
+	else >> node_008 
+		reset 
+	endif 
+	return 
+endf 
+
+def node_011
+	if self.target(7) >> node_008 
+		reset 
+	endif 
+	return 
+endf 
+
+def node_012
+	[RegisterVar0 ++] 
+	return 
+endf 
+
+def node_013
+	[RegisterVar0 |-] 
+	return 
+endf 
+
+def node_014
+	if function#B0(3) 
+		if function#101() 
+		else 
+			-> action#15() 
+			reset 
+		endif 
+	endif 
+	return 
+endf 
+

@@ -1,0 +1,181 @@
+importactions Ebony_Odogaron as ebony_odogaron
+
+def node_000
+	self.targetEnemy(target_em.closest_entity) 
+	if self.target_is(em.Rathalos) 
+		>> node_001 
+	elif self.target_is(em.Azure_Rathalos) 
+		>> node_002 
+	elif self.target_is(em.Tigrex) 
+		>> node_003 
+	elif self.target_is(em.Brute_Tigrex) 
+		>> node_003 
+	elif self.target_is(em.Nargacuga) 
+		>> node_004 
+	elif self.target_is(em.Barioth) 
+		>> node_005 
+	elif self.target_is(em.Frostfang_Barioth) 
+		>> node_005 
+	elif self.target_is(em.Uragaan) 
+		>> node_006 
+	elif self.target_is(em.Brachydios) 
+		>> node_007 
+	elif self.target_is(em.Glavenus) 
+		>> node_008 
+	elif self.target_is(em.Acidic_Glavenus) 
+		>> node_009 
+	elif self.target_is(em.Paolumu) 
+		>> node_010 
+	elif self.target_is(em.Nightshade_Paolumu) 
+		>> node_010 
+	elif self.target_is(em.Legiana) 
+		>> node_011 
+	elif self.target_is(em.Shrieking_Legiana) 
+		>> node_011 
+	elif self.target_is(em.Radobaan) 
+		>> node_012 
+	elif self.target_is(em.Vaal_Hazak) 
+		>> node_013 
+	elif self.target_is(em.Blackveil_Vaal_Hazak) 
+		>> node_014 
+	elif self.target_is(em.TzitziYaKu) 
+		>> node_015 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	if self.distance_3d_to_target().gt(1600) 
+		-> ebony_odogaron.dash(1,0,0,1550) 
+	else 
+	endif 
+	-> ebony_odogaron.grapple_with_em002_first() 
+	return 
+endf 
+
+def node_002
+	if self.distance_3d_to_target().gt(1600) 
+		-> ebony_odogaron.dash(1,0,0,1550) 
+	else 
+	endif 
+	-> ebony_odogaron.grapple_with_em002_01_first() 
+	return 
+endf 
+
+def node_003
+	if self.distance_3d_to_target().gt(1600) 
+		-> ebony_odogaron.dash(1,0,0,1550) 
+	else 
+	endif 
+	-> ebony_odogaron.grapple_with_em032_first() 
+	return 
+endf 
+
+def node_004
+	if self.distance_3d_to_target().gt(1600) 
+		-> ebony_odogaron.dash(1,0,0,1550) 
+	else 
+	endif 
+	-> ebony_odogaron.grapple_with_em037_first() 
+	return 
+endf 
+
+def node_005
+	if self.distance_3d_to_target().gt(1600) 
+		-> ebony_odogaron.dash(1,0,0,1550) 
+	else 
+	endif 
+	-> ebony_odogaron.grapple_with_em042_first() 
+	return 
+endf 
+
+def node_006
+	if self.distance_3d_to_target().gt(1900) 
+		-> ebony_odogaron.dash(1,0,0,1800) 
+	else 
+	endif 
+	-> ebony_odogaron.grapple_with_em045_adjust_step() 
+	return 
+endf 
+
+def node_007
+	if self.distance_3d_to_target().gt(1500) 
+		-> ebony_odogaron.dash(1,0,0,1450) 
+	else 
+	endif 
+	-> ebony_odogaron.grapple_with_em063_first() 
+	return 
+endf 
+
+def node_008
+	if self.distance_3d_to_target().gt(1500) 
+		-> ebony_odogaron.dash(1,0,0,1450) 
+	else 
+	endif 
+	-> ebony_odogaron.grapple_with_em080_first() 
+	return 
+endf 
+
+def node_009
+	if self.distance_3d_to_target().gt(1500) 
+		-> ebony_odogaron.dash(1,0,0,1450) 
+	else 
+	endif 
+	-> ebony_odogaron.grapple_with_em080_01_first() 
+	return 
+endf 
+
+def node_010
+	if self.distance_3d_to_target().gt(1900) 
+		-> ebony_odogaron.dash(1,0,0,1800) 
+	else 
+	endif 
+	-> ebony_odogaron.grapple_with_em110_adjust_step() 
+	return 
+endf 
+
+def node_011
+	if self.distance_3d_to_target().gt(1600) 
+		-> ebony_odogaron.dash(1,0,0,1500) 
+	else 
+	endif 
+	-> ebony_odogaron.grapple_with_em111_05_first() 
+	return 
+endf 
+
+def node_012
+	if self.distance_3d_to_target().gt(1900) 
+		-> ebony_odogaron.dash(1,0,0,1800) 
+	else 
+	endif 
+	-> ebony_odogaron.grapple_with_em114_adjust_step() 
+	return 
+endf 
+
+def node_013
+	if self.distance_3d_to_target().gt(1500) 
+		-> ebony_odogaron.dash(1,0,0,1400) 
+	else 
+	endif 
+	-> ebony_odogaron.grapple_with_em115_adjust_jump() 
+	return 
+endf 
+
+def node_014
+	if self.distance_3d_to_target().gt(1500) 
+		-> ebony_odogaron.dash(1,0,0,1400) 
+	else 
+	endif 
+	-> ebony_odogaron.grapple_with_em115_05_adjust_jump() 
+	return 
+endf 
+
+def node_015
+	if self.distance_3d_to_target().gt(1900) 
+		-> ebony_odogaron.dash(1,0,0,1800) 
+	else 
+	endif 
+	-> ebony_odogaron.grapple_with_em120_adjust_step() 
+	return 
+endf 
+

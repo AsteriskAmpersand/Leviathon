@@ -1,0 +1,58 @@
+importactions Teostra as teostra
+
+def node_000
+	self.targetEnemy(target_em.closest_entity) 
+	if self.target_is(em.Kushala_Daora) 
+		>> node_001 
+	elif self.target_is(em.Nergigante) 
+		>> node_002 
+	elif self.target_is(em.Ruiner_Nergigante) 
+		>> node_002 
+	elif self.target_is(em.Lunastra) 
+		>> node_003 
+	elif self.target_is(em.Rajang) 
+		>> node_004 
+	elif self.target_is(em.Velkhana) 
+		>> node_005 
+	elif self.target_is(em.Furious_Rajang) 
+		>> node_004 
+	else 
+		-> teostra.life_search() 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	-> teostra.grapple_to_em024_start() 
+	return 
+endf 
+
+def node_002
+	-> teostra.grapple_dash_vs103() 
+	return 
+endf 
+
+def node_003
+	-> teostra.combination_main_calling() 
+	return 
+endf 
+
+def node_004
+	if self.distance_3d_to_target().gt(1100) 
+		-> teostra.dash(6,0,0,1050) 
+	else 
+	endif 
+	if self.distance_3d_to_target().leq(500) 
+		-> teostra.back_turn() 
+	else 
+		-> teostra.quick_turn() 
+	endif 
+	-> teostra.grapple_with_em023_start() 
+	return 
+endf 
+
+def node_005
+	-> teostra.grapple_with_em124_attacker_first() 
+	return 
+endf 
+

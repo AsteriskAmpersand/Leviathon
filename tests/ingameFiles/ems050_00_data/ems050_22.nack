@@ -1,0 +1,95 @@
+importactions Mernos as mernos
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_021 
+	>> Global.node_016 
+	if self.miasmaed() 
+		>> node_003 
+	else 
+		self.targetEnemy(48) 
+		if self.distance_2d_to_target().leq(1000) 
+		else 
+			self.targetEnemy(target_em.any_monster) 
+		endif 
+		-> mernos.turn_step_front_l() 
+		>> Global.node_009 
+	endif 
+	reset 
+endf 
+
+def node_001
+	function#52(2,4) 
+	self.targetEnemy(16) 
+	-> mernos.glide(1,0,0,900) 
+	>> node_002 
+	function#54() 
+	return 
+endf 
+
+def node_002
+	random (80) 
+	elser (20) >> Global.node_002 
+	endr 
+	return 
+endf 
+
+def node_003
+	self.targetEnemy(33) 
+	if self.target(20) 
+		if self.target_is(em.Vaal_Hazak) >> node_005 
+			return 
+		endif 
+	endif 
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if self.target(4) >> node_001 
+	elif self.target(20) >> node_004 
+	else >> node_001 
+	endif 
+	return 
+endf 
+
+def node_004
+	if function#3A() >> Global.node_032 
+	elif self.target(7) >> Global.node_032 
+	else 
+		random (50) >> Global.node_027 
+		elser (50) >> Global.node_032 
+		elser (0) >> Global.node_002 
+		elser (0) >> Global.node_008 
+					>> Global.node_001 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_005
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if self.target(4) 
+	elif self.target(20) 
+		if self.target(7) 
+		elif self.distance_2d_to_target().gt(1500) >> node_006 
+			return 
+		endif 
+	endif 
+	self.targetEnemy(33) 
+	>> Global.node_033 
+	return 
+endf 
+
+def node_006
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if self.distance_2d_to_target().leq(800) 
+		-> mernos.step_back() 
+		>> Global.node_027 
+	else 
+		>> Global.node_032 
+		self.targetEnemy(33) 
+		if self.distance_2d_to_target().leq(500) >> Global.node_033 
+			return 
+		endif 
+		repeat 
+	endif 
+	return 
+endf 
+

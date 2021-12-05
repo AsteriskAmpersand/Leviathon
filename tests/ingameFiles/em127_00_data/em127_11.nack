@@ -1,0 +1,251 @@
+importactions Leshen as leshen
+
+def node_000
+	function#A8(1) 
+	if self.mounted() 
+		random (47) >> node_001 
+		elser (53) >> node_002 
+		endr 
+	else 
+		random (40) >> node_001 
+		elser (60) >> node_002 
+		endr 
+	endif 
+	reset 
+endf 
+
+def node_001
+	>> node_016 
+	function#A8() 
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if function#103() 
+		if function#A9(0,1) 
+			self.target_on_part(0) >> node_004 => repeat 
+			self.target_on_part(1) >> node_004 => repeat 
+		elif function#A9(0,2) 
+			self.target_on_part(0) >> node_007 => repeat 
+			self.target_on_part(1) >> node_007 => repeat 
+		elif function#A9(0,3) 
+			self.target_on_part(0) >> node_004 => repeat 
+			self.target_on_part(1) >> node_004 => repeat 
+		elif function#A9(0,4) 
+			self.target_on_part(0) >> node_006 => repeat 
+			self.target_on_part(1) >> node_006 => repeat 
+		elif function#A9(0,5) 
+			self.target_on_part(0) >> node_004 => repeat 
+			self.target_on_part(1) >> node_004 => repeat 
+		elif function#A9(0,6) 
+			self.target_on_part(0) >> node_006 => repeat 
+			self.target_on_part(1) >> node_006 => repeat 
+		else 
+			function#A8(1) 
+			-> leshen.ride_finish_scratch_after_warp_delay() 
+		endif 
+	else 
+		if function#A9(0,1) 
+			self.target_on_part(0) >> node_004 => repeat 
+			self.target_on_part(1) >> node_004 => repeat 
+		elif function#A9(0,2) 
+			self.target_on_part(0) >> node_003 => repeat 
+			self.target_on_part(1) >> node_003 => repeat 
+		elif function#A9(0,3) 
+			self.target_on_part(0) >> node_007 => repeat 
+			self.target_on_part(1) >> node_007 => repeat 
+		elif function#A9(0,4) 
+			self.target_on_part(0) >> node_003 => repeat 
+			self.target_on_part(1) >> node_003 => repeat 
+		elif function#A9(0,5) 
+			self.target_on_part(0) >> node_004 => repeat 
+			self.target_on_part(1) >> node_004 => repeat 
+		elif function#A9(0,6) 
+			self.target_on_part(0) >> node_007 => repeat 
+			self.target_on_part(1) >> node_007 => repeat 
+		else 
+			function#A8(1) 
+			-> leshen.ride_finish_scratch_after_warp_delay() 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_002
+	>> node_016 
+	function#A8() 
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if function#103() 
+		if function#A9(0,1) 
+			self.target_on_part(0) >> node_007 => repeat 
+			self.target_on_part(1) >> node_007 => repeat 
+		elif function#A9(0,2) 
+			self.target_on_part(0) >> node_006 => repeat 
+			self.target_on_part(1) >> node_006 => repeat 
+		elif function#A9(0,3) 
+			self.target_on_part(0) >> node_004 => repeat 
+			self.target_on_part(1) >> node_004 => repeat 
+		elif function#A9(0,4) 
+			self.target_on_part(0) >> node_007 => repeat 
+			self.target_on_part(1) >> node_007 => repeat 
+		elif function#A9(0,5) 
+			self.target_on_part(0) >> node_006 => repeat 
+			self.target_on_part(1) >> node_006 => repeat 
+		elif function#A9(0,6) 
+			self.target_on_part(0) >> node_004 => repeat 
+			self.target_on_part(1) >> node_004 => repeat 
+		else 
+			function#A8(1) 
+			-> leshen.ride_finish_scratch_after_warp_delay() 
+		endif 
+	else 
+		if function#A9(0,1) 
+			self.target_on_part(0) >> node_004 => repeat 
+			self.target_on_part(1) >> node_004 => repeat 
+		elif function#A9(0,2) 
+			self.target_on_part(0) >> node_007 => repeat 
+			self.target_on_part(1) >> node_007 => repeat 
+		elif function#A9(0,3) 
+			self.target_on_part(0) >> node_004 => repeat 
+			self.target_on_part(1) >> node_004 => repeat 
+		elif function#A9(0,4) 
+			self.target_on_part(0) >> node_003 => repeat 
+			self.target_on_part(1) >> node_003 => repeat 
+		elif function#A9(0,5) 
+			self.target_on_part(0) >> node_004 => repeat 
+			self.target_on_part(1) >> node_004 => repeat 
+		elif function#A9(0,6) 
+			self.target_on_part(0) >> node_003 => repeat 
+			self.target_on_part(1) >> node_003 => repeat 
+		else 
+			function#A8(1) 
+			-> leshen.ride_finish_scratch_after_warp_delay() 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_003
+	if self.mounted() 
+		>> node_005 
+	else 
+		>> node_006 
+	endif 
+	return 
+endf 
+
+def node_004
+	if self.mounted() 
+		>> node_008 
+	else 
+	endif 
+	return 
+endf 
+
+def node_005
+	random (65) -> leshen.ride_rage_head() 
+	elser (35) -> leshen.ride_rage_head_lv2() 
+	endr 
+	return 
+endf 
+
+def node_006
+	random (35) -> leshen.ride_rage_head() 
+	elser (65) -> leshen.ride_rage_head_lv2() 
+	endr 
+	return 
+endf 
+
+def node_007
+	if function#103() 
+		-> leshen.around_wave_root_stab() 
+	else 
+		-> leshen.around_root_stab() 
+	endif 
+	return 
+endf 
+
+def node_008
+	-> leshen.threat() 
+	return 
+endf 
+
+def node_009
+	random (20) >> node_010 
+	elser (80) >> node_011 
+	endr 
+	>> node_015 
+	return 
+endf 
+
+def node_010
+	self.targetEnemy(21) @ parameter2:1000 
+	return 
+endf 
+
+def node_011
+	self.targetEnemy(22) @ parameter2:1000 
+	return 
+endf 
+
+def node_012
+	random (48) >> node_013 
+	elser (52) >> node_014 
+	endr 
+	return 
+endf 
+
+def node_013
+	self.targetEnemy(12) @ parameter2:1000 
+	return 
+endf 
+
+def node_014
+	self.targetEnemy(11) @ parameter2:1000 
+	return 
+endf 
+
+def node_015
+	if self.angular_17(300,60) 
+		-> leshen.turn() 
+	else 
+	endif 
+	return 
+endf 
+
+def node_016
+	if function#3B() 
+		if self.mount_staggered_twice() 
+			>> node_017 
+		else 
+		endif 
+	else 
+		if self.mount_finisher_ready() 
+			if self.mounted() 
+				random (60) >> node_017 
+				elser (40) 
+				endr 
+			else 
+				random (100) >> node_017 
+				elser (0) 
+				endr 
+			endif 
+		elif self.mount_stabbed() 
+			if self.mounted() 
+				random (80) >> node_017 
+				elser (20) 
+				endr 
+			else 
+				random (100) >> node_017 
+				elser (0) 
+				endr 
+			endif 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_017
+	function#A8(1) 
+	-> leshen.ride_tired() 
+	-> leshen.ride_finish_scratch_after_warp_delay() 
+	return 
+endf 
+

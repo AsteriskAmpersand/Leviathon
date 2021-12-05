@@ -1,0 +1,610 @@
+importactions Gastodon as gastodon
+
+def node_000
+	conclude 
+endf 
+
+def node_001
+	if self.angle_2d_cw_between(30,330) 
+		-> action#02() 
+	else 
+	endif 
+	return 
+endf 
+
+def node_002
+	if self.angle_2d_cw_between(30,330) 
+		-> action#03() 
+	else 
+	endif 
+	return 
+endf 
+
+def node_003
+	if self.angle_2d_cw_between(15,345) 
+		-> action#03() 
+	else 
+	endif 
+	return 
+endf 
+
+def node_004
+	-> action#22() 
+	return 
+endf 
+
+def node_005
+	if self.enraged() 
+	else 
+		if function#51(0,1500) 
+			if self.distance_3d_recalc_to_target().leq(500) 
+				>> node_002 
+				-> action#12() 
+				reset 
+			else 
+				>> node_002 
+				random (30) -> action#1A() 
+				elser (40) -> action#19() 
+				elser (30) -> action#1B() 
+				endr 
+				reset 
+			endif 
+		else 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_006
+	self.targetUnknown(1,0) 
+	if self.target(3) 
+		>> node_002 
+		random (50) -> action#19() 
+		elser (50) -> action#1A() 
+		endr 
+		reset 
+	else 
+	endif 
+	return 
+endf 
+
+def node_007
+	self.targetUnknown(1,0) 
+	if self.target(10) 
+		>> node_002 
+		random (40) -> action#19() 
+		elser (30) -> action#1B() 
+		elser (30) -> action#1A() 
+		endr 
+		reset 
+	else 
+	endif 
+	return 
+endf 
+
+def node_008
+	if self.targetEnemy(33) 
+		if self.distance_2d_to_target().leq(3000) 
+			>> node_002 
+			random (33) -> action#19() 
+			elser (34) -> action#1A() 
+			elser (16) -> action#0B() 
+			elser (17) -> action#0A() 
+			endr 
+			reset 
+		else 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_009
+	if function#31(40,1500) 
+		self.targetEnemy(target_em.closest_entity) 
+		>> node_002 
+		>> node_035 
+		reset 
+	else 
+	endif 
+	return 
+endf 
+
+def node_010
+	if function#31(46,3000) 
+		self.targetEnemy(target_em.closest_entity) 
+		if self.target(13) 
+			self.targetEnemy(target_em.random_player_or_cat) 
+			if self.target(3) 
+			else 
+				if self.distance_3d_to_target().gt(700) 
+					>> node_026 
+				else 
+					>> node_035 
+				endif 
+				reset 
+			endif 
+		else 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_011
+	if self.enraged() 
+	else 
+		self.targetUnknown(1,0) 
+		if function#101() 
+		else 
+			>> node_035 
+			reset 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_012
+	if self.enraged() 
+	else 
+		if self.targetEnemy(target_em.any_monster) 
+			if self.distance_2d_to_target().leq(1500) 
+				function#54() 
+				function#52(2,5) 
+				self.targetArea(target_area.nearest_entrance) 
+				>> node_031 
+				function#54() 
+				self.targetEnemy(target_em.any_monster) 
+				>> node_035 
+				reset 
+			elif self.target(20) 
+				self.targetEnemy(target_em.random_player_or_cat) 
+				if function#101() 
+				else 
+					self.targetEnemy(target_em.any_monster) 
+				endif 
+				>> node_035 
+				reset 
+			else 
+				function#105() 
+			endif 
+		else 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_013
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if self.target(0) 
+		if self.distance_2d_to_target().leq(1000) 
+		else 
+			-> action#09(2,6,0,2000,950) 
+		endif 
+		>> node_035 
+		reset 
+	else 
+	endif 
+	return 
+endf 
+
+def node_014
+	if self.target(0) 
+		if self.distance_2d_to_target().leq(1000) 
+		else 
+			-> action#09(2,6,0,2000,950) 
+		endif 
+		>> node_040 
+		reset 
+	else 
+	endif 
+	if self.target(14) 
+		>> node_040 
+		reset 
+	else 
+	endif 
+	return 
+endf 
+
+def node_015
+	if self.target(48) 
+		>> node_035 
+		reset 
+	else 
+	endif 
+	return 
+endf 
+
+def node_016
+	>> node_002 
+	random (34) -> action#19() 
+	elser (33) -> action#1B() 
+	elser (33) -> action#1F() 
+	endr 
+	return 
+endf 
+
+def node_017
+	random (34) -> action#1D() 
+	elser (33) -> action#1E() 
+	elser (33) -> action#1F() 
+	endr 
+	return 
+endf 
+
+def node_018
+	random (33) -> action#19() 
+	elser (34) -> action#3B() 
+	elser (33) -> action#1C() 
+	endr 
+	return 
+endf 
+
+def node_019
+endf 
+
+def node_020
+	if function#3A() 
+		self.targetEnemy(target_em.random_player_or_cat) 
+		>> node_002 
+		random (40) -> action#19() 
+		elser (30) -> action#1A() 
+		elser (30) -> action#1B() 
+		endr 
+		reset 
+	else 
+	endif 
+	return 
+endf 
+
+def node_021
+	-> action#09(6,0,0,500) 
+	return 
+endf 
+
+def node_022
+	-> action#09(2,6,0,500,500) 
+	if self.distance_2d_to_target().leq(500) 
+	else 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_023
+	-> action#09(2,6,0,500,700) 
+	if self.distance_2d_to_target().leq(700) 
+		-> action#19() 
+	else 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_024
+	-> action#09(2,6,0,500,400) 
+	if self.distance_2d_to_target().leq(500) 
+	else 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_025
+	-> action#09(2,6,0,1000,1000) 
+	if self.distance_2d_to_target().leq(1000) 
+	else 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_026
+	-> action#09(2,6,0,500,500) 
+	return 
+endf 
+
+def node_027
+	-> action#09(2,6,0,500,500) 
+	return 
+endf 
+
+def node_028
+	-> action#09(2,6,0,500,500) 
+	>> node_037 
+	if self.distance_2d_to_target().leq(500) 
+	else 
+		-> action#09(2,6,0,500,500) 
+	endif 
+	>> node_037 
+	if self.distance_2d_to_target().leq(500) 
+	else 
+		-> action#09(2,6,0,500,500) 
+	endif 
+	>> node_037 
+	if self.distance_2d_to_target().leq(500) 
+	else 
+		-> action#09(2,6,0,500,500) 
+	endif 
+	>> node_037 
+	if self.distance_2d_to_target().leq(500) 
+	else 
+		-> action#09(2,6,0,500,500) 
+	endif 
+	>> node_037 
+	if self.distance_2d_to_target().leq(500) 
+	else 
+		-> action#09(2,6,0,500,500) 
+	endif 
+	>> node_037 
+	if self.distance_2d_to_target().leq(500) 
+	else 
+		-> action#09(2,6,0,500,500) 
+	endif 
+	>> node_037 
+	if self.distance_2d_to_target().leq(500) 
+	else 
+		-> action#09(2,6,0,500,500) 
+	endif 
+	>> node_037 
+	if self.distance_2d_to_target().leq(500) 
+	else 
+		-> action#09(2,6,0,500,500) 
+	endif 
+	>> node_037 
+	if self.distance_2d_to_target().leq(500) 
+	else 
+		-> action#09(2,6,0,500,500) 
+	endif 
+	return 
+endf 
+
+def node_029
+	-> action#09(2,6,0,500,500) 
+	>> node_037 
+	if self.distance_2d_to_target().leq(500) 
+	else 
+		-> action#09(2,6,0,500,500) 
+	endif 
+	>> node_037 
+	if self.distance_2d_to_target().leq(500) 
+	else 
+		-> action#09(2,6,0,500,500) 
+	endif 
+	>> node_037 
+	if self.distance_2d_to_target().leq(500) 
+	else 
+		-> action#09(2,6,0,500,500) 
+	endif 
+	>> node_037 
+	if self.distance_2d_to_target().leq(500) 
+	else 
+		-> action#09(2,6,0,500,500) 
+	endif 
+	>> node_037 
+	if self.distance_2d_to_target().leq(500) 
+	else 
+		-> action#09(2,6,0,500,500) 
+	endif 
+	>> node_037 
+	if self.distance_2d_to_target().leq(500) 
+	else 
+		-> action#09(2,6,0,500,500) 
+	endif 
+	>> node_037 
+	if self.distance_2d_to_target().leq(500) 
+	else 
+		-> action#09(2,6,0,500,500) 
+	endif 
+	>> node_037 
+	if self.distance_2d_to_target().leq(500) 
+	else 
+		-> action#09(2,6,0,500,500) 
+	endif 
+	>> node_037 
+	if self.distance_2d_to_target().leq(500) 
+	else 
+		-> action#09(2,6,0,500,500) 
+	endif 
+	return 
+endf 
+
+def node_030
+	-> action#09(2,6,0,500,1000) 
+	>> node_037 
+	if self.distance_2d_to_target().leq(1000) 
+	else 
+		-> action#09(2,6,0,500,1000) 
+	endif 
+	>> node_037 
+	if self.distance_2d_to_target().leq(1000) 
+	else 
+		-> action#09(2,6,0,500,1000) 
+	endif 
+	>> node_037 
+	if self.distance_2d_to_target().leq(1000) 
+	else 
+		-> action#09(2,6,0,500,1000) 
+	endif 
+	>> node_037 
+	if self.distance_2d_to_target().leq(1000) 
+	else 
+		-> action#09(2,6,0,500,1000) 
+	endif 
+	>> node_037 
+	if self.distance_2d_to_target().leq(1000) 
+	else 
+		-> action#09(2,6,0,500,1000) 
+	endif 
+	>> node_037 
+	if self.distance_2d_to_target().leq(1000) 
+	else 
+		-> action#09(2,6,0,500,1000) 
+	endif 
+	>> node_037 
+	if self.distance_2d_to_target().leq(1000) 
+	else 
+		-> action#09(2,6,0,500,1000) 
+	endif 
+	>> node_037 
+	if self.distance_2d_to_target().leq(1000) 
+	else 
+		-> action#09(2,6,0,500,1000) 
+	endif 
+	>> node_037 
+	if self.distance_2d_to_target().leq(1000) 
+	else 
+		-> action#09(2,6,0,500,1000) 
+	endif 
+	return 
+endf 
+
+def node_031
+	if self.distance_2d_to_target().leq(500) 
+	else 
+		-> action#09(2,6,0,500,400) 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_032
+	if self.distance_2d_to_target().leq(600) 
+	else 
+		-> action#09(2,6,0,500,500) 
+	endif 
+	if function#46() 
+		>> node_039 
+		>> node_040 
+		>> node_040 
+		>> node_040 
+		return 
+	else 
+	endif 
+	if self.distance_2d_to_target().leq(600) 
+	else 
+		-> action#09(2,6,0,500,500) 
+	endif 
+	if function#46() 
+		>> node_039 
+		>> node_040 
+		>> node_040 
+		>> node_040 
+		return 
+	else 
+	endif 
+	if self.distance_2d_to_target().leq(600) 
+	else 
+		-> action#09(2,6,0,500,500) 
+	endif 
+	if function#46() 
+		>> node_039 
+		>> node_040 
+		>> node_040 
+		>> node_040 
+		return 
+	else 
+	endif 
+	if self.distance_2d_to_target().leq(600) 
+	else 
+		-> action#09(2,6,0,500,500) 
+	endif 
+	if function#46() 
+		>> node_039 
+		>> node_040 
+		>> node_040 
+		>> node_040 
+		return 
+	else 
+	endif 
+	if self.distance_2d_to_target().leq(600) 
+	else 
+		-> action#09(2,6,0,500,500) 
+	endif 
+	if function#46() 
+		>> node_039 
+		>> node_040 
+		>> node_040 
+		>> node_040 
+		return 
+	else 
+	endif 
+	return 
+endf 
+
+def node_033
+	>> node_003 
+	if self.enraged() 
+		-> action#62() 
+	else 
+		-> action#16() 
+	endif 
+	return 
+endf 
+
+def node_034
+	>> node_003 
+	if self.enraged() 
+		-> action#60() 
+	else 
+		-> action#14() 
+	endif 
+	return 
+endf 
+
+def node_035
+	>> node_002 
+	random (40) -> action#19() 
+	elser (30) -> action#1B() 
+	elser (30) -> action#1A() 
+	endr 
+	return 
+endf 
+
+def node_036
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if self.distance_2d_to_target().leq(2000) 
+		>> node_003 
+		>> node_035 
+		reset 
+	else 
+	endif 
+	return 
+endf 
+
+def node_037
+	if self.enraged() 
+	else 
+		if function#102() 
+		else 
+			function#103() 
+			>> node_022 
+			reset 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_038
+	>> node_002 
+	random (40) -> action#19() 
+	elser (10) -> action#0A() 
+	elser (10) -> action#0B() 
+	elser (40) -> action#1B() 
+	endr 
+	return 
+endf 
+
+def node_039
+	-> action#12() 
+	return 
+endf 
+
+def node_040
+	random (34) -> action#1D() 
+	elser (33) -> action#1E() 
+	elser (33) -> action#1F() 
+	endr 
+	return 
+endf 
+

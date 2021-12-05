@@ -1,0 +1,34 @@
+importactions Leshen as leshen
+importlibrary Global as Global
+
+def node_000
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if function#10F() 
+		>> node_003 
+	else 
+		if self.target(7) 
+			>> node_003 
+		elif self.target(10) 
+			>> node_002 
+		else 
+			>> node_001 
+		endif 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	-> leshen.discover() 
+	return 
+endf 
+
+def node_002
+	>> Global.node_104 
+	return 
+endf 
+
+def node_003
+	>> Global.node_104 
+	return 
+endf 
+

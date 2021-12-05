@@ -1,0 +1,28 @@
+importactions Frostfang_Barioth as frostfang_barioth
+importlibrary Global as Global
+
+def node_000
+	self.targetEnemy(50) 
+	if self.fatigued() 
+		conclude 
+	else 
+		if self.distance_2d_to_target().leq(500) 
+			-> frostfang_barioth.back_jump_breath() 
+		elif self.distance_3d_to_target().leq(1000) 
+			-> frostfang_barioth.sweep_frozen_breath() 
+		else 
+			-> frostfang_barioth.frozen_breath() 
+		endif 
+	endif 
+	if self.target(57) 
+		if self.distance_2d_to_target().leq(1700) 
+			>> Global.node_218 
+		else 
+			>> Global.node_217 
+		endif 
+	else 
+		-> frostfang_barioth.after_counter_unguard() 
+	endif 
+	conclude 
+endf 
+

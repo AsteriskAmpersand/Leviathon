@@ -1,0 +1,27 @@
+importactions Kirin as kirin
+
+def node_000
+	self.targetArea(24) 
+	if self.distance_3d_to_target().gt(600) 
+		-> kirin.dying_walk(2,1,0,2000,600) 
+		repeat 
+	else 
+		>> node_001 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	if function#7C() 
+		conclude 
+	else 
+		if function#C9() 
+			-> kirin.dying_sleep(3,0,0,150) 
+		else 
+			function#CA() 
+			conclude 
+		endif 
+	endif 
+	return 
+endf 
+

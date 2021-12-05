@@ -1,0 +1,85 @@
+importactions Legiana as legiana
+importlibrary Global as Global
+
+def node_000
+	self.targetEnemy(34) 
+	if self.target_is(em.Raphinos) 
+		>> Global.node_045 
+	elif self.target_is(em.Anteka) 
+		>> Global.node_045 
+	elif self.target_is(em.Cortos) 
+		>> Global.node_045 
+	elif self.target_is(em.Popo) 
+		>> Global.node_045 
+	elif self.target_is(em.Aptonoth) 
+		>> Global.node_045 
+	else 
+		>> Global.node_046 
+		conclude 
+	endif 
+	>> node_001 
+	self.targetEnemy(34) 
+	>> node_006 
+	>> Global.node_271 
+	conclude 
+endf 
+
+def node_001
+	if function#AD() 
+		>> node_002 
+	else 
+		>> node_003 
+	endif 
+	return 
+endf 
+
+def node_002
+	>> Global.node_002 
+	if self.flying() 
+		>> Global.node_273 
+	else 
+		>> Global.node_009 
+	endif 
+	return 
+endf 
+
+def node_003
+	>> node_004 
+	>> node_005 
+	return 
+endf 
+
+def node_004
+	if self.flying() 
+		self.targetArea(target_area.area_aerial_center) 
+		>> Global.node_026 
+	else 
+		self.targetArea(target_area.area_center) 
+		>> Global.node_009 
+		self.targetArea(target_area.area_aerial_center) 
+		>> Global.node_033 
+	endif 
+	return 
+endf 
+
+def node_005
+	self.targetEnemy(34) 
+	if self.flying() 
+		self.targetArea(40) 
+		>> Global.node_024 
+	else 
+		self.targetArea(39) 
+		>> Global.node_009 
+	endif 
+	return 
+endf 
+
+def node_006
+	if self.flying() 
+		>> Global.node_273 
+	else 
+		>> Global.node_009 
+	endif 
+	return 
+endf 
+

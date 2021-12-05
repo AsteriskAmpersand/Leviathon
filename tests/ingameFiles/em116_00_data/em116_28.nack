@@ -1,0 +1,57 @@
+importactions Dodogama as dodogama
+importlibrary Global as Global
+
+def node_000
+	if [RegisterVar1 <= 15] 
+		[RegisterVar1 |-] 
+		conclude 
+	else 
+	endif 
+	[RegisterVar1 ++] 
+	>> node_001 
+	repeat 
+	conclude 
+endf 
+
+def node_001
+	>> Global.node_003 
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if self.distance_3d_to_target().leq(3500) 
+		>> node_002 
+	else 
+		>> node_003 
+	endif 
+	return 
+endf 
+
+def node_002
+	if self.target(7) 
+	elif self.target(10) 
+	else 
+		>> Global.node_034 
+	endif 
+	random (40) -> dodogama.smell() 
+	elser (20) -> dodogama.smell_max() 
+	elser (30) -> dodogama.search() 
+	elser (10) -> dodogama.short_search() 
+	endr 
+	return 
+endf 
+
+def node_003
+	self.targetEnemy(58) 
+	random (20) >> Global.node_030 
+	elser (80) 
+	endr 
+	self.targetEnemy(22) @ parameter2:2000 
+	random (40) >> Global.node_034 
+	elser (60) 
+	endr 
+	random (40) -> dodogama.search() 
+	elser (20) -> dodogama.short_search() 
+	elser (10) -> dodogama.smell_max() 
+	elser (30) -> dodogama.smell() 
+	endr 
+	return 
+endf 
+

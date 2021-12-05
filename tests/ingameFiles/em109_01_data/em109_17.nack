@@ -1,0 +1,34 @@
+importactions Viper_TobiKadachi as viper_tobikadachi
+importlibrary Global as Global
+
+def node_000
+	>> node_001 
+	>> node_002 
+	conclude 
+endf 
+
+def node_001
+	if function#AB() 
+		function#AA() 
+		>> Global.node_118 
+	else 
+	endif 
+	return 
+endf 
+
+def node_002
+	self.targetArea(14) 
+	if self.distance_3d_to_target().gt(600) 
+		>> Global.node_039 
+		repeat 
+	else 
+	endif 
+	return 
+endf 
+
+def node_003
+	self.targetEnemy(target_em.random_player_or_cat) 
+	>> Global.node_053 
+	return 
+endf 
+

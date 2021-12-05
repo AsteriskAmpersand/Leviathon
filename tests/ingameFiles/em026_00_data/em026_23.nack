@@ -1,0 +1,38 @@
+importactions Lunastra as lunastra
+
+def node_000
+	self.targetEnemy(target_em.closest_entity) 
+	>> node_001 
+	conclude 
+endf 
+
+def node_001
+	if self.target_is(em.Kushala_Daora) 
+		-> lunastra.grapple_mediation_threat_fly() 
+	elif self.target_is(em.Nergigante) 
+		>> node_002 
+		-> lunastra.grapple_mediation_threat_vs103() 
+	elif self.target_is(em.Ruiner_Nergigante) 
+		>> node_002 
+		-> lunastra.grapple_mediation_threat_vs103() 
+	elif self.target_is(em.Teostra) 
+		>> node_002 
+		-> lunastra.combination_main_mediation() 
+	elif self.target_is(em.Rajang) 
+		>> node_002 
+		-> lunastra.grapple_with_em023_mediation() 
+	elif self.target_is(em.Velkhana) 
+		-> lunastra.grapple_with_em124_attacker_mediation() 
+	elif self.target_is(em.Furious_Rajang) 
+		-> lunastra.grapple_with_em023_mediation() 
+	endif 
+	return 
+endf 
+
+def node_002
+	if self.flying() 
+		-> lunastra.landing() 
+	endif 
+	return 
+endf 
+

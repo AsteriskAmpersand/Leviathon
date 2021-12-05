@@ -1,0 +1,27 @@
+importactions TobiKadachi as tobikadachi
+importlibrary Global as Global
+
+def node_000
+	self.targetArea(20) 
+	>> node_001 
+	conclude 
+endf 
+
+def node_001
+	if self.distance_3d_to_target().gt(1000) 
+		>> node_002 
+		repeat 
+	else 
+	endif 
+	return 
+endf 
+
+def node_002
+	if self.fatigued() 
+		>> Global.node_024 
+	else 
+		>> Global.node_024 
+	endif 
+	return 
+endf 
+

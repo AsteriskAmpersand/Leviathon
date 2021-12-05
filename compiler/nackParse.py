@@ -299,23 +299,23 @@ class NackParser(Parser):
     def optionalChance(self,p):
         return col.deque([p.optionalTerminator])
     
-    @_("ENDC skip",
-       "ENDCHANCE skip")
+    @_("ENDR skip",
+       "ENDRANDOM skip")
     def optionalTerminator(self,p):
         s = abc.Segment()
         s.endChance()
         return s
-    @_("ENDCWITH uncontrolledSegment skip",
-       "ENDCHANCEWITH uncontrolledSegment skip")
+    @_("ENDRWITH uncontrolledSegment skip",
+       "ENDRANDOMWITH uncontrolledSegment skip")
     def optionalTerminator(self,p):
         s = p.uncontrolledSegment
         s.endChance()
         return s
     
-    @_('CHANCE "(" numeric ")"')
+    @_('RANDOM "(" numeric ")"')
     def chanceHeader(self,p):
         return abc.ChanceHead(p[2])
-    @_('CHANCE "(" id ")"')
+    @_('RANDOM "(" id ")"')
     def chanceHeader(self,p):
         return abc.ChanceHead(p[2])
     
@@ -324,7 +324,7 @@ class NackParser(Parser):
     def chanceBody(self,p):
         return abc.ChanceElse(p[2])
     
-    @_('ELSECHANCE','ELSEC')
+    @_('ELSERANDOM','ELSER')
     def elsechance(self,p):
         return
     

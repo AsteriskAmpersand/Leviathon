@@ -1,0 +1,36 @@
+importactions TzitziYaKu as tzitziyaku
+importlibrary Global as Global
+
+def node_000
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if function#41() 
+		>> Global.node_038 
+	elif self.target(7) 
+		>> node_002 
+	elif self.target(10) 
+		>> node_003 
+	else 
+		>> node_001 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	>> Global.node_039 
+	return 
+endf 
+
+def node_002
+	>> Global.node_039 
+	return 
+endf 
+
+def node_003
+	if self.angle_2d_cw_between(30,330) 
+		>> Global.node_053 
+	else 
+	endif 
+	>> Global.node_060 
+	return 
+endf 
+

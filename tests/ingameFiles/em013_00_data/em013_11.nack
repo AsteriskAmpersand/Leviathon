@@ -1,0 +1,199 @@
+importactions Fatalis as fatalis
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_017 
+	if function#101(1) 
+		>> Global.node_016 
+	else 
+	endif 
+	if self.mounted() 
+		random (47) >> node_002 
+		elser (53) >> node_001 
+		endr 
+	else 
+		random (40) >> node_002 
+		elser (60) >> node_001 
+		endr 
+	endif 
+	reset 
+endf 
+
+def node_001
+	>> node_015 
+	function#A8() 
+	self.targetEnemy(target_em.random_player_or_cat) 
+	function#10C() 
+	if function#A9(0,1) 
+		self.target_on_part(0) >> node_003 => repeat 
+		self.target_on_part(1) >> node_004 => repeat 
+		self.target_on_part(2) >> node_005 => repeat 
+	elif function#A9(0,2) 
+		>> node_013 
+	elif function#A9(0,3) 
+		self.target_on_part(0) >> node_003 => repeat 
+		self.target_on_part(1) >> node_004 => repeat 
+		self.target_on_part(2) >> node_005 => repeat 
+	else 
+		function#A8(1) 
+		>> node_013 
+	endif 
+	return 
+endf 
+
+def node_002
+	>> node_015 
+	function#A8() 
+	self.targetEnemy(target_em.random_player_or_cat) 
+	function#10C() 
+	if function#A9(0,1) 
+		self.target_on_part(0) >> node_003 => repeat 
+		self.target_on_part(1) >> node_004 => repeat 
+		self.target_on_part(2) >> node_005 => repeat 
+	elif function#A9(0,2) 
+		self.target_on_part(0) >> node_003 => repeat 
+		self.target_on_part(1) >> node_004 => repeat 
+		self.target_on_part(2) >> node_005 => repeat 
+	elif function#A9(0,3) 
+		>> node_013 
+	elif function#A9(0,4) 
+		self.target_on_part(0) >> node_003 => repeat 
+		self.target_on_part(1) >> node_004 => repeat 
+		self.target_on_part(2) >> node_005 => repeat 
+	elif function#A9(0,5) 
+		self.target_on_part(0) >> node_003 => repeat 
+		self.target_on_part(1) >> node_004 => repeat 
+		self.target_on_part(2) >> node_005 => repeat 
+	else 
+		function#A8(1) 
+		>> node_013 
+	endif 
+	return 
+endf 
+
+def node_003
+	if self.mounted() 
+		random (50) >> node_007 
+		elser (50) >> node_008 
+		endr 
+	else 
+		random (50) >> node_007 
+		elser (50) >> node_008 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_004
+	if self.mounted() 
+		random (50) >> node_010 
+		elser (50) >> node_010 
+		endr 
+	else 
+		random (50) >> node_010 
+		elser (50) >> node_010 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_005
+	if self.mounted() 
+		random (50) >> node_011 
+		elser (50) >> node_012 
+		endr 
+	else 
+		random (50) >> node_011 
+		elser (50) >> node_012 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_006
+	if self.mounted() 
+		>> node_014 
+	else 
+	endif 
+	return 
+endf 
+
+def node_007
+	-> fatalis.l2_line_fire_shoot() 
+	>> node_017 
+	return 
+endf 
+
+def node_008
+	-> fatalis.l2_ride_rage_head() 
+	>> node_017 
+	return 
+endf 
+
+def node_009
+	-> fatalis.l2_ride_rage_body() 
+	>> node_017 
+	return 
+endf 
+
+def node_010
+	-> fatalis.l2_ride_rage_body() 
+	>> node_017 
+	return 
+endf 
+
+def node_011
+	-> fatalis.l2_tail_swing() 
+	>> node_017 
+	return 
+endf 
+
+def node_012
+	-> fatalis.l2_ride_rage_tail() 
+	>> node_017 
+	return 
+endf 
+
+def node_013
+	-> fatalis.l2_rush_start() 
+	>> node_017 
+	return 
+endf 
+
+def node_014
+	>> Global.node_013 
+	return 
+endf 
+
+def node_015
+	if self.mount_stabbed() 
+		if self.mounted() 
+			random (35) >> node_016 
+			elser (65) 
+			endr 
+		else 
+			random (100) >> node_016 
+			elser (0) 
+			endr 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_016
+	-> fatalis.l2_ride_tired() 
+	-> fatalis.l2_ride_finish_bind_voice() 
+	return 
+endf 
+
+def node_017
+	[RegisterVar12 ++] 
+	if [RegisterVar12 <= 12] 
+		[RegisterVar12 |-] 
+		-> fatalis.l2_ride_finish_bind_voice() 
+	else 
+	endif 
+	return 
+endf 
+

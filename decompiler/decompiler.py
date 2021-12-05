@@ -157,6 +157,7 @@ class THKLDecompiler(Decompiler):
                 continue
             else:
                 output = (Path(folder)/name).with_suffix(".nack")
+                output.parent.mkdir(parents=True,exist_ok = True)
                 if self.settings.verbose:
                     self.settings.display("Decompiling %s"%(name))
                 filedata = thk.decompile(*args,**kwargs)
@@ -635,23 +636,23 @@ class SegmentDecompiler(Decompiler):
         segment = self.segment
         if segment.branchingControl == 0x1:
             if self.active:
-                self.flow = key.ENDCW
+                self.flow = key.ENDRW
                 self.removeIndent = chanceIndent
                 self.log("branchingControl")
             else:
-                self.flow = key.ENDC
+                self.flow = key.ENDR
                 self.removeIndent = chanceIndent
                 self.log("branchingControl")
             return True
         if segment.endRandom in [0x40,0xC0,0x80]:
             if segment.endRandom == 0x40:
-                self.flow = key.CHANCE+" (%d)" % segment.parameter1 
+                self.flow = key.RANDOM+" (%d)" % segment.parameter1 
                 self.addIndent = chanceIndent
             else:
                 #0xC0 Chance, 0x80 Last Chance
                 self.removeIndent = chanceIndent
                 self.addIndent = chanceIndent
-                self.flow = key.ELSEC+" (%d)" % segment.parameter1 
+                self.flow = key.ELSER+" (%d)" % segment.parameter1 
             self.log("endRandom").log("parameter1")
             return True
         return False
@@ -735,36 +736,33 @@ class SegmentDecompiler(Decompiler):
     
 
 if __name__ in "__main__":
-    inputThk = 55
-    chunk = r"D:\Games SSD\MHW\chunk"
-    folder = r"\em\em001\00\data"
-    file = folder + r"\em001_%02d.thk"%inputThk
-    inputStr = chunk + file
-    ts = DecompilerSettings()
-    #ts.forceIndex = True
-    #ts.forceId = True
-    ts.keepVoid = True
-    ts.verbose = True
-    ts.outputPath = r"D:\Games SSD\MHW-AI-Analysis\RathianTest"
-    ts.statisticsOutputPath = r"D:\Games SSD\MHW-AI-Analysis\RathianTest"
-    thkf = THKDecompiler(ts)
-    thkf.read(file,inputStr,inputThk)
-    with open(inputStr.replace(".thk",".nack").replace(
-            chunk+folder,r"C:\Users\Asterisk\Downloads"
-            ),"w") as outf:
-        outf.write(thkf.decompile())
-    for thkl in Path(chunk+folder).rglob("*.thklst"):
-        #thkl = chunk + folder + r"\em106.thklst"
-        THKLDecompiler(ts).read(thkl).writeFile()
-    """
-    with open(inputStr,"rb") as inthk:        
-        thk.read("
-        thk = Thk.parse_stream(inthk)
-        resolver = buildResolver(r'default.fexty')
-        for node in thk.nodeList:
-            for segment in node.segments:
-                tSeg = SegmentDecompiler()
-                tSeg.read(segment)
-                segfun = tSeg.resolveFunctions(resolver, RegisterScheduler())
-                if segfun: print(segfun)
-    """
+    def void(*args,**kwargs):
+        pass
+    def testDecompile(folder,file):
+        #print(folder)
+        #print(file)
+        ts = DecompilerSettings()
+        ts.verbose = True
+        ts.outputPath = folder
+        ts.display = void
+        THKLDecompiler(ts).read(file).writeFile()
+    root = r"D:\Games SSD\MHW\chunk\em"
+    outRoot = Path(r"D:\Games SSD\MHW-AI-Analysis\Leviathon\tests\ingameFiles")
+    def congealPaths(path):
+        return  str(path.relative_to(root).parent).replace("\\","_")
+    errors = []
+    lst = list(Path(root).rglob("*.thklst"))
+    for path in lst:
+        p = congealPaths(path)
+        s = path.stem
+        (outRoot/p).mkdir(parents = True, exist_ok = True)
+        try:
+            testDecompile(str(outRoot/p),str(path))
+        except:
+            testDecompile(str(outRoot/p),str(path))
+            try:
+                testDecompile(str(outRoot/p),str(path))
+            except:
+                print ("Errored",path)
+                errors.append(path)
+                #raise

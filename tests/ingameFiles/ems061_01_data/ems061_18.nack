@@ -1,0 +1,92 @@
+importactions Boaboa as boaboa
+importlibrary Global as Global
+
+def node_000
+	if function#3F() 
+		*&
+	else 
+		>> node_004 
+		if function#B0() 
+			>> node_001 
+		elif function#B0(1) 
+			>> node_001 
+		elif function#B0(2) 
+			>> node_001 
+		elif function#B0(3) 
+			>> node_001 
+		elif function#B0(4) 
+			>> node_002 
+		elif function#B0(5) 
+			>> node_002 
+		elif function#B0(6) 
+			>> node_002 
+		elif function#B0(7) 
+			>> node_002 
+		elif function#B0(8) 
+			>> node_003 
+		elif function#B0(12) 
+			>> node_002 
+		endif 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	>> Global.node_019 
+	random (50) 
+				-> action#41() 
+	elser (50) 
+				>> Global.node_023 
+				-> action#41() 
+	endr 
+	>> node_004 
+	>> Global.node_016 
+	random (30) 
+				-> action#41() 
+	elser (20) 
+				>> Global.node_024 
+				-> action#41() 
+	elser (20) 
+				-> action#42(2,1,0,500,300) 
+				-> action#41() 
+	elser (30) 
+				>> Global.node_029 
+	endr 
+	return 
+endf 
+
+def node_002
+	>> Global.node_016 
+	random (50) 
+				>> Global.node_029 
+	elser (50) 
+				>> Global.node_023 
+				>> Global.node_029 
+	endr 
+	>> node_004 
+	>> Global.node_016 
+	-> action#41() 
+	return 
+endf 
+
+def node_003
+	>> Global.node_016 
+	-> action#41() 
+	>> node_004 
+	>> Global.node_016 
+	-> action#41() 
+	return 
+endf 
+
+def node_004
+	function#54() 
+	>> Global.node_001 
+	return 
+endf 
+
+def node_005
+	function#54() 
+	self.targetArea(13) 
+	return 
+endf 
+

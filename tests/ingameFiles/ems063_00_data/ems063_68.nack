@@ -1,0 +1,44 @@
+importactions Wulg as wulg
+
+def node_000
+	>> node_001 
+	>> node_002 
+	conclude 
+endf 
+
+def node_001
+	function#E4(7) 
+	function#E4(4) 
+	function#E4(1) 
+	function#E4(2) 
+	function#E7(1) 
+	function#E7(2) 
+	function#E7(3) 
+	function#E7(4) 
+	function#E7(5) 
+	return 
+endf 
+
+def node_002
+	function#D3() 
+	[RegisterVar2 |-] 
+	[RegisterVar5 |-] 
+	[RegisterVar6 |-] 
+	if function#D4(8) 
+		>> node_004 
+	else 
+		>> node_003 
+	endif 
+	conclude 
+endf 
+
+def node_003
+	-> wulg.dash_punch_step_loop_l(8) 
+	return 
+endf 
+
+def node_004
+	-> wulg.dash_punch_step_loop_l(8,0,0,4) 
+	return 
+endf 
+

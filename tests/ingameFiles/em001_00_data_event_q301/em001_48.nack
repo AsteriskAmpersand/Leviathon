@@ -1,0 +1,99 @@
+importactions Rathian as rathian
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_039 
+	>> node_001 
+	>> node_003 
+	>> node_001 
+	>> node_009 
+	>> node_001 
+	>> Global.node_090 
+	>> Global.node_041 
+	conclude 
+endf 
+
+def node_001
+	if self.targetEnemy(34) 
+		if self.target(4) 
+			>> node_002 
+		else 
+		endif 
+	else 
+		>> node_002 
+	endif 
+	return 
+endf 
+
+def node_002
+	>> Global.node_041 
+	conclude 
+endf 
+
+def node_003
+	if function#AD() 
+		>> node_004 
+	else 
+		>> node_005 
+	endif 
+	return 
+endf 
+
+def node_004
+	if self.flying() 
+		>> Global.node_031 
+	else 
+		>> Global.node_011 
+	endif 
+	return 
+endf 
+
+def node_005
+	>> node_006 
+	>> node_007 
+	return 
+endf 
+
+def node_006
+	if self.flying() 
+		self.targetArea(target_area.area_aerial_center) 
+		>> Global.node_028 
+	else 
+		self.targetArea(target_area.area_center) 
+		>> Global.node_011 
+		self.targetArea(target_area.area_aerial_center) 
+		>> Global.node_035 
+	endif 
+	return 
+endf 
+
+def node_007
+	>> node_001 
+	if self.flying() 
+		self.targetArea(target_area.unknown_aerial) 
+		>> Global.node_026 
+	else 
+		self.targetArea(target_area.unknown_ground) 
+		>> Global.node_011 
+	endif 
+	return 
+endf 
+
+def node_008
+	if self.flying() 
+		self.targetArea(target_area.area_center) 
+		>> Global.node_001 
+	else 
+	endif 
+	return 
+endf 
+
+def node_009
+	if self.flying() 
+		>> Global.node_031 
+	else 
+		>> Global.node_011 
+	endif 
+	return 
+endf 
+

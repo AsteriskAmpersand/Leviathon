@@ -1,0 +1,50 @@
+importactions Shamos as shamos
+importlibrary Global as Global
+
+def node_000
+	function#54() 
+	if function#72(3) 
+		>> node_001 
+		self.targetArea(target_area.nearest_entrance) @ unkn3:2097152, unkn12:4, unknExtra1:200 
+	elif function#72(7) 
+		>> node_001 
+		self.targetArea(target_area.nearest_entrance) @ unkn3:2097152, unkn12:4, unknExtra1:200 
+	elif function#72(4) 
+		self.targetUnknown(33,0) 
+		if self.target_is(em.TzitziYaKu) 
+			>> node_003 
+		else 
+			>> node_002 
+			>> node_004 
+		endif 
+		self.targetArea(target_area.nearest_entrance) @ unkn3:2097152, unkn12:4, unknExtra1:200 
+	else 
+		>> node_001 
+		>> node_004 
+		self.targetArea(target_area.nearest_entrance) @ unkn3:2097152, unkn12:4, unknExtra1:200 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	function#52(161) 
+	return 
+endf 
+
+def node_002
+	function#52(162) 
+	return 
+endf 
+
+def node_003
+	function#52(130,2) 
+	return 
+endf 
+
+def node_004
+	self.targetEnemy(33) 
+	>> Global.node_006 
+	>> Global.node_070 
+	return 
+endf 
+

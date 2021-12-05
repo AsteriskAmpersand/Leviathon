@@ -1,0 +1,19 @@
+importactions Azure_Rathalos as azure_rathalos
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_274 
+	>> Global.node_294 
+	self.targetEnemy(48) 
+	if self.in_map(st.Challenge_Arena).in_area(-1) 
+		>> Global.node_267 
+	elif self.target(7) 
+		>> Global.node_266 
+	elif self.distance_3d_to_target().leq(3500) 
+		>> Global.node_265 
+	else 
+		>> Global.node_266 
+	endif 
+	reset 
+endf 
+

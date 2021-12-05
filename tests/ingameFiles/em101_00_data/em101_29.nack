@@ -1,0 +1,19 @@
+importactions Great_Jagras as great_jagras
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_002 
+	>> Global.node_186 
+	self.targetEnemy(48) 
+	if self.in_map(st.Challenge_Arena).in_area(-1) 
+		>> Global.node_121 
+	elif self.target(7) 
+		>> Global.node_120 
+	elif self.distance_3d_to_target().leq(3000) 
+		>> Global.node_119 
+	else 
+		>> Global.node_120 
+	endif 
+	reset 
+endf 
+

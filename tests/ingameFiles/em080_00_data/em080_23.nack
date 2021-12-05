@@ -1,0 +1,31 @@
+importactions Glavenus as glavenus
+
+def node_000
+	self.targetEnemy(target_em.closest_entity) 
+	>> node_001 
+	conclude 
+endf 
+
+def node_001
+	if self.target_is(em.Rathalos) 
+		-> glavenus.grapple_with_em002_ver2_mediation() 
+	elif self.target_is(em.Azure_Rathalos) 
+		-> glavenus.grapple_with_em002_01_ver2_mediation() 
+	elif self.target_is(em.Diablos) 
+		-> glavenus.grapple_with_em007_mediation() 
+	elif self.target_is(em.Black_Diablos) 
+		-> glavenus.grapple_with_em007_mediation() 
+	elif self.target_is(em.Zinogre) 
+		-> glavenus.grapple_with_em057_mediation() 
+	elif self.target_is(em.Tigrex) 
+		-> glavenus.grapple_with_em032_mediation() 
+	elif self.target_is(em.Brute_Tigrex) 
+		-> glavenus.grapple_with_em032_mediation() 
+	elif self.target_is(em.Odogaron) 
+		-> glavenus.grapple_with_em113_mediation() 
+	elif self.target_is(em.Ebony_Odogaron) 
+		-> glavenus.grapple_with_em113_mediation() 
+	endif 
+	return 
+endf 
+

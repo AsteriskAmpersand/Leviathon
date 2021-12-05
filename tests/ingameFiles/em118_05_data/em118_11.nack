@@ -1,0 +1,294 @@
+importactions Seething_Bazelgeuse as seething_bazelgeuse
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_018 
+	if self.mounted() 
+		random (55) >> node_001 
+		elser (45) >> node_002 
+		endr 
+	else 
+		random (40) >> node_001 
+		elser (60) >> node_002 
+		endr 
+	endif 
+	reset 
+endf 
+
+def node_001
+	>> node_017 
+	function#A8() 
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if function#A9(0,1) 
+		self.target_on_part(0) >> node_003 => repeat 
+		self.target_on_part(1) >> node_006 => repeat 
+		self.target_on_part(2) >> node_009 => repeat 
+	elif function#A9(0,2) 
+		self.target_on_part(0) >> node_003 => repeat 
+		self.target_on_part(1) >> node_006 => repeat 
+		self.target_on_part(2) >> node_009 => repeat 
+	elif function#A9(0,3) 
+		>> node_012 => repeat 
+	elif function#A9(0,4) 
+		self.target_on_part(0) >> node_019 => repeat 
+		self.target_on_part(1) >> node_019 => repeat 
+		self.target_on_part(2) >> node_019 => repeat 
+	else 
+		function#A8(1) 
+		return 
+	endif 
+	return 
+endf 
+
+def node_002
+	>> node_017 
+	function#A8() 
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if function#A9(0,1) 
+		>> node_012 => repeat 
+	elif function#A9(0,2) 
+		self.target_on_part(0) >> node_003 => repeat 
+		self.target_on_part(1) >> node_006 => repeat 
+		self.target_on_part(2) >> node_009 => repeat 
+	elif function#A9(0,3) 
+		>> node_012 => repeat 
+	elif function#A9(0,4) 
+		self.target_on_part(0) >> node_019 => repeat 
+		self.target_on_part(1) >> node_019 => repeat 
+		self.target_on_part(2) >> node_019 => repeat 
+	else 
+		function#A8(1) 
+		return 
+	endif 
+	return 
+endf 
+
+def node_003
+	if self.mounted() 
+		>> node_004 
+	else 
+		>> node_005 
+	endif 
+	return 
+endf 
+
+def node_004
+	>> Global.node_018 
+	>> node_028 
+	-> seething_bazelgeuse.bite() 
+	return 
+endf 
+
+def node_005
+	>> Global.node_018 
+	>> node_028 
+	-> seething_bazelgeuse.ride_rage_head_ground() 
+	return 
+endf 
+
+def node_006
+	if self.mounted() 
+		>> node_007 
+	else 
+		>> node_008 
+	endif 
+	return 
+endf 
+
+def node_007
+	>> Global.node_018 
+	>> node_028 
+	-> seething_bazelgeuse.body_press_strong_start() 
+	return 
+endf 
+
+def node_008
+	>> Global.node_018 
+	>> node_028 
+	-> seething_bazelgeuse.ride_rage_body_ground() 
+	return 
+endf 
+
+def node_009
+	if self.mounted() 
+		>> node_010 
+	else 
+		>> node_011 
+	endif 
+	return 
+endf 
+
+def node_010
+	>> Global.node_018 
+	>> node_028 
+	-> seething_bazelgeuse.tail_stomp_g() 
+	return 
+endf 
+
+def node_011
+	>> Global.node_018 
+	>> node_028 
+	-> seething_bazelgeuse.ride_rage_tail_ground() 
+	return 
+endf 
+
+def node_012
+	if self.mounted() 
+		>> node_013 
+	else 
+		>> node_014 
+	endif 
+	return 
+endf 
+
+def node_013
+	>> Global.node_018 
+	if function#29() 
+		self.targetArea(7) 
+		>> node_016 
+		self.targetArea(15) 
+		self.target_on_part(0) -> seething_bazelgeuse.ride_rage_crash_head_ground() => return 
+		self.target_on_part(1) -> seething_bazelgeuse.ride_rage_crash_body_ground() => return 
+		self.target_on_part(2) -> seething_bazelgeuse.ride_rage_crash_tail_ground() => return 
+	else 
+		self.target_on_part(0) >> node_005 => return 
+		self.target_on_part(1) >> node_008 => return 
+		self.target_on_part(2) >> node_011 => return 
+	endif 
+	return 
+endf 
+
+def node_014
+	>> Global.node_018 
+	if function#29() 
+		self.targetArea(7) 
+		>> node_016 
+		self.targetArea(15) 
+		self.target_on_part(0) -> seething_bazelgeuse.ride_rage_crash_head_ground_lv2() => return 
+		self.target_on_part(1) -> seething_bazelgeuse.ride_rage_crash_body_ground_lv2() => return 
+		self.target_on_part(2) -> seething_bazelgeuse.ride_rage_crash_tail_ground_lv2() => return 
+	else 
+		>> node_015 => return 
+	endif 
+	return 
+endf 
+
+def node_015
+	>> Global.node_018 
+	>> node_021 
+	-> seething_bazelgeuse.gliding_dash_not_fly_start() 
+	return 
+endf 
+
+def node_016
+	if self.distance_2d_to_target().leq(500) 
+		-> seething_bazelgeuse.back_turn() 
+	elif self.distance_2d_to_target().gt(4000) 
+		>> Global.node_119 
+		repeat 
+	else 
+	endif 
+	-> seething_bazelgeuse.dash(1,0,0,500) 
+	return 
+endf 
+
+def node_017
+	if function#3B() 
+		if self.mount_staggered_twice() 
+			>> node_018 
+		else 
+		endif 
+	else 
+		if self.mount_finisher_ready() 
+			if self.mounted() 
+				random (30) >> node_018 
+				elser (70) 
+				endr 
+			else 
+				random (100) >> node_018 
+				elser (0) 
+				endr 
+			endif 
+		elif self.mount_stabbed() 
+			if self.mounted() 
+				random (10) >> node_018 
+				elser (90) 
+				endr 
+			else 
+				random (80) >> node_018 
+				elser (20) 
+				endr 
+			endif 
+		else 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_018
+	-> seething_bazelgeuse.ride_tired_ground() 
+	return 
+endf 
+
+def node_019
+	if self.mounted() 
+		>> node_020 
+	else 
+	endif 
+	return 
+endf 
+
+def node_020
+	-> seething_bazelgeuse.ride_wait_ground() 
+	return 
+endf 
+
+def node_021
+	random (20) >> node_022 
+	elser (80) >> node_023 
+	endr 
+	>> node_027 
+	return 
+endf 
+
+def node_022
+	self.targetEnemy(21) @ parameter2:1000 
+	return 
+endf 
+
+def node_023
+	self.targetEnemy(22) @ parameter2:1000 
+	return 
+endf 
+
+def node_024
+	random (48) >> node_025 
+	elser (52) >> node_026 
+	endr 
+	return 
+endf 
+
+def node_025
+	self.targetEnemy(12) @ parameter2:1000 
+	return 
+endf 
+
+def node_026
+	self.targetEnemy(11) @ parameter2:1000 
+	return 
+endf 
+
+def node_027
+	if self.angular_17(300,60) 
+		>> Global.node_065 
+	else 
+	endif 
+	return 
+endf 
+
+def node_028
+	>> Global.node_018 
+	>> Global.node_065 
+	return 
+endf 
+

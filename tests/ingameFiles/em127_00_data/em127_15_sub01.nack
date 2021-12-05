@@ -1,0 +1,56 @@
+importactions Leshen as leshen
+importlibrary Global as Global
+
+def node_000
+	if [RegisterVar0 == 0] 
+		-> leshen.wait_crow_1() 
+		self.targetEnemy(48) 
+		>> Global.node_130 
+		[RegisterVar0 ++] 
+	else 
+	endif 
+	function#52() 
+	>> node_001 
+	>> node_002 
+	reset 
+endf 
+
+def node_001
+	self.targetArea(target_area.nearest_entrance) 
+	>> node_003 
+	self.targetArea(target_area.nearest_entrance) 
+	if self.distance_3d_to_target().leq(500) 
+		return 
+	else 
+		repeat 
+	endif 
+	reset 
+endf 
+
+def node_002
+	>> node_004 
+	return 
+endf 
+
+def node_003
+	self.targetArea(target_area.nearest_entrance) 
+	-> leshen.warp_navi_crow_move_1(2,1,0,3000,300) 
+	return 
+endf 
+
+def node_004
+	function#54() 
+	self.targetEnemy(48) 
+	>> node_005 
+	>> Global.node_130 
+	>> node_005 
+	return 
+endf 
+
+def node_005
+	random (50) -> leshen.wait_crow_1() 
+	elser (50) -> leshen.wait_crow_2() 
+	endr 
+	return 
+endf 
+

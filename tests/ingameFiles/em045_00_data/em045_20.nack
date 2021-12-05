@@ -1,0 +1,28 @@
+importactions Uragaan as uragaan
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_009 
+	self.targetArea(24) 
+	if self.distance_3d_to_target().gt(500) 
+		>> Global.node_059 
+		repeat 
+	else 
+		>> node_001 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	if function#7C() 
+		conclude 
+	else 
+		if function#C9() 
+			-> uragaan.dying_sleep(3,0,0,150) 
+		else 
+			function#CA() 
+		endif 
+	endif 
+	return 
+endf 
+

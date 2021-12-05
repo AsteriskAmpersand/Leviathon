@@ -1,0 +1,148 @@
+importactions PukeiPukei as pukeipukei
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_233 
+	function#52() 
+	>> node_001 
+	>> node_002 
+	function#54() 
+	>> node_004 
+	reset 
+endf 
+
+def node_001
+	if function#57(1) 
+		function#54() 
+		random (50) 
+					function#52(18,1) 
+		elser (50) 
+					function#52(9,1) 
+		endr 
+	else 
+	endif 
+	return 
+endf 
+
+def node_002
+	self.targetArea(target_area.nearest_entrance) 
+	if function#57(1) 
+		>> node_003 
+	elif function#57(5) 
+		>> node_003 
+	elif function#57(2) 
+		>> node_003 
+	elif function#57(3) 
+		>> node_003 
+	else 
+		>> node_003 
+	endif 
+	return 
+endf 
+
+def node_003
+	>> Global.node_053 
+	return 
+endf 
+
+def node_004
+	self.targetArea(17) 
+	if function#57(1) 
+		>> node_006 
+	elif function#57(5) 
+		>> node_007 
+	elif function#57(2) 
+		>> node_008 
+	elif function#57(3) 
+		>> node_009 
+	elif function#57(4) 
+		>> node_005 
+	else 
+		>> node_005 
+	endif 
+	return 
+endf 
+
+def node_005
+	self.targetEnemy(17) 
+	if function#5A() 
+		>> Global.node_108 
+	elif function#5A(20) 
+		>> Global.node_108 
+	elif function#5A(1) 
+		>> Global.node_109 
+	elif function#5A(21) 
+		>> Global.node_109 
+	elif function#5A(2) 
+		>> Global.node_113 
+	elif function#5A(22) 
+		>> Global.node_113 
+	elif function#5A(3) 
+		>> Global.node_111 
+	elif function#5A(23) 
+		>> Global.node_111 
+	elif function#5A(4) 
+		>> Global.node_112 
+	elif function#5A(24) 
+		>> Global.node_112 
+	elif function#5A(10) 
+		>> Global.node_115 
+	elif function#5A(30) 
+		>> Global.node_115 
+	elif function#5A(11) 
+		>> Global.node_116 
+	elif function#5A(31) 
+		>> Global.node_116 
+	elif function#5A(12) 
+		>> Global.node_117 
+	elif function#5A(32) 
+		>> Global.node_117 
+	elif function#5A(13) 
+		>> Global.node_118 
+	elif function#5A(33) 
+		>> Global.node_118 
+	elif function#5A(14) 
+		>> Global.node_119 
+	elif function#5A(34) 
+		>> Global.node_119 
+	else 
+		>> Global.node_108 
+	endif 
+	function#54() 
+	return 
+endf 
+
+def node_006
+	>> Global.node_109 
+	if function#5A() 
+		>> Global.node_168 
+	elif function#5A(1) 
+		>> Global.node_169 
+	elif function#5A(2) 
+		>> Global.node_170 
+	elif function#5A(3) 
+		>> Global.node_171 
+	elif function#5A(4) 
+		>> Global.node_172 
+	else 
+		>> Global.node_109 
+	endif 
+	return 
+endf 
+
+def node_007
+	>> Global.node_112 
+	return 
+endf 
+
+def node_008
+	>> Global.node_108 
+	>> Global.node_114 
+	return 
+endf 
+
+def node_009
+	>> Global.node_113 
+	return 
+endf 
+

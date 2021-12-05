@@ -1,0 +1,1902 @@
+importactions Banbaro as banbaro
+
+def node_000
+	conclude 
+endf 
+
+def node_001
+	self.targetArea(14) 
+	if self.distance_3d_to_target().gt(600) 
+		>> node_151 
+		repeat 
+	else 
+		>> node_102 
+	endif 
+	return 
+endf 
+
+def node_002
+	self.targetArea(14) 
+	if self.distance_3d_to_target().gt(600) 
+		>> node_151 
+		repeat 
+	else 
+		>> node_102 
+	endif 
+	return 
+endf 
+
+def node_003
+	self.targetArea(19) 
+	if self.distance_3d_to_target().gt(1000) 
+		>> node_151 
+		repeat 
+	else 
+		>> node_102 
+	endif 
+	return 
+endf 
+
+def node_004
+	>> node_015 
+	if self.targetEnemy(target_em.any_monster) 
+		if self.target(13) 
+		else 
+			if self.vertical_distance_to_target().leq(1000) 
+				if self.distance_3d_to_target().leq(3000) 
+					if self.target_is(em.Barioth) 
+						>> node_008 
+					elif self.target_is(em.Frostfang_Barioth) 
+						>> node_008 
+					elif self.target_is(em.Beotodus) 
+						>> node_007 
+					elif function#30(2) 
+						>> node_006 
+					else 
+						>> node_005 
+					endif 
+				else 
+				endif 
+			else 
+			endif 
+		endif 
+	else 
+	endif 
+	if self.defense_downed() 
+		>> node_019 
+	else 
+	endif 
+	return 
+endf 
+
+def node_005
+	if self.in_combat() 
+		if self.target.in_combat() 
+			random (20) >> node_009 
+			elser (35) >> node_012 
+			elser (45) 
+						[RegisterVar1 ++] 
+						>> node_014 
+						>> node_010 
+			elser (0) >> node_013 
+			endr 
+		else 
+			random (20) >> node_009 
+			elser (35) >> node_012 
+			elser (45) 
+						[RegisterVar1 ++] 
+						>> node_014 
+						>> node_010 
+			elser (0) >> node_013 
+			endr 
+		endif 
+	else 
+		if self.target.in_combat() 
+			random (20) >> node_009 
+			elser (35) >> node_012 
+			elser (45) 
+						[RegisterVar1 ++] 
+						>> node_014 
+						>> node_010 
+			elser (0) >> node_013 
+			endr 
+		else 
+			random (65) >> node_009 
+			elser (35) >> node_012 
+			elser (0) >> node_013 
+			endr 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_006
+	if self.in_combat() 
+		if self.target.in_combat() 
+			random (20) >> node_009 
+			elser (35) >> node_012 
+			elser (45) 
+						[RegisterVar1 ++] 
+						>> node_014 
+						>> node_010 
+			elser (0) >> node_013 
+			endr 
+		else 
+			random (20) >> node_009 
+			elser (35) >> node_012 
+			elser (45) 
+						[RegisterVar1 ++] 
+						>> node_014 
+						>> node_010 
+			elser (0) >> node_013 
+			endr 
+		endif 
+	else 
+		if self.target.in_combat() 
+			random (20) >> node_009 
+			elser (35) >> node_012 
+			elser (45) 
+						[RegisterVar1 ++] 
+						>> node_014 
+						>> node_010 
+			elser (0) >> node_013 
+			endr 
+		else 
+			random (30) >> node_009 
+			elser (35) >> node_012 
+			elser (35) >> node_013 
+			endr 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_007
+	if self.target(39) 
+		>> node_005 
+	else 
+		if self.in_combat() 
+			if self.target.in_combat() 
+				random (20) >> node_009 
+				elser (50) >> node_012 
+				elser (30) >> node_010 
+				elser (0) >> node_013 
+				endr 
+			else 
+				random (10) >> node_009 
+				elser (60) >> node_012 
+				elser (30) >> node_010 
+				elser (0) >> node_013 
+				endr 
+			endif 
+		else 
+			if self.target.in_combat() 
+				random (20) >> node_009 
+				elser (50) >> node_012 
+				elser (30) 
+							[RegisterVar1 ++] 
+							>> node_014 
+							>> node_010 
+				elser (0) >> node_013 
+				endr 
+			else 
+				random (65) >> node_009 
+				elser (35) >> node_012 
+				elser (0) >> node_013 
+				endr 
+			endif 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_008
+	if self.target(39) 
+		>> node_006 
+	else 
+		if self.in_combat() 
+			if self.target.in_combat() 
+				random (10) >> node_009 
+				elser (60) >> node_012 
+				elser (30) >> node_010 
+				elser (0) >> node_013 
+				endr 
+			else 
+				random (10) >> node_009 
+				elser (60) >> node_012 
+				elser (30) >> node_010 
+				elser (0) >> node_013 
+				endr 
+			endif 
+		else 
+			if self.target.in_combat() 
+				random (10) >> node_009 
+				elser (60) >> node_012 
+				elser (30) 
+							[RegisterVar1 ++] 
+							>> node_014 
+							>> node_010 
+				elser (0) >> node_013 
+				endr 
+			else 
+				random (30) >> node_009 
+				elser (35) >> node_012 
+				elser (35) >> node_013 
+				endr 
+			endif 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_009
+	return 
+endf 
+
+def node_010
+	if self.vertical_distance_to_target().gt(500) 
+		>> node_057 
+	else 
+		>> node_082 
+	endif 
+	return 
+endf 
+
+def node_011
+	>> node_036 
+	>> node_101 
+	return 
+endf 
+
+def node_012
+	>> node_036 
+	>> node_102 
+	return 
+endf 
+
+def node_013
+	if [RegisterVar1 >= 2] 
+		[RegisterVar1 ++] 
+	else 
+		[RegisterVar1 |-] 
+		self.force_area_change2() 
+	endif 
+	return 
+endf 
+
+def node_014
+	if [RegisterVar1 >= 2] 
+	else 
+		[RegisterVar1 |-] 
+		self.force_area_change2() 
+	endif 
+	return 
+endf 
+
+def node_015
+	if function#38(0,10002) 
+		>> node_016 
+	elif self.quest_id(1101) 
+		>> node_016 
+	else 
+	endif 
+	return 
+endf 
+
+def node_016
+	if function#CE(1,1) 
+		function#CF() 
+	else 
+	endif 
+	return 
+endf 
+
+def node_017
+	if self.distance_3d_to_target().leq(1000) 
+	else 
+		-> banbaro.dash(2,1,0,1000,1000) 
+	endif 
+	if self.distance_3d_to_target().leq(1000) 
+	else 
+		-> banbaro.dash(2,1,0,1000,1000) 
+	endif 
+	if self.distance_3d_to_target().leq(1000) 
+	else 
+		-> banbaro.dash(2,1,0,1000,1000) 
+	endif 
+	>> node_034 
+	>> node_106 
+	return 
+endf 
+
+def node_018
+	if self.distance_3d_to_target().leq(1000) 
+	else 
+		-> banbaro.dash(2,1,0,1000,1000) 
+	endif 
+	if self.distance_3d_to_target().leq(1000) 
+	else 
+		-> banbaro.dash(2,1,0,1000,1000) 
+	endif 
+	if self.distance_3d_to_target().leq(1000) 
+	else 
+		-> banbaro.dash(2,1,0,1000,1000) 
+	endif 
+	>> node_086 
+	>> node_034 
+	>> node_106 
+	return 
+endf 
+
+def node_019
+	if function#31(49,1500) 
+		self.targetEnemy(target_em.closest_entity) 
+		if self.target(13) 
+		else 
+			>> node_035 
+			>> node_102 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_020
+	if function#7F(2) 
+		random (40) >> node_055 
+		elser (30) >> node_063 
+		elser (30) >> node_106 
+		endr 
+	elif function#7F(5) 
+		random (40) >> node_055 
+		elser (30) >> node_063 
+		elser (30) >> node_106 
+		endr 
+	elif function#7F(1) 
+		random (30) >> node_055 
+		elser (40) >> node_063 
+		elser (30) >> node_106 
+		endr 
+	elif function#7F(4) 
+		random (30) >> node_055 
+		elser (40) >> node_063 
+		elser (30) >> node_106 
+		endr 
+	else 
+		random (40) >> node_055 
+		elser (30) >> node_063 
+		elser (30) >> node_106 
+		endr 
+	endif 
+	reset 
+	return 
+endf 
+
+def node_021
+	if self.above_target() 
+	else 
+		if self.target(0) @ parameter2:1 
+		else 
+			if self.distance_2d_to_target().leq(1000) 
+				-> banbaro.dash(2,1,0,1000,100) 
+			else 
+			endif 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_022
+	if self.angle_2d_cw_between(15,345) 
+		>> node_129 
+	else 
+	endif 
+	return 
+endf 
+
+def node_023
+	if self.angle_2d_cw_between(30,330) 
+		>> node_129 
+	else 
+	endif 
+	return 
+endf 
+
+def node_024
+	if self.angle_2d_cw_between(60,300) 
+		>> node_129 
+	else 
+	endif 
+	return 
+endf 
+
+def node_025
+	if self.angle_2d_cw_between(90,270) 
+		>> node_129 
+	else 
+	endif 
+	return 
+endf 
+
+def node_026
+	>> node_129 
+	return 
+endf 
+
+def node_027
+	if self.angle_2d_cw_between(15,345) 
+		if self.distance_2d_to_target().leq(300) 
+			>> node_131 
+		else 
+			>> node_129 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_028
+	if self.angle_2d_cw_between(30,330) 
+		if self.distance_2d_to_target().leq(300) 
+			>> node_131 
+		else 
+			>> node_129 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_029
+	if self.angle_2d_cw_between(60,300) 
+		if self.distance_2d_to_target().leq(300) 
+			>> node_131 
+		else 
+			>> node_129 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_030
+	if self.angle_2d_cw_between(90,270) 
+		if self.distance_2d_to_target().leq(300) 
+			>> node_131 
+		else 
+			>> node_129 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_031
+	if self.angle_2d_cw_between(15,345) 
+		>> node_130 
+	else 
+	endif 
+	return 
+endf 
+
+def node_032
+	if self.angle_2d_cw_between(30,330) 
+		>> node_130 
+	else 
+	endif 
+	return 
+endf 
+
+def node_033
+	if self.angle_2d_cw_between(60,300) 
+		>> node_130 
+	else 
+	endif 
+	return 
+endf 
+
+def node_034
+	if self.angle_2d_cw_between(90,270) 
+		>> node_130 
+	else 
+	endif 
+	return 
+endf 
+
+def node_035
+	if self.angle_2d_cw_between(15,345) 
+		if self.distance_2d_to_target().leq(300) 
+			>> node_131 
+		else 
+			>> node_130 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_036
+	if self.angle_2d_cw_between(30,330) 
+		if self.distance_2d_to_target().leq(300) 
+			>> node_131 
+		else 
+			>> node_130 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_037
+	if self.angle_2d_cw_between(60,300) 
+		if self.distance_2d_to_target().leq(300) 
+			>> node_131 
+		else 
+			>> node_130 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_038
+	if self.angle_2d_cw_between(90,270) 
+		if self.distance_2d_to_target().leq(300) 
+			>> node_131 
+		else 
+			>> node_130 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_039
+	>> node_131 
+	return 
+endf 
+
+def node_040
+	if self.angle_2d_cw_between(15,345) 
+		>> node_131 
+	else 
+	endif 
+	return 
+endf 
+
+def node_041
+	if self.angle_2d_cw_between(30,330) 
+		>> node_131 
+	else 
+	endif 
+	return 
+endf 
+
+def node_042
+	if self.angle_2d_cw_between(60,300) 
+		>> node_131 
+	else 
+	endif 
+	return 
+endf 
+
+def node_043
+	if self.angle_2d_cw_between(90,270) 
+		>> node_131 
+	else 
+	endif 
+	return 
+endf 
+
+def node_044
+	if self.distance_2d_to_target().leq(300) 
+		>> node_131 
+	else 
+	endif 
+	return 
+endf 
+
+def node_045
+	>> node_159 
+	if self.distance_2d_to_target().leq(700) 
+		return 
+	else >> node_159 
+	endif 
+	if self.distance_2d_to_target().leq(700) 
+		return 
+	else >> node_159 
+	endif 
+	if self.distance_2d_to_target().leq(700) 
+		return 
+	else >> node_159 
+	endif 
+	return 
+endf 
+
+def node_046
+	>> node_152 
+	if self.distance_2d_to_target().leq(3000) 
+		return 
+	else >> node_152 
+	endif 
+	if self.distance_2d_to_target().leq(3000) 
+		return 
+	else >> node_152 
+	endif 
+	if self.distance_2d_to_target().leq(3000) 
+		return 
+	else >> node_152 
+	endif 
+	return 
+endf 
+
+def node_047
+	>> node_149 
+	if self.distance_2d_to_target().leq(1000) 
+		return 
+	else >> node_149 
+	endif 
+	if self.distance_2d_to_target().leq(1000) 
+		return 
+	else >> node_149 
+	endif 
+	if self.distance_2d_to_target().leq(1000) 
+		return 
+	else >> node_149 
+	endif 
+	if self.distance_2d_to_target().leq(1000) 
+		return 
+	else >> node_149 
+	endif 
+	return 
+endf 
+
+def node_048
+	>> node_150 
+	if self.distance_2d_to_target().leq(1500) 
+		return 
+	else >> node_150 
+	endif 
+	if self.distance_2d_to_target().leq(1500) 
+		return 
+	else >> node_150 
+	endif 
+	if self.distance_2d_to_target().leq(1500) 
+		return 
+	else >> node_150 
+	endif 
+	return 
+endf 
+
+def node_049
+	>> node_153 
+	if self.distance_2d_to_target().leq(3000) 
+		return 
+	else >> node_153 
+	endif 
+	return 
+endf 
+
+def node_050
+	if self.target(0) @ parameter2:1 
+		-> banbaro.dash(2,1,0,1000,700) 
+	else 
+		-> banbaro.dash(2,1,0,1000,450) 
+	endif 
+	if self.distance_3d_to_target().gt(450) 
+		if self.target(0) @ parameter2:1 
+			-> banbaro.dash(2,1,0,1000,700) 
+		else 
+			-> banbaro.dash(2,1,0,1000,450) 
+		endif 
+	else 
+	endif 
+	if self.distance_3d_to_target().gt(450) 
+		if self.target(0) @ parameter2:1 
+			-> banbaro.dash(2,1,0,1000,700) 
+		else 
+			-> banbaro.dash(2,1,0,1000,450) 
+		endif 
+	else 
+	endif 
+	if self.distance_3d_to_target().gt(450) 
+		if self.target(0) @ parameter2:1 
+			-> banbaro.dash(2,1,0,1000,700) 
+		else 
+			-> banbaro.dash(2,1,0,1000,450) 
+		endif 
+	else 
+	endif 
+	if self.distance_3d_to_target().gt(450) 
+		if self.target(0) @ parameter2:1 
+			-> banbaro.dash(2,1,0,1000,700) 
+		else 
+			-> banbaro.dash(2,1,0,1000,450) 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_051
+	-> banbaro.dash(2,1,0,1000,300) 
+	if self.distance_3d_to_target().gt(450) 
+		-> banbaro.dash(2,1,0,1000,300) 
+	else 
+	endif 
+	if self.distance_3d_to_target().gt(450) 
+		-> banbaro.dash(2,1,0,1000,300) 
+	else 
+	endif 
+	if self.distance_3d_to_target().gt(450) 
+		-> banbaro.dash(2,1,0,1000,300) 
+	else 
+	endif 
+	if self.distance_3d_to_target().gt(450) 
+		-> banbaro.dash(2,1,0,1000,300) 
+	else 
+	endif 
+	return 
+endf 
+
+def node_052
+	if self.fatigued() 
+		-> banbaro.tired_walk(2,1,5,1500,300) 
+	else 
+		-> banbaro.walk(2,1,5,1500,300) 
+	endif 
+	return 
+endf 
+
+def node_053
+	if self.distance_2d_to_target().gt(800) 
+		>> node_155 
+	else 
+	endif 
+	if self.angle_2d_cw_between(145,215) 
+		>> node_060 
+	else 
+		if self.angle_2d_cw_between(225,135) 
+		else 
+			>> node_035 
+		endif 
+		>> node_105 
+	endif 
+	return 
+endf 
+
+def node_054
+	if self.distance_2d_to_target().gt(800) 
+		>> node_155 
+	else 
+	endif 
+	if self.angle_2d_cw_between(225,135) 
+	else 
+		>> node_035 
+	endif 
+	>> node_106 
+	return 
+endf 
+
+def node_055
+	>> node_107 
+	return 
+endf 
+
+def node_056
+	if self.distance_2d_to_target().gt(800) 
+		>> node_155 
+	else 
+	endif 
+	>> node_108 
+	return 
+endf 
+
+def node_057
+	if self.distance_2d_to_target().leq(1000) 
+		>> node_039 
+	else 
+	endif 
+	>> node_109 
+	return 
+endf 
+
+def node_058
+	>> node_110 
+	return 
+endf 
+
+def node_059
+	if self.distance_2d_to_target().gt(800) 
+		>> node_155 
+	else 
+	endif 
+	if self.angle_2d_cw_between(225,135) 
+	else 
+		>> node_035 
+	endif 
+	>> node_120 
+	return 
+endf 
+
+def node_060
+	if self.angle_2d_cw_between(0,180) 
+		>> node_121 
+	else 
+		>> node_122 
+	endif 
+	return 
+endf 
+
+def node_061
+	if self.angle_2d_cw_between(0,180) 
+		>> node_125 
+	else 
+		>> node_126 
+	endif 
+	return 
+endf 
+
+def node_062
+	if self.angle_2d_cw_between(0,180) 
+		>> node_123 
+	else 
+		>> node_124 
+	endif 
+	return 
+endf 
+
+def node_063
+	if self.part(3).is_broken(1) 
+		if self.part(4).is_broken(1) 
+			random (80) >> node_064 
+			elser (20) >> node_085 
+			endr 
+		else 
+			random (90) >> node_064 
+			elser (10) >> node_085 
+			endr 
+		endif 
+	elif self.part(4).is_broken(1) 
+		random (90) >> node_064 
+		elser (10) >> node_085 
+		endr 
+	else 
+		>> node_064 
+	endif 
+	return 
+endf 
+
+def node_064
+	>> node_080 
+	>> node_044 
+	if self.in_map(st.Ancient_Forest).in_area(-1) 
+		>> node_127 
+	elif self.in_map(st.Special_Arena).in_area(-1) 
+		>> node_127 
+	elif self.in_map(st.Challenge_Arena).in_area(-1) 
+		>> node_127 
+	elif self.in_map(st.Guiding_Lands).in_area(3) 
+		>> node_127 
+	elif self.in_map(st.Guiding_Lands).in_area(4) 
+		>> node_127 
+	elif self.in_map(st.Guiding_Lands).in_area(5) 
+		>> node_127 
+	elif self.in_map(st.Guiding_Lands).in_area(6) 
+		>> node_127 
+	elif self.in_map(st.Guiding_Lands).in_area(7) 
+		>> node_127 
+	elif function#106(109,3) 
+		>> node_127 
+	elif function#106(109,4) 
+		>> node_127 
+	elif function#106(109,5) 
+		>> node_127 
+	elif function#106(109,6) 
+		>> node_127 
+	elif function#106(109,7) 
+		>> node_127 
+	else 
+		>> node_111 
+	endif 
+	>> node_081 
+	>> node_072 
+	return 
+endf 
+
+def node_065
+	>> node_080 
+	>> node_044 
+	>> node_112 
+	return 
+endf 
+
+def node_066
+	if self.part(3).is_broken(1) 
+		if self.part(4).is_broken(1) 
+			random (80) >> node_067 
+			elser (20) >> node_085 
+			endr 
+		else 
+			random (90) >> node_067 
+			elser (10) >> node_085 
+			endr 
+		endif 
+	elif self.part(4).is_broken(1) 
+		random (90) >> node_067 
+		elser (10) >> node_085 
+		endr 
+	else 
+		>> node_067 
+	endif 
+	return 
+endf 
+
+def node_067
+	>> node_080 
+	>> node_044 
+	if self.in_map(st.Ancient_Forest).in_area(-1) 
+		>> node_127 
+	elif self.in_map(st.Special_Arena).in_area(-1) 
+		>> node_127 
+	elif self.in_map(st.Challenge_Arena).in_area(-1) 
+		>> node_127 
+	elif self.in_map(st.Guiding_Lands).in_area(3) 
+		>> node_127 
+	elif self.in_map(st.Guiding_Lands).in_area(4) 
+		>> node_127 
+	elif self.in_map(st.Guiding_Lands).in_area(5) 
+		>> node_127 
+	elif self.in_map(st.Guiding_Lands).in_area(6) 
+		>> node_127 
+	elif self.in_map(st.Guiding_Lands).in_area(7) 
+		>> node_127 
+	elif function#106(109,3) 
+		>> node_127 
+	elif function#106(109,4) 
+		>> node_127 
+	elif function#106(109,5) 
+		>> node_127 
+	elif function#106(109,6) 
+		>> node_127 
+	elif function#106(109,7) 
+		>> node_127 
+	else 
+		>> node_111 
+	endif 
+	>> node_081 
+	>> node_113 
+	>> node_081 
+	>> node_072 
+	return 
+endf 
+
+def node_068
+	if self.part(3).is_broken(1) 
+		if self.part(4).is_broken(1) 
+			random (80) >> node_069 
+			elser (20) >> node_085 
+			endr 
+		else 
+			random (90) >> node_069 
+			elser (10) >> node_085 
+			endr 
+		endif 
+	elif self.part(4).is_broken(1) 
+		random (90) >> node_069 
+		elser (10) >> node_085 
+		endr 
+	else 
+		>> node_069 
+	endif 
+	return 
+endf 
+
+def node_069
+	>> node_080 
+	>> node_044 
+	if self.in_map(st.Ancient_Forest).in_area(-1) 
+		>> node_127 
+	elif self.in_map(st.Special_Arena).in_area(-1) 
+		>> node_127 
+	elif self.in_map(st.Challenge_Arena).in_area(-1) 
+		>> node_127 
+	elif self.in_map(st.Guiding_Lands).in_area(3) 
+		>> node_127 
+	elif self.in_map(st.Guiding_Lands).in_area(4) 
+		>> node_127 
+	elif self.in_map(st.Guiding_Lands).in_area(5) 
+		>> node_127 
+	elif self.in_map(st.Guiding_Lands).in_area(6) 
+		>> node_127 
+	elif self.in_map(st.Guiding_Lands).in_area(7) 
+		>> node_127 
+	elif function#106(109,3) 
+		>> node_127 
+	elif function#106(109,4) 
+		>> node_127 
+	elif function#106(109,5) 
+		>> node_127 
+	elif function#106(109,6) 
+		>> node_127 
+	elif function#106(109,7) 
+		>> node_127 
+	else 
+		>> node_111 
+	endif 
+	>> node_081 
+	>> node_113 
+	>> node_081 
+	>> node_113 
+	>> node_081 
+	>> node_072 
+	return 
+endf 
+
+def node_070
+	>> node_080 
+	>> node_044 
+	>> node_111 
+	>> node_081 
+	>> node_113 
+	>> node_081 
+	>> node_113 
+	>> node_081 
+	>> node_113 
+	>> node_081 
+	>> node_072 
+	return 
+endf 
+
+def node_071
+	>> node_114 
+	return 
+endf 
+
+def node_072
+	if self.in_map(st.Ancient_Forest).in_area(-1) 
+		>> node_073 
+	elif self.in_map(st.Special_Arena).in_area(-1) 
+		>> node_073 
+	elif self.in_map(st.Challenge_Arena).in_area(-1) 
+		>> node_073 
+	elif function#104(4) 
+		>> node_073 
+	elif self.in_map(st.Guiding_Lands).in_area(3) 
+		>> node_073 
+	elif self.in_map(st.Guiding_Lands).in_area(4) 
+		>> node_073 
+	elif self.in_map(st.Guiding_Lands).in_area(5) 
+		>> node_073 
+	elif self.in_map(st.Guiding_Lands).in_area(6) 
+		>> node_073 
+	elif self.in_map(st.Guiding_Lands).in_area(7) 
+		>> node_073 
+	elif function#106(109,3) 
+		>> node_073 
+	elif function#106(109,4) 
+		>> node_073 
+	elif function#106(109,5) 
+		>> node_073 
+	elif function#106(109,6) 
+		>> node_073 
+	elif function#106(109,7) 
+		>> node_073 
+	else 
+		>> node_074 
+	endif 
+	return 
+endf 
+
+def node_073
+	if self.distance_2d_to_target().leq(1000) 
+		if self.enraged() 
+			random (0) >> node_075 
+			elser (100) >> node_077 
+			elser (0) >> node_078 
+			endr 
+		elif self.fatigued() 
+			random (0) >> node_075 
+			elser (100) >> node_077 
+			elser (0) >> node_078 
+			endr 
+		else 
+			random (0) >> node_075 
+			elser (100) >> node_077 
+			elser (0) >> node_078 
+			endr 
+		endif 
+	else 
+		if self.enraged() 
+			random (0) >> node_075 
+			elser (100) >> node_077 
+			elser (0) >> node_078 
+			endr 
+		elif self.fatigued() 
+			random (0) >> node_075 
+			elser (100) >> node_077 
+			elser (0) >> node_078 
+			endr 
+		else 
+			random (0) >> node_075 
+			elser (100) >> node_077 
+			elser (0) >> node_078 
+			endr 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_074
+	if self.distance_2d_to_target().leq(1000) 
+		if self.enraged() 
+			random (0) >> node_075 
+			elser (0) >> node_076 
+			elser (65) >> node_077 
+			elser (35) >> node_078 
+			endr 
+		elif self.fatigued() 
+			random (0) >> node_075 
+			elser (100) >> node_076 
+			elser (0) >> node_077 
+			elser (0) >> node_078 
+			endr 
+		else 
+			random (0) >> node_075 
+			elser (20) >> node_076 
+			elser (0) >> node_077 
+			elser (80) >> node_078 
+			endr 
+		endif 
+	else 
+		if self.enraged() 
+			random (0) >> node_075 
+			elser (0) >> node_076 
+			elser (65) >> node_077 
+			elser (35) >> node_078 
+			endr 
+		elif self.fatigued() 
+			random (0) >> node_075 
+			elser (100) >> node_076 
+			elser (0) >> node_077 
+			elser (0) >> node_078 
+			endr 
+		else 
+			random (0) >> node_075 
+			elser (10) >> node_076 
+			elser (20) >> node_077 
+			elser (70) >> node_078 
+			endr 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_075
+	return 
+endf 
+
+def node_076
+	>> node_116 
+	return 
+endf 
+
+def node_077
+	>> node_117 
+	return 
+endf 
+
+def node_078
+	>> node_118 
+	return 
+endf 
+
+def node_079
+	>> node_104 
+	return 
+endf 
+
+def node_080
+	if function#102() 
+		function#103() 
+		if self.distance_2d_recalc_to_target().leq(3000) 
+			if function#105(300,60) 
+				random (50) 
+							>> node_044 
+							if self.in_map(st.Ancient_Forest).in_area(-1) 
+								>> node_127 
+							elif self.in_map(st.Special_Arena).in_area(-1) 
+								>> node_127 
+							elif self.in_map(st.Challenge_Arena).in_area(-1) 
+								>> node_127 
+							elif self.in_map(st.Guiding_Lands).in_area(3) 
+								>> node_127 
+							elif self.in_map(st.Guiding_Lands).in_area(4) 
+								>> node_127 
+							elif self.in_map(st.Guiding_Lands).in_area(5) 
+								>> node_127 
+							elif self.in_map(st.Guiding_Lands).in_area(6) 
+								>> node_127 
+							elif self.in_map(st.Guiding_Lands).in_area(7) 
+								>> node_127 
+							elif function#106(109,3) 
+								>> node_127 
+							elif function#106(109,4) 
+								>> node_127 
+							elif function#106(109,5) 
+								>> node_127 
+							elif function#106(109,6) 
+								>> node_127 
+							elif function#106(109,7) 
+								>> node_127 
+							else 
+								>> node_111 
+							endif 
+							>> node_113 
+							>> node_072 
+							reset 
+				elser (50) 
+				endr 
+			else 
+			endif 
+		else 
+		endif 
+		self.targetEnemy(target_em.random_player_or_cat) 
+		return 
+	else 
+	endif 
+	return 
+endf 
+
+def node_081
+	if self.in_map(st.Ancient_Forest).in_area(-1) 
+	elif self.in_map(st.Special_Arena).in_area(-1) 
+	elif self.in_map(st.Challenge_Arena).in_area(-1) 
+	elif self.in_map(st.Guiding_Lands).in_area(3) 
+	elif self.in_map(st.Guiding_Lands).in_area(4) 
+	elif self.in_map(st.Guiding_Lands).in_area(5) 
+	elif self.in_map(st.Guiding_Lands).in_area(6) 
+	elif self.in_map(st.Guiding_Lands).in_area(7) 
+	elif function#106(109,3) 
+	elif function#106(109,4) 
+	elif function#106(109,5) 
+	elif function#106(109,6) 
+	elif function#106(109,7) 
+	else 
+		if function#104(4) 
+			>> node_113 
+			>> node_072 
+			reset 
+		else 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_082
+	>> node_044 
+	if self.in_map(st.Ancient_Forest).in_area(-1) 
+		>> node_127 
+	elif self.in_map(st.Special_Arena).in_area(-1) 
+		>> node_127 
+	elif self.in_map(st.Challenge_Arena).in_area(-1) 
+		>> node_127 
+	elif self.in_map(st.Guiding_Lands).in_area(3) 
+		>> node_127 
+	elif self.in_map(st.Guiding_Lands).in_area(4) 
+		>> node_127 
+	elif self.in_map(st.Guiding_Lands).in_area(5) 
+		>> node_127 
+	elif self.in_map(st.Guiding_Lands).in_area(6) 
+		>> node_127 
+	elif self.in_map(st.Guiding_Lands).in_area(7) 
+		>> node_127 
+	elif function#106(109,3) 
+		>> node_127 
+	elif function#106(109,4) 
+		>> node_127 
+	elif function#106(109,5) 
+		>> node_127 
+	elif function#106(109,6) 
+		>> node_127 
+	elif function#106(109,7) 
+		>> node_127 
+	else 
+		>> node_111 
+	endif 
+	>> node_081 
+	>> node_072 
+	return 
+endf 
+
+def node_083
+	>> node_063 
+	>> node_075 
+	return 
+endf 
+
+def node_084
+	>> node_031 
+	>> node_119 
+	return 
+endf 
+
+def node_085
+	if self.part(3).is_broken(1) 
+		if self.part(4).is_broken(1) 
+			random (50) >> node_138 
+			elser (50) >> node_139 
+			endr 
+		else 
+			>> node_138 
+		endif 
+	elif self.part(4).is_broken(1) 
+		>> node_139 
+	endif 
+	return 
+endf 
+
+def node_086
+	random (60) >> node_178 
+	elser (40) >> node_179 
+	endr 
+	return 
+endf 
+
+def node_087
+	>> node_169 
+	return 
+endf 
+
+def node_088
+	>> node_172 
+	return 
+endf 
+
+def node_089
+	>> node_173 
+	return 
+endf 
+
+def node_090
+	>> node_171 
+	return 
+endf 
+
+def node_091
+	>> node_170 
+	return 
+endf 
+
+def node_092
+	>> node_173 
+	return 
+endf 
+
+def node_093
+	>> node_176 
+	return 
+endf 
+
+def node_094
+	>> node_177 
+	return 
+endf 
+
+def node_095
+	>> node_181 
+	return 
+endf 
+
+def node_096
+	>> node_179 
+	return 
+endf 
+
+def node_097
+	>> node_137 
+	return 
+endf 
+
+def node_098
+	>> node_174 
+	return 
+endf 
+
+def node_099
+	>> node_175 
+	return 
+endf 
+
+def node_100
+	>> node_133 
+	return 
+endf 
+
+def node_101
+	>> node_135 
+	return 
+endf 
+
+def node_102
+	>> node_134 
+	return 
+endf 
+
+def node_103
+	if function#101() 
+		>> node_077 
+	else 
+	endif 
+	return 
+endf 
+
+def node_104
+	-> banbaro.jump_attack_2() 
+	return 
+endf 
+
+def node_105
+	-> banbaro.diversionary_attack() 
+	return 
+endf 
+
+def node_106
+	-> banbaro.upper_attack() 
+	return 
+endf 
+
+def node_107
+	-> banbaro.back_tail_attack() 
+	return 
+endf 
+
+def node_108
+	-> banbaro.overlie_attack() 
+	return 
+endf 
+
+def node_109
+	-> banbaro.shot_rock_attack() 
+	return 
+endf 
+
+def node_110
+	-> banbaro.shot_rock_attack_ground() 
+	return 
+endf 
+
+def node_111
+	-> banbaro.rush_to_stop_1() 
+	return 
+endf 
+
+def node_112
+	-> banbaro.rush_to_stop_2() 
+	return 
+endf 
+
+def node_113
+	-> banbaro.restart_to_rush_to_stop_1() 
+	return 
+endf 
+
+def node_114
+	-> banbaro.restart_to_rush_to_stop_2() 
+	return 
+endf 
+
+def node_115
+	return 
+endf 
+
+def node_116
+	-> banbaro.rush_end_set() 
+	return 
+endf 
+
+def node_117
+	-> banbaro.rush_end_throw() 
+	return 
+endf 
+
+def node_118
+	-> banbaro.rush_end_strike() 
+	return 
+endf 
+
+def node_119
+	-> banbaro.peep_grass_search() 
+	return 
+endf 
+
+def node_120
+	-> banbaro.back_horn_attack() 
+	return 
+endf 
+
+def node_121
+	-> banbaro.turn_around_attack_l() 
+	return 
+endf 
+
+def node_122
+	-> banbaro.turn_around_attack_r() 
+	return 
+endf 
+
+def node_123
+	-> banbaro.foot_stepping_l() 
+	return 
+endf 
+
+def node_124
+	-> banbaro.foot_stepping_r() 
+	return 
+endf 
+
+def node_125
+	-> banbaro.side_tackle_l() 
+	return 
+endf 
+
+def node_126
+	-> banbaro.side_tackle_r() 
+	return 
+endf 
+
+def node_127
+	-> banbaro.rush_tree_to_stop_1() 
+	return 
+endf 
+
+def node_128
+	-> banbaro.rush_tree_to_stop_2() 
+	return 
+endf 
+
+def node_129
+	-> banbaro.normal_turn() 
+	return 
+endf 
+
+def node_130
+	-> banbaro.quick_turn() 
+	return 
+endf 
+
+def node_131
+	-> banbaro.back_turn() 
+	return 
+endf 
+
+def node_132
+	-> banbaro.backstep_short() 
+	return 
+endf 
+
+def node_133
+	-> banbaro.discover() 
+	return 
+endf 
+
+def node_134
+	-> banbaro.threat() 
+	return 
+endf 
+
+def node_135
+	-> banbaro.threat_short() 
+	return 
+endf 
+
+def node_136
+	-> banbaro.wait() 
+	return 
+endf 
+
+def node_137
+	-> banbaro.tired() 
+	return 
+endf 
+
+def node_138
+	-> banbaro.rush_turnover_leg_left() 
+	return 
+endf 
+
+def node_139
+	-> banbaro.rush_turnover_leg_right() 
+	return 
+endf 
+
+def node_140
+	if self.fatigued() 
+		-> banbaro.tired_walk(2,1,0,500,500) 
+	else 
+		-> banbaro.walk(2,1,0,500,500) 
+	endif 
+	return 
+endf 
+
+def node_141
+	if self.fatigued() 
+		-> banbaro.tired_walk(2,1,5,500,500) 
+	else 
+		-> banbaro.walk(2,1,5,500,500) 
+	endif 
+	return 
+endf 
+
+def node_142
+	if self.fatigued() 
+		-> banbaro.tired_walk(2,1,0,1500,500) 
+	else 
+		-> banbaro.walk(2,1,0,1500,500) 
+	endif 
+	return 
+endf 
+
+def node_143
+	if self.fatigued() 
+		-> banbaro.tired_walk(2,1,5,1500,500) 
+	else 
+		-> banbaro.walk(2,1,5,1500,500) 
+	endif 
+	return 
+endf 
+
+def node_144
+	if self.fatigued() 
+		-> banbaro.tired_walk(2,6,0,500,500) 
+	else 
+		-> banbaro.walk(2,6,0,500,500) 
+	endif 
+	return 
+endf 
+
+def node_145
+	if self.fatigued() 
+		-> banbaro.tired_walk(2,6,5,500,500) 
+	else 
+		-> banbaro.walk(2,6,5,500,500) 
+	endif 
+	return 
+endf 
+
+def node_146
+	if self.fatigued() 
+		-> banbaro.tired_walk(2,6,0,1500,500) 
+	else 
+		-> banbaro.walk(2,6,0,1500,500) 
+	endif 
+	return 
+endf 
+
+def node_147
+	if self.fatigued() 
+		-> banbaro.tired_walk(2,6,5,1500,500) 
+	else 
+		-> banbaro.walk(2,6,5,1500,500) 
+	endif 
+	return 
+endf 
+
+def node_148
+	if self.fatigued() 
+		-> banbaro.tired_dash(2,1,0,500,500) 
+	else 
+		-> banbaro.dash(2,1,0,500,500) 
+	endif 
+	return 
+endf 
+
+def node_149
+	if self.fatigued() 
+		-> banbaro.tired_dash(2,1,0,1000,500) 
+	else 
+		-> banbaro.dash(2,1,0,1000,500) 
+	endif 
+	return 
+endf 
+
+def node_150
+	if self.fatigued() 
+		-> banbaro.tired_dash(2,1,0,1500,500) 
+	else 
+		-> banbaro.dash(2,1,0,1500,500) 
+	endif 
+	return 
+endf 
+
+def node_151
+	if self.fatigued() 
+		-> banbaro.tired_dash(2,1,5,1500,500) 
+	else 
+		-> banbaro.dash(2,1,5,1500,500) 
+	endif 
+	return 
+endf 
+
+def node_152
+	if self.fatigued() 
+		-> banbaro.tired_dash(2,1,0,1500,3000) 
+	else 
+		-> banbaro.dash(2,1,0,1500,3000) 
+	endif 
+	return 
+endf 
+
+def node_153
+	if self.fatigued() 
+		-> banbaro.tired_dash(2,1,0,3000,500) 
+	else 
+		-> banbaro.dash(2,1,0,3000,500) 
+	endif 
+	return 
+endf 
+
+def node_154
+	if self.fatigued() 
+		-> banbaro.tired_dash(2,6,0,500,500) 
+	else 
+		-> banbaro.dash(2,6,0,500,500) 
+	endif 
+	return 
+endf 
+
+def node_155
+	if self.fatigued() 
+		-> banbaro.tired_dash(2,6,0,1000,500) 
+	else 
+		-> banbaro.dash(2,6,0,1000,500) 
+	endif 
+	return 
+endf 
+
+def node_156
+	if self.fatigued() 
+		-> banbaro.tired_dash(2,6,0,1500,500) 
+	else 
+		-> banbaro.dash(2,6,0,1500,500) 
+	endif 
+	return 
+endf 
+
+def node_157
+	if self.fatigued() 
+		-> banbaro.tired_dash(2,6,5,1500,500) 
+	else 
+		-> banbaro.dash(2,6,5,1500,500) 
+	endif 
+	return 
+endf 
+
+def node_158
+	if self.fatigued() 
+		-> banbaro.tired_dash(2,6,0,3000,500) 
+	else 
+		-> banbaro.dash(2,6,0,3000,500) 
+	endif 
+	return 
+endf 
+
+def node_159
+	if self.fatigued() 
+		-> banbaro.tired_dash(2,1,0,1500,700) 
+	else 
+		-> banbaro.dash(2,1,0,1500,700) 
+	endif 
+	return 
+endf 
+
+def node_160
+	-> banbaro.fox_walk(2,1,5,500,500) 
+	return 
+endf 
+
+def node_161
+	-> banbaro.fox_walk(2,1,5,1000,500) 
+	return 
+endf 
+
+def node_162
+	-> banbaro.fox_walk(2,1,5,2000,500) 
+	return 
+endf 
+
+def node_163
+	-> banbaro.anger_search_walk(2,1,5,500,500) 
+	return 
+endf 
+
+def node_164
+	-> banbaro.anger_search_walk(2,1,5,1000,500) 
+	return 
+endf 
+
+def node_165
+	-> banbaro.anger_search_walk(2,1,5,2000,500) 
+	return 
+endf 
+
+def node_166
+	-> banbaro.dying_walk(2,1,5,1500,500) 
+	return 
+endf 
+
+def node_167
+	-> banbaro.tired_walk(2,1,5,1500,500) 
+	return 
+endf 
+
+def node_168
+	-> banbaro.tired_dash(2,1,5,3000,500) 
+	return 
+endf 
+
+def node_169
+	-> banbaro.sleep() 
+	return 
+endf 
+
+def node_170
+	-> banbaro.dying_sleep(3,0,0,150) 
+	return 
+endf 
+
+def node_171
+	-> banbaro.sunbath() 
+	return 
+endf 
+
+def node_172
+	-> banbaro.drink() 
+	return 
+endf 
+
+def node_173
+	-> banbaro.marking() 
+	return 
+endf 
+
+def node_174
+	-> banbaro.refresh() 
+	return 
+endf 
+
+def node_175
+	-> banbaro.refresh_end_angry() 
+	return 
+endf 
+
+def node_176
+	-> banbaro.sniff_s() 
+	return 
+endf 
+
+def node_177
+	-> banbaro.sniff_l() 
+	return 
+endf 
+
+def node_178
+	-> banbaro.search() 
+	return 
+endf 
+
+def node_179
+	-> banbaro.combat_search() 
+	return 
+endf 
+
+def node_180
+	-> banbaro.anger_search() 
+	return 
+endf 
+
+def node_181
+	-> banbaro.lost_search() 
+	return 
+endf 
+

@@ -1,0 +1,45 @@
+importactions Jagras as jagras
+importlibrary Global as Global
+
+def node_000
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if [RegisterVar0 <= 1] 
+	elif self.target(3) 
+	else 
+		>> node_001 
+		>> node_002 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	if function#4B() 
+	else 
+		return 
+	endif 
+	if self.target(20) 
+	else 
+		return 
+	endif 
+	if self.target(17) 
+		return 
+	else 
+	endif 
+	if self.target.in_combat() 
+	else 
+		return 
+	endif 
+	if self.target(16) 
+		return 
+	else 
+		conclude 
+	endif 
+	return 
+endf 
+
+def node_002
+	self.targetEnemy(target_em.random_player_or_cat) 
+	>> Global.node_030 
+	return 
+endf 
+

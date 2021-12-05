@@ -1,0 +1,62 @@
+importactions Kulve_Taroth as kulve_taroth
+importlibrary Global as Global
+
+def node_000
+	if self.current_quest().is_rank(rank.MR) 
+		>> node_003 
+	elif self.current_quest().is_rank(rank.AT) 
+		>> node_002 
+	else 
+		>> node_001 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if self.in_map(st.Caverns_Of_El_Dorado).in_area(4) 
+		>> Global.node_086 
+		>> Global.node_072 
+	else 
+		if self.in_combat() 
+			>> Global.node_073 
+		else 
+			>> Global.node_084 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_002
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if self.in_map(st.Caverns_Of_El_Dorado).in_area(4) 
+		if function#10F() 
+		else 
+			>> Global.node_086 
+			>> Global.node_071 
+		endif 
+	else 
+		if self.in_combat() 
+			>> Global.node_073 
+		else 
+			>> Global.node_084 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_003
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if self.in_map(st.Caverns_Of_El_Dorado).in_area(4) 
+		>> Global.node_086 
+		>> Global.node_070 
+	else 
+		if self.in_combat() 
+			>> Global.node_073 
+		else 
+			>> Global.node_084 
+		endif 
+	endif 
+	return 
+endf 
+

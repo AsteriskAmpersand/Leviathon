@@ -1,0 +1,32 @@
+importactions Vaal_Hazak as vaal_hazak
+
+def node_000
+	self.targetEnemy(target_em.closest_entity) 
+	if self.target_is(em.Rajang) 
+		>> node_001 
+	elif self.target_is(em.Furious_Rajang) 
+		>> node_001 
+	else 
+		if self.flying() 
+			-> vaal_hazak.threat_short_fly() 
+		else 
+			-> vaal_hazak.threat_short() 
+		endif 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	if self.distance_3d_to_target().leq(400) 
+		-> vaal_hazak.step_back() 
+	else 
+	endif 
+	if self.distance_3d_to_target().gt(1100) 
+		-> vaal_hazak.dash(1,0,0,1050) 
+	else 
+	endif 
+	-> vaal_hazak.quick_turn() 
+	-> vaal_hazak.grapple_with_em023_start() 
+	return 
+endf 
+

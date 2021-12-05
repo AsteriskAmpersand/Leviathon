@@ -1,0 +1,4677 @@
+importactions Gold_Rathian as gold_rathian
+
+def node_000
+	conclude 
+endf 
+
+def node_001
+	if self.flying() 
+		if function#AF(5000) 
+			-> gold_rathian.landing() 
+		else 
+			>> node_004 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_002
+	if self.flying() 
+	else 
+		-> gold_rathian.take_off() 
+	endif 
+	return 
+endf 
+
+def node_003
+	if self.flying() 
+	else 
+		-> gold_rathian.dash_take_off() 
+	endif 
+	return 
+endf 
+
+def node_004
+	self.targetArea(target_area.area_aerial_center) 
+	>> node_026 
+	self.targetArea(target_area.area_center) 
+	-> gold_rathian.landing() 
+	return 
+endf 
+
+def node_005
+	if self.distance_3d_to_target().leq(600) 
+	else 
+		if self.fatigued() 
+			-> gold_rathian.walk_tired(2,0,5,1500) 
+		else 
+			-> gold_rathian.walk(2,0,5,1500) 
+		endif 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_006
+	>> node_332 
+	self.targetArea(target_area.nearest_entrance) 
+	if self.distance_3d_to_target().leq(600) 
+	else 
+		if self.fatigued() 
+			-> gold_rathian.walk_tired(2,0,5,1500) 
+		else 
+			-> gold_rathian.walk(2,0,5,1500) 
+		endif 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_007
+	>> node_332 
+	self.targetArea(target_area.area_center) 
+	if self.distance_3d_to_target().leq(600) 
+	else 
+		if self.fatigued() 
+			-> gold_rathian.walk_tired(2,0,5,1500) 
+		else 
+			-> gold_rathian.walk(2,0,5,1500) 
+		endif 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_008
+	>> node_332 
+	self.targetArea(39) 
+	if self.distance_3d_to_target().leq(600) 
+	else 
+		if self.fatigued() 
+			-> gold_rathian.walk_tired(2,0,5,1500) 
+		else 
+			-> gold_rathian.walk(2,0,5,1500) 
+		endif 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_009
+	if self.distance_3d_to_target().leq(600) 
+	else 
+		-> gold_rathian.dying_walk(2,0,5,1500) 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_010
+	if self.distance_3d_to_target().leq(600) 
+	else 
+		if self.fatigued() 
+			-> gold_rathian.dash_tired(2,0,0,1500) 
+		else 
+			-> gold_rathian.dash_no_hit(2,0,0,1500) 
+		endif 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_011
+	if self.distance_3d_to_target().leq(600) 
+	else 
+		if self.fatigued() 
+			-> gold_rathian.dash_tired(2,0,0,1500) 
+		else 
+			-> gold_rathian.dash_no_hit(2,0,0,1500) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(600) 
+	else 
+		if self.fatigued() 
+			-> gold_rathian.dash_tired(2,0,0,1500) 
+		else 
+			-> gold_rathian.dash_no_hit(2,0,0,1500) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(600) 
+	else 
+		if self.fatigued() 
+			-> gold_rathian.dash_tired(2,0,0,1500) 
+		else 
+			-> gold_rathian.dash_no_hit(2,0,0,1500) 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_012
+	if self.distance_2d_to_target().leq(600) 
+	else 
+		if self.fatigued() 
+			-> gold_rathian.dash_tired(2,0,0,1500) 
+		else 
+			-> gold_rathian.dash_no_hit(2,0,0,1500) 
+		endif 
+	endif 
+	if self.distance_2d_to_target().leq(600) 
+	else 
+		if self.fatigued() 
+			-> gold_rathian.dash_tired(2,0,0,1500) 
+		else 
+			-> gold_rathian.dash_no_hit(2,0,0,1500) 
+		endif 
+	endif 
+	if self.distance_2d_to_target().leq(600) 
+	else 
+		if self.fatigued() 
+			-> gold_rathian.dash_tired(2,0,0,1500) 
+		else 
+			-> gold_rathian.dash_no_hit(2,0,0,1500) 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_013
+	if self.distance_3d_to_target().leq(600) 
+	else 
+		if self.fatigued() 
+			-> gold_rathian.dash_tired(2,0,0,1500) 
+		else 
+			-> gold_rathian.dash_no_hit(2,0,0,1500) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(600) 
+	else 
+		if self.fatigued() 
+			-> gold_rathian.dash_tired(2,0,0,1500) 
+		else 
+			-> gold_rathian.dash_no_hit(2,0,0,1500) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(600) 
+	else 
+		if self.fatigued() 
+			-> gold_rathian.dash_tired(2,0,0,1500) 
+		else 
+			-> gold_rathian.dash_no_hit(2,0,0,1500) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(600) 
+	else 
+		if self.fatigued() 
+			-> gold_rathian.dash_tired(2,0,0,1500) 
+		else 
+			-> gold_rathian.dash_no_hit(2,0,0,1500) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(600) 
+	else 
+		if self.fatigued() 
+			-> gold_rathian.dash_tired(2,0,0,1500) 
+		else 
+			-> gold_rathian.dash_no_hit(2,0,0,1500) 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_014
+	if self.distance_2d_to_target().leq(600) 
+	else 
+		if self.fatigued() 
+			-> gold_rathian.dash_tired(2,0,0,1500) 
+		else 
+			-> gold_rathian.dash_no_hit(2,0,0,1500) 
+		endif 
+	endif 
+	if self.distance_2d_to_target().leq(600) 
+	else 
+		if self.fatigued() 
+			-> gold_rathian.dash_tired(2,0,0,1500) 
+		else 
+			-> gold_rathian.dash_no_hit(2,0,0,1500) 
+		endif 
+	endif 
+	if self.distance_2d_to_target().leq(600) 
+	else 
+		if self.fatigued() 
+			-> gold_rathian.dash_tired(2,0,0,1500) 
+		else 
+			-> gold_rathian.dash_no_hit(2,0,0,1500) 
+		endif 
+	endif 
+	if self.distance_2d_to_target().leq(600) 
+	else 
+		if self.fatigued() 
+			-> gold_rathian.dash_tired(2,0,0,1500) 
+		else 
+			-> gold_rathian.dash_no_hit(2,0,0,1500) 
+		endif 
+	endif 
+	if self.distance_2d_to_target().leq(600) 
+	else 
+		if self.fatigued() 
+			-> gold_rathian.dash_tired(2,0,0,1500) 
+		else 
+			-> gold_rathian.dash_no_hit(2,0,0,1500) 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_015
+	if self.distance_3d_to_target().leq(600) 
+	else 
+		-> gold_rathian.dying_walk_fly(2,1,5,3000,500) 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_016
+	if self.distance_3d_to_target().leq(600) 
+	else 
+		-> gold_rathian.dying_glide_direct_move(2,1,5,3000,500) 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_017
+	if self.distance_3d_to_target().leq(1000) 
+	else 
+		-> gold_rathian.dying_glide_direct_move(2,1,5,3000,900) 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_018
+	if self.distance_2d_to_target().leq(600) 
+	else 
+		-> gold_rathian.glide_combat(2,1,5,3000,500) 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_019
+	if self.distance_2d_to_target().leq(1000) 
+	else 
+		-> gold_rathian.glide_combat(2,1,5,3000,900) 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_020
+	if self.distance_3d_to_target().leq(600) 
+	else 
+		-> gold_rathian.glide(2,1,5,3000,500) 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_021
+	if self.distance_3d_to_target().leq(600) 
+	else 
+		-> gold_rathian.glide_direct_move(2,1,5,3000,500) 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_022
+	if self.distance_3d_to_target().leq(1000) 
+	else 
+		-> gold_rathian.glide_direct_move(2,1,5,3000,900) 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_023
+	if self.distance_2d_to_target().leq(600) 
+	else 
+		-> gold_rathian.glide_combat(2,1,5,3000,500) 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_024
+	if self.distance_2d_to_target().leq(1000) 
+	else 
+		-> gold_rathian.glide_combat(2,1,5,3000,900) 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_025
+	if self.distance_3d_to_target().leq(600) 
+	else 
+		-> gold_rathian.glide(2,1,0,3000,500) 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_026
+	if self.distance_3d_to_target().leq(600) 
+	else 
+		-> gold_rathian.glide_direct_move(2,1,0,3000,500) 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_027
+	if self.distance_3d_to_target().leq(1000) 
+	else 
+		-> gold_rathian.glide_direct_move(2,1,0,3000,900) 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_028
+	if self.distance_3d_to_target().leq(600) 
+	else 
+		-> gold_rathian.glide_direct_move(2,1,0,1500,500) 
+	endif 
+	if self.distance_3d_to_target().leq(600) 
+	else 
+		-> gold_rathian.glide_direct_move(2,1,0,1500,500) 
+	endif 
+	if self.distance_3d_to_target().leq(600) 
+	else 
+		-> gold_rathian.glide_direct_move(2,1,0,1500,500) 
+	endif 
+	return 
+endf 
+
+def node_029
+	if self.distance_2d_to_target().leq(600) 
+	else 
+		-> gold_rathian.glide_combat(2,1,0,3000,500) 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_030
+	if self.distance_2d_to_target().leq(1000) 
+	else 
+		-> gold_rathian.glide_combat(2,1,0,3000,900) 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_031
+	if self.distance_2d_to_target().leq(600) 
+	else 
+		-> gold_rathian.glide_combat(2,1,0,1500,500) 
+	endif 
+	if self.distance_2d_to_target().leq(600) 
+	else 
+		-> gold_rathian.glide_combat(2,1,0,1500,500) 
+	endif 
+	if self.distance_2d_to_target().leq(600) 
+	else 
+		-> gold_rathian.glide_combat(2,1,0,1500,500) 
+	endif 
+	return 
+endf 
+
+def node_032
+	if self.distance_3d_to_target().leq(1000) 
+	else 
+		-> gold_rathian.glide_direct_move(2,1,0,3000,700) 
+	endif 
+	if self.distance_3d_to_target().leq(1000) 
+	else 
+		-> gold_rathian.glide_direct_move(2,1,0,3000,700) 
+	endif 
+	if self.distance_3d_to_target().leq(1000) 
+	else 
+		-> gold_rathian.glide_direct_move(2,1,0,3000,700) 
+	endif 
+	if self.distance_3d_to_target().leq(1000) 
+	else 
+		-> gold_rathian.glide_direct_move(2,1,0,3000,700) 
+	endif 
+	if self.distance_3d_to_target().leq(1000) 
+	else 
+		-> gold_rathian.glide_direct_move(2,1,0,3000,700) 
+	endif 
+	return 
+endf 
+
+def node_033
+	if self.distance_2d_to_target().leq(1000) 
+	else 
+		-> gold_rathian.glide_combat(2,0,0,3000) 
+	endif 
+	if self.distance_2d_to_target().leq(1000) 
+	else 
+		-> gold_rathian.glide_combat(2,0,0,3000) 
+	endif 
+	if self.distance_2d_to_target().leq(1000) 
+	else 
+		-> gold_rathian.glide_combat(2,0,0,3000) 
+	endif 
+	if self.distance_2d_to_target().leq(1000) 
+	else 
+		-> gold_rathian.glide_combat(2,0,0,3000) 
+	endif 
+	if self.distance_2d_to_target().leq(1000) 
+	else 
+		-> gold_rathian.glide_combat(2,0,0,3000) 
+	endif 
+	return 
+endf 
+
+def node_034
+	>> node_001 
+	-> gold_rathian.take_off_switch_pattern_by_dist() 
+	>> node_027 
+	return 
+endf 
+
+def node_035
+	if self.flying() 
+		-> gold_rathian.sudden_rise_from_fly() 
+	else 
+		-> gold_rathian.sudden_rise() 
+	endif 
+	return 
+endf 
+
+def node_036
+	>> node_002 
+	-> gold_rathian.sudden_drop() 
+	return 
+endf 
+
+def node_037
+	if self.flying() 
+		-> gold_rathian.threat_fly() 
+	else 
+		-> gold_rathian.threat() 
+	endif 
+	return 
+endf 
+
+def node_038
+	if self.flying() 
+		-> gold_rathian.threat_fly_short() 
+	else 
+		-> gold_rathian.threat_short() 
+	endif 
+	return 
+endf 
+
+def node_039
+	if function#AB() 
+		function#AA() 
+		>> node_038 
+	else 
+	endif 
+	return 
+endf 
+
+def node_040
+	if self.flying() 
+		-> gold_rathian.half_lost_search_front_fly() 
+	else 
+		-> gold_rathian.half_lost_search_front() 
+	endif 
+	return 
+endf 
+
+def node_041
+	if self.flying() 
+		-> gold_rathian.lost_search_fly() 
+	else 
+		-> gold_rathian.half_lost_search_back() 
+	endif 
+	return 
+endf 
+
+def node_042
+	if self.flying() 
+		-> gold_rathian.lost_search_fly() 
+	else 
+		-> gold_rathian.lost_search() 
+	endif 
+	return 
+endf 
+
+def node_043
+	>> node_001 
+	if self.in_combat() 
+		-> gold_rathian.idle_tired_combat() 
+	elif self.alert_out_of_combat() 
+		-> gold_rathian.idle_tired_combat() 
+	else 
+		-> gold_rathian.idle_tired() 
+	endif 
+	return 
+endf 
+
+def node_044
+	>> node_001 
+	-> gold_rathian.idle_tired_combat() 
+	return 
+endf 
+
+def node_045
+	if self.flying() 
+		-> gold_rathian.refresh_fly() 
+	else 
+		-> gold_rathian.refresh() 
+	endif 
+	return 
+endf 
+
+def node_046
+	if self.flying() 
+		-> gold_rathian.sniff_s_fly() 
+	else 
+		-> gold_rathian.sniff_combat_s() 
+	endif 
+	return 
+endf 
+
+def node_047
+	if self.alert_out_of_combat() 
+		if self.flying() 
+			-> gold_rathian.lost_search_fly() 
+		else 
+			-> gold_rathian.lost_search() 
+		endif 
+	elif self.in_combat() 
+		if self.flying() 
+			-> gold_rathian.lost_search_fly() 
+		else 
+			-> gold_rathian.lost_search() 
+		endif 
+	else 
+		if self.flying() 
+			-> gold_rathian.life_search_fly() 
+		else 
+			-> gold_rathian.life_search() 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_048
+	if self.flying() 
+		-> gold_rathian.intimidation_fly() 
+	else 
+		-> gold_rathian.intimidation() 
+	endif 
+	return 
+endf 
+
+def node_049
+	self.targetArea(target_area.nearest_entrance) 
+	>> node_050 
+	return 
+endf 
+
+def node_050
+	if function#5A(20) 
+		>> node_051 
+	elif function#5A(21) 
+		>> node_051 
+	elif function#5A(22) 
+		>> node_051 
+	elif function#5A(23) 
+		>> node_051 
+	elif function#5A(24) 
+		>> node_051 
+	elif function#5A(25) 
+		>> node_051 
+	elif function#5A(30) 
+		>> node_052 
+	elif function#5A(31) 
+		>> node_052 
+	elif function#5A(32) 
+		>> node_052 
+	elif function#5A(33) 
+		>> node_052 
+	elif function#5A(34) 
+		>> node_052 
+	elif function#5A(35) 
+		>> node_052 
+	else 
+		>> node_053 
+	endif 
+	return 
+endf 
+
+def node_051
+	if self.distance_3d_to_target().leq(15000) 
+		>> node_001 
+		>> node_054 
+	else 
+		>> node_053 
+	endif 
+	return 
+endf 
+
+def node_052
+	if self.distance_3d_to_target().leq(15000) 
+		>> node_002 
+		>> node_054 
+	else 
+		>> node_053 
+	endif 
+	return 
+endf 
+
+def node_053
+	if function#AD() 
+		>> node_054 
+	else 
+		>> node_055 
+	endif 
+	return 
+endf 
+
+def node_054
+	if function#5A(10) 
+		>> node_002 
+	elif function#5A(11) 
+		>> node_002 
+	elif function#5A(12) 
+		>> node_002 
+	elif function#5A(13) 
+		>> node_002 
+	elif function#5A(14) 
+		>> node_002 
+	elif function#5A(15) 
+		>> node_002 
+	elif function#5A(30) 
+		>> node_002 
+	elif function#5A(31) 
+		>> node_002 
+	elif function#5A(32) 
+		>> node_002 
+	elif function#5A(33) 
+		>> node_002 
+	elif function#5A(34) 
+		>> node_002 
+	elif function#5A(35) 
+		>> node_002 
+	else 
+		>> node_001 
+	endif 
+	if self.flying() 
+		>> node_021 
+	else 
+		>> node_006 
+	endif 
+	return 
+endf 
+
+def node_055
+	>> node_056 
+	>> node_057 
+	>> node_058 
+	>> node_059 
+	return 
+endf 
+
+def node_056
+	if self.flying() 
+		self.targetArea(target_area.area_aerial_center) 
+		>> node_022 
+	else 
+		self.targetArea(target_area.area_center) 
+		>> node_007 
+		self.targetArea(target_area.area_aerial_center) 
+		>> node_034 
+	endif 
+	return 
+endf 
+
+def node_057
+	self.targetArea(target_area.nearest_entrance) 
+	if self.flying() 
+		self.targetArea(40) 
+		>> node_020 
+	else 
+		self.targetArea(39) 
+		>> node_008 
+	endif 
+	return 
+endf 
+
+def node_058
+	if function#5A(10) 
+	elif function#5A(11) 
+	elif function#5A(12) 
+	elif function#5A(13) 
+	elif function#5A(14) 
+	elif function#5A(15) 
+	elif function#5A(30) 
+	elif function#5A(31) 
+	elif function#5A(32) 
+	elif function#5A(33) 
+	elif function#5A(34) 
+	elif function#5A(35) 
+	else 
+		if self.flying() 
+			self.targetArea(target_area.area_center) 
+			>> node_001 
+		else 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_059
+	self.targetArea(target_area.nearest_entrance) 
+	if self.flying() 
+		>> node_021 
+	else 
+		>> node_006 
+	endif 
+	return 
+endf 
+
+def node_060
+	if function#C2() 
+		self.targetArea(target_area.next_exit) 
+	else 
+		self.targetArea(14) 
+	endif 
+	if function#AD() 
+		>> node_061 
+	else 
+		>> node_062 
+	endif 
+	>> node_066 
+	return 
+endf 
+
+def node_061
+	if self.flying() 
+		self.targetArea(40) 
+		>> node_026 
+	else 
+		>> node_010 
+	endif 
+	return 
+endf 
+
+def node_062
+	>> node_063 
+	>> node_065 
+	return 
+endf 
+
+def node_063
+	if self.flying() 
+		self.targetArea(target_area.area_aerial_center) 
+		>> node_027 
+	else 
+		self.targetArea(target_area.area_aerial_center) 
+		>> node_034 
+	endif 
+	return 
+endf 
+
+def node_064
+	self.targetArea(target_area.area_center) 
+	>> node_010 
+	self.targetArea(target_area.area_aerial_center) 
+	>> node_034 
+	return 
+endf 
+
+def node_065
+	if function#C2() 
+		self.targetArea(target_area.next_exit) 
+	else 
+		self.targetArea(14) 
+	endif 
+	if self.flying() 
+		self.targetArea(40) 
+		>> node_025 
+	else 
+		>> node_010 
+	endif 
+	return 
+endf 
+
+def node_066
+	self.targetArea(target_area.area_center) 
+	if self.flying() 
+		if self.fatigued() 
+			>> node_001 
+		else 
+			>> node_036 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_067
+	self.targetArea(24) 
+	if function#AD() 
+		>> node_068 
+	else 
+		>> node_069 
+	endif 
+	return 
+endf 
+
+def node_068
+	>> node_001 
+	self.targetArea(24) 
+	>> node_009 
+	return 
+endf 
+
+def node_069
+	>> node_070 
+	>> node_071 
+	>> node_072 
+	>> node_073 
+	return 
+endf 
+
+def node_070
+	if self.flying() 
+		self.targetArea(target_area.area_aerial_center) 
+		>> node_017 
+	else 
+		self.targetArea(target_area.area_center) 
+		>> node_009 
+		self.targetArea(target_area.area_aerial_center) 
+		>> node_002 
+	endif 
+	return 
+endf 
+
+def node_071
+	self.targetArea(24) 
+	if self.flying() 
+		self.targetArea(40) 
+		>> node_015 
+	else 
+		self.targetArea(39) 
+		>> node_009 
+	endif 
+	return 
+endf 
+
+def node_072
+	if self.flying() 
+		self.targetArea(target_area.area_center) 
+		>> node_001 
+	else 
+	endif 
+	return 
+endf 
+
+def node_073
+	>> node_001 
+	self.targetArea(24) 
+	>> node_009 
+	return 
+endf 
+
+def node_074
+	if function#AD() 
+		>> node_075 
+	else 
+		>> node_076 
+	endif 
+	return 
+endf 
+
+def node_075
+	if self.flying() 
+		>> node_026 
+	else 
+		if self.in_combat() 
+			>> node_010 
+		else 
+			>> node_005 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_076
+	>> node_077 
+	>> node_078 
+	>> node_079 
+	return 
+endf 
+
+def node_077
+	if self.flying() 
+		self.targetArea(target_area.area_aerial_center) 
+		>> node_027 
+	else 
+		self.targetArea(target_area.area_center) 
+		if self.in_combat() 
+			>> node_010 
+		else 
+			>> node_005 
+		endif 
+		self.targetArea(target_area.area_aerial_center) 
+		>> node_034 
+	endif 
+	return 
+endf 
+
+def node_078
+	if self.flying() 
+		self.targetArea(40) 
+		>> node_025 
+	else 
+		self.targetArea(39) 
+		if self.in_combat() 
+			>> node_010 
+		else 
+			>> node_005 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_079
+	if self.flying() 
+		self.targetArea(target_area.area_center) 
+		>> node_001 
+	else 
+	endif 
+	return 
+endf 
+
+def node_080
+	self.targetArea(target_area.area_center) 
+	if self.flying() 
+		if self.fatigued() 
+			>> node_001 
+		else 
+			>> node_036 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_081
+	if self.flying() 
+		>> node_026 
+	else 
+		if self.in_combat() 
+			>> node_010 
+		else 
+			>> node_005 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_082
+	if self.flying() 
+		-> gold_rathian.normal_turn_fly() 
+	else 
+		-> gold_rathian.normal_turn() 
+	endif 
+	return 
+endf 
+
+def node_083
+	if self.angle_2d_cw_between(15,345) 
+		>> node_082 
+	else 
+	endif 
+	return 
+endf 
+
+def node_084
+	if self.angle_2d_cw_between(30,330) 
+		>> node_082 
+	else 
+	endif 
+	return 
+endf 
+
+def node_085
+	if self.angle_2d_cw_between(60,300) 
+		>> node_082 
+	else 
+	endif 
+	return 
+endf 
+
+def node_086
+	if self.angle_2d_cw_between(90,270) 
+		>> node_082 
+	else 
+	endif 
+	return 
+endf 
+
+def node_087
+	if self.flying() 
+		>> node_284 
+	else 
+		-> gold_rathian.quick_turn() 
+	endif 
+	return 
+endf 
+
+def node_088
+	if self.angle_2d_cw_between(15,345) 
+		>> node_087 
+	else 
+	endif 
+	return 
+endf 
+
+def node_089
+	if self.angle_2d_cw_between(30,330) 
+		>> node_087 
+	else 
+	endif 
+	return 
+endf 
+
+def node_090
+	if self.angle_2d_cw_between(60,300) 
+		>> node_087 
+	else 
+	endif 
+	return 
+endf 
+
+def node_091
+	if self.angle_2d_cw_between(90,270) 
+		>> node_087 
+	else 
+	endif 
+	return 
+endf 
+
+def node_092
+	>> node_001 
+	-> gold_rathian.lost_search() 
+	return 
+endf 
+
+def node_093
+	>> node_002 
+	-> gold_rathian.lost_search_fly() 
+	return 
+endf 
+
+def node_094
+	>> node_001 
+	-> gold_rathian.lost_search() 
+	return 
+endf 
+
+def node_095
+	>> node_001 
+	-> gold_rathian.sniff_s() 
+	return 
+endf 
+
+def node_096
+	>> node_001 
+	-> gold_rathian.sniff_l() 
+	return 
+endf 
+
+def node_097
+	>> node_001 
+	if self.enraged() 
+		-> gold_rathian.dash(2,1,0,500,650) 
+	elif self.fatigued() 
+		-> gold_rathian.walk_combat(2,1,0,500,650) 
+	else 
+		-> gold_rathian.walk_combat(2,1,0,500,650) 
+	endif 
+	return 
+endf 
+
+def node_098
+	>> node_001 
+	if self.enraged() 
+		-> gold_rathian.dash(2,1,0,1000,650) 
+	elif self.fatigued() 
+		-> gold_rathian.walk_combat(2,1,0,1000,650) 
+	else 
+		-> gold_rathian.walk_combat(2,1,0,1000,650) 
+	endif 
+	return 
+endf 
+
+def node_099
+	>> node_001 
+	if self.enraged() 
+		-> gold_rathian.peep_grass_search() 
+	else 
+		-> gold_rathian.peep_grass_search() 
+	endif 
+	return 
+endf 
+
+def node_100
+	>> node_001 
+	if self.target(10) 
+		-> gold_rathian.dash(2,3,0,1000,2) 
+	else 
+	endif 
+	if self.enraged() 
+		>> node_182 
+	else 
+		>> node_182 
+	endif 
+	return 
+endf 
+
+def node_101
+	>> node_001 
+	-> gold_rathian.idle_tired_combat() 
+	return 
+endf 
+
+def node_102
+	if self.distance_3d_to_target().leq(800) 
+		>> node_157 
+	elif self.distance_3d_to_target().leq(1200) 
+		>> node_159 
+	else 
+	endif 
+	return 
+endf 
+
+def node_103
+	if self.distance_2d_to_target().leq(800) 
+		random (50) >> node_279 
+		elser (50) >> node_284 
+		endr 
+	elif self.distance_2d_to_target().leq(1200) 
+		random (50) >> node_281 
+		elser (50) >> node_286 
+		endr 
+	else 
+		>> node_286 
+	endif 
+	return 
+endf 
+
+def node_104
+	if self.distance_2d_to_target().leq(900) 
+		return 
+	else 
+		-> gold_rathian.dash_no_hit(1,2,0,800,1500) 
+	endif 
+	if self.distance_2d_to_target().leq(900) 
+		return 
+	else 
+		-> gold_rathian.dash_no_hit(1,2,0,800,1500) 
+	endif 
+	if self.distance_2d_to_target().leq(900) 
+		return 
+	else 
+		-> gold_rathian.dash_no_hit(1,2,0,800,1500) 
+	endif 
+	return 
+endf 
+
+def node_105
+	if self.distance_2d_to_target().leq(900) 
+		return 
+	else 
+		-> gold_rathian.glide_direct_move(2,0,0,1500) 
+	endif 
+	if self.distance_2d_to_target().leq(900) 
+		return 
+	else 
+		-> gold_rathian.glide_direct_move(2,0,0,1500) 
+	endif 
+	if self.distance_2d_to_target().leq(900) 
+		return 
+	else 
+		-> gold_rathian.glide_direct_move(2,0,0,1500) 
+	endif 
+	return 
+endf 
+
+def node_106
+	>> node_001 
+	-> gold_rathian.lost_search() 
+	return 
+endf 
+
+def node_107
+	>> node_002 
+	-> gold_rathian.lost_search_fly() 
+	return 
+endf 
+
+def node_108
+	>> node_001 
+	>> node_084 
+	-> gold_rathian.life_search() 
+	return 
+endf 
+
+def node_109
+	>> node_001 
+	>> node_084 
+	-> gold_rathian.sniff_s() 
+	return 
+endf 
+
+def node_110
+	>> node_001 
+	>> node_084 
+	-> gold_rathian.sniff_l() 
+	return 
+endf 
+
+def node_111
+	>> node_001 
+	>> node_083 
+	-> gold_rathian.marking() 
+	return 
+endf 
+
+def node_112
+	>> node_001 
+	>> node_084 
+	-> gold_rathian.sunbath() 
+	return 
+endf 
+
+def node_113
+	>> node_001 
+	>> node_083 
+	-> gold_rathian.drink() 
+	return 
+endf 
+
+def node_114
+	>> node_001 
+	>> node_084 
+	-> gold_rathian.sleep() 
+	return 
+endf 
+
+def node_115
+	>> node_002 
+	>> node_084 
+	-> gold_rathian.life_search_fly() 
+	return 
+endf 
+
+def node_116
+	>> node_002 
+	>> node_084 
+	-> gold_rathian.sniff_s_fly() 
+	return 
+endf 
+
+def node_117
+	>> node_002 
+	>> node_084 
+	-> gold_rathian.sniff_l_fly() 
+	return 
+endf 
+
+def node_118
+	>> node_002 
+	>> node_083 
+	-> gold_rathian.marking_fly() 
+	return 
+endf 
+
+def node_119
+	>> node_002 
+	>> node_084 
+	-> gold_rathian.life_search_trace_fly() 
+	return 
+endf 
+
+def node_120
+	>> node_002 
+	self.targetEnemy(17) 
+	-> gold_rathian.sudden_drop() 
+	return 
+endf 
+
+def node_121
+	>> node_001 
+	if function#C9() 
+		>> node_084 
+		-> gold_rathian.dying_sleep() 
+	elif function#CA() 
+	endif 
+	return 
+endf 
+
+def node_122
+	if function#6B(5000) 
+		self.targetEnemy(26) 
+		>> node_124 
+		>> node_125 
+		>> node_126 
+		reset 
+	else 
+	endif 
+	return 
+endf 
+
+def node_123
+	if function#6B(5000) 
+		self.targetEnemy(26) 
+		>> node_124 
+		>> node_125 
+		>> node_126 
+		conclude 
+	else 
+	endif 
+	return 
+endf 
+
+def node_124
+	if self.in_combat() 
+		if self.flying() 
+			-> gold_rathian.sniff_s_fly() 
+		else 
+			-> gold_rathian.sniff_combat_s() 
+		endif 
+	else 
+		if self.flying() 
+			-> gold_rathian.sniff_s_fly() 
+		else 
+			-> gold_rathian.sniff_combat_s() 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_125
+	>> node_001 
+	>> node_010 
+	return 
+endf 
+
+def node_126
+	>> node_165 
+	-> gold_rathian.eat() 
+	return 
+endf 
+
+def node_127
+	>> node_046 
+	>> node_087 
+	>> node_046 
+	>> node_087 
+	>> node_046 
+	return 
+endf 
+
+def node_128
+	if self.flying() 
+		-> gold_rathian.glide_combat(1,2,0,1000,2000) 
+	else 
+		-> gold_rathian.dash_no_hit(1,2,0,1000,2000) 
+	endif 
+	return 
+endf 
+
+def node_129
+	>> node_002 
+	-> gold_rathian.predator_attack() 
+	return 
+endf 
+
+def node_130
+	if self.flying() 
+		-> gold_rathian.predator_give_up_action_fly() 
+	else 
+		-> gold_rathian.predator_give_up_action() 
+	endif 
+	return 
+endf 
+
+def node_131
+	>> node_002 
+	-> gold_rathian.predator_adjust() 
+	return 
+endf 
+
+def node_132
+	>> node_001 
+	-> gold_rathian.predator_eat() 
+	return 
+endf 
+
+def node_133
+	>> node_001 
+	-> gold_rathian.walk(2,1,0,2000,1000) 
+	return 
+endf 
+
+def node_134
+	>> node_001 
+	-> gold_rathian.dash(2,1,0,6000,1000) 
+	return 
+endf 
+
+def node_135
+	>> node_001 
+	-> gold_rathian.dash(2,1,0,6000,3000) 
+	return 
+endf 
+
+def node_136
+	if self.distance_3d_to_target().leq(1500) 
+	elif self.distance_3d_to_target().leq(3500) 
+		random (50) >> node_138 
+		elser (50) >> node_139 
+		elser (0) 
+		endr 
+	else 
+	endif 
+	return 
+endf 
+
+def node_137
+	random (50) >> node_138 
+	elser (50) >> node_139 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_138
+	if self.flying() 
+		-> gold_rathian.sniff_s_fly() 
+	else 
+		-> gold_rathian.sniff_s() 
+	endif 
+	return 
+endf 
+
+def node_139
+	if self.flying() 
+		-> gold_rathian.life_search_fly() 
+	else 
+		-> gold_rathian.lost_search() 
+	endif 
+	return 
+endf 
+
+def node_140
+	>> node_001 
+	if self.distance_2d_to_target().leq(600) 
+		>> node_157 
+	else 
+	endif 
+	>> node_141 
+	return 
+endf 
+
+def node_141
+	if self.distance_2d_to_target().leq(700) 
+	else 
+		-> gold_rathian.dash(1,2,0,400,1000) 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_142
+	>> node_001 
+	>> node_321 
+	>> node_163 
+	return 
+endf 
+
+def node_143
+	>> node_174 
+	return 
+endf 
+
+def node_144
+	>> node_001 
+	-> gold_rathian.ride_rage_head_ground_lv2() 
+	return 
+endf 
+
+def node_145
+	>> node_001 
+	-> gold_rathian.ride_rage_body_ground() 
+	return 
+endf 
+
+def node_146
+	>> node_001 
+	-> gold_rathian.ride_rage_body_ground_lv2() 
+	return 
+endf 
+
+def node_147
+	>> node_175 
+	return 
+endf 
+
+def node_148
+	>> node_001 
+	-> gold_rathian.ride_rage_tail_ground_lv2() 
+	return 
+endf 
+
+def node_149
+	>> node_001 
+	-> gold_rathian.ride_rage_crash_head_ground() 
+	return 
+endf 
+
+def node_150
+	>> node_001 
+	-> gold_rathian.ride_rage_crash_head_ground_lv2() 
+	return 
+endf 
+
+def node_151
+	>> node_001 
+	-> gold_rathian.ride_rage_crash_body_ground() 
+	return 
+endf 
+
+def node_152
+	>> node_001 
+	-> gold_rathian.ride_rage_crash_body_ground_lv2() 
+	return 
+endf 
+
+def node_153
+	>> node_001 
+	-> gold_rathian.ride_rage_crash_tail_ground() 
+	return 
+endf 
+
+def node_154
+	>> node_001 
+	-> gold_rathian.ride_rage_crash_tail_ground_lv2() 
+	return 
+endf 
+
+def node_155
+	>> node_001 
+	-> gold_rathian.ride_wait_ground() 
+	return 
+endf 
+
+def node_156
+	>> node_001 
+	-> gold_rathian.ride_tired_ground() 
+	return 
+endf 
+
+def node_157
+	>> node_001 
+	-> gold_rathian.short_back_step() 
+	return 
+endf 
+
+def node_158
+	if self.angle_2d_cw_between(15,345) 
+		>> node_157 
+	else 
+	endif 
+	return 
+endf 
+
+def node_159
+	if self.angle_2d_cw_between(30,330) 
+		>> node_157 
+	else 
+	endif 
+	return 
+endf 
+
+def node_160
+	if self.angle_2d_cw_between(45,315) 
+		>> node_157 
+	else 
+	endif 
+	return 
+endf 
+
+def node_161
+	if self.angle_2d_cw_between(60,300) 
+		>> node_157 
+	else 
+	endif 
+	return 
+endf 
+
+def node_162
+	if self.angle_2d_cw_between(90,270) 
+		>> node_157 
+	else 
+	endif 
+	return 
+endf 
+
+def node_163
+	>> node_001 
+	-> gold_rathian.quick_turn() 
+	return 
+endf 
+
+def node_164
+	if self.angle_2d_cw_between(15,345) 
+		>> node_163 
+	else 
+	endif 
+	return 
+endf 
+
+def node_165
+	if self.angle_2d_cw_between(30,330) 
+		>> node_163 
+	else 
+	endif 
+	return 
+endf 
+
+def node_166
+	if self.angle_2d_cw_between(45,315) 
+		>> node_163 
+	else 
+	endif 
+	return 
+endf 
+
+def node_167
+	if self.angle_2d_cw_between(60,300) 
+		>> node_163 
+	else 
+	endif 
+	return 
+endf 
+
+def node_168
+	if self.angle_2d_cw_between(90,270) 
+		>> node_163 
+	else 
+	endif 
+	return 
+endf 
+
+def node_169
+	>> node_001 
+	if self.angle_2d_cw_between(0,180) 
+		-> gold_rathian.rolling_tail_attack2_l() 
+	else 
+		-> gold_rathian.rolling_tail_attack2_r() 
+	endif 
+	return 
+endf 
+
+def node_170
+	>> node_001 
+	>> node_168 
+	-> gold_rathian.bite() 
+	return 
+endf 
+
+def node_171
+	>> node_001 
+	if self.fatigued() 
+		-> gold_rathian.dash_bite_tired() 
+	else 
+		-> gold_rathian.dash_bite2() 
+	endif 
+	return 
+endf 
+
+def node_172
+	>> node_001 
+	>> node_168 
+	-> gold_rathian.normal_breath() 
+	return 
+endf 
+
+def node_173
+	>> node_001 
+	if self.in_combat() 
+		-> gold_rathian.idle_tired_combat() 
+	else 
+		-> gold_rathian.idle_tired() 
+	endif 
+	return 
+endf 
+
+def node_174
+	>> node_001 
+	-> gold_rathian.adjust_bite() 
+	return 
+endf 
+
+def node_175
+	>> node_001 
+	-> gold_rathian.double_tail_attack_first_l() 
+	return 
+endf 
+
+def node_176
+	>> node_001 
+	if function#101() 
+	else 
+	endif 
+	if self.part(0).is_broken(0) 
+		-> gold_rathian.somersault_kick_tail_cut() 
+	else 
+		-> gold_rathian.somersault_kick() 
+	endif 
+	return 
+endf 
+
+def node_177
+	>> node_001 
+	if function#101() 
+	else 
+	endif 
+	if self.part(0).is_broken(0) 
+		-> gold_rathian.somersault_kick_take_off_tail_cut() 
+	else 
+		-> gold_rathian.somersault_kick_take_off() 
+	endif 
+	return 
+endf 
+
+def node_178
+	>> node_001 
+	if function#101() 
+	else 
+	endif 
+	if self.part(0).is_broken(0) 
+		-> gold_rathian.double_somersault_kick_tail_cut() 
+	else 
+		-> gold_rathian.double_somersault_kick() 
+	endif 
+	return 
+endf 
+
+def node_179
+	>> node_001 
+	>> node_168 
+	-> gold_rathian.three_way_breath() 
+	return 
+endf 
+
+def node_180
+	>> node_157 
+	>> node_179 
+	return 
+endf 
+
+def node_181
+	>> node_001 
+	>> node_168 
+	-> gold_rathian.high_power_breath() 
+	return 
+endf 
+
+def node_182
+	>> node_001 
+	if self.fatigued() 
+		-> gold_rathian.dash_bite_tired() 
+	else 
+		-> gold_rathian.dash_bite_middle() 
+	endif 
+	return 
+endf 
+
+def node_183
+	>> node_001 
+	if self.fatigued() 
+		-> gold_rathian.dash_bite_tired() 
+	else 
+		-> gold_rathian.triple_dash_attack_first() 
+	endif 
+	return 
+endf 
+
+def node_184
+	if self.distance_2d_to_target().leq(650) 
+		>> node_170 
+	else 
+		>> node_172 
+	endif 
+	return 
+endf 
+
+def node_185
+	>> node_001 
+	if self.distance_2d_to_target().leq(800) 
+		if self.enraged() 
+			random (30) >> node_177 
+			elser (20) >> node_175 
+			elser (20) >> node_182 
+			elser (20) >> node_181 
+			elser (10) >> node_157 
+						>> node_179 
+			endr 
+		else 
+			random (20) >> node_176 
+			elser (25) >> node_175 
+			elser (25) >> node_182 
+			elser (20) >> node_172 
+			elser (10) >> node_157 
+						>> node_179 
+			endr 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_186
+	if self.enraged() 
+		if self.angle_2d_cw_between(315,45) 
+			random (50) 
+						if self.distance_2d_to_target().leq(1000) 
+							>> node_177 
+						elif self.distance_2d_to_target().leq(2000) 
+							>> node_181 
+						else 
+						endif 
+			elser (50) 
+			endr 
+		else 
+		endif 
+	else 
+		if self.angle_2d_cw_between(315,45) 
+			random (50) 
+						if self.distance_2d_to_target().leq(1000) 
+							>> node_176 
+						elif self.distance_2d_to_target().leq(2000) 
+							>> node_179 
+						else 
+						endif 
+			elser (50) 
+			endr 
+		else 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_187
+	if self.distance_2d_to_target().leq(400) 
+		>> node_176 
+	elif self.distance_2d_to_target().leq(800) 
+		>> node_175 
+	else 
+		>> node_172 
+	endif 
+	return 
+endf 
+
+def node_188
+	if self.distance_2d_to_target().leq(800) 
+		random (60) >> node_177 
+		elser (40) >> node_182 
+		endr 
+	elif self.distance_2d_to_target().leq(1500) 
+		>> node_181 
+	else 
+		>> node_171 
+	endif 
+	return 
+endf 
+
+def node_189
+	if self.distance_2d_to_target().leq(800) 
+		>> node_175 
+	else 
+		>> node_171 
+	endif 
+	return 
+endf 
+
+def node_190
+	if self.flying() 
+	else 
+		if self.enraged() 
+			>> node_192 
+		elif self.fatigued() 
+		else 
+			>> node_191 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_191
+	if self.target.helpless_0() 
+		random (35) 
+					if self.distance_2d_to_target().leq(1000) 
+						>> node_176 
+					elif self.distance_2d_to_target().leq(2000) 
+						>> node_179 
+					else 
+					endif 
+		elser (65) 
+		endr 
+	elif self.target.fire_blighted() 
+		random (35) 
+					if self.distance_2d_to_target().leq(2000) 
+						>> node_171 
+					else 
+					endif 
+		elser (65) 
+		endr 
+	else 
+	endif 
+	return 
+endf 
+
+def node_192
+	if self.target.helpless_0() 
+		random (50) 
+					if self.distance_2d_to_target().leq(1000) 
+						>> node_177 
+					elif self.distance_2d_to_target().leq(2000) 
+						>> node_181 
+					else 
+					endif 
+		elser (50) 
+		endr 
+	elif self.target.fire_blighted() 
+		random (50) 
+					if self.distance_2d_to_target().leq(2000) 
+						>> node_183 
+					else 
+					endif 
+		elser (50) 
+		endr 
+	else 
+	endif 
+	return 
+endf 
+
+def node_193
+	if self.flying() 
+	else 
+		if self.enraged() 
+			>> node_195 
+		elif self.fatigued() 
+		else 
+			>> node_194 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_194
+	if self.target.helpless_0() 
+		random (35) 
+					if self.distance_2d_to_target().leq(1000) 
+						>> node_176 
+					elif self.distance_2d_to_target().leq(2000) 
+						>> node_220 
+					else 
+					endif 
+		elser (65) 
+		endr 
+	elif self.target.fire_blighted() 
+		random (35) 
+					if self.distance_2d_to_target().leq(2000) 
+						>> node_171 
+					else 
+					endif 
+		elser (65) 
+		endr 
+	else 
+	endif 
+	return 
+endf 
+
+def node_195
+	if self.target.helpless_0() 
+		random (50) 
+					if self.distance_2d_to_target().leq(1000) 
+						>> node_177 
+					elif self.distance_2d_to_target().leq(2000) 
+						>> node_181 
+					else 
+					endif 
+		elser (50) 
+		endr 
+	elif self.target.fire_blighted() 
+		random (50) 
+					if self.distance_2d_to_target().leq(2000) 
+						>> node_242 
+					else 
+					endif 
+		elser (50) 
+		endr 
+	else 
+	endif 
+	return 
+endf 
+
+def node_196
+	>> node_001 
+	if self.angle_2d_cw_between(0,180) 
+		-> gold_rathian.adjust_turn_take_off_l() 
+	else 
+		-> gold_rathian.adjust_turn_take_off_r() 
+	endif 
+	return 
+endf 
+
+def node_197
+	>> node_001 
+	-> gold_rathian.approach_take_off() 
+	return 
+endf 
+
+def node_198
+	if self.distance_2d_to_target().leq(850) 
+		>> node_196 
+	else 
+		>> node_197 
+	endif 
+	return 
+endf 
+
+def node_199
+	>> node_001 
+	-> gold_rathian.adjust_bite_twice() 
+	return 
+endf 
+
+def node_200
+	>> node_001 
+	if self.distance_2d_to_target().leq(750) 
+		if function#101() 
+		else 
+		endif 
+		-> gold_rathian.somersault_kick_side() 
+	else 
+		>> node_176 
+	endif 
+	return 
+endf 
+
+def node_201
+	>> node_001 
+	if self.distance_2d_to_target().leq(750) 
+		if function#101() 
+		else 
+		endif 
+		-> gold_rathian.somersault_kick_side_take_off() 
+	else 
+		>> node_177 
+	endif 
+	return 
+endf 
+
+def node_202
+	if self.angle_2d_cw_between(315,45) 
+		>> node_176 
+	else 
+		>> node_200 
+	endif 
+	return 
+endf 
+
+def node_203
+	if self.angle_2d_cw_between(315,45) 
+		>> node_177 
+	else 
+		>> node_201 
+	endif 
+	return 
+endf 
+
+def node_204
+	>> node_001 
+	if self.current_quest().is_rank(rank.MR) 
+		if self.distance_2d_to_target().leq(800) 
+			if self.enraged() 
+				random (13) >> node_203 
+				elser (8) >> node_199 
+				elser (10) >> node_182 
+				elser (13) >> node_181 
+				elser (8) >> node_180 
+				elser (48) 
+							*&
+				endr 
+			else 
+				random (13) >> node_202 
+				elser (8) >> node_199 
+				elser (13) >> node_169 
+				elser (13) >> node_182 
+				elser (0) >> node_172 
+				elser (5) >> node_180 
+				elser (48) 
+				endr 
+			endif 
+		else 
+		endif 
+	else 
+		if self.distance_2d_to_target().leq(800) 
+			if self.enraged() 
+				random (25) >> node_203 
+				elser (15) >> node_199 
+				elser (20) >> node_182 
+				elser (25) >> node_181 
+				elser (15) >> node_180 
+							*&
+				endr 
+			else 
+				random (25) >> node_202 
+				elser (15) >> node_199 
+				elser (25) >> node_169 
+				elser (25) >> node_182 
+				elser (0) >> node_172 
+				elser (10) >> node_180 
+				endr 
+			endif 
+		else 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_205
+	if self.flying() 
+	else 
+		if self.fatigued() 
+		elif self.enraged() 
+			random (50) >> node_207 
+			elser (50) 
+			endr 
+		else 
+			random (30) >> node_206 
+			elser (70) 
+			endr 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_206
+	if self.distance_2d_to_target().leq(750) 
+		>> node_202 
+	elif self.distance_2d_to_target().leq(1300) 
+		if self.angle_2d_cw_between(270,90) 
+			>> node_179 
+		else 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_207
+	if self.distance_2d_to_target().leq(750) 
+		random (80) >> node_203 
+		elser (20) >> node_181 
+		endr 
+	elif self.distance_2d_to_target().leq(950) 
+		>> node_181 
+	elif self.distance_2d_to_target().leq(1300) 
+		random (80) >> node_179 
+		elser (20) >> node_181 
+		endr 
+	else 
+	endif 
+	return 
+endf 
+
+def node_208
+	>> node_001 
+	-> gold_rathian.adjust_bite_combo() 
+	-> gold_rathian.high_power_breath_combo() 
+	return 
+endf 
+
+def node_209
+	if self.fatigued() 
+		-> gold_rathian.dash_tired(2,0,0,1500) 
+	else 
+		-> gold_rathian.dash_no_hit(2,0,0,1500) 
+	endif 
+	return 
+endf 
+
+def node_210
+	>> node_001 
+	-> gold_rathian.power_up_start() 
+	return 
+endf 
+
+def node_211
+	>> node_001 
+	-> gold_rathian.dash_attack_once_short() 
+	return 
+endf 
+
+def node_212
+	>> node_001 
+	-> gold_rathian.dash_attack_twice_short_start() 
+	return 
+endf 
+
+def node_213
+	>> node_001 
+	-> gold_rathian.dash_attack_once_long() 
+	return 
+endf 
+
+def node_214
+	>> node_001 
+	-> gold_rathian.dash_attack_twice_long_start() 
+	return 
+endf 
+
+def node_215
+	>> node_001 
+	if self.fatigued() 
+		-> gold_rathian.dash_tired() 
+	else 
+		if self.distance_2d_to_target().leq(600) 
+			random (30) -> gold_rathian.dash_attack_once_short() 
+			elser (70) -> gold_rathian.dash_attack_once_long() 
+			endr 
+		elif self.distance_2d_to_target().leq(1000) 
+			random (50) -> gold_rathian.dash_attack_once_short() 
+			elser (50) -> gold_rathian.dash_attack_once_long() 
+			endr 
+		elif self.distance_2d_to_target().leq(2000) 
+			random (70) -> gold_rathian.dash_attack_once_short() 
+			elser (30) -> gold_rathian.dash_attack_once_long() 
+			endr 
+		else 
+			-> gold_rathian.dash_attack_once_short() 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_216
+	>> node_001 
+	if self.fatigued() 
+		-> gold_rathian.dash_tired() 
+	else 
+		if self.distance_2d_to_target().leq(600) 
+			random (20) -> gold_rathian.dash_attack_twice_short_start() 
+			elser (80) -> gold_rathian.dash_attack_twice_long_start() 
+			endr 
+		elif self.distance_2d_to_target().leq(1000) 
+			random (50) -> gold_rathian.dash_attack_twice_short_start() 
+			elser (50) -> gold_rathian.dash_attack_twice_long_start() 
+			endr 
+		elif self.distance_2d_to_target().leq(2000) 
+			random (80) -> gold_rathian.dash_attack_twice_short_start() 
+			elser (20) -> gold_rathian.dash_attack_twice_long_start() 
+			endr 
+		else 
+			-> gold_rathian.dash_attack_twice_short_start() 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_217
+	>> node_001 
+	if self.fatigued() 
+		-> gold_rathian.dash_tired() 
+	else 
+		if self.distance_2d_to_target().leq(600) 
+			random (20) -> gold_rathian.dash_attack_once_long() 
+						if function#101() 
+							>> node_226 
+						else 
+							>> node_181 
+						endif 
+			elser (80) -> gold_rathian.dash_attack_twice_short_start() 
+						>> node_231 
+			endr 
+		elif self.distance_2d_to_target().leq(1000) 
+			random (50) -> gold_rathian.dash_attack_once_short() 
+						if self.enraged() 
+							>> node_232 
+						else 
+							>> node_231 
+						endif 
+			elser (50) -> gold_rathian.dash_attack_twice_long_start() 
+			endr 
+		elif self.distance_2d_to_target().leq(2000) 
+			random (50) -> gold_rathian.dash_attack_once_short() 
+						if self.enraged() 
+							>> node_232 
+						else 
+							>> node_231 
+						endif 
+			elser (50) -> gold_rathian.dash_attack_twice_short_start() 
+			endr 
+		else 
+			-> gold_rathian.dash_attack_once_short() 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_218
+	>> node_001 
+	-> gold_rathian.adjust_bite_twice() 
+	-> gold_rathian.dash_attack_once_long() 
+	>> node_226 
+	return 
+endf 
+
+def node_219
+	>> node_001 
+	-> gold_rathian.high_power_breath_combo() 
+	return 
+endf 
+
+def node_220
+	>> node_001 
+	-> gold_rathian.triple_breath_single() 
+	return 
+endf 
+
+def node_221
+	>> node_001 
+	-> gold_rathian.triple_breath_bite_combo() 
+	return 
+endf 
+
+def node_222
+	>> node_001 
+	-> gold_rathian.double_breath_single() 
+	return 
+endf 
+
+def node_223
+	>> node_001 
+	-> gold_rathian.double_breath_bite_combo() 
+	return 
+endf 
+
+def node_224
+	>> node_001 
+	-> gold_rathian.stepin_somersault_ground() 
+	return 
+endf 
+
+def node_225
+	>> node_001 
+	-> gold_rathian.stepin_somersault_fly() 
+	return 
+endf 
+
+def node_226
+	if self.distance_2d_to_target().leq(600) 
+		if self.flying() 
+			-> gold_rathian.ultimate_breath_fly() 
+		else 
+			-> gold_rathian.short_back_step() 
+			-> gold_rathian.ultimate_breath_ground() 
+		endif 
+	else 
+		if self.flying() 
+			-> gold_rathian.ultimate_breath_fly() 
+		else 
+			-> gold_rathian.ultimate_breath_ground() 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_227
+	>> node_001 
+	-> gold_rathian.somersault360_g2g() 
+	return 
+endf 
+
+def node_228
+	>> node_001 
+	-> gold_rathian.somersault360_g2f() 
+	return 
+endf 
+
+def node_229
+	>> node_002 
+	-> gold_rathian.somersault360_f2g() 
+	return 
+endf 
+
+def node_230
+	>> node_002 
+	-> gold_rathian.somersault360_f2f() 
+	return 
+endf 
+
+def node_231
+	>> node_001 
+	if self.distance_2d_to_target().leq(2000) 
+		if self.distance_2d_to_target().leq(700) 
+			>> node_202 
+		else 
+			if function#101() 
+			else 
+			endif 
+			-> gold_rathian.stepin_somersault_ground() 
+		endif 
+	else 
+		>> node_215 
+	endif 
+	return 
+endf 
+
+def node_232
+	>> node_001 
+	if self.distance_2d_to_target().leq(2000) 
+		if self.distance_2d_to_target().leq(700) 
+			>> node_203 
+		else 
+			if function#101() 
+			else 
+			endif 
+			-> gold_rathian.stepin_somersault_fly() 
+		endif 
+	else 
+		>> node_216 
+	endif 
+	return 
+endf 
+
+def node_233
+	>> node_001 
+	>> node_168 
+	if self.distance_2d_to_target().leq(600) 
+		>> node_223 
+	else 
+		>> node_222 
+	endif 
+	if function#101() 
+		if self.distance_2d_to_target().leq(800) 
+			if self.enraged() 
+				>> node_230 
+			else 
+				>> node_228 
+			endif 
+		elif self.distance_2d_to_target().leq(1500) 
+			random (50) >> node_226 
+			elser (50) >> node_225 
+			endr 
+		else 
+			>> node_226 
+		endif 
+	else 
+		if self.enraged() 
+			>> node_232 
+		else 
+			>> node_231 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_234
+	if self.distance_2d_to_target().leq(1200) 
+		if function#101() 
+			random (50) -> gold_rathian.somersault360_f2g() 
+			elser (50) -> gold_rathian.somersault360_f2f() 
+						>> node_288 
+						>> node_226 
+			endr 
+		else 
+			>> node_310 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_235
+	if function#101() 
+		if self.distance_2d_to_target().leq(800) >> node_228 
+		else >> node_220 
+		endif 
+	else 
+		if self.distance_2d_to_target().leq(800) 
+			>> node_199 
+			>> node_204 
+		else 
+			random (50) >> node_181 
+			elser (50) >> node_220 
+			endr 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_236
+	if self.distance_2d_to_target().leq(800) 
+		random (25) >> node_231 
+		elser (20) >> node_228 
+		elser (0) >> node_226 
+		elser (15) >> node_220 
+		elser (40) 
+		endr 
+	else 
+	endif 
+	return 
+endf 
+
+def node_237
+	if self.distance_2d_to_target().leq(800) 
+	else 
+		>> node_014 
+	endif 
+	>> node_199 
+	return 
+endf 
+
+def node_238
+	if self.distance_2d_to_target().leq(800) 
+		if self.enraged() 
+			random (10) >> node_199 
+			elser (20) >> node_254 
+			elser (10) >> node_256 
+			elser (10) >> node_257 
+			elser (10) >> node_248 
+			elser (20) >> node_250 
+			elser (20) 
+			endr 
+		else 
+			random (10) >> node_199 
+			elser (10) >> node_169 
+			elser (15) >> node_182 
+			elser (10) >> node_220 
+						>> node_240 
+			elser (20) >> node_246 
+			elser (10) >> node_248 
+			elser (10) >> node_250 
+			elser (15) 
+			endr 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_239
+	if self.distance_2d_to_target().leq(800) 
+		if self.enraged() 
+			random (10) >> node_199 
+			elser (10) >> node_254 
+			elser (10) >> node_256 
+			elser (10) >> node_257 
+			elser (10) >> node_247 
+			elser (10) >> node_249 
+			elser (20) >> node_250 
+			elser (20) 
+			endr 
+		else 
+			random (10) >> node_199 
+			elser (10) >> node_169 
+			elser (15) >> node_182 
+			elser (10) >> node_220 
+						>> node_241 
+			elser (20) >> node_247 
+			elser (10) >> node_249 
+			elser (10) >> node_250 
+			elser (15) 
+			endr 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_240
+	if self.distance_2d_to_target().leq(800) 
+		if self.enraged() 
+			random (0) >> node_246 
+			elser (40) >> node_248 
+			elser (60) 
+			endr 
+		else 
+			random (20) >> node_246 
+			elser (20) >> node_248 
+			elser (60) 
+			endr 
+		endif 
+	elif self.distance_2d_to_target().leq(1200) 
+	elif self.distance_2d_to_target().leq(2000) 
+		if self.enraged() 
+			random (0) >> node_246 
+			elser (50) >> node_248 
+			elser (50) 
+			endr 
+		else 
+			random (25) >> node_246 
+			elser (25) >> node_248 
+			elser (50) 
+			endr 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_241
+	if self.distance_2d_to_target().leq(800) 
+		if self.enraged() 
+			random (20) >> node_247 
+			elser (20) >> node_249 
+			elser (60) 
+			endr 
+		else 
+			random (20) >> node_247 
+			elser (20) >> node_249 
+			elser (60) 
+			endr 
+		endif 
+	elif self.distance_2d_to_target().leq(1200) 
+	elif self.distance_2d_to_target().leq(2000) 
+		if self.enraged() 
+			random (25) >> node_247 
+			elser (25) >> node_249 
+			elser (50) 
+			endr 
+		else 
+			random (25) >> node_247 
+			elser (25) >> node_249 
+			elser (50) 
+			endr 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_242
+	>> node_001 
+	random (50) -> gold_rathian.dash_attack_once_short() 
+	elser (50) -> gold_rathian.dash_attack_twice_short_start() 
+	endr 
+	return 
+endf 
+
+def node_243
+	>> node_001 
+	random (50) -> gold_rathian.dash_attack_once_long() 
+	elser (50) -> gold_rathian.dash_attack_twice_long_start() 
+	endr 
+	return 
+endf 
+
+def node_244
+	if self.distance_2d_to_target().leq(350) 
+		random (50) >> node_176 
+		elser (25) >> node_248 
+		elser (25) >> node_250 
+		endr 
+	elif self.distance_2d_to_target().leq(600) 
+		random (40) >> node_237 
+					>> node_238 
+		elser (30) >> node_246 
+		elser (15) >> node_248 
+		elser (15) >> node_250 
+		endr 
+	elif self.distance_2d_to_target().leq(850) 
+		random (30) >> node_246 
+		elser (40) >> node_219 
+					>> node_240 
+		elser (15) >> node_248 
+		elser (15) >> node_250 
+		endr 
+	elif self.distance_2d_to_target().leq(1200) 
+		random (0) >> node_182 
+		elser (100) >> node_219 
+					>> node_240 
+		endr 
+	elif self.distance_2d_to_target().leq(2500) 
+		random (0) >> node_237 
+		elser (100) >> node_219 
+					>> node_240 
+		endr 
+	else 
+		>> node_219 
+		>> node_240 
+	endif 
+	return 
+endf 
+
+def node_245
+	if self.distance_2d_to_target().leq(350) 
+		random (50) >> node_247 
+		elser (25) >> node_249 
+		elser (25) >> node_250 
+		endr 
+	elif self.distance_2d_to_target().leq(600) 
+		random (40) >> node_237 
+					>> node_239 
+		elser (30) >> node_247 
+		elser (15) >> node_249 
+		elser (15) >> node_250 
+		endr 
+	elif self.distance_2d_to_target().leq(850) 
+		random (30) >> node_247 
+		elser (40) >> node_219 
+					>> node_241 
+		elser (15) >> node_249 
+		elser (15) >> node_250 
+		endr 
+	elif self.distance_2d_to_target().leq(1200) 
+		>> node_219 
+		>> node_241 
+	elif self.distance_2d_to_target().leq(2500) 
+		>> node_219 
+		>> node_241 
+	else 
+		>> node_219 
+		>> node_241 
+	endif 
+	return 
+endf 
+
+def node_246
+	if self.distance_2d_to_target().leq(250) 
+		>> node_176 
+	elif self.distance_2d_to_target().leq(850) 
+		if self.angle_2d_cw_between(330,30) 
+			>> node_176 
+		elif self.angle_2d_cw_between(135,225) 
+			>> node_176 
+		else 
+			>> node_200 
+		endif 
+	else 
+		>> node_224 
+	endif 
+	return 
+endf 
+
+def node_247
+	if self.distance_2d_to_target().leq(250) 
+		>> node_176 
+	elif self.distance_2d_to_target().leq(850) 
+		>> node_227 
+	else 
+		>> node_224 
+	endif 
+	return 
+endf 
+
+def node_248
+	if self.distance_2d_to_target().leq(250) 
+		>> node_177 
+	elif self.distance_2d_to_target().leq(850) 
+		if self.angle_2d_cw_between(330,30) 
+			>> node_177 
+		elif self.angle_2d_cw_between(135,225) 
+			>> node_177 
+		else 
+			random (30) >> node_177 
+			elser (70) >> node_201 
+			endr 
+		endif 
+	else 
+		>> node_225 
+	endif 
+	return 
+endf 
+
+def node_249
+	if self.distance_2d_to_target().leq(250) 
+		>> node_177 
+	elif self.distance_2d_to_target().leq(850) 
+		>> node_228 
+	else 
+		>> node_225 
+	endif 
+	return 
+endf 
+
+def node_250
+	>> node_198 
+	if self.target.helpless_0() 
+		>> node_292 
+	else 
+		random (50) >> node_295 
+		elser (50) >> node_292 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_251
+	if self.distance_2d_to_target().leq(850) 
+		>> node_250 
+	else 
+		>> node_225 
+	endif 
+	return 
+endf 
+
+def node_252
+	if self.distance_2d_to_target().leq(850) 
+		>> node_198 
+		if self.target.helpless_0() 
+			>> node_292 
+		else 
+			>> node_295 
+		endif 
+	else 
+		>> node_225 
+	endif 
+	return 
+endf 
+
+def node_253
+	>> node_001 
+	-> gold_rathian.double_breath_single() 
+	>> node_258 
+	return 
+endf 
+
+def node_254
+	>> node_001 
+	if self.distance_2d_to_target().leq(800) 
+	else 
+		>> node_014 
+	endif 
+	-> gold_rathian.adjust_bite() @ comboSetting:1 
+	-> gold_rathian.double_breath_single() 
+	>> node_258 
+	return 
+endf 
+
+def node_255
+	>> node_001 
+	if self.distance_2d_to_target().leq(800) 
+	else 
+		>> node_014 
+	endif 
+	-> gold_rathian.adjust_bite_twice() @ comboSetting:1 
+	-> gold_rathian.double_breath_single() 
+	>> node_258 
+	return 
+endf 
+
+def node_256
+	>> node_001 
+	if self.distance_2d_to_target().leq(1000) 
+		-> gold_rathian.dash_attack_twice_short_start() @ comboSetting:1 
+		-> gold_rathian.double_breath_single() 
+	else 
+		random (50) -> gold_rathian.dash_attack_once_short() @ comboSetting:1 
+					-> gold_rathian.double_breath_single() 
+		elser (50) -> gold_rathian.dash_attack_twice_short_start() @ comboSetting:1 
+					-> gold_rathian.double_breath_single() 
+		endr 
+	endif 
+	>> node_258 
+	return 
+endf 
+
+def node_257
+	>> node_001 
+	if function#101() 
+		random (25) -> gold_rathian.dash_attack_once_long() @ comboSetting:1 
+					-> gold_rathian.stepin_somersault_ground() 
+		elser (25) -> gold_rathian.dash_attack_twice_long_start() @ comboSetting:1 
+					-> gold_rathian.stepin_somersault_ground() 
+		elser (25) -> gold_rathian.dash_attack_once_long() @ comboSetting:1 
+					-> gold_rathian.stepin_somersault_fly() 
+		elser (25) -> gold_rathian.dash_attack_twice_long_start() @ comboSetting:1 
+					-> gold_rathian.stepin_somersault_fly() 
+		endr 
+	else 
+		random (50) -> gold_rathian.dash_attack_once_long() @ comboSetting:1 
+					-> gold_rathian.stepin_somersault_ground() 
+		elser (50) -> gold_rathian.dash_attack_twice_long_start() @ comboSetting:1 
+					-> gold_rathian.stepin_somersault_ground() 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_258
+	if function#101() 
+		if self.distance_2d_to_target().leq(850) 
+			random (50) >> node_247 
+			elser (25) >> node_249 
+			elser (25) >> node_252 
+			endr 
+		else 
+			random (50) >> node_247 
+			elser (50) >> node_249 
+			endr 
+		endif 
+	else 
+		>> node_246 
+	endif 
+	return 
+endf 
+
+def node_259
+	>> node_001 
+	-> gold_rathian.double_breath_single() 
+	random (50) >> node_246 
+	elser (50) >> node_248 
+	endr 
+	return 
+endf 
+
+def node_260
+	>> node_001 
+	if self.distance_2d_to_target().leq(1000) 
+		-> gold_rathian.dash_attack_twice_short_start() @ comboSetting:1 
+		-> gold_rathian.triple_breath_single() 
+	else 
+		random (50) -> gold_rathian.dash_attack_once_short() @ comboSetting:1 
+					-> gold_rathian.triple_breath_single() 
+		elser (50) -> gold_rathian.dash_attack_twice_short_start() @ comboSetting:1 
+					-> gold_rathian.triple_breath_single() 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_261
+	>> node_001 
+	random (25) -> gold_rathian.dash_attack_once_long() @ comboSetting:1 
+				-> gold_rathian.stepin_somersault_ground() 
+	elser (25) -> gold_rathian.dash_attack_twice_long_start() @ comboSetting:1 
+				-> gold_rathian.stepin_somersault_ground() 
+	elser (25) -> gold_rathian.dash_attack_once_long() @ comboSetting:1 
+				-> gold_rathian.stepin_somersault_fly() 
+	elser (25) -> gold_rathian.dash_attack_twice_long_start() @ comboSetting:1 
+				-> gold_rathian.stepin_somersault_fly() 
+	endr 
+	return 
+endf 
+
+def node_262
+	>> node_001 
+	if self.distance_2d_to_target().leq(800) 
+	else 
+		>> node_014 
+	endif 
+	-> gold_rathian.adjust_bite_twice() @ comboSetting:1 
+	-> gold_rathian.double_breath_single() 
+	random (50) >> node_247 
+	elser (50) >> node_249 
+	endr 
+	return 
+endf 
+
+def node_263
+	>> node_001 
+	-> gold_rathian.double_breath_single() 
+	if self.distance_2d_to_target().leq(900) 
+		-> gold_rathian.somersault360_g2f() @ comboSetting:1 
+		-> gold_rathian.ultimate_breath_fly() 
+	else 
+		-> gold_rathian.stepin_somersault_fly() @ comboSetting:1 
+		-> gold_rathian.ultimate_breath_fly() 
+	endif 
+	return 
+endf 
+
+def node_264
+	>> node_001 
+	if self.distance_2d_to_target().leq(1000) 
+		-> gold_rathian.dash_attack_twice_short_start() @ comboSetting:1 
+		-> gold_rathian.double_breath_single() 
+	else 
+		random (50) -> gold_rathian.dash_attack_once_short() @ comboSetting:1 
+					-> gold_rathian.double_breath_single() 
+		elser (50) -> gold_rathian.dash_attack_twice_short_start() @ comboSetting:1 
+					-> gold_rathian.double_breath_single() 
+		endr 
+	endif 
+	random (50) >> node_247 
+	elser (50) >> node_249 
+	endr 
+	return 
+endf 
+
+def node_265
+	>> node_001 
+	random (50) -> gold_rathian.dash_attack_once_long() @ comboSetting:1 
+				-> gold_rathian.stepin_somersault_fly() @ comboSetting:1 
+				-> gold_rathian.ultimate_breath_fly() 
+	elser (50) -> gold_rathian.dash_attack_twice_long_start() @ comboSetting:1 
+				-> gold_rathian.stepin_somersault_fly() @ comboSetting:1 
+				-> gold_rathian.ultimate_breath_fly() 
+	endr 
+	return 
+endf 
+
+def node_266
+	if self.distance_2d_to_target().leq(250) 
+		>> node_295 
+	else 
+		if self.angle_2d_cw_between(330,30) 
+			>> node_295 
+		elif self.angle_2d_cw_between(135,225) 
+			>> node_295 
+		else 
+			>> node_305 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_267
+	if self.distance_2d_to_target().leq(250) 
+		>> node_295 
+	else 
+		>> node_230 
+	endif 
+	return 
+endf 
+
+def node_268
+	if self.distance_2d_to_target().leq(250) 
+		>> node_297 
+	else 
+		if self.angle_2d_cw_between(330,30) 
+			>> node_297 
+		elif self.angle_2d_cw_between(135,225) 
+			>> node_297 
+		else 
+			>> node_306 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_269
+	if self.distance_2d_to_target().leq(250) 
+		>> node_297 
+	else 
+		>> node_229 
+	endif 
+	return 
+endf 
+
+def node_270
+	>> node_290 
+	>> node_295 
+	return 
+endf 
+
+def node_271
+	>> node_290 
+	>> node_230 
+	return 
+endf 
+
+def node_272
+	>> node_290 
+	>> node_297 
+	return 
+endf 
+
+def node_273
+	>> node_290 
+	>> node_229 
+	return 
+endf 
+
+def node_274
+	random (50) >> node_268 
+	elser (50) >> node_266 
+				>> node_278 
+	endr 
+	return 
+endf 
+
+def node_275
+	random (50) >> node_267 
+				>> node_278 
+	elser (20) >> node_267 
+				>> node_226 
+	elser (30) >> node_226 
+	endr 
+	return 
+endf 
+
+def node_276
+	random (50) >> node_272 
+	elser (50) >> node_270 
+				>> node_278 
+	endr 
+	return 
+endf 
+
+def node_277
+	random (50) >> node_270 
+				>> node_278 
+	elser (20) >> node_270 
+				>> node_226 
+	elser (30) >> node_226 
+	endr 
+	return 
+endf 
+
+def node_278
+	if self.distance_2d_to_target().leq(300) 
+		>> node_300 
+	else 
+		>> node_299 
+	endif 
+	return 
+endf 
+
+def node_279
+	>> node_002 
+	-> gold_rathian.step_back_fly() 
+	return 
+endf 
+
+def node_280
+	if self.angle_2d_cw_between(15,345) 
+		>> node_279 
+	else 
+	endif 
+	return 
+endf 
+
+def node_281
+	if self.angle_2d_cw_between(30,330) 
+		>> node_279 
+	else 
+	endif 
+	return 
+endf 
+
+def node_282
+	if self.angle_2d_cw_between(45,315) 
+		>> node_279 
+	else 
+	endif 
+	return 
+endf 
+
+def node_283
+	if self.angle_2d_cw_between(90,270) 
+		>> node_279 
+	else 
+	endif 
+	return 
+endf 
+
+def node_284
+	if self.angle_2d_cw_between(0,180) 
+		-> gold_rathian.snake_turn_step_fly_r() 
+	else 
+		-> gold_rathian.snake_turn_step_fly_l() 
+	endif 
+	return 
+endf 
+
+def node_285
+	if self.angle_2d_cw_between(15,345) 
+		>> node_284 
+	else 
+	endif 
+	return 
+endf 
+
+def node_286
+	if self.angle_2d_cw_between(30,330) 
+		>> node_284 
+	else 
+	endif 
+	return 
+endf 
+
+def node_287
+	if self.angle_2d_cw_between(45,315) 
+		>> node_284 
+	else 
+	endif 
+	return 
+endf 
+
+def node_288
+	if self.angle_2d_cw_between(90,270) 
+		>> node_284 
+	else 
+	endif 
+	return 
+endf 
+
+def node_289
+	if self.angle_2d_cw_between(0,180) 
+		-> gold_rathian.snake_turn_step_fly_l() 
+	else 
+		-> gold_rathian.snake_turn_step_fly_r() 
+	endif 
+	return 
+endf 
+
+def node_290
+	if self.angle_2d_cw_between(0,180) 
+		-> gold_rathian.turn_step_adjust_dist_l() 
+	else 
+		-> gold_rathian.turn_step_adjust_dist_r() 
+	endif 
+	return 
+endf 
+
+def node_291
+	>> node_002 
+	-> gold_rathian.bite_fly() 
+	return 
+endf 
+
+def node_292
+	>> node_002 
+	-> gold_rathian.rash_bite_fly() 
+	return 
+endf 
+
+def node_293
+	>> node_002 
+	-> gold_rathian.breath_fly() 
+	return 
+endf 
+
+def node_294
+	if self.fatigued() 
+		>> node_001 
+		reset 
+	else 
+	endif 
+	return 
+endf 
+
+def node_295
+	>> node_002 
+	if function#101() 
+	else 
+	endif 
+	if self.part(0).is_broken(0) 
+		-> gold_rathian.somersault_kick_fly_tail_cut() 
+	else 
+		-> gold_rathian.somersault_kick_fly() 
+	endif 
+	return 
+endf 
+
+def node_296
+	>> node_002 
+	if function#101() 
+	else 
+	endif 
+	if self.part(0).is_broken(0) 
+		-> gold_rathian.somersault_kick_fly_no_adjust_tail_cut() 
+	else 
+		-> gold_rathian.somersault_kick_fly_no_adjust() 
+	endif 
+	return 
+endf 
+
+def node_297
+	>> node_002 
+	if function#101() 
+	else 
+	endif 
+	if self.part(0).is_broken(0) 
+		-> gold_rathian.somersault_kick_fly_to_landing_tail_cut() 
+	else 
+		-> gold_rathian.somersault_kick_fly_to_landing() 
+	endif 
+	return 
+endf 
+
+def node_298
+	>> node_002 
+	if function#101() 
+	else 
+	endif 
+	if self.part(0).is_broken(0) 
+		-> gold_rathian.somersault_kick_fly_to_land_no_adjust_tail_cut() 
+	else 
+		-> gold_rathian.somersault_kick_fly_to_land_no_adjust() 
+	endif 
+	return 
+endf 
+
+def node_299
+	>> node_002 
+	>> node_288 
+	-> gold_rathian.glide_attack_short() 
+	return 
+endf 
+
+def node_300
+	>> node_002 
+	-> gold_rathian.step_back_fly() @ comboSetting:1 
+	-> gold_rathian.glide_attack_short() 
+	return 
+endf 
+
+def node_301
+	>> node_001 
+	if self.enraged() 
+		random (0) >> node_177 
+		elser (20) >> node_175 
+		elser (35) >> node_182 
+		elser (35) >> node_181 
+		elser (10) >> node_157 
+					>> node_179 
+		endr 
+	else 
+		random (0) >> node_176 
+		elser (20) >> node_175 
+		elser (35) >> node_182 
+		elser (35) >> node_172 
+		elser (10) >> node_157 
+					>> node_179 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_302
+	>> node_002 
+	>> node_284 
+	-> gold_rathian.glide_attack_short() 
+	return 
+endf 
+
+def node_303
+	>> node_001 
+	>> node_194 
+	return 
+endf 
+
+def node_304
+	>> node_001 
+	>> node_195 
+	return 
+endf 
+
+def node_305
+	>> node_002 
+	if self.distance_2d_to_target().leq(750) 
+		if function#101() 
+		else 
+		endif 
+		-> gold_rathian.somersault_kick_side_fly() 
+	else 
+		>> node_295 
+	endif 
+	return 
+endf 
+
+def node_306
+	>> node_002 
+	if self.distance_2d_to_target().leq(750) 
+		if function#101() 
+		else 
+		endif 
+		-> gold_rathian.somersault_kick_side_fly_to_landing() 
+	else 
+		>> node_297 
+	endif 
+	return 
+endf 
+
+def node_307
+	if self.angle_2d_cw_between(315,45) 
+		>> node_295 
+	else 
+		>> node_305 
+	endif 
+	return 
+endf 
+
+def node_308
+	if self.angle_2d_cw_between(315,45) 
+		>> node_295 
+	else 
+		random (60) >> node_305 
+		elser (40) >> node_295 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_309
+	if self.angle_2d_cw_between(315,45) 
+		>> node_297 
+	else 
+		>> node_306 
+	endif 
+	return 
+endf 
+
+def node_310
+	if self.angle_2d_cw_between(315,45) 
+		>> node_297 
+	else 
+		random (60) >> node_306 
+		elser (40) >> node_297 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_311
+	if self.distance_2d_to_target().leq(650) 
+		>> node_300 
+	else 
+		>> node_299 
+	endif 
+	return 
+endf 
+
+def node_312
+	>> node_001 
+	if self.distance_2d_to_target().leq(800) 
+		if self.enraged() 
+			random (0) >> node_203 
+			elser (25) >> node_170 
+			elser (25) >> node_182 
+			elser (25) >> node_181 
+			elser (25) >> node_180 
+			endr 
+		else 
+			random (0) >> node_202 
+			elser (35) >> node_170 
+			elser (35) >> node_182 
+			elser (0) >> node_172 
+			elser (30) >> node_180 
+			endr 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_313
+	>> node_002 
+	if self.distance_2d_to_target().leq(800) 
+		>> node_288 
+		-> gold_rathian.single_kick() 
+	else 
+		>> node_299 
+	endif 
+	return 
+endf 
+
+def node_314
+	>> node_001 
+	if self.distance_2d_to_target().leq(800) 
+		if self.enraged() 
+			random (0) >> node_203 
+			elser (25) >> node_170 
+			elser (25) >> node_223 
+			elser (25) >> node_181 
+			elser (25) >> node_220 
+			endr 
+		else 
+			random (0) >> node_202 
+			elser (35) >> node_170 
+			elser (35) >> node_182 
+			elser (0) >> node_172 
+			elser (30) >> node_220 
+			endr 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_315
+	>> node_284 
+	>> node_283 
+	>> node_226 
+	return 
+endf 
+
+def node_316
+	if self.enraged() 
+		if self.distance_2d_to_target().leq(800) 
+			-> gold_rathian.somersault360_f2g() 
+		else 
+			>> node_315 
+		endif 
+	else 
+		if self.distance_2d_to_target().leq(800) 
+			>> node_002 
+			>> node_284 
+			>> node_313 
+		else 
+			>> node_299 
+		endif 
+		*&
+	endif 
+	return 
+endf 
+
+def node_317
+	if self.distance_2d_to_target().leq(800) 
+		>> node_313 
+	else 
+		>> node_299 
+	endif 
+	return 
+endf 
+
+def node_318
+	if self.angle_2d_cw_between(315,45) 
+		>> node_297 
+	else 
+		if function#101() 
+			if self.angle_2d_cw_between(225,135) 
+				>> node_306 
+			else 
+				>> node_229 
+			endif 
+		else 
+			>> node_306 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_319
+	if self.angle_2d_cw_between(315,45) 
+		>> node_295 
+	else 
+		if function#101() 
+			if self.angle_2d_cw_between(270,90) 
+				>> node_305 
+			else 
+				>> node_230 
+			endif 
+		else 
+			>> node_305 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_320
+	>> node_284 
+	>> node_319 
+	-> gold_rathian.double_somersault_kick_second() 
+	return 
+endf 
+
+def node_321
+	random (35) 
+				self.targetArea(21) @ parameter2:300 
+	elser (35) 
+				self.targetArea(22) @ parameter2:300 
+	elser (15) 
+				self.targetArea(21) @ parameter2:500 
+	elser (15) 
+				self.targetArea(22) @ parameter2:500 
+	endr 
+	return 
+endf 
+
+def node_322
+	random (10) 
+				if self.flying() 
+					-> gold_rathian.intimidation_fly() 
+				else 
+					-> gold_rathian.intimidation() 
+				endif 
+	elser (90) 
+	endr 
+	return 
+endf 
+
+def node_323
+	if self.flying() 
+		-> gold_rathian.intimidation_fly() 
+	else 
+		-> gold_rathian.intimidation() 
+	endif 
+	return 
+endf 
+
+def node_324
+	>> node_331 
+	>> node_089 
+	if self.flying() 
+		if self.fatigued() 
+			>> node_001 
+		else 
+			-> gold_rathian.intimidation_fly() 
+		endif 
+	else 
+		if self.fatigued() 
+			>> node_043 
+		else 
+			-> gold_rathian.intimidation() 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_325
+	>> node_331 
+	if self.targetEnemy(target_em.any_monster) 
+		random (20) >> node_089 
+		elser (80) 
+		endr 
+	else 
+	endif 
+	if self.flying() 
+		random (20) -> gold_rathian.lost_search_fly() 
+		elser (35) -> gold_rathian.half_lost_search_front_fly() 
+		elser (10) -> gold_rathian.sniff_s_fly() 
+		elser (20) -> gold_rathian.sniff_l_fly() 
+		elser (15) -> gold_rathian.intimidation_fly() 
+		endr 
+	else 
+		random (20) -> gold_rathian.lost_search() 
+		elser (35) -> gold_rathian.half_lost_search_front() 
+		elser (10) -> gold_rathian.sniff_combat_s() 
+		elser (20) -> gold_rathian.sniff_combat_l() 
+		elser (15) -> gold_rathian.intimidation() 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_326
+	>> node_331 
+	>> node_089 
+	if self.flying() 
+		random (40) -> gold_rathian.half_lost_search_front_fly() 
+		elser (20) -> gold_rathian.sniff_s_fly() 
+		elser (40) -> gold_rathian.intimidation_fly() 
+		elser (0) -> gold_rathian.threat_fly_short() 
+		endr 
+	else 
+		random (40) -> gold_rathian.half_lost_search_front() 
+		elser (20) -> gold_rathian.sniff_combat_s() 
+		elser (40) -> gold_rathian.intimidation() 
+		elser (0) -> gold_rathian.threat_short() 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_327
+	>> node_331 
+	>> node_084 
+	if self.flying() 
+		-> gold_rathian.sniff_l_fly() 
+	else 
+		-> gold_rathian.sniff_l() 
+	endif 
+	return 
+endf 
+
+def node_328
+	>> node_331 
+	self.targetEnemy(58) 
+	if self.flying() 
+		random (10) >> node_330 
+		elser (90) 
+		endr 
+	else 
+		random (10) >> node_329 
+		elser (90) 
+		endr 
+	endif 
+	self.targetEnemy(22) @ parameter2:2000 
+	random (40) >> node_084 
+	elser (60) 
+	endr 
+	if self.flying() 
+		random (70) -> gold_rathian.life_search_fly() 
+		elser (30) -> gold_rathian.sniff_l_fly() 
+		endr 
+	else 
+		random (70) -> gold_rathian.life_search() 
+		elser (30) -> gold_rathian.sniff_l() 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_329
+	-> gold_rathian.walk(1,2,0,600,1500) 
+	return 
+endf 
+
+def node_330
+	-> gold_rathian.glide_combat(1,2,0,600,2000) 
+	return 
+endf 
+
+def node_331
+	if self.fatigued() 
+		>> node_001 
+	else 
+	endif 
+	return 
+endf 
+
+def node_332
+	if self.targetEnemy(target_em.any_monster) 
+		if self.target_is(em.Azure_Rathalos) 
+		elif self.target_is(em.Silver_Rathalos) 
+		else 
+			>> node_334 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_333
+	if self.targetEnemy(target_em.any_monster) 
+		if self.target_is(em.Azure_Rathalos) 
+		elif self.target_is(em.Silver_Rathalos) 
+		else 
+			>> node_335 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_334
+	if self.targetEnemy(target_em.any_monster) 
+		if self.target(13) 
+		else 
+			if self.distance_2d_to_target().leq(3000) 
+				if self.vertical_distance_to_target().leq(1000) 
+					if function#30(2) 
+						if self.target.in_combat() 
+							random (50) >> node_336 
+							elser (50) >> node_340 
+							elser (0) >> node_338 
+							elser (0) >> node_337 
+							endr 
+						else 
+							random (40) >> node_336 
+							elser (50) >> node_340 
+							elser (10) >> node_339 
+							elser (0) >> node_337 
+							endr 
+						endif 
+					elif function#30(4) 
+						if self.target.in_combat() 
+							random (25) >> node_336 
+							elser (10) >> node_340 
+							elser (65) >> node_338 
+							elser (0) >> node_337 
+							endr 
+						else 
+							random (35) >> node_336 
+							elser (55) >> node_340 
+							elser (10) >> node_339 
+							elser (0) >> node_337 
+							endr 
+						endif 
+					else 
+						if self.target.in_combat() 
+							random (35) >> node_336 
+							elser (15) >> node_340 
+							elser (50) >> node_338 
+							elser (0) >> node_337 
+							endr 
+						else 
+							random (35) >> node_336 
+							elser (55) >> node_340 
+							elser (10) >> node_339 
+							elser (0) >> node_337 
+							endr 
+						endif 
+					endif 
+				else 
+				endif 
+			else 
+			endif 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_335
+	if self.targetEnemy(target_em.any_monster) 
+		if self.target(13) 
+		else 
+			if self.distance_2d_to_target().leq(3000) 
+				if self.vertical_distance_to_target().leq(1000) 
+					if function#30(2) 
+						if self.target.in_combat() 
+							random (65) >> node_336 
+							elser (25) >> node_340 
+							elser (10) >> node_339 
+							elser (0) >> node_337 
+							endr 
+						else 
+							random (30) >> node_336 
+							elser (70) >> node_340 
+							elser (0) >> node_339 
+							elser (0) >> node_337 
+							endr 
+						endif 
+					elif function#30(4) 
+						if self.target.in_combat() 
+							random (30) >> node_336 
+							elser (15) >> node_340 
+							elser (55) >> node_339 
+							elser (0) >> node_337 
+							endr 
+						else 
+							random (35) >> node_336 
+							elser (55) >> node_340 
+							elser (10) >> node_339 
+							elser (0) >> node_337 
+							endr 
+						endif 
+					else 
+						if self.target.in_combat() 
+							random (35) >> node_336 
+							elser (15) >> node_340 
+							elser (50) >> node_339 
+							elser (0) >> node_337 
+							endr 
+						else 
+							random (35) >> node_336 
+							elser (55) >> node_340 
+							elser (10) >> node_339 
+							elser (0) >> node_337 
+							endr 
+						endif 
+					endif 
+				else 
+				endif 
+			else 
+			endif 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_336
+	return 
+endf 
+
+def node_337
+	if self.in_map(st.Special_Arena).in_area(-1) 
+		>> node_339 
+	elif self.in_map(st.Challenge_Arena).in_area(-1) 
+		>> node_339 
+	else 
+		if [RegisterVar1 <= 8] 
+			[RegisterVar1 |-] 
+			self.force_area_change2() 
+		elif [RegisterVar1 <= 5] 
+			random (30) 
+						[RegisterVar1 |-] 
+						self.force_area_change2() 
+			elser (70) 
+			endr 
+		else 
+		endif 
+		[RegisterVar1 ++] 
+		if self.target.in_combat() 
+			>> node_339 
+			[RegisterVar1 ++] 
+		else 
+			[RegisterVar1 ++] 
+			>> node_340 
+		endif 
+		self.targetEnemy(target_em.closest_entity) 
+		if self.distance_2d_to_target().leq(3000) 
+			if self.vertical_distance_to_target().leq(1000) 
+				if function#5F() 
+					repeat 
+				elif self.in_combat() 
+				else 
+					repeat 
+				endif 
+			else 
+			endif 
+		else 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_338
+	>> node_339 
+	>> node_339 
+	random (70) 
+	elser (30) 
+				return 
+	endr 
+	>> node_339 
+	random (70) 
+	elser (30) 
+				return 
+	endr 
+	>> node_339 
+	return 
+endf 
+
+def node_339
+	>> node_001 
+	self.targetEnemy(target_em.closest_entity) 
+	random (40) >> node_341 
+	elser (20) >> node_342 
+	elser (40) >> node_343 
+	endr 
+	return 
+endf 
+
+def node_340
+	self.targetEnemy(target_em.closest_entity) 
+	>> node_089 
+	if self.in_combat() 
+		>> node_048 
+	else 
+		if self.target.in_combat() 
+			>> node_048 
+		else 
+			>> node_037 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_341
+	if self.fatigued() 
+		>> node_342 
+	else 
+		self.targetEnemy(target_em.closest_entity) 
+		if self.vertical_distance_to_target().leq(500) 
+			if self.distance_2d_to_target().leq(1000) 
+				>> node_157 
+			else 
+			endif 
+			self.targetEnemy(target_em.closest_entity) 
+			>> node_091 
+			self.targetEnemy(target_em.closest_entity) 
+			-> gold_rathian.high_power_breath() 
+		else 
+			>> node_343 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_342
+	self.targetEnemy(target_em.closest_entity) 
+	if self.vertical_distance_to_target().leq(500) 
+	else 
+		-> gold_rathian.dash_no_hit(1,2,0,500,1500) 
+	endif 
+	self.targetEnemy(target_em.closest_entity) 
+	if self.distance_2d_to_target().leq(800) 
+		-> gold_rathian.adjust_bite() 
+	elif self.distance_2d_to_target().leq(1500) 
+		>> node_182 
+	else 
+		>> node_171 
+	endif 
+	return 
+endf 
+
+def node_343
+	self.targetEnemy(target_em.closest_entity) 
+	if self.vertical_distance_to_target().leq(500) 
+		if self.distance_2d_to_target().leq(1000) 
+		else 
+			-> gold_rathian.dash_no_hit(1,2,0,850,1500) 
+		endif 
+	else 
+		-> gold_rathian.dash_no_hit(1,2,0,500,1500) 
+	endif 
+	self.targetEnemy(target_em.closest_entity) 
+	>> node_202 
+	return 
+endf 
+
+def node_344
+	if self.flying() 
+		self.targetEnemy(48) 
+	else 
+		self.targetEnemy(target_em.random_player_or_cat) 
+	endif 
+	if function#5D() 
+		>> node_347 
+	elif self.target(3) 
+		>> node_348 
+	elif self.target(4) 
+		>> node_348 
+	elif self.target(55) 
+		*&
+	elif self.target(0) 
+		if self.target(0) @ parameter2:1 
+			>> node_351 
+		else 
+			>> node_352 
+		endif 
+	elif self.target(14) 
+		>> node_353 
+	elif self.target(11) 
+		>> node_354 
+	elif self.target.mudded() 
+		>> node_367 
+	elif self.target(12) 
+	elif self.flying() 
+		if self.above_target() 
+			>> node_358 
+		elif self.vertical_distance_to_target().leq(550) 
+			if self.above_target() 
+				>> node_358 
+			else 
+			endif 
+		else 
+			>> node_358 
+		endif 
+	else 
+		>> node_355 
+	endif 
+	return 
+endf 
+
+def node_345
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if function#5C() 
+		>> node_347 
+	elif self.target(4) 
+		>> node_348 
+	elif self.target(55) 
+		*&
+	elif self.target(0) 
+		if self.target(0) @ parameter2:1 
+			>> node_351 
+		else 
+			>> node_352 
+		endif 
+	elif self.target(14) 
+		>> node_353 
+	elif self.target(11) 
+		>> node_354 
+	elif self.target.mudded() 
+		>> node_367 
+	elif self.target(12) 
+	elif self.flying() 
+		if self.above_target() 
+			>> node_358 
+		elif self.vertical_distance_to_target().leq(550) 
+			if self.above_target() 
+				>> node_358 
+			else 
+			endif 
+		else 
+			>> node_358 
+		endif 
+	else 
+		>> node_355 
+	endif 
+	return 
+endf 
+
+def node_346
+	if [RegisterVar2 <= 10] 
+		[RegisterVar2 |-] 
+	elif [RegisterVar2 <= 1] 
+		[RegisterVar2 ++] 
+	else 
+	endif 
+	return 
+endf 
+
+def node_347
+	if self.distance_2d_to_target().leq(1500) 
+		if self.angle_2d_cw_between(300,60) 
+		else 
+			function#5E() 
+			>> node_040 
+		endif 
+	else 
+		if self.angle_2d_cw_between(300,60) 
+			function#5E() 
+			>> node_040 
+		else 
+			function#5E() 
+			>> node_041 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_348
+	>> node_349 
+	>> node_350 
+	reset 
+endf 
+
+def node_349
+	self.targetArea(19) 
+	if self.distance_2d_to_target().leq(900) 
+	else 
+		if self.flying() 
+			>> node_029 
+		else 
+			>> node_010 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_350
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if self.flying() 
+		>> node_286 
+		-> gold_rathian.life_search_fly() 
+	else 
+		>> node_165 
+		-> gold_rathian.half_lost_search_front() 
+	endif 
+	return 
+endf 
+
+def node_351
+	if self.flying() 
+		>> node_358 
+	else 
+		>> node_356 
+		if self.distance_2d_to_target().leq(1000) 
+			if self.target(0) 
+				if self.above_target() 
+					-> gold_rathian.jump_attack_wall_up() 
+				else 
+					-> gold_rathian.jump_attack_wall_down() 
+				endif 
+				>> node_363 
+			else 
+			endif 
+		else 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_352
+	if self.flying() 
+		>> node_358 
+	else 
+		>> node_356 
+		if self.distance_2d_to_target().leq(1000) 
+			if self.target(0) 
+				if self.above_target() 
+					-> gold_rathian.jump_attack_wall_up() 
+				else 
+					-> gold_rathian.dash_no_hit(1,2,0,0,1500) 
+				endif 
+				>> node_363 
+			else 
+			endif 
+		else 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_353
+	if self.flying() 
+		>> node_358 
+	else 
+		>> node_356 
+		if self.distance_2d_to_target().leq(2000) 
+			if self.target(14) 
+				if self.above_target() 
+					-> gold_rathian.jump_attack_wall_up() 
+				else 
+					-> gold_rathian.jump_attack_wall_down() 
+				endif 
+				>> node_363 
+			else 
+			endif 
+		else 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_354
+	if self.flying() 
+		>> node_362 
+	else 
+		>> node_357 
+	endif 
+	return 
+endf 
+
+def node_355
+	if self.target(52) 
+		>> node_357 
+	elif self.in_map(st.Coral_Highlands).in_area(2) 
+		if self.vertical_distance_to_target().leq(300) 
+		else 
+			>> node_357 
+		endif 
+	elif self.in_map(st.Coral_Highlands).in_area(10) 
+		if self.vertical_distance_to_target().leq(400) 
+		else 
+			>> node_357 
+		endif 
+	elif self.vertical_distance_to_target().leq(450) 
+	else 
+		>> node_357 
+	endif 
+	return 
+endf 
+
+def node_356
+	if self.distance_2d_to_target().leq(600) 
+		if self.vertical_distance_to_target().leq(1500) 
+		else 
+			-> gold_rathian.dash_no_hit(1,2,0,500,1500) 
+		endif 
+	else 
+		-> gold_rathian.dash_no_hit(1,2,0,500,1500) 
+	endif 
+	if self.distance_2d_to_target().leq(600) 
+		if self.vertical_distance_to_target().leq(1500) 
+		else 
+			-> gold_rathian.dash_no_hit(1,2,0,500,1500) 
+		endif 
+	else 
+		-> gold_rathian.dash_no_hit(1,2,0,500,1500) 
+	endif 
+	if self.distance_2d_to_target().leq(600) 
+		if self.vertical_distance_to_target().leq(1500) 
+		else 
+			-> gold_rathian.dash_no_hit(1,2,0,500,1500) 
+		endif 
+	else 
+		-> gold_rathian.dash_no_hit(1,2,0,500,1500) 
+	endif 
+	return 
+endf 
+
+def node_357
+	if self.distance_3d_to_target().leq(400) 
+	else 
+		-> gold_rathian.dash_no_hit(1,2,0,300,1500) 
+	endif 
+	if self.distance_3d_to_target().leq(600) 
+	else 
+		-> gold_rathian.dash_no_hit(1,2,0,500,1500) 
+	endif 
+	if self.distance_3d_to_target().leq(600) 
+	else 
+		-> gold_rathian.dash_no_hit(1,2,0,500,1500) 
+	endif 
+	return 
+endf 
+
+def node_358
+	if self.distance_2d_to_target().leq(300) 
+		if self.vertical_distance_to_target().leq(1000) 
+		else 
+			-> gold_rathian.glide_combat(1,2,0,200,1500) 
+		endif 
+	else 
+		-> gold_rathian.glide_combat(1,2,0,200,1500) 
+	endif 
+	if self.distance_2d_to_target().leq(600) 
+		if self.vertical_distance_to_target().leq(1000) 
+		else 
+			-> gold_rathian.glide_combat(1,2,0,500,1500) 
+		endif 
+	else 
+		-> gold_rathian.glide_combat(1,2,0,500,1500) 
+	endif 
+	if self.distance_2d_to_target().leq(600) 
+		if self.vertical_distance_to_target().leq(1000) 
+		else 
+			-> gold_rathian.glide_combat(1,2,0,500,1500) 
+		endif 
+	else 
+		-> gold_rathian.glide_combat(1,2,0,500,1500) 
+	endif 
+	>> node_359 
+	return 
+endf 
+
+def node_359
+	if self.above_target() 
+		random (25) >> node_284 
+		elser (25) >> node_289 
+		elser (50) 
+		endr 
+		>> node_360 
+	elif self.vertical_distance_to_target().leq(400) 
+		random (25) >> node_284 
+		elser (25) >> node_289 
+		elser (50) 
+		endr 
+		>> node_361 
+	else 
+	endif 
+	return 
+endf 
+
+def node_360
+	>> node_002 
+	-> gold_rathian.short_up_step_fly() 
+	return 
+endf 
+
+def node_361
+	>> node_002 
+	-> gold_rathian.short_up_step_fly_min() 
+	return 
+endf 
+
+def node_362
+	if self.distance_3d_to_target().leq(300) 
+	else 
+		-> gold_rathian.glide_direct_move(1,2,0,200,1500) 
+	endif 
+	if self.distance_3d_to_target().leq(600) 
+	else 
+		-> gold_rathian.glide_direct_move(1,2,0,500,1500) 
+	endif 
+	if self.distance_3d_to_target().leq(600) 
+	else 
+		-> gold_rathian.glide_direct_move(1,2,0,500,1500) 
+	endif 
+	return 
+endf 
+
+def node_363
+	if self.flying() 
+	else 
+		if function#11(450) 
+		else 
+			if self.fatigued() 
+			else 
+				random (70) >> node_364 
+				elser (30) >> node_366 
+				endr 
+				random (50) 
+							reset 
+				elser (50) 
+				endr 
+			endif 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_364
+	if function#11(1000) 
+		>> node_356 
+		>> node_176 
+	else 
+		if self.distance_2d_to_target().leq(500) 
+			>> node_157 
+		else 
+		endif 
+		>> node_002 
+		>> node_365 
+		>> node_295 
+		>> node_001 
+	endif 
+	return 
+endf 
+
+def node_365
+	if self.distance_2d_to_target().leq(950) 
+	else 
+		-> gold_rathian.glide_combat(2,1,0,1500,850) 
+	endif 
+	if self.distance_2d_to_target().leq(950) 
+	else 
+		-> gold_rathian.glide_combat(2,1,0,1500,850) 
+	endif 
+	if self.distance_2d_to_target().leq(950) 
+	else 
+		-> gold_rathian.glide_combat(2,1,0,1500,850) 
+	endif 
+	return 
+endf 
+
+def node_366
+	if self.distance_2d_to_target().leq(2000) 
+		>> node_157 
+	else 
+		>> node_168 
+	endif 
+	if self.distance_2d_to_target().leq(2000) 
+		>> node_157 
+	else 
+	endif 
+	if function#11(1250) 
+	else 
+		if self.distance_2d_to_target().leq(3000) 
+			>> node_157 
+		else 
+		endif 
+	endif 
+	>> node_219 
+	return 
+endf 
+
+def node_367
+	>> node_001 
+	if self.distance_3d_to_target().leq(1500) 
+		>> node_369 
+	elif self.distance_3d_to_target().leq(2500) 
+		random (65) >> node_368 
+					>> node_369 
+		elser (35) >> node_370 
+		endr 
+	else 
+		>> node_368 
+		>> node_369 
+	endif 
+	reset 
+endf 
+
+def node_368
+	if self.distance_3d_to_target().leq(1500) 
+	else 
+		if self.fatigued() 
+			-> gold_rathian.dash_tired(2,1,0,1500,1400) 
+		else 
+			-> gold_rathian.dash_no_hit(2,1,0,1500,1400) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(1500) 
+	else 
+		if self.fatigued() 
+			-> gold_rathian.dash_tired(2,1,0,1500,1400) 
+		else 
+			-> gold_rathian.dash_no_hit(2,1,0,1500,1400) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(1500) 
+	else 
+		if self.fatigued() 
+			-> gold_rathian.dash_tired(2,1,0,1500,1400) 
+		else 
+			-> gold_rathian.dash_no_hit(2,1,0,1500,1400) 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_369
+	if function#101() 
+		if self.enraged() 
+			random (30) >> node_220 
+			elser (10) >> node_174 
+			elser (0) >> node_175 
+			elser (30) >> node_182 
+			elser (30) >> node_267 
+						>> node_269 
+			endr 
+		elif self.fatigued() 
+			random (5) >> node_181 
+			elser (35) >> node_174 
+			elser (30) >> node_175 
+			elser (30) >> node_182 
+			elser (0) >> node_176 
+			endr 
+		else 
+			random (25) >> node_220 
+			elser (10) >> node_174 
+			elser (20) >> node_175 
+			elser (20) >> node_182 
+			elser (25) >> node_247 
+			endr 
+		endif 
+	else 
+		if self.enraged() 
+			random (30) >> node_220 
+			elser (10) >> node_174 
+			elser (0) >> node_175 
+			elser (30) >> node_182 
+			elser (30) >> node_248 
+						>> node_268 
+			endr 
+		elif self.fatigued() 
+			random (5) >> node_181 
+			elser (35) >> node_174 
+			elser (30) >> node_175 
+			elser (30) >> node_182 
+			elser (0) >> node_176 
+			endr 
+		else 
+			random (25) >> node_220 
+			elser (10) >> node_174 
+			elser (20) >> node_175 
+			elser (20) >> node_182 
+			elser (25) >> node_246 
+			endr 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_370
+	if function#101() 
+		if self.enraged() 
+			random (35) >> node_181 
+			elser (0) >> node_174 
+			elser (0) >> node_175 
+			elser (40) >> node_237 
+						>> node_239 
+			elser (25) >> node_171 
+			elser (0) >> node_177 
+						>> node_297 
+			endr 
+		elif self.fatigued() 
+			random (10) >> node_181 
+			elser (0) >> node_174 
+			elser (0) >> node_175 
+			elser (0) >> node_237 
+						>> node_239 
+			elser (90) >> node_171 
+			elser (0) >> node_176 
+			endr 
+		else 
+			random (35) >> node_181 
+			elser (0) >> node_174 
+			elser (0) >> node_175 
+			elser (20) >> node_237 
+						>> node_239 
+			elser (45) >> node_171 
+			elser (0) >> node_176 
+			endr 
+		endif 
+	else 
+		if self.enraged() 
+			random (35) >> node_181 
+			elser (0) >> node_174 
+			elser (0) >> node_175 
+			elser (40) >> node_237 
+						>> node_238 
+			elser (25) >> node_171 
+			elser (0) >> node_177 
+						>> node_297 
+			endr 
+		elif self.fatigued() 
+			random (10) >> node_181 
+			elser (0) >> node_174 
+			elser (0) >> node_175 
+			elser (90) >> node_171 
+			elser (0) >> node_176 
+			endr 
+		else 
+			random (35) >> node_181 
+			elser (0) >> node_174 
+			elser (0) >> node_175 
+			elser (20) >> node_237 
+						>> node_238 
+			elser (45) >> node_171 
+			elser (0) >> node_176 
+			endr 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_371
+	if self.flying() 
+	else 
+		if self.enraged() 
+			>> node_192 
+		elif self.fatigued() 
+		else 
+			>> node_191 
+		endif 
+	endif 
+	return 
+endf 
+

@@ -1,0 +1,127 @@
+importactions KuluYaKu as kuluyaku
+importlibrary Global as Global
+
+def node_000
+	self.targetEnemy(13) 
+	if self.target(4) 
+		>> Global.node_023 
+	else 
+		if function#41() 
+		elif self.enraged() 
+			>> node_006 
+		else 
+			>> node_001 
+		endif 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	if function#101(1) 
+		>> Global.node_072 
+	else 
+		>> node_002 
+		>> node_003 
+		>> node_004 
+	endif 
+	return 
+endf 
+
+def node_002
+	if self.distance_3d_to_target().leq(800) 
+		>> Global.node_068 
+	elif self.angle_2d_cw_between(30,330) 
+		>> Global.node_070 
+	else 
+	endif 
+	return 
+endf 
+
+def node_003
+	self.targetEnemy(13) 
+	if self.distance_2d_to_target().leq(1000) 
+		return 
+	else 
+		>> Global.node_096 
+	endif 
+	if self.distance_2d_to_target().leq(1000) 
+		return 
+	else 
+		>> Global.node_096 
+	endif 
+	if self.distance_2d_to_target().leq(1000) 
+		return 
+	else 
+		>> Global.node_096 
+	endif 
+	return 
+endf 
+
+def node_004
+	>> node_005 
+	return 
+endf 
+
+def node_005
+	self.targetEnemy(48) 
+	if self.target(7) 
+		>> node_009 
+	elif self.target(10) 
+		>> node_010 
+	elif self.distance_3d_to_target().gt(1000) 
+		>> node_009 
+	elif self.angle_2d_cw_between(45,315) 
+		>> node_009 
+	else 
+		>> node_008 
+	endif 
+	return 
+endf 
+
+def node_006
+	if function#101(2) 
+	elif function#101(4) 
+	elif function#101(1) 
+		>> Global.node_072 
+		-> kuluyaku.pick_rock() 
+	else 
+		-> kuluyaku.pick_rock() 
+	endif 
+	if function#101(4) 
+		>> node_001 
+	else 
+		>> node_002 
+		>> node_007 
+	endif 
+	return 
+endf 
+
+def node_007
+	-> kuluyaku.rock_throw() 
+	return 
+endf 
+
+def node_008
+	if function#5F() 
+		>> Global.node_062 
+	else 
+		>> Global.node_057 
+	endif 
+	return 
+endf 
+
+def node_009
+	>> Global.node_059 
+	return 
+endf 
+
+def node_010
+	if self.distance_3d_to_target().leq(500) 
+		>> Global.node_068 
+	else 
+	endif 
+	>> Global.node_071 
+	>> Global.node_083 
+	return 
+endf 
+

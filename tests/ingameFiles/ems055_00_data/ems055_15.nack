@@ -1,0 +1,72 @@
+importactions Barnos as barnos
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_007 
+	>> Global.node_010 
+	>> node_005 
+	function#52(0,4) 
+	self.targetEnemy(16) @ unkn3:2097152 
+	>> node_001 
+	function#54() 
+	reset 
+endf 
+
+def node_001
+	random (50) >> node_004 
+	elser (50) >> node_002 
+	endr 
+	return 
+endf 
+
+def node_002
+	-> action#10(2,0,0,3000) 
+	if self.distance_2d_to_target().leq(700) 
+		return 
+	else 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_003
+	if self.distance_2d_to_target().leq(2000) 
+		-> action#11(1,0,0,500) 
+	else 
+		-> action#10(2,1,0,1000,2000) 
+	endif 
+	if self.distance_2d_to_target().leq(500) 
+		return 
+	else 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_004
+	>> node_003 
+	-> action#1E() 
+	>> Global.node_002 
+	-> action#1C() 
+	return 
+endf 
+
+def node_005
+	if function#58(1,100) 
+		>> Global.node_013 
+	endif 
+	return 
+endf 
+
+def node_006
+	>> node_003 
+	>> Global.node_004 
+	return 
+endf 
+
+def node_007
+	>> node_003 
+	>> Global.node_005 
+	return 
+endf 
+

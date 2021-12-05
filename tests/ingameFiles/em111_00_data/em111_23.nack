@@ -1,0 +1,71 @@
+importactions Legiana as legiana
+importlibrary Global as Global
+
+def node_000
+	self.targetEnemy(target_em.closest_entity) 
+	if self.target_is(em.Shrieking_Legiana) 
+	else 
+		if self.target_is(em.Paolumu) 
+			>> node_001 
+		elif self.target_is(em.Barioth) 
+			>> node_002 
+		elif self.target_is(em.Frostfang_Barioth) 
+			>> node_002 
+		elif self.target_is(em.Odogaron) 
+			>> node_003 
+		elif self.target_is(em.Ebony_Odogaron) 
+			>> node_003 
+		elif self.target_is(em.Nightshade_Paolumu) 
+			>> node_001 
+		else 
+		endif 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	>> Global.node_002 
+	>> Global.node_226 
+	-> legiana.grapple_mediation_threat_fly() 
+	return 
+endf 
+
+def node_002
+	>> Global.node_002 
+	>> Global.node_226 
+	-> legiana.grapple_with_em042_mediation() 
+	return 
+endf 
+
+def node_003
+	>> Global.node_002 
+	>> Global.node_226 
+	-> legiana.grapple_with_em113_mediation() 
+	return 
+endf 
+
+def node_004
+	self.targetEnemy(target_em.closest_entity) 
+	if self.target_is(em.Anjanath) 
+		>> node_005 
+	else 
+		>> node_006 
+	endif 
+	conclude 
+endf 
+
+def node_005
+	>> Global.node_002 
+	>> Global.node_226 
+	-> legiana.die_fly() 
+	return 
+endf 
+
+def node_006
+	>> Global.node_226 
+	>> Global.node_037 
+	>> Global.node_228 
+	>> Global.call#326 // -THK_55 is missing NodeID 326. 
+	return 
+endf 
+

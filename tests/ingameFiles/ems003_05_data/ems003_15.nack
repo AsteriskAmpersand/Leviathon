@@ -1,0 +1,349 @@
+importactions Kelbi2 as kelbi2
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_014 
+	>> node_001 
+	>> node_002 
+	reset 
+endf 
+
+def node_001
+	if [RegisterVar2 <= 1] 
+		>> node_009 
+	endif 
+	>> node_042 
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if self.angle_2d_cw_between(310,50) 
+		if self.distance_3d_to_target().leq(600) 
+			>> node_007 => reset 
+		else 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_002
+	function#52(0,4) 
+	self.targetArea(target_area.nearest_entrance) @ unkn3:8388608 
+	if self.distance_3d_to_target().gt(250) 
+		-> action#08(1,2,0,250,1000) 
+	else 
+		>> node_003 
+		function#54() 
+	endif 
+	return 
+endf 
+
+def node_003
+	function#54() 
+	if function#5A() 
+		>> node_004 
+	elif function#5A(1) 
+		>> node_005 
+	elif function#5A(2) 
+		>> node_006 
+	else 
+		>> node_005 
+	endif 
+	return 
+endf 
+
+def node_004
+	-> action#1F() 
+	return 
+endf 
+
+def node_005
+	-> action#1D() 
+	return 
+endf 
+
+def node_006
+	-> action#04() 
+	return 
+endf 
+
+def node_007
+	-> action#0B(2,0,0,600) 
+	return 
+endf 
+
+def node_008
+endf 
+
+def node_009
+	>> node_010 
+	>> node_013 
+	self.targetEnemy(48) 
+	if self.distance_3d_to_target().gt(800) 
+		>> node_015 
+	elif [RegisterVar6 <= 2] 
+		>> node_015 
+	elif [RegisterVar6 <= 1] 
+		>> node_014 
+	else 
+		>> node_016 
+	endif 
+	repeat 
+endf 
+
+def node_010
+	if [RegisterVar6 >= 5] 
+		>> node_011 
+	else 
+		>> node_012 
+		>> node_044 
+	endif 
+	return 
+endf 
+
+def node_011
+	function#DD(1000) 
+	function#DE(3000) 
+	function#E2() 
+	if function#D2(4) 
+	else 
+		function#D2(3) 
+	endif 
+	return 
+endf 
+
+def node_012
+	function#E2() 
+	function#EC(3) 
+	if function#D2(11) 
+	else 
+		function#D2(4) 
+	endif 
+	return 
+endf 
+
+def node_013
+	>> node_035 
+	function#DA() 
+	return 
+endf 
+
+def node_014
+	self.targetEnemy(target_em.random_player_or_cat) 
+	>> Global.node_000 
+	>> node_036 
+	>> node_043 
+	return 
+endf 
+
+def node_015
+	>> node_044 
+	>> node_040 
+	>> node_031 
+	reset 
+endf 
+
+def node_016
+	>> node_037 
+	>> node_043 
+	return 
+endf 
+
+def node_017
+	self.targetEnemy(48) 
+	>> node_022 
+	if self.distance_2d_to_target().leq(1000) 
+		if self.angle_2d_cw_between(120,240) 
+			if self.distance_2d_to_target().leq(300) 
+				>> node_021 
+				>> Global.node_000 
+				repeat 
+			endif 
+		endif 
+		>> node_020 
+		repeat 
+	else 
+		>> node_018 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_018
+	if [RegisterVar7 >= 0] 
+		>> Global.node_000 
+		>> node_029 
+		>> node_045 
+	else 
+		>> node_023 
+	endif 
+	return 
+endf 
+
+def node_019
+	if function#45() 
+		>> node_034 
+	endif 
+	if [RegisterVar7 >= 0] 
+		>> Global.node_000 
+		>> node_029 
+		>> node_045 
+	else 
+		>> node_023 
+	endif 
+	return 
+endf 
+
+def node_020
+	if self.distance_2d_to_target().leq(300) 
+		>> node_027 
+	elif [RegisterVar4 <= 3] 
+		>> node_019 
+		>> node_042 
+	else 
+		>> node_032 
+		>> node_041 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_021
+	>> node_028 
+	return 
+endf 
+
+def node_022
+	if self.distance_2d_to_target().gt(1500) 
+		>> Global.node_000 
+		>> node_031 
+		>> node_046 
+		>> node_040 
+		reset 
+	endif 
+	return 
+endf 
+
+def node_023
+	>> Global.node_000 
+	>> node_038 
+	>> node_046 
+	>> node_040 
+	reset 
+endf 
+
+def node_024
+endf 
+
+def node_025
+	if function#46() 
+		>> node_030 
+		function#DA() 
+		reset 
+	else 
+		return 
+	endif 
+	reset 
+endf 
+
+def node_026
+endf 
+
+def node_027
+	-> action#12() 
+	return 
+endf 
+
+def node_028
+	-> action#15() 
+	return 
+endf 
+
+def node_029
+	-> action#11() 
+	return 
+endf 
+
+def node_030
+	-> action#02() 
+	return 
+endf 
+
+def node_031
+	-> action#06() 
+	return 
+endf 
+
+def node_032
+	-> action#09(2,0,0,300) 
+	>> node_025 
+	return 
+endf 
+
+def node_033
+	-> action#03() 
+	return 
+endf 
+
+def node_034
+	-> action#0D() 
+	return 
+endf 
+
+def node_035
+	-> action#0B(1,0,0,300) 
+	>> node_025 
+	return 
+endf 
+
+def node_036
+	-> action#23() 
+	return 
+endf 
+
+def node_037
+	-> action#07() 
+	return 
+endf 
+
+def node_038
+	-> action#04() 
+	return 
+endf 
+
+def node_039
+endf 
+
+def node_040
+	[RegisterVar2 |-] 
+	return 
+endf 
+
+def node_041
+	[RegisterVar4 ++] 
+	return 
+endf 
+
+def node_042
+	[RegisterVar4 |-] 
+	return 
+endf 
+
+def node_043
+	[RegisterVar6 ++] 
+	return 
+endf 
+
+def node_044
+	[RegisterVar6 |-] 
+	return 
+endf 
+
+def node_045
+	[RegisterVar7 ++] 
+	return 
+endf 
+
+def node_046
+	[RegisterVar7 |-] 
+	return 
+endf 
+

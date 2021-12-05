@@ -1,0 +1,2213 @@
+importactions Beotodus as beotodus
+
+def node_000
+	conclude 
+endf 
+
+def node_001
+	if function#102() 
+	else 
+		-> beotodus.stand_to_swim_no_jump() 
+	endif 
+	return 
+endf 
+
+def node_002
+	if function#102() 
+		-> beotodus.swim_to_stand_no_jump() 
+	else 
+	endif 
+	return 
+endf 
+
+def node_003
+	if function#102() 
+		if self.angle_2d_cw_between(90,270) 
+			-> beotodus.swim_short_turn() 
+		else 
+			if self.distance_3d_to_target().leq(1000) 
+				-> beotodus.swim_short_turn() 
+			else 
+				-> beotodus.swim_turn() 
+			endif 
+		endif 
+	else 
+		if self.in_combat() 
+			-> beotodus.quick_turn() 
+		else 
+			-> beotodus.turn() 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_004
+	if function#102() 
+		if self.distance_3d_to_target().leq(1000) 
+			if self.enraged() 
+				random (30) >> node_015 
+				elser (70) >> node_016 
+				endr 
+			else 
+				random (70) >> node_015 
+				elser (30) >> node_016 
+				endr 
+			endif 
+		else 
+			-> beotodus.swim_turn() 
+		endif 
+	else 
+		if self.in_combat() 
+			if self.distance_3d_to_target().leq(500) 
+				>> node_017 
+			else 
+				-> beotodus.quick_turn() 
+			endif 
+		else 
+			if self.distance_3d_to_target().leq(500) 
+				>> node_017 
+			else 
+				-> beotodus.turn() 
+			endif 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_005
+	if self.angle_2d_cw_between(30,330) 
+		if function#102() 
+			if self.angle_2d_cw_between(90,270) 
+				-> beotodus.swim_short_turn() 
+			else 
+				if self.distance_3d_to_target().leq(1000) 
+					-> beotodus.swim_short_turn() 
+				else 
+					-> beotodus.swim_turn() 
+				endif 
+			endif 
+		else 
+			if self.in_combat() 
+				-> beotodus.quick_turn() 
+			else 
+				-> beotodus.turn() 
+			endif 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_006
+	if self.angle_2d_cw_between(30,330) 
+		if function#102() 
+			if self.distance_3d_to_target().leq(1000) 
+				if self.enraged() 
+					random (30) >> node_015 
+					elser (70) >> node_016 
+					endr 
+				else 
+					random (70) >> node_015 
+					elser (30) >> node_016 
+					endr 
+				endif 
+			else 
+				-> beotodus.swim_turn() 
+			endif 
+		else 
+			if self.in_combat() 
+				if self.distance_3d_to_target().leq(500) 
+					>> node_017 
+				else 
+					-> beotodus.quick_turn() 
+				endif 
+			else 
+				if self.distance_3d_to_target().leq(500) 
+					>> node_017 
+				else 
+					-> beotodus.turn() 
+				endif 
+			endif 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_007
+	if self.angle_2d_cw_between(60,300) 
+		if function#102() 
+			if self.angle_2d_cw_between(90,270) 
+				-> beotodus.swim_short_turn() 
+			else 
+				if self.distance_3d_to_target().leq(1000) 
+					-> beotodus.swim_short_turn() 
+				else 
+					-> beotodus.swim_turn() 
+				endif 
+			endif 
+		else 
+			if self.in_combat() 
+				-> beotodus.quick_turn() 
+			else 
+				-> beotodus.turn() 
+			endif 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_008
+	if self.angle_2d_cw_between(60,300) 
+		if function#102() 
+			if self.distance_3d_to_target().leq(1000) 
+				if self.enraged() 
+					random (30) >> node_015 
+					elser (70) >> node_016 
+					endr 
+				else 
+					random (70) >> node_015 
+					elser (30) >> node_016 
+					endr 
+				endif 
+			else 
+				-> beotodus.swim_turn() 
+			endif 
+		else 
+			if self.in_combat() 
+				if self.distance_3d_to_target().leq(500) 
+					>> node_017 
+				else 
+					-> beotodus.quick_turn() 
+				endif 
+			else 
+				if self.distance_3d_to_target().leq(500) 
+					>> node_017 
+				else 
+					-> beotodus.turn() 
+				endif 
+			endif 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_009
+	if self.angle_2d_cw_between(80,280) 
+		if function#102() 
+			if self.angle_2d_cw_between(90,270) 
+				-> beotodus.swim_short_turn() 
+			else 
+				if self.distance_3d_to_target().leq(1000) 
+					-> beotodus.swim_short_turn() 
+				else 
+					-> beotodus.swim_turn() 
+				endif 
+			endif 
+		else 
+			if self.in_combat() 
+				-> beotodus.quick_turn() 
+			else 
+				-> beotodus.turn() 
+			endif 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_010
+	if self.angle_2d_cw_between(80,280) 
+		if function#102() 
+			if self.distance_3d_to_target().leq(1000) 
+				if self.enraged() 
+					random (30) >> node_015 
+					elser (70) >> node_016 
+					endr 
+				else 
+					random (70) >> node_015 
+					elser (30) >> node_016 
+					endr 
+				endif 
+			else 
+				-> beotodus.swim_turn() 
+			endif 
+		else 
+			if self.in_combat() 
+				if self.distance_3d_to_target().leq(500) 
+					>> node_017 
+				else 
+					-> beotodus.quick_turn() 
+				endif 
+			else 
+				if self.distance_3d_to_target().leq(500) 
+					>> node_017 
+				else 
+					-> beotodus.turn() 
+				endif 
+			endif 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_011
+	if self.angle_2d_cw_between(90,270) 
+		if function#102() 
+			if self.angle_2d_cw_between(90,270) 
+				-> beotodus.swim_short_turn() 
+			else 
+				if self.distance_3d_to_target().leq(1000) 
+					-> beotodus.swim_short_turn() 
+				else 
+					-> beotodus.swim_turn() 
+				endif 
+			endif 
+		else 
+			if self.in_combat() 
+				-> beotodus.quick_turn() 
+			else 
+				-> beotodus.turn() 
+			endif 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_012
+	if self.angle_2d_cw_between(90,270) 
+		if function#102() 
+			if self.distance_3d_to_target().leq(1000) 
+				if self.enraged() 
+					random (30) >> node_015 
+					elser (70) >> node_016 
+					endr 
+				else 
+					random (70) >> node_015 
+					elser (30) >> node_016 
+					endr 
+				endif 
+			else 
+				-> beotodus.swim_turn() 
+			endif 
+		else 
+			if self.in_combat() 
+				if self.distance_3d_to_target().leq(500) 
+					>> node_017 
+				else 
+					-> beotodus.quick_turn() 
+				endif 
+			else 
+				if self.distance_3d_to_target().leq(500) 
+					>> node_017 
+				else 
+					-> beotodus.turn() 
+				endif 
+			endif 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_013
+	if self.angle_2d_cw_between(100,260) 
+		if function#102() 
+			if self.angle_2d_cw_between(90,270) 
+				-> beotodus.swim_short_turn() 
+			else 
+				if self.distance_3d_to_target().leq(1000) 
+					-> beotodus.swim_short_turn() 
+				else 
+					-> beotodus.swim_turn() 
+				endif 
+			endif 
+		else 
+			if self.in_combat() 
+				-> beotodus.quick_turn() 
+			else 
+				-> beotodus.turn() 
+			endif 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_014
+	if self.angle_2d_cw_between(100,260) 
+		if function#102() 
+			if self.distance_3d_to_target().leq(1000) 
+				if self.enraged() 
+					random (30) >> node_015 
+					elser (70) >> node_016 
+					endr 
+				else 
+					random (70) >> node_015 
+					elser (30) >> node_016 
+					endr 
+				endif 
+			else 
+				-> beotodus.swim_turn() 
+			endif 
+		else 
+			if self.in_combat() 
+				if self.distance_3d_to_target().leq(500) 
+					>> node_017 
+				else 
+					-> beotodus.quick_turn() 
+				endif 
+			else 
+				if self.distance_3d_to_target().leq(500) 
+					>> node_017 
+				else 
+					-> beotodus.turn() 
+				endif 
+			endif 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_015
+	if function#102() 
+		if self.angle_2d_cw_between(90,270) 
+			[RegisterVar2 ++] 
+			if [RegisterVar2 <= 2] 
+				[RegisterVar2 |-] 
+				-> beotodus.swim_turn_blend_in_side_start() 
+			elif [RegisterVar2 <= 1] 
+				-> beotodus.swim_short_turn() 
+			else 
+				-> beotodus.swim_short_turn() 
+			endif 
+		else 
+			if self.distance_3d_to_target().leq(1000) 
+				-> beotodus.swim_short_turn() 
+			else 
+				-> beotodus.swim_turn() 
+			endif 
+		endif 
+	else 
+		if self.in_combat() 
+			if self.distance_3d_to_target().leq(500) 
+				>> node_017 
+			else 
+				-> beotodus.quick_turn() 
+			endif 
+		else 
+			if self.distance_3d_to_target().leq(500) 
+				>> node_017 
+			else 
+				-> beotodus.turn() 
+			endif 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_016
+	if function#102() 
+		if self.angle_2d_cw_between(90,270) 
+			[RegisterVar2 ++] 
+			if [RegisterVar2 <= 2] 
+				[RegisterVar2 |-] 
+				-> beotodus.swim_turn_blend_out_side_start() 
+			elif [RegisterVar2 <= 1] 
+				-> beotodus.swim_short_turn() 
+			else 
+				-> beotodus.swim_short_turn() 
+			endif 
+		else 
+			if self.distance_3d_to_target().leq(1000) 
+				-> beotodus.swim_short_turn() 
+			else 
+				-> beotodus.swim_turn() 
+			endif 
+		endif 
+	else 
+		if self.in_combat() 
+			if self.distance_3d_to_target().leq(500) 
+				>> node_017 
+			else 
+				-> beotodus.quick_turn() 
+			endif 
+		else 
+			if self.distance_3d_to_target().leq(500) 
+				>> node_017 
+			else 
+				-> beotodus.turn() 
+			endif 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_017
+	if function#102() 
+		-> beotodus.swim_back_turn() 
+	else 
+		-> beotodus.back_step() 
+	endif 
+	return 
+endf 
+
+def node_018
+	if self.distance_3d_to_target().leq(500) 
+		>> node_017 
+	elif self.angle_2d_cw_between(30,330) 
+		>> node_003 
+	else 
+	endif 
+	return 
+endf 
+
+def node_019
+	if self.angle_2d_cw_between(90,270) 
+		random (50) >> node_021 
+		elser (50) >> node_024 
+		endr 
+	else 
+		random (50) >> node_023 
+		elser (50) >> node_022 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_020
+	if self.angle_2d_cw_between(90,270) 
+		>> node_023 
+	else 
+		>> node_021 
+	endif 
+	return 
+endf 
+
+def node_021
+	-> beotodus.dive_take_distance_front_start() 
+	return 
+endf 
+
+def node_022
+	-> beotodus.dive_take_distance_front_start_2() 
+	return 
+endf 
+
+def node_023
+	-> beotodus.dive_take_distance_back_start() 
+	return 
+endf 
+
+def node_024
+	-> beotodus.dive_take_distance_back_start_2() 
+	return 
+endf 
+
+def node_025
+	>> node_001 
+	-> beotodus.swim_ride_refresh() 
+	return 
+endf 
+
+def node_026
+	>> node_001 
+	>> node_012 
+	>> node_137 
+	-> beotodus.front_bite() 
+	return 
+endf 
+
+def node_027
+	>> node_001 
+	if self.enraged() 
+		>> node_012 
+	else 
+		>> node_006 
+	endif 
+	>> node_135 
+	-> beotodus.horn_attack_start() 
+	return 
+endf 
+
+def node_028
+	>> node_001 
+	>> node_011 
+	>> node_135 
+	-> beotodus.rolling_attack() 
+	>> node_076 
+	return 
+endf 
+
+def node_029
+	>> node_001 
+	>> node_012 
+	>> node_137 
+	-> beotodus.front_bite() 
+	>> node_135 
+	-> beotodus.horn_attack_start() 
+	>> node_076 
+	return 
+endf 
+
+def node_030
+	>> node_001 
+	>> node_012 
+	>> node_137 
+	-> beotodus.front_bite() 
+	>> node_012 
+	>> node_135 
+	-> beotodus.rolling_attack() 
+	>> node_076 
+	return 
+endf 
+
+def node_031
+	>> node_001 
+	if self.angle_2d_cw_between(0,180) 
+		-> beotodus.horn_attack_back_l() 
+	else 
+		-> beotodus.horn_attack_back_r() 
+	endif 
+	return 
+endf 
+
+def node_032
+	>> node_001 
+	-> beotodus.summer_salt_start() 
+	>> node_076 
+	return 
+endf 
+
+def node_033
+	>> node_001 
+	-> beotodus.summer_salt_start() 
+	-> beotodus.special_attack_turn_start() 
+	>> node_105 
+	return 
+endf 
+
+def node_034
+	>> node_001 
+	>> node_147 
+	>> node_012 
+	-> beotodus.toss_attack_start() 
+	return 
+endf 
+
+def node_035
+	>> node_001 
+	>> node_147 
+	>> node_011 
+	-> beotodus.toss_attack_start() 
+	>> node_076 
+	return 
+endf 
+
+def node_036
+	>> node_001 
+	>> node_147 
+	>> node_012 
+	if function#10B() 
+		-> beotodus.drift_rush_start_type2() 
+	else 
+		-> beotodus.drift_rush_start() 
+	endif 
+	>> node_076 
+	return 
+endf 
+
+def node_037
+	>> node_001 
+	>> node_147 
+	>> node_007 
+	if function#10B() 
+		-> beotodus.drift_rush_start_type2() 
+	else 
+		-> beotodus.drift_rush_start() 
+	endif 
+	>> node_076 
+	return 
+endf 
+
+def node_038
+	>> node_001 
+	>> node_147 
+	-> beotodus.special_attack_turn_start() 
+	>> node_105 
+	return 
+endf 
+
+def node_039
+	>> node_001 
+	-> beotodus.swim_take_distance_start_type_1() 
+	return 
+endf 
+
+def node_040
+	>> node_001 
+	-> beotodus.swim_take_distance_start_type_2() 
+	return 
+endf 
+
+def node_041
+	>> node_001 
+	-> beotodus.swim_take_distance_start_type_3() 
+	return 
+endf 
+
+def node_042
+	if self.angle_2d_cw_between(90,270) 
+		>> node_031 
+	else 
+		random (30) >> node_026 
+		elser (70) >> node_027 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_043
+	>> node_001 
+	>> node_005 
+	>> node_135 
+	-> beotodus.front_bite() 
+	return 
+endf 
+
+def node_044
+	>> node_001 
+	>> node_005 
+	>> node_135 
+	-> beotodus.horn_attack_start() 
+	return 
+endf 
+
+def node_045
+	>> node_001 
+	>> node_005 
+	>> node_137 
+	-> beotodus.rolling_attack() 
+	>> node_105 
+	return 
+endf 
+
+def node_046
+	>> node_019 
+	>> node_035 
+	return 
+endf 
+
+def node_047
+	>> node_019 
+	>> node_037 
+	return 
+endf 
+
+def node_048
+	>> node_019 
+	>> node_038 
+	return 
+endf 
+
+def node_049
+	>> node_002 
+	if self.angle_2d_cw_between(0,180) 
+		-> beotodus.tail_attack_l() 
+	else 
+		-> beotodus.tail_attack_r() 
+	endif 
+	return 
+endf 
+
+def node_050
+	>> node_002 
+	>> node_005 
+	-> beotodus.bite() 
+	return 
+endf 
+
+def node_051
+	>> node_002 
+	>> node_009 
+	if self.angle_2d_cw_between(0,180) 
+		-> beotodus.tackle() 
+	else 
+		-> beotodus.tackle_r() 
+	endif 
+	return 
+endf 
+
+def node_052
+	>> node_002 
+	-> beotodus.slide_attack() 
+	return 
+endf 
+
+def node_053
+	>> node_002 
+	>> node_005 
+	>> node_137 
+	>> node_049 
+	return 
+endf 
+
+def node_054
+	>> node_002 
+	>> node_005 
+	>> node_137 
+	>> node_051 
+	return 
+endf 
+
+def node_055
+	>> node_001 
+	-> beotodus.front_bite() 
+	return 
+endf 
+
+def node_056
+	>> node_001 
+	-> beotodus.horn_attack_start() 
+	return 
+endf 
+
+def node_057
+	>> node_001 
+	-> beotodus.rolling_attack() 
+	>> node_076 
+	return 
+endf 
+
+def node_058
+	>> node_001 
+	if self.angle_2d_cw_between(0,180) 
+		-> beotodus.horn_attack_back_l() 
+	else 
+		-> beotodus.horn_attack_back_r() 
+	endif 
+	return 
+endf 
+
+def node_059
+	>> node_002 
+	if self.angle_2d_cw_between(0,180) 
+		-> beotodus.tail_attack_l() 
+	else 
+		-> beotodus.tail_attack_r() 
+	endif 
+	return 
+endf 
+
+def node_060
+	>> node_002 
+	>> node_005 
+	-> beotodus.bite() 
+	return 
+endf 
+
+def node_061
+	>> node_002 
+	>> node_009 
+	if self.angle_2d_cw_between(0,180) 
+		-> beotodus.tackle() 
+	else 
+		-> beotodus.tackle_r() 
+	endif 
+	return 
+endf 
+
+def node_062
+	if function#2D() 
+		if self.target.helpless_0() 
+			if function#102() 
+				if self.distance_3d_to_target().gt(1200) 
+					if self.enraged() 
+						random (75) 
+									>> node_038 
+						elser (25) 
+						endr 
+					else 
+						random (90) 
+									>> node_038 
+						elser (10) 
+						endr 
+					endif 
+				else 
+				endif 
+			else 
+			endif 
+		else 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_063
+	if function#2D() 
+		if self.target.helpless_0() 
+			if function#102() 
+				if self.distance_3d_to_target().gt(1200) 
+					if self.enraged() 
+						random (50) 
+									>> node_038 
+						elser (50) 
+						endr 
+					else 
+						random (75) 
+									>> node_038 
+						elser (25) 
+						endr 
+					endif 
+				else 
+				endif 
+			else 
+			endif 
+		else 
+			if self.distance_3d_to_target().gt(1500) 
+				random (75) 
+							>> node_038 
+				elser (25) 
+				endr 
+			else 
+			endif 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_064
+	>> node_013 
+	if self.distance_2d_to_target().gt(1500) 
+		>> node_137 
+	else 
+	endif 
+	if function#102() 
+		random (60) >> node_037 
+		elser (40) >> node_028 
+		endr 
+	else 
+		random (60) >> node_052 
+		elser (40) >> node_049 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_065
+	if function#102() 
+		[RegisterVar4 |-] 
+	else 
+		if self.hp_percent().gt(50) 
+			if [RegisterVar4 <= 6] 
+				[RegisterVar4 |-] 
+				>> node_066 
+				>> node_001 
+				reset 
+			else 
+				[RegisterVar4 ++] 
+			endif 
+		else 
+			if [RegisterVar4 <= 7] 
+				[RegisterVar4 |-] 
+				>> node_066 
+				>> node_001 
+				reset 
+			else 
+				[RegisterVar4 ++] 
+			endif 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_066
+	[RegisterVar0 ++] 
+	return 
+endf 
+
+def node_067
+	if [RegisterVar0 <= 1] 
+		>> node_068 
+	else 
+	endif 
+	return 
+endf 
+
+def node_068
+	if function#106() 
+		function#107() 
+		>> node_001 
+		if self.distance_3d_to_target().leq(600) 
+		else 
+			>> node_005 
+			>> node_149 
+		endif 
+		if self.in_map(st.Hoarfrost_Reach).in_area(2) 
+			[RegisterVar0 |-] 
+			-> beotodus.swim_snow_cover() 
+		elif self.in_map(st.Hoarfrost_Reach).in_area(3) 
+			[RegisterVar0 |-] 
+			-> beotodus.swim_snow_cover() 
+		elif self.in_map(st.Hoarfrost_Reach).in_area(1) 
+			[RegisterVar0 |-] 
+			-> beotodus.swim_snow_cover_one_parts() 
+		elif self.in_map(st.Hoarfrost_Reach).in_area(4) 
+			[RegisterVar0 |-] 
+			-> beotodus.swim_snow_cover_one_parts() 
+		elif self.in_map(st.Hoarfrost_Reach).in_area(5) 
+			[RegisterVar0 |-] 
+			-> beotodus.swim_snow_cover_one_parts() 
+		elif self.in_map(st.Hoarfrost_Reach).in_area(6) 
+			[RegisterVar0 |-] 
+			-> beotodus.swim_snow_cover_one_parts() 
+		else 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_069
+	>> node_001 
+	-> beotodus.swim_snow_cover() 
+	return 
+endf 
+
+def node_070
+	if function#10A() 
+		>> node_001 
+	else 
+	endif 
+	return 
+endf 
+
+def node_071
+	if function#102() 
+		if [RegisterVar3 <= 7] 
+			[RegisterVar3 |-] 
+			>> node_072 
+		elif [RegisterVar3 <= 4] 
+			random (50) 
+						[RegisterVar3 |-] 
+						>> node_072 
+			elser (50) 
+						[RegisterVar3 ++] 
+			endr 
+		else 
+			[RegisterVar3 ++] 
+		endif 
+	else 
+		[RegisterVar3 |-] 
+	endif 
+	return 
+endf 
+
+def node_072
+	random (50) >> node_039 
+	elser (30) >> node_040 
+	elser (20) >> node_041 
+	endr 
+	return 
+endf 
+
+def node_073
+	if function#102() 
+		if [RegisterVar6 <= 1] 
+			[RegisterVar6 |-] 
+			>> node_038 
+			reset 
+		else 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_074
+	if self.enraged() 
+		if [RegisterVar7 == 5] 
+			[RegisterVar7 |-] 
+			>> node_019 
+			>> node_038 
+		else 
+			random (50) 
+						>> node_075 
+			elser (50) 
+			endr 
+			return 
+		endif 
+	elif self.fatigued() 
+		return 
+	else 
+		if [RegisterVar7 == 12] 
+			[RegisterVar7 |-] 
+			>> node_019 
+			random (50) >> node_035 
+			elser (50) >> node_037 
+			endr 
+		else 
+			random (50) 
+						>> node_075 
+			elser (50) 
+			endr 
+			return 
+		endif 
+	endif 
+	reset 
+endf 
+
+def node_075
+	[RegisterVar7 ++] 
+	return 
+endf 
+
+def node_076
+	if self.target.helpless_0() 
+	else 
+		>> node_105 
+	endif 
+	return 
+endf 
+
+def node_077
+	[RegisterVar8 ++] 
+	return 
+endf 
+
+def node_078
+	[RegisterVar8 |-] 
+	return 
+endf 
+
+def node_079
+	if function#5A() 
+		>> node_081 
+	elif function#5A(1) 
+		>> node_082 
+		>> node_108 
+	elif function#5A(2) 
+		>> node_080 
+	elif function#5A(3) 
+		>> node_082 
+	elif function#5A(4) 
+		-> beotodus.swim_snow_cover_one_parts() 
+	elif function#5A(5) 
+		-> beotodus.swim_snow_cover_two_parts() 
+	elif function#5A(6) 
+		-> beotodus.swim_snow_cover() 
+	else 
+		>> node_082 
+	endif 
+	return 
+endf 
+
+def node_080
+	>> node_096 
+	return 
+endf 
+
+def node_081
+	random (50) >> node_096 
+	elser (50) >> node_098 
+	endr 
+	return 
+endf 
+
+def node_082
+	random (45) >> node_098 
+	elser (30) >> node_101 
+	elser (25) >> node_102 
+	endr 
+	return 
+endf 
+
+def node_083
+	>> node_003 
+	>> node_102 
+	return 
+endf 
+
+def node_084
+	if function#102() 
+		-> beotodus.swim_sleep() 
+	else 
+		-> beotodus.sleep() 
+	endif 
+	return 
+endf 
+
+def node_085
+	>> node_002 
+	>> node_003 
+	-> beotodus.drink() 
+	reset 
+endf 
+
+def node_086
+	if self.targetEnemy(target_em.any_monster) 
+		if self.target(13) 
+		else 
+			if self.vertical_distance_to_target().leq(1500) 
+				if self.distance_3d_to_target().leq(3000) 
+					if self.target_is(em.Banbaro) 
+						>> node_089 
+					elif function#30(2) 
+						>> node_087 
+					else 
+						>> node_088 
+					endif 
+				else 
+				endif 
+			else 
+			endif 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_087
+	if self.in_map(st.Special_Arena).in_area(-1) 
+	elif self.in_map(st.Challenge_Arena).in_area(-1) 
+	else 
+		if [RegisterVar5 <= 3] 
+			>> node_094 
+			return 
+		else 
+		endif 
+	endif 
+	if self.target.in_combat() 
+		random (35) >> node_090 
+		elser (0) >> node_091 
+		elser (10) >> node_092 
+		elser (55) >> node_095 
+		endr 
+	else 
+		random (10) >> node_090 
+		elser (35) >> node_091 
+		elser (0) >> node_092 
+		elser (55) >> node_095 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_088
+	if self.in_map(st.Special_Arena).in_area(-1) 
+	elif self.in_map(st.Challenge_Arena).in_area(-1) 
+	else 
+		if [RegisterVar5 <= 5] 
+			>> node_094 
+			return 
+		else 
+		endif 
+	endif 
+	if self.target.in_combat() 
+		random (35) >> node_090 
+		elser (10) >> node_091 
+		elser (55) >> node_092 
+		elser (0) >> node_095 
+		endr 
+	else 
+		random (35) >> node_090 
+		elser (55) >> node_091 
+		elser (10) >> node_092 
+		elser (0) >> node_095 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_089
+	if self.target(39) 
+		>> node_088 
+	else 
+		if self.target.in_combat() 
+			random (35) >> node_090 
+			elser (10) >> node_091 
+			elser (55) >> node_092 
+			endr 
+		else 
+			random (35) >> node_090 
+			elser (55) >> node_091 
+			elser (10) >> node_092 
+			endr 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_090
+	[RegisterVar5 ++] 
+	return 
+endf 
+
+def node_091
+	[RegisterVar5 ++] 
+	>> node_005 
+	>> node_105 
+	return 
+endf 
+
+def node_092
+	if self.vertical_distance_to_target().gt(800) 
+		[RegisterVar5 ++] 
+		>> node_105 
+	elif self.distance_3d_to_target().gt(2500) 
+		>> node_137 
+		repeat 
+	else 
+		[RegisterVar5 ++] 
+		>> node_093 
+	endif 
+	return 
+endf 
+
+def node_093
+	if function#102() 
+		if self.distance_3d_to_target().leq(700) 
+			random (60) >> node_027 
+			elser (40) >> node_028 
+			endr 
+		else 
+			>> node_037 
+		endif 
+	else 
+		if self.distance_3d_to_target().leq(700) 
+			random (60) >> node_050 
+			elser (40) >> node_049 
+			endr 
+		else 
+			>> node_052 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_094
+	[RegisterVar5 |-] 
+	self.force_area_change2() 
+	return 
+endf 
+
+def node_095
+	[RegisterVar5 ++] 
+	[RegisterVar5 ++] 
+	[RegisterVar5 ++] 
+	[RegisterVar5 ++] 
+	[RegisterVar5 ++] 
+	>> node_092 
+	>> node_094 
+	return 
+endf 
+
+def node_096
+	if function#102() 
+		-> beotodus.swim_search_5() 
+	else 
+		-> beotodus.search_5() 
+	endif 
+	return 
+endf 
+
+def node_097
+	if function#102() 
+		if self.enraged() 
+			-> beotodus.swim_half_lost_search_front() 
+		else 
+			-> beotodus.swim_half_lost_search_back() 
+		endif 
+	else 
+		if self.enraged() 
+			-> beotodus.half_lost_search_front() 
+		else 
+			-> beotodus.half_lost_search_back() 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_098
+	if function#102() 
+		-> beotodus.swim_search_1() 
+	else 
+		-> beotodus.search_1() 
+	endif 
+	return 
+endf 
+
+def node_099
+	if function#102() 
+		-> beotodus.swim_search_4() 
+	else 
+		-> beotodus.search_4() 
+	endif 
+	return 
+endf 
+
+def node_100
+	if function#102() 
+		-> beotodus.swim_search_5() 
+	else 
+		-> beotodus.search_5() 
+	endif 
+	return 
+endf 
+
+def node_101
+	if function#102() 
+		-> beotodus.swim_sniff() 
+	else 
+		if self.in_combat() 
+			-> beotodus.sniff_combat_s() 
+		else 
+			-> beotodus.sniff_s() 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_102
+	if function#102() 
+		-> beotodus.swim_sniff() 
+	else 
+		if self.in_combat() 
+			-> beotodus.sniff_combat_l() 
+		else 
+			-> beotodus.sniff_l() 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_103
+	if function#102() 
+		-> beotodus.swim_refresh() 
+	else 
+		-> beotodus.refresh() 
+	endif 
+	return 
+endf 
+
+def node_104
+	if function#102() 
+		-> beotodus.swim_ride_tired() 
+	else 
+		-> beotodus.tired() 
+	endif 
+	return 
+endf 
+
+def node_105
+	if function#102() 
+		-> beotodus.ride_wait() 
+	else 
+		-> beotodus.intimidation() 
+	endif 
+	return 
+endf 
+
+def node_106
+	if function#102() 
+		-> beotodus.swim_threat() 
+	else 
+		-> beotodus.threat_short() 
+	endif 
+	return 
+endf 
+
+def node_107
+	if function#102() 
+		-> beotodus.swim_threat() 
+	else 
+		-> beotodus.threat() 
+	endif 
+	return 
+endf 
+
+def node_108
+	>> node_001 
+	>> node_005 
+	random (70) -> beotodus.swim_marking_snow_cover_one_break() 
+	elser (30) -> beotodus.swim_marking_snow_cover_two_break() 
+	endr 
+	return 
+endf 
+
+def node_109
+	if function#102() 
+		-> beotodus.swim_dying_sleep(3,0,0,150) 
+	else 
+		-> beotodus.dying_sleep(3,0,0,150) 
+	endif 
+	return 
+endf 
+
+def node_110
+	if self.distance_3d_to_target().leq(1500) 
+	elif self.distance_3d_to_target().leq(3500) 
+		random (50) >> node_101 
+		elser (50) >> node_098 
+		elser (0) 
+		endr 
+	else 
+	endif 
+	return 
+endf 
+
+def node_111
+	random (50) >> node_101 
+	elser (50) >> node_098 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_112
+	if function#102() 
+		-> beotodus.swim_predator_attack() 
+	else 
+		-> beotodus.predator_attack() 
+	endif 
+	return 
+endf 
+
+def node_113
+	if function#102() 
+		-> beotodus.swim_predator_give_up() 
+	else 
+		-> beotodus.predator_give_up() 
+	endif 
+	return 
+endf 
+
+def node_114
+	>> node_018 
+	>> node_133 
+	if function#102() 
+		-> beotodus.swim_predator_eat() 
+	else 
+		-> beotodus.predator_eat() 
+	endif 
+	return 
+endf 
+
+def node_115
+	>> node_135 
+	>> node_018 
+	>> node_001 
+	return 
+endf 
+
+def node_116
+	if function#6B(10000) 
+		self.targetEnemy(26) 
+		>> node_101 
+		>> node_118 
+		>> node_119 
+		reset 
+	else 
+	endif 
+	return 
+endf 
+
+def node_117
+	if function#6B(10000) 
+		self.targetEnemy(26) 
+		>> node_101 
+		>> node_118 
+		>> node_119 
+		conclude 
+	else 
+	endif 
+	return 
+endf 
+
+def node_118
+	>> node_126 
+	return 
+endf 
+
+def node_119
+	>> node_005 
+	if function#102() 
+		-> beotodus.swim_meat_eat() 
+	else 
+		-> beotodus.meat_eat() 
+	endif 
+	return 
+endf 
+
+def node_120
+	if self.distance_3d_to_target().leq(500) 
+		return 
+	else 
+		>> node_121 
+	endif 
+	if self.distance_3d_to_target().leq(500) 
+		return 
+	else 
+		>> node_121 
+	endif 
+	if self.distance_3d_to_target().leq(500) 
+		return 
+	else 
+		>> node_121 
+	endif 
+	return 
+endf 
+
+def node_121
+	if function#102() 
+		if self.in_combat() 
+			-> beotodus.swim_dash(2,1,0,1500,400) 
+		else 
+			-> beotodus.swim(2,1,5,1500,400) 
+		endif 
+	else 
+		if self.fatigued() 
+			-> beotodus.walk(2,1,0,1500,400) 
+		elif self.in_combat() 
+			-> beotodus.walk_combat(2,1,0,1500,400) 
+		else 
+			-> beotodus.walk(2,1,5,1500,400) 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_122
+	>> node_123 
+	if self.distance_3d_to_target().leq(800) 
+		return 
+	else 
+		>> node_097 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_123
+	if function#102() 
+		if self.in_combat() 
+			-> beotodus.swim_dash(2,1,0,500,800) 
+		else 
+			-> beotodus.swim(2,1,5,500,800) 
+		endif 
+	else 
+		if self.fatigued() 
+			-> beotodus.walk(2,1,0,500,800) 
+		elif self.in_combat() 
+			-> beotodus.walk_combat(2,1,0,500,800) 
+		else 
+			-> beotodus.walk(2,1,5,500,800) 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_124
+	if self.distance_3d_to_target().leq(600) 
+		return 
+	else 
+		>> node_125 
+	endif 
+	if self.distance_3d_to_target().leq(600) 
+		return 
+	else 
+		>> node_125 
+	endif 
+	if self.distance_3d_to_target().leq(600) 
+		return 
+	else 
+		>> node_125 
+	endif 
+	return 
+endf 
+
+def node_125
+	if function#102() 
+		if self.in_combat() 
+			-> beotodus.swim_dash(2,1,0,500,500) 
+		else 
+			-> beotodus.swim_dash(2,1,0,500,500) 
+		endif 
+	else 
+		if self.fatigued() 
+			-> beotodus.dash(2,1,0,500,500) 
+		elif self.in_combat() 
+			-> beotodus.dash_combat(2,1,0,500,500) 
+		else 
+			-> beotodus.dash(2,1,5,500,500) 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_126
+	if self.distance_3d_to_target().leq(600) 
+		return 
+	else 
+		if function#102() 
+			if self.in_combat() 
+				-> beotodus.swim_dash(2,1,0,800,500) 
+			else 
+				-> beotodus.swim_dash(2,1,0,800,500) 
+			endif 
+		else 
+			if self.fatigued() 
+				-> beotodus.dash(2,1,0,500,500) 
+			elif self.in_combat() 
+				-> beotodus.dash_combat(2,1,0,500,500) 
+			else 
+				-> beotodus.dash(2,1,5,500,500) 
+			endif 
+		endif 
+	endif 
+	repeat 
+endf 
+
+def node_127
+	if self.distance_3d_to_target().leq(600) 
+		return 
+	else 
+		>> node_128 
+	endif 
+	if self.distance_3d_to_target().leq(600) 
+		return 
+	else 
+		>> node_128 
+	endif 
+	if self.distance_3d_to_target().leq(600) 
+		return 
+	else 
+		>> node_128 
+	endif 
+	return 
+endf 
+
+def node_128
+	if function#102() 
+		if self.in_combat() 
+			-> beotodus.swim_dash(2,1,0,1000,500) 
+		else 
+			-> beotodus.swim_dash(2,1,0,1000,500) 
+		endif 
+	else 
+		if self.fatigued() 
+			-> beotodus.dash(2,1,0,1000,500) 
+		elif self.in_combat() 
+			-> beotodus.dash_combat(2,1,0,1000,500) 
+		else 
+			-> beotodus.dash(2,1,0,1000,500) 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_129
+	if self.distance_3d_to_target().leq(600) 
+		return 
+	else 
+		>> node_130 
+	endif 
+	if self.distance_3d_to_target().leq(600) 
+		return 
+	else 
+		>> node_130 
+	endif 
+	if self.distance_3d_to_target().leq(600) 
+		return 
+	else 
+		>> node_130 
+	endif 
+	return 
+endf 
+
+def node_130
+	if function#102() 
+		-> beotodus.swim_dash(2,1,0,500,500) 
+	else 
+		if self.fatigued() 
+			-> beotodus.dash(2,1,0,500,500) 
+		elif self.in_combat() 
+			-> beotodus.dash_combat(2,1,0,500,500) 
+		else 
+			-> beotodus.dash(2,1,5,500,500) 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_131
+	if self.distance_3d_to_target().leq(900) 
+		return 
+	else 
+		>> node_134 
+	endif 
+	repeat 
+endf 
+
+def node_132
+	if function#102() 
+		if self.in_combat() 
+			-> beotodus.swim_dash(2,1,0,800,800) 
+		else 
+			-> beotodus.swim_dash(2,1,0,800,800) 
+		endif 
+	else 
+		if self.fatigued() 
+			-> beotodus.dash(2,1,0,500,800) 
+		elif self.in_combat() 
+			-> beotodus.dash_combat(2,1,0,500,800) 
+		else 
+			-> beotodus.dash(2,1,5,500,800) 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_133
+	if self.distance_3d_to_target().leq(600) 
+		return 
+	else 
+		>> node_134 
+	endif 
+	if self.distance_3d_to_target().leq(600) 
+		return 
+	else 
+		>> node_134 
+	endif 
+	if self.distance_3d_to_target().leq(600) 
+		return 
+	else 
+		>> node_134 
+	endif 
+	return 
+endf 
+
+def node_134
+	if function#102() 
+		-> beotodus.swim_dash(2,1,0,800,500) 
+	else 
+		-> beotodus.dash_combat(2,1,0,800,500) 
+	endif 
+	return 
+endf 
+
+def node_135
+	if self.distance_3d_to_target().leq(850) 
+		return 
+	else 
+		>> node_136 
+	endif 
+	if self.distance_3d_to_target().leq(850) 
+		return 
+	else 
+		>> node_136 
+	endif 
+	if self.distance_3d_to_target().leq(850) 
+		return 
+	else 
+		>> node_136 
+	endif 
+	return 
+endf 
+
+def node_136
+	if function#102() 
+		-> beotodus.swim_dash(2,1,0,800,750) 
+	else 
+		-> beotodus.dash_combat(2,1,0,800,750) 
+	endif 
+	return 
+endf 
+
+def node_137
+	if self.distance_3d_to_target().leq(1100) 
+		return 
+	else 
+		>> node_138 
+	endif 
+	if self.distance_3d_to_target().leq(1100) 
+		return 
+	else 
+		>> node_138 
+	endif 
+	if self.distance_3d_to_target().leq(1100) 
+		return 
+	else 
+		>> node_138 
+	endif 
+	return 
+endf 
+
+def node_138
+	if function#102() 
+		-> beotodus.swim_dash(2,1,0,800,1000) 
+	else 
+		-> beotodus.dash_combat(2,1,0,800,1000) 
+	endif 
+	return 
+endf 
+
+def node_139
+	if self.distance_2d_to_target().leq(1600) 
+		return 
+	else 
+		>> node_140 
+	endif 
+	if self.distance_2d_to_target().leq(1600) 
+		return 
+	else 
+		>> node_140 
+	endif 
+	if self.distance_2d_to_target().leq(1600) 
+		return 
+	else 
+		>> node_140 
+	endif 
+	return 
+endf 
+
+def node_140
+	if function#102() 
+		-> beotodus.swim_dash(2,1,0,800,1500) 
+	else 
+		-> beotodus.dash_combat(2,1,0,800,1500) 
+	endif 
+	return 
+endf 
+
+def node_141
+	if self.distance_2d_to_target().leq(2100) 
+		return 
+	else 
+		>> node_142 
+	endif 
+	if self.distance_2d_to_target().leq(2100) 
+		return 
+	else 
+		>> node_142 
+	endif 
+	if self.distance_2d_to_target().leq(2100) 
+		return 
+	else 
+		>> node_142 
+	endif 
+	return 
+endf 
+
+def node_142
+	if function#102() 
+		-> beotodus.swim_dash(2,1,0,800,2000) 
+	else 
+		-> beotodus.dash_combat(2,1,0,800,2000) 
+	endif 
+	return 
+endf 
+
+def node_143
+	if self.distance_2d_to_target().leq(2600) 
+		return 
+	else 
+		>> node_144 
+	endif 
+	if self.distance_2d_to_target().leq(2600) 
+		return 
+	else 
+		>> node_144 
+	endif 
+	if self.distance_2d_to_target().leq(2600) 
+		return 
+	else 
+		>> node_144 
+	endif 
+	return 
+endf 
+
+def node_144
+	if function#102() 
+		-> beotodus.swim_dash(2,1,0,800,2500) 
+	else 
+		-> beotodus.dash_combat(2,1,0,800,2500) 
+	endif 
+	return 
+endf 
+
+def node_145
+	if self.distance_2d_to_target().leq(3600) 
+		return 
+	else 
+		>> node_146 
+	endif 
+	if self.distance_2d_to_target().leq(3600) 
+		return 
+	else 
+		>> node_146 
+	endif 
+	if self.distance_2d_to_target().leq(3600) 
+		return 
+	else 
+		>> node_146 
+	endif 
+	return 
+endf 
+
+def node_146
+	if function#102() 
+		-> beotodus.swim_dash(2,1,0,800,3500) 
+	else 
+		-> beotodus.dash_combat(2,1,0,800,3500) 
+	endif 
+	return 
+endf 
+
+def node_147
+	if self.distance_2d_to_target().leq(4100) 
+		return 
+	else 
+		>> node_148 
+	endif 
+	if self.distance_2d_to_target().leq(4100) 
+		return 
+	else 
+		>> node_148 
+	endif 
+	if self.distance_2d_to_target().leq(4100) 
+		return 
+	else 
+		>> node_148 
+	endif 
+	return 
+endf 
+
+def node_148
+	if function#102() 
+		-> beotodus.swim_dash(2,1,0,800,4000) 
+	else 
+		-> beotodus.dash_combat(2,1,0,800,4000) 
+	endif 
+	return 
+endf 
+
+def node_149
+	if self.distance_3d_to_target().leq(500) 
+		return 
+	else 
+		>> node_134 
+	endif 
+	repeat 
+endf 
+
+def node_150
+	if self.distance_3d_to_target().leq(600) 
+		return 
+	else 
+		>> node_151 
+	endif 
+	if self.distance_3d_to_target().leq(600) 
+		return 
+	else 
+		>> node_151 
+	endif 
+	if self.distance_3d_to_target().leq(600) 
+		return 
+	else 
+		>> node_151 
+	endif 
+	return 
+endf 
+
+def node_151
+	if function#102() 
+		-> beotodus.swim_dash(2,1,0,500,500) 
+	else 
+		-> beotodus.dash_combat(2,1,0,500,500) 
+	endif 
+	return 
+endf 
+
+def node_152
+	if self.distance_3d_to_target().leq(850) 
+		return 
+	else 
+		>> node_153 
+	endif 
+	if self.distance_3d_to_target().leq(850) 
+		return 
+	else 
+		>> node_153 
+	endif 
+	if self.distance_3d_to_target().leq(850) 
+		return 
+	else 
+		>> node_153 
+	endif 
+	return 
+endf 
+
+def node_153
+	if function#102() 
+		-> beotodus.swim_dash(2,1,0,500,750) 
+	else 
+		-> beotodus.dash_combat(2,1,0,500,750) 
+	endif 
+	return 
+endf 
+
+def node_154
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if function#5D() 
+		function#5E() 
+		self.targetEnemy(target_em.random_player_or_cat) 
+		>> node_155 
+		self.targetArea(4) 
+	else 
+		self.targetEnemy(target_em.random_player_or_cat) 
+	endif 
+	return 
+endf 
+
+def node_155
+	if self.angle_2d_cw_between(90,270) 
+		>> node_157 
+	elif self.distance_3d_to_target().gt(3000) 
+		>> node_157 
+	else 
+		>> node_156 
+	endif 
+	return 
+endf 
+
+def node_156
+	if function#102() 
+		-> beotodus.swim_half_lost_search_front() 
+	else 
+		-> beotodus.half_lost_search_front() 
+	endif 
+	return 
+endf 
+
+def node_157
+	if function#102() 
+		-> beotodus.swim_half_lost_search_back() 
+	else 
+		-> beotodus.half_lost_search_back() 
+	endif 
+	return 
+endf 
+
+def node_158
+	>> node_077 
+	self.targetArea(19) 
+	if self.distance_2d_to_target().gt(1000) 
+		>> node_149 
+	else 
+		>> node_159 
+	endif 
+	return 
+endf 
+
+def node_159
+	self.targetEnemy(target_em.random_player_or_cat) 
+	>> node_005 
+	>> node_160 
+	return 
+endf 
+
+def node_160
+	random (37) >> node_101 
+	elser (23) >> node_102 
+	elser (40) >> node_106 
+	endr 
+	return 
+endf 
+
+def node_161
+	>> node_141 
+	>> node_064 
+	return 
+endf 
+
+def node_162
+	>> node_141 
+	>> node_141 
+	random (20) >> node_009 
+				>> node_107 
+	elser (80) 
+				>> node_064 
+	endr 
+	return 
+endf 
+
+def node_163
+	>> node_133 
+	>> node_064 
+	return 
+endf 
+
+def node_164
+	if function#102() 
+		random (20) >> node_055 
+		elser (30) >> node_056 
+		elser (20) >> node_057 
+		elser (30) >> node_058 
+		endr 
+	else 
+		random (30) >> node_059 
+		elser (40) >> node_060 
+		elser (30) >> node_061 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_165
+	self.targetArea(19) 
+	if self.distance_3d_recalc_to_target().gt(1000) 
+		>> node_149 
+	else 
+	endif 
+	return 
+endf 
+
+def node_166
+	random (15) >> node_105 
+	elser (5) >> node_101 
+	elser (20) >> node_102 
+	elser (20) >> node_098 
+	elser (30) >> node_156 
+	elser (10) >> node_157 
+	endr 
+	return 
+endf 
+
+def node_167
+	>> node_105 
+	return 
+endf 
+
+def node_168
+	if self.target(52) 
+		>> node_133 
+	elif self.in_map(st.Hoarfrost_Reach).in_area(2) 
+		if self.vertical_distance_to_target().gt(1300) 
+			>> node_152 
+		else 
+		endif 
+	elif self.vertical_distance_to_target().gt(450) 
+		>> node_150 
+	else 
+	endif 
+	return 
+endf 
+

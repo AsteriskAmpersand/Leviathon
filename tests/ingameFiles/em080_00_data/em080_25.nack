@@ -1,0 +1,71 @@
+importactions Glavenus as glavenus
+
+def node_000
+	self.targetEnemy(34) 
+	if function#41() 
+	elif self.vertical_distance_to_target().gt(1000) 
+		>> node_003 
+	elif self.target_is(em.Rathalos) 
+		>> node_004 
+	elif self.target_is(em.Diablos) 
+		>> node_005 
+	elif self.target_is(em.Black_Diablos) 
+		>> node_005 
+	else 
+		>> node_006 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	if self.distance_3d_to_target().leq(1500) 
+		-> glavenus.back_turn() 
+	elif self.angle_2d_cw_between(40,320) 
+		-> glavenus.turn() 
+	else 
+	endif 
+	return 
+endf 
+
+def node_002
+	if self.distance_3d_to_target().leq(1000) 
+		-> glavenus.back_turn() 
+	else 
+	endif 
+	return 
+endf 
+
+def node_003
+	if self.target_is(em.Rathalos) 
+		>> node_001 
+		-> glavenus.threat() 
+	else 
+	endif 
+	return 
+endf 
+
+def node_004
+	if self.distance_3d_to_target().leq(4000) 
+		>> node_001 
+		-> glavenus.threat() 
+	elif self.distance_3d_to_target().leq(5000) 
+		-> glavenus.combat_search() 
+	else 
+	endif 
+	return 
+endf 
+
+def node_005
+	if self.distance_3d_to_target().leq(1500) 
+		>> node_001 
+		-> glavenus.search() 
+		-> glavenus.threat() 
+	else 
+	endif 
+	return 
+endf 
+
+def node_006
+	return 
+endf 
+

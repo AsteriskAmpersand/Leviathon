@@ -1,0 +1,28 @@
+importactions Cortos as cortos
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_009 
+	function#54() 
+	function#52(2,6) 
+	self.targetEnemy(16) @ unkn3:2097152, actionUnkn0:4, actionUnkn3:1200 
+	>> node_001 
+	-> action#1F() 
+	function#54() 
+	conclude 
+endf 
+
+def node_001
+	if self.hookable() -> action#15(1,0,0,2000) 
+	else -> action#14(1,0,0,1000) 
+	endif 
+	return 
+endf 
+
+def node_002
+	if self.hookable() -> action#15() 
+	else -> action#14() 
+	endif 
+	return 
+endf 
+

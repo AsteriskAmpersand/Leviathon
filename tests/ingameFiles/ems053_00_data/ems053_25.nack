@@ -1,0 +1,30 @@
+importactions Raphinos as raphinos
+importlibrary Global as Global
+
+def node_000
+	if self.hookable() 
+		conclude 
+	endif 
+	if function#B0(1) >> Global.node_028 
+	else 
+		>> Global.node_009 
+		self.targetEnemy(34) 
+		>> node_001 
+		-> action#1A() 
+		*&
+		>> Global.node_006 
+		>> Global.node_002 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	if self.target_is(em.Shamos) 
+		if self.target.in_combat() 
+		else 
+			conclude 
+		endif 
+	endif 
+	return 
+endf 
+

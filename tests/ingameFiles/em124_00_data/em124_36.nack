@@ -1,0 +1,131 @@
+importactions Velkhana as velkhana
+importlibrary Global as Global
+
+def node_000
+	>> node_001 
+	>> Global.node_381 
+	if self.flying() 
+		>> Global.node_096 
+	else 
+		>> node_007 
+		>> Global.node_381 
+		>> node_008 
+	endif 
+	reset 
+endf 
+
+def node_001
+	if self.target_on_part(0) 
+		>> node_002 
+	elif self.target_on_part(1) 
+		>> node_002 
+	else 
+	endif 
+	return 
+endf 
+
+def node_002
+	>> Global.node_047 
+	>> node_004 
+	reset 
+endf 
+
+def node_003
+	random (50) >> Global.node_363 
+	elser (50) 
+	endr 
+	return 
+endf 
+
+def node_004
+	if self.mounted() 
+		>> node_005 
+	else 
+		>> node_006 
+	endif 
+	return 
+endf 
+
+def node_005
+	>> Global.node_351 
+	if self.target_on_part(0) 
+		>> Global.node_352 
+	else 
+		>> Global.node_354 
+	endif 
+	return 
+endf 
+
+def node_006
+	>> Global.node_351 
+	if self.target_on_part(0) 
+		>> Global.node_353 
+	else 
+		>> Global.node_355 
+	endif 
+	return 
+endf 
+
+def node_007
+	if self.current_quest().is_rank(rank.AT) 
+	else 
+		random (20) >> Global.node_051 
+		elser (20) >> Global.node_054 
+		elser (20) >> Global.node_049 
+		elser (40) 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_008
+	if self.current_quest().is_rank(rank.AT) 
+		if self.flying() 
+			>> Global.node_096 
+		else 
+			if function#101(2) 
+				random (20) >> Global.node_065 
+				elser (20) >> Global.node_007 
+				elser (20) >> Global.node_080 
+				elser (20) >> Global.node_028 
+				elser (20) >> Global.node_029 
+				endr 
+			elif function#101(1) 
+				random (25) >> Global.node_065 
+				elser (15) >> Global.node_007 
+				elser (15) >> Global.node_080 
+				elser (15) >> Global.node_084 
+				elser (15) >> Global.node_032 
+				elser (15) >> Global.node_030 
+				endr 
+			else 
+				random (30) >> Global.node_065 
+				elser (30) >> Global.node_058 
+				elser (40) >> Global.node_080 
+				endr 
+			endif 
+		endif 
+	else 
+		if self.flying() 
+			>> Global.node_096 
+		else 
+			if function#101(4) 
+				random (15) >> Global.node_065 
+				elser (15) >> Global.node_058 
+				elser (10) >> Global.node_080 
+				elser (10) >> Global.node_084 
+				elser (20) >> Global.node_066 
+				elser (20) >> Global.node_068 
+				elser (10) >> Global.node_069 
+				endr 
+			else 
+				random (30) >> Global.node_065 
+				elser (30) >> Global.node_058 
+				elser (40) >> Global.node_080 
+				endr 
+			endif 
+		endif 
+	endif 
+	return 
+endf 
+

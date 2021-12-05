@@ -1,0 +1,62 @@
+importactions Vaal_Hazak as vaal_hazak
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_037 
+	>> node_003 
+	self.enraged() >> node_001 => reset 
+	self.fatigued() >> node_002 => reset 
+	>> node_002 => reset 
+	reset 
+endf 
+
+def node_001
+	if self.current_quest().is_rank(rank.AT) 
+		random (25) >> Global.node_016 
+		elser (10) >> Global.node_018 
+		elser (30) >> Global.node_017 
+		elser (15) >> Global.node_026 
+		elser (20) >> Global.node_034 
+		elser (0) >> Global.node_048 
+		endr 
+	else 
+		random (25) >> Global.node_016 
+		elser (15) >> Global.node_018 
+		elser (40) >> Global.node_017 
+		elser (15) >> Global.node_026 
+		elser (5) >> Global.node_048 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_002
+	if self.current_quest().is_rank(rank.AT) 
+		random (25) >> Global.node_016 
+		elser (15) >> Global.node_018 
+		elser (30) >> Global.node_017 
+		elser (10) >> Global.node_026 
+		elser (20) >> Global.node_034 
+		elser (0) >> Global.node_048 
+		endr 
+	else 
+		random (25) >> Global.node_016 
+		elser (15) >> Global.node_018 
+		elser (35) >> Global.node_017 
+		elser (10) >> Global.node_026 
+		elser (15) >> Global.node_048 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_003
+	if self.target_on_part(0) -> vaal_hazak.ride_tired() 
+		-> vaal_hazak.ride_rage_head() => reset 
+	elif self.target_on_part(1) -> vaal_hazak.ride_tired() 
+		-> vaal_hazak.ride_rage_body() => reset 
+	else 
+	endif 
+	return 
+endf 
+

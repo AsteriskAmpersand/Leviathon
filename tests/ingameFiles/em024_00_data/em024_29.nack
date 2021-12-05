@@ -1,0 +1,58 @@
+importactions Kushala_Daora as kushala_daora
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_119 
+	>> Global.node_118 
+	>> node_001 
+	reset 
+endf 
+
+def node_001
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if self.in_map(st.Challenge_Arena).in_area(-1) 
+		>> node_004 
+	elif self.distance_3d_to_target().leq(3500) 
+		if self.target(7) 
+			>> node_003 
+		elif self.target(10) 
+			>> node_003 
+		else 
+			>> node_002 
+		endif 
+	else 
+		>> node_003 
+	endif 
+	return 
+endf 
+
+def node_002
+	>> Global.node_028 
+	>> Global.node_037 
+	return 
+endf 
+
+def node_003
+	if self.targetEnemy(target_em.any_monster) 
+		random (20) >> Global.node_029 
+		elser (80) 
+		endr 
+	else 
+	endif 
+	random (60) >> Global.node_037 
+	elser (10) >> Global.node_032 
+	elser (30) >> Global.node_033 
+	endr 
+	return 
+endf 
+
+def node_004
+	>> Global.node_029 
+	random (40) >> Global.node_037 
+	elser (30) >> Global.node_032 
+	elser (10) >> Global.node_033 
+	elser (20) >> Global.node_026 
+	endr 
+	return 
+endf 
+

@@ -1,0 +1,43 @@
+importactions Nergigante as nergigante
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_078 
+	if [RegisterVar0 <= 15] 
+		[RegisterVar0 |-] 
+		conclude 
+	else 
+	endif 
+	[RegisterVar0 ++] 
+	>> node_001 
+	repeat 
+	conclude 
+endf 
+
+def node_001
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if self.distance_3d_to_target().leq(3500) 
+		>> node_002 
+	else 
+		>> node_003 
+	endif 
+	return 
+endf 
+
+def node_002
+	>> Global.node_017 
+	>> Global.node_052 
+	return 
+endf 
+
+def node_003
+	self.targetEnemy(22) @ parameter2:2000 
+	random (40) >> Global.node_019 
+	elser (60) 
+	endr 
+	random (70) >> Global.node_050 
+	elser (30) >> Global.node_059 
+	endr 
+	return 
+endf 
+

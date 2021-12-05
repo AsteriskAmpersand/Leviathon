@@ -1,0 +1,25 @@
+importactions Lavasioth as lavasioth
+
+def node_000
+	self.targetArea(24) 
+	if function#101() 
+	else -> lavasioth.swim_to_stand() 
+	endif 
+	-> lavasioth.dying_walk() 
+	>> node_001 
+	conclude 
+endf 
+
+def node_001
+	if function#7C() 
+		conclude 
+	else 
+		if function#C9() 
+			-> lavasioth.dying_sleep() 
+		else 
+			function#CA() 
+		endif 
+	endif 
+	return 
+endf 
+

@@ -1,0 +1,59 @@
+importactions Stygian_Zinogre as stygian_zinogre
+importlibrary Global as Global
+
+def node_000
+	function#103() 
+	if function#10D() 
+		if self.distance_3d_to_target().leq(10000) 
+			>> Global.node_214 
+			>> node_001 
+		else >> Global.node_203 
+		endif 
+	elif self.targetEnemy(42) 
+		if self.distance_3d_to_target().leq(10000) 
+			>> Global.node_214 
+			>> node_001 
+		else >> Global.node_203 
+		endif 
+	else 
+		>> Global.node_206 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	-> stygian_zinogre.dash(2,1,0,1000,900) 
+	if self.distance_2d_to_target().leq(1000) 
+	else 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_002
+	if function#6B(30000) 
+		>> Global.node_214 
+		>> node_003 
+		>> node_004 
+	else 
+	endif 
+	return 
+endf 
+
+def node_003
+	self.targetEnemy(26) 
+	if self.distance_3d_to_target().leq(600) 
+	else 
+		-> stygian_zinogre.dash(2,1,0,1500,550) 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_004
+	>> Global.node_048 
+	>> Global.node_209 
+	>> Global.node_081 
+	conclude 
+endf 
+

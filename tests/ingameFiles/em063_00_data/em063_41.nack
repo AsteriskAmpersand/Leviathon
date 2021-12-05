@@ -1,0 +1,14 @@
+importactions Brachydios as brachydios
+importlibrary Global as Global
+
+def node_000
+	self.targetArea(20) 
+	>> Global.node_085 
+	if self.distance_3d_recalc_to_target().leq(800) 
+		conclude 
+	else 
+		reset 
+	endif 
+	conclude 
+endf 
+

@@ -1,0 +1,79 @@
+importactions Black_Diablos as black_diablos
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_007 
+	self.targetEnemy(target_em.closest_entity) 
+	>> node_001 
+	conclude 
+endf 
+
+def node_001
+	if self.target_is(em.Diablos) 
+		>> node_002 
+	elif self.target_is(em.Black_Diablos) 
+		>> node_002 
+	elif self.target_is(em.Rathian) 
+		>> node_003 
+	elif self.target_is(em.Pink_Rathian) 
+		>> node_003 
+	elif self.target_is(em.Barroth) 
+		>> node_004 
+	elif self.target_is(em.Glavenus) 
+		>> node_005 
+	elif self.target_is(em.Acidic_Glavenus) 
+		>> node_005 
+	elif self.target_is(em.Fulgur_Anjanath) 
+		>> node_006 
+	else 
+	endif 
+	return 
+endf 
+
+def node_002
+	>> Global.node_057 
+	-> black_diablos.grapple_with_em007_mediation() 
+	return 
+endf 
+
+def node_003
+	>> Global.node_057 
+	-> black_diablos.grapple_wait_end_mediation_threat() 
+	return 
+endf 
+
+def node_004
+	>> Global.node_057 
+	-> black_diablos.grapple_with_em044_mediation_threat() 
+	return 
+endf 
+
+def node_005
+	>> Global.node_057 
+	-> black_diablos.grapple_with_em080_mediation() 
+	return 
+endf 
+
+def node_006
+	>> Global.node_057 
+	-> black_diablos.grapple_with_em100_01_mediation() 
+	return 
+endf 
+
+def node_007
+	if self.target(13) 
+		conclude 
+	elif self.target(0) 
+	elif self.target.helpless_0() 
+	elif self.target.paralyzed() 
+	elif self.target.stunned_0() 
+	elif self.target.sleeping() 
+	elif self.target.stunned_1() 
+	else 
+		return 
+	endif 
+	>> Global.node_058 
+	>> Global.node_032 
+	repeat 
+endf 
+

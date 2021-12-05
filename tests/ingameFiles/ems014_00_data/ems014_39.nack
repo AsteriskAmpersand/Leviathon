@@ -1,0 +1,141 @@
+importactions Popo as popo
+importlibrary Global as Global
+
+def node_000
+	if function#72(4) 
+		>> node_004 
+		self.targetEnemy(33) 
+	elif function#72(8) 
+		>> node_004 
+		self.targetEnemy(48) 
+	elif function#72() 
+		>> node_001 
+		self.targetEnemy(13) 
+	else 
+		>> node_004 
+	endif 
+	self.targetArea(target_area.nearest_entrance) @ unkn3:8388608 
+	conclude 
+endf 
+
+def node_001
+	if function#B0(3) 
+		>> node_003 
+	elif function#B0(4) 
+		>> node_003 
+	elif function#B0(5) 
+		>> node_003 
+	else 
+		>> node_002 
+	endif 
+	return 
+endf 
+
+def node_002
+	if function#B0() 
+		if function#10D() 
+			if function#10E(3500) 
+				function#10F() 
+				if self.target(7) 
+					-> action#0E() 
+				elif self.target(10) 
+					-> action#0E() 
+				elif self.target(12) 
+					>> Global.node_000 
+					-> action#0E() 
+				elif self.target(0) 
+					>> Global.node_000 
+					-> action#0E() 
+				elif self.target(14) 
+					>> Global.node_000 
+					-> action#0E() 
+				elif self.target(4) 
+					>> Global.node_000 
+					-> action#0E() 
+				else 
+					>> node_005 
+					>> Global.node_000 
+					-> action#10() 
+				endif 
+			else 
+				>> Global.node_002 
+			endif 
+		else 
+			>> Global.node_002 
+		endif 
+	else 
+		>> Global.node_002 
+	endif 
+	[RegisterVar2 |-] 
+	if function#77() 
+		function#52(210,6) 
+	else 
+		if self.quest_id(1224) 
+			if function#10B() 
+				function#52(142,6) 
+			else 
+				function#52(142,6) 
+			endif 
+		else 
+			function#52(142,6) 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_003
+	if function#108() 
+		function#106() 
+	else 
+	endif 
+	if function#77() 
+		function#54() 
+		function#52(128,3) 
+		self.targetEnemy(16) 
+		if self.distance_3d_to_target().leq(5500) 
+			function#103() 
+		else 
+		endif 
+		function#54() 
+		function#52(210,6) 
+	else 
+		function#54() 
+		function#52(128,3) 
+		self.targetEnemy(16) 
+		if self.distance_3d_to_target().leq(5500) 
+			function#54() 
+			function#52(401,6) 
+		else 
+			function#54() 
+			if function#108() 
+				function#52(393,6) 
+				function#103() 
+			else 
+				function#52(150,6) 
+			endif 
+		endif 
+	endif 
+	>> Global.node_002 
+	return 
+endf 
+
+def node_004
+	function#54() 
+	if function#77() 
+		function#52(82,6) 
+	else 
+		function#52(50,6) 
+		>> Global.node_002 
+	endif 
+	return 
+endf 
+
+def node_005
+	if self.distance_3d_to_target().gt(800) 
+		-> action#03(2,1,5,400,700) 
+		repeat 
+	else 
+	endif 
+	return 
+endf 
+

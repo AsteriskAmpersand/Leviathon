@@ -1,0 +1,292 @@
+importactions Stygian_Zinogre as stygian_zinogre
+importlibrary Global as Global
+
+def node_000
+	function#103() 
+	if self.fatigued() 
+		random (30) >> node_021 
+		elser (70) 
+		endr 
+	else 
+	endif 
+	if self.mounted() 
+		random (47) >> node_001 
+		elser (53) >> node_002 
+		endr 
+	else 
+		random (40) >> node_001 
+		elser (60) >> node_002 
+		endr 
+	endif 
+	reset 
+endf 
+
+def node_001
+	>> node_029 
+	function#A8() 
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if function#A9(0,1) 
+		self.target_on_part(0) >> node_009 => repeat 
+		self.target_on_part(1) >> node_009 => repeat 
+		self.target_on_part(2) >> node_009 => repeat 
+	elif function#A9(0,2) 
+		self.target_on_part(0) >> node_003 => repeat 
+		self.target_on_part(1) >> node_004 => repeat 
+		self.target_on_part(2) >> node_005 => repeat 
+	elif function#A9(0,3) 
+		self.target_on_part(0) >> node_003 => repeat 
+		self.target_on_part(1) >> node_004 => repeat 
+		self.target_on_part(2) >> node_005 => repeat 
+	else 
+		function#A8(1) 
+		>> node_006 
+	endif 
+	return 
+endf 
+
+def node_002
+	>> node_029 
+	function#A8() 
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if function#A9(0,1) 
+		self.target_on_part(0) >> node_009 => repeat 
+		self.target_on_part(1) >> node_009 => repeat 
+		self.target_on_part(2) >> node_009 => repeat 
+	elif function#A9(0,2) 
+		>> node_006 => repeat 
+	elif function#A9(0,3) 
+		self.target_on_part(0) >> node_003 => repeat 
+		self.target_on_part(1) >> node_004 => repeat 
+		self.target_on_part(2) >> node_005 => repeat 
+	else 
+		function#A8(1) 
+		>> node_006 
+	endif 
+	return 
+endf 
+
+def node_003
+	if self.mounted() 
+		>> node_011 
+	else 
+		>> node_010 
+	endif 
+	return 
+endf 
+
+def node_004
+	if self.mounted() 
+		>> node_012 
+	else 
+		>> node_013 
+	endif 
+	return 
+endf 
+
+def node_005
+	if self.mounted() 
+		>> node_014 
+	else 
+		>> node_015 
+	endif 
+	return 
+endf 
+
+def node_006
+	if self.mounted() 
+		>> node_007 
+	else 
+		>> node_008 
+	endif 
+	return 
+endf 
+
+def node_007
+	if function#29() 
+		self.targetArea(7) 
+		>> node_019 
+		self.targetArea(15) 
+		self.target_on_part(0) -> stygian_zinogre.ride_rage_crash_head() => return 
+		self.target_on_part(1) -> stygian_zinogre.ride_rage_crash_body() => return 
+		self.target_on_part(2) -> stygian_zinogre.ride_rage_crash_tail() => return 
+	else 
+		self.target_on_part(0) >> node_011 => return 
+		self.target_on_part(1) >> node_013 => return 
+		self.target_on_part(2) >> node_015 => return 
+	endif 
+	return 
+endf 
+
+def node_008
+	if function#29() 
+		self.targetArea(7) 
+		>> node_019 
+		self.targetArea(15) 
+		self.target_on_part(0) -> stygian_zinogre.ride_rage_crash_head_lv2() => return 
+		self.target_on_part(1) -> stygian_zinogre.ride_rage_crash_body_lv2() => return 
+		self.target_on_part(2) -> stygian_zinogre.ride_rage_crash_tail_lv2() => return 
+	else 
+		self.target_on_part(0) >> node_011 => return 
+		self.target_on_part(1) >> node_013 => return 
+		self.target_on_part(2) >> node_015 => return 
+	endif 
+	return 
+endf 
+
+def node_009
+	if self.mounted() 
+		>> node_020 
+	else 
+	endif 
+	return 
+endf 
+
+def node_010
+	-> stygian_zinogre.ride_rage_head() 
+	return 
+endf 
+
+def node_011
+	-> stygian_zinogre.ride_rage_head_lv2() 
+	return 
+endf 
+
+def node_012
+	-> stygian_zinogre.ride_rage_body() 
+	return 
+endf 
+
+def node_013
+	-> stygian_zinogre.ride_rage_body_lv2() 
+	return 
+endf 
+
+def node_014
+	-> stygian_zinogre.ride_rage_tail() 
+	return 
+endf 
+
+def node_015
+	-> stygian_zinogre.ride_rage_tail_lv2() 
+	return 
+endf 
+
+def node_016
+	>> node_022 
+	>> Global.node_100 
+	return 
+endf 
+
+def node_017
+	>> Global.node_116 
+	return 
+endf 
+
+def node_018
+	>> Global.node_244 
+	return 
+endf 
+
+def node_019
+	if self.distance_3d_to_target().leq(500) 
+		>> Global.node_041 
+	elif self.distance_3d_to_target().gt(3500) 
+		if self.vertical_distance_to_target().leq(1000) 
+			>> node_017 
+		else 
+		endif 
+		>> node_018 
+		repeat 
+	else 
+	endif 
+	-> stygian_zinogre.dash(1,0,0,500) 
+	return 
+endf 
+
+def node_020
+	>> Global.node_221 
+	return 
+endf 
+
+def node_021
+	>> Global.node_217 
+	return 
+endf 
+
+def node_022
+	random (20) >> node_023 
+	elser (80) >> node_024 
+	endr 
+	>> node_028 
+	return 
+endf 
+
+def node_023
+	self.targetEnemy(21) @ parameter2:1000 
+	return 
+endf 
+
+def node_024
+	self.targetEnemy(22) @ parameter2:1000 
+	return 
+endf 
+
+def node_025
+	random (48) >> node_026 
+	elser (52) >> node_027 
+	endr 
+	return 
+endf 
+
+def node_026
+	self.targetEnemy(12) @ parameter2:1000 
+	return 
+endf 
+
+def node_027
+	self.targetEnemy(11) @ parameter2:1000 
+	return 
+endf 
+
+def node_028
+	>> Global.node_033 
+	return 
+endf 
+
+def node_029
+	if function#3B() 
+		if self.mount_staggered_twice() 
+			>> node_030 
+		else 
+		endif 
+	else 
+		if self.mount_finisher_ready() 
+			if self.mounted() 
+				random (60) >> node_030 
+				elser (40) 
+				endr 
+			else 
+				random (100) >> node_030 
+				elser (0) 
+				endr 
+			endif 
+		elif self.mount_stabbed() 
+			if self.mounted() 
+				random (40) >> node_030 
+				elser (60) 
+				endr 
+			else 
+				random (60) >> node_030 
+				elser (40) 
+				endr 
+			endif 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_030
+	-> stygian_zinogre.ride_tired() 
+	return 
+endf 
+

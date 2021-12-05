@@ -1,0 +1,37 @@
+importactions Paolumu as paolumu
+importlibrary Global as Global
+
+def node_000
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if self.target(7) 
+		>> node_002 
+	elif self.target(10) 
+		>> node_003 
+	else 
+		>> node_001 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	>> Global.node_094 
+	return 
+endf 
+
+def node_002
+	>> Global.node_094 
+	return 
+endf 
+
+def node_003
+	if self.flying() 
+		if function#101(2) >> Global.node_035 
+		elif function#101(1) >> Global.node_035 
+		else >> Global.node_023 
+		endif 
+	else 
+		>> Global.node_011 
+	endif 
+	return 
+endf 
+

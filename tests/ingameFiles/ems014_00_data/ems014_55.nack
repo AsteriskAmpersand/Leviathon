@@ -1,0 +1,82 @@
+importactions Popo as popo
+
+def node_000
+	if self.angle_2d_cw_between(30,330) 
+		-> action#0B() 
+	else 
+	endif 
+	return 
+endf 
+
+def node_001
+	if self.distance_3d_to_target().leq(3000) 
+		>> node_000 
+	else 
+	endif 
+	if function#B0() 
+		random (55) -> action#26() 
+		elser (45) -> action#27() 
+		endr 
+	elif function#B0(1) 
+		-> action#26() 
+	else 
+		-> action#27() 
+	endif 
+	return 
+endf 
+
+def node_002
+	if function#B0() 
+		if self.distance_3d_to_target().leq(1500) 
+			-> action#0E() 
+		else 
+			random (52) -> action#22() 
+			elser (48) -> action#23() 
+			endr 
+		endif 
+	elif function#B0(1) 
+		random (52) -> action#24() 
+		elser (48) -> action#0F() 
+		endr 
+	else 
+		random (60) -> action#25() 
+		elser (40) 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_003
+	>> node_000 
+	if function#B0() 
+		if self.distance_3d_to_target().leq(1000) 
+			random (58) -> action#0F() 
+			elser (42) -> action#0E() 
+			endr 
+		else 
+			-> action#0E() 
+		endif 
+	elif function#B0(1) 
+		-> action#26() 
+	else 
+		-> action#27() 
+	endif 
+	return 
+endf 
+
+def node_004
+	if self.distance_3d_to_target().leq(300) 
+		-> action#12() 
+	else 
+		>> node_000 
+		if function#B0() 
+			-> action#0E() 
+		elif function#B0(1) 
+			-> action#26() 
+		else 
+			-> action#27() 
+		endif 
+	endif 
+	return 
+endf 
+

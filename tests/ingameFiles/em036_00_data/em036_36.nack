@@ -1,0 +1,141 @@
+importactions Lavasioth as lavasioth
+importlibrary Global as Global
+
+def node_000
+	if self.current_quest().is_rank(rank.MR) 
+		>> node_001 
+	else 
+		>> node_002 
+	endif 
+	reset 
+endf 
+
+def node_001
+	self.targetEnemy(21) @ parameter2:750 
+	>> node_007 
+	if self.enraged() >> node_013 
+	elif self.fatigued() >> node_014 
+	else >> node_012 
+	endif 
+	reset 
+endf 
+
+def node_002
+	self.targetEnemy(21) @ parameter2:750 
+	>> node_007 
+	if self.enraged() >> node_004 
+	elif self.fatigued() >> node_005 
+	else >> node_003 
+	endif 
+	reset 
+endf 
+
+def node_003
+	random (35) >> node_006 
+	elser (10) >> Global.node_069 
+	elser (25) >> Global.node_070 
+	elser (10) >> Global.node_071 
+	elser (20) >> Global.node_095 
+	endr 
+	return 
+endf 
+
+def node_004
+	random (30) >> node_006 
+	elser (10) >> Global.node_069 
+	elser (25) >> Global.node_070 
+	elser (15) >> Global.node_071 
+	elser (20) >> Global.node_095 
+	endr 
+	return 
+endf 
+
+def node_005
+	random (35) >> node_006 
+	elser (10) >> Global.node_069 
+	elser (25) >> Global.node_070 
+	elser (10) >> Global.node_099 
+	elser (20) >> Global.node_095 
+	endr 
+	return 
+endf 
+
+def node_006
+	if function#101() >> Global.node_033 
+	else >> Global.node_058 
+	endif 
+	return 
+endf 
+
+def node_007
+	self.target_on_part(0) >> node_008 => reset 
+	self.target_on_part(1) >> node_009 => reset 
+	return 
+endf 
+
+def node_008
+	if self.mounted() -> lavasioth.ride_rage_head() 
+	elif self.mounted() -> lavasioth.ride_rage_head() @ parameter1:1 
+	endif 
+	-> lavasioth.ride_wait() 
+	return 
+endf 
+
+def node_009
+	if self.mounted() -> lavasioth.ride_rage_body() 
+	elif self.mounted() -> lavasioth.ride_rage_body_lv2() @ parameter1:1 
+	endif 
+	-> lavasioth.ride_wait() 
+	return 
+endf 
+
+def node_010
+	if function#3B() 
+		if self.mount_staggered_twice() >> node_011 
+		endif 
+	else 
+		if self.mount_stabbed() 
+			random (50) >> node_011 
+			elser (50) 
+			endr 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_011
+	if self.mounted() -> lavasioth.ride_tired() @ parameter1:1 
+	endif 
+	return 
+endf 
+
+def node_012
+	random (45) >> node_006 
+	elser (5) >> Global.node_069 
+	elser (35) >> Global.node_070 
+	elser (15) >> Global.node_071 
+	elser (0) >> Global.node_095 
+	endr 
+	return 
+endf 
+
+def node_013
+	random (40) >> node_006 
+	elser (0) >> Global.node_069 
+	elser (35) >> Global.node_070 
+	elser (25) >> Global.node_071 
+	elser (0) >> Global.node_095 
+	endr 
+	return 
+endf 
+
+def node_014
+	random (55) >> node_006 
+	elser (10) >> Global.node_069 
+	elser (35) >> Global.node_070 
+	elser (0) >> Global.node_099 
+	elser (0) >> Global.node_095 
+	endr 
+	return 
+endf 
+

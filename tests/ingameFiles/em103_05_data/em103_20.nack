@@ -1,0 +1,23 @@
+importactions Ruiner_Nergigante as ruiner_nergigante
+importlibrary Global as Global
+
+def node_000
+	self.targetArea(24) 
+	if self.distance_3d_to_target().gt(500) 
+		-> ruiner_nergigante.dying_walk(2,5,0,2000) 
+		repeat 
+	else 
+		>> node_001 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	if function#7C() 
+		conclude 
+	else 
+		>> Global.node_062 
+	endif 
+	return 
+endf 
+

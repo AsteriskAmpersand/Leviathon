@@ -1,0 +1,66 @@
+importactions Seething_Bazelgeuse as seething_bazelgeuse
+importlibrary Global as Global
+
+def node_000
+	self.targetEnemy(13) 
+	if self.target(4) 
+		>> Global.node_230 
+	else 
+		>> Global.node_091 
+		>> Global.node_018 
+		>> node_001 
+		>> node_002 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	if self.distance_2d_to_target().leq(800) 
+		return 
+	else 
+		>> Global.node_119 
+	endif 
+	return 
+endf 
+
+def node_002
+	self.targetEnemy(48) 
+	if self.target(10) 
+		>> node_005 
+	elif self.target(7) 
+		>> node_003 
+	elif function#5F() 
+		>> node_003 
+	elif self.distance_3d_to_target().gt(1000) 
+		>> node_003 
+	elif self.angle_2d_cw_between(45,315) 
+		>> node_003 
+	else 
+		>> node_004 
+	endif 
+	return 
+endf 
+
+def node_003
+	-> seething_bazelgeuse.sniff_s() 
+	>> Global.node_107 
+	return 
+endf 
+
+def node_004
+	if function#5F() 
+		>> Global.node_106 
+	else 
+		>> Global.node_112 
+	endif 
+	return 
+endf 
+
+def node_005
+	self.targetEnemy(9) @ parameter2:1000 
+	random (50) >> Global.node_046 
+	elser (50) >> Global.node_037 
+	endr 
+	return 
+endf 
+

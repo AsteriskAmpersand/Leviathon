@@ -1,0 +1,47 @@
+importactions Savage_Deviljho as savage_deviljho
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_184 
+	>> Global.node_185 
+	self.targetEnemy(target_em.closest_entity) 
+	if function#101() 
+		>> Global.node_160 
+	endif 
+	>> node_001 
+	conclude 
+endf 
+
+def node_001
+	if self.target_is(em.Bazelgeuse) 
+		-> savage_deviljho.grapple_with_em118_mediation_threat() 
+	elif self.target_is(em.Rathalos) 
+		-> savage_deviljho.grapple_with_em002_mediation_threat() 
+	elif self.target_is(em.Legiana) 
+		-> savage_deviljho.grapple_with_em111_mediation_threat() 
+	elif self.target_is(em.Diablos) 
+		-> savage_deviljho.grapple_with_em007_mediation_threat() 
+	elif self.target_is(em.Ruiner_Nergigante) 
+		-> savage_deviljho.grapple_with_em103_05_mediation() 
+	elif self.target_is(em.Azure_Rathalos) 
+		-> savage_deviljho.grapple_with_em002_01_mediation_threat() 
+	elif self.target_is(em.Shrieking_Legiana) 
+		-> savage_deviljho.grapple_with_em111_05_mediation_threat() 
+	elif self.target_is(em.Black_Diablos) 
+		-> savage_deviljho.grapple_with_em007_01_mediation_threat() 
+	elif self.target_is(em.Seething_Bazelgeuse) 
+		-> savage_deviljho.grapple_with_em118_05_mediation_threat() 
+	elif self.target_is(em.Velkhana) 
+		-> savage_deviljho.grapple_with_em124_mediation() 
+	elif self.target_is(em.Blackveil_Vaal_Hazak) 
+		-> savage_deviljho.grapple_with_em115_05_mediation() 
+	elif self.target_is(em.Namielle) 
+		-> savage_deviljho.grapple_with_em125_mediation() 
+	elif self.target_is(em.Rajang) 
+		-> savage_deviljho.grapple_with_em023_mediation() 
+	elif self.target_is(em.Furious_Rajang) 
+		-> savage_deviljho.grapple_with_em023_mediation() 
+	endif 
+	return 
+endf 
+

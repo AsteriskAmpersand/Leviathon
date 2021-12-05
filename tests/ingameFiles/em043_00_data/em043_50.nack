@@ -1,0 +1,120 @@
+importactions Deviljho as deviljho
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_120 
+	>> Global.node_121 
+	if function#101() 
+		>> Global.node_096 
+	else 
+	endif 
+	>> node_001 
+	conclude 
+endf 
+
+def node_001
+	self.targetEnemy(target_em.closest_entity) 
+	if self.target_is(em.Rathalos) 
+		>> node_002 
+	elif self.target_is(em.Legiana) 
+		>> node_003 
+	elif self.target_is(em.Diablos) 
+		>> node_004 
+	elif self.target_is(em.Bazelgeuse) 
+		>> node_005 
+	elif self.target_is(em.Rajang) 
+		>> node_007 
+	elif self.target_is(em.Furious_Rajang) 
+		>> node_007 
+	endif 
+	return 
+endf 
+
+def node_002
+	if self.distance_2d_to_target().gt(1900) 
+		-> deviljho.dash(6,0,0,1800) 
+	else 
+	endif 
+	if self.distance_2d_to_target().leq(1100) 
+		-> deviljho.back_turn() 
+	else 
+		-> deviljho.quick_turn() 
+	endif 
+	function#104() 
+	-> deviljho.grapple_with_em002_start() 
+	>> node_006 
+	return 
+endf 
+
+def node_003
+	if self.distance_2d_to_target().gt(1900) 
+		-> deviljho.dash(6,0,0,1800) 
+	else 
+	endif 
+	if self.distance_2d_to_target().leq(1100) 
+		-> deviljho.back_turn() 
+	else 
+		-> deviljho.quick_turn() 
+	endif 
+	function#104() 
+	-> deviljho.grapple_with_em111_start() 
+	>> node_006 
+	return 
+endf 
+
+def node_004
+	if self.distance_3d_to_target().gt(1800) 
+		-> deviljho.dash(1,0,0,1700) 
+	else 
+	endif 
+	if self.distance_3d_to_target().leq(1100) 
+		-> deviljho.back_turn() 
+	else 
+		-> deviljho.quick_turn() 
+	endif 
+	function#104() 
+	-> deviljho.grapple_with_em007_start() 
+	>> node_006 
+	return 
+endf 
+
+def node_005
+	if self.distance_3d_to_target().gt(1350) 
+		-> deviljho.dash(1,0,0,1250) 
+	else 
+	endif 
+	if self.distance_3d_to_target().leq(800) 
+		-> deviljho.back_turn() 
+	else 
+		-> deviljho.quick_turn() 
+	endif 
+	function#104() 
+	-> deviljho.grapple_with_em118_start() 
+	>> node_006 
+	return 
+endf 
+
+def node_006
+	if self.enraged() 
+	else 
+		function#104(1) 
+	endif 
+	return 
+endf 
+
+def node_007
+	if self.distance_3d_to_target().gt(1800) 
+		-> deviljho.dash(1,0,0,1700) 
+	else 
+	endif 
+	if self.distance_3d_to_target().leq(1100) 
+		-> deviljho.back_turn() 
+	else 
+		-> deviljho.quick_turn() 
+	endif 
+	function#104() 
+	-> deviljho.grapple_with_em023_first() 
+	>> node_006 
+	return 
+endf 
+

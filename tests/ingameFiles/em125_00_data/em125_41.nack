@@ -1,0 +1,88 @@
+importactions Namielle as namielle
+importlibrary Global as Global
+
+def node_000
+	>> node_001 
+	conclude 
+endf 
+
+def node_001
+	self.targetArea(20) 
+	if function#AD() 
+		>> node_002 
+	else 
+		>> node_003 
+	endif 
+	>> node_006 
+	return 
+endf 
+
+def node_002
+	if self.flying() 
+		self.targetArea(40) 
+		>> Global.node_097 
+	else 
+		>> Global.node_078 
+	endif 
+	return 
+endf 
+
+def node_003
+	>> node_004 
+	>> node_005 
+	return 
+endf 
+
+def node_004
+	if self.flying() 
+		self.targetArea(target_area.area_aerial_center) 
+		>> Global.node_098 
+	else 
+		self.targetArea(target_area.area_aerial_center) 
+		>> Global.node_105 
+	endif 
+	return 
+endf 
+
+def node_005
+	self.targetArea(20) 
+	if self.flying() 
+		self.targetArea(40) 
+		>> Global.node_096 
+	else 
+		>> Global.node_078 
+	endif 
+	return 
+endf 
+
+def node_006
+	self.targetArea(target_area.area_center) 
+	if self.flying() 
+		>> Global.node_107 
+	else 
+	endif 
+	return 
+endf 
+
+def node_007
+	if self.flying() 
+		self.targetArea(target_area.area_center) 
+		>> Global.node_068 
+	else 
+	endif 
+	return 
+endf 
+
+def node_008
+	if self.flying() 
+		>> Global.node_101 
+	else 
+		if self.in_combat() 
+			>> Global.node_078 
+		else 
+			>> Global.node_078 
+		endif 
+	endif 
+	return 
+endf 
+

@@ -10,6 +10,7 @@ import sys; sys.path.insert(0, '../Leviathon')
 import sys
 import json
 import argparse
+import regex
 from pathlib import Path
 
 from decompilerMain import main as decompiler
@@ -40,7 +41,7 @@ def getMode(inputFile):
     extension = Path(inputFile).suffix
     mapping = {".json":jsonParse,
          ".nack":compiler,".fand":compiler,
-         ".thklist":decompiler,".thk":decompiler}
+         ".thklst":decompiler,".thk":decompiler}
     if extension not in mapping:
         raise ValueError("%s is not a .thklst, .thk, .fand, .nack or .json file"%inputFile)
     return mapping[extension]

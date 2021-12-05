@@ -40,16 +40,16 @@ Rule 36    segment -> chance
 Rule 37    chance -> chanceHeader actionTypeStart nodeBody chanceBody uncontrolledSegment nodeBody optionalChance
 Rule 38    optionalChance -> optionalTerminator
 Rule 39    optionalChance -> chanceBody actionTypeStart nodeBody optionalChance
-Rule 40    optionalTerminator -> ENDCHANCEWITH uncontrolledSegment skip
-Rule 41    optionalTerminator -> ENDCWITH uncontrolledSegment skip
-Rule 42    optionalTerminator -> ENDCHANCE skip
-Rule 43    optionalTerminator -> ENDC skip
-Rule 44    chanceHeader -> CHANCE ( id )
-Rule 45    chanceHeader -> CHANCE ( numeric )
+Rule 40    optionalTerminator -> ENDRANDOMWITH uncontrolledSegment skip
+Rule 41    optionalTerminator -> ENDRWITH uncontrolledSegment skip
+Rule 42    optionalTerminator -> ENDRANDOM skip
+Rule 43    optionalTerminator -> ENDR skip
+Rule 44    chanceHeader -> RANDOM ( id )
+Rule 45    chanceHeader -> RANDOM ( numeric )
 Rule 46    chanceBody -> elsechance ( id )
 Rule 47    chanceBody -> elsechance ( numeric )
-Rule 48    elsechance -> ELSEC
-Rule 49    elsechance -> ELSECHANCE
+Rule 48    elsechance -> ELSER
+Rule 49    elsechance -> ELSERANDOM
 Rule 50    conditional -> IF uncontrolledSegment nodeBody conditionalTerminator
 Rule 51    conditionalTerminator -> ENDWITH uncontrolledSegment
 Rule 52    conditionalTerminator -> ENDIF skip
@@ -141,8 +141,8 @@ Rule 137   empty -> <empty>
 
 Unused terminals:
 
-    LINECONTINUE
     COMMENTS
+    LINECONTINUE
 
 Terminals, with rules where they appear:
 
@@ -156,7 +156,6 @@ ACTION               : 101
 AS                   : 8 9 10 11 12 13
 ASSIGN               : 15
 CALL                 : 102 104
-CHANCE               : 44 45
 COMMENTS             : 
 CONCLUDE             : 34
 DEF                  : 19
@@ -166,16 +165,16 @@ DO_DIRECTIVE         : 74
 DO_NOTHING           : 31
 ELIF                 : 54
 ELSE                 : 53
-ELSEC                : 48
-ELSECHANCE           : 49
-ENDC                 : 43
-ENDCHANCE            : 42
-ENDCHANCEWITH        : 40
-ENDCWITH             : 41
+ELSER                : 48
+ELSERANDOM           : 49
 ENDDEF               : 29
 ENDF                 : 30
 ENDFUNCTION          : 28
 ENDIF                : 52
+ENDR                 : 43
+ENDRANDOM            : 42
+ENDRANDOMWITH        : 40
+ENDRWITH             : 41
 ENDWITH              : 51
 EQ                   : 122
 FLOAT                : 131
@@ -197,6 +196,7 @@ META                 : 23 24 75
 NEQ                  : 117
 NUMBER               : 133
 PATH                 : 10 12
+RANDOM               : 44 45
 REG                  : 13 123
 REGISTER             : 13 14
 REPEAT               : 106
@@ -389,7 +389,7 @@ state 4
     REPEAT          reduce using rule 136 (skip -> LINESKIP .)
     RESET           reduce using rule 136 (skip -> LINESKIP .)
     RETURN          reduce using rule 136 (skip -> LINESKIP .)
-    CHANCE          reduce using rule 136 (skip -> LINESKIP .)
+    RANDOM          reduce using rule 136 (skip -> LINESKIP .)
     [               reduce using rule 136 (skip -> LINESKIP .)
     FUNCTION        reduce using rule 136 (skip -> LINESKIP .)
     FUNCTION_START  reduce using rule 136 (skip -> LINESKIP .)
@@ -404,12 +404,12 @@ state 4
     ENDIF           reduce using rule 136 (skip -> LINESKIP .)
     ELSE            reduce using rule 136 (skip -> LINESKIP .)
     ELIF            reduce using rule 136 (skip -> LINESKIP .)
-    ELSEC           reduce using rule 136 (skip -> LINESKIP .)
-    ELSECHANCE      reduce using rule 136 (skip -> LINESKIP .)
-    ENDCHANCEWITH   reduce using rule 136 (skip -> LINESKIP .)
-    ENDCWITH        reduce using rule 136 (skip -> LINESKIP .)
-    ENDCHANCE       reduce using rule 136 (skip -> LINESKIP .)
-    ENDC            reduce using rule 136 (skip -> LINESKIP .)
+    ELSER           reduce using rule 136 (skip -> LINESKIP .)
+    ELSERANDOM      reduce using rule 136 (skip -> LINESKIP .)
+    ENDRANDOMWITH   reduce using rule 136 (skip -> LINESKIP .)
+    ENDRWITH        reduce using rule 136 (skip -> LINESKIP .)
+    ENDRANDOM       reduce using rule 136 (skip -> LINESKIP .)
+    ENDR            reduce using rule 136 (skip -> LINESKIP .)
     LINESKIP        shift and go to state 4
 
     skip                           shift and go to state 21
@@ -682,8 +682,8 @@ state 19
     (108) directiveName -> . RETURN
     (58) maybeFunctionType -> . empty
     (59) maybeFunctionType -> . functionType
-    (44) chanceHeader -> . CHANCE ( id )
-    (45) chanceHeader -> . CHANCE ( numeric )
+    (44) chanceHeader -> . RANDOM ( id )
+    (45) chanceHeader -> . RANDOM ( numeric )
     (68) functionType -> . registerType
     (69) functionType -> . functionLiteral
     (70) functionType -> . functionName
@@ -707,7 +707,7 @@ state 19
     REPEAT          shift and go to state 50
     RESET           shift and go to state 51
     RETURN          shift and go to state 52
-    CHANCE          shift and go to state 54
+    RANDOM          shift and go to state 54
     [               shift and go to state 58
     FUNCTION        shift and go to state 59
     FUNCTION_START  shift and go to state 60
@@ -750,7 +750,7 @@ state 21
     REPEAT          reduce using rule 135 (skip -> LINESKIP skip .)
     RESET           reduce using rule 135 (skip -> LINESKIP skip .)
     RETURN          reduce using rule 135 (skip -> LINESKIP skip .)
-    CHANCE          reduce using rule 135 (skip -> LINESKIP skip .)
+    RANDOM          reduce using rule 135 (skip -> LINESKIP skip .)
     [               reduce using rule 135 (skip -> LINESKIP skip .)
     FUNCTION        reduce using rule 135 (skip -> LINESKIP skip .)
     FUNCTION_START  reduce using rule 135 (skip -> LINESKIP skip .)
@@ -766,12 +766,12 @@ state 21
     ENDIF           reduce using rule 135 (skip -> LINESKIP skip .)
     ELSE            reduce using rule 135 (skip -> LINESKIP skip .)
     ELIF            reduce using rule 135 (skip -> LINESKIP skip .)
-    ELSEC           reduce using rule 135 (skip -> LINESKIP skip .)
-    ELSECHANCE      reduce using rule 135 (skip -> LINESKIP skip .)
-    ENDCHANCEWITH   reduce using rule 135 (skip -> LINESKIP skip .)
-    ENDCWITH        reduce using rule 135 (skip -> LINESKIP skip .)
-    ENDCHANCE       reduce using rule 135 (skip -> LINESKIP skip .)
-    ENDC            reduce using rule 135 (skip -> LINESKIP skip .)
+    ELSER           reduce using rule 135 (skip -> LINESKIP skip .)
+    ELSERANDOM      reduce using rule 135 (skip -> LINESKIP skip .)
+    ENDRANDOMWITH   reduce using rule 135 (skip -> LINESKIP skip .)
+    ENDRWITH        reduce using rule 135 (skip -> LINESKIP skip .)
+    ENDRANDOM       reduce using rule 135 (skip -> LINESKIP skip .)
+    ENDR            reduce using rule 135 (skip -> LINESKIP skip .)
 
 
 state 22
@@ -910,12 +910,12 @@ state 38
     ENDIF           reduce using rule 26 (nodeBody -> empty .)
     ELSE            reduce using rule 26 (nodeBody -> empty .)
     ELIF            reduce using rule 26 (nodeBody -> empty .)
-    ELSEC           reduce using rule 26 (nodeBody -> empty .)
-    ELSECHANCE      reduce using rule 26 (nodeBody -> empty .)
-    ENDCHANCEWITH   reduce using rule 26 (nodeBody -> empty .)
-    ENDCWITH        reduce using rule 26 (nodeBody -> empty .)
-    ENDCHANCE       reduce using rule 26 (nodeBody -> empty .)
-    ENDC            reduce using rule 26 (nodeBody -> empty .)
+    ELSER           reduce using rule 26 (nodeBody -> empty .)
+    ELSERANDOM      reduce using rule 26 (nodeBody -> empty .)
+    ENDRANDOMWITH   reduce using rule 26 (nodeBody -> empty .)
+    ENDRWITH        reduce using rule 26 (nodeBody -> empty .)
+    ENDRANDOM       reduce using rule 26 (nodeBody -> empty .)
+    ENDR            reduce using rule 26 (nodeBody -> empty .)
     DO_ACTION       reduce using rule 58 (maybeFunctionType -> empty .)
     DO_CALL         reduce using rule 58 (maybeFunctionType -> empty .)
     DO_DIRECTIVE    reduce using rule 58 (maybeFunctionType -> empty .)
@@ -944,8 +944,8 @@ state 39
     (108) directiveName -> . RETURN
     (58) maybeFunctionType -> . empty
     (59) maybeFunctionType -> . functionType
-    (44) chanceHeader -> . CHANCE ( id )
-    (45) chanceHeader -> . CHANCE ( numeric )
+    (44) chanceHeader -> . RANDOM ( id )
+    (45) chanceHeader -> . RANDOM ( numeric )
     (68) functionType -> . registerType
     (69) functionType -> . functionLiteral
     (70) functionType -> . functionName
@@ -961,12 +961,12 @@ state 39
     ENDIF           reduce using rule 137 (empty -> .)
     ELSE            reduce using rule 137 (empty -> .)
     ELIF            reduce using rule 137 (empty -> .)
-    ELSEC           reduce using rule 137 (empty -> .)
-    ELSECHANCE      reduce using rule 137 (empty -> .)
-    ENDCHANCEWITH   reduce using rule 137 (empty -> .)
-    ENDCWITH        reduce using rule 137 (empty -> .)
-    ENDCHANCE       reduce using rule 137 (empty -> .)
-    ENDC            reduce using rule 137 (empty -> .)
+    ELSER           reduce using rule 137 (empty -> .)
+    ELSERANDOM      reduce using rule 137 (empty -> .)
+    ENDRANDOMWITH   reduce using rule 137 (empty -> .)
+    ENDRWITH        reduce using rule 137 (empty -> .)
+    ENDRANDOM       reduce using rule 137 (empty -> .)
+    ENDR            reduce using rule 137 (empty -> .)
     DO_ACTION       reduce using rule 137 (empty -> .)
     DO_CALL         reduce using rule 137 (empty -> .)
     DO_DIRECTIVE    reduce using rule 137 (empty -> .)
@@ -979,7 +979,7 @@ state 39
     REPEAT          shift and go to state 50
     RESET           shift and go to state 51
     RETURN          shift and go to state 52
-    CHANCE          shift and go to state 54
+    RANDOM          shift and go to state 54
     [               shift and go to state 58
     FUNCTION        shift and go to state 59
     FUNCTION_START  shift and go to state 60
@@ -1026,7 +1026,7 @@ state 42
     REPEAT          reduce using rule 33 (segment -> uncontrolledSegment .)
     RESET           reduce using rule 33 (segment -> uncontrolledSegment .)
     RETURN          reduce using rule 33 (segment -> uncontrolledSegment .)
-    CHANCE          reduce using rule 33 (segment -> uncontrolledSegment .)
+    RANDOM          reduce using rule 33 (segment -> uncontrolledSegment .)
     [               reduce using rule 33 (segment -> uncontrolledSegment .)
     FUNCTION        reduce using rule 33 (segment -> uncontrolledSegment .)
     FUNCTION_START  reduce using rule 33 (segment -> uncontrolledSegment .)
@@ -1042,12 +1042,12 @@ state 42
     ENDIF           reduce using rule 33 (segment -> uncontrolledSegment .)
     ELSE            reduce using rule 33 (segment -> uncontrolledSegment .)
     ELIF            reduce using rule 33 (segment -> uncontrolledSegment .)
-    ELSEC           reduce using rule 33 (segment -> uncontrolledSegment .)
-    ELSECHANCE      reduce using rule 33 (segment -> uncontrolledSegment .)
-    ENDCHANCEWITH   reduce using rule 33 (segment -> uncontrolledSegment .)
-    ENDCWITH        reduce using rule 33 (segment -> uncontrolledSegment .)
-    ENDCHANCE       reduce using rule 33 (segment -> uncontrolledSegment .)
-    ENDC            reduce using rule 33 (segment -> uncontrolledSegment .)
+    ELSER           reduce using rule 33 (segment -> uncontrolledSegment .)
+    ELSERANDOM      reduce using rule 33 (segment -> uncontrolledSegment .)
+    ENDRANDOMWITH   reduce using rule 33 (segment -> uncontrolledSegment .)
+    ENDRWITH        reduce using rule 33 (segment -> uncontrolledSegment .)
+    ENDRANDOM       reduce using rule 33 (segment -> uncontrolledSegment .)
+    ENDR            reduce using rule 33 (segment -> uncontrolledSegment .)
 
 
 state 43
@@ -1100,7 +1100,7 @@ state 44
     REPEAT          reduce using rule 35 (segment -> conditional .)
     RESET           reduce using rule 35 (segment -> conditional .)
     RETURN          reduce using rule 35 (segment -> conditional .)
-    CHANCE          reduce using rule 35 (segment -> conditional .)
+    RANDOM          reduce using rule 35 (segment -> conditional .)
     [               reduce using rule 35 (segment -> conditional .)
     FUNCTION        reduce using rule 35 (segment -> conditional .)
     FUNCTION_START  reduce using rule 35 (segment -> conditional .)
@@ -1116,12 +1116,12 @@ state 44
     ENDIF           reduce using rule 35 (segment -> conditional .)
     ELSE            reduce using rule 35 (segment -> conditional .)
     ELIF            reduce using rule 35 (segment -> conditional .)
-    ELSEC           reduce using rule 35 (segment -> conditional .)
-    ELSECHANCE      reduce using rule 35 (segment -> conditional .)
-    ENDCHANCEWITH   reduce using rule 35 (segment -> conditional .)
-    ENDCWITH        reduce using rule 35 (segment -> conditional .)
-    ENDCHANCE       reduce using rule 35 (segment -> conditional .)
-    ENDC            reduce using rule 35 (segment -> conditional .)
+    ELSER           reduce using rule 35 (segment -> conditional .)
+    ELSERANDOM      reduce using rule 35 (segment -> conditional .)
+    ENDRANDOMWITH   reduce using rule 35 (segment -> conditional .)
+    ENDRWITH        reduce using rule 35 (segment -> conditional .)
+    ENDRANDOM       reduce using rule 35 (segment -> conditional .)
+    ENDR            reduce using rule 35 (segment -> conditional .)
 
 
 state 45
@@ -1134,7 +1134,7 @@ state 45
     REPEAT          reduce using rule 36 (segment -> chance .)
     RESET           reduce using rule 36 (segment -> chance .)
     RETURN          reduce using rule 36 (segment -> chance .)
-    CHANCE          reduce using rule 36 (segment -> chance .)
+    RANDOM          reduce using rule 36 (segment -> chance .)
     [               reduce using rule 36 (segment -> chance .)
     FUNCTION        reduce using rule 36 (segment -> chance .)
     FUNCTION_START  reduce using rule 36 (segment -> chance .)
@@ -1150,12 +1150,12 @@ state 45
     ENDIF           reduce using rule 36 (segment -> chance .)
     ELSE            reduce using rule 36 (segment -> chance .)
     ELIF            reduce using rule 36 (segment -> chance .)
-    ELSEC           reduce using rule 36 (segment -> chance .)
-    ELSECHANCE      reduce using rule 36 (segment -> chance .)
-    ENDCHANCEWITH   reduce using rule 36 (segment -> chance .)
-    ENDCWITH        reduce using rule 36 (segment -> chance .)
-    ENDCHANCE       reduce using rule 36 (segment -> chance .)
-    ENDC            reduce using rule 36 (segment -> chance .)
+    ELSER           reduce using rule 36 (segment -> chance .)
+    ELSERANDOM      reduce using rule 36 (segment -> chance .)
+    ENDRANDOMWITH   reduce using rule 36 (segment -> chance .)
+    ENDRWITH        reduce using rule 36 (segment -> chance .)
+    ENDRANDOM       reduce using rule 36 (segment -> chance .)
+    ENDR            reduce using rule 36 (segment -> chance .)
 
 
 state 46
@@ -1285,8 +1285,8 @@ state 53
 
 state 54
 
-    (44) chanceHeader -> CHANCE . ( id )
-    (45) chanceHeader -> CHANCE . ( numeric )
+    (44) chanceHeader -> RANDOM . ( id )
+    (45) chanceHeader -> RANDOM . ( numeric )
     (               shift and go to state 90
 
 
@@ -1494,12 +1494,12 @@ state 74
     ENDIF           reduce using rule 27 (nodeBody -> segment nodeBody .)
     ELSE            reduce using rule 27 (nodeBody -> segment nodeBody .)
     ELIF            reduce using rule 27 (nodeBody -> segment nodeBody .)
-    ELSEC           reduce using rule 27 (nodeBody -> segment nodeBody .)
-    ELSECHANCE      reduce using rule 27 (nodeBody -> segment nodeBody .)
-    ENDCHANCEWITH   reduce using rule 27 (nodeBody -> segment nodeBody .)
-    ENDCWITH        reduce using rule 27 (nodeBody -> segment nodeBody .)
-    ENDCHANCE       reduce using rule 27 (nodeBody -> segment nodeBody .)
-    ENDC            reduce using rule 27 (nodeBody -> segment nodeBody .)
+    ELSER           reduce using rule 27 (nodeBody -> segment nodeBody .)
+    ELSERANDOM      reduce using rule 27 (nodeBody -> segment nodeBody .)
+    ENDRANDOMWITH   reduce using rule 27 (nodeBody -> segment nodeBody .)
+    ENDRWITH        reduce using rule 27 (nodeBody -> segment nodeBody .)
+    ENDRANDOM       reduce using rule 27 (nodeBody -> segment nodeBody .)
+    ENDR            reduce using rule 27 (nodeBody -> segment nodeBody .)
 
 
 state 75
@@ -1512,7 +1512,7 @@ state 75
     REPEAT          reduce using rule 31 (segment -> DO_NOTHING skip .)
     RESET           reduce using rule 31 (segment -> DO_NOTHING skip .)
     RETURN          reduce using rule 31 (segment -> DO_NOTHING skip .)
-    CHANCE          reduce using rule 31 (segment -> DO_NOTHING skip .)
+    RANDOM          reduce using rule 31 (segment -> DO_NOTHING skip .)
     [               reduce using rule 31 (segment -> DO_NOTHING skip .)
     FUNCTION        reduce using rule 31 (segment -> DO_NOTHING skip .)
     FUNCTION_START  reduce using rule 31 (segment -> DO_NOTHING skip .)
@@ -1528,12 +1528,12 @@ state 75
     ENDIF           reduce using rule 31 (segment -> DO_NOTHING skip .)
     ELSE            reduce using rule 31 (segment -> DO_NOTHING skip .)
     ELIF            reduce using rule 31 (segment -> DO_NOTHING skip .)
-    ELSEC           reduce using rule 31 (segment -> DO_NOTHING skip .)
-    ELSECHANCE      reduce using rule 31 (segment -> DO_NOTHING skip .)
-    ENDCHANCEWITH   reduce using rule 31 (segment -> DO_NOTHING skip .)
-    ENDCWITH        reduce using rule 31 (segment -> DO_NOTHING skip .)
-    ENDCHANCE       reduce using rule 31 (segment -> DO_NOTHING skip .)
-    ENDC            reduce using rule 31 (segment -> DO_NOTHING skip .)
+    ELSER           reduce using rule 31 (segment -> DO_NOTHING skip .)
+    ELSERANDOM      reduce using rule 31 (segment -> DO_NOTHING skip .)
+    ENDRANDOMWITH   reduce using rule 31 (segment -> DO_NOTHING skip .)
+    ENDRWITH        reduce using rule 31 (segment -> DO_NOTHING skip .)
+    ENDRANDOM       reduce using rule 31 (segment -> DO_NOTHING skip .)
+    ENDR            reduce using rule 31 (segment -> DO_NOTHING skip .)
 
 
 state 76
@@ -1546,7 +1546,7 @@ state 76
     REPEAT          reduce using rule 32 (segment -> UNSAFE skip .)
     RESET           reduce using rule 32 (segment -> UNSAFE skip .)
     RETURN          reduce using rule 32 (segment -> UNSAFE skip .)
-    CHANCE          reduce using rule 32 (segment -> UNSAFE skip .)
+    RANDOM          reduce using rule 32 (segment -> UNSAFE skip .)
     [               reduce using rule 32 (segment -> UNSAFE skip .)
     FUNCTION        reduce using rule 32 (segment -> UNSAFE skip .)
     FUNCTION_START  reduce using rule 32 (segment -> UNSAFE skip .)
@@ -1562,12 +1562,12 @@ state 76
     ENDIF           reduce using rule 32 (segment -> UNSAFE skip .)
     ELSE            reduce using rule 32 (segment -> UNSAFE skip .)
     ELIF            reduce using rule 32 (segment -> UNSAFE skip .)
-    ELSEC           reduce using rule 32 (segment -> UNSAFE skip .)
-    ELSECHANCE      reduce using rule 32 (segment -> UNSAFE skip .)
-    ENDCHANCEWITH   reduce using rule 32 (segment -> UNSAFE skip .)
-    ENDCWITH        reduce using rule 32 (segment -> UNSAFE skip .)
-    ENDCHANCE       reduce using rule 32 (segment -> UNSAFE skip .)
-    ENDC            reduce using rule 32 (segment -> UNSAFE skip .)
+    ELSER           reduce using rule 32 (segment -> UNSAFE skip .)
+    ELSERANDOM      reduce using rule 32 (segment -> UNSAFE skip .)
+    ENDRANDOMWITH   reduce using rule 32 (segment -> UNSAFE skip .)
+    ENDRWITH        reduce using rule 32 (segment -> UNSAFE skip .)
+    ENDRANDOM       reduce using rule 32 (segment -> UNSAFE skip .)
+    ENDR            reduce using rule 32 (segment -> UNSAFE skip .)
 
 
 state 77
@@ -1580,7 +1580,7 @@ state 77
     REPEAT          reduce using rule 34 (segment -> CONCLUDE uncontrolledSegment .)
     RESET           reduce using rule 34 (segment -> CONCLUDE uncontrolledSegment .)
     RETURN          reduce using rule 34 (segment -> CONCLUDE uncontrolledSegment .)
-    CHANCE          reduce using rule 34 (segment -> CONCLUDE uncontrolledSegment .)
+    RANDOM          reduce using rule 34 (segment -> CONCLUDE uncontrolledSegment .)
     [               reduce using rule 34 (segment -> CONCLUDE uncontrolledSegment .)
     FUNCTION        reduce using rule 34 (segment -> CONCLUDE uncontrolledSegment .)
     FUNCTION_START  reduce using rule 34 (segment -> CONCLUDE uncontrolledSegment .)
@@ -1596,12 +1596,12 @@ state 77
     ENDIF           reduce using rule 34 (segment -> CONCLUDE uncontrolledSegment .)
     ELSE            reduce using rule 34 (segment -> CONCLUDE uncontrolledSegment .)
     ELIF            reduce using rule 34 (segment -> CONCLUDE uncontrolledSegment .)
-    ELSEC           reduce using rule 34 (segment -> CONCLUDE uncontrolledSegment .)
-    ELSECHANCE      reduce using rule 34 (segment -> CONCLUDE uncontrolledSegment .)
-    ENDCHANCEWITH   reduce using rule 34 (segment -> CONCLUDE uncontrolledSegment .)
-    ENDCWITH        reduce using rule 34 (segment -> CONCLUDE uncontrolledSegment .)
-    ENDCHANCE       reduce using rule 34 (segment -> CONCLUDE uncontrolledSegment .)
-    ENDC            reduce using rule 34 (segment -> CONCLUDE uncontrolledSegment .)
+    ELSER           reduce using rule 34 (segment -> CONCLUDE uncontrolledSegment .)
+    ELSERANDOM      reduce using rule 34 (segment -> CONCLUDE uncontrolledSegment .)
+    ENDRANDOMWITH   reduce using rule 34 (segment -> CONCLUDE uncontrolledSegment .)
+    ENDRWITH        reduce using rule 34 (segment -> CONCLUDE uncontrolledSegment .)
+    ENDRANDOM       reduce using rule 34 (segment -> CONCLUDE uncontrolledSegment .)
+    ENDR            reduce using rule 34 (segment -> CONCLUDE uncontrolledSegment .)
 
 
 state 78
@@ -1658,7 +1658,7 @@ state 83
     REPEAT          reduce using rule 56 (uncontrolledSegment -> maybeFunctionType actionTypeStart .)
     RESET           reduce using rule 56 (uncontrolledSegment -> maybeFunctionType actionTypeStart .)
     RETURN          reduce using rule 56 (uncontrolledSegment -> maybeFunctionType actionTypeStart .)
-    CHANCE          reduce using rule 56 (uncontrolledSegment -> maybeFunctionType actionTypeStart .)
+    RANDOM          reduce using rule 56 (uncontrolledSegment -> maybeFunctionType actionTypeStart .)
     [               reduce using rule 56 (uncontrolledSegment -> maybeFunctionType actionTypeStart .)
     FUNCTION        reduce using rule 56 (uncontrolledSegment -> maybeFunctionType actionTypeStart .)
     FUNCTION_START  reduce using rule 56 (uncontrolledSegment -> maybeFunctionType actionTypeStart .)
@@ -1674,12 +1674,12 @@ state 83
     ENDIF           reduce using rule 56 (uncontrolledSegment -> maybeFunctionType actionTypeStart .)
     ELSE            reduce using rule 56 (uncontrolledSegment -> maybeFunctionType actionTypeStart .)
     ELIF            reduce using rule 56 (uncontrolledSegment -> maybeFunctionType actionTypeStart .)
-    ELSEC           reduce using rule 56 (uncontrolledSegment -> maybeFunctionType actionTypeStart .)
-    ELSECHANCE      reduce using rule 56 (uncontrolledSegment -> maybeFunctionType actionTypeStart .)
-    ENDCHANCEWITH   reduce using rule 56 (uncontrolledSegment -> maybeFunctionType actionTypeStart .)
-    ENDCWITH        reduce using rule 56 (uncontrolledSegment -> maybeFunctionType actionTypeStart .)
-    ENDCHANCE       reduce using rule 56 (uncontrolledSegment -> maybeFunctionType actionTypeStart .)
-    ENDC            reduce using rule 56 (uncontrolledSegment -> maybeFunctionType actionTypeStart .)
+    ELSER           reduce using rule 56 (uncontrolledSegment -> maybeFunctionType actionTypeStart .)
+    ELSERANDOM      reduce using rule 56 (uncontrolledSegment -> maybeFunctionType actionTypeStart .)
+    ENDRANDOMWITH   reduce using rule 56 (uncontrolledSegment -> maybeFunctionType actionTypeStart .)
+    ENDRWITH        reduce using rule 56 (uncontrolledSegment -> maybeFunctionType actionTypeStart .)
+    ENDRANDOM       reduce using rule 56 (uncontrolledSegment -> maybeFunctionType actionTypeStart .)
+    ENDR            reduce using rule 56 (uncontrolledSegment -> maybeFunctionType actionTypeStart .)
 
 
 state 84
@@ -1752,8 +1752,8 @@ state 88
     (108) directiveName -> . RETURN
     (58) maybeFunctionType -> . empty
     (59) maybeFunctionType -> . functionType
-    (44) chanceHeader -> . CHANCE ( id )
-    (45) chanceHeader -> . CHANCE ( numeric )
+    (44) chanceHeader -> . RANDOM ( id )
+    (45) chanceHeader -> . RANDOM ( numeric )
     (68) functionType -> . registerType
     (69) functionType -> . functionLiteral
     (70) functionType -> . functionName
@@ -1778,7 +1778,7 @@ state 88
     REPEAT          shift and go to state 50
     RESET           shift and go to state 51
     RETURN          shift and go to state 52
-    CHANCE          shift and go to state 54
+    RANDOM          shift and go to state 54
     [               shift and go to state 58
     FUNCTION        shift and go to state 59
     FUNCTION_START  shift and go to state 60
@@ -1818,8 +1818,8 @@ state 89
     (108) directiveName -> . RETURN
     (58) maybeFunctionType -> . empty
     (59) maybeFunctionType -> . functionType
-    (44) chanceHeader -> . CHANCE ( id )
-    (45) chanceHeader -> . CHANCE ( numeric )
+    (44) chanceHeader -> . RANDOM ( id )
+    (45) chanceHeader -> . RANDOM ( numeric )
     (68) functionType -> . registerType
     (69) functionType -> . functionLiteral
     (70) functionType -> . functionName
@@ -1828,8 +1828,8 @@ state 89
     (76) functionName -> . FUNCTION_START id maybeParens maybeSubFunction
     (77) functionName -> . FUNCTION_START id parens
     (78) functionName -> . FUNCTION_START id
-    ELSEC           reduce using rule 137 (empty -> .)
-    ELSECHANCE      reduce using rule 137 (empty -> .)
+    ELSER           reduce using rule 137 (empty -> .)
+    ELSERANDOM      reduce using rule 137 (empty -> .)
     DO_ACTION       reduce using rule 137 (empty -> .)
     DO_CALL         reduce using rule 137 (empty -> .)
     DO_DIRECTIVE    reduce using rule 137 (empty -> .)
@@ -1842,7 +1842,7 @@ state 89
     REPEAT          shift and go to state 50
     RESET           shift and go to state 51
     RETURN          shift and go to state 52
-    CHANCE          shift and go to state 54
+    RANDOM          shift and go to state 54
     [               shift and go to state 58
     FUNCTION        shift and go to state 59
     FUNCTION_START  shift and go to state 60
@@ -1863,8 +1863,8 @@ state 89
 
 state 90
 
-    (44) chanceHeader -> CHANCE ( . id )
-    (45) chanceHeader -> CHANCE ( . numeric )
+    (44) chanceHeader -> RANDOM ( . id )
+    (45) chanceHeader -> RANDOM ( . numeric )
     (134) id -> . ID
     (132) numeric -> . HEXNUMBER
     (133) numeric -> . NUMBER
@@ -2142,7 +2142,7 @@ state 113
     REPEAT          reduce using rule 55 (uncontrolledSegment -> directiveName maybeMetaType skip .)
     RESET           reduce using rule 55 (uncontrolledSegment -> directiveName maybeMetaType skip .)
     RETURN          reduce using rule 55 (uncontrolledSegment -> directiveName maybeMetaType skip .)
-    CHANCE          reduce using rule 55 (uncontrolledSegment -> directiveName maybeMetaType skip .)
+    RANDOM          reduce using rule 55 (uncontrolledSegment -> directiveName maybeMetaType skip .)
     [               reduce using rule 55 (uncontrolledSegment -> directiveName maybeMetaType skip .)
     FUNCTION        reduce using rule 55 (uncontrolledSegment -> directiveName maybeMetaType skip .)
     FUNCTION_START  reduce using rule 55 (uncontrolledSegment -> directiveName maybeMetaType skip .)
@@ -2158,12 +2158,12 @@ state 113
     ENDIF           reduce using rule 55 (uncontrolledSegment -> directiveName maybeMetaType skip .)
     ELSE            reduce using rule 55 (uncontrolledSegment -> directiveName maybeMetaType skip .)
     ELIF            reduce using rule 55 (uncontrolledSegment -> directiveName maybeMetaType skip .)
-    ELSEC           reduce using rule 55 (uncontrolledSegment -> directiveName maybeMetaType skip .)
-    ELSECHANCE      reduce using rule 55 (uncontrolledSegment -> directiveName maybeMetaType skip .)
-    ENDCHANCEWITH   reduce using rule 55 (uncontrolledSegment -> directiveName maybeMetaType skip .)
-    ENDCWITH        reduce using rule 55 (uncontrolledSegment -> directiveName maybeMetaType skip .)
-    ENDCHANCE       reduce using rule 55 (uncontrolledSegment -> directiveName maybeMetaType skip .)
-    ENDC            reduce using rule 55 (uncontrolledSegment -> directiveName maybeMetaType skip .)
+    ELSER           reduce using rule 55 (uncontrolledSegment -> directiveName maybeMetaType skip .)
+    ELSERANDOM      reduce using rule 55 (uncontrolledSegment -> directiveName maybeMetaType skip .)
+    ENDRANDOMWITH   reduce using rule 55 (uncontrolledSegment -> directiveName maybeMetaType skip .)
+    ENDRWITH        reduce using rule 55 (uncontrolledSegment -> directiveName maybeMetaType skip .)
+    ENDRANDOM       reduce using rule 55 (uncontrolledSegment -> directiveName maybeMetaType skip .)
+    ENDR            reduce using rule 55 (uncontrolledSegment -> directiveName maybeMetaType skip .)
 
 
 state 114
@@ -2280,23 +2280,23 @@ state 126
     (37) chance -> chanceHeader actionTypeStart nodeBody . chanceBody uncontrolledSegment nodeBody optionalChance
     (46) chanceBody -> . elsechance ( id )
     (47) chanceBody -> . elsechance ( numeric )
-    (48) elsechance -> . ELSEC
-    (49) elsechance -> . ELSECHANCE
-    ELSEC           shift and go to state 185
-    ELSECHANCE      shift and go to state 186
+    (48) elsechance -> . ELSER
+    (49) elsechance -> . ELSERANDOM
+    ELSER           shift and go to state 185
+    ELSERANDOM      shift and go to state 186
 
     chanceBody                     shift and go to state 183
     elsechance                     shift and go to state 184
 
 state 127
 
-    (44) chanceHeader -> CHANCE ( id . )
+    (44) chanceHeader -> RANDOM ( id . )
     )               shift and go to state 187
 
 
 state 128
 
-    (45) chanceHeader -> CHANCE ( numeric . )
+    (45) chanceHeader -> RANDOM ( numeric . )
     )               shift and go to state 188
 
 
@@ -2798,7 +2798,7 @@ state 178
     REPEAT          reduce using rule 50 (conditional -> IF uncontrolledSegment nodeBody conditionalTerminator .)
     RESET           reduce using rule 50 (conditional -> IF uncontrolledSegment nodeBody conditionalTerminator .)
     RETURN          reduce using rule 50 (conditional -> IF uncontrolledSegment nodeBody conditionalTerminator .)
-    CHANCE          reduce using rule 50 (conditional -> IF uncontrolledSegment nodeBody conditionalTerminator .)
+    RANDOM          reduce using rule 50 (conditional -> IF uncontrolledSegment nodeBody conditionalTerminator .)
     [               reduce using rule 50 (conditional -> IF uncontrolledSegment nodeBody conditionalTerminator .)
     FUNCTION        reduce using rule 50 (conditional -> IF uncontrolledSegment nodeBody conditionalTerminator .)
     FUNCTION_START  reduce using rule 50 (conditional -> IF uncontrolledSegment nodeBody conditionalTerminator .)
@@ -2814,12 +2814,12 @@ state 178
     ENDIF           reduce using rule 50 (conditional -> IF uncontrolledSegment nodeBody conditionalTerminator .)
     ELSE            reduce using rule 50 (conditional -> IF uncontrolledSegment nodeBody conditionalTerminator .)
     ELIF            reduce using rule 50 (conditional -> IF uncontrolledSegment nodeBody conditionalTerminator .)
-    ELSEC           reduce using rule 50 (conditional -> IF uncontrolledSegment nodeBody conditionalTerminator .)
-    ELSECHANCE      reduce using rule 50 (conditional -> IF uncontrolledSegment nodeBody conditionalTerminator .)
-    ENDCHANCEWITH   reduce using rule 50 (conditional -> IF uncontrolledSegment nodeBody conditionalTerminator .)
-    ENDCWITH        reduce using rule 50 (conditional -> IF uncontrolledSegment nodeBody conditionalTerminator .)
-    ENDCHANCE       reduce using rule 50 (conditional -> IF uncontrolledSegment nodeBody conditionalTerminator .)
-    ENDC            reduce using rule 50 (conditional -> IF uncontrolledSegment nodeBody conditionalTerminator .)
+    ELSER           reduce using rule 50 (conditional -> IF uncontrolledSegment nodeBody conditionalTerminator .)
+    ELSERANDOM      reduce using rule 50 (conditional -> IF uncontrolledSegment nodeBody conditionalTerminator .)
+    ENDRANDOMWITH   reduce using rule 50 (conditional -> IF uncontrolledSegment nodeBody conditionalTerminator .)
+    ENDRWITH        reduce using rule 50 (conditional -> IF uncontrolledSegment nodeBody conditionalTerminator .)
+    ENDRANDOM       reduce using rule 50 (conditional -> IF uncontrolledSegment nodeBody conditionalTerminator .)
+    ENDR            reduce using rule 50 (conditional -> IF uncontrolledSegment nodeBody conditionalTerminator .)
 
 
 state 179
@@ -2960,34 +2960,34 @@ state 184
 
 state 185
 
-    (48) elsechance -> ELSEC .
-    (               reduce using rule 48 (elsechance -> ELSEC .)
+    (48) elsechance -> ELSER .
+    (               reduce using rule 48 (elsechance -> ELSER .)
 
 
 state 186
 
-    (49) elsechance -> ELSECHANCE .
-    (               reduce using rule 49 (elsechance -> ELSECHANCE .)
+    (49) elsechance -> ELSERANDOM .
+    (               reduce using rule 49 (elsechance -> ELSERANDOM .)
 
 
 state 187
 
-    (44) chanceHeader -> CHANCE ( id ) .
-    DO_ACTION       reduce using rule 44 (chanceHeader -> CHANCE ( id ) .)
-    DO_CALL         reduce using rule 44 (chanceHeader -> CHANCE ( id ) .)
-    DO_DIRECTIVE    reduce using rule 44 (chanceHeader -> CHANCE ( id ) .)
-    META            reduce using rule 44 (chanceHeader -> CHANCE ( id ) .)
-    LINESKIP        reduce using rule 44 (chanceHeader -> CHANCE ( id ) .)
+    (44) chanceHeader -> RANDOM ( id ) .
+    DO_ACTION       reduce using rule 44 (chanceHeader -> RANDOM ( id ) .)
+    DO_CALL         reduce using rule 44 (chanceHeader -> RANDOM ( id ) .)
+    DO_DIRECTIVE    reduce using rule 44 (chanceHeader -> RANDOM ( id ) .)
+    META            reduce using rule 44 (chanceHeader -> RANDOM ( id ) .)
+    LINESKIP        reduce using rule 44 (chanceHeader -> RANDOM ( id ) .)
 
 
 state 188
 
-    (45) chanceHeader -> CHANCE ( numeric ) .
-    DO_ACTION       reduce using rule 45 (chanceHeader -> CHANCE ( numeric ) .)
-    DO_CALL         reduce using rule 45 (chanceHeader -> CHANCE ( numeric ) .)
-    DO_DIRECTIVE    reduce using rule 45 (chanceHeader -> CHANCE ( numeric ) .)
-    META            reduce using rule 45 (chanceHeader -> CHANCE ( numeric ) .)
-    LINESKIP        reduce using rule 45 (chanceHeader -> CHANCE ( numeric ) .)
+    (45) chanceHeader -> RANDOM ( numeric ) .
+    DO_ACTION       reduce using rule 45 (chanceHeader -> RANDOM ( numeric ) .)
+    DO_CALL         reduce using rule 45 (chanceHeader -> RANDOM ( numeric ) .)
+    DO_DIRECTIVE    reduce using rule 45 (chanceHeader -> RANDOM ( numeric ) .)
+    META            reduce using rule 45 (chanceHeader -> RANDOM ( numeric ) .)
+    LINESKIP        reduce using rule 45 (chanceHeader -> RANDOM ( numeric ) .)
 
 
 state 189
@@ -3099,7 +3099,7 @@ state 200
     REPEAT          reduce using rule 19 (defHeader -> DEF id nodeAlias nodeIndex skip .)
     RESET           reduce using rule 19 (defHeader -> DEF id nodeAlias nodeIndex skip .)
     RETURN          reduce using rule 19 (defHeader -> DEF id nodeAlias nodeIndex skip .)
-    CHANCE          reduce using rule 19 (defHeader -> DEF id nodeAlias nodeIndex skip .)
+    RANDOM          reduce using rule 19 (defHeader -> DEF id nodeAlias nodeIndex skip .)
     [               reduce using rule 19 (defHeader -> DEF id nodeAlias nodeIndex skip .)
     FUNCTION        reduce using rule 19 (defHeader -> DEF id nodeAlias nodeIndex skip .)
     FUNCTION_START  reduce using rule 19 (defHeader -> DEF id nodeAlias nodeIndex skip .)
@@ -3214,7 +3214,7 @@ state 213
     REPEAT          reduce using rule 51 (conditionalTerminator -> ENDWITH uncontrolledSegment .)
     RESET           reduce using rule 51 (conditionalTerminator -> ENDWITH uncontrolledSegment .)
     RETURN          reduce using rule 51 (conditionalTerminator -> ENDWITH uncontrolledSegment .)
-    CHANCE          reduce using rule 51 (conditionalTerminator -> ENDWITH uncontrolledSegment .)
+    RANDOM          reduce using rule 51 (conditionalTerminator -> ENDWITH uncontrolledSegment .)
     [               reduce using rule 51 (conditionalTerminator -> ENDWITH uncontrolledSegment .)
     FUNCTION        reduce using rule 51 (conditionalTerminator -> ENDWITH uncontrolledSegment .)
     FUNCTION_START  reduce using rule 51 (conditionalTerminator -> ENDWITH uncontrolledSegment .)
@@ -3230,12 +3230,12 @@ state 213
     ENDIF           reduce using rule 51 (conditionalTerminator -> ENDWITH uncontrolledSegment .)
     ELSE            reduce using rule 51 (conditionalTerminator -> ENDWITH uncontrolledSegment .)
     ELIF            reduce using rule 51 (conditionalTerminator -> ENDWITH uncontrolledSegment .)
-    ELSEC           reduce using rule 51 (conditionalTerminator -> ENDWITH uncontrolledSegment .)
-    ELSECHANCE      reduce using rule 51 (conditionalTerminator -> ENDWITH uncontrolledSegment .)
-    ENDCHANCEWITH   reduce using rule 51 (conditionalTerminator -> ENDWITH uncontrolledSegment .)
-    ENDCWITH        reduce using rule 51 (conditionalTerminator -> ENDWITH uncontrolledSegment .)
-    ENDCHANCE       reduce using rule 51 (conditionalTerminator -> ENDWITH uncontrolledSegment .)
-    ENDC            reduce using rule 51 (conditionalTerminator -> ENDWITH uncontrolledSegment .)
+    ELSER           reduce using rule 51 (conditionalTerminator -> ENDWITH uncontrolledSegment .)
+    ELSERANDOM      reduce using rule 51 (conditionalTerminator -> ENDWITH uncontrolledSegment .)
+    ENDRANDOMWITH   reduce using rule 51 (conditionalTerminator -> ENDWITH uncontrolledSegment .)
+    ENDRWITH        reduce using rule 51 (conditionalTerminator -> ENDWITH uncontrolledSegment .)
+    ENDRANDOM       reduce using rule 51 (conditionalTerminator -> ENDWITH uncontrolledSegment .)
+    ENDR            reduce using rule 51 (conditionalTerminator -> ENDWITH uncontrolledSegment .)
 
 
 state 214
@@ -3248,7 +3248,7 @@ state 214
     REPEAT          reduce using rule 52 (conditionalTerminator -> ENDIF skip .)
     RESET           reduce using rule 52 (conditionalTerminator -> ENDIF skip .)
     RETURN          reduce using rule 52 (conditionalTerminator -> ENDIF skip .)
-    CHANCE          reduce using rule 52 (conditionalTerminator -> ENDIF skip .)
+    RANDOM          reduce using rule 52 (conditionalTerminator -> ENDIF skip .)
     [               reduce using rule 52 (conditionalTerminator -> ENDIF skip .)
     FUNCTION        reduce using rule 52 (conditionalTerminator -> ENDIF skip .)
     FUNCTION_START  reduce using rule 52 (conditionalTerminator -> ENDIF skip .)
@@ -3264,12 +3264,12 @@ state 214
     ENDIF           reduce using rule 52 (conditionalTerminator -> ENDIF skip .)
     ELSE            reduce using rule 52 (conditionalTerminator -> ENDIF skip .)
     ELIF            reduce using rule 52 (conditionalTerminator -> ENDIF skip .)
-    ELSEC           reduce using rule 52 (conditionalTerminator -> ENDIF skip .)
-    ELSECHANCE      reduce using rule 52 (conditionalTerminator -> ENDIF skip .)
-    ENDCHANCEWITH   reduce using rule 52 (conditionalTerminator -> ENDIF skip .)
-    ENDCWITH        reduce using rule 52 (conditionalTerminator -> ENDIF skip .)
-    ENDCHANCE       reduce using rule 52 (conditionalTerminator -> ENDIF skip .)
-    ENDC            reduce using rule 52 (conditionalTerminator -> ENDIF skip .)
+    ELSER           reduce using rule 52 (conditionalTerminator -> ENDIF skip .)
+    ELSERANDOM      reduce using rule 52 (conditionalTerminator -> ENDIF skip .)
+    ENDRANDOMWITH   reduce using rule 52 (conditionalTerminator -> ENDIF skip .)
+    ENDRWITH        reduce using rule 52 (conditionalTerminator -> ENDIF skip .)
+    ENDRANDOM       reduce using rule 52 (conditionalTerminator -> ENDIF skip .)
+    ENDR            reduce using rule 52 (conditionalTerminator -> ENDIF skip .)
 
 
 state 215
@@ -3293,8 +3293,8 @@ state 215
     (108) directiveName -> . RETURN
     (58) maybeFunctionType -> . empty
     (59) maybeFunctionType -> . functionType
-    (44) chanceHeader -> . CHANCE ( id )
-    (45) chanceHeader -> . CHANCE ( numeric )
+    (44) chanceHeader -> . RANDOM ( id )
+    (45) chanceHeader -> . RANDOM ( numeric )
     (68) functionType -> . registerType
     (69) functionType -> . functionLiteral
     (70) functionType -> . functionName
@@ -3319,7 +3319,7 @@ state 215
     REPEAT          shift and go to state 50
     RESET           shift and go to state 51
     RETURN          shift and go to state 52
-    CHANCE          shift and go to state 54
+    RANDOM          shift and go to state 54
     [               shift and go to state 58
     FUNCTION        shift and go to state 59
     FUNCTION_START  shift and go to state 60
@@ -3379,8 +3379,8 @@ state 217
     (108) directiveName -> . RETURN
     (58) maybeFunctionType -> . empty
     (59) maybeFunctionType -> . functionType
-    (44) chanceHeader -> . CHANCE ( id )
-    (45) chanceHeader -> . CHANCE ( numeric )
+    (44) chanceHeader -> . RANDOM ( id )
+    (45) chanceHeader -> . RANDOM ( numeric )
     (68) functionType -> . registerType
     (69) functionType -> . functionLiteral
     (70) functionType -> . functionName
@@ -3389,12 +3389,12 @@ state 217
     (76) functionName -> . FUNCTION_START id maybeParens maybeSubFunction
     (77) functionName -> . FUNCTION_START id parens
     (78) functionName -> . FUNCTION_START id
-    ENDCHANCEWITH   reduce using rule 137 (empty -> .)
-    ENDCWITH        reduce using rule 137 (empty -> .)
-    ENDCHANCE       reduce using rule 137 (empty -> .)
-    ENDC            reduce using rule 137 (empty -> .)
-    ELSEC           reduce using rule 137 (empty -> .)
-    ELSECHANCE      reduce using rule 137 (empty -> .)
+    ENDRANDOMWITH   reduce using rule 137 (empty -> .)
+    ENDRWITH        reduce using rule 137 (empty -> .)
+    ENDRANDOM       reduce using rule 137 (empty -> .)
+    ENDR            reduce using rule 137 (empty -> .)
+    ELSER           reduce using rule 137 (empty -> .)
+    ELSERANDOM      reduce using rule 137 (empty -> .)
     DO_ACTION       reduce using rule 137 (empty -> .)
     DO_CALL         reduce using rule 137 (empty -> .)
     DO_DIRECTIVE    reduce using rule 137 (empty -> .)
@@ -3407,7 +3407,7 @@ state 217
     REPEAT          shift and go to state 50
     RESET           shift and go to state 51
     RETURN          shift and go to state 52
-    CHANCE          shift and go to state 54
+    RANDOM          shift and go to state 54
     [               shift and go to state 58
     FUNCTION        shift and go to state 59
     FUNCTION_START  shift and go to state 60
@@ -3529,7 +3529,7 @@ state 225
     REPEAT          reduce using rule 57 (actionTypeStart -> maybeActionType maybeCallType maybeDirectiveType maybeMetaType skip .)
     RESET           reduce using rule 57 (actionTypeStart -> maybeActionType maybeCallType maybeDirectiveType maybeMetaType skip .)
     RETURN          reduce using rule 57 (actionTypeStart -> maybeActionType maybeCallType maybeDirectiveType maybeMetaType skip .)
-    CHANCE          reduce using rule 57 (actionTypeStart -> maybeActionType maybeCallType maybeDirectiveType maybeMetaType skip .)
+    RANDOM          reduce using rule 57 (actionTypeStart -> maybeActionType maybeCallType maybeDirectiveType maybeMetaType skip .)
     [               reduce using rule 57 (actionTypeStart -> maybeActionType maybeCallType maybeDirectiveType maybeMetaType skip .)
     FUNCTION        reduce using rule 57 (actionTypeStart -> maybeActionType maybeCallType maybeDirectiveType maybeMetaType skip .)
     FUNCTION_START  reduce using rule 57 (actionTypeStart -> maybeActionType maybeCallType maybeDirectiveType maybeMetaType skip .)
@@ -3545,12 +3545,12 @@ state 225
     ENDIF           reduce using rule 57 (actionTypeStart -> maybeActionType maybeCallType maybeDirectiveType maybeMetaType skip .)
     ELSE            reduce using rule 57 (actionTypeStart -> maybeActionType maybeCallType maybeDirectiveType maybeMetaType skip .)
     ELIF            reduce using rule 57 (actionTypeStart -> maybeActionType maybeCallType maybeDirectiveType maybeMetaType skip .)
-    ELSEC           reduce using rule 57 (actionTypeStart -> maybeActionType maybeCallType maybeDirectiveType maybeMetaType skip .)
-    ELSECHANCE      reduce using rule 57 (actionTypeStart -> maybeActionType maybeCallType maybeDirectiveType maybeMetaType skip .)
-    ENDCHANCEWITH   reduce using rule 57 (actionTypeStart -> maybeActionType maybeCallType maybeDirectiveType maybeMetaType skip .)
-    ENDCWITH        reduce using rule 57 (actionTypeStart -> maybeActionType maybeCallType maybeDirectiveType maybeMetaType skip .)
-    ENDCHANCE       reduce using rule 57 (actionTypeStart -> maybeActionType maybeCallType maybeDirectiveType maybeMetaType skip .)
-    ENDC            reduce using rule 57 (actionTypeStart -> maybeActionType maybeCallType maybeDirectiveType maybeMetaType skip .)
+    ELSER           reduce using rule 57 (actionTypeStart -> maybeActionType maybeCallType maybeDirectiveType maybeMetaType skip .)
+    ELSERANDOM      reduce using rule 57 (actionTypeStart -> maybeActionType maybeCallType maybeDirectiveType maybeMetaType skip .)
+    ENDRANDOMWITH   reduce using rule 57 (actionTypeStart -> maybeActionType maybeCallType maybeDirectiveType maybeMetaType skip .)
+    ENDRWITH        reduce using rule 57 (actionTypeStart -> maybeActionType maybeCallType maybeDirectiveType maybeMetaType skip .)
+    ENDRANDOM       reduce using rule 57 (actionTypeStart -> maybeActionType maybeCallType maybeDirectiveType maybeMetaType skip .)
+    ENDR            reduce using rule 57 (actionTypeStart -> maybeActionType maybeCallType maybeDirectiveType maybeMetaType skip .)
 
 
 state 226
@@ -3635,8 +3635,8 @@ state 233
     (108) directiveName -> . RETURN
     (58) maybeFunctionType -> . empty
     (59) maybeFunctionType -> . functionType
-    (44) chanceHeader -> . CHANCE ( id )
-    (45) chanceHeader -> . CHANCE ( numeric )
+    (44) chanceHeader -> . RANDOM ( id )
+    (45) chanceHeader -> . RANDOM ( numeric )
     (68) functionType -> . registerType
     (69) functionType -> . functionLiteral
     (70) functionType -> . functionName
@@ -3661,7 +3661,7 @@ state 233
     REPEAT          shift and go to state 50
     RESET           shift and go to state 51
     RETURN          shift and go to state 52
-    CHANCE          shift and go to state 54
+    RANDOM          shift and go to state 54
     [               shift and go to state 58
     FUNCTION        shift and go to state 59
     FUNCTION_START  shift and go to state 60
@@ -3685,20 +3685,20 @@ state 234
     (37) chance -> chanceHeader actionTypeStart nodeBody chanceBody uncontrolledSegment nodeBody . optionalChance
     (38) optionalChance -> . optionalTerminator
     (39) optionalChance -> . chanceBody actionTypeStart nodeBody optionalChance
-    (40) optionalTerminator -> . ENDCHANCEWITH uncontrolledSegment skip
-    (41) optionalTerminator -> . ENDCWITH uncontrolledSegment skip
-    (42) optionalTerminator -> . ENDCHANCE skip
-    (43) optionalTerminator -> . ENDC skip
+    (40) optionalTerminator -> . ENDRANDOMWITH uncontrolledSegment skip
+    (41) optionalTerminator -> . ENDRWITH uncontrolledSegment skip
+    (42) optionalTerminator -> . ENDRANDOM skip
+    (43) optionalTerminator -> . ENDR skip
     (46) chanceBody -> . elsechance ( id )
     (47) chanceBody -> . elsechance ( numeric )
-    (48) elsechance -> . ELSEC
-    (49) elsechance -> . ELSECHANCE
-    ENDCHANCEWITH   shift and go to state 249
-    ENDCWITH        shift and go to state 250
-    ENDCHANCE       shift and go to state 251
-    ENDC            shift and go to state 252
-    ELSEC           shift and go to state 185
-    ELSECHANCE      shift and go to state 186
+    (48) elsechance -> . ELSER
+    (49) elsechance -> . ELSERANDOM
+    ENDRANDOMWITH   shift and go to state 249
+    ENDRWITH        shift and go to state 250
+    ENDRANDOM       shift and go to state 251
+    ENDR            shift and go to state 252
+    ELSER           shift and go to state 185
+    ELSERANDOM      shift and go to state 186
 
     chanceBody                     shift and go to state 246
     optionalChance                 shift and go to state 247
@@ -3790,7 +3790,7 @@ state 244
     REPEAT          reduce using rule 53 (conditionalTerminator -> ELSE actionTypeStart nodeBody conditionalTerminator .)
     RESET           reduce using rule 53 (conditionalTerminator -> ELSE actionTypeStart nodeBody conditionalTerminator .)
     RETURN          reduce using rule 53 (conditionalTerminator -> ELSE actionTypeStart nodeBody conditionalTerminator .)
-    CHANCE          reduce using rule 53 (conditionalTerminator -> ELSE actionTypeStart nodeBody conditionalTerminator .)
+    RANDOM          reduce using rule 53 (conditionalTerminator -> ELSE actionTypeStart nodeBody conditionalTerminator .)
     [               reduce using rule 53 (conditionalTerminator -> ELSE actionTypeStart nodeBody conditionalTerminator .)
     FUNCTION        reduce using rule 53 (conditionalTerminator -> ELSE actionTypeStart nodeBody conditionalTerminator .)
     FUNCTION_START  reduce using rule 53 (conditionalTerminator -> ELSE actionTypeStart nodeBody conditionalTerminator .)
@@ -3806,12 +3806,12 @@ state 244
     ENDIF           reduce using rule 53 (conditionalTerminator -> ELSE actionTypeStart nodeBody conditionalTerminator .)
     ELSE            reduce using rule 53 (conditionalTerminator -> ELSE actionTypeStart nodeBody conditionalTerminator .)
     ELIF            reduce using rule 53 (conditionalTerminator -> ELSE actionTypeStart nodeBody conditionalTerminator .)
-    ELSEC           reduce using rule 53 (conditionalTerminator -> ELSE actionTypeStart nodeBody conditionalTerminator .)
-    ELSECHANCE      reduce using rule 53 (conditionalTerminator -> ELSE actionTypeStart nodeBody conditionalTerminator .)
-    ENDCHANCEWITH   reduce using rule 53 (conditionalTerminator -> ELSE actionTypeStart nodeBody conditionalTerminator .)
-    ENDCWITH        reduce using rule 53 (conditionalTerminator -> ELSE actionTypeStart nodeBody conditionalTerminator .)
-    ENDCHANCE       reduce using rule 53 (conditionalTerminator -> ELSE actionTypeStart nodeBody conditionalTerminator .)
-    ENDC            reduce using rule 53 (conditionalTerminator -> ELSE actionTypeStart nodeBody conditionalTerminator .)
+    ELSER           reduce using rule 53 (conditionalTerminator -> ELSE actionTypeStart nodeBody conditionalTerminator .)
+    ELSERANDOM      reduce using rule 53 (conditionalTerminator -> ELSE actionTypeStart nodeBody conditionalTerminator .)
+    ENDRANDOMWITH   reduce using rule 53 (conditionalTerminator -> ELSE actionTypeStart nodeBody conditionalTerminator .)
+    ENDRWITH        reduce using rule 53 (conditionalTerminator -> ELSE actionTypeStart nodeBody conditionalTerminator .)
+    ENDRANDOM       reduce using rule 53 (conditionalTerminator -> ELSE actionTypeStart nodeBody conditionalTerminator .)
+    ENDR            reduce using rule 53 (conditionalTerminator -> ELSE actionTypeStart nodeBody conditionalTerminator .)
 
 
 state 245
@@ -3858,7 +3858,7 @@ state 247
     REPEAT          reduce using rule 37 (chance -> chanceHeader actionTypeStart nodeBody chanceBody uncontrolledSegment nodeBody optionalChance .)
     RESET           reduce using rule 37 (chance -> chanceHeader actionTypeStart nodeBody chanceBody uncontrolledSegment nodeBody optionalChance .)
     RETURN          reduce using rule 37 (chance -> chanceHeader actionTypeStart nodeBody chanceBody uncontrolledSegment nodeBody optionalChance .)
-    CHANCE          reduce using rule 37 (chance -> chanceHeader actionTypeStart nodeBody chanceBody uncontrolledSegment nodeBody optionalChance .)
+    RANDOM          reduce using rule 37 (chance -> chanceHeader actionTypeStart nodeBody chanceBody uncontrolledSegment nodeBody optionalChance .)
     [               reduce using rule 37 (chance -> chanceHeader actionTypeStart nodeBody chanceBody uncontrolledSegment nodeBody optionalChance .)
     FUNCTION        reduce using rule 37 (chance -> chanceHeader actionTypeStart nodeBody chanceBody uncontrolledSegment nodeBody optionalChance .)
     FUNCTION_START  reduce using rule 37 (chance -> chanceHeader actionTypeStart nodeBody chanceBody uncontrolledSegment nodeBody optionalChance .)
@@ -3874,12 +3874,12 @@ state 247
     ENDIF           reduce using rule 37 (chance -> chanceHeader actionTypeStart nodeBody chanceBody uncontrolledSegment nodeBody optionalChance .)
     ELSE            reduce using rule 37 (chance -> chanceHeader actionTypeStart nodeBody chanceBody uncontrolledSegment nodeBody optionalChance .)
     ELIF            reduce using rule 37 (chance -> chanceHeader actionTypeStart nodeBody chanceBody uncontrolledSegment nodeBody optionalChance .)
-    ELSEC           reduce using rule 37 (chance -> chanceHeader actionTypeStart nodeBody chanceBody uncontrolledSegment nodeBody optionalChance .)
-    ELSECHANCE      reduce using rule 37 (chance -> chanceHeader actionTypeStart nodeBody chanceBody uncontrolledSegment nodeBody optionalChance .)
-    ENDCHANCEWITH   reduce using rule 37 (chance -> chanceHeader actionTypeStart nodeBody chanceBody uncontrolledSegment nodeBody optionalChance .)
-    ENDCWITH        reduce using rule 37 (chance -> chanceHeader actionTypeStart nodeBody chanceBody uncontrolledSegment nodeBody optionalChance .)
-    ENDCHANCE       reduce using rule 37 (chance -> chanceHeader actionTypeStart nodeBody chanceBody uncontrolledSegment nodeBody optionalChance .)
-    ENDC            reduce using rule 37 (chance -> chanceHeader actionTypeStart nodeBody chanceBody uncontrolledSegment nodeBody optionalChance .)
+    ELSER           reduce using rule 37 (chance -> chanceHeader actionTypeStart nodeBody chanceBody uncontrolledSegment nodeBody optionalChance .)
+    ELSERANDOM      reduce using rule 37 (chance -> chanceHeader actionTypeStart nodeBody chanceBody uncontrolledSegment nodeBody optionalChance .)
+    ENDRANDOMWITH   reduce using rule 37 (chance -> chanceHeader actionTypeStart nodeBody chanceBody uncontrolledSegment nodeBody optionalChance .)
+    ENDRWITH        reduce using rule 37 (chance -> chanceHeader actionTypeStart nodeBody chanceBody uncontrolledSegment nodeBody optionalChance .)
+    ENDRANDOM       reduce using rule 37 (chance -> chanceHeader actionTypeStart nodeBody chanceBody uncontrolledSegment nodeBody optionalChance .)
+    ENDR            reduce using rule 37 (chance -> chanceHeader actionTypeStart nodeBody chanceBody uncontrolledSegment nodeBody optionalChance .)
 
 
 state 248
@@ -3892,7 +3892,7 @@ state 248
     REPEAT          reduce using rule 38 (optionalChance -> optionalTerminator .)
     RESET           reduce using rule 38 (optionalChance -> optionalTerminator .)
     RETURN          reduce using rule 38 (optionalChance -> optionalTerminator .)
-    CHANCE          reduce using rule 38 (optionalChance -> optionalTerminator .)
+    RANDOM          reduce using rule 38 (optionalChance -> optionalTerminator .)
     [               reduce using rule 38 (optionalChance -> optionalTerminator .)
     FUNCTION        reduce using rule 38 (optionalChance -> optionalTerminator .)
     FUNCTION_START  reduce using rule 38 (optionalChance -> optionalTerminator .)
@@ -3908,17 +3908,17 @@ state 248
     ENDIF           reduce using rule 38 (optionalChance -> optionalTerminator .)
     ELSE            reduce using rule 38 (optionalChance -> optionalTerminator .)
     ELIF            reduce using rule 38 (optionalChance -> optionalTerminator .)
-    ELSEC           reduce using rule 38 (optionalChance -> optionalTerminator .)
-    ELSECHANCE      reduce using rule 38 (optionalChance -> optionalTerminator .)
-    ENDCHANCEWITH   reduce using rule 38 (optionalChance -> optionalTerminator .)
-    ENDCWITH        reduce using rule 38 (optionalChance -> optionalTerminator .)
-    ENDCHANCE       reduce using rule 38 (optionalChance -> optionalTerminator .)
-    ENDC            reduce using rule 38 (optionalChance -> optionalTerminator .)
+    ELSER           reduce using rule 38 (optionalChance -> optionalTerminator .)
+    ELSERANDOM      reduce using rule 38 (optionalChance -> optionalTerminator .)
+    ENDRANDOMWITH   reduce using rule 38 (optionalChance -> optionalTerminator .)
+    ENDRWITH        reduce using rule 38 (optionalChance -> optionalTerminator .)
+    ENDRANDOM       reduce using rule 38 (optionalChance -> optionalTerminator .)
+    ENDR            reduce using rule 38 (optionalChance -> optionalTerminator .)
 
 
 state 249
 
-    (40) optionalTerminator -> ENDCHANCEWITH . uncontrolledSegment skip
+    (40) optionalTerminator -> ENDRANDOMWITH . uncontrolledSegment skip
     (55) uncontrolledSegment -> . directiveName maybeMetaType skip
     (56) uncontrolledSegment -> . maybeFunctionType actionTypeStart
     (106) directiveName -> . REPEAT
@@ -3958,7 +3958,7 @@ state 249
 
 state 250
 
-    (41) optionalTerminator -> ENDCWITH . uncontrolledSegment skip
+    (41) optionalTerminator -> ENDRWITH . uncontrolledSegment skip
     (55) uncontrolledSegment -> . directiveName maybeMetaType skip
     (56) uncontrolledSegment -> . maybeFunctionType actionTypeStart
     (106) directiveName -> . REPEAT
@@ -3998,7 +3998,7 @@ state 250
 
 state 251
 
-    (42) optionalTerminator -> ENDCHANCE . skip
+    (42) optionalTerminator -> ENDRANDOM . skip
     (135) skip -> . LINESKIP skip
     (136) skip -> . LINESKIP
     LINESKIP        shift and go to state 4
@@ -4007,7 +4007,7 @@ state 251
 
 state 252
 
-    (43) optionalTerminator -> ENDC . skip
+    (43) optionalTerminator -> ENDR . skip
     (135) skip -> . LINESKIP skip
     (136) skip -> . LINESKIP
     LINESKIP        shift and go to state 4
@@ -4096,7 +4096,7 @@ state 259
     REPEAT          reduce using rule 54 (conditionalTerminator -> ELIF functionType actionTypeStart nodeBody conditionalTerminator .)
     RESET           reduce using rule 54 (conditionalTerminator -> ELIF functionType actionTypeStart nodeBody conditionalTerminator .)
     RETURN          reduce using rule 54 (conditionalTerminator -> ELIF functionType actionTypeStart nodeBody conditionalTerminator .)
-    CHANCE          reduce using rule 54 (conditionalTerminator -> ELIF functionType actionTypeStart nodeBody conditionalTerminator .)
+    RANDOM          reduce using rule 54 (conditionalTerminator -> ELIF functionType actionTypeStart nodeBody conditionalTerminator .)
     [               reduce using rule 54 (conditionalTerminator -> ELIF functionType actionTypeStart nodeBody conditionalTerminator .)
     FUNCTION        reduce using rule 54 (conditionalTerminator -> ELIF functionType actionTypeStart nodeBody conditionalTerminator .)
     FUNCTION_START  reduce using rule 54 (conditionalTerminator -> ELIF functionType actionTypeStart nodeBody conditionalTerminator .)
@@ -4112,12 +4112,12 @@ state 259
     ENDIF           reduce using rule 54 (conditionalTerminator -> ELIF functionType actionTypeStart nodeBody conditionalTerminator .)
     ELSE            reduce using rule 54 (conditionalTerminator -> ELIF functionType actionTypeStart nodeBody conditionalTerminator .)
     ELIF            reduce using rule 54 (conditionalTerminator -> ELIF functionType actionTypeStart nodeBody conditionalTerminator .)
-    ELSEC           reduce using rule 54 (conditionalTerminator -> ELIF functionType actionTypeStart nodeBody conditionalTerminator .)
-    ELSECHANCE      reduce using rule 54 (conditionalTerminator -> ELIF functionType actionTypeStart nodeBody conditionalTerminator .)
-    ENDCHANCEWITH   reduce using rule 54 (conditionalTerminator -> ELIF functionType actionTypeStart nodeBody conditionalTerminator .)
-    ENDCWITH        reduce using rule 54 (conditionalTerminator -> ELIF functionType actionTypeStart nodeBody conditionalTerminator .)
-    ENDCHANCE       reduce using rule 54 (conditionalTerminator -> ELIF functionType actionTypeStart nodeBody conditionalTerminator .)
-    ENDC            reduce using rule 54 (conditionalTerminator -> ELIF functionType actionTypeStart nodeBody conditionalTerminator .)
+    ELSER           reduce using rule 54 (conditionalTerminator -> ELIF functionType actionTypeStart nodeBody conditionalTerminator .)
+    ELSERANDOM      reduce using rule 54 (conditionalTerminator -> ELIF functionType actionTypeStart nodeBody conditionalTerminator .)
+    ENDRANDOMWITH   reduce using rule 54 (conditionalTerminator -> ELIF functionType actionTypeStart nodeBody conditionalTerminator .)
+    ENDRWITH        reduce using rule 54 (conditionalTerminator -> ELIF functionType actionTypeStart nodeBody conditionalTerminator .)
+    ENDRANDOM       reduce using rule 54 (conditionalTerminator -> ELIF functionType actionTypeStart nodeBody conditionalTerminator .)
+    ENDR            reduce using rule 54 (conditionalTerminator -> ELIF functionType actionTypeStart nodeBody conditionalTerminator .)
 
 
 state 260
@@ -4141,8 +4141,8 @@ state 260
     (108) directiveName -> . RETURN
     (58) maybeFunctionType -> . empty
     (59) maybeFunctionType -> . functionType
-    (44) chanceHeader -> . CHANCE ( id )
-    (45) chanceHeader -> . CHANCE ( numeric )
+    (44) chanceHeader -> . RANDOM ( id )
+    (45) chanceHeader -> . RANDOM ( numeric )
     (68) functionType -> . registerType
     (69) functionType -> . functionLiteral
     (70) functionType -> . functionName
@@ -4151,12 +4151,12 @@ state 260
     (76) functionName -> . FUNCTION_START id maybeParens maybeSubFunction
     (77) functionName -> . FUNCTION_START id parens
     (78) functionName -> . FUNCTION_START id
-    ENDCHANCEWITH   reduce using rule 137 (empty -> .)
-    ENDCWITH        reduce using rule 137 (empty -> .)
-    ENDCHANCE       reduce using rule 137 (empty -> .)
-    ENDC            reduce using rule 137 (empty -> .)
-    ELSEC           reduce using rule 137 (empty -> .)
-    ELSECHANCE      reduce using rule 137 (empty -> .)
+    ENDRANDOMWITH   reduce using rule 137 (empty -> .)
+    ENDRWITH        reduce using rule 137 (empty -> .)
+    ENDRANDOM       reduce using rule 137 (empty -> .)
+    ENDR            reduce using rule 137 (empty -> .)
+    ELSER           reduce using rule 137 (empty -> .)
+    ELSERANDOM      reduce using rule 137 (empty -> .)
     DO_ACTION       reduce using rule 137 (empty -> .)
     DO_CALL         reduce using rule 137 (empty -> .)
     DO_DIRECTIVE    reduce using rule 137 (empty -> .)
@@ -4169,7 +4169,7 @@ state 260
     REPEAT          shift and go to state 50
     RESET           shift and go to state 51
     RETURN          shift and go to state 52
-    CHANCE          shift and go to state 54
+    RANDOM          shift and go to state 54
     [               shift and go to state 58
     FUNCTION        shift and go to state 59
     FUNCTION_START  shift and go to state 60
@@ -4190,7 +4190,7 @@ state 260
 
 state 261
 
-    (40) optionalTerminator -> ENDCHANCEWITH uncontrolledSegment . skip
+    (40) optionalTerminator -> ENDRANDOMWITH uncontrolledSegment . skip
     (135) skip -> . LINESKIP skip
     (136) skip -> . LINESKIP
     LINESKIP        shift and go to state 4
@@ -4199,7 +4199,7 @@ state 261
 
 state 262
 
-    (41) optionalTerminator -> ENDCWITH uncontrolledSegment . skip
+    (41) optionalTerminator -> ENDRWITH uncontrolledSegment . skip
     (135) skip -> . LINESKIP skip
     (136) skip -> . LINESKIP
     LINESKIP        shift and go to state 4
@@ -4208,70 +4208,70 @@ state 262
 
 state 263
 
-    (42) optionalTerminator -> ENDCHANCE skip .
-    DO_NOTHING      reduce using rule 42 (optionalTerminator -> ENDCHANCE skip .)
-    UNSAFE          reduce using rule 42 (optionalTerminator -> ENDCHANCE skip .)
-    CONCLUDE        reduce using rule 42 (optionalTerminator -> ENDCHANCE skip .)
-    IF              reduce using rule 42 (optionalTerminator -> ENDCHANCE skip .)
-    REPEAT          reduce using rule 42 (optionalTerminator -> ENDCHANCE skip .)
-    RESET           reduce using rule 42 (optionalTerminator -> ENDCHANCE skip .)
-    RETURN          reduce using rule 42 (optionalTerminator -> ENDCHANCE skip .)
-    CHANCE          reduce using rule 42 (optionalTerminator -> ENDCHANCE skip .)
-    [               reduce using rule 42 (optionalTerminator -> ENDCHANCE skip .)
-    FUNCTION        reduce using rule 42 (optionalTerminator -> ENDCHANCE skip .)
-    FUNCTION_START  reduce using rule 42 (optionalTerminator -> ENDCHANCE skip .)
-    DO_ACTION       reduce using rule 42 (optionalTerminator -> ENDCHANCE skip .)
-    DO_CALL         reduce using rule 42 (optionalTerminator -> ENDCHANCE skip .)
-    DO_DIRECTIVE    reduce using rule 42 (optionalTerminator -> ENDCHANCE skip .)
-    META            reduce using rule 42 (optionalTerminator -> ENDCHANCE skip .)
-    LINESKIP        reduce using rule 42 (optionalTerminator -> ENDCHANCE skip .)
-    ENDFUNCTION     reduce using rule 42 (optionalTerminator -> ENDCHANCE skip .)
-    ENDDEF          reduce using rule 42 (optionalTerminator -> ENDCHANCE skip .)
-    ENDF            reduce using rule 42 (optionalTerminator -> ENDCHANCE skip .)
-    ENDWITH         reduce using rule 42 (optionalTerminator -> ENDCHANCE skip .)
-    ENDIF           reduce using rule 42 (optionalTerminator -> ENDCHANCE skip .)
-    ELSE            reduce using rule 42 (optionalTerminator -> ENDCHANCE skip .)
-    ELIF            reduce using rule 42 (optionalTerminator -> ENDCHANCE skip .)
-    ELSEC           reduce using rule 42 (optionalTerminator -> ENDCHANCE skip .)
-    ELSECHANCE      reduce using rule 42 (optionalTerminator -> ENDCHANCE skip .)
-    ENDCHANCEWITH   reduce using rule 42 (optionalTerminator -> ENDCHANCE skip .)
-    ENDCWITH        reduce using rule 42 (optionalTerminator -> ENDCHANCE skip .)
-    ENDCHANCE       reduce using rule 42 (optionalTerminator -> ENDCHANCE skip .)
-    ENDC            reduce using rule 42 (optionalTerminator -> ENDCHANCE skip .)
+    (42) optionalTerminator -> ENDRANDOM skip .
+    DO_NOTHING      reduce using rule 42 (optionalTerminator -> ENDRANDOM skip .)
+    UNSAFE          reduce using rule 42 (optionalTerminator -> ENDRANDOM skip .)
+    CONCLUDE        reduce using rule 42 (optionalTerminator -> ENDRANDOM skip .)
+    IF              reduce using rule 42 (optionalTerminator -> ENDRANDOM skip .)
+    REPEAT          reduce using rule 42 (optionalTerminator -> ENDRANDOM skip .)
+    RESET           reduce using rule 42 (optionalTerminator -> ENDRANDOM skip .)
+    RETURN          reduce using rule 42 (optionalTerminator -> ENDRANDOM skip .)
+    RANDOM          reduce using rule 42 (optionalTerminator -> ENDRANDOM skip .)
+    [               reduce using rule 42 (optionalTerminator -> ENDRANDOM skip .)
+    FUNCTION        reduce using rule 42 (optionalTerminator -> ENDRANDOM skip .)
+    FUNCTION_START  reduce using rule 42 (optionalTerminator -> ENDRANDOM skip .)
+    DO_ACTION       reduce using rule 42 (optionalTerminator -> ENDRANDOM skip .)
+    DO_CALL         reduce using rule 42 (optionalTerminator -> ENDRANDOM skip .)
+    DO_DIRECTIVE    reduce using rule 42 (optionalTerminator -> ENDRANDOM skip .)
+    META            reduce using rule 42 (optionalTerminator -> ENDRANDOM skip .)
+    LINESKIP        reduce using rule 42 (optionalTerminator -> ENDRANDOM skip .)
+    ENDFUNCTION     reduce using rule 42 (optionalTerminator -> ENDRANDOM skip .)
+    ENDDEF          reduce using rule 42 (optionalTerminator -> ENDRANDOM skip .)
+    ENDF            reduce using rule 42 (optionalTerminator -> ENDRANDOM skip .)
+    ENDWITH         reduce using rule 42 (optionalTerminator -> ENDRANDOM skip .)
+    ENDIF           reduce using rule 42 (optionalTerminator -> ENDRANDOM skip .)
+    ELSE            reduce using rule 42 (optionalTerminator -> ENDRANDOM skip .)
+    ELIF            reduce using rule 42 (optionalTerminator -> ENDRANDOM skip .)
+    ELSER           reduce using rule 42 (optionalTerminator -> ENDRANDOM skip .)
+    ELSERANDOM      reduce using rule 42 (optionalTerminator -> ENDRANDOM skip .)
+    ENDRANDOMWITH   reduce using rule 42 (optionalTerminator -> ENDRANDOM skip .)
+    ENDRWITH        reduce using rule 42 (optionalTerminator -> ENDRANDOM skip .)
+    ENDRANDOM       reduce using rule 42 (optionalTerminator -> ENDRANDOM skip .)
+    ENDR            reduce using rule 42 (optionalTerminator -> ENDRANDOM skip .)
 
 
 state 264
 
-    (43) optionalTerminator -> ENDC skip .
-    DO_NOTHING      reduce using rule 43 (optionalTerminator -> ENDC skip .)
-    UNSAFE          reduce using rule 43 (optionalTerminator -> ENDC skip .)
-    CONCLUDE        reduce using rule 43 (optionalTerminator -> ENDC skip .)
-    IF              reduce using rule 43 (optionalTerminator -> ENDC skip .)
-    REPEAT          reduce using rule 43 (optionalTerminator -> ENDC skip .)
-    RESET           reduce using rule 43 (optionalTerminator -> ENDC skip .)
-    RETURN          reduce using rule 43 (optionalTerminator -> ENDC skip .)
-    CHANCE          reduce using rule 43 (optionalTerminator -> ENDC skip .)
-    [               reduce using rule 43 (optionalTerminator -> ENDC skip .)
-    FUNCTION        reduce using rule 43 (optionalTerminator -> ENDC skip .)
-    FUNCTION_START  reduce using rule 43 (optionalTerminator -> ENDC skip .)
-    DO_ACTION       reduce using rule 43 (optionalTerminator -> ENDC skip .)
-    DO_CALL         reduce using rule 43 (optionalTerminator -> ENDC skip .)
-    DO_DIRECTIVE    reduce using rule 43 (optionalTerminator -> ENDC skip .)
-    META            reduce using rule 43 (optionalTerminator -> ENDC skip .)
-    LINESKIP        reduce using rule 43 (optionalTerminator -> ENDC skip .)
-    ENDFUNCTION     reduce using rule 43 (optionalTerminator -> ENDC skip .)
-    ENDDEF          reduce using rule 43 (optionalTerminator -> ENDC skip .)
-    ENDF            reduce using rule 43 (optionalTerminator -> ENDC skip .)
-    ENDWITH         reduce using rule 43 (optionalTerminator -> ENDC skip .)
-    ENDIF           reduce using rule 43 (optionalTerminator -> ENDC skip .)
-    ELSE            reduce using rule 43 (optionalTerminator -> ENDC skip .)
-    ELIF            reduce using rule 43 (optionalTerminator -> ENDC skip .)
-    ELSEC           reduce using rule 43 (optionalTerminator -> ENDC skip .)
-    ELSECHANCE      reduce using rule 43 (optionalTerminator -> ENDC skip .)
-    ENDCHANCEWITH   reduce using rule 43 (optionalTerminator -> ENDC skip .)
-    ENDCWITH        reduce using rule 43 (optionalTerminator -> ENDC skip .)
-    ENDCHANCE       reduce using rule 43 (optionalTerminator -> ENDC skip .)
-    ENDC            reduce using rule 43 (optionalTerminator -> ENDC skip .)
+    (43) optionalTerminator -> ENDR skip .
+    DO_NOTHING      reduce using rule 43 (optionalTerminator -> ENDR skip .)
+    UNSAFE          reduce using rule 43 (optionalTerminator -> ENDR skip .)
+    CONCLUDE        reduce using rule 43 (optionalTerminator -> ENDR skip .)
+    IF              reduce using rule 43 (optionalTerminator -> ENDR skip .)
+    REPEAT          reduce using rule 43 (optionalTerminator -> ENDR skip .)
+    RESET           reduce using rule 43 (optionalTerminator -> ENDR skip .)
+    RETURN          reduce using rule 43 (optionalTerminator -> ENDR skip .)
+    RANDOM          reduce using rule 43 (optionalTerminator -> ENDR skip .)
+    [               reduce using rule 43 (optionalTerminator -> ENDR skip .)
+    FUNCTION        reduce using rule 43 (optionalTerminator -> ENDR skip .)
+    FUNCTION_START  reduce using rule 43 (optionalTerminator -> ENDR skip .)
+    DO_ACTION       reduce using rule 43 (optionalTerminator -> ENDR skip .)
+    DO_CALL         reduce using rule 43 (optionalTerminator -> ENDR skip .)
+    DO_DIRECTIVE    reduce using rule 43 (optionalTerminator -> ENDR skip .)
+    META            reduce using rule 43 (optionalTerminator -> ENDR skip .)
+    LINESKIP        reduce using rule 43 (optionalTerminator -> ENDR skip .)
+    ENDFUNCTION     reduce using rule 43 (optionalTerminator -> ENDR skip .)
+    ENDDEF          reduce using rule 43 (optionalTerminator -> ENDR skip .)
+    ENDF            reduce using rule 43 (optionalTerminator -> ENDR skip .)
+    ENDWITH         reduce using rule 43 (optionalTerminator -> ENDR skip .)
+    ENDIF           reduce using rule 43 (optionalTerminator -> ENDR skip .)
+    ELSE            reduce using rule 43 (optionalTerminator -> ENDR skip .)
+    ELIF            reduce using rule 43 (optionalTerminator -> ENDR skip .)
+    ELSER           reduce using rule 43 (optionalTerminator -> ENDR skip .)
+    ELSERANDOM      reduce using rule 43 (optionalTerminator -> ENDR skip .)
+    ENDRANDOMWITH   reduce using rule 43 (optionalTerminator -> ENDR skip .)
+    ENDRWITH        reduce using rule 43 (optionalTerminator -> ENDR skip .)
+    ENDRANDOM       reduce using rule 43 (optionalTerminator -> ENDR skip .)
+    ENDR            reduce using rule 43 (optionalTerminator -> ENDR skip .)
 
 
 state 265
@@ -4285,20 +4285,20 @@ state 266
     (39) optionalChance -> chanceBody actionTypeStart nodeBody . optionalChance
     (38) optionalChance -> . optionalTerminator
     (39) optionalChance -> . chanceBody actionTypeStart nodeBody optionalChance
-    (40) optionalTerminator -> . ENDCHANCEWITH uncontrolledSegment skip
-    (41) optionalTerminator -> . ENDCWITH uncontrolledSegment skip
-    (42) optionalTerminator -> . ENDCHANCE skip
-    (43) optionalTerminator -> . ENDC skip
+    (40) optionalTerminator -> . ENDRANDOMWITH uncontrolledSegment skip
+    (41) optionalTerminator -> . ENDRWITH uncontrolledSegment skip
+    (42) optionalTerminator -> . ENDRANDOM skip
+    (43) optionalTerminator -> . ENDR skip
     (46) chanceBody -> . elsechance ( id )
     (47) chanceBody -> . elsechance ( numeric )
-    (48) elsechance -> . ELSEC
-    (49) elsechance -> . ELSECHANCE
-    ENDCHANCEWITH   shift and go to state 249
-    ENDCWITH        shift and go to state 250
-    ENDCHANCE       shift and go to state 251
-    ENDC            shift and go to state 252
-    ELSEC           shift and go to state 185
-    ELSECHANCE      shift and go to state 186
+    (48) elsechance -> . ELSER
+    (49) elsechance -> . ELSERANDOM
+    ENDRANDOMWITH   shift and go to state 249
+    ENDRWITH        shift and go to state 250
+    ENDRANDOM       shift and go to state 251
+    ENDR            shift and go to state 252
+    ELSER           shift and go to state 185
+    ELSERANDOM      shift and go to state 186
 
     chanceBody                     shift and go to state 246
     optionalChance                 shift and go to state 269
@@ -4307,70 +4307,70 @@ state 266
 
 state 267
 
-    (40) optionalTerminator -> ENDCHANCEWITH uncontrolledSegment skip .
-    DO_NOTHING      reduce using rule 40 (optionalTerminator -> ENDCHANCEWITH uncontrolledSegment skip .)
-    UNSAFE          reduce using rule 40 (optionalTerminator -> ENDCHANCEWITH uncontrolledSegment skip .)
-    CONCLUDE        reduce using rule 40 (optionalTerminator -> ENDCHANCEWITH uncontrolledSegment skip .)
-    IF              reduce using rule 40 (optionalTerminator -> ENDCHANCEWITH uncontrolledSegment skip .)
-    REPEAT          reduce using rule 40 (optionalTerminator -> ENDCHANCEWITH uncontrolledSegment skip .)
-    RESET           reduce using rule 40 (optionalTerminator -> ENDCHANCEWITH uncontrolledSegment skip .)
-    RETURN          reduce using rule 40 (optionalTerminator -> ENDCHANCEWITH uncontrolledSegment skip .)
-    CHANCE          reduce using rule 40 (optionalTerminator -> ENDCHANCEWITH uncontrolledSegment skip .)
-    [               reduce using rule 40 (optionalTerminator -> ENDCHANCEWITH uncontrolledSegment skip .)
-    FUNCTION        reduce using rule 40 (optionalTerminator -> ENDCHANCEWITH uncontrolledSegment skip .)
-    FUNCTION_START  reduce using rule 40 (optionalTerminator -> ENDCHANCEWITH uncontrolledSegment skip .)
-    DO_ACTION       reduce using rule 40 (optionalTerminator -> ENDCHANCEWITH uncontrolledSegment skip .)
-    DO_CALL         reduce using rule 40 (optionalTerminator -> ENDCHANCEWITH uncontrolledSegment skip .)
-    DO_DIRECTIVE    reduce using rule 40 (optionalTerminator -> ENDCHANCEWITH uncontrolledSegment skip .)
-    META            reduce using rule 40 (optionalTerminator -> ENDCHANCEWITH uncontrolledSegment skip .)
-    LINESKIP        reduce using rule 40 (optionalTerminator -> ENDCHANCEWITH uncontrolledSegment skip .)
-    ENDFUNCTION     reduce using rule 40 (optionalTerminator -> ENDCHANCEWITH uncontrolledSegment skip .)
-    ENDDEF          reduce using rule 40 (optionalTerminator -> ENDCHANCEWITH uncontrolledSegment skip .)
-    ENDF            reduce using rule 40 (optionalTerminator -> ENDCHANCEWITH uncontrolledSegment skip .)
-    ENDWITH         reduce using rule 40 (optionalTerminator -> ENDCHANCEWITH uncontrolledSegment skip .)
-    ENDIF           reduce using rule 40 (optionalTerminator -> ENDCHANCEWITH uncontrolledSegment skip .)
-    ELSE            reduce using rule 40 (optionalTerminator -> ENDCHANCEWITH uncontrolledSegment skip .)
-    ELIF            reduce using rule 40 (optionalTerminator -> ENDCHANCEWITH uncontrolledSegment skip .)
-    ELSEC           reduce using rule 40 (optionalTerminator -> ENDCHANCEWITH uncontrolledSegment skip .)
-    ELSECHANCE      reduce using rule 40 (optionalTerminator -> ENDCHANCEWITH uncontrolledSegment skip .)
-    ENDCHANCEWITH   reduce using rule 40 (optionalTerminator -> ENDCHANCEWITH uncontrolledSegment skip .)
-    ENDCWITH        reduce using rule 40 (optionalTerminator -> ENDCHANCEWITH uncontrolledSegment skip .)
-    ENDCHANCE       reduce using rule 40 (optionalTerminator -> ENDCHANCEWITH uncontrolledSegment skip .)
-    ENDC            reduce using rule 40 (optionalTerminator -> ENDCHANCEWITH uncontrolledSegment skip .)
+    (40) optionalTerminator -> ENDRANDOMWITH uncontrolledSegment skip .
+    DO_NOTHING      reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment skip .)
+    UNSAFE          reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment skip .)
+    CONCLUDE        reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment skip .)
+    IF              reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment skip .)
+    REPEAT          reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment skip .)
+    RESET           reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment skip .)
+    RETURN          reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment skip .)
+    RANDOM          reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment skip .)
+    [               reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment skip .)
+    FUNCTION        reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment skip .)
+    FUNCTION_START  reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment skip .)
+    DO_ACTION       reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment skip .)
+    DO_CALL         reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment skip .)
+    DO_DIRECTIVE    reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment skip .)
+    META            reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment skip .)
+    LINESKIP        reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment skip .)
+    ENDFUNCTION     reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment skip .)
+    ENDDEF          reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment skip .)
+    ENDF            reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment skip .)
+    ENDWITH         reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment skip .)
+    ENDIF           reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment skip .)
+    ELSE            reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment skip .)
+    ELIF            reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment skip .)
+    ELSER           reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment skip .)
+    ELSERANDOM      reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment skip .)
+    ENDRANDOMWITH   reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment skip .)
+    ENDRWITH        reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment skip .)
+    ENDRANDOM       reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment skip .)
+    ENDR            reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment skip .)
 
 
 state 268
 
-    (41) optionalTerminator -> ENDCWITH uncontrolledSegment skip .
-    DO_NOTHING      reduce using rule 41 (optionalTerminator -> ENDCWITH uncontrolledSegment skip .)
-    UNSAFE          reduce using rule 41 (optionalTerminator -> ENDCWITH uncontrolledSegment skip .)
-    CONCLUDE        reduce using rule 41 (optionalTerminator -> ENDCWITH uncontrolledSegment skip .)
-    IF              reduce using rule 41 (optionalTerminator -> ENDCWITH uncontrolledSegment skip .)
-    REPEAT          reduce using rule 41 (optionalTerminator -> ENDCWITH uncontrolledSegment skip .)
-    RESET           reduce using rule 41 (optionalTerminator -> ENDCWITH uncontrolledSegment skip .)
-    RETURN          reduce using rule 41 (optionalTerminator -> ENDCWITH uncontrolledSegment skip .)
-    CHANCE          reduce using rule 41 (optionalTerminator -> ENDCWITH uncontrolledSegment skip .)
-    [               reduce using rule 41 (optionalTerminator -> ENDCWITH uncontrolledSegment skip .)
-    FUNCTION        reduce using rule 41 (optionalTerminator -> ENDCWITH uncontrolledSegment skip .)
-    FUNCTION_START  reduce using rule 41 (optionalTerminator -> ENDCWITH uncontrolledSegment skip .)
-    DO_ACTION       reduce using rule 41 (optionalTerminator -> ENDCWITH uncontrolledSegment skip .)
-    DO_CALL         reduce using rule 41 (optionalTerminator -> ENDCWITH uncontrolledSegment skip .)
-    DO_DIRECTIVE    reduce using rule 41 (optionalTerminator -> ENDCWITH uncontrolledSegment skip .)
-    META            reduce using rule 41 (optionalTerminator -> ENDCWITH uncontrolledSegment skip .)
-    LINESKIP        reduce using rule 41 (optionalTerminator -> ENDCWITH uncontrolledSegment skip .)
-    ENDFUNCTION     reduce using rule 41 (optionalTerminator -> ENDCWITH uncontrolledSegment skip .)
-    ENDDEF          reduce using rule 41 (optionalTerminator -> ENDCWITH uncontrolledSegment skip .)
-    ENDF            reduce using rule 41 (optionalTerminator -> ENDCWITH uncontrolledSegment skip .)
-    ENDWITH         reduce using rule 41 (optionalTerminator -> ENDCWITH uncontrolledSegment skip .)
-    ENDIF           reduce using rule 41 (optionalTerminator -> ENDCWITH uncontrolledSegment skip .)
-    ELSE            reduce using rule 41 (optionalTerminator -> ENDCWITH uncontrolledSegment skip .)
-    ELIF            reduce using rule 41 (optionalTerminator -> ENDCWITH uncontrolledSegment skip .)
-    ELSEC           reduce using rule 41 (optionalTerminator -> ENDCWITH uncontrolledSegment skip .)
-    ELSECHANCE      reduce using rule 41 (optionalTerminator -> ENDCWITH uncontrolledSegment skip .)
-    ENDCHANCEWITH   reduce using rule 41 (optionalTerminator -> ENDCWITH uncontrolledSegment skip .)
-    ENDCWITH        reduce using rule 41 (optionalTerminator -> ENDCWITH uncontrolledSegment skip .)
-    ENDCHANCE       reduce using rule 41 (optionalTerminator -> ENDCWITH uncontrolledSegment skip .)
-    ENDC            reduce using rule 41 (optionalTerminator -> ENDCWITH uncontrolledSegment skip .)
+    (41) optionalTerminator -> ENDRWITH uncontrolledSegment skip .
+    DO_NOTHING      reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment skip .)
+    UNSAFE          reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment skip .)
+    CONCLUDE        reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment skip .)
+    IF              reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment skip .)
+    REPEAT          reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment skip .)
+    RESET           reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment skip .)
+    RETURN          reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment skip .)
+    RANDOM          reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment skip .)
+    [               reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment skip .)
+    FUNCTION        reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment skip .)
+    FUNCTION_START  reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment skip .)
+    DO_ACTION       reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment skip .)
+    DO_CALL         reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment skip .)
+    DO_DIRECTIVE    reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment skip .)
+    META            reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment skip .)
+    LINESKIP        reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment skip .)
+    ENDFUNCTION     reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment skip .)
+    ENDDEF          reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment skip .)
+    ENDF            reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment skip .)
+    ENDWITH         reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment skip .)
+    ENDIF           reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment skip .)
+    ELSE            reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment skip .)
+    ELIF            reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment skip .)
+    ELSER           reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment skip .)
+    ELSERANDOM      reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment skip .)
+    ENDRANDOMWITH   reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment skip .)
+    ENDRWITH        reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment skip .)
+    ENDRANDOM       reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment skip .)
+    ENDR            reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment skip .)
 
 
 state 269
@@ -4383,7 +4383,7 @@ state 269
     REPEAT          reduce using rule 39 (optionalChance -> chanceBody actionTypeStart nodeBody optionalChance .)
     RESET           reduce using rule 39 (optionalChance -> chanceBody actionTypeStart nodeBody optionalChance .)
     RETURN          reduce using rule 39 (optionalChance -> chanceBody actionTypeStart nodeBody optionalChance .)
-    CHANCE          reduce using rule 39 (optionalChance -> chanceBody actionTypeStart nodeBody optionalChance .)
+    RANDOM          reduce using rule 39 (optionalChance -> chanceBody actionTypeStart nodeBody optionalChance .)
     [               reduce using rule 39 (optionalChance -> chanceBody actionTypeStart nodeBody optionalChance .)
     FUNCTION        reduce using rule 39 (optionalChance -> chanceBody actionTypeStart nodeBody optionalChance .)
     FUNCTION_START  reduce using rule 39 (optionalChance -> chanceBody actionTypeStart nodeBody optionalChance .)
@@ -4399,12 +4399,12 @@ state 269
     ENDIF           reduce using rule 39 (optionalChance -> chanceBody actionTypeStart nodeBody optionalChance .)
     ELSE            reduce using rule 39 (optionalChance -> chanceBody actionTypeStart nodeBody optionalChance .)
     ELIF            reduce using rule 39 (optionalChance -> chanceBody actionTypeStart nodeBody optionalChance .)
-    ELSEC           reduce using rule 39 (optionalChance -> chanceBody actionTypeStart nodeBody optionalChance .)
-    ELSECHANCE      reduce using rule 39 (optionalChance -> chanceBody actionTypeStart nodeBody optionalChance .)
-    ENDCHANCEWITH   reduce using rule 39 (optionalChance -> chanceBody actionTypeStart nodeBody optionalChance .)
-    ENDCWITH        reduce using rule 39 (optionalChance -> chanceBody actionTypeStart nodeBody optionalChance .)
-    ENDCHANCE       reduce using rule 39 (optionalChance -> chanceBody actionTypeStart nodeBody optionalChance .)
-    ENDC            reduce using rule 39 (optionalChance -> chanceBody actionTypeStart nodeBody optionalChance .)
+    ELSER           reduce using rule 39 (optionalChance -> chanceBody actionTypeStart nodeBody optionalChance .)
+    ELSERANDOM      reduce using rule 39 (optionalChance -> chanceBody actionTypeStart nodeBody optionalChance .)
+    ENDRANDOMWITH   reduce using rule 39 (optionalChance -> chanceBody actionTypeStart nodeBody optionalChance .)
+    ENDRWITH        reduce using rule 39 (optionalChance -> chanceBody actionTypeStart nodeBody optionalChance .)
+    ENDRANDOM       reduce using rule 39 (optionalChance -> chanceBody actionTypeStart nodeBody optionalChance .)
+    ENDR            reduce using rule 39 (optionalChance -> chanceBody actionTypeStart nodeBody optionalChance .)
 
 
 Conflicts:

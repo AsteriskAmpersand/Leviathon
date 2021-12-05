@@ -1,0 +1,590 @@
+importactions TzitziYaKu as tzitziyaku
+importlibrary Global as Global
+
+def node_000
+	if function#45() 
+	else 
+		>> Global.node_025 
+		>> Global.node_014 
+	endif 
+	>> node_001 
+	if self.distance_3d_to_target().leq(600) 
+		self.enraged() >> node_008 => reset 
+		self.fatigued() >> node_013 => reset 
+		>> node_003 => reset 
+	elif self.distance_3d_to_target().leq(1200) 
+		self.enraged() >> node_009 => reset 
+		self.fatigued() >> node_014 => reset 
+		>> node_004 => reset 
+	elif self.distance_3d_to_target().leq(1800) 
+		self.enraged() >> node_010 => reset 
+		self.fatigued() >> node_015 => reset 
+		>> node_005 => reset 
+	elif self.distance_3d_to_target().leq(2400) 
+		self.enraged() >> node_011 => reset 
+		self.fatigued() >> node_016 => reset 
+		>> node_006 => reset 
+	else 
+		self.enraged() >> node_012 => reset 
+		self.fatigued() >> node_017 => reset 
+		>> node_007 => reset 
+	endif 
+	reset 
+endf 
+
+def node_001
+	>> node_002 
+	if self.target(4) 
+		>> node_027 => reset 
+	elif self.target(3) 
+		>> node_027 => reset 
+	elif self.target(55) 
+		return 
+	elif self.target(12) 
+		>> node_025 => reset 
+	elif self.target(14) 
+		>> node_022 => reset 
+	elif self.target(11) 
+		>> node_026 => reset 
+	elif self.target(0) 
+		>> node_024 => reset 
+	elif self.vertical_distance_to_target().gt(300) 
+		>> Global.node_075 => reset 
+	else 
+	endif 
+	return 
+endf 
+
+def node_002
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if function#5D() 
+		function#5E() 
+		>> node_021 
+		self.targetEnemy(4) 
+	else 
+	endif 
+	return 
+endf 
+
+def node_003
+	if self.target.helpless_1() 
+		random (40) >> Global.node_072 
+					>> Global.node_060 
+		elser (60) >> Global.node_065 
+		endr 
+	else 
+	endif 
+	if [RegisterVar1 < 5] 
+		[RegisterVar1 |-] 
+		>> Global.node_073 
+		>> Global.node_073 
+		return 
+	else 
+	endif 
+	random (31) >> Global.node_063 
+	elser (0) >> Global.node_060 
+	elser (15) >> Global.node_066 
+	elser (25) >> Global.node_059 
+	elser (10) >> Global.node_073 
+				>> Global.node_062 
+	elser (8) >> Global.node_073 
+	elser (6) >> Global.node_073 
+				>> Global.node_072 
+	elser (5) >> Global.node_039 
+	endr 
+	return 
+endf 
+
+def node_004
+	if self.target.helpless_1() 
+		random (40) >> Global.node_072 
+					>> Global.node_060 
+		elser (60) >> Global.node_072 
+					>> Global.node_057 
+		endr 
+	else 
+	endif 
+	if [RegisterVar1 < 4] 
+		[RegisterVar1 |-] 
+		>> Global.node_073 
+		return 
+	else 
+	endif 
+	random (15) >> Global.node_062 
+	elser (15) >> Global.node_068 
+	elser (10) >> Global.node_056 
+	elser (5) >> Global.node_071 
+				>> Global.node_059 
+	elser (10) >> Global.node_058 
+	elser (20) >> Global.node_073 
+				>> Global.node_062 
+	elser (10) >> Global.node_072 
+	elser (10) >> Global.node_073 
+	elser (5) >> Global.node_039 
+	endr 
+	return 
+endf 
+
+def node_005
+	if self.target.helpless_1() 
+		random (40) >> Global.node_074 
+					>> Global.node_060 
+		elser (60) >> Global.node_072 
+					>> Global.node_057 
+		endr 
+	else 
+	endif 
+	random (30) >> Global.node_062 
+	elser (25) >> Global.node_056 
+	elser (0) >> Global.node_058 
+	elser (5) >> Global.node_072 
+				>> Global.node_062 
+	elser (5) >> Global.node_072 
+				>> Global.node_056 
+	elser (25) >> Global.node_072 
+	elser (5) >> Global.node_073 
+	elser (5) >> Global.node_039 
+	endr 
+	return 
+endf 
+
+def node_006
+	random (15) >> Global.node_062 
+	elser (30) >> Global.node_074 
+	elser (15) >> Global.node_071 
+	elser (35) >> Global.node_072 
+	elser (5) >> Global.node_039 
+	endr 
+	return 
+endf 
+
+def node_007
+	random (55) >> Global.node_075 
+	elser (40) >> Global.node_077 
+	elser (5) >> Global.node_039 
+	endr 
+	return 
+endf 
+
+def node_008
+	if self.target.helpless_1() 
+		random (80) >> Global.node_060 
+		elser (20) >> Global.node_063 
+		endr 
+	else 
+	endif 
+	if [RegisterVar1 < 5] 
+		[RegisterVar1 |-] 
+		>> Global.node_073 
+		>> Global.node_073 
+		return 
+	else 
+	endif 
+	random (20) >> Global.node_063 
+	elser (30) >> Global.node_060 
+	elser (10) >> Global.node_065 
+	elser (10) >> Global.node_059 
+	elser (13) >> Global.node_073 
+				>> Global.node_062 
+	elser (10) >> Global.node_073 
+				>> Global.node_073 
+				>> Global.node_062 
+	elser (5) >> Global.node_073 
+	elser (2) >> Global.node_039 
+	endr 
+	return 
+endf 
+
+def node_009
+	if self.target.helpless_1() 
+		random (60) >> Global.node_071 
+					>> Global.node_060 
+		elser (40) >> Global.node_072 
+					>> Global.node_057 
+		endr 
+	else 
+	endif 
+	if [RegisterVar1 < 4] 
+		[RegisterVar1 |-] 
+		>> Global.node_073 
+		return 
+	else 
+	endif 
+	random (10) >> Global.node_062 
+	elser (10) >> Global.node_068 
+	elser (35) >> Global.node_056 
+	elser (5) >> Global.node_071 
+				>> Global.node_060 
+	elser (5) >> Global.node_072 
+				>> Global.node_056 
+	elser (5) >> Global.node_073 
+				>> Global.node_056 
+	elser (28) >> Global.node_073 
+				>> Global.node_062 
+	elser (2) >> Global.node_039 
+	endr 
+	return 
+endf 
+
+def node_010
+	if self.target(0) 
+		random (60) >> Global.node_074 
+					>> Global.node_060 
+		elser (40) >> Global.node_072 
+					>> Global.node_057 
+		endr 
+	else 
+	endif 
+	random (30) >> Global.node_062 
+	elser (20) >> Global.node_056 
+	elser (20) >> Global.node_072 
+				>> Global.node_056 
+	elser (15) >> Global.node_072 
+				>> Global.node_062 
+	elser (15) >> Global.node_072 
+	elser (0) >> Global.node_039 
+	endr 
+	return 
+endf 
+
+def node_011
+	random (15) >> Global.node_072 
+	elser (20) >> Global.node_062 
+	elser (62) >> Global.node_074 
+	elser (3) >> Global.node_039 
+	endr 
+	return 
+endf 
+
+def node_012
+	random (55) >> Global.node_075 
+	elser (45) >> Global.node_077 
+	endr 
+	return 
+endf 
+
+def node_013
+	random (25) >> Global.node_063 
+	elser (25) >> Global.node_064 
+	elser (25) >> Global.node_059 
+	elser (10) >> Global.node_073 
+	elser (5) >> Global.node_072 
+	elser (10) >> Global.node_050 
+	endr 
+	return 
+endf 
+
+def node_014
+	random (30) >> Global.node_062 
+	elser (5) >> Global.node_056 
+	elser (10) >> Global.node_059 
+	elser (10) >> Global.node_071 
+				>> Global.node_059 
+	elser (20) >> Global.node_058 
+	elser (10) >> Global.node_072 
+	elser (5) >> Global.node_073 
+	elser (10) >> Global.node_050 
+	endr 
+	return 
+endf 
+
+def node_015
+	random (25) >> Global.node_062 
+	elser (15) >> Global.node_056 
+	elser (10) >> Global.node_058 
+	elser (10) >> Global.node_071 
+	elser (25) >> Global.node_072 
+	elser (15) >> Global.node_050 
+	endr 
+	return 
+endf 
+
+def node_016
+	random (15) >> Global.node_072 
+	elser (10) >> Global.node_062 
+	elser (60) >> Global.node_074 
+	elser (15) >> Global.node_050 
+	endr 
+	return 
+endf 
+
+def node_017
+	random (45) >> Global.node_075 
+	elser (40) >> Global.node_077 
+	elser (15) >> Global.node_050 
+	endr 
+	return 
+endf 
+
+def node_018
+	if self.vertical_distance_to_target().leq(400) 
+		if self.distance_2d_to_target().leq(700) 
+			random (20) >> Global.node_073 
+						>> Global.node_061 
+			elser (20) >> Global.node_063 
+			elser (10) >> Global.node_073 
+			elser (20) >> Global.node_066 
+			elser (10) >> Global.node_060 
+			elser (20) >> Global.node_059 
+			endr 
+		elif self.distance_2d_to_target().leq(1300) 
+			random (35) >> Global.node_061 
+			elser (20) >> Global.node_056 
+			elser (20) >> Global.node_072 
+			elser (7) >> Global.node_073 
+			elser (18) >> Global.node_058 
+			endr 
+		else 
+			random (20) >> Global.node_072 
+			elser (80) >> Global.node_074 
+			endr 
+		endif 
+	else 
+		if self.distance_2d_to_target().leq(700) 
+			random (10) >> Global.node_073 
+			elser (60) >> Global.node_073 
+						>> Global.node_061 
+			elser (30) >> Global.node_070 
+			endr 
+		elif self.distance_2d_to_target().leq(1300) 
+			random (60) >> Global.node_061 
+			elser (40) >> Global.node_070 
+			endr 
+		elif self.distance_2d_to_target().leq(2000) 
+			random (40) >> Global.node_075 
+			elser (60) >> Global.node_061 
+			endr 
+		else 
+			>> Global.node_075 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_019
+	if self.vertical_distance_to_target().leq(400) 
+		if self.distance_2d_to_target().leq(700) 
+			random (30) >> Global.node_073 
+						>> Global.node_061 
+			elser (15) >> Global.node_063 
+			elser (10) >> Global.node_073 
+			elser (20) >> Global.node_065 
+			elser (10) >> Global.node_060 
+			elser (15) >> Global.node_059 
+			endr 
+		elif self.distance_2d_to_target().leq(1300) 
+			random (35) >> Global.node_061 
+			elser (25) >> Global.node_056 
+			elser (15) >> Global.node_072 
+			elser (5) >> Global.node_073 
+			elser (20) >> Global.node_058 
+			endr 
+		else 
+			random (20) >> Global.node_072 
+			elser (15) >> Global.node_061 
+			elser (65) >> Global.node_074 
+			endr 
+		endif 
+	else 
+		if self.distance_2d_to_target().leq(700) 
+			random (60) >> Global.node_073 
+						>> Global.node_061 
+			elser (40) >> Global.node_070 
+			endr 
+		elif self.distance_2d_to_target().leq(1300) 
+			random (60) >> Global.node_061 
+			elser (40) >> Global.node_070 
+			endr 
+		elif self.distance_2d_to_target().leq(2000) 
+			random (35) >> Global.node_075 
+			elser (65) >> Global.node_061 
+			endr 
+		else 
+			>> Global.node_075 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_020
+	if self.vertical_distance_to_target().leq(400) 
+		if self.distance_2d_to_target().leq(700) 
+			random (20) >> Global.node_063 
+			elser (21) >> Global.node_073 
+			elser (26) >> Global.node_064 
+			elser (3) >> Global.node_060 
+			elser (20) >> Global.node_059 
+			elser (10) >> Global.node_050 
+			endr 
+		elif self.distance_2d_to_target().leq(1300) 
+			random (30) >> Global.node_061 
+			elser (10) >> Global.node_056 
+			elser (20) >> Global.node_072 
+			elser (10) >> Global.node_073 
+			elser (20) >> Global.node_058 
+			elser (10) >> Global.node_050 
+			endr 
+		else 
+			random (20) >> Global.node_072 
+			elser (70) >> Global.node_074 
+			elser (10) >> Global.node_050 
+			endr 
+		endif 
+	else 
+		if self.distance_2d_to_target().leq(700) 
+			random (15) >> Global.node_073 
+			elser (45) >> Global.node_073 
+						>> Global.node_061 
+			elser (25) >> Global.node_070 
+			elser (15) >> Global.node_050 
+			endr 
+		elif self.distance_2d_to_target().leq(1300) 
+			random (40) >> Global.node_061 
+			elser (35) >> Global.node_070 
+			elser (10) >> Global.node_072 
+			elser (15) >> Global.node_050 
+			endr 
+		elif self.distance_2d_to_target().leq(2000) 
+			random (60) >> Global.node_061 
+			elser (25) >> Global.node_074 
+			elser (15) >> Global.node_050 
+			endr 
+		else 
+			random (80) >> Global.node_075 
+			elser (20) >> Global.node_050 
+			endr 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_021
+	if self.angle_2d_cw_between(90,270) 
+		>> Global.node_041 
+	elif self.distance_3d_to_target().gt(3000) 
+		>> Global.node_041 
+	else 
+		>> Global.node_041 
+	endif 
+	return 
+endf 
+
+def node_022
+	if function#11(1200) 
+		if self.distance_2d_to_target().leq(1500) 
+		else 
+			>> Global.node_075 
+		endif 
+		random (35) >> Global.node_070 
+		elser (50) 
+					if self.distance_2d_recalc_to_target().leq(500) >> Global.node_073 
+					else 
+					endif 
+					>> Global.node_061 
+		elser (15) >> Global.node_039 
+		endr 
+	elif function#11(1800) 
+		if self.distance_2d_to_target().leq(1500) 
+		else 
+			>> Global.node_075 
+		endif 
+		if self.distance_2d_recalc_to_target().leq(500) >> Global.node_073 
+		else 
+		endif 
+		random (35) >> Global.node_070 
+		elser (65) >> Global.node_061 
+		endr 
+	else 
+		random (25) >> Global.node_070 
+		elser (30) >> Global.node_061 
+		elser (45) >> Global.node_039 
+					>> Global.node_045 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_023
+endf 
+
+def node_024
+	if self.distance_2d_to_target().gt(1500) 
+		>> Global.node_075 
+	else 
+		if self.above_target() 
+			self.enraged() >> node_019 => reset 
+			self.fatigued() >> node_020 => reset 
+			>> node_018 => reset 
+		else 
+			>> node_029 
+			>> node_030 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_025
+	>> Global.node_077 
+	>> Global.node_060 
+	return 
+endf 
+
+def node_026
+	if self.distance_2d_to_target().leq(700) 
+		random (30) >> Global.node_059 
+		elser (30) >> Global.node_068 
+		elser (40) >> Global.node_060 
+		endr 
+	elif self.distance_2d_to_target().leq(1300) 
+		random (20) >> Global.node_058 
+		elser (30) >> Global.node_071 
+					>> Global.node_060 
+		elser (50) >> Global.node_056 
+		endr 
+	elif self.distance_2d_to_target().leq(2000) 
+		>> Global.node_056 
+	else 
+		>> Global.node_075 
+	endif 
+	return 
+endf 
+
+def node_027
+	self.targetArea(19) 
+	if self.distance_3d_to_target().gt(1000) 
+		>> Global.node_075 
+		repeat 
+	else 
+		self.targetEnemy(target_em.random_player_or_cat) 
+		>> Global.node_054 
+		random (35) >> Global.node_041 
+		elser (25) >> Global.node_040 
+		elser (40) >> Global.node_039 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_028
+	*&
+	return 
+endf 
+
+def node_029
+	if self.fatigued() 
+		-> tzitziyaku.tired_dash(2,6,0,1000,350) 
+	else 
+		-> tzitziyaku.dash(2,6,0,1000,350) 
+	endif 
+	if self.distance_2d_to_target().leq(400) 
+	else 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_030
+	-> tzitziyaku.jump_attack_wall_down() 
+	return 
+endf 
+

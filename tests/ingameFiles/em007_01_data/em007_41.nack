@@ -1,0 +1,22 @@
+importactions Black_Diablos as black_diablos
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_007 
+	self.targetArea(20) 
+	if self.distance_3d_to_target().leq(1000) 
+	else 
+		>> node_001 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	if self.distance_2d_to_target().leq(1000) 
+		return 
+	else 
+		>> Global.node_045 
+	endif 
+	repeat 
+endf 
+

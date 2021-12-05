@@ -1,0 +1,48 @@
+importactions Barnos as barnos
+importlibrary Global as Global
+
+def node_000
+	if self.hookable() >> Global.node_015 
+		conclude 
+	else 
+		>> Global.node_007 
+		self.targetEnemy(target_em.random_player_or_cat) 
+		if self.target.defense_downed() 
+			>> node_003 
+			reset 
+		endif 
+		self.targetEnemy(target_em.any_monster) 
+		if self.target(38) 
+			>> node_003 
+			reset 
+		endif 
+		>> node_001 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	-> action#1C() 
+	>> Global.node_006 
+	random (50) >> Global.node_001 
+	elser (20) >> Global.node_002 
+	elser (30) >> node_002 
+	endr 
+	return 
+endf 
+
+def node_002
+	if self.distance_2d_to_target().leq(800) >> Global.node_023 
+	else >> Global.node_001 
+	endif 
+	return 
+endf 
+
+def node_003
+	>> Global.node_017 
+	random (60) >> Global.node_020 
+	elser (40) >> Global.node_031 
+	endr 
+	return 
+endf 
+

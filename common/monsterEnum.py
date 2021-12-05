@@ -60,7 +60,7 @@ class EntityManager():
         if key in self.byTriplet: return self.byTriplet[key]
         if key in self.byGameID: return self.byGameID[key]
         if key in self.byName: return self.byName[key]
-        raise KeyError
+        raise KeyError(str(key))
     def actionsByName(self,name):
         return self.byName[name].nameToAction,self.byName[name].actionToName
     def get(self,key,field):

@@ -1,0 +1,134 @@
+importactions Savage_Deviljho as savage_deviljho
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_184 
+	>> Global.node_185 
+	self.targetEnemy(13) 
+	if function#41() 
+	elif function#101() 
+		if self.target(4) 
+			>> Global.node_175 
+		else 
+			if self.distance_3d_to_target().leq(800) 
+				>> Global.node_164 
+			elif self.angle_2d_cw_between(15,345) 
+				>> Global.node_162 
+			else 
+			endif 
+			random (30) >> Global.node_170 
+			elser (40) >> Global.node_173 
+			elser (30) >> Global.node_159 
+			endr 
+		endif 
+	else 
+		if self.target(4) 
+			>> Global.node_144 
+		else 
+			if self.enraged() 
+				>> node_005 
+			else 
+				>> node_001 
+			endif 
+		endif 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	>> node_002 
+	>> node_003 
+	>> node_004 
+	return 
+endf 
+
+def node_002
+	if self.distance_3d_to_target().leq(800) 
+		-> savage_deviljho.back_turn() 
+	elif self.angle_2d_cw_between(30,330) 
+		-> savage_deviljho.quick_turn() 
+	else 
+	endif 
+	return 
+endf 
+
+def node_003
+	self.targetEnemy(13) 
+	if self.distance_2d_to_target().leq(1000) 
+		return 
+	else 
+		>> node_007 
+	endif 
+	if self.distance_2d_to_target().leq(1000) 
+		return 
+	else 
+		>> node_007 
+	endif 
+	if self.distance_2d_to_target().leq(1000) 
+		return 
+	else 
+		>> node_007 
+	endif 
+	return 
+endf 
+
+def node_004
+	self.targetEnemy(48) 
+	if self.target(7) 
+		>> node_008 
+	elif self.target(10) 
+		>> node_010 
+	elif self.distance_3d_to_target().gt(1000) 
+		>> node_008 
+	elif self.angle_2d_cw_between(45,315) 
+		>> node_008 
+	else 
+		>> node_009 
+	endif 
+	return 
+endf 
+
+def node_005
+	>> node_002 
+	>> node_006 
+	return 
+endf 
+
+def node_006
+	random (50) >> Global.node_018 
+	elser (50) >> Global.node_111 
+	elser (0) >> Global.node_125 
+	endr 
+	return 
+endf 
+
+def node_007
+	if self.fatigued() 
+		-> savage_deviljho.tired_dash(2,6,5,1500,900) 
+	else 
+		-> savage_deviljho.dash(2,6,5,1500,900) 
+	endif 
+	return 
+endf 
+
+def node_008
+	-> savage_deviljho.sniff_s() 
+	-> savage_deviljho.search() 
+	return 
+endf 
+
+def node_009
+	if function#5F() 
+		-> savage_deviljho.sniff_s() 
+	else 
+		-> savage_deviljho.threat_short() 
+	endif 
+	return 
+endf 
+
+def node_010
+	self.targetEnemy(9) @ parameter2:1000 
+	>> Global.node_125 
+	return 
+endf 
+

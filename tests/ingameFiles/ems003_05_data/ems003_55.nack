@@ -1,0 +1,197 @@
+importactions Kelbi2 as kelbi2
+
+def node_000
+	if self.angle_2d_cw_between(30,330) 
+		-> action#0A() 
+	else 
+	endif 
+	return 
+endf 
+
+def node_001
+endf 
+
+def node_002
+	if self.distance_3d_to_target().leq(500) 
+	else 
+		-> action#2D(1,2,0,500,3000) 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_003
+	if self.distance_3d_to_target().leq(500) 
+	else 
+		-> action#09(1,2,0,500,3000) 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_004
+	self.targetUnknown(1,0) 
+	if self.angle_2d_ccw_between(90,0) 
+		if self.distance_3d_to_target().leq(800) 
+			>> node_005 
+		else 
+			return 
+		endif 
+	else 
+		return 
+	endif 
+	return 
+endf 
+
+def node_005
+	-> action#2D(2,0,0,600) 
+	return 
+endf 
+
+def node_006
+	if self.distance_3d_to_target().leq(400) 
+		if self.angle_2d_ccw_between(30,0) 
+			>> node_010 
+		elif self.angle_2d_cw_between(90,270) 
+			>> node_009 
+		else 
+			return 
+		endif 
+	else 
+		>> node_008 
+	endif 
+	return 
+endf 
+
+def node_007
+	-> action#12() 
+	return 
+endf 
+
+def node_008
+	-> action#11() 
+	return 
+endf 
+
+def node_009
+	-> action#15() 
+	return 
+endf 
+
+def node_010
+	-> action#14() 
+	return 
+endf 
+
+def node_011
+	-> action#13() 
+	return 
+endf 
+
+def node_012
+endf 
+
+def node_013
+	if function#51(0,1000) 
+		>> node_015 
+		reset 
+	else 
+	endif 
+	return 
+endf 
+
+def node_014
+	if function#51(0,1000) 
+		>> node_015 
+		conclude 
+	else 
+	endif 
+	return 
+endf 
+
+def node_015
+	function#52(1,6) 
+	self.targetArea(target_area.nearest_entrance) 
+	if self.distance_3d_to_target().leq(500) 
+		function#51() 
+		-> action#0A() 
+		-> action#03() 
+	else 
+		-> action#0A() 
+		-> action#0B(1,0,0,500) 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_016
+	if self.distance_3d_to_target().leq(15000) 
+		>> node_000 
+		>> node_018 
+		>> node_018 
+		>> node_018 
+	else 
+		return 
+	endif 
+	return 
+endf 
+
+def node_017
+	-> action#2B() 
+	return 
+endf 
+
+def node_018
+	-> action#2C() 
+	return 
+endf 
+
+def node_019
+	if self.distance_3d_to_target().leq(800) 
+		-> action#2B() 
+	else 
+		random (50) >> node_017 
+		elser (50) >> node_018 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_020
+	self.targetEnemy(33) 
+	if self.target(20) >> node_021 
+	else >> node_022 
+	endif 
+	return 
+endf 
+
+def node_021
+	self.targetEnemy(33) 
+	if self.target(20) 
+		>> node_000 
+		random (50) >> node_018 
+		elser (50) >> node_017 
+		endr 
+	else 
+		random (30) >> node_017 
+		elser (70) >> node_018 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_022
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if self.target(20) 
+		>> node_000 
+		random (50) -> action#04() 
+		elser (50) >> node_017 
+		endr 
+	else 
+		random (70) >> node_017 
+		elser (30) >> node_018 
+		endr 
+	endif 
+	return 
+endf 
+

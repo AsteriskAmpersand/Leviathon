@@ -1,0 +1,88 @@
+importactions Kushala_Daora as kushala_daora
+importlibrary Global as Global
+
+def node_000
+	self.targetEnemy(13) 
+	if self.target(4) 
+		if self.flying() 
+			>> Global.node_001 
+		else 
+		endif 
+		>> Global.node_118 
+	else 
+		if self.flying() 
+			>> Global.node_023 
+		else 
+			>> node_001 
+		endif 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	if self.angle_2d_cw_between(90,270) 
+		>> Global.node_031 
+	else 
+	endif 
+	>> Global.node_073 
+	>> node_002 
+	>> node_003 
+	return 
+endf 
+
+def node_002
+	self.targetEnemy(13) 
+	if self.distance_2d_to_target().leq(1000) 
+		return 
+	else 
+		>> Global.node_043 
+	endif 
+	if self.distance_2d_to_target().leq(1000) 
+		return 
+	else 
+		>> Global.node_043 
+	endif 
+	if self.distance_2d_to_target().leq(1000) 
+		return 
+	else 
+		>> Global.node_043 
+	endif 
+	return 
+endf 
+
+def node_003
+	self.targetEnemy(48) 
+	if self.target(7) 
+		>> node_004 
+	elif self.target(10) 
+		>> node_006 
+	elif self.distance_3d_to_target().gt(1000) 
+		>> node_004 
+	elif self.angle_2d_cw_between(60,300) 
+		>> node_004 
+	else 
+		>> node_005 
+	endif 
+	return 
+endf 
+
+def node_004
+	>> Global.node_076 
+	return 
+endf 
+
+def node_005
+	if function#5F() 
+		>> Global.node_076 
+	else 
+		>> Global.node_026 
+	endif 
+	return 
+endf 
+
+def node_006
+	self.targetEnemy(9) @ parameter2:1000 
+	>> Global.node_004 
+	return 
+endf 
+

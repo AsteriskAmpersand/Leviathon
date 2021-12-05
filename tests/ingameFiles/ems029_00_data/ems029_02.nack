@@ -1,0 +1,16 @@
+importactions Gajau as gajau
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_013 
+	>> node_001 
+	conclude 
+endf 
+
+def node_001
+	self.targetEnemy(target_em.random_player_or_cat) 
+	>> Global.node_002 
+	>> Global.node_009 
+	return 
+endf 
+

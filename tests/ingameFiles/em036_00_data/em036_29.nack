@@ -1,0 +1,55 @@
+importactions Lavasioth as lavasioth
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_080 
+	>> Global.node_002 
+	self.targetArea(19) >> node_001 
+	self.targetEnemy(48) 
+	if self.in_map(st.Challenge_Arena).in_area(-1) >> node_002 
+	elif self.distance_3d_to_target().leq(3500) >> node_003 
+	else >> node_004 
+	endif 
+	reset 
+endf 
+
+def node_001
+	if self.distance_3d_to_target().gt(600) >> Global.node_083 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_002
+	>> Global.node_088 
+	random (20) >> Global.node_100 
+	elser (40) >> Global.node_095 
+	elser (40) >> Global.node_069 
+	endr 
+	return 
+endf 
+
+def node_003
+	>> Global.node_088 
+	if self.fatigued() >> Global.node_099 
+	else 
+		random (50) >> Global.node_069 
+		elser (50) >> Global.node_103 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_004
+	if self.targetEnemy(target_em.any_monster) 
+		random (20) >> Global.node_089 
+		elser (80) 
+		endr 
+	endif 
+	random (60) >> Global.node_095 
+	elser (25) >> Global.node_103 
+	elser (15) >> Global.node_069 
+	endr 
+	return 
+endf 
+

@@ -1,0 +1,120 @@
+importactions Cortos as cortos
+importlibrary Global as Global
+
+def node_000
+	if function#63() 
+		function#109() 
+	endif 
+	>> Global.node_009 
+	if self.hp_percent().gt(80) 
+		if function#B0(4) 
+			if function#111() 
+				function#103() 
+				-> action#23() 
+			else 
+				if function#10E() 
+					if function#110() 
+						function#103() 
+						-> action#23() 
+					else 
+						function#54() 
+						function#52(2,1) 
+						self.targetArea(target_area.nearest_entrance) @ unkn12:4, unknExtra1:700 
+						function#54() 
+						if self.distance_2d_to_target().leq(700) 
+							-> action#05() 
+						elif self.distance_2d_to_target().leq(1500) 
+							-> action#11(2,1,0,3000,700) 
+						else 
+							-> action#10(2,1,0,3000,1000) 
+						endif 
+					endif 
+				else 
+					function#103() 
+					-> action#23() 
+				endif 
+			endif 
+		else 
+			function#103() 
+			-> action#23() 
+		endif 
+		if self.hookable() 
+			function#54() 
+			function#104() 
+			function#106() 
+			>> node_001 
+		else 
+		endif 
+	else 
+		if function#B0(4) 
+			if function#111() 
+				-> action#04() 
+			else 
+				if function#10E() 
+					if function#110() 
+						-> action#04() 
+					else 
+						function#54() 
+						function#52(2,1) 
+						self.targetArea(target_area.nearest_entrance) @ unkn12:4, unknExtra1:700 
+						function#54() 
+						if self.distance_2d_to_target().leq(700) 
+							-> action#05() 
+						elif self.distance_2d_to_target().leq(1500) 
+							-> action#11(2,1,0,3000,700) 
+						else 
+							-> action#10(2,1,0,3000,1000) 
+						endif 
+					endif 
+				else 
+					-> action#04() 
+				endif 
+			endif 
+		else 
+			-> action#04() 
+		endif 
+		if self.hookable() 
+			function#54() 
+			function#104() 
+			function#106() 
+			>> node_001 
+		else 
+		endif 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	function#54() 
+	if self.hookable() 
+		function#52(1,3) 
+		self.targetEnemy(16) 
+		-> action#15() 
+		function#54() 
+		return 
+	endif 
+	return 
+endf 
+
+def node_002
+	if self.hookable() 
+		if function#B0(4) 
+			function#52(0,3) 
+			self.targetEnemy(16) 
+			-> action#15() 
+		else 
+			if function#108() 
+				-> action#1F() 
+			else 
+				function#107() 
+				-> action#15() 
+				repeat 
+			endif 
+		endif 
+		return 
+		*&
+		*&
+	endif 
+	return 
+endf 
+

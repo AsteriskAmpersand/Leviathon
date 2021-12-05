@@ -1,0 +1,17 @@
+importactions Brachydios as brachydios
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_103 
+	self.targetEnemy(34) 
+	if self.distance_3d_to_target().leq(1000) >> Global.node_072 
+	elif self.distance_3d_to_target().leq(5000) 
+		>> Global.node_086 
+		repeat 
+	else 
+		>> Global.node_086 
+		repeat 
+	endif 
+	conclude 
+endf 
+

@@ -1,0 +1,199 @@
+importactions Popo as popo
+importlibrary Global as Global
+
+def node_000
+	function#104() 
+	function#107() 
+	>> node_010 
+	function#54() 
+	function#52() 
+	self.targetArea(target_area.nearest_entrance) @ unkn3:8388608 
+	>> node_001 
+	>> node_002 
+	reset 
+endf 
+
+def node_001
+	if function#B0(3) 
+		>> node_011 
+	elif function#B0(4) 
+		>> node_011 
+	elif function#B0(5) 
+		>> node_011 
+	else 
+		if self.distance_3d_to_target().gt(500) 
+			-> action#02(2,1,5,400,400) 
+			repeat 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_002
+	if function#B0(3) 
+		>> node_012 
+	elif function#B0(4) 
+		>> node_012 
+	elif function#B0(5) 
+		>> node_012 
+	else 
+		if function#5A() 
+			>> node_003 
+		elif function#5A(1) 
+			>> node_004 
+		elif function#5A(2) 
+			>> node_005 
+		else 
+			>> node_004 
+		endif 
+		function#54() 
+	endif 
+	return 
+endf 
+
+def node_003
+	if function#3C() 
+		>> node_006 
+	else 
+		>> node_008 
+	endif 
+	return 
+endf 
+
+def node_004
+	if function#3C() 
+		>> node_006 
+	else 
+		>> node_006 
+	endif 
+	return 
+endf 
+
+def node_005
+	if function#3C() 
+		>> node_007 
+	else 
+		>> node_007 
+	endif 
+	return 
+endf 
+
+def node_006
+	self.targetEnemy(17) 
+	>> Global.node_000 
+	-> action#2F() 
+	-> action#30() 
+	return 
+endf 
+
+def node_007
+	self.targetEnemy(17) 
+	>> Global.node_000 
+	-> action#31() 
+	-> action#32() 
+	return 
+endf 
+
+def node_008
+	-> action#2C() 
+	return 
+endf 
+
+def node_009
+	-> action#2A() 
+	return 
+endf 
+
+def node_010
+	if function#51(0,2000) 
+		>> Global.node_004 => reset 
+	else 
+	endif 
+	return 
+endf 
+
+def node_011
+	function#54() 
+	function#52(0,3) 
+	self.targetEnemy(16) 
+	if self.distance_2d_to_target().leq(5000) 
+	else 
+		function#54() 
+		function#52(0,4) 
+		self.targetEnemy(16) 
+		if self.distance_2d_to_target().leq(500) 
+		else 
+			>> node_015 
+			>> node_012 
+		endif 
+		>> node_014 
+		>> Global.node_000 
+		-> action#02(2,1,0,700,200) 
+	endif 
+	return 
+endf 
+
+def node_012
+	function#54() 
+	function#52(0,3) 
+	self.targetEnemy(16) 
+	if self.distance_2d_to_target().leq(5500) 
+		random (33) -> action#26() 
+		elser (33) -> action#27() 
+		elser (34) -> action#0E() 
+		endr 
+	else 
+		*&
+		*&
+		>> Global.node_000 
+		if function#3C() 
+			random (40) 
+						-> action#2E() 
+			elser (60) 
+						>> node_013 
+			endr 
+			*&
+			*&
+			*&
+		else 
+			random (30) 
+						-> action#2E() 
+			elser (50) 
+						>> node_013 
+			elser (20) 
+						>> node_008 
+			endr 
+		endif 
+	endif 
+	function#54() 
+	return 
+endf 
+
+def node_013
+	-> action#2F() 
+	-> action#30() 
+	return 
+endf 
+
+def node_014
+	random (25) 
+				self.targetArea(21) @ parameter2:1200 
+	elser (25) 
+				self.targetArea(22) @ parameter2:1200 
+	elser (25) 
+				self.targetArea(11) @ parameter2:1200 
+	elser (25) 
+				self.targetArea(12) @ parameter2:1200 
+	endr 
+	return 
+endf 
+
+def node_015
+	function#54() 
+	function#52(0,4) 
+	self.targetEnemy(16) 
+	-> action#02(2,1,0,1000,200) 
+	function#54() 
+	return 
+endf 
+

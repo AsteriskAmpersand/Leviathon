@@ -1,0 +1,46 @@
+importactions Ruiner_Nergigante as ruiner_nergigante
+importlibrary Global as Global
+
+def node_000
+	self.targetArea(51) 
+	>> node_001 
+	>> node_002 
+	>> node_003 
+	conclude 
+endf 
+
+def node_001
+	if self.flying() 
+		self.targetArea(target_area.area_aerial_center) 
+		>> Global.node_073 
+	else 
+		self.targetArea(target_area.area_center) 
+		>> Global.node_012 
+		self.targetArea(target_area.area_aerial_center) 
+		>> Global.node_049 
+	endif 
+	return 
+endf 
+
+def node_002
+	self.targetArea(51) 
+	if self.flying() 
+		>> Global.node_075 
+	else 
+		>> Global.node_049 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_003
+	self.targetArea(51) 
+	if self.flying() 
+		>> Global.node_074 
+	else 
+		>> Global.node_049 
+		repeat 
+	endif 
+	return 
+endf 
+

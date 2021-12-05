@@ -1,0 +1,70 @@
+importactions Beotodus as beotodus
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_070 
+	self.targetEnemy(target_em.closest_entity) 
+	>> node_001 
+	if self.target_is(em.Popo) @ parameter2:1 
+	else 
+		conclude 
+	endif 
+	if self.target(13) 
+	else 
+		repeat 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	if self.target_is(em.Popo) @ parameter2:1 
+		>> Global.node_117 
+	else 
+	endif 
+	if self.distance_3d_to_target().leq(3000) 
+		>> node_002 
+	else 
+		>> Global.node_133 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_002
+	if self.target_is(em.Popo) 
+		>> node_003 
+	else 
+		conclude 
+	endif 
+	return 
+endf 
+
+def node_003
+	if self.target(22) 
+		if self.target(11) 
+			>> Global.node_005 
+			>> Global.node_113 
+			conclude 
+		else 
+			>> Global.node_133 
+			>> Global.node_005 
+			>> Global.node_112 
+		endif 
+	else 
+		>> node_004 
+	endif 
+	return 
+endf 
+
+def node_004
+	if self.target(21) 
+		>> Global.node_111 
+	else 
+		>> Global.node_107 
+		>> Global.node_133 
+		>> Global.node_005 
+		>> Global.node_112 
+	endif 
+	return 
+endf 
+

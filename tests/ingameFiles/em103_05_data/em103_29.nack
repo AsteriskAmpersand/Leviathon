@@ -1,0 +1,75 @@
+importactions Ruiner_Nergigante as ruiner_nergigante
+importlibrary Global as Global
+
+def node_000
+	if self.in_map(st.Everstream).in_area(-1) 
+		>> node_005 
+	elif self.in_map(st.Great_Ravine).in_area(-1) 
+		>> node_005 
+	else 
+		>> Global.node_105 
+		>> Global.node_005 
+		>> node_001 
+	endif 
+	reset 
+endf 
+
+def node_001
+	self.targetEnemy(48) 
+	if self.in_map(st.Challenge_Arena).in_area(0) 
+		>> node_004 
+	elif self.distance_3d_to_target().leq(3500) 
+		if self.target(7) 
+			>> node_003 
+		elif self.target(10) 
+			>> node_003 
+		else 
+			>> node_002 
+		endif 
+	else 
+		>> node_003 
+	endif 
+	return 
+endf 
+
+def node_002
+	>> Global.node_018 
+	>> Global.node_058 
+	return 
+endf 
+
+def node_003
+	if self.targetEnemy(target_em.any_monster) 
+		random (20) >> Global.node_024 
+		elser (80) 
+		endr 
+	else 
+	endif 
+	random (15) >> Global.node_058 
+	elser (30) >> Global.node_052 
+	elser (55) >> Global.node_053 
+	endr 
+	return 
+endf 
+
+def node_004
+	>> Global.node_024 
+	random (40) >> Global.node_058 
+	elser (30) >> Global.node_052 
+	elser (10) >> Global.node_053 
+	elser (20) >> Global.node_057 
+	endr 
+	return 
+endf 
+
+def node_005
+	>> Global.node_063 
+	random (40) >> Global.node_056 
+	elser (25) >> Global.node_030 
+	elser (5) >> Global.node_034 
+	elser (20) >> Global.node_035 
+	elser (10) >> Global.node_058 
+	endr 
+	return 
+endf 
+

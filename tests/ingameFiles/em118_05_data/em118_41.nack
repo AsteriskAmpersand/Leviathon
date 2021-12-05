@@ -1,0 +1,88 @@
+importactions Seething_Bazelgeuse as seething_bazelgeuse
+importlibrary Global as Global
+
+def node_000
+	self.targetArea(20) 
+	>> node_001 
+	self.targetArea(20) 
+	>> node_007 
+	conclude 
+endf 
+
+def node_001
+	if function#AD() 
+		>> node_002 
+	else 
+		>> node_003 
+	endif 
+	return 
+endf 
+
+def node_002
+	if self.flying() 
+		>> Global.node_148 
+	else 
+		if self.in_combat() 
+			>> Global.node_124 
+		else 
+			>> Global.node_124 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_003
+	>> node_004 
+	>> node_005 
+	>> node_006 
+	return 
+endf 
+
+def node_004
+	self.targetArea(target_area.area_aerial_center) 
+	if self.flying() 
+		>> Global.node_142 
+	else 
+		>> Global.node_025 
+	endif 
+	return 
+endf 
+
+def node_005
+	self.targetArea(20) 
+	if self.flying() 
+		self.targetArea(40) 
+		>> Global.node_143 
+	else 
+		self.targetArea(39) 
+		if self.in_combat() 
+			>> Global.node_124 
+		else 
+			>> Global.node_124 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_006
+	if self.flying() 
+		self.targetArea(target_area.area_center) 
+		>> Global.node_018 
+	else 
+	endif 
+	return 
+endf 
+
+def node_007
+	if self.flying() 
+		>> Global.node_145 
+	else 
+		if self.in_combat() 
+			>> Global.node_124 
+		else 
+			>> Global.node_124 
+		endif 
+	endif 
+	return 
+endf 
+

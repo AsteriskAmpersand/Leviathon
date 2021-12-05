@@ -1,0 +1,67 @@
+importactions Mosswine as mosswine
+importlibrary Global as Global
+
+def node_000
+	>> node_002 
+	if function#72() 
+		self.targetUnknown(13,0) 
+		if function#2D() 
+			>> Global.node_001 
+			>> node_001 
+			>> node_003 
+		else >> node_004 
+		endif 
+	else 
+		>> node_004 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	if function#3F() 
+		-> action#15() 
+	else 
+	endif 
+	return 
+endf 
+
+def node_002
+	function#4E() 
+	if function#4D(1,1) 
+		self.targetEnemy(36) 
+	elif function#4D(1) 
+		self.targetEnemy(36) 
+	else 
+		function#52() 
+		self.targetEnemy(16) 
+	endif 
+	return 
+endf 
+
+def node_003
+	if self.distance_3d_to_target().leq(300) 
+	else 
+		-> action#04(1,2,0,250,1000) 
+		repeat 
+	endif 
+	function#54() 
+	return 
+endf 
+
+def node_004
+	if function#48() 
+		>> Global.node_004 
+	else 
+	endif 
+	-> action#13() 
+	return 
+endf 
+
+def node_005
+	if self.angle_2d_cw_between(20,340) 
+		-> action#05() 
+	else 
+	endif 
+	return 
+endf 
+

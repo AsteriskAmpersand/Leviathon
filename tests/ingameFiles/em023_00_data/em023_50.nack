@@ -1,0 +1,235 @@
+importactions Rajang as rajang
+
+def node_000
+	self.targetEnemy(target_em.closest_entity) 
+	if self.target_is(em.Rathian) 
+		>> node_001 
+	elif self.target_is(em.Pink_Rathian) 
+		>> node_001 
+	elif self.target_is(em.Rathalos) 
+		>> node_001 
+	elif self.target_is(em.Azure_Rathalos) 
+		>> node_001 
+	elif self.target_is(em.Yian_Garuga) 
+		>> node_002 
+	elif self.target_is(em.Scarred_Yian_Garuga) 
+		>> node_002 
+	elif self.target_is(em.PukeiPukei) 
+		>> node_003 
+	elif self.target_is(em.Coral_PukeiPukei) 
+		>> node_003 
+	elif self.target_is(em.Paolumu) 
+		>> node_004 
+	elif self.target_is(em.Nightshade_Paolumu) 
+		>> node_004 
+	elif self.target_is(em.Legiana) 
+		>> node_005 
+	elif self.target_is(em.Shrieking_Legiana) 
+		>> node_005 
+	elif self.target_is(em.Kirin) 
+		>> node_006 
+	elif self.target_is(em.Nergigante) 
+		>> node_007 
+	elif self.target_is(em.Ruiner_Nergigante) 
+		>> node_007 
+	elif self.target_is(em.Kushala_Daora) 
+		>> node_008 
+	elif self.target_is(em.Lunastra) 
+		>> node_011 
+	elif self.target_is(em.Teostra) 
+		>> node_012 
+	elif self.target_is(em.Vaal_Hazak) 
+		>> node_013 
+	elif self.target_is(em.Blackveil_Vaal_Hazak) 
+		>> node_013 
+	elif self.target_is(em.Velkhana) 
+		>> node_009 
+	elif self.target_is(em.Namielle) 
+		>> node_010 
+	elif self.target_is(em.Deviljho) 
+		>> node_014 
+	elif self.target_is(em.Savage_Deviljho) 
+		>> node_014 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	if self.distance_2d_to_target().gt(1500) 
+		-> rajang.dash_combat(1,0,0,1400) 
+	endif 
+	if self.distance_2d_to_target().leq(900) 
+		-> rajang.back_turn_short() 
+	else 
+		-> rajang.quick_turn() 
+	endif 
+	-> rajang.grapple_with_em002_first() 
+	return 
+endf 
+
+def node_002
+	if self.distance_2d_to_target().gt(1500) 
+		-> rajang.dash_combat(1,0,0,1400) 
+	endif 
+	if self.distance_2d_to_target().leq(900) 
+		-> rajang.back_turn_short() 
+	else 
+		-> rajang.quick_turn() 
+	endif 
+	-> rajang.grapple_with_em018_first() 
+	return 
+endf 
+
+def node_003
+	if self.distance_2d_to_target().gt(1500) 
+		-> rajang.dash_combat(1,0,0,1400) 
+	endif 
+	if self.distance_2d_to_target().leq(900) 
+		-> rajang.back_turn_short() 
+	else 
+		-> rajang.quick_turn() 
+	endif 
+	-> rajang.grapple_with_em102_first() 
+	return 
+endf 
+
+def node_004
+	if self.distance_2d_to_target().gt(1500) 
+		-> rajang.dash_combat(1,0,0,1400) 
+	endif 
+	if self.distance_2d_to_target().leq(900) 
+		-> rajang.back_turn_short() 
+	else 
+		-> rajang.quick_turn() 
+	endif 
+	-> rajang.grapple_with_em110_first() 
+	return 
+endf 
+
+def node_005
+	if self.distance_2d_to_target().gt(1500) 
+		-> rajang.dash_combat(1,0,0,1400) 
+	endif 
+	if self.distance_2d_to_target().leq(900) 
+		-> rajang.back_turn_short() 
+	else 
+		-> rajang.quick_turn() 
+	endif 
+	-> rajang.grapple_with_em111_first() 
+	return 
+endf 
+
+def node_006
+	if self.distance_2d_to_target().gt(1100) 
+		-> rajang.dash_combat(1,0,0,1000) 
+	endif 
+	if self.distance_2d_to_target().leq(500) 
+		-> rajang.back_turn_short() 
+	else 
+		-> rajang.quick_turn() 
+	endif 
+	-> rajang.grapple_with_em011_first() 
+	return 
+endf 
+
+def node_007
+	if self.distance_2d_to_target().gt(1400) 
+		-> rajang.dash_combat(1,0,0,1300) 
+	endif 
+	if self.distance_2d_to_target().leq(800) 
+		-> rajang.back_turn_short() 
+	else 
+		-> rajang.quick_turn() 
+	endif 
+	-> rajang.grapple_with_em103_first() 
+	return 
+endf 
+
+def node_008
+	if self.distance_2d_to_target().gt(1800) 
+		-> rajang.dash_combat(1,0,0,1700) 
+	endif 
+	if self.distance_2d_to_target().leq(1200) 
+		-> rajang.back_turn_short() 
+	endif 
+	-> rajang.grapple_with_em024_adjust_wait() 
+	-> rajang.grapple_with_em024_start() 
+	return 
+endf 
+
+def node_009
+	if self.distance_2d_to_target().gt(1800) 
+		-> rajang.dash_combat(1,0,0,1700) 
+	endif 
+	if self.distance_2d_to_target().leq(1200) 
+		-> rajang.back_turn_short() 
+	endif 
+	-> rajang.grapple_with_em124_adjust_wait() 
+	-> rajang.grapple_with_em124_start() 
+	return 
+endf 
+
+def node_010
+	if self.distance_2d_to_target().gt(1800) 
+		-> rajang.dash_combat(1,0,0,1700) 
+	endif 
+	if self.distance_2d_to_target().leq(1200) 
+		-> rajang.back_turn_short() 
+	endif 
+	-> rajang.grapple_with_em125_adjust_wait() 
+	-> rajang.grapple_with_em125_start() 
+	return 
+endf 
+
+def node_011
+	if self.distance_2d_to_target().gt(1150) 
+		-> rajang.dash_combat(1,0,0,1050) 
+	endif 
+	if self.distance_2d_to_target().leq(550) 
+		-> rajang.back_turn_short() 
+	else 
+		-> rajang.quick_turn() 
+	endif 
+	-> rajang.grapple_with_em026_start() 
+	return 
+endf 
+
+def node_012
+	if self.distance_2d_to_target().gt(1150) 
+		-> rajang.dash_combat(1,0,0,1050) 
+	endif 
+	if self.distance_2d_to_target().leq(550) 
+		-> rajang.back_turn_short() 
+	else 
+		-> rajang.quick_turn() 
+	endif 
+	-> rajang.grapple_with_em027_start() 
+	return 
+endf 
+
+def node_013
+	if self.distance_2d_to_target().gt(1150) 
+		-> rajang.dash_combat(1,0,0,1050) 
+	endif 
+	if self.distance_2d_to_target().leq(550) 
+		-> rajang.back_turn_short() 
+	else 
+		-> rajang.quick_turn() 
+	endif 
+	-> rajang.grapple_with_em115_start() 
+	return 
+endf 
+
+def node_014
+	if self.distance_2d_to_target().gt(1750) 
+		-> rajang.dash_combat(1,0,0,1650) 
+	endif 
+	if self.distance_2d_to_target().leq(1150) 
+		-> rajang.back_turn_short() 
+	else 
+		-> rajang.quick_turn() 
+	endif 
+	-> rajang.grapple_with_em043_first() 
+	return 
+endf 
+

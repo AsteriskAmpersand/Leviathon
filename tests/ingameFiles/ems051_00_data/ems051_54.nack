@@ -1,0 +1,250 @@
+importactions KestodonM as kestodonm
+importlibrary Global as Global
+
+def node_000
+	if function#B2() 
+		>> node_002 
+	else 
+		>> node_001 
+	endif 
+	reset 
+endf 
+
+def node_001
+	if self.targetEnemy(44) 
+		>> Global.node_002 
+		>> node_022 
+		>> Global.node_002 
+		-> action#3F() 
+	else 
+		conclude 
+	endif 
+	return 
+endf 
+
+def node_002
+	if function#B3() 
+		>> node_013 
+	elif function#B4() 
+		>> node_014 
+	else 
+		>> node_003 
+	endif 
+	reset 
+endf 
+
+def node_003
+	if self.targetEnemy(46) 
+		>> Global.node_014 
+		if function#B5() 
+			random (60) >> node_006 
+			elser (40) >> node_007 
+			endr 
+		else 
+			>> node_007 
+		endif 
+	elif self.targetEnemy(45) 
+		>> node_004 
+	endif 
+	reset 
+endf 
+
+def node_004
+	>> Global.node_013 
+	if self.target(4) 
+		>> node_005 
+	elif self.distance_2d_to_target().gt(600) 
+		>> Global.node_021 
+	else 
+		>> node_005 
+	endif 
+	reset 
+endf 
+
+def node_005
+	random (50) -> action#01() 
+	elser (20) -> action#1D() 
+	elser (15) -> action#1E() 
+	elser (15) -> action#1F() 
+	endr 
+	reset 
+endf 
+
+def node_006
+	if self.distance_3d_to_target().leq(350) 
+		>> node_008 
+	elif self.distance_3d_to_target().leq(500) 
+		>> node_009 
+	elif self.distance_3d_to_target().leq(800) 
+		>> node_010 
+	elif self.distance_3d_to_target().leq(1200) 
+		>> node_011 
+	else 
+		>> node_012 
+	endif 
+	return 
+endf 
+
+def node_007
+	if self.distance_3d_to_target().leq(800) 
+		random (50) >> Global.node_002 
+					>> Global.node_027 
+		elser (50) >> Global.node_024 
+		endr 
+	elif self.distance_3d_to_target().leq(1400) 
+		random (60) >> Global.node_026 
+		elser (20) >> Global.node_002 
+					>> Global.node_027 
+		elser (20) >> Global.node_024 
+		endr 
+	else 
+		>> Global.node_019 
+	endif 
+	return 
+endf 
+
+def node_008
+	>> Global.node_003 
+	>> Global.node_022 
+	return 
+endf 
+
+def node_009
+	random (70) >> Global.node_003 
+				>> Global.node_022 
+	elser (30) 
+				>> Global.node_003 
+				>> Global.node_027 
+				>> Global.node_023 
+	endr 
+	return 
+endf 
+
+def node_010
+	>> Global.node_003 
+	>> Global.node_023 
+	return 
+endf 
+
+def node_011
+	>> Global.node_003 
+	>> Global.node_023 
+	return 
+endf 
+
+def node_012
+	>> Global.node_002 
+	>> Global.node_017 
+	>> Global.node_022 
+	return 
+endf 
+
+def node_013
+	self.targetEnemy(45) 
+	>> Global.node_002 
+	>> Global.node_017 
+	>> Global.node_002 
+	-> action#40() 
+	return 
+endf 
+
+def node_014
+	self.targetEnemy(46) 
+	if function#B5() 
+		random (80) >> node_015 
+		elser (20) >> node_016 
+		endr 
+	else 
+		if self.target(13) 
+			>> Global.node_003 
+			-> action#41() 
+		else 
+			>> node_016 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_015
+	if self.distance_3d_to_target().leq(350) 
+		>> node_017 
+	elif self.distance_3d_to_target().leq(500) 
+		>> node_018 
+	elif self.distance_3d_to_target().leq(800) 
+		>> node_019 
+	elif self.distance_3d_to_target().leq(1200) 
+		>> node_020 
+	else 
+		>> node_021 
+	endif 
+	return 
+endf 
+
+def node_016
+	if self.distance_3d_to_target().leq(800) 
+		random (50) >> Global.node_002 
+					>> Global.node_027 
+		elser (50) >> Global.node_024 
+		endr 
+	elif self.distance_3d_to_target().leq(1400) 
+		random (60) >> Global.node_026 
+		elser (20) >> Global.node_002 
+					>> Global.node_027 
+		elser (20) >> Global.node_024 
+		endr 
+	else 
+		>> Global.node_019 
+	endif 
+	return 
+endf 
+
+def node_017
+	>> Global.node_003 
+	>> Global.node_022 
+	return 
+endf 
+
+def node_018
+	random (70) >> Global.node_003 
+				>> Global.node_022 
+	elser (30) 
+				>> Global.node_003 
+				>> Global.node_027 
+				>> Global.node_023 
+	endr 
+	return 
+endf 
+
+def node_019
+	>> Global.node_003 
+	-> action#41() 
+	return 
+endf 
+
+def node_020
+	>> Global.node_002 
+	>> Global.node_023 
+	return 
+endf 
+
+def node_021
+	>> Global.node_002 
+	>> Global.node_017 
+	>> Global.node_022 
+	return 
+endf 
+
+def node_022
+	if self.distance_2d_to_target().leq(450) 
+	else 
+		>> node_023 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_023
+	-> action#09(2,6,0,1000,400) 
+	return 
+endf 
+

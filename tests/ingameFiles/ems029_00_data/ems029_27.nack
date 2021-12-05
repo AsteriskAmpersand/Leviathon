@@ -1,0 +1,119 @@
+importactions Gajau as gajau
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_013 
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if self.target(7) 
+	elif self.target(10) 
+	elif self.target(3) 
+	elif self.target(4) 
+	elif self.vertical_distance_to_target().gt(500) 
+	else >> node_001 
+		repeat 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	if self.target(2) 
+		>> node_005 
+	else 
+		>> node_002 
+	endif 
+	return 
+endf 
+
+def node_002
+	>> Global.node_002 
+	random (80) >> Global.node_008 
+	elser (20) >> Global.node_007 
+	endr 
+	return 
+endf 
+
+def node_003
+	-> action#08(2,1,0,700,300) 
+	return 
+endf 
+
+def node_004
+	if function#103(500) 
+	else 
+		function#102() 
+		function#104() 
+	endif 
+	return 
+endf 
+
+def node_005
+	if function#B0() 
+		>> node_006 
+	elif function#B0(1) 
+		>> node_007 
+	else 
+		>> node_007 
+	endif 
+	return 
+endf 
+
+def node_006
+	function#102() 
+	function#104() 
+	function#105(0,700) 
+	>> node_003 
+	>> node_004 
+	function#105(45,700) 
+	>> node_003 
+	>> node_004 
+	function#105(90,700) 
+	>> node_003 
+	>> node_004 
+	function#105(135,700) 
+	>> node_003 
+	>> node_004 
+	function#105(180,700) 
+	>> node_003 
+	>> node_004 
+	function#105(225,700) 
+	>> node_003 
+	>> node_004 
+	function#105(270,700) 
+	>> node_003 
+	>> node_004 
+	function#105(315,700) 
+	>> node_003 
+	>> node_004 
+	return 
+endf 
+
+def node_007
+	function#102() 
+	function#104() 
+	function#105(0,700) 
+	>> node_003 
+	>> node_004 
+	function#105(315,700) 
+	>> node_003 
+	>> node_004 
+	function#105(270,700) 
+	>> node_003 
+	>> node_004 
+	function#105(225,700) 
+	>> node_003 
+	>> node_004 
+	function#105(180,700) 
+	>> node_003 
+	>> node_004 
+	function#105(135,700) 
+	>> node_003 
+	>> node_004 
+	function#105(90,700) 
+	>> node_003 
+	>> node_004 
+	function#105(45,700) 
+	>> node_003 
+	>> node_004 
+	return 
+endf 
+

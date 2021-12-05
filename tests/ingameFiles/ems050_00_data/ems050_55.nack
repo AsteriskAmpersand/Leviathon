@@ -1,0 +1,314 @@
+importactions Mernos as mernos
+
+def node_000
+	conclude 
+endf 
+
+def node_001
+	if self.flying() 
+		-> mernos.turn_step_front_far_l() 
+	else 
+		-> mernos.turn_step_back_r() 
+	endif 
+	return 
+endf 
+
+def node_002
+	if self.flying() 
+		-> mernos.turn_step_l_fly() 
+	else 
+		-> mernos.turn_step_front_far_r() 
+	endif 
+	return 
+endf 
+
+def node_003
+	if self.flying() 
+		-> mernos.take_off() 
+	else 
+	endif 
+	-> mernos.turn_step_r_fly() 
+	return 
+endf 
+
+def node_004
+	if self.flying() 
+		-> mernos.threat_short_fly() 
+	else 
+		-> mernos.threat_short() 
+	endif 
+	return 
+endf 
+
+def node_005
+	if self.flying() 
+		-> mernos.turn_reversal_combat() 
+	else 
+	endif 
+	-> mernos.life_search() 
+	return 
+endf 
+
+def node_006
+	if self.flying() 
+		-> mernos.take_off() 
+	else 
+	endif 
+	-> mernos.combat_search() 
+	return 
+endf 
+
+def node_007
+	if self.flying() 
+		-> mernos.turn_reversal_combat() 
+	endif 
+	-> mernos.discover() 
+	return 
+endf 
+
+def node_008
+	if self.flying() 
+		-> mernos.dash_no_interrupt() 
+	else 
+		-> mernos.walk() 
+	endif 
+	return 
+endf 
+
+def node_009
+	>> node_008 
+	random (50) >> node_001 
+	elser (50) >> node_002 
+	endr 
+	return 
+endf 
+
+def node_010
+	if self.flying() 
+		-> mernos.refresh() 
+	else 
+		-> mernos.search_fly() 
+	endif 
+	return 
+endf 
+
+def node_011
+	if function#51(0,2000) 
+		>> node_008 
+		>> node_001 
+	else 
+	endif 
+	return 
+endf 
+
+def node_012
+	if self.distance_3d_to_target().leq(3000) 
+		return 
+	else 
+		if self.hookable() 
+			-> mernos.glide_combat(2,0,0,2000) 
+		else 
+			-> mernos.glide(2,0,0,2000) 
+		endif 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_013
+	-> mernos.glide(1,0,0,1000) 
+	return 
+endf 
+
+def node_014
+	self.targetArea(17) 
+	-> mernos.turn_step_front_r() 
+	-> mernos.sudden_drop(1,0,0,100) 
+	>> node_008 
+	-> mernos.take_off() 
+	return 
+endf 
+
+def node_015
+	if self.hookable() 
+	else -> mernos.idle_wait_fly() 
+	endif 
+	return 
+endf 
+
+def node_016
+	if function#58(1,100) 
+	else 
+		>> node_004 
+	endif 
+	return 
+endf 
+
+def node_017
+	[RegisterVar0 |-] 
+	self.targetUnknown(33,0) 
+	if self.target_is(em.Rathalos) 
+		[RegisterVar0 ++] 
+	else 
+		[RegisterVar0 |-] 
+	endif 
+	return 
+endf 
+
+def node_018
+	if function#72() 
+		self.targetEnemy(13) 
+		if function#2D() >> node_019 
+		else >> node_020 
+		endif 
+	elif function#72(4) 
+		>> node_017 
+		if [RegisterVar0 == 1] >> node_019 
+		else >> node_020 
+		endif 
+	elif function#72(8) >> node_020 
+	else >> node_020 
+	endif 
+	self.targetEnemy(16) 
+	return 
+endf 
+
+def node_019
+	function#52(129) 
+	return 
+endf 
+
+def node_020
+	function#52(130) 
+	return 
+endf 
+
+def node_021
+	if self.flying() 
+	elif function#40() 
+		-> mernos.quick_turn() 
+	else 
+		-> mernos.turn() 
+	endif 
+	return 
+endf 
+
+def node_022
+	if self.flying() 
+		-> mernos.turn_reversal_combat() 
+	endif 
+	return 
+endf 
+
+def node_023
+	if self.flying() 
+		-> mernos.turn_step_front_far_l() 
+	else 
+	endif 
+	return 
+endf 
+
+def node_024
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if self.target(20) 
+		if self.target(7) 
+			>> node_031 
+		else 
+			>> node_025 
+		endif 
+	else 
+		>> node_031 
+	endif 
+	return 
+endf 
+
+def node_025
+	random (50) >> node_027 
+	elser (50) >> node_031 
+	endr 
+	return 
+endf 
+
+def node_026
+	-> mernos.glide(6,6,0,1000,1000) 
+	if self.distance_2d_to_target().leq(1100) 
+		return 
+	else 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_027
+	>> node_026 
+	-> mernos.step_back(6,0,0,600) 
+	if self.distance_2d_to_target().leq(600) 
+		random (45) >> node_029 
+		elser (35) >> node_028 
+		elser (20) >> node_030 
+		endr 
+	else 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_028
+	>> node_021 
+	-> mernos.sudden_rise(1,0,0,500) 
+	-> mernos.turn_step_side_l() 
+	>> node_008 
+	-> mernos.damage_high_fly() 
+	-> mernos.turn_step_front_l() 
+	return 
+endf 
+
+def node_029
+	>> node_008 
+	-> mernos.damage_down() 
+	return 
+endf 
+
+def node_030
+	>> node_029 
+	>> node_008 
+	-> mernos.damage_high_fly() 
+	>> node_001 
+	return 
+endf 
+
+def node_031
+	function#54() 
+	function#52(16,4) 
+	self.targetEnemy(16) 
+	-> mernos.glide(1,0,0,500) 
+	function#54() 
+	return 
+endf 
+
+def node_032
+	-> mernos.glide() 
+	function#74(0,1000) 
+	-> mernos.glide() 
+	function#74(180,1000) 
+	function#74(120,1000) 
+	-> mernos.glide() 
+	function#74(300,1000) 
+	function#74(240,1000) 
+	-> mernos.glide() 
+	return 
+endf 
+
+def node_033
+	-> mernos.glide() 
+	function#74(0,1000) 
+	-> mernos.glide() 
+	function#74(180,1000) 
+	function#74(120,1000) 
+	-> mernos.glide() 
+	function#74(300,1000) 
+	function#74(240,1000) 
+	-> mernos.glide() 
+	return 
+endf 
+

@@ -1,0 +1,863 @@
+importactions Radobaan as radobaan
+
+def node_000
+	conclude 
+endf 
+
+def node_001
+	if self.targetEnemy(target_em.any_monster) 
+		if self.target(13) 
+		else 
+			if self.vertical_distance_to_target().leq(1000) 
+				if self.distance_3d_to_target().leq(3000) 
+					if self.target.in_combat() 
+						>> node_002 
+					else 
+						>> node_003 
+					endif 
+				else 
+				endif 
+			else 
+			endif 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_002
+	if self.current_quest().is_rank(rank.MR) 
+		if function#30(2) 
+			*&
+			random (35) 
+			elser (0) >> node_004 
+			elser (10) >> node_007 
+			elser (55) >> node_006 
+			endr 
+		elif function#30(4) 
+			random (35) 
+			elser (10) >> node_004 
+			elser (55) >> node_007 
+			elser (0) >> node_006 
+			endr 
+		else 
+			random (35) 
+			elser (0) >> node_004 
+			elser (50) >> node_007 
+			elser (15) >> node_007 
+						>> node_006 
+			endr 
+		endif 
+	else 
+		if function#30(2) 
+			*&
+			random (35) 
+			elser (0) >> node_004 
+			elser (10) >> node_007 
+			elser (55) >> node_006 
+			endr 
+		else 
+			random (35) 
+			elser (10) >> node_004 
+			elser (55) >> node_007 
+			elser (0) >> node_006 
+			endr 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_003
+	if function#30(2) 
+		random (20) 
+		elser (15) >> node_004 
+		elser (10) >> node_007 
+		elser (55) >> node_006 
+		endr 
+	else 
+		random (55) 
+		elser (15) >> node_004 
+		elser (30) >> node_007 
+		elser (0) >> node_006 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_004
+	>> node_011 
+	-> radobaan.threat_short() 
+	return 
+endf 
+
+def node_005
+	if function#41() 
+	else 
+		>> node_011 
+		-> radobaan.threat_short() 
+	endif 
+	return 
+endf 
+
+def node_006
+	if self.target_is(em.Odogaron) 
+		if self.target(39) 
+			self.force_area_change2() 
+		else 
+			>> node_019 
+		endif 
+	else 
+		self.force_area_change2() 
+	endif 
+	return 
+endf 
+
+def node_007
+	if self.vertical_distance_to_target().gt(500) 
+		>> node_020 
+	elif self.distance_3d_to_target().gt(3000) 
+		random (80) >> node_037 
+		elser (20) >> node_020 
+		endr 
+	else 
+		random (30) >> node_025 
+		elser (20) >> node_024 
+		elser (30) >> node_027 
+		elser (20) >> node_037 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_008
+	if function#107() 
+		-> radobaan.rolling_end() 
+	elif function#108() 
+		-> radobaan.rolling_restart_to_end() 
+	endif 
+	return 
+endf 
+
+def node_009
+	self.targetArea(14) 
+	if self.distance_3d_to_target().gt(600) 
+		>> node_017 
+		repeat 
+	else 
+	endif 
+	return 
+endf 
+
+def node_010
+	self.targetArea(19) 
+	if self.distance_3d_to_target().gt(1000) 
+		>> node_016 
+		repeat 
+	else 
+	endif 
+	return 
+endf 
+
+def node_011
+	if self.distance_3d_to_target().leq(550) 
+		-> radobaan.back_turn() 
+	else 
+	endif 
+	if self.angle_2d_cw_between(30,330) 
+		if self.in_combat() 
+			-> radobaan.quick_turn() 
+		else 
+			-> radobaan.normal_turn() 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_012
+	if self.angle_2d_cw_between(50,310) 
+		if self.in_combat() 
+			-> radobaan.quick_turn() 
+		else 
+			-> radobaan.normal_turn() 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_013
+	if self.angle_2d_cw_between(120,240) 
+		if self.in_combat() 
+			-> radobaan.quick_turn() 
+		else 
+			-> radobaan.normal_turn() 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_014
+	-> radobaan.back_turn() 
+	return 
+endf 
+
+def node_015
+	if self.fatigued() 
+		-> radobaan.tired_dash(2,1,5,1200,400) 
+	else 
+		-> radobaan.dash(2,1,5,1200,400) 
+	endif 
+	return 
+endf 
+
+def node_016
+	if self.fatigued() 
+		-> radobaan.tired_dash(2,1,5,1500,800) 
+	else 
+		-> radobaan.dash(2,1,5,1500,800) 
+	endif 
+	return 
+endf 
+
+def node_017
+	if self.fatigued() 
+		-> radobaan.tired_dash(2,1,5,3000,800) 
+	else 
+		-> radobaan.dash(2,1,5,3000,800) 
+	endif 
+	return 
+endf 
+
+def node_018
+	if self.fatigued() 
+		-> radobaan.tired_dash(2,1,5,4000,800) 
+	else 
+		-> radobaan.dash(2,1,5,4000,800) 
+	endif 
+	return 
+endf 
+
+def node_019
+	if self.fatigued() 
+		-> radobaan.tired() 
+	else 
+		-> radobaan.wait_loop_time() 
+	endif 
+	return 
+endf 
+
+def node_020
+	-> radobaan.threat_short() 
+	return 
+endf 
+
+def node_021
+	-> radobaan.threat() 
+	return 
+endf 
+
+def node_022
+	if self.fatigued() 
+		-> radobaan.gas_attack_tired() 
+	else 
+		-> radobaan.gas_attack() 
+		if self.enraged() 
+			if self.target.sleeping() 
+				random (50) >> node_027 
+				elser (20) >> node_028 
+				elser (20) >> node_037 
+				elser (10) -> radobaan.wait() 
+				endr 
+			endif 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_023
+	>> node_012 
+	-> radobaan.jab_ago_attack() 
+	return 
+endf 
+
+def node_024
+	-> radobaan.ago_stamp_attack() 
+	return 
+endf 
+
+def node_025
+	>> node_011 
+	-> radobaan.tail_rotation_attack() 
+	return 
+endf 
+
+def node_026
+	if self.angle_2d_cw_between(0,180) 
+		if self.part(3).is_broken(2) 
+			-> radobaan.side_tackle_tired_l() 
+		else 
+			-> radobaan.side_tackle_l() 
+		endif 
+	else 
+		if self.part(4).is_broken(2) 
+			-> radobaan.side_tackle_tired_r() 
+		else 
+			-> radobaan.side_tackle_r() 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_027
+	-> radobaan.double_upper_attack() 
+	return 
+endf 
+
+def node_028
+	>> node_011 
+	-> radobaan.spin_attack() 
+	return 
+endf 
+
+def node_029
+	if [RegisterVar0 <= 8] 
+		>> node_030 
+		[RegisterVar0 |-] 
+	elif [RegisterVar0 <= 4] 
+		random (70) >> node_030 
+					[RegisterVar0 |-] 
+		elser (30) 
+		endr 
+	else 
+		[RegisterVar0 ++] 
+	endif 
+	return 
+endf 
+
+def node_030
+	>> node_011 
+	-> radobaan.spin_attack_tracking() @ comboSetting:1 
+	-> radobaan.spin_attack_connection() @ comboSetting:1 
+	-> radobaan.spin_attack_connection() 
+	return 
+endf 
+
+def node_031
+	>> node_012 
+	>> node_043 
+	-> radobaan.rolling_stamp_attack() 
+	return 
+endf 
+
+def node_032
+	>> node_011 
+	>> node_044 
+	-> radobaan.rolling_attack_start_to_stop() 
+	if function#B9() 
+		if function#102() 
+			self.targetEnemy(50) 
+			>> node_043 
+			-> radobaan.rolling_attack_restart_to_stop() 
+		endif 
+	endif 
+	if function#102() 
+		self.targetEnemy(50) 
+		>> node_043 
+		-> radobaan.rolling_attack_restart_to_stamp_end() 
+	endif 
+	return 
+endf 
+
+def node_033
+	>> node_011 
+	>> node_045 
+	-> radobaan.rolling_attack_start_to_stop() 
+	if function#B9() 
+		if function#102() 
+			self.targetEnemy(50) 
+			>> node_043 
+			-> radobaan.rolling_attack_restart_to_stop() 
+		endif 
+	endif 
+	if function#102() 
+		self.targetEnemy(50) 
+		>> node_043 
+		-> radobaan.rolling_attack_restart_to_stamp_end() 
+	endif 
+	return 
+endf 
+
+def node_034
+	>> node_011 
+	>> node_044 
+	-> radobaan.rolling_attack_start_to_stop() 
+	if function#102() 
+		self.targetEnemy(50) 
+		>> node_044 
+		-> radobaan.rolling_attack_restart_to_stop() 
+		if function#102() 
+			self.targetEnemy(50) 
+			>> node_043 
+			-> radobaan.rolling_attack_restart_to_stamp_end() 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_035
+	>> node_011 
+	>> node_045 
+	-> radobaan.rolling_attack_start_to_stop() 
+	if function#102() 
+		self.targetEnemy(50) 
+		>> node_045 
+		-> radobaan.rolling_attack_restart_to_stop() 
+		if function#102() 
+			self.targetEnemy(50) 
+			>> node_043 
+			-> radobaan.rolling_attack_restart_to_stamp_end() 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_036
+	>> node_011 
+	self.targetEnemy(21) @ parameter2:3000 
+	>> node_043 
+	-> radobaan.rolling_attack_start_to_stop() 
+	if function#102() 
+		self.targetEnemy(50) 
+		>> node_043 
+		-> radobaan.rolling_attack_restart_to_stamp_end() 
+	endif 
+	return 
+endf 
+
+def node_037
+	>> node_012 
+	>> node_043 
+	-> radobaan.rolling_attack(5) 
+	return 
+endf 
+
+def node_038
+	>> node_011 
+	>> node_044 
+	-> radobaan.rolling_attack_start_to_stop() 
+	if function#B9() 
+		if function#102() 
+			self.targetEnemy(50) 
+			>> node_043 
+			-> radobaan.rolling_attack_restart_to_stop() 
+		endif 
+	endif 
+	if function#102() 
+		self.targetEnemy(50) 
+		>> node_043 
+		-> radobaan.rolling_attack_restart_to_end() 
+	endif 
+	return 
+endf 
+
+def node_039
+	>> node_011 
+	>> node_045 
+	-> radobaan.rolling_attack_start_to_stop() 
+	if function#B9() 
+		if function#102() 
+			self.targetEnemy(50) 
+			>> node_043 
+			-> radobaan.rolling_attack_restart_to_stop() 
+		endif 
+	endif 
+	if function#102() 
+		self.targetEnemy(50) 
+		>> node_043 
+		-> radobaan.rolling_attack_restart_to_end() 
+	endif 
+	return 
+endf 
+
+def node_040
+	>> node_011 
+	>> node_044 
+	-> radobaan.rolling_attack_start_to_stop() 
+	if function#102() 
+		self.targetEnemy(50) 
+		>> node_044 
+		-> radobaan.rolling_attack_restart_to_stop() 
+		if function#102() 
+			self.targetEnemy(50) 
+			>> node_043 
+			-> radobaan.rolling_attack_restart_to_end() 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_041
+	>> node_011 
+	>> node_045 
+	-> radobaan.rolling_attack_start_to_stop() 
+	if function#102() 
+		self.targetEnemy(50) 
+		>> node_045 
+		-> radobaan.rolling_attack_restart_to_stop() 
+		if function#102() 
+			self.targetEnemy(50) 
+			>> node_043 
+			-> radobaan.rolling_attack_restart_to_end() 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_042
+	>> node_011 
+	self.targetEnemy(21) @ parameter2:3000 
+	>> node_043 
+	-> radobaan.rolling_attack_start_to_stop() 
+	if function#102() 
+		self.targetEnemy(50) 
+		>> node_043 
+		-> radobaan.rolling_attack_restart_to_end() 
+	endif 
+	return 
+endf 
+
+def node_043
+	if self.distance_3d_to_target().leq(2500) 
+		function#101() 
+	elif self.distance_3d_to_target().leq(4500) 
+		function#101(1) 
+	elif self.distance_3d_to_target().leq(6500) 
+		function#101(2) 
+	else 
+		function#101(3) 
+	endif 
+	return 
+endf 
+
+def node_044
+	if self.distance_3d_to_target().leq(3000) 
+		function#101(1) 
+	elif self.distance_3d_to_target().leq(5000) 
+		function#101(2) 
+	elif self.distance_3d_to_target().leq(7000) 
+		function#101(3) 
+	else 
+		function#101(4) 
+	endif 
+	return 
+endf 
+
+def node_045
+	if self.distance_3d_to_target().leq(4000) 
+		function#101() 
+	elif self.distance_3d_to_target().leq(6000) 
+		function#101(1) 
+	elif self.distance_3d_to_target().leq(8000) 
+		function#101(2) 
+	else 
+		function#101(3) 
+	endif 
+	return 
+endf 
+
+def node_046
+	function#101() 
+	if self.angle_2d_cw_between(0,180) 
+		if self.part(3).is_broken(2) 
+			-> radobaan.side_tackle_tired_l() 
+		else 
+			-> radobaan.side_tackle_to_rolling_attack_l() 
+			if function#102() 
+				self.targetEnemy(50) 
+				>> node_045 
+				-> radobaan.rolling_attack_restart_to_end() 
+			endif 
+		endif 
+	else 
+		if self.part(4).is_broken(2) 
+			-> radobaan.side_tackle_tired_r() 
+		else 
+			-> radobaan.side_tackle_to_rolling_attack_r() 
+			if function#102() 
+				self.targetEnemy(50) 
+				>> node_045 
+				-> radobaan.rolling_attack_restart_to_end() 
+			endif 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_047
+	>> node_045 
+	if self.angle_2d_cw_between(0,180) 
+		if self.part(3).is_broken(2) 
+			-> radobaan.side_tackle_tired_l() 
+		else 
+			-> radobaan.side_tackle_to_rolling_attack_l() 
+			function#101() 
+			-> radobaan.rolling_attack_restart_to_stop() 
+			if function#102() 
+				self.targetEnemy(50) 
+				>> node_045 
+				-> radobaan.rolling_attack_restart_to_end() 
+			endif 
+		endif 
+	else 
+		if self.part(4).is_broken(2) 
+			-> radobaan.side_tackle_tired_r() 
+		else 
+			-> radobaan.side_tackle_to_rolling_attack_r() 
+			function#101() 
+			-> radobaan.rolling_attack_restart_to_stop() 
+			if function#102() 
+				self.targetEnemy(50) 
+				>> node_045 
+				-> radobaan.rolling_attack_restart_to_end() 
+			endif 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_048
+	>> node_045 
+	-> radobaan.jab_ago_attack_to_rolling_attack() 
+	if function#102() 
+		self.targetEnemy(50) 
+		>> node_045 
+		-> radobaan.rolling_attack_restart_to_end() 
+	endif 
+	return 
+endf 
+
+def node_049
+	-> radobaan.wait() 
+	return 
+endf 
+
+def node_050
+	>> node_014 
+	>> node_023 
+	return 
+endf 
+
+def node_051
+	>> node_014 
+	>> node_025 
+	return 
+endf 
+
+def node_052
+	>> node_014 
+	>> node_037 
+	return 
+endf 
+
+def node_053
+	>> node_014 
+	>> node_031 
+	return 
+endf 
+
+def node_054
+	>> node_013 
+	>> node_015 
+	>> node_023 
+	return 
+endf 
+
+def node_055
+	>> node_013 
+	>> node_015 
+	>> node_026 
+	return 
+endf 
+
+def node_056
+	>> node_013 
+	>> node_015 
+	>> node_025 
+	return 
+endf 
+
+def node_057
+	>> node_013 
+	>> node_015 
+	>> node_024 
+	return 
+endf 
+
+def node_058
+	>> node_013 
+	>> node_015 
+	>> node_031 
+	return 
+endf 
+
+def node_059
+	>> node_013 
+	>> node_018 
+	>> node_025 
+	return 
+endf 
+
+def node_060
+	>> node_013 
+	>> node_018 
+	>> node_027 
+	return 
+endf 
+
+def node_061
+	>> node_013 
+	>> node_018 
+	>> node_031 
+	return 
+endf 
+
+def node_062
+	>> node_013 
+	>> node_015 
+	>> node_048 
+	return 
+endf 
+
+def node_063
+	if self.distance_3d_to_target().gt(5000) 
+		>> node_064 
+		-> radobaan.rolling_walk(5,1,0,0,3000) 
+	else 
+		>> node_064 
+	endif 
+	return 
+endf 
+
+def node_064
+	if function#7D() 
+		-> radobaan.dying_walk(2,5,0,1500) 
+	elif self.fatigued() 
+		-> radobaan.tired_dash(2,5,0,2000) 
+	else 
+		-> radobaan.dash(2,5,0,2000) 
+	endif 
+	return 
+endf 
+
+def node_065
+	function#105() 
+	if function#106() 
+		>> node_068 
+	else 
+	endif 
+	return 
+endf 
+
+def node_066
+	function#105() 
+	if function#106(6) 
+		>> node_067 
+	else 
+	endif 
+	return 
+endf 
+
+def node_067
+	if function#103() 
+		random (80) >> node_069 
+		elser (20) 
+		endr 
+	else 
+	endif 
+	return 
+endf 
+
+def node_068
+	if function#103() 
+		random (40) >> node_069 
+		elser (60) 
+		endr 
+	else 
+	endif 
+	return 
+endf 
+
+def node_069
+	function#104() 
+	>> node_018 
+	-> radobaan.attach_bone() 
+	return 
+endf 
+
+def node_070
+	if self.distance_3d_to_target().gt(3000) 
+		>> node_071 
+		-> radobaan.rolling_walk(5,1,0,0,3000) 
+		repeat 
+	elif self.distance_3d_to_target().gt(800) 
+		>> node_071 
+		repeat 
+	else 
+		-> radobaan.wait() 
+	endif 
+	return 
+endf 
+
+def node_071
+	if self.fatigued() 
+		-> radobaan.tired_dash(2,1,0,2000,800) 
+	else 
+		-> radobaan.dash(2,1,0,2000,800) 
+	endif 
+	return 
+endf 
+
+def node_072
+	if self.enraged() 
+		>> node_073 
+	elif self.fatigued() 
+		>> node_074 
+	else 
+		>> node_075 
+	endif 
+	return 
+endf 
+
+def node_073
+	random (20) >> node_023 
+	elser (25) >> node_024 
+	elser (15) >> node_022 
+	elser (25) >> node_025 
+	elser (15) >> node_014 
+	endr 
+	return 
+endf 
+
+def node_074
+	random (20) >> node_023 
+	elser (20) >> node_024 
+	elser (15) >> node_022 
+	elser (20) >> node_025 
+	elser (10) >> node_019 
+	elser (15) >> node_014 
+	endr 
+	return 
+endf 
+
+def node_075
+	random (20) >> node_023 
+	elser (25) >> node_024 
+	elser (15) >> node_022 
+	elser (25) >> node_025 
+	elser (15) >> node_014 
+	endr 
+	return 
+endf 
+

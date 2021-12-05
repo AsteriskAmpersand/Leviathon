@@ -1,0 +1,156 @@
+importactions Girros as girros
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_054 
+	if function#101(1) 
+		>> node_001 
+	elif function#101(2) 
+		>> node_002 
+	elif function#101(3) 
+		>> node_003 
+	elif function#101(4) 
+		>> node_004 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	[RegisterVar0 ++] 
+	if function#BB() 
+		self.targetEnemy(target_em.random_player_or_cat) 
+		if self.target.paralyzed() 
+			if self.distance_2d_to_target().leq(600) 
+				>> node_005 
+				random (65) >> Global.node_011 
+							>> Global.node_014 
+				elser (35) >> Global.node_020 
+							>> Global.node_016 
+				endr 
+			elif self.distance_2d_to_target().leq(1200) 
+				>> node_005 
+				>> Global.node_016 
+			else 
+				>> node_006 
+				>> Global.node_003 
+				>> Global.node_014 
+			endif 
+		else 
+			if self.distance_2d_to_target().leq(600) 
+				>> node_005 
+				>> Global.node_011 
+				>> Global.node_014 
+			elif self.distance_2d_to_target().leq(1200) 
+				>> node_005 
+				>> Global.node_016 
+			else 
+				>> Global.node_038 
+			endif 
+		endif 
+	else 
+		>> Global.node_038 
+	endif 
+	return 
+endf 
+
+def node_002
+	if function#BB() 
+		self.targetEnemy(target_em.random_player_or_cat) 
+		if self.distance_2d_to_target().leq(500) 
+			>> node_005 
+			random (85) >> node_008 
+						>> Global.node_014 
+			elser (0) >> Global.node_013 
+						>> Global.node_015 
+			elser (15) >> Global.node_020 
+						>> Global.node_016 
+			endr 
+		elif self.distance_2d_to_target().leq(1200) 
+			>> node_005 
+			random (0) >> Global.node_003 
+						>> node_008 
+			elser (0) >> Global.node_003 
+						>> Global.node_015 
+			elser (100) >> Global.node_016 
+			endr 
+		elif self.distance_2d_to_target().leq(2000) 
+			>> node_006 
+			>> Global.node_003 
+			>> node_008 
+		else 
+			>> Global.node_038 
+		endif 
+	else 
+		>> Global.node_038 
+	endif 
+	return 
+endf 
+
+def node_003
+	[RegisterVar0 |-] 
+	>> Global.node_038 
+	if function#BB() 
+		if function#BA() 
+			self.targetEnemy(49) 
+			>> Global.node_003 
+		else 
+			if function#4B() 
+				self.targetEnemy(target_em.closest_entity) 
+				>> Global.node_003 
+			else 
+			endif 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_004
+	self.targetEnemy(target_em.random_player_or_cat) 
+	>> Global.node_010 
+	>> Global.node_043 
+	return 
+endf 
+
+def node_005
+	if self.target(10) 
+		>> node_007 
+	elif function#5C() 
+		>> node_007 
+	else 
+	endif 
+	return 
+endf 
+
+def node_006
+	if self.target(10) 
+		>> node_007 
+	elif function#5C() 
+		>> node_007 
+	elif self.target(0) 
+		>> node_007 
+	elif self.target(14) 
+		>> node_007 
+	else 
+	endif 
+	return 
+endf 
+
+def node_007
+	>> Global.node_010 
+	>> Global.node_043 
+	conclude 
+endf 
+
+def node_008
+	if self.angle_2d_cw_between(315,45) 
+		-> action#29() 
+	elif self.angle_2d_cw_between(270,90) 
+		-> action#2A() 
+	else 
+		-> action#0A() 
+		-> action#29() 
+	endif 
+	return 
+endf 
+

@@ -1,0 +1,17 @@
+importactions Deviljho as deviljho
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_120 
+	>> Global.node_121 
+	if self.in_map(st.Special_Arena).in_area(-1) 
+		self.targetArea(64) 
+		-> deviljho.dash(5) 
+	elif self.in_map(st.Challenge_Arena).in_area(-1) 
+		self.targetArea(64) 
+		-> deviljho.dash(5) 
+	else 
+	endif 
+	conclude 
+endf 
+

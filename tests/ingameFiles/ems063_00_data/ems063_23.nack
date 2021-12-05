@@ -1,0 +1,198 @@
+importactions Wulg as wulg
+importlibrary Global as Global
+
+def node_000
+	self.targetEnemy(target_em.closest_entity) 
+	if self.target.helpless_0() 
+		>> node_001 
+		repeat 
+	else 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	if self.vertical_distance_to_target().leq(1000) 
+		if function#3F() 
+			-> wulg.damage_clawgrab_initiate() 
+		else 
+		endif 
+		>> node_002 
+	else 
+		>> node_003 
+	endif 
+	return 
+endf 
+
+def node_002
+	>> node_010 
+	>> node_009 
+	return 
+endf 
+
+def node_003
+	>> Global.node_008 
+	>> Global.node_050 
+	return 
+endf 
+
+def node_004
+	if self.target(20) 
+		if self.target(10) 
+			>> node_006 
+		elif function#5C() 
+			>> node_007 
+		elif self.target(0) 
+			>> node_008 
+		elif self.target(14) 
+			>> node_008 
+		else 
+		endif 
+	else 
+		>> node_005 
+	endif 
+	return 
+endf 
+
+def node_005
+	function#52(50,2) 
+	self.targetArea(target_area.nearest_entrance) 
+	function#54() 
+	>> Global.node_001 
+	self.targetEnemy(target_em.random_player_or_cat) 
+	>> Global.node_008 
+	>> Global.node_050 
+	reset 
+endf 
+
+def node_006
+	>> Global.node_008 
+	>> Global.node_064 
+	reset 
+endf 
+
+def node_007
+	>> Global.node_008 
+	>> Global.node_064 
+	return 
+endf 
+
+def node_008
+	if self.distance_2d_to_target().leq(800) 
+		>> Global.node_024 
+	else 
+		>> Global.node_006 
+		>> Global.node_003 
+	endif 
+	if function#3A() 
+		>> Global.node_064 
+	elif function#32() 
+		if self.above_area() 
+			if function#11(300) 
+				>> Global.node_064 
+			else 
+				>> Global.node_064 
+			endif 
+		else 
+			>> Global.node_064 
+		endif 
+	else 
+		>> Global.node_064 
+	endif 
+	reset 
+endf 
+
+def node_009
+	if function#102() 
+		if function#110() 
+			>> node_011 
+		else 
+			if self.distance_3d_to_target().leq(300) 
+				>> node_015 
+				>> node_016 
+			elif self.distance_3d_to_target().leq(800) 
+				>> node_016 
+			elif self.distance_3d_to_target().leq(1300) 
+				>> node_016 
+			else 
+				>> node_014 
+				>> node_016 
+			endif 
+		endif 
+		return 
+	else 
+		>> Global.node_070 
+	endif 
+	return 
+endf 
+
+def node_010
+	if function#10B() 
+		>> node_004 
+		>> Global.node_070 
+		conclude 
+	else 
+	endif 
+	return 
+endf 
+
+def node_011
+	if self.distance_2d_to_target().leq(200) 
+		>> node_015 
+		>> node_015 
+	elif self.distance_2d_to_target().leq(400) 
+		>> node_015 
+	elif function#116() 
+	else 
+		>> node_014 
+	endif 
+	>> node_004 
+	if function#10B() 
+	else 
+		>> Global.node_068 
+	endif 
+	return 
+endf 
+
+def node_012
+	>> node_014 
+	>> node_008 
+	>> Global.node_069 
+	return 
+endf 
+
+def node_013
+	if function#32() 
+		>> Global.node_070 
+	else 
+		>> Global.node_027 
+	endif 
+	return 
+endf 
+
+def node_014
+	if self.distance_3d_to_target().leq(700) 
+	else 
+		-> wulg.die_water_slide(2,6,0,300,600) 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_015
+	if self.angle_2d_cw_between(315,45) 
+		-> wulg.die_hole_fall() 
+	elif self.angle_2d_cw_between(0,180) 
+	endif 
+	return 
+endf 
+
+def node_016
+	random (25) -> wulg.hook_right() 
+	elser (25) -> wulg.sleep_dying() 
+	elser (25) -> wulg.hook_left() 
+	elser (25) -> wulg.sleep_end() 
+	endr 
+	return 
+endf 
+

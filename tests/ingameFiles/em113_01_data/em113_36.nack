@@ -1,0 +1,95 @@
+importactions Ebony_Odogaron as ebony_odogaron
+importlibrary Global as Global
+
+def node_000
+	>> node_001 
+	>> Global.node_015 
+	>> Global.node_236 
+	>> Global.node_237 
+	if function#103() 
+		>> node_007 
+	else 
+		>> node_008 
+	endif 
+	>> Global.node_068 
+	reset 
+endf 
+
+def node_001
+	if self.target_on_part(0) 
+		>> node_002 
+	elif self.target_on_part(1) 
+		>> node_002 
+	elif self.target_on_part(2) 
+		>> node_002 
+	else 
+	endif 
+	return 
+endf 
+
+def node_002
+	>> node_004 
+	reset 
+endf 
+
+def node_003
+	random (50) >> Global.node_206 
+	elser (50) 
+	endr 
+	return 
+endf 
+
+def node_004
+	if self.mounted() 
+		>> node_005 
+	else 
+		>> node_006 
+	endif 
+	return 
+endf 
+
+def node_005
+	>> Global.node_189 
+	if self.target_on_part(0) 
+		>> Global.node_190 
+	elif self.target_on_part(1) 
+		>> Global.node_192 
+	else 
+		>> Global.node_194 
+	endif 
+	return 
+endf 
+
+def node_006
+	>> Global.node_189 
+	if self.target_on_part(0) 
+		>> Global.node_191 
+	elif self.target_on_part(1) 
+		>> Global.node_193 
+	else 
+		>> Global.node_195 
+	endif 
+	return 
+endf 
+
+def node_007
+	random (25) >> Global.node_075 
+	elser (20) >> Global.node_083 
+	elser (20) >> Global.node_091 
+	elser (15) >> Global.node_111 
+	elser (10) >> Global.node_325 
+	elser (10) >> Global.node_106 
+	endr 
+	return 
+endf 
+
+def node_008
+	random (35) >> Global.node_119 
+	elser (25) >> Global.node_137 
+	elser (20) >> Global.node_111 
+	elser (0) >> Global.node_099 
+	elser (20) >> Global.node_106 
+	endr 
+	return 
+endf 
+

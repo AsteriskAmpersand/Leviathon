@@ -1,0 +1,26 @@
+importactions Beotodus as beotodus
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_070 
+	>> Global.node_102 
+	>> node_001 
+	conclude 
+endf 
+
+def node_001
+	>> Global.node_117 
+	self.targetEnemy(34) 
+	if self.distance_3d_to_target().leq(500) 
+		>> Global.node_017 
+	elif self.distance_3d_to_target().leq(3000) 
+		>> Global.node_141 
+		>> Global.node_003 
+	else 
+		>> Global.node_001 
+		>> Global.node_141 
+		repeat 
+	endif 
+	return 
+endf 
+

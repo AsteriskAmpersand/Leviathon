@@ -1,0 +1,243 @@
+importactions Jyuratodus as jyuratodus
+importlibrary Global as Global
+
+def node_000
+	function#52() 
+	self.targetArea(target_area.nearest_entrance) 
+	>> node_001 
+	>> node_014 
+	function#54() 
+	reset 
+endf 
+
+def node_001
+	>> Global.node_001 
+	self.targetArea(target_area.nearest_entrance) 
+	if function#101() 
+		>> node_002 
+	else 
+		>> node_008 
+	endif 
+	return 
+endf 
+
+def node_002
+	if function#57(1) 
+		>> node_005 
+	elif function#57(2) 
+		>> node_005 
+	elif function#57(3) 
+		>> node_006 
+	elif function#57(5) 
+		>> node_007 
+	elif function#57(4) 
+		>> node_003 
+	else 
+		>> node_003 
+	endif 
+	if self.distance_3d_to_target().leq(600) 
+		return 
+	else 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_003
+	>> Global.node_057 
+	return 
+endf 
+
+def node_004
+	>> Global.node_057 
+	return 
+endf 
+
+def node_005
+	>> Global.node_057 
+	return 
+endf 
+
+def node_006
+	>> Global.node_057 
+	return 
+endf 
+
+def node_007
+	>> Global.node_057 
+	return 
+endf 
+
+def node_008
+	if function#57(1) 
+		>> node_010 
+	elif function#57(2) 
+		>> node_011 
+	elif function#57(3) 
+		>> node_012 
+	elif function#57(5) 
+		>> node_013 
+	elif function#57(4) 
+		>> node_009 
+	else 
+		>> node_009 
+	endif 
+	if self.distance_3d_to_target().leq(600) 
+		return 
+	else 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_009
+	>> Global.node_057 
+	return 
+endf 
+
+def node_010
+	>> Global.node_057 
+	return 
+endf 
+
+def node_011
+	>> Global.node_057 
+	return 
+endf 
+
+def node_012
+	>> Global.node_057 
+	return 
+endf 
+
+def node_013
+	>> Global.node_057 
+	return 
+endf 
+
+def node_014
+	if function#101() 
+		>> node_015 
+	else 
+		>> node_021 
+	endif 
+	return 
+endf 
+
+def node_015
+	if function#57(1) 
+		>> node_017 
+	elif function#57(2) 
+		>> node_018 
+	elif function#57(3) 
+		>> node_019 
+	elif function#57(5) 
+		>> node_020 
+	elif function#57(4) 
+		>> node_016 
+	else 
+		>> node_016 
+	endif 
+	return 
+endf 
+
+def node_016
+	if self.in_map(st.Special_Arena).in_area(-1) >> Global.node_068 
+	elif self.in_map(st.Challenge_Arena).in_area(-1) >> Global.node_068 
+	else >> Global.node_067 
+	endif 
+	return 
+endf 
+
+def node_017
+	self.targetEnemy(16) 
+	>> Global.node_070 
+	return 
+endf 
+
+def node_018
+	self.targetEnemy(16) 
+	>> Global.node_071 
+	return 
+endf 
+
+def node_019
+	self.targetEnemy(16) 
+	>> Global.node_069 
+	return 
+endf 
+
+def node_020
+	self.targetEnemy(16) 
+	>> Global.node_075 
+	return 
+endf 
+
+def node_021
+	if function#57(1) 
+		>> node_023 
+	elif function#57(2) 
+		>> node_024 
+	elif function#57(3) 
+		>> node_025 
+	elif function#57(5) 
+		>> node_026 
+	elif function#57(4) 
+		>> node_022 
+	else 
+		>> node_022 
+	endif 
+	return 
+endf 
+
+def node_022
+	if self.in_map(st.Special_Arena).in_area(-1) >> Global.node_068 
+	elif self.in_map(st.Challenge_Arena).in_area(-1) >> Global.node_068 
+	elif function#5A(1) 
+		>> Global.node_068 
+		random (50) >> Global.node_068 
+		elser (50) 
+		endr 
+	else 
+		random (10) >> Global.node_080 
+		elser (90) 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_023
+	if self.targetEnemy(42) 
+		if self.distance_3d_to_target().leq(5000) 
+			>> Global.node_076 
+			>> Global.node_061 
+			>> Global.node_068 
+			return 
+		endif 
+	endif 
+	self.targetEnemy(16) 
+	>> Global.node_070 
+	return 
+endf 
+
+def node_024
+	self.targetEnemy(16) 
+	>> Global.node_071 
+	>> Global.node_080 
+	return 
+endf 
+
+def node_025
+	self.targetEnemy(16) 
+	>> Global.node_069 
+	>> Global.node_080 
+	return 
+endf 
+
+def node_026
+	self.targetEnemy(16) 
+	>> Global.node_075 
+	>> Global.node_080 
+	return 
+endf 
+

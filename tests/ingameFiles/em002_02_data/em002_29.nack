@@ -1,0 +1,19 @@
+importactions Silver_Rathalos as silver_rathalos
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_273 
+	>> Global.node_293 
+	self.targetEnemy(48) 
+	if self.in_map(st.Challenge_Arena).in_area(-1) 
+		>> Global.node_266 
+	elif self.target(7) 
+		>> Global.node_265 
+	elif self.distance_3d_to_target().leq(3500) 
+		>> Global.node_264 
+	else 
+		>> Global.node_265 
+	endif 
+	reset 
+endf 
+

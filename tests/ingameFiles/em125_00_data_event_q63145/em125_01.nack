@@ -1,0 +1,158 @@
+importactions Namielle as namielle
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_215 
+	>> Global.node_068 
+	self.targetEnemy(target_em.random_player_or_cat) 
+	>> node_013 
+	if self.distance_3d_to_target().leq(900) >> node_001 
+	elif self.distance_3d_to_target().leq(5000) >> node_002 
+	elif self.distance_3d_to_target().leq(10000) >> node_003 
+	else >> Global.node_165 
+	endif 
+	reset 
+endf 
+
+def node_001
+	>> Global.node_159 
+	>> node_014 
+	>> Global.node_012 
+	return 
+endf 
+
+def node_002
+	if self.fatigued() 
+		random (80) 
+		elser (20) 
+					>> Global.node_115 
+					reset 
+		endr 
+	else >> node_015 
+	endif 
+	return 
+endf 
+
+def node_003
+	if self.enraged() >> node_005 
+	elif self.fatigued() >> node_006 
+	else >> node_004 
+	endif 
+	return 
+endf 
+
+def node_004
+	random (70) >> node_015 
+	elser (30) >> node_016 
+	endr 
+	return 
+endf 
+
+def node_005
+	random (30) >> node_015 
+	elser (70) >> node_016 
+	endr 
+	return 
+endf 
+
+def node_006
+	random (70) >> node_015 
+	elser (20) >> Global.node_115 
+	elser (10) >> Global.node_165 
+	endr 
+	return 
+endf 
+
+def node_007
+	if self.target(7) 
+		>> Global.node_211 
+		>> Global.node_170 
+	else 
+		>> Global.node_171 
+	endif 
+	return 
+endf 
+
+def node_008
+	>> Global.node_168 
+	>> Global.node_166 
+	return 
+endf 
+
+def node_009
+	>> Global.node_169 
+	>> Global.node_167 
+	return 
+endf 
+
+def node_010
+	if self.target(7) 
+		>> Global.node_211 
+		>> Global.node_170 
+	else 
+		>> Global.node_171 
+	endif 
+	return 
+endf 
+
+def node_011
+	>> Global.node_168 
+	>> Global.node_166 
+	return 
+endf 
+
+def node_012
+	>> Global.node_169 
+	>> Global.node_167 
+	return 
+endf 
+
+def node_013
+	if self.target(10) 
+		if self.distance_3d_to_target().leq(2200) 
+			>> Global.node_159 
+			random (60) >> Global.node_012 
+			elser (40) >> Global.node_009 
+			endr 
+			reset 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_014
+	if self.target(7) 
+		if self.enraged() >> Global.node_012 
+		endif 
+	else >> Global.node_002 
+		reset 
+	endif 
+	return 
+endf 
+
+def node_015
+	self.targetArea(4) 
+	>> Global.node_166 
+	>> node_017 
+	return 
+endf 
+
+def node_016
+	self.targetArea(6) 
+	>> Global.node_167 
+	>> node_017 
+	return 
+endf 
+
+def node_017
+	if self.enraged() -> namielle.anger_search_walk(2,1,5,2000,800) 
+	else -> namielle.dash(2,1,5,2000,800) 
+	endif 
+	if 
+		return 
+	else 
+		repeat 
+	endif 
+	return 
+endf 
+

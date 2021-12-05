@@ -23,13 +23,13 @@ ENDF = "endF".lower()
 ENDF2 = "endDef".lower()
 ENDF3 = "endFunction".lower()
 
-CHANCE = "chance"
-ELSEC2 = "elseChance".lower()
-ELSEC = "elseC".lower()
-ENDC = "endC".lower()
-ENDCW = "endCWith".lower()
-ENDCW2 = "endChanceWith".lower()
-ENDC2 = "endChance".lower()
+RANDOM = "random"
+ELSER2 = "elseRandom".lower()
+ELSER = "elseR".lower()
+ENDR = "endR".lower()
+ENDRW = "endRWith".lower()
+ENDRW2 = "endRandomWith".lower()
+ENDR2 = "endRandom".lower()
 
 IF = "if"
 ELSE = "else"
@@ -45,6 +45,6 @@ DO_DIRECTIVE = "=>"
 DO_NOTHING = r"\*&"
 META = "@"
 
-INDENT_REMOVE_ADD = [ELSE,ELIF,ELSEC,ELSEC2]
-INDENT_ADD = [DEF, IF, CHANCE] + INDENT_REMOVE_ADD
-INDENT_REMOVE = [ENDF,ENDF2,ENDF3, ENDC,ENDC2,ENDCW,ENDCW2, ENDIF,ENDIFW, ENDALL] + INDENT_REMOVE_ADD
+INDENT_REMOVE_ADD = [ELSE,ELIF,ELSER,ELSER2]
+INDENT_ADD = [DEF, IF, RANDOM] + INDENT_REMOVE_ADD
+INDENT_REMOVE = [ENDF,ENDF2,ENDF3, ENDR,ENDR2,ENDRW,ENDRW2, ENDIF,ENDIFW, ENDALL] + INDENT_REMOVE_ADD

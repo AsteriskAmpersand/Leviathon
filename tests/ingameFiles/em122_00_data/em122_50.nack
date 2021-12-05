@@ -1,0 +1,19 @@
+importactions Beotodus as beotodus
+
+def node_000
+	self.targetEnemy(target_em.closest_entity) 
+	if self.target_is(em.Banbaro) 
+		>> node_001 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	if function#101() 
+		-> beotodus.grapple_with_em123_start_stand_to_dive() 
+	else 
+		-> beotodus.grapple_with_em123_start_swim_to_dive() 
+	endif 
+	return 
+endf 
+

@@ -1,0 +1,74 @@
+importactions Magmacore as magmacore
+importlibrary Global as Global
+
+def node_000
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if function#106() 
+		>> Global.node_001 
+	elif self.hp_percent().gt(99) 
+		if function#104(1) 
+			if function#107(5) 
+				>> Global.node_006 
+				reset 
+			endif 
+		endif 
+		if self.distance_3d_to_target().leq(1000) 
+			>> node_001 
+		elif self.distance_3d_to_target().leq(2500) 
+			>> node_002 
+		else 
+			>> node_003 
+		endif 
+	else 
+		>> Global.node_001 
+	endif 
+	reset 
+endf 
+
+def node_001
+	if self.quest_id(62606) 
+		random (40) >> Global.node_004 
+		elser (35) >> Global.node_005 
+		elser (25) >> Global.node_006 
+					>> Global.node_002 
+		elser (0) 
+		endr 
+	else 
+		random (35) >> Global.node_004 
+					>> Global.node_003 
+		elser (35) >> Global.node_005 
+					>> Global.node_003 
+		elser (20) >> Global.node_006 
+					>> Global.node_003 
+		elser (10) >> Global.node_002 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_002
+	if self.quest_id(62606) 
+		random (40) >> Global.node_004 
+		elser (40) >> Global.node_005 
+		elser (20) >> Global.node_006 
+					>> Global.node_002 
+		elser (0) 
+		endr 
+	else 
+		random (30) >> Global.node_004 
+					>> Global.node_003 
+		elser (30) >> Global.node_005 
+					>> Global.node_003 
+		elser (15) >> Global.node_006 
+					>> Global.node_003 
+		elser (25) >> Global.node_002 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_003
+	>> Global.node_001 
+	return 
+endf 
+

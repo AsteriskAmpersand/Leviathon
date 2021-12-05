@@ -1,0 +1,22 @@
+importactions Frostfang_Barioth as frostfang_barioth
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_003 
+	-> frostfang_barioth.sniff_s() 
+	>> node_001 
+	conclude 
+endf 
+
+def node_001
+	self.targetEnemy(34) 
+	if self.distance_3d_to_target().leq(1000) 
+		>> Global.node_032 @ unkn6:65536 
+	elif self.distance_3d_to_target().leq(3000) 
+	else 
+		>> Global.node_016 @ unkn6:65536 
+		repeat 
+	endif 
+	return 
+endf 
+

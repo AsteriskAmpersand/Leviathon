@@ -1,0 +1,88 @@
+importactions Leshen as leshen
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_002 
+	>> Global.node_005 
+	>> node_005 
+	>> node_001 => reset 
+	reset 
+endf 
+
+def node_001
+	self.targetEnemy(48) 
+	if self.in_map(st.Challenge_Arena).in_area(-1) 
+		>> node_004 
+	elif self.distance_3d_to_target().leq(8000) 
+		>> node_002 
+	else 
+		>> node_003 
+	endif 
+	return 
+endf 
+
+def node_002
+	if self.target(7) 
+	elif self.target(10) 
+	else 
+		>> Global.node_018 
+	endif 
+	-> leshen.search() 
+	return 
+endf 
+
+def node_003
+	if self.targetEnemy(target_em.any_monster) 
+		random (20) >> Global.node_018 
+		elser (80) 
+		endr 
+	else 
+		self.targetEnemy(48) 
+	endif 
+	-> leshen.search() 
+	return 
+endf 
+
+def node_004
+	>> Global.node_018 
+	-> leshen.search() 
+	return 
+endf 
+
+def node_005
+	if function#103() 
+	else 
+		if self.targetEnemy(target_em.any_monster) 
+			if self.target(13) 
+			else 
+				if self.target(3) 
+				else 
+					if self.in_map(st.Ancient_Forest).in_area(4) 
+						if self.distance_3d_to_target().leq(1000) 
+							>> node_006 
+							reset 
+						else 
+						endif 
+					else 
+						if self.distance_3d_to_target().leq(1000) 
+							>> node_006 
+							reset 
+						else 
+						endif 
+					endif 
+				endif 
+			endif 
+		else 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_006
+	self.targetEnemy(target_em.any_monster) 
+	random (50) >> Global.node_097 
+	elser (50) >> Global.node_100 
+	endr 
+	return 
+endf 
+

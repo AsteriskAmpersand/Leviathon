@@ -1,0 +1,67 @@
+importactions Nargacuga as nargacuga
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_120 
+	self.targetEnemy(13) 
+	if self.target(4) 
+		>> Global.node_218 
+	else 
+		>> Global.node_009 
+		>> node_001 
+		>> node_002 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	if self.distance_2d_to_target().leq(800) 
+		return 
+	else 
+		>> Global.node_179 
+	endif 
+	return 
+endf 
+
+def node_002
+	self.targetEnemy(48) 
+	if self.target(10) 
+		>> node_005 
+	elif self.target(7) 
+		>> node_003 
+	elif function#5C() 
+		>> node_003 
+	elif self.distance_3d_to_target().gt(1000) 
+		>> node_003 
+	elif self.angle_2d_cw_between(45,315) 
+		>> node_003 
+	else 
+		>> node_004 
+	endif 
+	return 
+endf 
+
+def node_003
+	-> nargacuga.sniff_s() 
+	>> Global.node_148 
+	return 
+endf 
+
+def node_004
+	if function#5F() 
+		>> Global.node_149 
+	else 
+		>> Global.node_156 
+	endif 
+	return 
+endf 
+
+def node_005
+	self.targetEnemy(9) @ parameter2:1000 
+	random (50) >> Global.node_071 
+	elser (25) >> Global.node_074 
+	elser (25) >> Global.node_073 
+	endr 
+	return 
+endf 
+

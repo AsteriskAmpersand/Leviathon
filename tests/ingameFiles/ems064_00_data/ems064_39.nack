@@ -1,0 +1,35 @@
+importactions Cortos as cortos
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_018 
+	self.targetEnemy(16) 
+	>> Global.node_009 
+	if function#66() >> node_001 
+	else >> node_002 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	if function#72() 
+		self.targetEnemy(13) 
+		if function#2D() >> Global.node_024 
+		else >> Global.node_002 
+		endif 
+	elif function#72(4) >> Global.node_023 
+	else >> Global.node_002 
+	endif 
+	return 
+endf 
+
+def node_002
+	if function#72() 
+		self.targetUnknown(13,0) 
+		if function#2D() 
+			>> Global.node_017 
+		endif 
+	endif 
+	return 
+endf 
+

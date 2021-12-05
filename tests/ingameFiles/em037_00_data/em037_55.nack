@@ -1,0 +1,2994 @@
+importactions Nargacuga as nargacuga
+
+def node_000
+	conclude 
+endf 
+
+def node_001
+	if self.in_combat() 
+		-> nargacuga.turn_quick() 
+	else 
+		-> nargacuga.turn() 
+	endif 
+	return 
+endf 
+
+def node_002
+	if self.angle_2d_cw_between(30,330) 
+		if self.in_combat() 
+			-> nargacuga.turn_quick() 
+		else 
+			-> nargacuga.turn() 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_003
+	if self.angle_2d_cw_between(60,300) 
+		if self.in_combat() 
+			-> nargacuga.turn_quick() 
+		else 
+			-> nargacuga.turn() 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_004
+	if self.angle_2d_cw_between(80,280) 
+		if self.in_combat() 
+			-> nargacuga.turn_quick() 
+		else 
+			-> nargacuga.turn() 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_005
+	if self.angle_2d_cw_between(90,270) 
+		if self.in_combat() 
+			-> nargacuga.turn_quick() 
+		else 
+			-> nargacuga.turn() 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_006
+	if self.angle_2d_cw_between(100,260) 
+		if self.in_combat() 
+			-> nargacuga.turn_quick() 
+		else 
+			-> nargacuga.turn() 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_007
+	-> nargacuga.back_to_meet() 
+	return 
+endf 
+
+def node_008
+	-> nargacuga.back_step() 
+	return 
+endf 
+
+def node_009
+	if self.distance_3d_to_target().leq(800) 
+		>> node_007 
+	elif self.angle_2d_cw_between(30,330) 
+		>> node_001 
+	else 
+	endif 
+	return 
+endf 
+
+def node_010
+	if self.distance_3d_to_target().leq(1000) 
+		>> node_011 
+	else 
+		>> node_187 
+	endif 
+	if self.enraged() 
+		if self.hp_percent().gt(40) 
+			random (80) -> nargacuga.d_tail_strike_begin() 
+			elser (20) -> nargacuga.tail_strike() 
+			endr 
+		elif self.hp_percent().gt(70) 
+			random (60) -> nargacuga.d_tail_strike_begin() 
+			elser (40) -> nargacuga.tail_strike() 
+			endr 
+		elif self.hp_percent().gt(85) 
+			random (40) -> nargacuga.d_tail_strike_begin() 
+			elser (60) -> nargacuga.tail_strike() 
+			endr 
+		else 
+			random (30) -> nargacuga.d_tail_strike_begin() 
+			elser (70) -> nargacuga.tail_strike() 
+			endr 
+		endif 
+	else 
+		-> nargacuga.tail_strike() 
+	endif 
+	return 
+endf 
+
+def node_011
+	if self.distance_3d_to_target().leq(800) 
+		if self.angle_2d_cw_between(30,330) 
+			>> node_007 
+		elif self.angle_2d_cw_between(15,345) 
+			>> node_001 
+		else 
+		endif 
+	else 
+		if self.angle_2d_cw_between(15,345) 
+			>> node_001 
+		else 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_012
+	>> node_187 
+	-> nargacuga.bite() 
+	return 
+endf 
+
+def node_013
+	>> node_186 
+	if self.angle_2d_cw_between(0,180) 
+		-> nargacuga.tail_cleave_l() 
+	else 
+		-> nargacuga.tail_cleave_r() 
+	endif 
+	return 
+endf 
+
+def node_014
+	>> node_186 
+	if self.enraged() 
+		if self.angle_2d_cw_between(0,90) 
+			-> nargacuga.d_tail_slalom_front_l() 
+		elif self.angle_2d_cw_between(90,180) 
+			-> nargacuga.d_tail_slalom_back_l() 
+		elif self.angle_2d_cw_between(180,270) 
+			-> nargacuga.d_tail_slalom_back_r() 
+		else 
+			-> nargacuga.d_tail_slalom_front_r() 
+		endif 
+	else 
+		if self.angle_2d_cw_between(0,90) 
+			-> nargacuga.tail_slalom_front_l() 
+		elif self.angle_2d_cw_between(90,180) 
+			-> nargacuga.tail_slalom_back_l() 
+		elif self.angle_2d_cw_between(180,270) 
+			-> nargacuga.tail_slalom_back_r() 
+		else 
+			-> nargacuga.tail_slalom_front_r() 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_015
+	if self.distance_3d_to_target().leq(1000) 
+		>> node_016 
+	else 
+		>> node_187 
+	endif 
+	if self.enraged() 
+		if self.hp_percent().gt(40) 
+			random (80) -> nargacuga.d_tail_strike_begin() 
+			elser (20) -> nargacuga.tail_strike() 
+			endr 
+		elif self.hp_percent().gt(70) 
+			random (60) -> nargacuga.d_tail_strike_begin() 
+			elser (40) -> nargacuga.tail_strike() 
+			endr 
+		elif self.hp_percent().gt(85) 
+			random (40) -> nargacuga.d_tail_strike_begin() 
+			elser (60) -> nargacuga.tail_strike() 
+			endr 
+		else 
+			random (30) -> nargacuga.d_tail_strike_begin() 
+			elser (70) -> nargacuga.tail_strike() 
+			endr 
+		endif 
+	else 
+		-> nargacuga.tail_strike() 
+	endif 
+	return 
+endf 
+
+def node_016
+	if self.distance_3d_to_target().leq(800) 
+		if self.angle_2d_cw_between(30,330) 
+			>> node_007 
+		else 
+		endif 
+	else 
+		if self.angle_2d_cw_between(15,345) 
+			>> node_001 
+		else 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_017
+	>> node_187 
+	if self.enraged() 
+		if self.hp_percent().gt(40) 
+			random (80) 
+						-> nargacuga.bite() @ comboSetting:1 
+						-> nargacuga.d_tail_strike_begin() @ comboSetting:1 
+			elser (20) 
+						-> nargacuga.bite() @ comboSetting:1 
+						-> nargacuga.tail_strike() @ comboSetting:1 
+			endr 
+		elif self.hp_percent().gt(70) 
+			random (60) 
+						-> nargacuga.bite() @ comboSetting:1 
+						-> nargacuga.d_tail_strike_begin() @ comboSetting:1 
+			elser (40) 
+						-> nargacuga.bite() @ comboSetting:1 
+						-> nargacuga.tail_strike() @ comboSetting:1 
+			endr 
+		elif self.hp_percent().gt(85) 
+			random (40) 
+						-> nargacuga.bite() @ comboSetting:1 
+						-> nargacuga.d_tail_strike_begin() @ comboSetting:1 
+			elser (60) 
+						-> nargacuga.bite() @ comboSetting:1 
+						-> nargacuga.tail_strike() @ comboSetting:1 
+			endr 
+		else 
+			random (30) 
+						-> nargacuga.bite() @ comboSetting:1 
+						-> nargacuga.d_tail_strike_begin() @ comboSetting:1 
+			elser (70) 
+						-> nargacuga.bite() @ comboSetting:1 
+						-> nargacuga.tail_strike() @ comboSetting:1 
+			endr 
+		endif 
+	elif self.fatigued() 
+		-> nargacuga.bite() 
+		-> nargacuga.tail_strike() 
+	else 
+		-> nargacuga.bite() @ comboSetting:1 
+		-> nargacuga.tail_strike() @ comboSetting:1 
+	endif 
+	return 
+endf 
+
+def node_018
+	>> node_013 
+	>> node_117 
+	>> node_015 
+	return 
+endf 
+
+def node_019
+	>> node_014 
+	>> node_117 
+	>> node_015 
+	return 
+endf 
+
+def node_020
+	>> node_013 
+	>> node_117 
+	>> node_012 
+	return 
+endf 
+
+def node_021
+	>> node_012 
+	>> node_117 
+	>> node_014 
+	return 
+endf 
+
+def node_022
+	>> node_013 
+	>> node_117 
+	>> node_014 
+	return 
+endf 
+
+def node_023
+	>> node_012 
+	>> node_117 
+	random (50) >> node_030 
+	elser (50) >> node_032 
+	endr 
+	return 
+endf 
+
+def node_024
+	>> node_012 
+	>> node_117 
+	random (50) >> node_035 
+	elser (50) >> node_037 
+	endr 
+	return 
+endf 
+
+def node_025
+	>> node_012 
+	>> node_117 
+	random (50) >> node_047 
+	elser (50) >> node_048 
+	endr 
+	return 
+endf 
+
+def node_026
+	>> node_013 
+	>> node_117 
+	random (50) >> node_030 
+	elser (50) >> node_032 
+	endr 
+	return 
+endf 
+
+def node_027
+	>> node_013 
+	>> node_117 
+	random (50) >> node_035 
+	elser (50) >> node_037 
+	endr 
+	return 
+endf 
+
+def node_028
+	>> node_013 
+	>> node_117 
+	random (50) >> node_047 
+	elser (50) >> node_048 
+	endr 
+	return 
+endf 
+
+def node_029
+	>> node_190 
+	-> nargacuga.bite_tail_cleave_l() 
+	return 
+endf 
+
+def node_030
+	>> node_192 
+	>> node_088 
+	>> node_029 
+	return 
+endf 
+
+def node_031
+	>> node_192 
+	>> node_076 
+	>> node_088 
+	>> node_029 
+	return 
+endf 
+
+def node_032
+	>> node_192 
+	>> node_089 
+	>> node_029 
+	return 
+endf 
+
+def node_033
+	>> node_192 
+	>> node_077 
+	>> node_089 
+	>> node_029 
+	return 
+endf 
+
+def node_034
+	>> node_190 
+	if self.angle_2d_cw_between(0,180) 
+		-> nargacuga.continuous_bite_l() 
+	else 
+		-> nargacuga.continuous_bite_r() 
+	endif 
+	return 
+endf 
+
+def node_035
+	>> node_192 
+	>> node_088 
+	>> node_034 
+	return 
+endf 
+
+def node_036
+	>> node_192 
+	>> node_076 
+	>> node_088 
+	>> node_034 
+	return 
+endf 
+
+def node_037
+	>> node_192 
+	>> node_089 
+	>> node_034 
+	return 
+endf 
+
+def node_038
+	>> node_192 
+	>> node_077 
+	>> node_089 
+	>> node_034 
+	return 
+endf 
+
+def node_039
+	>> node_192 
+	>> node_088 
+	>> node_029 
+	>> node_089 
+	>> node_034 
+	return 
+endf 
+
+def node_040
+	>> node_192 
+	>> node_089 
+	>> node_029 
+	>> node_088 
+	>> node_034 
+	return 
+endf 
+
+def node_041
+	>> node_192 
+	>> node_088 
+	>> node_034 
+	>> node_089 
+	>> node_029 
+	return 
+endf 
+
+def node_042
+	>> node_192 
+	>> node_089 
+	>> node_034 
+	>> node_088 
+	>> node_029 
+	return 
+endf 
+
+def node_043
+	if self.enraged() 
+		-> nargacuga.single_blade_posture_l() 
+		>> node_082 
+		-> nargacuga.single_blade_attack_l() 
+		>> node_081 
+		-> nargacuga.single_blade_attack_r() 
+	else 
+		-> nargacuga.single_blade_posture_l() 
+	endif 
+	return 
+endf 
+
+def node_044
+	if self.enraged() 
+		-> nargacuga.single_blade_posture_r() 
+		>> node_081 
+		-> nargacuga.single_blade_attack_r() 
+		>> node_082 
+		-> nargacuga.single_blade_attack_l() 
+	else 
+		-> nargacuga.single_blade_posture_r() 
+	endif 
+	return 
+endf 
+
+def node_045
+	-> nargacuga.single_blade_posture_l() 
+	if self.distance_3d_to_target().leq(1400) 
+		>> node_082 
+	else 
+	endif 
+	-> nargacuga.single_blade_attack_l() 
+	return 
+endf 
+
+def node_046
+	-> nargacuga.single_blade_posture_r() 
+	if self.distance_3d_to_target().leq(1400) 
+		>> node_081 
+	else 
+	endif 
+	-> nargacuga.single_blade_attack_r() 
+	return 
+endf 
+
+def node_047
+	>> node_192 
+	>> node_081 
+	-> nargacuga.single_blade_posture_l() 
+	return 
+endf 
+
+def node_048
+	>> node_192 
+	>> node_082 
+	-> nargacuga.single_blade_posture_r() 
+	return 
+endf 
+
+def node_049
+	>> node_192 
+	>> node_081 
+	-> nargacuga.single_blade_posture_l() 
+	>> node_082 
+	-> nargacuga.single_blade_posture_r() 
+	return 
+endf 
+
+def node_050
+	>> node_192 
+	>> node_082 
+	-> nargacuga.single_blade_posture_r() 
+	>> node_081 
+	-> nargacuga.single_blade_posture_l() 
+	return 
+endf 
+
+def node_051
+	>> node_192 
+	>> node_081 
+	-> nargacuga.single_blade_posture_l() 
+	>> node_082 
+	-> nargacuga.single_blade_posture_r() 
+	>> node_081 
+	-> nargacuga.single_blade_posture_l() 
+	return 
+endf 
+
+def node_052
+	>> node_192 
+	>> node_082 
+	-> nargacuga.single_blade_posture_r() 
+	>> node_081 
+	-> nargacuga.single_blade_posture_l() 
+	>> node_082 
+	-> nargacuga.single_blade_posture_r() 
+	return 
+endf 
+
+def node_053
+	>> node_192 
+	>> node_084 
+	-> nargacuga.single_blade_posture_l() 
+	return 
+endf 
+
+def node_054
+	>> node_192 
+	>> node_085 
+	-> nargacuga.single_blade_posture_r() 
+	return 
+endf 
+
+def node_055
+	>> node_192 
+	>> node_084 
+	-> nargacuga.single_blade_posture_l() 
+	>> node_082 
+	-> nargacuga.single_blade_posture_r() 
+	>> node_081 
+	-> nargacuga.single_blade_posture_l() 
+	return 
+endf 
+
+def node_056
+	>> node_192 
+	>> node_085 
+	-> nargacuga.single_blade_posture_r() 
+	>> node_081 
+	-> nargacuga.single_blade_posture_l() 
+	>> node_082 
+	-> nargacuga.single_blade_posture_r() 
+	return 
+endf 
+
+def node_057
+	-> nargacuga.rush() 
+	return 
+endf 
+
+def node_058
+	>> node_080 
+	>> node_057 
+	return 
+endf 
+
+def node_059
+	>> node_083 
+	>> node_057 
+	return 
+endf 
+
+def node_060
+	if function#101() 
+		-> nargacuga.skip_thorn_short_range() 
+	else 
+		>> node_124 
+	endif 
+	return 
+endf 
+
+def node_061
+	>> node_194 
+	if function#101() 
+		-> nargacuga.d_skip_thorn_middle_range() 
+	else 
+		>> node_124 
+	endif 
+	return 
+endf 
+
+def node_062
+	if self.enraged() 
+		random (70) >> node_060 
+		elser (30) >> node_061 
+		endr 
+	else 
+		random (30) >> node_060 
+		elser (70) >> node_061 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_063
+	>> node_080 
+	>> node_062 
+	return 
+endf 
+
+def node_064
+	>> node_192 
+	>> node_081 
+	>> node_062 
+	return 
+endf 
+
+def node_065
+	>> node_192 
+	>> node_082 
+	>> node_062 
+	return 
+endf 
+
+def node_066
+	>> node_192 
+	>> node_084 
+	>> node_062 
+	return 
+endf 
+
+def node_067
+	>> node_192 
+	>> node_085 
+	>> node_062 
+	return 
+endf 
+
+def node_068
+	if function#B9() 
+		>> node_080 
+	else 
+	endif 
+	if self.enraged() 
+		if self.hp_percent().gt(40) 
+			random (80) 
+						-> nargacuga.go_around_back() @ comboSetting:1 
+						-> nargacuga.d_tail_strike_begin() @ comboSetting:1 
+			elser (20) 
+						-> nargacuga.go_around_back() @ comboSetting:1 
+						-> nargacuga.tail_strike() @ comboSetting:1 
+			endr 
+		elif self.hp_percent().gt(70) 
+			random (60) 
+						-> nargacuga.go_around_back() @ comboSetting:1 
+						-> nargacuga.d_tail_strike_begin() @ comboSetting:1 
+			elser (40) 
+						-> nargacuga.go_around_back() @ comboSetting:1 
+						-> nargacuga.tail_strike() @ comboSetting:1 
+			endr 
+		elif self.hp_percent().gt(85) 
+			random (40) 
+						-> nargacuga.go_around_back() @ comboSetting:1 
+						-> nargacuga.d_tail_strike_begin() @ comboSetting:1 
+			elser (60) 
+						-> nargacuga.go_around_back() @ comboSetting:1 
+						-> nargacuga.tail_strike() @ comboSetting:1 
+			endr 
+		else 
+			random (30) 
+						-> nargacuga.go_around_back() @ comboSetting:1 
+						-> nargacuga.d_tail_strike_begin() @ comboSetting:1 
+			elser (70) 
+						-> nargacuga.go_around_back() @ comboSetting:1 
+						-> nargacuga.tail_strike() @ comboSetting:1 
+			endr 
+		endif 
+	else 
+		-> nargacuga.go_around_back() @ comboSetting:1 
+		-> nargacuga.tail_strike() @ comboSetting:1 
+	endif 
+	return 
+endf 
+
+def node_069
+	random (50) >> node_081 
+	elser (50) >> node_082 
+	endr 
+	>> node_068 
+	return 
+endf 
+
+def node_070
+	random (50) >> node_084 
+	elser (50) >> node_085 
+	endr 
+	>> node_068 
+	return 
+endf 
+
+def node_071
+	>> node_185 
+	>> node_002 
+	>> node_015 
+	return 
+endf 
+
+def node_072
+	>> node_185 
+	>> node_012 
+	return 
+endf 
+
+def node_073
+	>> node_185 
+	>> node_017 
+	return 
+endf 
+
+def node_074
+	>> node_185 
+	>> node_014 
+	return 
+endf 
+
+def node_075
+	>> node_190 
+	random (50) -> nargacuga.single_blade_posture_l() 
+	elser (50) -> nargacuga.single_blade_posture_r() 
+	endr 
+	return 
+endf 
+
+def node_076
+	-> nargacuga.turn_go_around_l() 
+	return 
+endf 
+
+def node_077
+	-> nargacuga.turn_go_around_r() 
+	return 
+endf 
+
+def node_078
+	if function#B9() 
+		-> nargacuga.turn_go_around_l_to_l_to_l() 
+	else 
+		-> nargacuga.turn_go_around_l_to_l() 
+	endif 
+	return 
+endf 
+
+def node_079
+	if function#B9() 
+		-> nargacuga.turn_go_around_r_to_r_to_r() 
+	else 
+		-> nargacuga.turn_go_around_r_to_r() 
+	endif 
+	return 
+endf 
+
+def node_080
+	>> node_192 
+	if self.distance_3d_to_target().leq(2000) 
+		random (50) >> node_081 
+		elser (50) >> node_082 
+		endr 
+	else 
+	endif 
+	return 
+endf 
+
+def node_081
+	-> nargacuga.turn_go_around_l_2() 
+	return 
+endf 
+
+def node_082
+	-> nargacuga.turn_go_around_r_2() 
+	return 
+endf 
+
+def node_083
+	>> node_192 
+	if self.distance_3d_to_target().leq(2000) 
+		random (50) >> node_084 
+		elser (50) >> node_085 
+		endr 
+	else 
+	endif 
+	return 
+endf 
+
+def node_084
+	if function#B9() 
+		-> nargacuga.turn_go_around_l_to_l_to_l_2() 
+	else 
+		-> nargacuga.turn_go_around_l_to_l_2() 
+	endif 
+	return 
+endf 
+
+def node_085
+	if function#B9() 
+		-> nargacuga.turn_go_around_r_to_r_to_r_2() 
+	else 
+		-> nargacuga.turn_go_around_r_to_r_2() 
+	endif 
+	return 
+endf 
+
+def node_086
+	-> nargacuga.go_around_back() 
+	return 
+endf 
+
+def node_087
+	if self.angle_2d_cw_between(0,180) 
+		>> node_088 
+	else 
+		>> node_089 
+	endif 
+	return 
+endf 
+
+def node_088
+	>> node_194 
+	if self.distance_3d_to_target().leq(1175) 
+		>> node_002 
+		-> nargacuga.dash_go_around_l() 
+	elif self.distance_3d_to_target().leq(1900) 
+		>> node_002 
+		-> nargacuga.dash_go_around_l_2() 
+	elif self.distance_3d_to_target().leq(2700) 
+		>> node_002 
+		-> nargacuga.dash_go_around_l_3() 
+	else 
+		>> node_193 
+		>> node_002 
+		-> nargacuga.dash_go_around_l_3() 
+	endif 
+	return 
+endf 
+
+def node_089
+	>> node_194 
+	if self.distance_3d_to_target().leq(1175) 
+		>> node_002 
+		-> nargacuga.dash_go_around_r() 
+	elif self.distance_3d_to_target().leq(1900) 
+		>> node_002 
+		-> nargacuga.dash_go_around_r_2() 
+	elif self.distance_3d_to_target().leq(2700) 
+		>> node_002 
+		-> nargacuga.dash_go_around_r_3() 
+	else 
+		>> node_193 
+		>> node_002 
+		-> nargacuga.dash_go_around_r_3() 
+	endif 
+	return 
+endf 
+
+def node_090
+	random (20) 
+				>> node_081 
+	elser (15) 
+				>> node_082 
+	elser (20) 
+				>> node_088 
+	elser (15) 
+				>> node_089 
+	elser (30) 
+	endr 
+	>> node_002 
+	-> nargacuga.battle_walk() 
+	return 
+endf 
+
+def node_091
+	if self.angle_2d_cw_between(15,130) 
+		>> node_013 
+	elif self.angle_2d_cw_between(130,230) 
+		>> node_014 
+	elif self.angle_2d_cw_between(230,345) 
+		>> node_013 
+	else 
+		>> node_010 
+	endif 
+	return 
+endf 
+
+def node_092
+	if function#2D(1) 
+		>> node_116 
+	else 
+		if self.hp_percent().gt(40) 
+			if [RegisterVar2 >= 2] 
+				if [RegisterVar5 <= 1] 
+					>> node_108 
+					>> node_097 
+				elif [RegisterVar6 <= 1] 
+					>> node_108 
+					>> node_101 
+				else 
+					random (50) 
+								[RegisterVar5 ++] 
+					elser (50) 
+								[RegisterVar6 ++] 
+					endr 
+					repeat 
+				endif 
+			elif [RegisterVar1 >= 5] 
+				>> node_105 
+				>> node_093 
+			else 
+				>> node_107 
+				>> node_110 
+				repeat 
+			endif 
+		elif self.hp_percent().gt(70) 
+			if [RegisterVar2 >= 2] 
+				if [RegisterVar5 <= 1] 
+					>> node_108 
+					>> node_097 
+				elif [RegisterVar6 <= 1] 
+					>> node_108 
+					>> node_101 
+				else 
+					random (50) 
+								[RegisterVar5 ++] 
+					elser (50) 
+								[RegisterVar6 ++] 
+					endr 
+					repeat 
+				endif 
+			elif [RegisterVar1 >= 6] 
+				>> node_105 
+				>> node_093 
+			else 
+				>> node_107 
+				>> node_110 
+				repeat 
+			endif 
+		elif self.hp_percent().gt(85) 
+			if [RegisterVar2 >= 1] 
+				if [RegisterVar5 <= 1] 
+					>> node_108 
+					>> node_097 
+				elif [RegisterVar6 <= 1] 
+					>> node_108 
+					>> node_101 
+				else 
+					random (50) 
+								[RegisterVar5 ++] 
+					elser (50) 
+								[RegisterVar6 ++] 
+					endr 
+					repeat 
+				endif 
+			elif [RegisterVar1 >= 6] 
+				>> node_105 
+				>> node_093 
+			else 
+				>> node_107 
+				>> node_110 
+				repeat 
+			endif 
+		else 
+			if [RegisterVar2 >= 1] 
+				if [RegisterVar5 <= 1] 
+					>> node_108 
+					>> node_097 
+				elif [RegisterVar6 <= 1] 
+					>> node_108 
+					>> node_101 
+				else 
+					random (50) 
+								[RegisterVar5 ++] 
+					elser (50) 
+								[RegisterVar6 ++] 
+					endr 
+					repeat 
+				endif 
+			elif [RegisterVar1 >= 8] 
+				>> node_105 
+				>> node_093 
+			else 
+				>> node_107 
+				>> node_110 
+				repeat 
+			endif 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_093
+	if self.distance_3d_to_target().gt(3000) 
+		>> node_187 
+	elif self.distance_3d_to_target().gt(1400) 
+		if self.enraged() 
+			random (30) >> node_076 
+			elser (70) >> node_077 
+			endr 
+		else 
+			random (70) >> node_076 
+			elser (30) >> node_077 
+			endr 
+		endif 
+	else 
+	endif 
+	if self.hp_percent().gt(40) 
+		if [RegisterVar1 >= 2] 
+			>> node_094 
+		elif [RegisterVar1 >= 4] 
+			>> node_095 
+		else 
+			>> node_096 
+		endif 
+	elif self.hp_percent().gt(70) 
+		if [RegisterVar1 >= 3] 
+			>> node_094 
+		elif [RegisterVar1 >= 5] 
+			>> node_095 
+		else 
+			>> node_096 
+		endif 
+	elif self.hp_percent().gt(85) 
+		if [RegisterVar1 >= 3] 
+			>> node_094 
+		elif [RegisterVar1 >= 5] 
+			>> node_095 
+		else 
+			>> node_096 
+		endif 
+	else 
+		if [RegisterVar1 >= 4] 
+			>> node_094 
+		elif [RegisterVar1 >= 7] 
+			>> node_095 
+		else 
+			>> node_096 
+		endif 
+	endif 
+	>> node_118 
+	return 
+endf 
+
+def node_094
+	random (25) >> node_012 
+	elser (25) >> node_013 
+	elser (10) >> node_014 
+	elser (20) >> node_020 
+	elser (10) >> node_021 
+	elser (10) >> node_022 
+	endr 
+	return 
+endf 
+
+def node_095
+	random (10) >> node_063 
+	elser (10) >> node_020 
+	elser (10) >> node_021 
+	elser (10) >> node_022 
+	elser (10) >> node_023 
+	elser (15) >> node_025 
+	elser (10) >> node_026 
+	elser (15) >> node_028 
+	elser (10) >> node_010 
+	endr 
+	return 
+endf 
+
+def node_096
+	random (15) >> node_020 
+	elser (10) >> node_021 
+	elser (10) >> node_022 
+	elser (30) >> node_017 
+	elser (25) >> node_018 
+	elser (10) >> node_019 
+	endr 
+	return 
+endf 
+
+def node_097
+	if self.distance_3d_to_target().gt(3000) 
+		>> node_192 
+	else 
+	endif 
+	if [RegisterVar2 >= 1] 
+		>> node_098 
+	elif [RegisterVar2 >= 2] 
+		>> node_099 
+	else 
+		>> node_100 
+	endif 
+	return 
+endf 
+
+def node_098
+	if function#101() 
+		if self.enraged() 
+			random (10) >> node_053 
+			elser (40) >> node_054 
+			elser (10) >> node_066 
+			elser (40) >> node_067 
+			endr 
+		else 
+			random (40) >> node_047 
+			elser (10) >> node_048 
+			elser (40) >> node_064 
+			elser (10) >> node_065 
+			endr 
+		endif 
+	else 
+		if self.enraged() 
+			random (30) >> node_053 
+			elser (70) >> node_054 
+			endr 
+		else 
+			random (70) >> node_047 
+			elser (30) >> node_048 
+			endr 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_099
+	if self.fatigued() 
+		>> node_090 
+		>> node_210 
+	elif self.hp_percent().gt(40) 
+	else 
+		>> node_090 
+		>> node_210 
+	endif 
+	if self.enraged() 
+		random (0) >> node_031 
+		elser (30) >> node_033 
+		elser (0) >> node_036 
+		elser (70) >> node_038 
+		endr 
+	else 
+		random (30) >> node_030 
+		elser (0) >> node_032 
+		elser (70) >> node_035 
+		elser (0) >> node_037 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_100
+	if self.fatigued() 
+		random (40) >> node_058 
+		elser (25) >> node_049 
+		elser (35) >> node_050 
+		endr 
+	elif self.hp_percent().gt(30) 
+		random (20) >> node_069 
+		elser (45) >> node_051 
+		elser (35) >> node_052 
+		endr 
+	else 
+		random (30) >> node_049 
+		elser (20) >> node_050 
+		elser (50) >> node_069 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_101
+	if self.distance_3d_to_target().gt(3000) 
+		>> node_192 
+	else 
+	endif 
+	if [RegisterVar2 >= 1] 
+		>> node_102 
+	elif [RegisterVar2 >= 2] 
+		>> node_103 
+	else 
+		>> node_104 
+	endif 
+	return 
+endf 
+
+def node_102
+	if self.enraged() 
+		random (0) >> node_031 
+		elser (30) >> node_033 
+		elser (0) >> node_036 
+		elser (70) >> node_038 
+		endr 
+	else 
+		random (30) >> node_030 
+		elser (0) >> node_032 
+		elser (70) >> node_035 
+		elser (0) >> node_037 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_103
+	if self.fatigued() 
+		>> node_090 
+		>> node_210 
+	elif self.hp_percent().gt(40) 
+	else 
+		>> node_090 
+		>> node_210 
+	endif 
+	if function#101() 
+		if self.enraged() 
+			random (10) >> node_053 
+			elser (40) >> node_054 
+			elser (10) >> node_066 
+			elser (40) >> node_067 
+			endr 
+		else 
+			random (40) >> node_047 
+			elser (10) >> node_048 
+			elser (40) >> node_064 
+			elser (10) >> node_065 
+			endr 
+		endif 
+	else 
+		if self.enraged() 
+			random (30) >> node_053 
+			elser (70) >> node_054 
+			endr 
+		else 
+			random (70) >> node_047 
+			elser (30) >> node_048 
+			endr 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_104
+	if self.enraged() 
+		random (0) >> node_039 
+		elser (70) >> node_040 
+		elser (0) >> node_041 
+		elser (30) >> node_042 
+		endr 
+	else 
+		random (70) >> node_039 
+		elser (0) >> node_040 
+		elser (30) >> node_041 
+		elser (0) >> node_042 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_105
+	[RegisterVar1 ++] 
+	return 
+endf 
+
+def node_106
+	[RegisterVar1 ++] 
+	[RegisterVar1 ++] 
+	[RegisterVar1 ++] 
+	[RegisterVar1 ++] 
+	[RegisterVar1 ++] 
+	[RegisterVar1 ++] 
+	[RegisterVar1 ++] 
+	[RegisterVar1 ++] 
+	[RegisterVar1 ++] 
+	[RegisterVar1 ++] 
+	return 
+endf 
+
+def node_107
+	[RegisterVar1 |-] 
+	return 
+endf 
+
+def node_108
+	[RegisterVar2 ++] 
+	return 
+endf 
+
+def node_109
+	[RegisterVar2 ++] 
+	[RegisterVar2 ++] 
+	[RegisterVar2 ++] 
+	[RegisterVar2 ++] 
+	[RegisterVar2 ++] 
+	[RegisterVar2 ++] 
+	[RegisterVar2 ++] 
+	[RegisterVar2 ++] 
+	[RegisterVar2 ++] 
+	[RegisterVar2 ++] 
+	return 
+endf 
+
+def node_110
+	[RegisterVar2 |-] 
+	[RegisterVar5 |-] 
+	[RegisterVar6 |-] 
+	return 
+endf 
+
+def node_111
+	if self.enraged() 
+		if self.angle_2d_cw_between(0,90) 
+			-> nargacuga.d_tail_slalom_front_l() 
+		elif self.angle_2d_cw_between(90,180) 
+			-> nargacuga.d_tail_slalom_back_l() 
+		elif self.angle_2d_cw_between(180,270) 
+			-> nargacuga.d_tail_slalom_back_r() 
+		else 
+			-> nargacuga.d_tail_slalom_front_r() 
+		endif 
+	else 
+		if self.angle_2d_cw_between(0,90) 
+			-> nargacuga.tail_slalom_front_l() 
+		elif self.angle_2d_cw_between(90,180) 
+			-> nargacuga.tail_slalom_back_l() 
+		elif self.angle_2d_cw_between(180,270) 
+			-> nargacuga.tail_slalom_back_r() 
+		else 
+			-> nargacuga.tail_slalom_front_r() 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_112
+	if self.angle_2d_cw_between(0,180) 
+		-> nargacuga.continuous_bite_l() 
+	else 
+		-> nargacuga.continuous_bite_r() 
+	endif 
+	return 
+endf 
+
+def node_113
+	-> nargacuga.single_blade_posture_l() 
+	return 
+endf 
+
+def node_114
+	-> nargacuga.single_blade_posture_r() 
+	return 
+endf 
+
+def node_115
+	if self.distance_3d_to_target().leq(1000) 
+		>> node_016 
+	else 
+	endif 
+	if self.enraged() 
+		-> nargacuga.d_tail_strike_begin() 
+	else 
+		-> nargacuga.tail_strike() 
+	endif 
+	return 
+endf 
+
+def node_116
+	if self.distance_3d_to_target().leq(800) 
+		random (25) >> node_012 
+		elser (30) >> node_013 
+		elser (25) >> node_014 
+		elser (20) >> node_010 
+		endr 
+	else 
+		random (15) >> node_047 
+		elser (15) >> node_048 
+		elser (25) >> node_030 
+		elser (25) >> node_037 
+		elser (10) >> node_064 
+		elser (10) >> node_065 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_117
+	if self.target.helpless_0() 
+		>> node_107 
+		>> node_110 
+		if self.target.bleed() 
+			if self.distance_3d_to_target().leq(1500) 
+				>> node_071 
+			else 
+				>> node_075 
+			endif 
+		else 
+			random (50) 
+						if self.distance_3d_to_target().leq(1500) 
+							>> node_071 
+						else 
+							>> node_075 
+						endif 
+			elser (50) 
+			endr 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_118
+	if self.target.helpless_0() 
+		>> node_107 
+		>> node_110 
+		if self.target.bleed() 
+			if self.distance_3d_to_target().leq(1500) 
+				>> node_071 
+			else 
+				>> node_075 
+			endif 
+		else 
+			random (50) 
+						if self.distance_3d_to_target().leq(1500) 
+							>> node_071 
+						else 
+							>> node_075 
+						endif 
+			elser (50) 
+			endr 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_119
+	if self.fatigued() 
+		random (35) >> node_154 
+		elser (65) 
+		endr 
+	else 
+	endif 
+	return 
+endf 
+
+def node_120
+	if function#102() 
+		>> node_109 
+		>> node_107 
+	else 
+	endif 
+	return 
+endf 
+
+def node_121
+	if function#101() 
+		>> node_123 
+		>> node_122 
+	else 
+		if [RegisterVar4 <= 14] 
+			>> node_123 
+		elif [RegisterVar4 <= 1] 
+			>> node_122 
+		else 
+			>> node_122 
+			-> nargacuga.grow_tail_thorn() 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_122
+	[RegisterVar4 ++] 
+	return 
+endf 
+
+def node_123
+	[RegisterVar4 |-] 
+	return 
+endf 
+
+def node_124
+	if function#101() 
+		>> node_123 
+	else 
+		>> node_123 
+		-> nargacuga.grow_tail_thorn() 
+	endif 
+	return 
+endf 
+
+def node_125
+	if function#5A() 
+		>> node_126 
+	elif function#5A(1) 
+		>> node_127 
+	elif function#5A(2) 
+		>> node_128 
+	elif function#5A(3) 
+		>> node_129 
+	elif function#5A(4) 
+		>> node_158 
+	elif function#5A(5) 
+		>> node_146 
+	elif function#5A(6) 
+		>> node_147 
+	else 
+	endif 
+	return 
+endf 
+
+def node_126
+	random (30) >> node_145 
+	elser (10) >> node_146 
+	elser (10) >> node_147 
+	elser (10) >> node_148 
+	elser (20) >> node_150 
+	elser (20) >> node_151 
+	endr 
+	return 
+endf 
+
+def node_127
+	>> node_145 
+	return 
+endf 
+
+def node_128
+	random (50) >> node_146 
+	elser (50) >> node_147 
+	endr 
+	return 
+endf 
+
+def node_129
+	random (45) >> node_148 
+	elser (30) >> node_150 
+	elser (25) >> node_151 
+	endr 
+	return 
+endf 
+
+def node_130
+	>> node_002 
+	-> nargacuga.sunbath() 
+	reset 
+endf 
+
+def node_131
+	-> nargacuga.sleep() 
+	return 
+endf 
+
+def node_132
+	>> node_001 
+	-> nargacuga.drink() 
+	reset 
+endf 
+
+def node_133
+	>> node_001 
+	-> nargacuga.eat() 
+	return 
+endf 
+
+def node_134
+	if self.targetEnemy(target_em.any_monster) 
+		if self.target(13) 
+		else 
+			if self.vertical_distance_to_target().leq(1500) 
+				if self.distance_3d_to_target().leq(3000) 
+					if self.target_is(em.Fulgur_Anjanath) 
+						>> node_138 
+					elif self.target_is(em.Odogaron) 
+						>> node_138 
+					elif self.target_is(em.Ebony_Odogaron) 
+						>> node_138 
+					elif self.target_is(em.Rathalos) 
+						>> node_138 
+					elif self.target_is(em.Azure_Rathalos) 
+						>> node_138 
+					elif function#30(2) 
+						>> node_135 
+					else 
+						>> node_136 
+					endif 
+				else 
+				endif 
+			else 
+			endif 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_135
+	if self.in_map(st.Special_Arena).in_area(-1) 
+	elif self.in_map(st.Challenge_Arena).in_area(-1) 
+	else 
+		if [RegisterVar3 <= 3] 
+			>> node_143 
+			return 
+		else 
+		endif 
+	endif 
+	if self.target.in_combat() 
+		random (35) >> node_139 
+		elser (0) >> node_140 
+		elser (10) >> node_141 
+		elser (55) >> node_144 
+		endr 
+	else 
+		random (10) >> node_139 
+		elser (35) >> node_140 
+		elser (0) >> node_141 
+		elser (55) >> node_144 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_136
+	if self.in_map(st.Special_Arena).in_area(-1) 
+	elif self.in_map(st.Challenge_Arena).in_area(-1) 
+	else 
+		if [RegisterVar3 <= 5] 
+			>> node_143 
+			return 
+		else 
+		endif 
+	endif 
+	if self.target.in_combat() 
+		random (35) >> node_139 
+		elser (10) >> node_140 
+		elser (55) >> node_141 
+		elser (0) >> node_144 
+		endr 
+	else 
+		random (35) >> node_139 
+		elser (55) >> node_140 
+		elser (10) >> node_141 
+		elser (0) >> node_144 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_137
+	if self.target(39) 
+		>> node_135 
+	else 
+		if self.in_combat() 
+			if self.target.in_combat() 
+				random (35) >> node_139 
+				elser (55) >> node_140 
+				elser (10) >> node_141 
+				endr 
+			else 
+				random (30) >> node_139 
+				elser (70) >> node_140 
+				elser (0) >> node_141 
+				endr 
+			endif 
+		else 
+			>> node_135 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_138
+	if self.target(39) 
+		>> node_136 
+	else 
+		if self.target.in_combat() 
+			random (35) >> node_139 
+			elser (10) >> node_140 
+			elser (55) >> node_141 
+			endr 
+		else 
+			random (35) >> node_139 
+			elser (55) >> node_140 
+			elser (10) >> node_141 
+			endr 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_139
+	[RegisterVar3 ++] 
+	return 
+endf 
+
+def node_140
+	[RegisterVar3 ++] 
+	>> node_002 
+	>> node_155 
+	return 
+endf 
+
+def node_141
+	if self.vertical_distance_to_target().gt(800) 
+		[RegisterVar3 ++] 
+		>> node_155 
+	elif self.distance_3d_to_target().gt(2800) 
+		>> node_192 
+		repeat 
+	else 
+		[RegisterVar3 ++] 
+		>> node_142 
+	endif 
+	return 
+endf 
+
+def node_142
+	if self.distance_3d_to_target().leq(800) 
+		random (40) >> node_012 
+		elser (30) >> node_010 
+		elser (30) >> node_014 
+		endr 
+	else 
+		random (40) >> node_072 
+		elser (30) >> node_071 
+		elser (30) >> node_062 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_143
+	[RegisterVar3 |-] 
+	self.force_area_change2() 
+	return 
+endf 
+
+def node_144
+	[RegisterVar3 ++] 
+	[RegisterVar3 ++] 
+	[RegisterVar3 ++] 
+	[RegisterVar3 ++] 
+	[RegisterVar3 ++] 
+	>> node_141 
+	>> node_143 
+	return 
+endf 
+
+def node_145
+	if function#3C() 
+		-> nargacuga.search2() 
+	else 
+		-> nargacuga.search3() 
+	endif 
+	return 
+endf 
+
+def node_146
+	-> nargacuga.search4() 
+	return 
+endf 
+
+def node_147
+	-> nargacuga.search5() 
+	return 
+endf 
+
+def node_148
+	-> nargacuga.search() 
+	return 
+endf 
+
+def node_149
+	if self.enraged() 
+		-> nargacuga.lost_search() 
+	else 
+		-> nargacuga.lost_search() 
+	endif 
+	return 
+endf 
+
+def node_150
+	if self.in_combat() 
+		-> nargacuga.sniff_combat_s() 
+	else 
+		-> nargacuga.sniff_s() 
+	endif 
+	return 
+endf 
+
+def node_151
+	if self.in_combat() 
+		-> nargacuga.sniff_combat_l() 
+	else 
+		-> nargacuga.sniff_l() 
+	endif 
+	return 
+endf 
+
+def node_152
+	-> nargacuga.refresh() 
+	return 
+endf 
+
+def node_153
+	-> nargacuga.idle_tired() 
+	return 
+endf 
+
+def node_154
+	-> nargacuga.idle_tired2() 
+	return 
+endf 
+
+def node_155
+	-> nargacuga.wait() 
+	return 
+endf 
+
+def node_156
+	-> nargacuga.short_threat() 
+	return 
+endf 
+
+def node_157
+	-> nargacuga.threat() 
+	return 
+endf 
+
+def node_158
+	>> node_002 
+	-> nargacuga.marking() 
+	return 
+endf 
+
+def node_159
+	if self.distance_3d_to_target().leq(5000) 
+		>> node_160 
+	else 
+		>> node_161 
+	endif 
+	return 
+endf 
+
+def node_160
+	-> nargacuga.walk(2,1,0,2000,4000) 
+	return 
+endf 
+
+def node_161
+	-> nargacuga.dash(2,1,0,6000,4000) 
+	return 
+endf 
+
+def node_162
+	if self.distance_3d_to_target().leq(1500) 
+	elif self.distance_3d_to_target().leq(3500) 
+		random (50) >> node_150 
+		elser (25) >> node_151 
+		elser (25) >> node_155 
+		endr 
+	else 
+	endif 
+	return 
+endf 
+
+def node_163
+	>> node_005 
+	random (50) >> node_150 
+	elser (25) >> node_151 
+	elser (25) >> node_155 
+	endr 
+	return 
+endf 
+
+def node_164
+	if self.target_is(em.Aptonoth) 
+		>> node_165 
+		>> node_166 
+	else 
+		>> node_167 
+		>> node_168 
+	endif 
+	return 
+endf 
+
+def node_165
+	if self.distance_3d_to_target().leq(1000) 
+		>> node_008 
+	else 
+		>> node_190 
+	endif 
+	return 
+endf 
+
+def node_166
+	-> nargacuga.predator_at_blade_posture_l() 
+	return 
+endf 
+
+def node_167
+	if self.distance_2d_to_target().leq(1000) 
+		>> node_008 
+	else 
+		>> node_190 
+	endif 
+	return 
+endf 
+
+def node_168
+	>> node_124 
+	-> nargacuga.predator_attack_thorn() 
+	return 
+endf 
+
+def node_169
+	-> nargacuga.predator_give_up() 
+	return 
+endf 
+
+def node_170
+	if self.target_is(em.Aptonoth) 
+		>> node_184 
+		>> node_001 
+	else 
+		if self.distance_3d_to_target().leq(500) 
+			>> node_009 
+		else 
+		endif 
+		>> node_187 
+		>> node_001 
+	endif 
+	-> nargacuga.predator_eat() 
+	return 
+endf 
+
+def node_171
+	if function#6B(10000) 
+		self.targetEnemy(26) 
+		>> node_150 
+		>> node_173 
+		>> node_174 
+		reset 
+	else 
+	endif 
+	return 
+endf 
+
+def node_172
+	if function#6B(10000) 
+		self.targetEnemy(26) 
+		>> node_150 
+		>> node_173 
+		>> node_174 
+		conclude 
+	else 
+	endif 
+	return 
+endf 
+
+def node_173
+	>> node_181 
+	return 
+endf 
+
+def node_174
+	>> node_002 
+	-> nargacuga.eat() 
+	return 
+endf 
+
+def node_175
+	if self.distance_3d_to_target().leq(500) 
+		return 
+	else 
+		>> node_176 
+	endif 
+	if self.distance_3d_to_target().leq(500) 
+		return 
+	else 
+		>> node_176 
+	endif 
+	if self.distance_3d_to_target().leq(500) 
+		return 
+	else 
+		>> node_176 
+	endif 
+	return 
+endf 
+
+def node_176
+	if self.in_combat() 
+		-> nargacuga.walk_combat(2,1,5,1500,400) 
+	elif self.fatigued() 
+		-> nargacuga.walk_tired(2,1,5,1500,400) 
+	else 
+		-> nargacuga.walk(2,1,5,1500,400) 
+	endif 
+	return 
+endf 
+
+def node_177
+	>> node_178 
+	if self.distance_3d_to_target().leq(800) 
+		return 
+	else 
+		>> node_149 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_178
+	if self.in_combat() 
+		-> nargacuga.walk_combat(2,1,5,500,800) 
+	elif self.fatigued() 
+		-> nargacuga.walk_tired(2,1,5,500,800) 
+	else 
+		-> nargacuga.walk(2,1,5,500,800) 
+	endif 
+	return 
+endf 
+
+def node_179
+	if self.distance_3d_to_target().leq(600) 
+		return 
+	else 
+		>> node_180 
+	endif 
+	if self.distance_3d_to_target().leq(600) 
+		return 
+	else 
+		>> node_180 
+	endif 
+	if self.distance_3d_to_target().leq(600) 
+		return 
+	else 
+		>> node_180 
+	endif 
+	return 
+endf 
+
+def node_180
+	if self.in_combat() 
+		-> nargacuga.dash_combat(2,1,0,500,500) 
+	elif self.fatigued() 
+		-> nargacuga.dash_tired(2,1,0,500,500) 
+	else 
+		-> nargacuga.dash(2,1,0,500,500) 
+	endif 
+	return 
+endf 
+
+def node_181
+	if self.distance_3d_to_target().leq(800) 
+		return 
+	else 
+		if self.in_combat() 
+			-> nargacuga.dash_combat(2,1,0,800,800) 
+		elif self.fatigued() 
+			-> nargacuga.dash_tired(2,1,0,800,800) 
+		else 
+			-> nargacuga.dash(2,1,0,800,800) 
+		endif 
+	endif 
+	repeat 
+endf 
+
+def node_182
+	if self.distance_3d_to_target().leq(600) 
+		return 
+	else 
+		>> node_183 
+	endif 
+	if self.distance_3d_to_target().leq(600) 
+		return 
+	else 
+		>> node_183 
+	endif 
+	if self.distance_3d_to_target().leq(600) 
+		return 
+	else 
+		>> node_183 
+	endif 
+	return 
+endf 
+
+def node_183
+	if self.in_combat() 
+		-> nargacuga.dash_combat(2,1,0,1000,500) 
+	elif self.fatigued() 
+		-> nargacuga.dash_tired(2,1,0,1000,500) 
+	else 
+		-> nargacuga.dash(2,1,0,1000,500) 
+	endif 
+	return 
+endf 
+
+def node_184
+	if self.distance_3d_to_target().leq(500) 
+		return 
+	else 
+		if self.in_combat() 
+			-> nargacuga.dash_combat(2,1,0,800,500) 
+		else 
+			-> nargacuga.dash(2,1,0,800,500) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(500) 
+		return 
+	else 
+		if self.in_combat() 
+			-> nargacuga.dash_combat(2,1,0,800,500) 
+		else 
+			-> nargacuga.dash(2,1,0,800,500) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(500) 
+		return 
+	else 
+		if self.in_combat() 
+			-> nargacuga.dash_combat(2,1,0,800,500) 
+		else 
+			-> nargacuga.dash(2,1,0,800,500) 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_185
+	if self.distance_3d_to_target().leq(700) 
+		return 
+	else 
+		if self.in_combat() 
+			-> nargacuga.dash_combat(2,1,0,800,700) 
+		else 
+			-> nargacuga.dash(2,1,0,800,700) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(700) 
+		return 
+	else 
+		if self.in_combat() 
+			-> nargacuga.dash_combat(2,1,0,800,700) 
+		else 
+			-> nargacuga.dash(2,1,0,800,700) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(700) 
+		return 
+	else 
+		if self.in_combat() 
+			-> nargacuga.dash_combat(2,1,0,800,700) 
+		else 
+			-> nargacuga.dash(2,1,0,800,700) 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_186
+	if self.distance_3d_to_target().leq(800) 
+		return 
+	else 
+		if self.in_combat() 
+			-> nargacuga.dash_combat(2,1,0,800,800) 
+		else 
+			-> nargacuga.dash(2,1,0,800,800) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(800) 
+		return 
+	else 
+		if self.in_combat() 
+			-> nargacuga.dash_combat(2,1,0,800,800) 
+		else 
+			-> nargacuga.dash(2,1,0,800,800) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(800) 
+		return 
+	else 
+		if self.in_combat() 
+			-> nargacuga.dash_combat(2,1,0,800,800) 
+		else 
+			-> nargacuga.dash(2,1,0,800,800) 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_187
+	if self.distance_3d_to_target().leq(1000) 
+		return 
+	else 
+		if self.in_combat() 
+			-> nargacuga.dash_combat(2,1,0,800,1000) 
+		else 
+			-> nargacuga.dash(2,1,0,800,1000) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(1000) 
+		return 
+	else 
+		if self.in_combat() 
+			-> nargacuga.dash_combat(2,1,0,800,1000) 
+		else 
+			-> nargacuga.dash(2,1,0,800,1000) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(1000) 
+		return 
+	else 
+		if self.in_combat() 
+			-> nargacuga.dash_combat(2,1,0,800,1000) 
+		else 
+			-> nargacuga.dash(2,1,0,800,1000) 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_188
+	if self.distance_3d_to_target().leq(1300) 
+		return 
+	else 
+		if self.in_combat() 
+			-> nargacuga.dash_combat(2,1,0,800,1300) 
+		else 
+			-> nargacuga.dash(2,1,0,800,1300) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(1300) 
+		return 
+	else 
+		if self.in_combat() 
+			-> nargacuga.dash_combat(2,1,0,800,1300) 
+		else 
+			-> nargacuga.dash(2,1,0,800,1300) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(1300) 
+		return 
+	else 
+		if self.in_combat() 
+			-> nargacuga.dash_combat(2,1,0,800,1300) 
+		else 
+			-> nargacuga.dash(2,1,0,800,1300) 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_189
+	if self.distance_3d_to_target().leq(1800) 
+		return 
+	else 
+		if self.in_combat() 
+			-> nargacuga.dash_combat(2,1,0,800,1800) 
+		else 
+			-> nargacuga.dash(2,1,0,800,1800) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(1800) 
+		return 
+	else 
+		if self.in_combat() 
+			-> nargacuga.dash_combat(2,1,0,800,1800) 
+		else 
+			-> nargacuga.dash(2,1,0,800,1800) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(1800) 
+		return 
+	else 
+		if self.in_combat() 
+			-> nargacuga.dash_combat(2,1,0,800,1800) 
+		else 
+			-> nargacuga.dash(2,1,0,800,1800) 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_190
+	if self.distance_3d_to_target().leq(2000) 
+		return 
+	else 
+		if self.in_combat() 
+			-> nargacuga.dash_combat(2,1,0,800,2000) 
+		else 
+			-> nargacuga.dash(2,1,0,800,2000) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(2000) 
+		return 
+	else 
+		if self.in_combat() 
+			-> nargacuga.dash_combat(2,1,0,800,2000) 
+		else 
+			-> nargacuga.dash(2,1,0,800,2000) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(2000) 
+		return 
+	else 
+		if self.in_combat() 
+			-> nargacuga.dash_combat(2,1,0,800,2000) 
+		else 
+			-> nargacuga.dash(2,1,0,800,2000) 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_191
+	if self.distance_3d_to_target().leq(2300) 
+		return 
+	else 
+		if self.in_combat() 
+			-> nargacuga.dash_combat(2,1,0,800,2300) 
+		else 
+			-> nargacuga.dash(2,1,0,800,2300) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(2300) 
+		return 
+	else 
+		if self.in_combat() 
+			-> nargacuga.dash_combat(2,1,0,800,2300) 
+		else 
+			-> nargacuga.dash(2,1,0,800,2300) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(2300) 
+		return 
+	else 
+		if self.in_combat() 
+			-> nargacuga.dash_combat(2,1,0,800,2300) 
+		else 
+			-> nargacuga.dash(2,1,0,800,2300) 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_192
+	if self.distance_3d_to_target().leq(2500) 
+		return 
+	else 
+		if self.in_combat() 
+			-> nargacuga.dash_combat(2,1,0,800,2500) 
+		else 
+			-> nargacuga.dash(2,1,0,800,2500) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(2500) 
+		return 
+	else 
+		if self.in_combat() 
+			-> nargacuga.dash_combat(2,1,0,800,2500) 
+		else 
+			-> nargacuga.dash(2,1,0,800,2500) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(2500) 
+		return 
+	else 
+		if self.in_combat() 
+			-> nargacuga.dash_combat(2,1,0,800,2500) 
+		else 
+			-> nargacuga.dash(2,1,0,800,2500) 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_193
+	if self.distance_3d_to_target().leq(2700) 
+		return 
+	else 
+		if self.in_combat() 
+			-> nargacuga.dash_combat(2,1,0,800,2700) 
+		else 
+			-> nargacuga.dash(2,1,0,800,2700) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(2700) 
+		return 
+	else 
+		if self.in_combat() 
+			-> nargacuga.dash_combat(2,1,0,800,2700) 
+		else 
+			-> nargacuga.dash(2,1,0,800,2700) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(2700) 
+		return 
+	else 
+		if self.in_combat() 
+			-> nargacuga.dash_combat(2,1,0,800,2700) 
+		else 
+			-> nargacuga.dash(2,1,0,800,2700) 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_194
+	if self.distance_3d_to_target().leq(2800) 
+		return 
+	else 
+		if self.in_combat() 
+			-> nargacuga.dash_combat(2,1,0,800,2800) 
+		else 
+			-> nargacuga.dash(2,1,0,800,2800) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(2800) 
+		return 
+	else 
+		if self.in_combat() 
+			-> nargacuga.dash_combat(2,1,0,800,2800) 
+		else 
+			-> nargacuga.dash(2,1,0,800,2800) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(2800) 
+		return 
+	else 
+		if self.in_combat() 
+			-> nargacuga.dash_combat(2,1,0,800,2800) 
+		else 
+			-> nargacuga.dash(2,1,0,800,2800) 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_195
+	if self.distance_3d_to_target().leq(500) 
+		return 
+	else 
+		if self.in_combat() 
+			-> nargacuga.dash_combat(2,1,0,800,500) 
+		else 
+			-> nargacuga.dash(2,1,0,800,500) 
+		endif 
+	endif 
+	repeat 
+endf 
+
+def node_196
+	if self.in_combat() 
+		-> nargacuga.dash_combat(2,6,0,800,1000) 
+	else 
+		-> nargacuga.dash(2,6,0,800,1000) 
+	endif 
+	if self.distance_2d_to_target().leq(1000) 
+		return 
+	else 
+		if self.in_combat() 
+			-> nargacuga.dash_combat(2,6,0,800,1000) 
+		else 
+			-> nargacuga.dash(2,6,0,800,1000) 
+		endif 
+	endif 
+	if self.distance_2d_to_target().leq(1000) 
+		return 
+	else 
+		if self.in_combat() 
+			-> nargacuga.dash_combat(2,6,0,800,1000) 
+		else 
+			-> nargacuga.dash(2,6,0,800,1000) 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_197
+	if self.distance_3d_to_target().leq(500) 
+		return 
+	else 
+		if self.in_combat() 
+			-> nargacuga.dash_combat(2,1,0,500,500) 
+		else 
+			-> nargacuga.dash(2,1,0,500,500) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(500) 
+		return 
+	else 
+		if self.in_combat() 
+			-> nargacuga.dash_combat(2,1,0,500,500) 
+		else 
+			-> nargacuga.dash(2,1,0,500,500) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(500) 
+		return 
+	else 
+		if self.in_combat() 
+			-> nargacuga.dash_combat(2,1,0,500,500) 
+		else 
+			-> nargacuga.dash(2,1,0,500,500) 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_198
+	if self.distance_3d_to_target().leq(800) 
+		return 
+	else 
+		if self.in_combat() 
+			-> nargacuga.dash_combat(2,1,0,500,800) 
+		else 
+			-> nargacuga.dash(2,1,0,500,800) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(800) 
+		return 
+	else 
+		if self.in_combat() 
+			-> nargacuga.dash_combat(2,1,0,500,800) 
+		else 
+			-> nargacuga.dash(2,1,0,500,800) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(800) 
+		return 
+	else 
+		if self.in_combat() 
+			-> nargacuga.dash_combat(2,1,0,500,800) 
+		else 
+			-> nargacuga.dash(2,1,0,500,800) 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_199
+	if self.distance_3d_to_target().leq(1300) 
+		return 
+	else 
+		if self.in_combat() 
+			-> nargacuga.dash_combat(2,1,0,500,1300) 
+		else 
+			-> nargacuga.dash(2,1,0,500,1300) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(1300) 
+		return 
+	else 
+		if self.in_combat() 
+			-> nargacuga.dash_combat(2,1,0,500,1300) 
+		else 
+			-> nargacuga.dash(2,1,0,500,1300) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(1300) 
+		return 
+	else 
+		if self.in_combat() 
+			-> nargacuga.dash_combat(2,1,0,500,1300) 
+		else 
+			-> nargacuga.dash(2,1,0,500,1300) 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_200
+	if self.distance_3d_to_target().leq(1800) 
+		return 
+	else 
+		if self.in_combat() 
+			-> nargacuga.dash_combat(2,1,0,500,1800) 
+		else 
+			-> nargacuga.dash(2,1,0,500,1800) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(1800) 
+		return 
+	else 
+		if self.in_combat() 
+			-> nargacuga.dash_combat(2,1,0,500,1800) 
+		else 
+			-> nargacuga.dash(2,1,0,500,1800) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(1800) 
+		return 
+	else 
+		if self.in_combat() 
+			-> nargacuga.dash_combat(2,1,0,500,1800) 
+		else 
+			-> nargacuga.dash(2,1,0,500,1800) 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_201
+	if self.distance_3d_to_target().leq(2300) 
+		return 
+	else 
+		if self.in_combat() 
+			-> nargacuga.dash_combat(2,1,0,500,2300) 
+		else 
+			-> nargacuga.dash(2,1,0,500,2300) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(2300) 
+		return 
+	else 
+		if self.in_combat() 
+			-> nargacuga.dash_combat(2,1,0,500,2300) 
+		else 
+			-> nargacuga.dash(2,1,0,500,2300) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(2300) 
+		return 
+	else 
+		if self.in_combat() 
+			-> nargacuga.dash_combat(2,1,0,500,2300) 
+		else 
+			-> nargacuga.dash(2,1,0,500,2300) 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_202
+	if self.distance_3d_to_target().leq(2800) 
+		return 
+	else 
+		if self.in_combat() 
+			-> nargacuga.dash_combat(2,1,0,500,2800) 
+		else 
+			-> nargacuga.dash(2,1,0,500,2800) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(2800) 
+		return 
+	else 
+		if self.in_combat() 
+			-> nargacuga.dash_combat(2,1,0,500,2800) 
+		else 
+			-> nargacuga.dash(2,1,0,500,2800) 
+		endif 
+	endif 
+	if self.distance_3d_to_target().leq(2800) 
+		return 
+	else 
+		if self.in_combat() 
+			-> nargacuga.dash_combat(2,1,0,500,2800) 
+		else 
+			-> nargacuga.dash(2,1,0,500,2800) 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_203
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if function#5D() 
+		function#5E() 
+		self.targetEnemy(target_em.random_player_or_cat) 
+		>> node_204 
+		self.targetArea(4) 
+	else 
+		self.targetEnemy(target_em.random_player_or_cat) 
+	endif 
+	return 
+endf 
+
+def node_204
+	if self.angle_2d_cw_between(90,270) 
+		>> node_206 
+	elif self.distance_3d_to_target().gt(3000) 
+		>> node_206 
+	else 
+		>> node_205 
+	endif 
+	return 
+endf 
+
+def node_205
+	-> nargacuga.half_lost_search_front() 
+	return 
+endf 
+
+def node_206
+	-> nargacuga.half_lost_search_back() 
+	return 
+endf 
+
+def node_207
+	self.targetArea(19) 
+	if self.distance_2d_to_target().gt(1000) 
+		>> node_195 
+	else 
+		>> node_208 
+	endif 
+	return 
+endf 
+
+def node_208
+	self.targetEnemy(target_em.random_player_or_cat) 
+	>> node_002 
+	>> node_209 
+	return 
+endf 
+
+def node_209
+	random (37) >> node_150 
+	elser (23) >> node_151 
+	elser (40) >> node_155 
+	endr 
+	return 
+endf 
+
+def node_210
+	if self.target(52) 
+		>> node_194 
+	elif self.vertical_distance_to_target().gt(450) 
+		>> node_202 
+	else 
+		return 
+	endif 
+	if self.target(52) 
+		>> node_191 
+	elif self.vertical_distance_to_target().gt(450) 
+		>> node_201 
+	else 
+		return 
+	endif 
+	if self.target(52) 
+		>> node_189 
+	elif self.vertical_distance_to_target().gt(450) 
+		>> node_200 
+	else 
+		return 
+	endif 
+	if self.target(52) 
+		>> node_188 
+	elif self.vertical_distance_to_target().gt(450) 
+		>> node_199 
+	else 
+		return 
+	endif 
+	if self.target(52) 
+		>> node_186 
+	elif self.vertical_distance_to_target().gt(450) 
+		>> node_198 
+	else 
+		return 
+	endif 
+	if self.target(52) 
+		>> node_184 
+	elif self.vertical_distance_to_target().gt(450) 
+		>> node_197 
+	else 
+		return 
+	endif 
+	return 
+endf 
+
+def node_211
+	>> node_190 
+	>> node_091 
+	return 
+endf 
+
+def node_212
+	>> node_196 
+	if self.target(0) @ parameter2:1 
+		>> node_213 
+	elif self.target(0) 
+		>> node_214 
+	elif self.target(14) 
+		>> node_213 
+	else 
+		>> node_215 
+	endif 
+	return 
+endf 
+
+def node_213
+	if self.distance_2d_to_target().leq(1200) 
+		if self.above_target() 
+			-> nargacuga.jump_attack_wall_up() 
+			>> node_215 
+		else 
+			-> nargacuga.jump_attack_wall_down() 
+		endif 
+	else 
+		>> node_155 
+	endif 
+	return 
+endf 
+
+def node_214
+	if self.distance_2d_to_target().leq(1200) 
+		if self.above_target() 
+			-> nargacuga.jump_attack_wall_up() 
+			>> node_215 
+		else 
+			self.targetArea(77) 
+			-> nargacuga.dash_combat(2,0,0,1000) 
+		endif 
+	else 
+		>> node_155 
+	endif 
+	return 
+endf 
+
+def node_215
+	if self.target.helpless_0() 
+	else 
+		random (25) >> node_015 
+		elser (25) >> node_029 
+		elser (30) >> node_062 
+		elser (20) >> node_080 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_216
+	>> node_184 
+	>> node_091 
+	return 
+endf 
+
+def node_217
+	if function#7F() 
+		random (40) >> node_112 
+		elser (15) >> node_111 
+		elser (30) >> node_113 
+		elser (0) >> node_114 
+		elser (15) >> node_115 
+		endr 
+	elif function#7F(3) 
+		random (40) >> node_112 
+		elser (15) >> node_111 
+		elser (0) >> node_113 
+		elser (30) >> node_114 
+		elser (15) >> node_115 
+		endr 
+	elif function#7F(1) 
+		random (30) >> node_112 
+		elser (15) >> node_111 
+		elser (40) >> node_113 
+		elser (0) >> node_114 
+		elser (15) >> node_115 
+		endr 
+	elif function#7F(6) 
+		random (30) >> node_112 
+		elser (15) >> node_111 
+		elser (40) >> node_113 
+		elser (0) >> node_114 
+		elser (15) >> node_115 
+		endr 
+	elif function#7F(4) 
+		random (30) >> node_112 
+		elser (15) >> node_111 
+		elser (0) >> node_113 
+		elser (40) >> node_114 
+		elser (15) >> node_115 
+		endr 
+	elif function#7F(7) 
+		random (30) >> node_112 
+		elser (15) >> node_111 
+		elser (0) >> node_113 
+		elser (40) >> node_114 
+		elser (15) >> node_115 
+		endr 
+	elif function#7F(2) 
+		random (15) >> node_112 
+		elser (40) >> node_111 
+		elser (15) >> node_113 
+		elser (0) >> node_114 
+		elser (30) >> node_115 
+		endr 
+	elif function#7F(5) 
+		random (15) >> node_112 
+		elser (40) >> node_111 
+		elser (0) >> node_113 
+		elser (15) >> node_114 
+		elser (30) >> node_115 
+		endr 
+	else 
+		random (25) >> node_112 
+		elser (25) >> node_111 
+		elser (15) >> node_113 
+		elser (15) >> node_114 
+		elser (20) >> node_115 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_218
+	self.targetArea(19) 
+	if self.distance_3d_recalc_to_target().gt(1000) 
+		>> node_195 
+	else 
+	endif 
+	return 
+endf 
+
+def node_219
+	random (15) >> node_155 
+	elser (5) >> node_150 
+	elser (20) >> node_151 
+	elser (20) >> node_148 
+	elser (30) >> node_205 
+	elser (10) >> node_206 
+	endr 
+	return 
+endf 
+
+def node_220
+	>> node_155 
+	return 
+endf 
+
+def node_221
+	>> node_002 
+	-> nargacuga.peep_grass_search() 
+	return 
+endf 
+

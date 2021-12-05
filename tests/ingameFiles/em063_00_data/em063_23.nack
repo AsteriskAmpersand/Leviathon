@@ -1,0 +1,29 @@
+importactions Brachydios as brachydios
+
+def node_000
+	self.targetEnemy(target_em.closest_entity) 
+	>> node_001 
+	conclude 
+endf 
+
+def node_001
+	if self.target_is(em.Zinogre) 
+		-> brachydios.grapple_with_em057_mediation() 
+	elif self.target_is(em.Stygian_Zinogre) 
+		-> brachydios.grapple_with_em057_mediation() 
+	elif self.target_is(em.Odogaron) 
+		-> brachydios.grapple_with_em113_mediation_reverse() 
+	elif self.target_is(em.Ebony_Odogaron) 
+		-> brachydios.grapple_with_em113_mediation_reverse() 
+	elif self.target_is(em.Tigrex) 
+		-> brachydios.grapple_with_em032_mediation() 
+	elif self.target_is(em.Brute_Tigrex) 
+		-> brachydios.grapple_with_em032_mediation() 
+	elif self.target_is(em.Rathalos) 
+		-> brachydios.grapple_with_em002_mediation_threat() 
+	elif self.target_is(em.Azure_Rathalos) 
+		-> brachydios.grapple_with_em002_01_mediation_threat() 
+	endif 
+	return 
+endf 
+

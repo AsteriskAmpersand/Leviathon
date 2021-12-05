@@ -1,0 +1,44 @@
+importactions Beotodus as beotodus
+importlibrary Global as Global
+
+def node_000
+	if [RegisterVar10 <= 1] 
+	else 
+		if [RegisterVar9 <= 1] 
+		else 
+			if function#10F() 
+				[RegisterVar9 ++] 
+				-> beotodus.event_swim_ground_wait() 
+			else 
+				if function#3F() 
+					-> beotodus.event_diving_wait() 
+					repeat 
+				else 
+					-> beotodus.event_diving() 
+					repeat 
+				endif 
+			endif 
+		endif 
+		function#10C() 
+		if self.target(13) 
+		else 
+			>> Global.node_131 
+			-> beotodus.event_swim_predator_attack() 
+			if self.target(13) 
+			else 
+				repeat 
+			endif 
+		endif 
+		>> Global.node_115 
+		[RegisterVar10 ++] 
+		-> beotodus.event_swim_predator_eat() 
+	endif 
+	self.targetEnemy(48) 
+	if self.target(7) 
+	elif self.distance_3d_to_target().gt(6000) 
+	else 
+		>> Global.node_137 
+	endif 
+	conclude 
+endf 
+

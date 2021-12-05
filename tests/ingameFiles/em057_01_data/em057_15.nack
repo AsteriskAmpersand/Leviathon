@@ -1,0 +1,178 @@
+importactions Stygian_Zinogre as stygian_zinogre
+importlibrary Global as Global
+
+def node_000
+	function#103() 
+	function#52() 
+	>> node_001 
+	>> node_002 
+	reset 
+endf 
+
+def node_001
+	>> Global.node_006 
+	self.targetArea(target_area.nearest_entrance) 
+	if function#57(1) 
+		>> node_004 
+	elif function#57(2) 
+		>> node_005 
+	elif function#57(3) 
+		>> node_006 
+	elif function#57(5) 
+		>> node_007 
+	else 
+		>> node_003 
+	endif 
+	if self.distance_3d_to_target().leq(600) 
+		return 
+	else 
+		repeat 
+	endif 
+	reset 
+endf 
+
+def node_002
+	if function#57(1) 
+		>> node_009 
+	elif function#57(2) 
+		>> node_010 
+	elif function#57(3) 
+		>> node_011 
+	elif function#57(5) 
+		>> node_012 
+	elif function#57(4) 
+		>> node_008 
+	else 
+		function#54() 
+		>> node_013 
+	endif 
+	return 
+endf 
+
+def node_003
+	self.targetArea(target_area.nearest_entrance) 
+	-> stygian_zinogre.walk(2,1,5,1500,500) 
+	return 
+endf 
+
+def node_004
+	function#54() 
+	function#52(32,1) 
+	if function#10D() 
+	else 
+		self.targetArea(target_area.nearest_entrance) 
+	endif 
+	-> stygian_zinogre.dash(2,1,5,1500,500) 
+	return 
+endf 
+
+def node_005
+	self.targetArea(target_area.nearest_entrance) 
+	-> stygian_zinogre.walk(2,1,5,1500,500) 
+	return 
+endf 
+
+def node_006
+	self.targetArea(target_area.nearest_entrance) 
+	-> stygian_zinogre.walk(2,1,5,1500,500) 
+	return 
+endf 
+
+def node_007
+	function#54() 
+	if function#3C() 
+		function#52(32,2) 
+		self.targetArea(target_area.nearest_entrance) 
+		-> stygian_zinogre.walk(2,1,5,1500,500) 
+	else 
+		function#52(4,2) 
+		self.targetArea(target_area.nearest_entrance) 
+		-> stygian_zinogre.walk(2,1,0,1500,600) 
+	endif 
+	return 
+endf 
+
+def node_008
+	self.targetEnemy(17) 
+	if function#5A(3) 
+		function#54() 
+		>> Global.node_212 
+	elif function#5A(2) 
+		function#54() 
+		>> Global.node_076 
+	else 
+		function#54() 
+		>> node_013 
+	endif 
+	return 
+endf 
+
+def node_009
+	self.targetEnemy(17) 
+	function#54() 
+	>> Global.node_032 
+	>> node_015 
+	>> node_015 
+	>> Global.node_206 
+	return 
+endf 
+
+def node_010
+	self.targetEnemy(17) 
+	function#54() 
+	>> node_013 
+	>> Global.node_207 
+	return 
+endf 
+
+def node_011
+	self.targetEnemy(17) 
+	>> Global.node_026 
+	function#54() 
+	>> Global.node_208 
+	return 
+endf 
+
+def node_012
+	if function#3C() 
+	else 
+		if self.distance_3d_to_target().leq(150) 
+		else 
+			-> stygian_zinogre.walk(2,1,5,1000,150) 
+		endif 
+	endif 
+	self.targetEnemy(17) 
+	>> Global.node_022 
+	function#54() 
+	>> Global.node_210 
+	return 
+endf 
+
+def node_013
+	if self.in_map(st.Special_Arena).in_area(-1) 
+		-> stygian_zinogre.growl() 
+	elif self.in_map(st.Challenge_Arena).in_area(-1) 
+		-> stygian_zinogre.growl() 
+	else 
+		-> stygian_zinogre.growl() 
+	endif 
+	return 
+endf 
+
+def node_014
+	-> stygian_zinogre.dash(1,0,0,500) 
+	if self.distance_3d_to_target().leq(500) 
+	else 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_015
+	random (40) >> Global.node_203 
+	elser (30) >> Global.node_213 
+	elser (30) >> Global.node_214 
+	endr 
+	return 
+endf 
+

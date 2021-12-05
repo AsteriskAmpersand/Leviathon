@@ -1,0 +1,54 @@
+importactions Alatreon as alatreon
+importlibrary Global as Global
+
+def node_000
+	>> node_001 
+	[RegisterVar4 |-] 
+	[RegisterVar8 |-] 
+	if self.flying() >> node_003 
+	else >> node_002 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	random (35) 
+				self.targetEnemy(50) 
+	elser (65) 
+				self.targetEnemy(target_em.random_player_or_cat) 
+	endr 
+	if self.target(3) 
+		conclude 
+	elif self.target(4) 
+		conclude 
+	else 
+		if function#11(1500) 
+		else 
+			conclude 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_002
+	if function#101(1) 
+		>> Global.node_080 
+	elif function#101(2) 
+		>> Global.node_081 
+	else 
+		>> Global.node_084 
+	endif 
+	return 
+endf 
+
+def node_003
+	if function#101(1) 
+		>> Global.node_154 
+	elif function#101(2) 
+		>> Global.node_155 
+	else 
+		>> Global.node_156 
+	endif 
+	return 
+endf 
+

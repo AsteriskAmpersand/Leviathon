@@ -1,0 +1,18 @@
+importactions Kushala_Daora as kushala_daora
+importlibrary Global as Global
+
+def node_000
+	if self.in_map(st.Special_Arena).in_area(-1) 
+		self.targetArea(64) 
+		>> Global.node_041 
+	elif self.in_map(st.Challenge_Arena).in_area(-1) 
+		self.targetArea(64) 
+		>> Global.node_041 
+	else 
+		function#52(0,4) 
+		self.targetArea(target_area.nearest_entrance) 
+		>> Global.node_099 
+	endif 
+	conclude 
+endf 
+

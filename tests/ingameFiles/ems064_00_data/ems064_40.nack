@@ -1,0 +1,33 @@
+importactions Cortos as cortos
+importlibrary Global as Global
+
+def node_000
+	function#102() 
+	>> Global.node_009 
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if self.target(20) 
+		if self.distance_2d_to_target().leq(750) >> node_001 
+		else >> node_002 
+		endif 
+	elif self.target(4) 
+		conclude 
+	else 
+		self.targetEnemy(35) 
+		-> action#14() 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	>> Global.node_006 
+	-> action#18(1,0,0,300) 
+	-> action#1D() 
+	>> Global.node_002 
+	return 
+endf 
+
+def node_002
+	-> action#14() 
+	return 
+endf 
+

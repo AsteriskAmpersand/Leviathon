@@ -1,0 +1,56 @@
+importactions Anteka as anteka
+importlibrary Global as Global
+
+def node_000
+	self.targetUnknown(13,0) 
+	if function#2D() 
+		if function#66() >> node_001 
+		else >> node_002 
+		endif 
+	else 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	>> node_004 
+	return 
+endf 
+
+def node_002
+	>> node_003 
+	return 
+endf 
+
+def node_003
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if self.distance_3d_to_target().leq(1200) 
+		if self.target(7) 
+			>> Global.node_006 
+		elif self.target(10) 
+			>> Global.node_006 
+		elif self.target(0) 
+			>> Global.node_006 
+		elif self.target(14) 
+			>> Global.node_006 
+		elif self.target(4) 
+			>> Global.node_006 
+		else 
+			>> Global.node_006 
+			>> Global.node_006 
+			>> Global.node_006 
+		endif 
+	endif 
+	[RegisterVar0 |-] 
+	return 
+endf 
+
+def node_004
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if self.distance_3d_to_target().leq(1200) 
+		>> Global.node_006 
+	endif 
+	[RegisterVar0 |-] 
+	return 
+endf 
+

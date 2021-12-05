@@ -1,0 +1,37 @@
+importactions Great_Jagras as great_jagras
+
+def node_000
+	if function#7A() 
+		>> node_001 
+	else 
+		repeat 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	self.targetEnemy(target_em.random_player_or_cat) 
+	-> great_jagras.tutorial_grapple_start() 
+	>> node_002 
+	reset 
+endf 
+
+def node_002
+	-> great_jagras.tutorial_grapple_start_loop() 
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if self.distance_3d_to_target().leq(2000) 
+		-> great_jagras.tutorial_grapple_mid_dist() 
+		>> node_003 
+	else 
+		repeat 
+	endif 
+	reset 
+endf 
+
+def node_003
+	self.targetEnemy(target_em.random_player_or_cat) 
+	-> great_jagras.tutorial_grapple_mid_dist_loop() 
+	repeat 
+	reset 
+endf 
+

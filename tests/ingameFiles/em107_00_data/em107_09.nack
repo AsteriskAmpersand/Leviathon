@@ -1,0 +1,47 @@
+importactions KuluYaKu as kuluyaku
+importlibrary Global as Global
+
+def node_000
+	if self.in_map(st.Special_Arena).in_area(-1) 
+		if function#101(3) 
+			-> kuluyaku.carry_tired() 
+		else 
+			-> kuluyaku.tired() 
+		endif 
+	elif self.in_map(st.Challenge_Arena).in_area(-1) 
+		if function#101(3) 
+			-> kuluyaku.carry_tired() 
+		else 
+			-> kuluyaku.tired() 
+		endif 
+	else 
+		if function#101(2) 
+			-> kuluyaku.carry_tired() 
+			>> node_001 
+		elif function#101(1) 
+			-> kuluyaku.carry_tired() 
+			-> kuluyaku.tired_eat_egg() 
+		else 
+			-> kuluyaku.tired() 
+			>> node_001 
+		endif 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	if self.in_map(st.Special_Arena).in_area(-1) 
+	elif self.in_map(st.Challenge_Arena).in_area(-1) 
+	else 
+		function#52(0,1) 
+		self.targetEnemy(16) 
+		if self.distance_3d_to_target().leq(10000) 
+			-> kuluyaku.sniff_s() 
+			>> Global.node_037 
+		else 
+		endif 
+		function#54() 
+	endif 
+	return 
+endf 
+

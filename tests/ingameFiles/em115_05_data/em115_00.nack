@@ -1,0 +1,231 @@
+importactions Blackveil_Vaal_Hazak as blackveil_vaal_hazak
+importlibrary Global as Global
+
+def node_000
+	if function#45() 
+	else 
+		>> Global.node_044 
+	endif 
+	>> node_001 
+	if self.target(4) 
+		>> node_002 => reset 
+	elif self.target(3) 
+		>> node_002 => reset 
+	elif self.target(55) 
+		if self.flying() 
+			>> Global.node_001 => reset 
+		else 
+			>> node_008 => reset 
+		endif 
+	elif self.target(12) 
+		>> node_003 
+	elif self.target(14) 
+		>> node_004 => reset 
+	elif self.target(11) 
+		>> node_005 => reset 
+	elif self.target(0) 
+		>> node_006 => reset 
+	elif self.target(52) 
+		>> node_011 => reset 
+	elif [RegisterVar6 <= 1] 
+		>> node_010 => reset 
+	elif self.flying() 
+		>> Global.node_001 => reset 
+	else 
+		>> node_008 => reset 
+	endif 
+	reset 
+endf 
+
+def node_001
+	[RegisterVar6 |-] 
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if function#5D() 
+		function#5E() 
+		self.targetEnemy(target_em.random_player_or_cat) 
+		>> node_009 
+		self.targetArea(4) 
+	else 
+		self.targetEnemy(target_em.random_player_or_cat) 
+	endif 
+	if self.in_map(st.Ancient_Forest).in_area(8) 
+		if self.vertical_distance_to_target().gt(600) 
+			[RegisterVar6 ++] 
+		else 
+			[RegisterVar6 |-] 
+		endif 
+	elif self.in_map(st.Rotten_Vale).in_area(7) 
+		[RegisterVar6 |-] 
+	elif self.vertical_distance_to_target().gt(450) 
+		[RegisterVar6 ++] 
+	else 
+		[RegisterVar6 |-] 
+	endif 
+	return 
+endf 
+
+def node_002
+	self.targetArea(19) 
+	if self.distance_3d_to_target().gt(1000) 
+		>> Global.node_008 
+		repeat 
+	else 
+		self.targetEnemy(50) 
+		if self.in_combat() 
+			>> Global.node_006 
+		elif self.alert_out_of_combat() 
+			>> Global.node_006 
+		else 
+			>> Global.node_060 
+		endif 
+		if self.current_quest().is_rank(rank.AT) 
+			random (50) >> Global.node_014 
+			elser (50) >> Global.node_016 
+			endr 
+		else 
+		endif 
+		random (50) >> Global.node_014 
+		elser (50) >> Global.node_016 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_003
+	if self.flying() 
+		>> Global.node_001 
+	else 
+		>> Global.node_030 
+	endif 
+	return 
+endf 
+
+def node_004
+	>> Global.node_001 
+	if self.distance_2d_to_target().gt(1500) 
+		>> Global.node_011 
+	else 
+		if self.above_target() 
+			random (0) >> Global.node_029 
+			elser (5) >> Global.node_017 
+			elser (10) >> Global.node_093 
+			elser (80) >> Global.node_040 
+			elser (5) >> Global.node_015 
+			endr 
+		else 
+			random (50) >> Global.node_041 
+			elser (50) >> Global.node_013 
+			endr 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_005
+	if self.flying() 
+		>> Global.node_001 
+	else 
+		random (10) >> Global.node_030 
+		elser (80) >> Global.node_013 
+		elser (10) >> Global.node_025 
+		elser (0) 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_006
+	>> Global.node_001 
+	if self.distance_2d_to_target().gt(1000) 
+		>> Global.node_010 
+	else 
+		if self.above_target() 
+			>> Global.node_040 
+		else 
+			if self.target(0) @ parameter2:1 
+				>> Global.node_041 
+			elif self.target(56) 
+				self.targetArea(77) 
+				-> blackveil_vaal_hazak.dash(1,2,0,0,1500) 
+			else 
+				-> blackveil_vaal_hazak.dash(1,2,0,0,1500) 
+			endif 
+		endif 
+	endif 
+	if self.vertical_distance_to_target().leq(450) 
+		>> node_008 
+	else 
+	endif 
+	return 
+endf 
+
+def node_007
+	self.targetArea(10) @ parameter2:1000 
+	>> Global.node_005 
+	>> Global.node_017 
+	return 
+endf 
+
+def node_008
+	>> Global.node_094 
+	[RegisterVar5 ++] 
+	[RegisterVar9 ++] 
+	if self.distance_2d_to_target().leq(500) 
+		self.enraged() >> Global.node_102 => reset 
+		>> Global.node_101 => reset 
+	elif self.distance_2d_to_target().leq(1000) 
+		self.enraged() >> Global.node_104 => reset 
+		>> Global.node_103 => reset 
+	elif self.distance_2d_to_target().leq(2000) 
+		self.enraged() >> Global.node_106 => reset 
+		>> Global.node_105 => reset 
+	elif self.distance_2d_to_target().leq(3000) 
+		self.enraged() >> Global.node_108 => reset 
+		>> Global.node_107 => reset 
+	else 
+		self.enraged() >> Global.node_110 => reset 
+		>> Global.node_109 => reset 
+	endif 
+	return 
+endf 
+
+def node_009
+	if self.angle_2d_cw_between(270,90) 
+		>> Global.node_053 
+	else 
+		>> Global.node_054 
+	endif 
+	return 
+endf 
+
+def node_010
+	if self.current_quest().is_rank(rank.AT) 
+		random (30) >> Global.node_036 
+		elser (70) 
+		endr 
+	else 
+	endif 
+	if self.vertical_distance_to_target().leq(700) 
+		if self.distance_3d_to_target().leq(3000) 
+			random (90) >> Global.node_013 
+						>> Global.node_104 
+			elser (10) >> Global.node_017 
+			endr 
+		else 
+			random (100) >> Global.node_013 
+			elser (0) >> Global.node_017 
+			endr 
+		endif 
+	else 
+		random (90) >> Global.node_013 
+		elser (10) >> Global.node_017 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_011
+	>> Global.node_013 
+	return 
+endf 
+

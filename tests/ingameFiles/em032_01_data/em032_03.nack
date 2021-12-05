@@ -1,0 +1,37 @@
+importactions Brute_Tigrex as brute_tigrex
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_020 
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if function#41() 
+		>> Global.node_027 
+	elif self.target(7) 
+		>> node_002 
+	elif self.target(10) 
+		>> node_003 
+	else 
+		>> node_001 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	>> Global.node_021 
+	return 
+endf 
+
+def node_002
+	-> brute_tigrex.roar() 
+	return 
+endf 
+
+def node_003
+	if self.angle_2d_cw_between(30,330) 
+		-> brute_tigrex.quick_turn() 
+	else 
+	endif 
+	>> Global.node_019 
+	return 
+endf 
+

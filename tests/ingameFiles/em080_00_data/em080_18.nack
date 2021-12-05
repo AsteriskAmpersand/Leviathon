@@ -1,0 +1,104 @@
+importactions Glavenus as glavenus
+importlibrary Global as Global
+
+def node_000
+	self.targetEnemy(13) 
+	if function#41() 
+	else 
+		if self.target(4) 
+			>> Global.node_022 
+		else 
+			if self.enraged() 
+				>> node_005 
+			else 
+				>> node_001 
+			endif 
+		endif 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	>> node_002 
+	>> node_003 
+	>> node_004 
+	return 
+endf 
+
+def node_002
+	if self.distance_3d_to_target().leq(800) 
+		-> glavenus.back_turn() 
+	elif self.angle_2d_cw_between(30,330) 
+		-> glavenus.turn() 
+	else 
+	endif 
+	return 
+endf 
+
+def node_003
+	self.targetEnemy(13) 
+	if self.distance_2d_to_target().leq(1000) 
+		return 
+	else 
+		>> node_007 
+	endif 
+	return 
+endf 
+
+def node_004
+	self.targetEnemy(48) 
+	if self.target(7) 
+		>> node_008 
+	elif self.target(10) 
+		>> node_010 
+	elif self.distance_3d_to_target().gt(1000) 
+		>> node_008 
+	elif self.angle_2d_cw_between(45,315) 
+		>> node_008 
+	else 
+		>> node_009 
+	endif 
+	return 
+endf 
+
+def node_005
+	>> node_002 
+	>> node_006 
+	return 
+endf 
+
+def node_006
+	-> glavenus.dash_bite2() 
+	return 
+endf 
+
+def node_007
+	if self.fatigued() 
+		-> glavenus.tired_dash(2,1,5,1500,800) 
+	else 
+		-> glavenus.dash(2,1,5,1500,800) 
+	endif 
+	return 
+endf 
+
+def node_008
+	-> glavenus.sniff_s() 
+	-> glavenus.search() 
+	return 
+endf 
+
+def node_009
+	if function#5F() 
+		-> glavenus.sniff_s() 
+	else 
+		-> glavenus.threat() 
+	endif 
+	return 
+endf 
+
+def node_010
+	self.targetEnemy(9) @ parameter2:1000 
+	-> glavenus.nagiharai() 
+	return 
+endf 
+

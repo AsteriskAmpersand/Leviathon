@@ -1,0 +1,180 @@
+importactions Xeno'jiiva as xeno'jiiva
+importlibrary Global as Global
+
+def node_000
+	self.targetEnemy(target_em.random_player_or_cat) 
+	>> node_001 
+	if self.target(10) 
+		if self.distance_3d_to_target().leq(2200) 
+			>> node_015 => reset 
+		else 
+		endif 
+	else 
+	endif 
+	if self.distance_3d_to_target().leq(1200) 
+		self.enraged() >> node_005 => reset 
+		self.fatigued() >> node_008 => reset 
+		>> node_002 => reset 
+	elif self.distance_3d_to_target().leq(5000) 
+		self.enraged() >> node_006 => reset 
+		self.fatigued() >> node_009 => reset 
+		>> node_003 => reset 
+	elif self.distance_3d_to_target().leq(10000) 
+		self.enraged() >> node_007 => reset 
+		self.fatigued() >> node_010 => reset 
+		>> node_004 => reset 
+	else 
+		>> node_013 => reset 
+	endif 
+	reset 
+endf 
+
+def node_001
+	if self.flying() 
+		if self.enraged() 
+			>> Global.node_001 
+		else 
+			>> Global.node_059 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_002
+	>> node_014 
+	return 
+endf 
+
+def node_003
+	>> node_011 
+	return 
+endf 
+
+def node_004
+	random (70) >> node_011 
+	elser (30) >> node_012 
+	endr 
+	return 
+endf 
+
+def node_005
+	>> node_014 
+	return 
+endf 
+
+def node_006
+	>> node_011 
+	return 
+endf 
+
+def node_007
+	random (30) >> node_011 
+	elser (70) >> node_012 
+	endr 
+	return 
+endf 
+
+def node_008
+	>> node_014 
+	return 
+endf 
+
+def node_009
+	random (80) >> node_011 
+	elser (20) >> node_017 
+	endr 
+	return 
+endf 
+
+def node_010
+	random (70) >> node_011 
+	elser (10) >> node_013 
+	elser (20) >> node_017 
+	endr 
+	return 
+endf 
+
+def node_011
+	self.targetArea(4) 
+	>> node_019 
+	>> node_016 
+	return 
+endf 
+
+def node_012
+	self.targetArea(6) 
+	>> node_020 
+	>> node_016 
+	return 
+endf 
+
+def node_013
+	self.targetArea(21) @ parameter2:1000 
+	>> Global.node_074 
+	>> node_018 
+	return 
+endf 
+
+def node_014
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if self.target(7) 
+		>> node_015 
+	elif self.target(10) 
+		>> node_015 
+	else 
+		>> node_015 
+	endif 
+	return 
+endf 
+
+def node_015
+	if self.distance_3d_to_target().leq(700) 
+		>> Global.node_011 
+	else 
+	endif 
+	random (50) >> Global.node_018 
+	elser (50) >> Global.node_040 
+	elser (0) 
+	endr 
+	return 
+endf 
+
+def node_016
+	if self.enraged() 
+		>> Global.node_015 
+	else 
+		>> Global.node_078 
+	endif 
+	>> node_018 
+	return 
+endf 
+
+def node_017
+	>> Global.node_072 
+	return 
+endf 
+
+def node_018
+	if self.enraged() 
+		>> Global.node_065 
+	else 
+		>> Global.node_064 
+	endif 
+	return 
+endf 
+
+def node_019
+	>> Global.node_063 
+	return 
+endf 
+
+def node_020
+	if self.enraged() 
+		>> Global.node_065 
+	else 
+		>> Global.node_064 
+	endif 
+	return 
+endf 
+

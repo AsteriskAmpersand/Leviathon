@@ -1,0 +1,37 @@
+importactions Frostfang_Barioth as frostfang_barioth
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_003 
+	self.targetEnemy(21) @ parameter2:700 
+	>> node_001 
+	reset 
+endf 
+
+def node_001
+	if self.target_on_part(0) 
+		random (42) >> Global.node_040 
+		elser (33) -> frostfang_barioth.ride_rage_head() 
+		elser (25) >> Global.node_027 
+		endr 
+	elif self.target_on_part(1) 
+		random (42) >> Global.node_044 
+		elser (33) -> frostfang_barioth.ride_rage_back() 
+		elser (25) >> Global.node_027 
+		endr 
+	elif self.target_on_part(2) 
+		random (42) >> Global.node_045 
+		elser (33) -> frostfang_barioth.ride_rage_tail() 
+		elser (25) >> Global.node_027 
+		endr 
+	else 
+		random (35) >> Global.node_040 
+		elser (20) >> Global.node_044 
+		elser (15) >> Global.node_081 
+		elser (20) >> Global.node_045 
+		elser (10) >> Global.node_027 
+		endr 
+	endif 
+	return 
+endf 
+

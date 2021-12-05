@@ -1,0 +1,431 @@
+importactions Anteka as anteka
+
+def node_000
+	>> node_023 
+	>> node_002 
+	reset 
+endf 
+
+def node_001
+endf 
+
+def node_002
+	self.targetUnknown(48,0) 
+	if self.target(20) 
+		self.targetUnknown(0,0) 
+		>> node_003 
+		>> node_006 
+	else 
+		self.targetUnknown(0,0) 
+		>> node_005 
+		>> node_007 
+	endif 
+	return 
+endf 
+
+def node_003
+	function#DD(600) 
+	function#DE(2500) 
+	function#E2(2) 
+	if function#D2(4) 
+	else 
+		>> node_004 
+	endif 
+	return 
+endf 
+
+def node_004
+	function#DD(600) 
+	function#DE(5000) 
+	function#E2(2) 
+	if function#D2(4) 
+	else 
+		function#E4(4) 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_005
+	function#E2() 
+	function#EC(3) 
+	if function#D2(11) 
+	else 
+		>> node_040 
+	endif 
+	return 
+endf 
+
+def node_006
+	>> node_023 
+	>> node_029 
+	if self.distance_3d_to_target().leq(300) 
+		>> node_012 
+		>> node_044 
+		function#DA() 
+	else 
+		>> node_008 
+		>> node_011 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_007
+	>> node_023 
+	>> node_034 
+	if self.distance_3d_to_target().leq(300) 
+		>> node_009 
+		function#DA() 
+	else 
+		>> node_010 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_008
+	>> node_046 
+	return 
+endf 
+
+def node_009
+	>> node_027 
+	>> node_052 
+	return 
+endf 
+
+def node_010
+	>> node_047 
+	return 
+endf 
+
+def node_011
+	if [RegisterVar5 > 1] 
+		random (2) >> node_016 
+		elser (4) >> node_017 
+		elser (4) >> node_018 
+		elser (90) 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_012
+	if [RegisterVar5 < 0] 
+		>> node_015 
+	elif function#3C(1) 
+		>> node_013 
+	else 
+		>> node_014 
+	endif 
+	return 
+endf 
+
+def node_013
+	random (5) >> node_017 
+	elser (20) >> node_021 
+	elser (5) >> node_016 
+	elser (70) >> node_015 
+	endr 
+	return 
+endf 
+
+def node_014
+	random (5) >> node_017 
+	elser (5) >> node_018 
+	elser (5) >> node_016 
+	elser (85) >> node_015 
+	endr 
+	return 
+endf 
+
+def node_015
+	random (75) >> node_020 
+	elser (25) >> node_019 
+	endr 
+	return 
+endf 
+
+def node_016
+	>> node_026 
+	>> node_043 
+	>> node_049 
+	return 
+endf 
+
+def node_017
+	>> node_026 
+	>> node_043 
+	>> node_051 
+	return 
+endf 
+
+def node_018
+	>> node_026 
+	>> node_043 
+	>> node_050 
+	return 
+endf 
+
+def node_019
+	>> node_026 
+	>> node_055 
+	return 
+endf 
+
+def node_020
+	>> node_026 
+	>> node_053 
+	return 
+endf 
+
+def node_021
+	>> node_026 
+	>> node_054 
+	return 
+endf 
+
+def node_022
+endf 
+
+def node_023
+	if function#FA() 
+		>> node_040 
+	endif 
+	return 
+endf 
+
+def node_024
+endf 
+
+def node_025
+	if function#46() @ unknExtra2:1 
+		>> node_041 
+		function#DA() 
+	else 
+		return 
+	endif 
+	reset 
+endf 
+
+def node_026
+	if function#45() 
+		>> node_058 
+	endif 
+	return 
+endf 
+
+def node_027
+	if function#45() 
+		>> node_059 
+	endif 
+	return 
+endf 
+
+def node_028
+endf 
+
+def node_029
+	>> node_030 
+	return 
+endf 
+
+def node_030
+	function#DE(3500) 
+	function#EB(2000) 
+	function#DF(80) 
+	if function#D2(8) 
+		>> node_031 
+		function#E5() 
+	endif 
+	return 
+endf 
+
+def node_031
+	if function#D8() 
+		>> node_032 
+	endif 
+	return 
+endf 
+
+def node_032
+	>> node_026 
+	if self.angle_2d_ccw_between(90,0) 
+		>> node_060 
+		>> node_061 
+		>> node_033 
+	else 
+		>> node_049 
+		>> node_033 
+	endif 
+	return 
+endf 
+
+def node_033
+	if self.distance_3d_to_target().leq(3500) 
+		>> node_056 
+	else 
+		>> node_052 
+	endif 
+	return 
+endf 
+
+def node_034
+	>> node_035 
+	return 
+endf 
+
+def node_035
+	function#DE(3500) 
+	function#EB(2000) 
+	function#DF(80) 
+	if function#D2(8) 
+		>> node_036 
+		function#E5() 
+	endif 
+	return 
+endf 
+
+def node_036
+	if function#D8() 
+		>> node_037 
+	endif 
+	return 
+endf 
+
+def node_037
+	>> node_027 
+	if self.angle_2d_ccw_between(90,0) 
+		>> node_060 
+		>> node_061 
+		>> node_038 
+	else 
+		>> node_049 
+		>> node_038 
+	endif 
+	return 
+endf 
+
+def node_038
+	if self.distance_3d_to_target().leq(3500) 
+		>> node_056 
+	else 
+		>> node_052 
+	endif 
+	return 
+endf 
+
+def node_039
+endf 
+
+def node_040
+	>> node_056 
+	return 
+endf 
+
+def node_041
+	>> node_057 
+	return 
+endf 
+
+def node_042
+endf 
+
+def node_043
+	[RegisterVar5 ++] 
+	return 
+endf 
+
+def node_044
+	[RegisterVar5 |-] 
+	return 
+endf 
+
+def node_045
+endf 
+
+def node_046
+	-> action#08(2,1,0,300,300) 
+	>> node_025 
+	return 
+endf 
+
+def node_047
+	-> action#09(2,1,0,300,300) 
+	>> node_025 
+	return 
+endf 
+
+def node_048
+	-> action#0B(6,0,0,300) 
+	>> node_025 
+	return 
+endf 
+
+def node_049
+	-> action#02() 
+	return 
+endf 
+
+def node_050
+	-> action#03() 
+	return 
+endf 
+
+def node_051
+	-> action#04() 
+	return 
+endf 
+
+def node_052
+	-> action#06() 
+	return 
+endf 
+
+def node_053
+	-> action#21() 
+	-> action#22() 
+	return 
+endf 
+
+def node_054
+	-> action#1F() 
+	return 
+endf 
+
+def node_055
+	-> action#27() 
+	return 
+endf 
+
+def node_056
+	-> action#28() 
+	return 
+endf 
+
+def node_057
+	-> action#29() 
+	return 
+endf 
+
+def node_058
+	-> action#2A() 
+	return 
+endf 
+
+def node_059
+	-> action#0D() 
+	return 
+endf 
+
+def node_060
+	-> action#07() 
+	return 
+endf 
+
+def node_061
+	-> action#25() 
+	return 
+endf 
+

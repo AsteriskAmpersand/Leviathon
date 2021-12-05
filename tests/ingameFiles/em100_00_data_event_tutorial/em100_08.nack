@@ -1,0 +1,28 @@
+importactions Anjanath as anjanath
+
+def node_000
+	if function#5F() 
+		self.targetArea(21) @ parameter2:1000 
+	else 
+		self.targetEnemy(target_em.random_player_or_cat) 
+	endif 
+	if function#41() 
+	elif function#101(1) 
+		>> node_001 
+	else 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	[RegisterVar0 |-] 
+	if function#B9() 
+		-> anjanath.breath_shoot_in() 
+	else 
+		-> anjanath.breath_sign() 
+		-> anjanath.breath_shoot_in() 
+		-> anjanath.reflesh() 
+	endif 
+	return 
+endf 
+

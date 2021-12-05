@@ -1,0 +1,253 @@
+importactions Shrieking_Legiana as shrieking_legiana
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_387 
+	>> node_001 
+	>> Global.node_407 
+	>> node_002 
+	if self.distance_2d_to_target().leq(400) 
+		if self.enraged() >> node_009 
+		elif self.fatigued() >> node_014 
+		else >> node_004 
+		endif 
+	elif self.distance_2d_to_target().leq(800) 
+		if self.enraged() >> node_010 
+		elif self.fatigued() >> node_015 
+		else >> node_005 
+		endif 
+	elif self.distance_2d_to_target().leq(1300) 
+		if self.enraged() >> node_011 
+		elif self.fatigued() >> node_016 
+		else >> node_006 
+		endif 
+	elif self.distance_2d_to_target().leq(2000) 
+		if self.enraged() >> node_012 
+		elif self.fatigued() >> node_017 
+		else >> node_007 
+		endif 
+	else 
+		if self.enraged() >> node_013 
+		elif self.fatigued() >> node_018 
+		else >> node_008 
+		endif 
+	endif 
+	>> node_003 
+	reset 
+endf 
+
+def node_001
+	if self.fatigued() 
+		if self.flying() >> Global.node_001 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_002
+	if self.distance_2d_to_target().gt(2000) 
+	elif self.poisoned() 
+		if function#B9() 
+			random (0) >> Global.node_086 
+			elser (8) >> Global.node_271 
+						>> Global.node_039 
+			elser (92) 
+			endr 
+		else 
+			random (0) >> Global.node_086 
+			elser (10) >> Global.node_052 
+			elser (90) 
+			endr 
+		endif 
+	elif self.enraged() 
+		random (40) >> Global.node_086 
+		elser (60) 
+		endr 
+	elif self.fatigued() 
+		random (10) >> Global.node_086 
+		elser (20) >> Global.node_044 
+		elser (70) 
+		endr 
+	else 
+		random (25) >> Global.node_086 
+		elser (75) 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_003
+	if self.fatigued() 
+	else 
+		if self.target.helpless_0() 
+			random (50) >> Global.node_118 
+			elser (50) 
+			endr 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_004
+	random (15) >> Global.node_110 
+	elser (2) >> Global.node_119 
+	elser (3) >> Global.node_125 
+	elser (30) >> Global.node_115 
+	elser (5) >> Global.node_116 
+	elser (5) >> Global.node_114 
+	elser (25) >> Global.node_111 
+	elser (0) >> Global.node_112 
+	elser (15) >> Global.node_113 
+	endr 
+	return 
+endf 
+
+def node_005
+	random (10) >> Global.node_110 
+	elser (2) >> Global.node_119 
+	elser (3) >> Global.node_125 
+	elser (10) >> Global.node_115 
+	elser (5) >> Global.node_116 
+	elser (10) >> Global.node_114 
+	elser (5) >> Global.node_108 
+	elser (30) >> Global.node_111 
+	elser (5) >> Global.node_112 
+	elser (20) >> Global.node_113 
+	endr 
+	return 
+endf 
+
+def node_006
+	random (0) >> Global.node_110 
+	elser (5) >> Global.node_119 
+	elser (5) >> Global.node_125 
+	elser (10) >> Global.node_115 
+	elser (15) >> Global.node_116 
+	elser (30) >> Global.node_108 
+	elser (35) >> Global.node_112 
+	elser (0) >> Global.node_113 
+	endr 
+	return 
+endf 
+
+def node_007
+	random (55) >> Global.node_112 
+	elser (45) 
+				>> Global.node_014 
+				>> Global.node_116 
+	endr 
+	return 
+endf 
+
+def node_008
+	>> Global.node_014 
+	>> Global.node_116 
+	return 
+endf 
+
+def node_009
+	random (10) >> Global.node_110 
+	elser (2) >> Global.node_122 
+	elser (3) >> Global.node_126 
+	elser (25) >> Global.node_115 
+	elser (10) >> Global.node_116 
+	elser (5) >> Global.node_114 
+	elser (25) >> Global.node_111 
+	elser (0) >> Global.node_112 
+	elser (20) >> Global.node_113 
+	endr 
+	return 
+endf 
+
+def node_010
+	random (10) >> Global.node_110 
+	elser (5) >> Global.node_122 
+	elser (5) >> Global.node_126 
+	elser (10) >> Global.node_116 
+	elser (15) >> Global.node_114 
+	elser (5) >> Global.node_108 
+	elser (25) >> Global.node_111 
+	elser (5) >> Global.node_112 
+	elser (20) >> Global.node_113 
+	endr 
+	return 
+endf 
+
+def node_011
+	random (0) >> Global.node_110 
+	elser (5) >> Global.node_122 
+	elser (10) >> Global.node_126 
+	elser (20) >> Global.node_115 
+	elser (10) >> Global.node_116 
+	elser (30) >> Global.node_108 
+	elser (25) >> Global.node_112 
+	elser (0) >> Global.node_113 
+	endr 
+	return 
+endf 
+
+def node_012
+	random (50) >> Global.node_112 
+	elser (50) 
+				>> Global.node_014 
+				>> Global.node_116 
+	endr 
+	return 
+endf 
+
+def node_013
+	>> Global.node_014 
+	>> Global.node_116 
+	return 
+endf 
+
+def node_014
+	random (15) >> Global.node_110 
+	elser (10) >> Global.node_118 
+	elser (30) >> Global.node_115 
+	elser (0) >> Global.node_116 
+	elser (0) >> Global.node_114 
+	elser (25) >> Global.node_111 
+	elser (0) >> Global.node_112 
+	elser (20) >> Global.node_113 
+	endr 
+	return 
+endf 
+
+def node_015
+	random (10) >> Global.node_110 
+	elser (10) >> Global.node_118 
+	elser (20) >> Global.node_115 
+	elser (0) >> Global.node_116 
+	elser (0) >> Global.node_114 
+	elser (30) >> Global.node_111 
+	elser (10) >> Global.node_112 
+	elser (20) >> Global.node_113 
+	endr 
+	return 
+endf 
+
+def node_016
+	random (0) >> Global.node_110 
+	elser (15) >> Global.node_118 
+	elser (0) >> Global.node_116 
+	elser (20) >> Global.node_089 
+	elser (0) >> Global.node_088 
+	elser (30) >> Global.node_108 
+	elser (35) >> Global.node_112 
+	elser (0) >> Global.node_113 
+	endr 
+	return 
+endf 
+
+def node_017
+	>> Global.node_112 
+	return 
+endf 
+
+def node_018
+	>> Global.node_014 
+	>> Global.node_116 
+	return 
+endf 
+

@@ -20,7 +20,7 @@ def generateArgParse():
                         help='Project file to compile (.fand)')
     parser.add_argument('-verbose', action="store_false",
                         help='Print intermediate compilation process information')
-    parser.add_argument('-display', type=str,  default = "",
+    parser.add_argument('-display', type=str,  default = None,
                         help='Output compilation reports to the given file')
     
     parser.add_argument('-monLib', type=str, default = None,
@@ -97,6 +97,11 @@ def populateSettings(settings,inputF):
     if settings.outputRoot is None:
         settings.outputRoot = Path(inputF).parent/"compiled"
     settings.outputRoot.mkdir(parents=True, exist_ok=True)
+    if settings.display is not None:
+        f = open(settings.display,"w")
+        settings.display = f.write
+    else:
+        settings.display = print
 
 def main(arglist):
     parser = generateArgParse()    

@@ -1,0 +1,33 @@
+importactions Alatreon as alatreon
+importlibrary Global as Global
+
+def node_000
+	function#52() 
+	>> node_001 
+	function#54() 
+	>> node_002 
+	reset 
+endf 
+
+def node_001
+	self.targetArea(target_area.nearest_entrance) 
+	>> Global.node_260 
+	return 
+endf 
+
+def node_002
+	self.targetArea(17) 
+	if function#5A() 
+		>> Global.node_310 
+	elif function#5A(10) 
+		>> Global.node_311 
+	else 
+		if self.flying() 
+			>> Global.node_311 
+		else 
+			>> Global.node_310 
+		endif 
+	endif 
+	return 
+endf 
+

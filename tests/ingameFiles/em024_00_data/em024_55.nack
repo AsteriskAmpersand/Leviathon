@@ -1,0 +1,2345 @@
+importactions Kushala_Daora as kushala_daora
+
+def node_000
+	conclude 
+endf 
+
+def node_001
+	if self.flying() 
+		if function#AF(5000) 
+			-> kushala_daora.landing() 
+		else 
+			>> node_002 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_002
+	self.targetArea(target_area.area_aerial_center) 
+	>> node_048 
+	self.targetArea(target_area.area_center) 
+	-> kushala_daora.landing() 
+	return 
+endf 
+
+def node_003
+	>> node_001 
+	-> kushala_daora.close_breath_r() 
+	return 
+endf 
+
+def node_004
+	>> node_001 
+	>> node_030 
+	-> kushala_daora.bite_2ren_first() 
+	return 
+endf 
+
+def node_005
+	>> node_001 
+	if self.angle_2d_cw_between(120,240) 
+		-> kushala_daora.back_scratch() 
+	else 
+		-> kushala_daora.scratch() 
+	endif 
+	return 
+endf 
+
+def node_006
+	>> node_001 
+	if self.angle_2d_cw_between(330,30) 
+		>> node_005 
+	elif self.angle_2d_cw_between(120,240) 
+		>> node_005 
+	else 
+		-> kushala_daora.side_bite() 
+	endif 
+	return 
+endf 
+
+def node_007
+	>> node_001 
+	>> node_030 
+	-> kushala_daora.breath() 
+	return 
+endf 
+
+def node_008
+	>> node_001 
+	>> node_030 
+	-> kushala_daora.rush() 
+	return 
+endf 
+
+def node_009
+	>> node_001 
+	>> node_030 
+	-> kushala_daora.charge_breath() 
+	return 
+endf 
+
+def node_010
+	>> node_001 
+	>> node_030 
+	-> kushala_daora.jump_attack() 
+	return 
+endf 
+
+def node_011
+	>> node_001 
+	-> kushala_daora.step_back() 
+	return 
+endf 
+
+def node_012
+	>> node_001 
+	if self.target.helpless_0() 
+		random (78) >> node_009 
+		elser (22) >> node_007 
+		endr 
+	else 
+		random (22) >> node_009 
+		elser (78) >> node_007 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_013
+	>> node_001 
+	-> kushala_daora.step_back_to_fly() 
+	return 
+endf 
+
+def node_014
+	>> node_001 
+	if function#101(1) 
+		-> kushala_daora.spin_take_off() 
+	else 
+		>> node_017 
+	endif 
+	return 
+endf 
+
+def node_015
+	>> node_001 
+	if self.angle_2d_cw_between(270,90) 
+		>> node_014 
+	else 
+		-> kushala_daora.reversal_take_off() 
+	endif 
+	return 
+endf 
+
+def node_016
+	>> node_001 
+	if self.distance_3d_to_target().leq(1200) 
+		if self.angle_2d_cw_between(315,0) 
+			-> kushala_daora.turn_step_front_l() 
+		elif self.angle_2d_cw_between(0,45) 
+			-> kushala_daora.turn_step_front_r() 
+		elif self.angle_2d_cw_between(45,135) 
+			-> kushala_daora.turn_step_side_r() 
+		elif self.angle_2d_cw_between(135,180) 
+			-> kushala_daora.turn_step_back_r() 
+		elif self.angle_2d_cw_between(180,225) 
+			-> kushala_daora.turn_step_back_l() 
+		else 
+			-> kushala_daora.turn_step_side_l() 
+		endif 
+	elif self.distance_3d_to_target().leq(1800) 
+		if self.angle_2d_cw_between(270,0) 
+			-> kushala_daora.turn_step_front_far_l() 
+		elif self.angle_2d_cw_between(0,90) 
+			-> kushala_daora.turn_step_front_far_r() 
+		else 
+			>> node_028 
+			if self.angle_2d_cw_between(270,0) 
+				-> kushala_daora.turn_step_front_far_l() 
+			elif self.angle_2d_cw_between(0,90) 
+				-> kushala_daora.turn_step_front_far_r() 
+			else 
+				>> node_008 
+			endif 
+		endif 
+	else 
+		>> node_008 
+	endif 
+	return 
+endf 
+
+def node_017
+	if self.flying() 
+	else 
+		if function#7D() 
+			-> kushala_daora.take_off() 
+		else 
+			-> kushala_daora.take_off_switch_pattern_by_dist() 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_018
+	>> node_017 
+	>> node_030 
+	if function#102() 
+		random (60) >> node_022 
+		elser (40) -> kushala_daora.breath_fly() 
+		endr 
+	else 
+		-> kushala_daora.breath_fly() 
+	endif 
+	return 
+endf 
+
+def node_019
+	>> node_017 
+	>> node_030 
+	-> kushala_daora.claw_attack_fly() 
+	return 
+endf 
+
+def node_020
+	>> node_017 
+	>> node_030 
+	if function#102() 
+		random (60) >> node_021 
+		elser (40) -> kushala_daora.breath_3ren_fly() 
+		endr 
+	else 
+		-> kushala_daora.breath_3ren_fly() 
+	endif 
+	return 
+endf 
+
+def node_021
+	>> node_017 
+	>> node_030 
+	-> kushala_daora.rush_fly() 
+	return 
+endf 
+
+def node_022
+	>> node_017 
+	>> node_030 
+	random (55) -> kushala_daora.turn_step_l_fly() 
+	elser (45) -> kushala_daora.turn_step_r_fly() 
+	endr 
+	return 
+endf 
+
+def node_023
+	>> node_017 
+	>> node_030 
+	-> kushala_daora.rush_to_landing() 
+	-> kushala_daora.chance() 
+	return 
+endf 
+
+def node_024
+endf 
+
+def node_025
+	if self.flying() 
+		-> kushala_daora.discover_fly() 
+	else 
+		-> kushala_daora.discover() 
+	endif 
+	return 
+endf 
+
+def node_026
+	if self.flying() 
+		-> kushala_daora.threat_short_fly() 
+	else 
+		-> kushala_daora.threat_short() 
+	endif 
+	return 
+endf 
+
+def node_027
+	if self.flying() 
+		-> kushala_daora.barrier_up_fly() 
+	else 
+		-> kushala_daora.barrier_up() 
+	endif 
+	return 
+endf 
+
+def node_028
+	if self.angle_2d_cw_between(30,330) 
+		if self.flying() 
+			-> kushala_daora.quick_turn_fly() 
+		else 
+			-> kushala_daora.quick_turn() 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_029
+	if self.angle_2d_cw_between(60,300) 
+		if self.flying() 
+			-> kushala_daora.quick_turn_fly() 
+		else 
+			-> kushala_daora.quick_turn() 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_030
+	if self.angle_2d_cw_between(90,270) 
+		if self.flying() 
+			-> kushala_daora.quick_turn_fly() 
+		else 
+			-> kushala_daora.quick_turn() 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_031
+	>> node_001 
+	-> kushala_daora.reversal_take_off() 
+	return 
+endf 
+
+def node_032
+	>> node_001 
+	-> kushala_daora.lost_search() 
+	return 
+endf 
+
+def node_033
+	>> node_001 
+	-> kushala_daora.combat_search() 
+	return 
+endf 
+
+def node_034
+	>> node_001 
+	-> kushala_daora.anger_search() 
+	return 
+endf 
+
+def node_035
+	>> node_001 
+	-> kushala_daora.tired() 
+	return 
+endf 
+
+def node_036
+	if self.flying() 
+		>> node_001 
+		-> kushala_daora.refresh() 
+	else 
+		-> kushala_daora.refresh() 
+	endif 
+	return 
+endf 
+
+def node_037
+	>> node_028 
+	if self.flying() 
+		-> kushala_daora.chance_fly() 
+	else 
+		-> kushala_daora.chance() 
+	endif 
+	return 
+endf 
+
+def node_038
+	>> node_001 
+	-> kushala_daora.take_off_switch_pattern_by_dist() 
+	>> node_049 
+	return 
+endf 
+
+def node_039
+	if self.flying() 
+	else 
+		-> kushala_daora.sudden_rise() 
+	endif 
+	return 
+endf 
+
+def node_040
+	>> node_017 
+	if self.flying() 
+		-> kushala_daora.sudden_drop() 
+	else 
+	endif 
+	return 
+endf 
+
+def node_041
+	>> node_001 
+	-> kushala_daora.dash(5) 
+	return 
+endf 
+
+def node_042
+	>> node_001 
+	-> kushala_daora.dash(1,5,0,1000) 
+	return 
+endf 
+
+def node_043
+	>> node_001 
+	-> kushala_daora.dash(2,5,0,3000) 
+	return 
+endf 
+
+def node_044
+	>> node_001 
+	-> kushala_daora.dash(1,5,0,500) 
+	return 
+endf 
+
+def node_045
+	if self.distance_3d_to_target().leq(600) 
+	else 
+		-> kushala_daora.glide(2,1,0,3000,500) 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_046
+	if self.distance_2d_to_target().leq(600) 
+	else 
+		-> kushala_daora.glide_combat(2,1,0,3000,500) 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_047
+	if self.distance_2d_to_target().leq(1000) 
+	else 
+		-> kushala_daora.glide_combat(2,1,0,3000,900) 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_048
+	if self.distance_3d_to_target().leq(600) 
+	else 
+		-> kushala_daora.glide_direct_move(2,1,0,3000,500) 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_049
+	if self.distance_3d_to_target().leq(1000) 
+	else 
+		-> kushala_daora.glide_direct_move(2,1,0,3000,900) 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_050
+	if self.vertical_distance_to_target().leq(1200) 
+		return 
+	else 
+		-> kushala_daora.glide_direct_move(2,1,0,3000,700) 
+	endif 
+	if self.vertical_distance_to_target().leq(1200) 
+		return 
+	else 
+		-> kushala_daora.glide_direct_move(2,1,0,3000,700) 
+	endif 
+	if self.vertical_distance_to_target().leq(1200) 
+		return 
+	else 
+		-> kushala_daora.glide_direct_move(2,1,0,3000,700) 
+	endif 
+	if self.vertical_distance_to_target().leq(1200) 
+		return 
+	else 
+		-> kushala_daora.glide_direct_move(2,1,0,3000,700) 
+	endif 
+	if self.vertical_distance_to_target().leq(1200) 
+		return 
+	else 
+		-> kushala_daora.glide_direct_move(2,1,0,3000,700) 
+	endif 
+	return 
+endf 
+
+def node_051
+	if self.distance_2d_to_target().leq(1000) 
+		return 
+	else 
+		-> kushala_daora.glide_combat(2,0,0,3000) 
+	endif 
+	if self.distance_2d_to_target().leq(1000) 
+		return 
+	else 
+		-> kushala_daora.glide_combat(2,0,0,3000) 
+	endif 
+	if self.distance_2d_to_target().leq(1000) 
+		return 
+	else 
+		-> kushala_daora.glide_combat(2,0,0,3000) 
+	endif 
+	if self.distance_2d_to_target().leq(1000) 
+		return 
+	else 
+		-> kushala_daora.glide_combat(2,0,0,3000) 
+	endif 
+	if self.distance_2d_to_target().leq(1000) 
+		return 
+	else 
+		-> kushala_daora.glide_combat(2,0,0,3000) 
+	endif 
+	return 
+endf 
+
+def node_052
+	self.targetArea(14) 
+	if function#AD() 
+		>> node_053 
+	else 
+		>> node_054 
+	endif 
+	>> node_058 
+	return 
+endf 
+
+def node_053
+	if self.flying() 
+		self.targetArea(40) 
+		>> node_049 
+	else 
+		>> node_041 
+	endif 
+	return 
+endf 
+
+def node_054
+	>> node_055 
+	>> node_057 
+	return 
+endf 
+
+def node_055
+	self.targetArea(target_area.area_aerial_center) 
+	if self.flying() 
+		>> node_049 
+	else 
+		>> node_038 
+	endif 
+	return 
+endf 
+
+def node_056
+	self.targetArea(target_area.area_center) 
+	>> node_041 
+	self.targetArea(target_area.area_aerial_center) 
+	>> node_038 
+	return 
+endf 
+
+def node_057
+	self.targetArea(14) 
+	if self.flying() 
+		self.targetArea(40) 
+		>> node_045 
+	else 
+		>> node_041 
+	endif 
+	return 
+endf 
+
+def node_058
+	self.targetArea(target_area.area_center) 
+	if self.flying() 
+		if self.fatigued() 
+			>> node_001 
+		else 
+			>> node_040 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_059
+	if self.vertical_distance_to_target().leq(1000) 
+	else 
+		-> kushala_daora.short_down_step_fly() 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_060
+	if self.distance_3d_to_target().leq(500) 
+	else 
+		if self.flying() 
+			-> kushala_daora.dying_walk_fly(2,1,5,1500,400) 
+		else 
+			-> kushala_daora.dying_walk(2,1,5,1500,400) 
+		endif 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_061
+	if self.distance_3d_to_target().leq(600) 
+	else 
+		if function#7D() 
+			-> kushala_daora.dying_walk_fly(2,1,0,3000,500) 
+		else 
+			-> kushala_daora.glide(2,1,0,3000,500) 
+		endif 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_062
+	if self.distance_2d_to_target().leq(600) 
+	else 
+		if function#7D() 
+			-> kushala_daora.dying_walk_fly(2,1,0,3000,500) 
+		else 
+			-> kushala_daora.glide_combat(2,1,0,3000,500) 
+		endif 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_063
+	if self.distance_2d_to_target().leq(1000) 
+	else 
+		if function#7D() 
+			-> kushala_daora.dying_walk_fly(2,1,0,3000,900) 
+		else 
+			-> kushala_daora.glide_combat(2,1,0,3000,900) 
+		endif 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_064
+	if self.distance_3d_to_target().leq(600) 
+	else 
+		if function#7D() 
+			-> kushala_daora.dying_glide_direct_move(2,1,0,3000,500) 
+		else 
+			-> kushala_daora.glide_direct_move(2,1,0,3000,500) 
+		endif 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_065
+	if self.distance_3d_to_target().leq(1000) 
+	else 
+		if function#7D() 
+			-> kushala_daora.dying_glide_direct_move(2,1,0,3000,900) 
+		else 
+			-> kushala_daora.glide_direct_move(2,1,0,3000,900) 
+		endif 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_066
+	self.targetArea(24) 
+	if function#AD() 
+		>> node_067 
+	else 
+		>> node_068 
+	endif 
+	return 
+endf 
+
+def node_067
+	if function#5A(10) 
+		>> node_017 
+	elif function#5A(11) 
+		>> node_017 
+	elif function#5A(12) 
+		>> node_017 
+	elif function#5A(13) 
+		>> node_017 
+	elif function#5A(14) 
+		>> node_017 
+	else 
+		>> node_001 
+	endif 
+	self.targetArea(24) 
+	if self.flying() 
+		>> node_065 
+	else 
+		>> node_060 
+	endif 
+	return 
+endf 
+
+def node_068
+	>> node_069 
+	>> node_070 
+	>> node_071 
+	>> node_072 
+	return 
+endf 
+
+def node_069
+	if self.flying() 
+		self.targetArea(target_area.area_aerial_center) 
+		>> node_064 
+	else 
+		self.targetArea(target_area.area_center) 
+		>> node_060 
+		self.targetArea(target_area.area_aerial_center) 
+		>> node_017 
+	endif 
+	return 
+endf 
+
+def node_070
+	self.targetArea(24) 
+	if self.flying() 
+		if function#5A(10) 
+		elif function#5A(11) 
+		elif function#5A(13) 
+		elif function#5A(14) 
+		else 
+			self.targetArea(40) 
+		endif 
+		>> node_061 
+	else 
+		self.targetArea(39) 
+		>> node_060 
+	endif 
+	return 
+endf 
+
+def node_071
+	if function#5A(10) 
+	elif function#5A(11) 
+	elif function#5A(12) 
+	elif function#5A(13) 
+	elif function#5A(14) 
+	else 
+		if self.flying() 
+			self.targetArea(target_area.area_center) 
+			>> node_001 
+		else 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_072
+	if self.flying() 
+	else 
+		self.targetArea(24) 
+		>> node_060 
+	endif 
+	return 
+endf 
+
+def node_073
+	if self.angle_2d_cw_between(30,330) 
+		if self.flying() 
+			-> kushala_daora.turn_fly() 
+		else 
+			-> kushala_daora.turn() 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_074
+	if self.angle_2d_cw_between(60,300) 
+		if self.flying() 
+			-> kushala_daora.turn_fly() 
+		else 
+			-> kushala_daora.turn() 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_075
+	if self.angle_2d_cw_between(90,270) 
+		if self.flying() 
+			-> kushala_daora.turn_fly() 
+		else 
+			-> kushala_daora.turn() 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_076
+	>> node_001 
+	-> kushala_daora.life_search() 
+	return 
+endf 
+
+def node_077
+	>> node_001 
+	-> kushala_daora.marking() 
+	return 
+endf 
+
+def node_078
+	>> node_001 
+	-> kushala_daora.rest() 
+	return 
+endf 
+
+def node_079
+	>> node_001 
+	-> kushala_daora.sleep() 
+	return 
+endf 
+
+def node_080
+	>> node_001 
+	if function#C9() 
+		-> kushala_daora.dying_sleep(3,0,0,150) 
+	else 
+		function#CA() 
+	endif 
+	return 
+endf 
+
+def node_081
+endf 
+
+def node_082
+	>> node_001 
+	-> kushala_daora.walk(5) 
+	return 
+endf 
+
+def node_083
+	>> node_001 
+	-> kushala_daora.walk(1,5,0,1000) 
+	return 
+endf 
+
+def node_084
+	>> node_001 
+	-> kushala_daora.walk(2,5,0,3000) 
+	return 
+endf 
+
+def node_085
+	if self.distance_3d_to_target().leq(600) 
+	else 
+		-> kushala_daora.glide(2,1,0,3000,500) 
+		repeat 
+	endif 
+	-> kushala_daora.glide(2,1,5,3000,500) 
+	return 
+endf 
+
+def node_086
+	if self.distance_2d_to_target().leq(600) 
+	else 
+		-> kushala_daora.glide_combat(2,1,0,3000,500) 
+		repeat 
+	endif 
+	-> kushala_daora.glide_combat(2,1,5,3000,500) 
+	return 
+endf 
+
+def node_087
+	if self.distance_2d_to_target().leq(1000) 
+	else 
+		-> kushala_daora.glide_combat(2,1,0,3000,900) 
+		repeat 
+	endif 
+	-> kushala_daora.glide_combat(2,1,5,3000,900) 
+	return 
+endf 
+
+def node_088
+	if self.distance_3d_to_target().leq(600) 
+	else 
+		-> kushala_daora.glide_direct_move(2,1,0,3000,500) 
+		repeat 
+	endif 
+	-> kushala_daora.glide_direct_move(2,1,5,3000,500) 
+	return 
+endf 
+
+def node_089
+	if self.distance_3d_to_target().leq(1000) 
+	else 
+		-> kushala_daora.glide_direct_move(2,1,0,3000,900) 
+		repeat 
+	endif 
+	-> kushala_daora.glide_direct_move(2,1,5,3000,900) 
+	return 
+endf 
+
+def node_090
+	self.targetArea(target_area.nearest_entrance) 
+	>> node_091 
+	return 
+endf 
+
+def node_091
+	if function#5A(20) 
+		>> node_092 
+	elif function#5A(21) 
+		>> node_092 
+	elif function#5A(22) 
+		>> node_092 
+	elif function#5A(23) 
+		>> node_092 
+	elif function#5A(24) 
+		>> node_092 
+	elif function#5A(25) 
+		>> node_092 
+	elif function#5A(30) 
+		>> node_093 
+	elif function#5A(31) 
+		>> node_093 
+	elif function#5A(32) 
+		>> node_093 
+	elif function#5A(33) 
+		>> node_093 
+	elif function#5A(34) 
+		>> node_093 
+	elif function#5A(35) 
+		>> node_093 
+	else 
+		>> node_094 
+	endif 
+	return 
+endf 
+
+def node_092
+	if self.distance_3d_to_target().leq(12000) 
+		>> node_001 
+		>> node_095 
+	else 
+		>> node_094 
+	endif 
+	return 
+endf 
+
+def node_093
+	if self.distance_3d_to_target().leq(12000) 
+		>> node_017 
+		>> node_095 
+	else 
+		>> node_094 
+	endif 
+	return 
+endf 
+
+def node_094
+	if function#AD() 
+		>> node_095 
+	else 
+		>> node_096 
+	endif 
+	return 
+endf 
+
+def node_095
+	if function#5A(10) 
+		>> node_017 
+	elif function#5A(11) 
+		>> node_017 
+	elif function#5A(12) 
+		>> node_017 
+	elif function#5A(13) 
+		>> node_017 
+	elif function#5A(14) 
+		>> node_017 
+	elif function#5A(15) 
+		>> node_017 
+	elif function#5A(30) 
+		>> node_017 
+	elif function#5A(31) 
+		>> node_017 
+	elif function#5A(32) 
+		>> node_017 
+	elif function#5A(33) 
+		>> node_017 
+	elif function#5A(34) 
+		>> node_017 
+	elif function#5A(35) 
+		>> node_017 
+	else 
+		>> node_001 
+	endif 
+	if self.flying() 
+		>> node_089 
+	else 
+		>> node_082 
+	endif 
+	return 
+endf 
+
+def node_096
+	>> node_097 
+	>> node_099 
+	>> node_100 
+	>> node_101 
+	return 
+endf 
+
+def node_097
+	self.targetArea(target_area.area_aerial_center) 
+	if self.flying() 
+		>> node_089 
+	else 
+		>> node_038 
+	endif 
+	return 
+endf 
+
+def node_098
+	self.targetArea(target_area.area_center) 
+	>> node_082 
+	self.targetArea(target_area.area_aerial_center) 
+	>> node_038 
+	return 
+endf 
+
+def node_099
+	self.targetArea(target_area.nearest_entrance) 
+	if self.flying() 
+		self.targetArea(40) 
+		>> node_085 
+	else 
+		self.targetArea(39) 
+		>> node_082 
+	endif 
+	return 
+endf 
+
+def node_100
+	if function#5A(10) 
+	elif function#5A(11) 
+	elif function#5A(12) 
+	elif function#5A(13) 
+	elif function#5A(14) 
+	elif function#5A(15) 
+	elif function#5A(30) 
+	elif function#5A(31) 
+	elif function#5A(32) 
+	elif function#5A(33) 
+	elif function#5A(34) 
+	elif function#5A(35) 
+	else 
+		if self.flying() 
+			self.targetArea(target_area.area_center) 
+			>> node_001 
+		else 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_101
+	self.targetArea(target_area.nearest_entrance) 
+	if self.flying() 
+		>> node_088 
+	else 
+		>> node_082 
+	endif 
+	return 
+endf 
+
+def node_102
+	if function#AD() 
+		>> node_103 
+	else 
+		>> node_104 
+	endif 
+	return 
+endf 
+
+def node_103
+	if self.flying() 
+		>> node_047 
+	else 
+		if self.in_combat() 
+			>> node_042 
+		else 
+			>> node_082 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_104
+	>> node_106 
+	>> node_108 
+	>> node_109 
+	return 
+endf 
+
+def node_105
+	if self.flying() 
+		>> node_047 
+	else 
+		if self.in_combat() 
+			>> node_041 
+		else 
+			>> node_082 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_106
+	self.targetArea(target_area.area_aerial_center) 
+	if self.flying() 
+		>> node_049 
+	else 
+		>> node_038 
+	endif 
+	return 
+endf 
+
+def node_107
+	self.targetArea(target_area.area_center) 
+	>> node_082 
+	self.targetArea(target_area.area_aerial_center) 
+	>> node_038 
+	return 
+endf 
+
+def node_108
+	if self.flying() 
+		self.targetArea(40) 
+		>> node_045 
+	else 
+		self.targetArea(39) 
+		if self.in_combat() 
+			>> node_041 
+		else 
+			>> node_082 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_109
+	if self.flying() 
+		self.targetArea(target_area.area_center) 
+		>> node_001 
+	else 
+	endif 
+	return 
+endf 
+
+def node_110
+	random (33) 
+				self.targetEnemy(21) @ parameter2:1000 
+	elser (25) 
+				self.targetEnemy(22) @ parameter2:1000 
+	elser (18) 
+				self.targetEnemy(11) @ parameter2:1000 
+	elser (24) 
+				self.targetEnemy(12) @ parameter2:1000 
+	endr 
+	return 
+endf 
+
+def node_111
+	>> node_017 
+	-> kushala_daora.ride_tired() 
+	return 
+endf 
+
+def node_112
+	>> node_017 
+	-> kushala_daora.ride_wait() 
+	return 
+endf 
+
+def node_113
+	if self.mounted() 
+		-> kushala_daora.ride_rage_head() 
+	else 
+		-> kushala_daora.ride_rage_head_lv2() 
+	endif 
+	return 
+endf 
+
+def node_114
+	if self.mounted() 
+		-> kushala_daora.ride_rage_body() 
+	else 
+		-> kushala_daora.ride_rage_body_lv2() 
+	endif 
+	return 
+endf 
+
+def node_115
+endf 
+
+def node_116
+	if function#29() 
+		self.targetEnemy(7) 
+		>> node_117 
+		self.targetEnemy(15) 
+		if self.mounted() 
+			self.target_on_part(0) -> kushala_daora.ride_rage_crash_head() => return 
+			self.target_on_part(1) -> kushala_daora.ride_rage_crash_body() => return 
+		else 
+			self.target_on_part(0) -> kushala_daora.ride_rage_crash_head_lv2() => return 
+			self.target_on_part(1) -> kushala_daora.ride_rage_crash_body_lv2() => return 
+		endif 
+	else 
+		self.target_on_part(0) >> node_113 => return 
+		self.target_on_part(1) >> node_114 => return 
+	endif 
+	return 
+endf 
+
+def node_117
+	if self.distance_3d_to_target().leq(500) 
+		>> node_022 
+	elif self.distance_3d_to_target().gt(1000) 
+		>> node_048 
+	else 
+	endif 
+	return 
+endf 
+
+def node_118
+	self.targetArea(19) 
+	if self.distance_3d_to_target().gt(1000) 
+		>> node_043 
+		repeat 
+	else 
+	endif 
+	return 
+endf 
+
+def node_119
+	if self.targetEnemy(target_em.any_monster) 
+		if self.target(13) 
+		else 
+			if self.vertical_distance_to_target().leq(1000) 
+				if self.distance_2d_to_target().leq(3000) 
+					random (100) >> node_037 
+					elser (0) 
+					endr 
+					if self.target_is(em.Gold_Rathian) 
+						>> node_171 
+					elif self.target_is(em.Silver_Rathalos) 
+						>> node_171 
+					else 
+					endif 
+				else 
+				endif 
+			else 
+			endif 
+		endif 
+	else 
+	endif 
+	if self.defense_downed() 
+		>> node_165 
+	else 
+	endif 
+	return 
+endf 
+
+def node_120
+	if self.targetEnemy(target_em.any_monster) 
+		if self.target(13) 
+		else 
+			if self.vertical_distance_to_target().leq(1000) 
+				if self.distance_2d_to_target().leq(1200) 
+					if self.flying() 
+						>> node_022 
+						>> node_018 
+					else 
+						>> node_016 
+						>> node_007 
+						random (10) >> node_014 
+						elser (90) 
+						endr 
+					endif 
+					if self.target_is(em.Gold_Rathian) 
+						>> node_171 
+					elif self.target_is(em.Silver_Rathalos) 
+						>> node_171 
+					else 
+					endif 
+				elif self.distance_2d_to_target().leq(3000) 
+					if self.flying() 
+						>> node_018 
+					else 
+						>> node_007 
+						random (10) >> node_014 
+						elser (90) 
+						endr 
+					endif 
+					if self.target_is(em.Gold_Rathian) 
+						>> node_171 
+					elif self.target_is(em.Silver_Rathalos) 
+						>> node_171 
+					else 
+					endif 
+				else 
+				endif 
+			else 
+			endif 
+		endif 
+	else 
+	endif 
+	if self.defense_downed() 
+		>> node_165 
+	else 
+	endif 
+	return 
+endf 
+
+def node_121
+	>> node_001 
+	if self.angle_2d_cw_between(300,60) 
+		if self.fatigued() 
+			>> node_013 
+			>> node_018 
+		else 
+			>> node_122 
+			>> node_136 
+			>> node_019 
+		endif 
+	else 
+		-> kushala_daora.reversal_take_off() 
+		if self.fatigued() 
+			>> node_018 
+		else 
+			>> node_136 
+			>> node_019 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_122
+	>> node_001 
+	if self.fatigued() 
+		if self.distance_3d_to_target().leq(1200) 
+			>> node_016 
+		else 
+			>> node_007 
+			>> node_162 
+		endif 
+		reset 
+	else 
+		if function#101(1) 
+			if function#102() 
+				>> node_016 
+				random (50) >> node_123 
+				elser (50) >> node_124 
+				endr 
+			else 
+				if self.distance_3d_to_target().leq(600) 
+					>> node_016 
+					random (50) >> node_123 
+					elser (50) >> node_124 
+					endr 
+				else 
+					random (50) >> node_123 
+					elser (50) >> node_124 
+					endr 
+				endif 
+			endif 
+		else 
+			if self.distance_3d_to_target().leq(1200) 
+				>> node_016 
+				>> node_008 
+			else 
+				>> node_007 
+				>> node_162 
+			endif 
+			reset 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_123
+	-> kushala_daora.spin_take_off() @ comboSetting:1 
+	-> kushala_daora.turn_step_l_fly() 
+	return 
+endf 
+
+def node_124
+	-> kushala_daora.spin_take_off() @ comboSetting:1 
+	-> kushala_daora.turn_step_r_fly() 
+	return 
+endf 
+
+def node_125
+	if self.distance_3d_to_target().leq(1000) 
+		>> node_128 
+	elif self.distance_3d_to_target().leq(3500) 
+		>> node_131 
+	else 
+		>> node_007 
+	endif 
+	return 
+endf 
+
+def node_126
+	if self.distance_3d_to_target().leq(1000) 
+		if function#101(1) 
+			if self.enraged() 
+				>> node_001 
+				>> node_029 
+				>> node_130 
+				>> node_022 
+				>> node_138 
+			else 
+				>> node_001 
+				>> node_029 
+				>> node_129 
+			endif 
+		else 
+			>> node_005 
+		endif 
+	elif self.distance_3d_to_target().leq(3500) 
+		if function#101(1) 
+			if self.enraged() 
+				>> node_001 
+				>> node_029 
+				>> node_133 
+				>> node_022 
+				>> node_141 
+			else 
+				>> node_001 
+				>> node_029 
+				>> node_132 
+			endif 
+		else 
+			>> node_005 
+		endif 
+	else 
+		>> node_007 
+	endif 
+	return 
+endf 
+
+def node_127
+	if self.distance_3d_to_target().leq(1000) 
+		if function#101(1) 
+			>> node_001 
+			>> node_029 
+			>> node_130 
+		else 
+			>> node_005 
+		endif 
+	elif self.distance_3d_to_target().leq(3500) 
+		if function#101(1) 
+			>> node_001 
+			>> node_029 
+			>> node_133 
+		else 
+			>> node_005 
+		endif 
+	else 
+		>> node_007 
+	endif 
+	return 
+endf 
+
+def node_128
+	if self.enraged() 
+		if function#101(1) 
+			>> node_001 
+			>> node_029 
+			>> node_130 
+			>> node_022 
+			>> node_138 
+		else 
+			>> node_005 
+		endif 
+	else 
+		if function#101(1) 
+			>> node_001 
+			>> node_029 
+			random (90) >> node_129 
+			elser (10) >> node_130 
+			endr 
+		else 
+			>> node_005 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_129
+	-> kushala_daora.tornad_breath_near() 
+	-> kushala_daora.chance() 
+	return 
+endf 
+
+def node_130
+	-> kushala_daora.tornad_breath_near_fly_end() 
+	return 
+endf 
+
+def node_131
+	if self.enraged() 
+		if function#101(1) 
+			>> node_001 
+			>> node_029 
+			>> node_133 
+			>> node_022 
+			>> node_141 
+		else 
+			>> node_005 
+		endif 
+	else 
+		if function#101(1) 
+			>> node_001 
+			>> node_029 
+			random (90) >> node_132 
+			elser (10) >> node_133 
+			endr 
+		else 
+			>> node_007 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_132
+	-> kushala_daora.tornad_breath_far() 
+	-> kushala_daora.chance() 
+	return 
+endf 
+
+def node_133
+	-> kushala_daora.tornad_breath_far_fly_end() 
+	return 
+endf 
+
+def node_134
+	if self.distance_3d_to_target().leq(1000) 
+		>> node_137 
+	elif self.distance_3d_to_target().leq(3500) 
+		>> node_140 
+	else 
+		>> node_018 
+	endif 
+	return 
+endf 
+
+def node_135
+	if self.distance_3d_to_target().leq(1000) 
+		if function#101(1) 
+			if function#10C(5) 
+				random (70) >> node_018 
+				elser (30) >> node_020 
+				endr 
+			else 
+				>> node_017 
+				>> node_030 
+				if function#102() 
+					>> node_022 
+					>> node_138 
+				else 
+					>> node_138 
+				endif 
+			endif 
+		else 
+			>> node_018 
+		endif 
+	elif self.distance_3d_to_target().leq(3500) 
+		if function#101(1) 
+			if function#10C(5) 
+				random (70) >> node_018 
+				elser (30) >> node_020 
+				endr 
+			else 
+				>> node_017 
+				>> node_030 
+				if function#102() 
+					>> node_022 
+					>> node_141 
+				else 
+					>> node_141 
+				endif 
+			else 
+				>> node_018 
+			endif 
+		else 
+			>> node_018 
+		endif 
+	else 
+		>> node_018 
+	endif 
+	return 
+endf 
+
+def node_136
+	if self.distance_3d_to_target().leq(1000) 
+		if function#101(1) 
+			if function#10C(5) 
+				random (70) >> node_018 
+				elser (30) >> node_020 
+				endr 
+			else 
+				>> node_017 
+				>> node_030 
+				if function#102() 
+					>> node_022 
+					>> node_139 
+				else 
+					>> node_139 
+				endif 
+			endif 
+		else 
+			>> node_018 
+		endif 
+	elif self.distance_3d_to_target().leq(3500) 
+		if function#101(1) 
+			if function#10C(5) 
+				random (70) >> node_018 
+				elser (30) >> node_020 
+				endr 
+			else 
+				>> node_017 
+				>> node_030 
+				if function#102() 
+					>> node_022 
+					>> node_142 
+				else 
+					>> node_142 
+				endif 
+			endif 
+		else 
+			>> node_018 
+		endif 
+	else 
+		>> node_018 
+	endif 
+	return 
+endf 
+
+def node_137
+	if function#101(1) 
+		if function#10C(5) 
+			random (70) >> node_018 
+			elser (30) >> node_020 
+			endr 
+		else 
+			>> node_017 
+			>> node_030 
+			if function#102() 
+				random (70) >> node_022 
+							>> node_139 
+				elser (0) >> node_138 
+				elser (30) >> node_139 
+				endr 
+			else 
+				random (0) >> node_138 
+				elser (100) >> node_139 
+				endr 
+			endif 
+		endif 
+	else 
+		>> node_018 
+	endif 
+	return 
+endf 
+
+def node_138
+	-> kushala_daora.fly_tornad_breath_near() 
+	-> kushala_daora.chance() 
+	return 
+endf 
+
+def node_139
+	-> kushala_daora.fly_tornad_breath_near_fly_end() 
+	return 
+endf 
+
+def node_140
+	if function#101(1) 
+		if function#10C(5) 
+			random (70) >> node_018 
+			elser (30) >> node_020 
+			endr 
+		else 
+			>> node_017 
+			>> node_030 
+			if function#102() 
+				random (70) >> node_022 
+							>> node_142 
+				elser (0) >> node_141 
+				elser (30) >> node_142 
+				endr 
+			else 
+				random (0) >> node_141 
+				elser (100) >> node_142 
+				endr 
+			endif 
+		endif 
+	else 
+		>> node_018 
+	endif 
+	return 
+endf 
+
+def node_141
+	-> kushala_daora.fly_tornad_breath_far() 
+	-> kushala_daora.chance() 
+	return 
+endf 
+
+def node_142
+	-> kushala_daora.fly_tornad_breath_far_fly_end() 
+	return 
+endf 
+
+def node_143
+	>> node_017 
+	>> node_030 
+	-> kushala_daora.rush_to_landing() 
+	[RegisterVar3 |-] 
+	if self.enraged() 
+		>> node_161 
+	else 
+	endif 
+	return 
+endf 
+
+def node_144
+	[RegisterVar2 ++] 
+	if self.fatigued() 
+		[RegisterVar2 |-] 
+	else 
+	endif 
+	if function#101(1) 
+	else 
+		[RegisterVar2 |-] 
+	endif 
+	return 
+endf 
+
+def node_145
+	[RegisterVar2 |-] 
+	return 
+endf 
+
+def node_146
+	if self.fatigued() 
+		>> node_145 
+	else 
+		if [RegisterVar2 <= 11] 
+			if function#10B(3) 
+				>> node_013 
+				>> node_147 
+			else 
+				>> node_122 
+				>> node_147 
+			endif 
+		else 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_147
+	if self.enraged() 
+		if self.distance_3d_to_target().leq(1500) 
+			>> node_157 
+		elif self.distance_3d_to_target().leq(3000) 
+			>> node_022 
+			>> node_136 
+			>> node_158 
+		else 
+			>> node_021 
+		endif 
+	else 
+		if self.distance_3d_to_target().leq(1500) 
+			>> node_019 
+		elif self.distance_3d_to_target().leq(3000) 
+			>> node_020 
+		else 
+			>> node_021 
+		endif 
+	endif 
+	[RegisterVar2 |-] 
+	reset 
+endf 
+
+def node_148
+	[RegisterVar3 ++] 
+	return 
+endf 
+
+def node_149
+	[RegisterVar3 |-] 
+	return 
+endf 
+
+def node_150
+	if self.fatigued() 
+		if [RegisterVar3 <= 4] 
+			>> node_151 
+		elif [RegisterVar3 == 3] 
+			random (90) >> node_151 
+			elser (10) 
+			endr 
+		elif [RegisterVar3 == 2] 
+			random (70) >> node_151 
+			elser (30) 
+			endr 
+		else 
+		endif 
+	else 
+		if [RegisterVar3 <= 7] 
+			>> node_151 
+		elif [RegisterVar3 == 6] 
+			random (100) >> node_151 
+			elser (0) 
+			endr 
+		elif [RegisterVar3 == 5] 
+			random (80) >> node_151 
+			elser (20) 
+			endr 
+		elif [RegisterVar3 == 4] 
+			random (60) >> node_151 
+			elser (40) 
+			endr 
+		elif [RegisterVar3 == 3] 
+			random (40) >> node_151 
+			elser (60) 
+			endr 
+		else 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_151
+	if self.distance_3d_to_target().leq(2000) 
+		>> node_023 
+	elif self.distance_3d_to_target().leq(4000) 
+		>> node_135 
+	else 
+		>> node_001 
+	endif 
+	[RegisterVar3 |-] 
+	reset 
+endf 
+
+def node_152
+	if function#101(1) 
+		if self.fatigued() 
+		else 
+			if function#10B(3) 
+			else 
+				if function#10C(4) 
+					if self.distance_3d_to_target().leq(1000) 
+						>> node_122 
+						>> node_023 
+					elif self.distance_3d_to_target().leq(1500) 
+						random (50) >> node_122 
+									>> node_023 
+						elser (50) 
+						endr 
+					else 
+					endif 
+				else 
+				endif 
+			endif 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_153
+	if function#101(1) 
+		if self.fatigued() 
+		elif self.enraged() 
+			>> node_154 
+		else 
+			random (20) >> node_154 
+			elser (80) 
+			endr 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_154
+	if function#101(1) 
+		if function#10B(1) 
+		else 
+			>> node_122 
+			>> node_135 
+		endif 
+		if function#10B(3) 
+		else 
+			random (30) >> node_122 
+						>> node_135 
+			elser (70) 
+			endr 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_155
+	if function#101(1) 
+		if function#10B(1) 
+		else 
+			>> node_023 
+			>> node_122 
+			>> node_135 
+			reset 
+		endif 
+		if function#10B(2) 
+		else 
+			random (0) >> node_023 
+						>> node_122 
+						>> node_135 
+						reset 
+			elser (100) 
+			endr 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_156
+	>> node_028 
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if self.fatigued() 
+	else 
+		if function#10B(6) 
+			>> node_126 
+			reset 
+		else 
+		endif 
+		if function#10B(7) 
+			if self.distance_3d_to_target().leq(1200) 
+				-> kushala_daora.turn_step_tornad_r() 
+				>> node_126 
+				reset 
+			elif self.distance_3d_to_target().leq(2500) 
+				-> kushala_daora.turn_step_front_far_r() 
+				>> node_126 
+				reset 
+			else 
+				>> node_008 
+				reset 
+			endif 
+		else 
+		endif 
+		if function#10B(11) 
+			if self.distance_3d_to_target().leq(1200) 
+				-> kushala_daora.turn_step_tornad_l() 
+				>> node_126 
+				reset 
+			elif self.distance_3d_to_target().leq(2500) 
+				-> kushala_daora.turn_step_tornad_l() 
+				>> node_126 
+				reset 
+			else 
+				>> node_008 
+				reset 
+			endif 
+		else 
+		endif 
+		if function#10B(8) 
+			if self.distance_3d_to_target().leq(1200) 
+				-> kushala_daora.turn_step_front_r() 
+				>> node_127 
+				-> kushala_daora.turn_step_tornad_fly_r() 
+				>> node_135 
+				reset 
+			elif self.distance_3d_to_target().leq(2500) 
+				-> kushala_daora.turn_step_front_far_r() 
+				>> node_127 
+				-> kushala_daora.turn_step_tornad_fly_r() 
+				>> node_135 
+				reset 
+			else 
+				>> node_008 
+				reset 
+			endif 
+		else 
+		endif 
+		if function#10B(10) 
+			if self.distance_3d_to_target().leq(1200) 
+				-> kushala_daora.turn_step_front_l() 
+				>> node_127 
+				-> kushala_daora.turn_step_tornad_fly_l() 
+				>> node_135 
+				reset 
+			elif self.distance_3d_to_target().leq(2500) 
+				-> kushala_daora.turn_step_front_far_l() 
+				>> node_127 
+				-> kushala_daora.turn_step_tornad_fly_l() 
+				>> node_135 
+				reset 
+			else 
+				>> node_008 
+				reset 
+			endif 
+		else 
+		endif 
+		if function#10B(9) 
+			>> node_008 
+			>> node_126 
+			reset 
+		else 
+		endif 
+	endif 
+	>> node_016 
+	return 
+endf 
+
+def node_157
+	>> node_028 
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if self.fatigued() 
+	else 
+		if function#10B(6) 
+			>> node_134 
+			>> node_158 
+			reset 
+		else 
+		endif 
+		if function#10B(7) 
+			-> kushala_daora.turn_step_tornad_fly_r() 
+			>> node_134 
+			>> node_158 
+			reset 
+		else 
+		endif 
+		if function#10B(11) 
+			-> kushala_daora.turn_step_tornad_fly_l() 
+			>> node_134 
+			>> node_158 
+			reset 
+		else 
+		endif 
+		if function#10B(8) 
+			-> kushala_daora.turn_step_r_fly() 
+			-> kushala_daora.turn_step_tornad_fly_r() 
+			>> node_134 
+			>> node_158 
+			reset 
+		else 
+		endif 
+		if function#10B(10) 
+			-> kushala_daora.turn_step_l_fly() 
+			-> kushala_daora.turn_step_tornad_fly_l() 
+			>> node_134 
+			>> node_158 
+			reset 
+		else 
+		endif 
+		if function#10B(9) 
+			>> node_021 
+			>> node_134 
+			>> node_158 
+			reset 
+		else 
+		endif 
+	endif 
+	>> node_021 
+	return 
+endf 
+
+def node_158
+	if self.distance_3d_to_target().leq(1500) 
+		>> node_020 
+		>> node_019 
+	elif self.distance_3d_to_target().leq(3000) 
+		>> node_020 
+		>> node_021 
+	else 
+		>> node_021 
+	endif 
+	reset 
+endf 
+
+def node_159
+	if self.fatigued() 
+		>> node_012 
+	elif self.enraged() 
+		if self.distance_3d_to_target().leq(3500) 
+			random (100) >> node_126 
+			elser (0) >> node_127 
+			elser (0) >> node_007 
+			endr 
+		else 
+			>> node_012 
+		endif 
+	else 
+		if function#10B() 
+			if self.distance_3d_to_target().leq(3500) 
+				random (100) >> node_126 
+				elser (0) >> node_127 
+				elser (0) >> node_007 
+				endr 
+			else 
+				>> node_012 
+			endif 
+		else 
+			>> node_012 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_160
+	if self.fatigued() 
+		>> node_018 
+	elif self.enraged() 
+		if self.distance_3d_to_target().leq(3500) 
+			random (100) >> node_135 
+			elser (0) >> node_136 
+			elser (0) >> node_018 
+			endr 
+		else 
+			>> node_018 
+		endif 
+	else 
+		if function#10B() 
+			if self.distance_3d_to_target().leq(3500) 
+				random (100) >> node_135 
+				elser (0) >> node_136 
+				elser (0) >> node_018 
+				endr 
+			else 
+				>> node_018 
+			endif 
+		else 
+			>> node_018 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_161
+	if self.fatigued() 
+	else 
+		if self.distance_3d_to_target().leq(1200) 
+			random (20) >> node_004 
+						>> node_163 
+			elser (25) >> node_005 
+						>> node_163 
+			elser (35) >> node_003 
+						>> node_163 
+			elser (0) >> node_008 
+			elser (20) 
+			endr 
+		elif self.distance_3d_to_target().leq(2800) 
+			random (60) >> node_007 
+						>> node_162 
+			elser (15) >> node_010 
+			elser (5) >> node_008 
+			elser (20) 
+			endr 
+		else 
+			>> node_012 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_162
+	if self.fatigued() 
+	else 
+		if function#10B(3) 
+			if self.distance_3d_to_target().leq(1200) 
+				random (15) >> node_004 
+							>> node_163 
+				elser (25) >> node_003 
+							>> node_163 
+				elser (60) >> node_126 
+				endr 
+			else 
+				>> node_126 
+			endif 
+		else 
+			if self.distance_3d_to_target().leq(1200) 
+				random (20) >> node_004 
+							>> node_163 
+				elser (30) >> node_005 
+							>> node_163 
+				elser (25) >> node_003 
+							>> node_163 
+				elser (5) >> node_008 
+				elser (20) 
+				endr 
+			else 
+			endif 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_163
+	if self.fatigued() 
+	else 
+		if function#10B(3) 
+			if self.target.helpless_0() 
+				if self.distance_3d_to_target().leq(1200) 
+					random (70) >> node_007 
+					elser (0) >> node_126 
+					elser (30) >> node_008 
+					endr 
+				else 
+					random (70) >> node_012 
+					elser (0) >> node_126 
+					elser (20) >> node_010 
+					elser (10) >> node_008 
+					endr 
+				endif 
+			else 
+			endif 
+		else 
+			if self.target.helpless_0() 
+				if self.distance_3d_to_target().leq(1200) 
+					random (70) >> node_007 
+					elser (30) >> node_008 
+					endr 
+				else 
+					random (70) >> node_012 
+					elser (20) >> node_010 
+					elser (10) >> node_008 
+					endr 
+				endif 
+			else 
+			endif 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_164
+	>> node_017 
+	>> node_026 
+	>> node_030 
+	>> node_136 
+	>> node_022 
+	>> node_136 
+	>> node_022 
+	>> node_151 
+	return 
+endf 
+
+def node_165
+	if function#31(49,1000) 
+		self.targetEnemy(target_em.closest_entity) 
+		if self.target(13) 
+		else 
+			>> node_166 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_166
+	random (10) >> node_167 
+	elser (55) >> node_168 
+	elser (0) >> node_169 
+	elser (35) 
+	endr 
+	return 
+endf 
+
+def node_167
+	>> node_028 
+	>> node_037 
+	return 
+endf 
+
+def node_168
+	if self.vertical_distance_to_target().leq(1000) 
+		if self.distance_2d_to_target().leq(1200) 
+			if self.flying() 
+				>> node_022 
+				>> node_018 
+			else 
+				>> node_016 
+				>> node_007 
+			endif 
+		elif self.distance_2d_to_target().leq(3000) 
+			if self.flying() 
+				>> node_018 
+			else 
+				>> node_007 
+			endif 
+		else 
+		endif 
+	else 
+	endif 
+	return 
+endf 
+
+def node_169
+	self.force_area_change2() 
+	return 
+endf 
+
+def node_170
+	if self.distance_3d_to_target().leq(400) 
+	else 
+		-> kushala_daora.dash(1,2,0,300,1500) 
+	endif 
+	if self.distance_3d_to_target().leq(600) 
+	else 
+		-> kushala_daora.dash(1,2,0,500,1500) 
+	endif 
+	if self.distance_3d_to_target().leq(600) 
+	else 
+		-> kushala_daora.dash(1,1,0,500,1500) 
+	endif 
+	return 
+endf 
+
+def node_171
+	if self.in_map(st.Special_Arena).in_area(-1) 
+		>> node_037 
+	elif self.in_map(st.Challenge_Arena).in_area(-1) 
+		>> node_037 
+	else 
+		self.force_area_change2() 
+	endif 
+	return 
+endf 
+

@@ -1,0 +1,371 @@
+importactions Cortos as cortos
+
+def node_000
+	conclude 
+endf 
+
+def node_001
+	if self.flying() 
+		-> action#21() 
+	else 
+		-> action#20() 
+	endif 
+	return 
+endf 
+
+def node_002
+	if self.flying() 
+		-> action#23() 
+	else 
+		-> action#22() 
+	endif 
+	return 
+endf 
+
+def node_003
+	if self.flying() 
+		-> action#26() 
+	else 
+		-> action#25() 
+	endif 
+	return 
+endf 
+
+def node_004
+	>> node_010 
+	-> action#29() 
+	return 
+endf 
+
+def node_005
+	>> node_010 
+	-> action#27() 
+	return 
+endf 
+
+def node_006
+	if self.flying() 
+		-> action#08() 
+	else 
+		-> action#06() 
+	endif 
+	return 
+endf 
+
+def node_007
+	if self.angular_15(30,0) 
+		if self.flying() -> action#08() 
+		else -> action#06() 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_008
+	if self.vertical_distance_to_target().gt(400) -> action#1E() 
+	else 
+	endif 
+	return 
+endf 
+
+def node_009
+	if self.flying() 
+	elif function#40() 
+		-> action#0A() 
+	else 
+		-> action#09() 
+	endif 
+	return 
+endf 
+
+def node_010
+	if self.flying() 
+		-> action#0E() 
+	endif 
+	return 
+endf 
+
+def node_011
+	if self.flying() 
+		-> action#2E() 
+	else 
+		-> action#2D() 
+	endif 
+	return 
+endf 
+
+def node_012
+	if function#B0(4) 
+		if function#10E() 
+			if function#110() 
+				if function#51(0,2000) 
+					>> node_013 
+				else 
+				endif 
+			else 
+			endif 
+		else 
+			if function#51(0,2000) 
+				>> node_013 
+			else 
+			endif 
+		endif 
+	else 
+		if function#51(0,2000) 
+			>> node_013 
+		else 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_013
+	>> node_006 
+	>> node_001 
+	return 
+endf 
+
+def node_014
+	if self.hookable() 
+		-> action#15(2,0,0,2000) 
+	else 
+		-> action#14(2,0,0,2000) 
+	endif 
+	if self.distance_3d_to_target().leq(3000) 
+		function#54() 
+		return 
+	else 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_015
+	function#52(128,2) 
+	self.targetEnemy(16) 
+	-> action#14(1,0,0,1500) 
+	-> action#1F() 
+	>> node_004 
+	>> node_009 
+	function#54() 
+	return 
+endf 
+
+def node_016
+	if function#58(1,100) 
+	else 
+		>> node_003 
+	endif 
+	return 
+endf 
+
+def node_017
+	if self.hookable() 
+	else -> action#04() 
+	endif 
+	return 
+endf 
+
+def node_018
+	if function#72() 
+		self.targetEnemy(13) 
+		if function#69() >> node_019 
+		elif function#2D() >> node_020 
+		else >> node_021 
+		endif 
+	else >> node_021 
+	endif 
+	return 
+endf 
+
+def node_019
+	function#52(132) 
+	return 
+endf 
+
+def node_020
+	function#52(161) 
+	return 
+endf 
+
+def node_021
+	if function#77() 
+		function#52(194,1) 
+	else 
+		function#52(130,6) 
+	endif 
+	return 
+endf 
+
+def node_022
+	>> node_002 
+	return 
+endf 
+
+def node_023
+	self.targetEnemy(33) 
+	>> node_006 
+	>> node_001 
+	return 
+endf 
+
+def node_024
+	>> node_006 
+	>> node_001 
+	return 
+endf 
+
+def node_025
+	function#54() 
+	function#52(0,1) 
+	self.targetEnemy(16) @ unkn3:2097152 
+	if self.distance_2d_to_target().gt(2000) 
+		>> node_009 
+		>> node_002 
+		>> node_014 
+		>> node_016 
+	endif 
+	return 
+endf 
+
+def node_026
+	function#52(0,1) 
+	self.targetEnemy(16) @ unkn3:2097152 
+	function#74(0,500) 
+	-> action#3F() 
+	self.targetEnemy(16) @ unkn3:2097152 
+	function#74(90,1000) 
+	-> action#3F() 
+	self.targetEnemy(16) @ unkn3:2097152 
+	function#74(180,1500) 
+	-> action#3F() 
+	self.targetEnemy(16) @ unkn3:2097152 
+	function#74(270,1000) 
+	-> action#3F() 
+	return 
+endf 
+
+def node_027
+	function#52(0,1) 
+	self.targetEnemy(16) @ unkn3:2097152 
+	function#74(0,500) 
+	-> action#3F() 
+	self.targetEnemy(16) @ unkn3:2097152 
+	function#74(270,1000) 
+	-> action#3F() 
+	self.targetEnemy(16) @ unkn3:2097152 
+	function#74(180,1500) 
+	-> action#3F() 
+	self.targetEnemy(16) @ unkn3:2097152 
+	function#74(90,1000) 
+	-> action#3F() 
+	return 
+endf 
+
+def node_028
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if self.target(20) 
+		if self.target(7) 
+			>> node_035 
+		else 
+			>> node_029 
+		endif 
+	else 
+		>> node_035 
+	endif 
+	return 
+endf 
+
+def node_029
+	random (50) >> node_031 
+	elser (50) >> node_035 
+	endr 
+	return 
+endf 
+
+def node_030
+	>> node_007 
+	-> action#14(6,6,0,1500,1500) 
+	if self.distance_2d_to_target().leq(1600) 
+		return 
+	else 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_031
+	>> node_030 
+	if self.distance_2d_to_target().leq(500) 
+		random (40) >> node_033 
+		elser (60) >> node_032 
+		elser (0) >> node_001 
+		endr 
+	elif self.distance_2d_to_target().leq(1500) 
+		random (60) >> node_033 
+		elser (40) >> node_032 
+		elser (0) >> node_001 
+		endr 
+	else 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_032
+	>> node_009 
+	-> action#16(6,0,0,500) 
+	-> action#1E() 
+	>> node_007 
+	-> action#44() 
+	return 
+endf 
+
+def node_033
+	>> node_009 
+	-> action#16(6,0,0,600) 
+	-> action#1E() 
+	>> node_007 
+	-> action#45() 
+	return 
+endf 
+
+def node_034
+	>> node_033 
+	>> node_007 
+	-> action#43() 
+	>> node_001 
+	return 
+endf 
+
+def node_035
+	function#52(16,4) 
+	self.targetEnemy(16) 
+	-> action#14(1,0,0,500) 
+	function#54() 
+	return 
+endf 
+
+def node_036
+	-> action#14() 
+	function#74(0,1000) 
+	-> action#14() 
+	function#74(180,1000) 
+	function#74(120,1000) 
+	-> action#14() 
+	return 
+endf 
+
+def node_037
+	-> action#14() 
+	function#74(0,1000) 
+	-> action#14() 
+	function#74(180,1000) 
+	function#74(120,1000) 
+	-> action#14() 
+	function#74(300,1000) 
+	function#74(240,1000) 
+	-> action#14() 
+	return 
+endf 
+

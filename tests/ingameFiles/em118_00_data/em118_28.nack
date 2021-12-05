@@ -1,0 +1,51 @@
+importactions Bazelgeuse as bazelgeuse
+importlibrary Global as Global
+
+def node_000
+	if [RegisterVar0 <= 15] 
+		[RegisterVar0 |-] 
+		conclude 
+	else 
+	endif 
+	[RegisterVar0 ++] 
+	>> node_001 
+	repeat 
+	conclude 
+endf 
+
+def node_001
+	>> Global.node_057 
+	self.targetEnemy(48) 
+	if self.distance_3d_to_target().leq(3500) 
+		>> node_002 
+	else 
+		>> node_003 
+	endif 
+	return 
+endf 
+
+def node_002
+	>> Global.node_052 
+	if self.flying() 
+		-> bazelgeuse.sniff_s_fly() 
+	else 
+		-> bazelgeuse.sniff_s() 
+	endif 
+	return 
+endf 
+
+def node_003
+	self.targetEnemy(58) 
+	random (10) >> Global.node_197 
+	elser (90) 
+	endr 
+	self.targetEnemy(21) @ parameter2:2000 
+	random (40) >> Global.node_051 
+	elser (60) 
+	endr 
+	random (70) >> Global.node_071 
+	elser (30) >> Global.node_054 
+	endr 
+	return 
+endf 
+

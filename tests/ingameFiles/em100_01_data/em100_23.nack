@@ -1,0 +1,33 @@
+importactions Fulgur_Anjanath as fulgur_anjanath
+
+def node_000
+	self.targetEnemy(target_em.closest_entity) 
+	>> node_001 
+	conclude 
+endf 
+
+def node_001
+	if self.target_is(em.Diablos) 
+		-> fulgur_anjanath.grapple_with_em007_mediation() 
+	elif self.target_is(em.Black_Diablos) 
+		-> fulgur_anjanath.grapple_with_em007_mediation() 
+	elif self.target_is(em.Nargacuga) 
+		-> fulgur_anjanath.grapple_with_em037_mediation() 
+	elif self.target_is(em.Barioth) 
+		-> fulgur_anjanath.grapple_with_em042_mediation() 
+	elif self.target_is(em.Frostfang_Barioth) 
+		-> fulgur_anjanath.grapple_with_em042_mediation() 
+	elif self.target_is(em.Zinogre) 
+		-> fulgur_anjanath.grapple_with_em057_mediation() 
+	elif self.target_is(em.Stygian_Zinogre) 
+		-> fulgur_anjanath.grapple_with_em057_mediation() 
+	elif self.target_is(em.Tigrex) 
+		-> fulgur_anjanath.grapple_with_em032_mediation() 
+	elif self.target_is(em.Brute_Tigrex) 
+		-> fulgur_anjanath.grapple_with_em032_mediation() 
+	elif self.target_is(em.Viper_TobiKadachi) 
+		-> fulgur_anjanath.grapple_with_em109_mediation() 
+	endif 
+	return 
+endf 
+

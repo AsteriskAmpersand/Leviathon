@@ -1,0 +1,20 @@
+importactions Banbaro as banbaro
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_103 
+	self.targetArea(51) 
+	>> node_001 
+	-> banbaro.in_ground() 
+	conclude 
+endf 
+
+def node_001
+	>> Global.node_153 
+	if self.distance_3d_to_target().leq(600) 
+	else 
+		repeat 
+	endif 
+	return 
+endf 
+

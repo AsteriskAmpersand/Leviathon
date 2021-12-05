@@ -1,0 +1,23 @@
+importactions Legiana as legiana
+importlibrary Global as Global
+
+def node_000
+	>> node_001 
+	>> node_001 
+	>> node_001 
+	>> node_001 
+	>> node_001 
+	conclude 
+endf 
+
+def node_001
+	>> Global.node_341 
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if self.distance_3d_to_target().leq(3500) 
+		>> Global.node_335 
+	else 
+		>> Global.node_336 
+	endif 
+	return 
+endf 
+

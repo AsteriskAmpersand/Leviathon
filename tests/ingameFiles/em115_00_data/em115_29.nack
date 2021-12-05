@@ -1,0 +1,80 @@
+importactions Vaal_Hazak as vaal_hazak
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_039 
+	>> Global.node_080 
+	>> node_001 
+	reset 
+endf 
+
+def node_001
+	self.targetEnemy(48) 
+	if self.in_map(st.Challenge_Arena).in_area(-1) 
+		>> node_004 
+	elif self.distance_3d_to_target().leq(3500) 
+		>> node_002 
+	else 
+		>> node_003 
+		>> Global.node_081 
+	endif 
+	return 
+endf 
+
+def node_002
+	>> Global.node_004 
+	if self.enraged() 
+		>> Global.node_049 
+	elif self.fatigued() 
+		>> Global.node_051 
+	else 
+		>> Global.node_048 
+	endif 
+	return 
+endf 
+
+def node_003
+	if self.targetEnemy(target_em.any_monster) 
+		random (20) >> Global.node_004 
+		elser (80) 
+		endr 
+	else 
+	endif 
+	if self.enraged() 
+		random (35) >> Global.node_011 
+		elser (15) >> Global.node_049 
+		elser (50) >> Global.node_048 
+		endr 
+	elif self.fatigued() 
+		>> Global.node_051 
+	else 
+		random (40) >> Global.node_011 
+		elser (60) >> Global.node_048 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_004
+	>> Global.node_004 
+	if self.enraged() 
+		random (35) >> Global.node_011 
+		elser (15) >> Global.node_049 
+		elser (50) >> Global.node_048 
+		endr 
+	elif self.fatigued() 
+		>> Global.node_051 
+	else 
+		random (60) >> Global.node_011 
+		elser (40) >> Global.node_048 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_005
+	>> Global.node_001 
+	-> vaal_hazak.dash(2,1,5,1500,800) 
+	return 
+endf 
+

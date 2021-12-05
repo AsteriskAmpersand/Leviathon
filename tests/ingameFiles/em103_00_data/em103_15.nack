@@ -1,0 +1,67 @@
+importactions Nergigante as nergigante
+importlibrary Global as Global
+
+def node_000
+	if self.in_map(st.Everstream).in_area(-1) 
+		>> node_004 
+	elif self.in_map(st.Great_Ravine).in_area(-1) 
+		>> node_004 
+	else 
+		>> Global.node_078 
+		>> node_003 
+		function#52() 
+		>> node_001 
+		>> node_002 
+	endif 
+	reset 
+endf 
+
+def node_001
+	self.targetArea(target_area.nearest_entrance) 
+	if function#57(2) 
+		>> Global.node_014 
+	else 
+		>> Global.node_014 
+	endif 
+	if self.distance_3d_to_target().leq(900) 
+	else 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_002
+	function#54() 
+	if function#57(2) 
+		>> Global.node_060 
+		function#56(4) 
+	else 
+		random (55) >> Global.node_050 
+		elser (45) >> Global.node_059 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_003
+	if self.flying() 
+		self.targetArea(target_area.area_aerial_center) 
+		>> Global.node_072 
+		self.targetArea(target_area.area_center) 
+		>> Global.node_073 
+	else 
+	endif 
+	return 
+endf 
+
+def node_004
+	>> Global.node_062 
+	random (40) >> Global.node_055 
+	elser (25) >> Global.node_029 
+	elser (5) >> Global.node_033 
+	elser (20) >> Global.node_034 
+	elser (10) >> Global.node_057 
+	endr 
+	return 
+endf 
+

@@ -1,0 +1,97 @@
+importactions Ruiner_Nergigante as ruiner_nergigante
+importlibrary Global as Global
+
+def node_000
+	if self.mounted() 
+		random (47) >> node_001 
+		elser (53) >> node_002 
+		endr 
+	else 
+		random (40) >> node_001 
+		elser (60) >> node_002 
+		endr 
+	endif 
+	reset 
+endf 
+
+def node_001
+	>> node_003 
+	function#A8() 
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if function#A9(0,1) 
+		>> node_004 => repeat 
+	elif function#A9(0,2) 
+		self.target_on_part(0) >> Global.node_066 => repeat 
+		self.target_on_part(1) >> Global.node_067 => repeat 
+		self.target_on_part(2) >> Global.node_068 => repeat 
+	elif function#A9(0,3) 
+		self.target_on_part(0) >> Global.node_066 => repeat 
+		self.target_on_part(1) >> Global.node_067 => repeat 
+		self.target_on_part(2) >> Global.node_068 => repeat 
+	else 
+		function#A8(1) 
+		>> Global.node_069 
+	endif 
+	return 
+endf 
+
+def node_002
+	>> node_003 
+	function#A8() 
+	self.targetEnemy(target_em.random_player_or_cat) 
+	if function#A9(0,1) 
+		>> node_004 => repeat 
+	elif function#A9(0,2) 
+		>> Global.node_069 => repeat 
+	elif function#A9(0,3) 
+		self.target_on_part(0) >> Global.node_066 => repeat 
+		self.target_on_part(1) >> Global.node_067 => repeat 
+		self.target_on_part(2) >> Global.node_068 => repeat 
+	else 
+		function#A8(1) 
+		>> Global.node_069 
+	endif 
+	return 
+endf 
+
+def node_003
+	if function#3B() 
+		if self.mount_staggered_twice() 
+			>> Global.node_064 
+		else 
+		endif 
+	else 
+		if self.mount_finisher_ready() 
+			if self.mounted() 
+				random (60) >> Global.node_064 
+				elser (40) 
+				endr 
+			else 
+				random (100) >> Global.node_064 
+				elser (0) 
+				endr 
+			endif 
+		elif self.mount_stabbed() 
+			if self.mounted() 
+				random (40) >> Global.node_064 
+				elser (60) 
+				endr 
+			else 
+				random (60) >> Global.node_064 
+				elser (40) 
+				endr 
+			endif 
+		else 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_004
+	if self.mounted() 
+		>> Global.node_065 
+	else 
+	endif 
+	return 
+endf 
+

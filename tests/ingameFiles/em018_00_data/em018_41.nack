@@ -1,0 +1,88 @@
+importactions Yian_Garuga as yian_garuga
+importlibrary Global as Global
+
+def node_000
+	self.targetArea(20) 
+	>> node_001 
+	self.targetArea(20) 
+	>> node_007 
+	conclude 
+endf 
+
+def node_001
+	if function#AD() 
+		>> node_002 
+	else 
+		>> node_003 
+	endif 
+	return 
+endf 
+
+def node_002
+	if self.flying() 
+		>> Global.node_230 
+	else 
+		if self.in_combat() 
+			>> Global.node_209 
+		else 
+			>> Global.node_209 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_003
+	>> node_004 
+	>> node_005 
+	>> node_006 
+	return 
+endf 
+
+def node_004
+	self.targetArea(target_area.area_aerial_center) 
+	if self.flying() 
+		>> Global.node_221 
+	else 
+		>> Global.node_004 
+	endif 
+	return 
+endf 
+
+def node_005
+	self.targetArea(20) 
+	if self.flying() 
+		self.targetArea(40) 
+		>> Global.node_222 
+	else 
+		self.targetArea(39) 
+		if self.in_combat() 
+			>> Global.node_209 
+		else 
+			>> Global.node_209 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_006
+	if self.flying() 
+		self.targetArea(target_area.area_center) 
+		>> Global.node_001 
+	else 
+	endif 
+	return 
+endf 
+
+def node_007
+	if self.flying() 
+		>> Global.node_224 
+	else 
+		if self.in_combat() 
+			>> Global.node_209 
+		else 
+			>> Global.node_209 
+		endif 
+	endif 
+	return 
+endf 
+

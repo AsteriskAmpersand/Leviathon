@@ -1,0 +1,65 @@
+importactions Brute_Tigrex as brute_tigrex
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_020 
+	if function#41() 
+		>> Global.node_028 => reset 
+	else 
+	endif 
+	>> Global.node_001 
+	>> Global.node_029 
+	>> node_001 => reset 
+	reset 
+endf 
+
+def node_001
+	self.targetEnemy(48) 
+	if self.in_map(st.Challenge_Arena).in_area(-1) 
+		>> node_004 
+	elif self.distance_3d_to_target().leq(3500) 
+		>> node_002 
+	else 
+		>> node_003 
+	endif 
+	return 
+endf 
+
+def node_002
+	>> Global.node_010 
+	if self.fatigued() 
+		-> brute_tigrex.tired() 
+	else 
+		random (40) -> brute_tigrex.wait() 
+		elser (60) -> brute_tigrex.sniff_s() 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_003
+	if self.targetEnemy(target_em.any_monster) 
+		random (20) >> Global.node_009 
+		elser (80) 
+		endr 
+	else 
+	endif 
+	random (20) -> brute_tigrex.sniff_s() 
+	elser (35) -> brute_tigrex.sniff_l() 
+	elser (20) -> brute_tigrex.search() 
+	elser (25) -> brute_tigrex.wait() 
+	endr 
+	return 
+endf 
+
+def node_004
+	>> Global.node_009 
+	random (30) >> Global.node_021 
+	elser (25) -> brute_tigrex.wait() 
+	elser (10) -> brute_tigrex.sniff_s() 
+	elser (15) -> brute_tigrex.sniff_l() 
+	elser (20) -> brute_tigrex.search() 
+	endr 
+	return 
+endf 
+

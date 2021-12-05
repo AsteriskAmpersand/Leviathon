@@ -1,0 +1,28 @@
+importactions Tigrex as tigrex
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_020 
+	self.targetArea(24) 
+	if self.distance_3d_to_target().gt(800) 
+		-> tigrex.walk_dying() 
+		repeat 
+	else 
+		>> node_001 
+	endif 
+	conclude 
+endf 
+
+def node_001
+	if function#7C() 
+		conclude 
+	else 
+		if function#C9() 
+			-> tigrex.dying_sleep(3,0,0,150) 
+		else 
+			function#CA() 
+		endif 
+	endif 
+	return 
+endf 
+

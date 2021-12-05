@@ -1,0 +1,169 @@
+importactions Ebony_Odogaron as ebony_odogaron
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_154 
+	>> Global.node_163 
+	>> Global.node_280 
+	function#52() 
+	self.targetArea(target_area.nearest_entrance) 
+	>> node_001 
+	>> node_008 
+	reset @ comboSetting:256 
+endf 
+
+def node_001
+	>> Global.node_245 
+	self.targetArea(target_area.nearest_entrance) 
+	if function#104(1) 
+		>> node_007 
+	elif function#57(1) 
+		>> Global.node_171 
+		>> node_003 
+	elif function#57(2) 
+		>> node_004 
+	elif function#57(3) 
+		>> node_005 
+	elif function#57(4) 
+		>> node_002 
+	elif function#57(5) 
+		>> node_006 
+	else 
+		>> node_002 
+	endif 
+	if self.distance_3d_to_target().leq(700) 
+		return 
+	else 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_002
+	>> Global.node_207 
+	return 
+endf 
+
+def node_003
+	>> Global.node_208 
+	return 
+endf 
+
+def node_004
+	>> Global.node_207 
+	return 
+endf 
+
+def node_005
+	>> Global.node_207 
+	return 
+endf 
+
+def node_006
+	>> Global.node_207 
+	return 
+endf 
+
+def node_007
+	>> Global.node_207 
+	return 
+endf 
+
+def node_008
+	if function#57(1) 
+		function#54() 
+		>> Global.node_171 
+		>> node_010 
+		function#56(4) 
+	elif function#57(2) 
+		>> node_011 
+		function#56(4) 
+	elif function#57(3) 
+		>> node_012 
+		function#56(4) 
+	elif function#57(4) 
+		>> node_009 
+	elif function#57(5) 
+		>> node_013 
+		function#56(4) 
+	else 
+		>> node_009 
+	endif 
+	return 
+endf 
+
+def node_009
+	>> Global.node_036 
+	if self.in_map(st.Special_Arena).in_area(-1) 
+		>> Global.node_283 
+	elif self.in_map(st.Challenge_Arena).in_area(-1) 
+		>> Global.node_283 
+	else 
+		if function#5A(10) 
+			function#54() 
+			if function#104(1) 
+				>> Global.node_168 
+			else 
+				>> Global.node_210 
+			endif 
+		else 
+			random (65) >> Global.node_283 
+			elser (25) >> Global.node_282 
+			elser (10) >> Global.node_284 
+			endr 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_010
+	>> Global.node_036 
+	>> Global.node_283 
+	return 
+endf 
+
+def node_011
+	>> Global.node_036 
+	>> Global.node_326 
+	function#54() 
+	>> Global.node_273 
+	>> Global.node_216 
+	return 
+endf 
+
+def node_012
+	>> Global.node_036 
+	function#54() 
+	>> Global.node_273 
+	>> Global.node_214 
+	return 
+endf 
+
+def node_013
+	>> Global.node_036 
+	function#54() 
+	>> Global.node_273 
+	>> Global.node_215 
+	return 
+endf 
+
+def node_014
+	>> Global.node_036 
+	if self.in_map(st.Special_Arena).in_area(-1) 
+		>> Global.node_283 
+	elif self.in_map(st.Challenge_Arena).in_area(-1) 
+		>> Global.node_283 
+	else 
+		if function#5A(10) 
+			function#54() 
+			>> Global.node_168 
+		else 
+			random (50) >> Global.node_283 
+			elser (30) >> Global.node_282 
+			elser (20) >> Global.node_284 
+			endr 
+		endif 
+	endif 
+	return 
+endf 
+

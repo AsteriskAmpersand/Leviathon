@@ -1,0 +1,161 @@
+importactions Dodogama as dodogama
+importlibrary Global as Global
+
+def node_000
+	function#52() 
+	>> node_001 
+	>> node_002 
+	reset 
+endf 
+
+def node_001
+	>> Global.node_003 
+	self.targetArea(target_area.nearest_entrance) 
+	if function#57(1) 
+		>> node_004 
+	elif function#57(2) 
+		>> node_005 
+	elif function#57(3) 
+		>> node_006 
+	elif function#57(5) 
+		>> node_007 
+	else 
+		>> node_003 
+	endif 
+	self.targetArea(target_area.nearest_entrance) 
+	if self.distance_3d_to_target().leq(600) 
+		return 
+	else 
+		repeat 
+	endif 
+	reset 
+endf 
+
+def node_002
+	if function#57(1) 
+		>> node_009 
+	elif function#57(2) 
+		>> node_010 
+	elif function#57(3) 
+		>> node_011 
+	elif function#57(5) 
+		>> node_012 
+	elif function#57(4) 
+		>> node_008 
+	else 
+		function#54() 
+		-> dodogama.idle() 
+	endif 
+	return 
+endf 
+
+def node_003
+	self.targetArea(target_area.nearest_entrance) 
+	-> dodogama.walk(2,1,5,1000,500) 
+	return 
+endf 
+
+def node_004
+	self.targetArea(target_area.nearest_entrance) 
+	-> dodogama.walk(2,1,5,1000,600) 
+	return 
+endf 
+
+def node_005
+	self.targetArea(target_area.nearest_entrance) 
+	-> dodogama.walk(2,1,5,1000,600) 
+	return 
+endf 
+
+def node_006
+	self.targetArea(target_area.nearest_entrance) 
+	-> dodogama.walk(2,1,5,1000,500) 
+	return 
+endf 
+
+def node_007
+	self.targetArea(target_area.nearest_entrance) 
+	-> dodogama.walk(2,1,5,1000,500) 
+	return 
+endf 
+
+def node_008
+	self.targetEnemy(17) 
+	>> node_014 
+	function#54() 
+	return 
+endf 
+
+def node_009
+	self.targetArea(target_area.nearest_entrance) 
+	if self.distance_3d_to_target().leq(200) 
+	else 
+		>> Global.node_032 
+		-> dodogama.walk(2,1,5,500,200) 
+		repeat 
+	endif 
+	function#54() 
+	self.targetEnemy(17) 
+	>> Global.node_032 
+	>> node_014 
+	>> Global.node_123 
+	return 
+endf 
+
+def node_010
+	self.targetArea(target_area.nearest_entrance) 
+	if self.distance_3d_to_target().leq(200) 
+	else 
+		>> Global.node_032 
+		-> dodogama.walk(2,1,5,500,200) 
+		repeat 
+	endif 
+	function#54() 
+	>> node_013 
+	self.targetEnemy(17) 
+	>> Global.node_032 
+	>> Global.node_126 
+	return 
+endf 
+
+def node_011
+	function#54() 
+	self.targetEnemy(17) 
+	>> node_013 
+	if self.angular_17(340,20) 
+		-> dodogama.turn() 
+	else 
+	endif 
+	-> dodogama.damage_self_destruct() 
+	return 
+endf 
+
+def node_012
+	function#54() 
+	>> node_013 
+	-> dodogama.search() 
+	return 
+endf 
+
+def node_013
+	if self.in_map(st.Special_Arena).in_area(-1) 
+	elif self.in_map(st.Challenge_Arena).in_area(-1) 
+	else 
+		random (25) >> Global.node_015 
+		elser (75) 
+		endr 
+	endif 
+	return 
+endf 
+
+def node_014
+	if self.in_map(st.Special_Arena).in_area(-1) 
+		-> dodogama.search() 
+	elif self.in_map(st.Challenge_Arena).in_area(-1) 
+		-> dodogama.search() 
+	else 
+		>> Global.node_015 
+	endif 
+	return 
+endf 
+

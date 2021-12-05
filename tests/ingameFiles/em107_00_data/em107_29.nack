@@ -1,0 +1,155 @@
+importactions KuluYaKu as kuluyaku
+importlibrary Global as Global
+
+def node_000
+	>> Global.node_024 
+	>> Global.node_023 
+	>> node_001 => reset 
+	reset 
+endf 
+
+def node_001
+	self.targetEnemy(48) 
+	if self.in_map(st.Challenge_Arena).in_area(-1) 
+		>> node_004 
+	else 
+		if self.distance_3d_to_target().leq(3500) 
+			>> node_002 
+		else 
+			>> node_003 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_002
+	if self.target(7) 
+		>> node_007 
+	elif self.target(10) 
+		>> node_008 
+		*&
+	else 
+		>> node_005 
+		if self.enraged() 
+			>> Global.node_066 
+		elif self.fatigued() 
+			>> Global.node_067 
+		else 
+			>> Global.node_066 
+		endif 
+	endif 
+	return 
+endf 
+
+def node_003
+	if self.targetEnemy(target_em.any_monster) 
+		random (20) >> node_005 
+		elser (80) 
+		endr 
+	else 
+	endif 
+	random (30) >> Global.node_059 
+	elser (0) >> Global.node_064 
+	elser (20) >> Global.node_062 
+	elser (30) >> Global.node_063 
+	elser (20) 
+				if self.fatigued() 
+					>> Global.node_067 
+				else 
+					>> Global.node_066 
+				endif 
+	endr 
+	return 
+endf 
+
+def node_004
+	>> node_005 
+	random (35) 
+				if 
+					>> Global.node_067 
+				else 
+					>> Global.node_066 
+				endif 
+	elser (15) >> Global.node_059 
+	elser (50) >> Global.node_057 
+	endr 
+	return 
+endf 
+
+def node_005
+	if self.angle_2d_cw_between(50,310) 
+		>> Global.node_070 
+	else 
+		>> Global.node_095 
+	endif 
+	return 
+endf 
+
+def node_006
+	if self.angle_2d_cw_between(120,240) 
+		>> Global.node_070 
+	else 
+		>> Global.node_095 
+	endif 
+	return 
+endf 
+
+def node_007
+	if self.distance_3d_to_target().leq(500) 
+	else 
+		>> node_009 
+	endif 
+	if self.angle_2d_cw_between(60,300) 
+		>> Global.node_071 
+	else 
+	endif 
+	>> Global.node_061 
+	return 
+endf 
+
+def node_008
+	if self.distance_3d_to_target().leq(500) 
+		>> Global.node_068 
+	else 
+	endif 
+	>> Global.node_071 
+	>> Global.node_083 
+	return 
+endf 
+
+def node_009
+	self.targetArea(1) 
+	>> node_010 
+	>> node_011 
+	return 
+endf 
+
+def node_010
+	if self.enraged() 
+		>> Global.node_064 
+	else 
+		>> Global.node_062 
+	endif 
+	return 
+endf 
+
+def node_011
+	>> Global.node_018 
+	if self.distance_3d_to_target().leq(500) 
+		return 
+	else 
+		>> node_012 
+		repeat 
+	endif 
+	return 
+endf 
+
+def node_012
+	if self.enraged() 
+		>> Global.node_064 
+	else 
+		>> Global.node_060 
+	endif 
+	return 
+endf 
+
