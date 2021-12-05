@@ -8,10 +8,8 @@ Created on Sun Oct 17 19:42:07 2021
 import argparse
 import sys
 from pathlib import Path
-from decompiler import THKTranspiler,THKLTranspiler,TranspilerSettings
-from fexLayer import buildResolver
-
-#buildResolver(r'default.fexty')
+from decompiler.decompiler import THKTranspiler,THKLTranspiler,DecompilerSettings
+from common.fexLayer import buildResolver
 
 def generateArgParse():
     parser = argparse.ArgumentParser(description='Leviathon Decompiler')
@@ -47,7 +45,7 @@ def generateArgParse():
     return parser
 
 def buildSettings(args):
-    settings = TranspilerSettings()
+    settings = DecompilerSettings()
     settingsRemap = {"nullShow":"keepVoid","lastShow":"keepLast","indexShow":"forceIndex",
                      "idShow":"forceId","xreferences":"listCrossreferences",
                      "raiseInvalidReferences":"raiseInvalidReferences","warningsHide":"supressWarnings",
@@ -60,13 +58,13 @@ def buildSettings(args):
     
 def pickDecompiler(inputFile,settings):
     extension = Path(inputFile).suffix
-    decompilers = {'.thlst':THKLTranspiler,".thk":THKTranspiler}
+    decompilers = {'.thklst':THKLTranspiler,".thk":THKTranspiler}
     if extension not in decompilers:
         raise ValueError("%s is not a .thklst or .thk file"%inputFile)
     decomp = decompilers[extension]
     return decomp(settings)
     
-if __name__ in "__main__":
+def main():
     parser = generateArgParse()    
     args = parser.parse_args(sys.argv[1:])
     settings = buildSettings(args)
@@ -77,4 +75,5 @@ if __name__ in "__main__":
     else:
         decompiler.read(args.input).writeFile()
     
-    
+if __name__ in "__main__":
+    main()
