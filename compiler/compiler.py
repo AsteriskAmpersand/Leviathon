@@ -93,9 +93,37 @@ def fandCompile(fand,settings,output = print):
     return
     
 if __name__ in "__main__":
-    settings = CompilerSettings()
-    settings.verbose = True
-    settings.thklistPath = r"test.thklst"
-    settings.outputRoot = r"D:\Games SSD\MHW-AI-Analysis\TestOutput"
-    populateDefaultSettings(settings)
-    fandCompile(r"D:\Games SSD\MHW-AI-Analysis\KushalaTest\em024.fand",settings)
+    def void(*args,**kwargs):
+        pass
+    
+    def testCompile(folder,file):
+        ts = CompilerSettings()
+        
+        settings = CompilerSettings()
+        settings.verbose = False
+        settings.thklistPath = file.stem+".thklst"
+        settings.outputRoot = folder
+        ts.display = void
+        populateDefaultSettings(settings)
+        fandCompile(file,ts)
+        
+
+    inRoot = Path(r"D:\Games SSD\MHW-AI-Analysis\Leviathon\tests\ingameFiles")
+    outRoot = Path(r"D:\Games SSD\MHW-AI-Analysis\Leviathon\tests\ingameOutputs")
+    errors = []
+    lst = list(inRoot.rglob("*.fand"))
+    for path in lst:
+        s = path.parent.stem
+        (outRoot/s).mkdir(parents = True, exist_ok = True)
+        try:
+            testCompile(str(outRoot/s),str(path))
+        except:
+            testCompile(str(outRoot/s),str(path))
+            try:
+                testCompile(str(outRoot/s),str(path))
+            except:
+                print ("Errored",path)
+                errors.append(path)
+                #raise
+                
+    #fandCompile(r"D:\Games SSD\MHW-AI-Analysis\KushalaTest\em024.fand",settings)
