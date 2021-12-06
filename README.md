@@ -1,5 +1,5 @@
 # Leviathon
-![Project Logo](https://github.com/AsteriskAmpersand/Leviathon/blob/main/Leviathon.fw.png?raw=true)
+![Project Logo](https://github.com/AsteriskAmpersand/Leviathon/blob/main/assets/Leviathon.fw.png?raw=true)
 A simple language and reference decompiler/compiler for MHW THK Files.
 
 ## Project Goals
@@ -41,10 +41,11 @@ Monster THK editing is a rich and storied field which has had numerous contribut
 Additional credit is given to Fandirus, NackDN, Silvris and Fexty for assisting with the language specification and target feature list.
 
 # The ABC Reference Compiler-Decompiler
-<img src="https://github.com/AsteriskAmpersand/Leviathon/blob/main/CompilerLogo.fw.png?raw=true" alt="Compiler Logot" width=450>
+<img src="https://github.com/AsteriskAmpersand/Leviathon/blob/main/assets/CompilerLogo.fw.png?raw=true" alt="Compiler Logot" width=450>
 
 A reference Compiler-Decompiler which implements the Leviathon Specification is provided for actual practical usage. 
 
-The decompiler is written in Python using the Construct library for binary parsing. 
+The compiler and decompiler are written in Python using the Construct library for binary parsing. 
+A full list of of the available commands and documentation of the compilation process is planned.
 
 
