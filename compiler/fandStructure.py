@@ -196,7 +196,7 @@ class FandStructure(ErrorManaged):
         elif self.settings.projectNames == "nackFile":
             result = module.path.stem
         elif self.settings.projectNames == "index":
-            result = "%s_%02d"%(self.settings.thklistPath,scopeToIndex[scopeName])
+            result = "%s_%02d"%(Path(self.settings.thklistPath).stem,scopeToIndex[scopeName])
         else: 
             raise KeyError("Invalid Project Naming Setting")
         thklPath = self.relative + "/" + result     

@@ -109,18 +109,18 @@ if __name__ in "__main__":
         except:
             print("Errored",file)
             errors.append(file)
-            raise
 
     inRoot = Path(r"D:\Games SSD\MHW-AI-Analysis\Leviathon\tests\ingameFiles")
     outRoot = Path(r"D:\Games SSD\MHW-AI-Analysis\Leviathon\tests\ingameOutputs")
     errors = []
-    em_lst = []
+    em_lst = [r"D:\Games SSD\MHW-AI-Analysis\Leviathon\tests\ingameFiles\em045_00_data\em045.fand",
+              r"D:\Games SSD\MHW-AI-Analysis\Leviathon\tests\ingameFiles\em114_00_data\em114.fand"]
     ems_lst = []
     lst = list(map(Path,em_lst + ems_lst))# ))# 
     #lst = list(inRoot.rglob("*.fand"))
-    #lst = [Path(r"D:\Games SSD\MHW-AI-Analysis\Leviathon\tests\ingameFiles\em007_00_data\em007.fand")]
+    #lst = [Path(r'D:/Games SSD/MHW-AI-Analysis/InlineTest/em001 - Copy.fand')]
     for path in lst:
-       # print(path)
+        print(path)
         s = path.parent.stem
         (outRoot/s).mkdir(parents = True, exist_ok = True)
         testCompile(str(outRoot/s),(path))

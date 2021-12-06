@@ -40,8 +40,8 @@ Rule 36    segment -> chance
 Rule 37    chance -> chanceHeader actionTypeStart nodeBody chanceBody uncontrolledSegment nodeBody optionalChance
 Rule 38    optionalChance -> optionalTerminator
 Rule 39    optionalChance -> chanceBody actionTypeStart nodeBody optionalChance
-Rule 40    optionalTerminator -> ENDRANDOMWITH uncontrolledSegment skip
-Rule 41    optionalTerminator -> ENDRWITH uncontrolledSegment skip
+Rule 40    optionalTerminator -> ENDRANDOMWITH uncontrolledSegment
+Rule 41    optionalTerminator -> ENDRWITH uncontrolledSegment
 Rule 42    optionalTerminator -> ENDRANDOM skip
 Rule 43    optionalTerminator -> ENDR skip
 Rule 44    chanceHeader -> RANDOM ( id )
@@ -271,7 +271,7 @@ registerContent      : 112
 registerDeclaration  : 4
 registerType         : 68
 segment              : 27
-skip                 : 1 8 9 10 11 12 13 14 15 19 28 29 30 31 32 40 41 42 43 52 55 57 135
+skip                 : 1 8 9 10 11 12 13 14 15 19 28 29 30 31 32 42 43 52 55 57 135
 uncontrolledSegment  : 33 34 37 40 41 50 51
 
 
@@ -3685,8 +3685,8 @@ state 234
     (37) chance -> chanceHeader actionTypeStart nodeBody chanceBody uncontrolledSegment nodeBody . optionalChance
     (38) optionalChance -> . optionalTerminator
     (39) optionalChance -> . chanceBody actionTypeStart nodeBody optionalChance
-    (40) optionalTerminator -> . ENDRANDOMWITH uncontrolledSegment skip
-    (41) optionalTerminator -> . ENDRWITH uncontrolledSegment skip
+    (40) optionalTerminator -> . ENDRANDOMWITH uncontrolledSegment
+    (41) optionalTerminator -> . ENDRWITH uncontrolledSegment
     (42) optionalTerminator -> . ENDRANDOM skip
     (43) optionalTerminator -> . ENDR skip
     (46) chanceBody -> . elsechance ( id )
@@ -3918,7 +3918,7 @@ state 248
 
 state 249
 
-    (40) optionalTerminator -> ENDRANDOMWITH . uncontrolledSegment skip
+    (40) optionalTerminator -> ENDRANDOMWITH . uncontrolledSegment
     (55) uncontrolledSegment -> . directiveName maybeMetaType skip
     (56) uncontrolledSegment -> . maybeFunctionType actionTypeStart
     (106) directiveName -> . REPEAT
@@ -3958,7 +3958,7 @@ state 249
 
 state 250
 
-    (41) optionalTerminator -> ENDRWITH . uncontrolledSegment skip
+    (41) optionalTerminator -> ENDRWITH . uncontrolledSegment
     (55) uncontrolledSegment -> . directiveName maybeMetaType skip
     (56) uncontrolledSegment -> . maybeFunctionType actionTypeStart
     (106) directiveName -> . REPEAT
@@ -4190,21 +4190,71 @@ state 260
 
 state 261
 
-    (40) optionalTerminator -> ENDRANDOMWITH uncontrolledSegment . skip
-    (135) skip -> . LINESKIP skip
-    (136) skip -> . LINESKIP
-    LINESKIP        shift and go to state 4
+    (40) optionalTerminator -> ENDRANDOMWITH uncontrolledSegment .
+    DO_NOTHING      reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment .)
+    UNSAFE          reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment .)
+    CONCLUDE        reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment .)
+    IF              reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment .)
+    REPEAT          reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment .)
+    RESET           reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment .)
+    RETURN          reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment .)
+    RANDOM          reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment .)
+    [               reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment .)
+    FUNCTION        reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment .)
+    FUNCTION_START  reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment .)
+    DO_ACTION       reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment .)
+    DO_CALL         reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment .)
+    DO_DIRECTIVE    reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment .)
+    META            reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment .)
+    LINESKIP        reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment .)
+    ENDFUNCTION     reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment .)
+    ENDDEF          reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment .)
+    ENDF            reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment .)
+    ENDWITH         reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment .)
+    ENDIF           reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment .)
+    ELSE            reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment .)
+    ELIF            reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment .)
+    ELSER           reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment .)
+    ELSERANDOM      reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment .)
+    ENDRANDOMWITH   reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment .)
+    ENDRWITH        reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment .)
+    ENDRANDOM       reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment .)
+    ENDR            reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment .)
 
-    skip                           shift and go to state 267
 
 state 262
 
-    (41) optionalTerminator -> ENDRWITH uncontrolledSegment . skip
-    (135) skip -> . LINESKIP skip
-    (136) skip -> . LINESKIP
-    LINESKIP        shift and go to state 4
+    (41) optionalTerminator -> ENDRWITH uncontrolledSegment .
+    DO_NOTHING      reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment .)
+    UNSAFE          reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment .)
+    CONCLUDE        reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment .)
+    IF              reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment .)
+    REPEAT          reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment .)
+    RESET           reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment .)
+    RETURN          reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment .)
+    RANDOM          reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment .)
+    [               reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment .)
+    FUNCTION        reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment .)
+    FUNCTION_START  reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment .)
+    DO_ACTION       reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment .)
+    DO_CALL         reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment .)
+    DO_DIRECTIVE    reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment .)
+    META            reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment .)
+    LINESKIP        reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment .)
+    ENDFUNCTION     reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment .)
+    ENDDEF          reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment .)
+    ENDF            reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment .)
+    ENDWITH         reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment .)
+    ENDIF           reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment .)
+    ELSE            reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment .)
+    ELIF            reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment .)
+    ELSER           reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment .)
+    ELSERANDOM      reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment .)
+    ENDRANDOMWITH   reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment .)
+    ENDRWITH        reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment .)
+    ENDRANDOM       reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment .)
+    ENDR            reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment .)
 
-    skip                           shift and go to state 268
 
 state 263
 
@@ -4285,8 +4335,8 @@ state 266
     (39) optionalChance -> chanceBody actionTypeStart nodeBody . optionalChance
     (38) optionalChance -> . optionalTerminator
     (39) optionalChance -> . chanceBody actionTypeStart nodeBody optionalChance
-    (40) optionalTerminator -> . ENDRANDOMWITH uncontrolledSegment skip
-    (41) optionalTerminator -> . ENDRWITH uncontrolledSegment skip
+    (40) optionalTerminator -> . ENDRANDOMWITH uncontrolledSegment
+    (41) optionalTerminator -> . ENDRWITH uncontrolledSegment
     (42) optionalTerminator -> . ENDRANDOM skip
     (43) optionalTerminator -> . ENDR skip
     (46) chanceBody -> . elsechance ( id )
@@ -4301,79 +4351,11 @@ state 266
     ELSERANDOM      shift and go to state 186
 
     chanceBody                     shift and go to state 246
-    optionalChance                 shift and go to state 269
+    optionalChance                 shift and go to state 267
     optionalTerminator             shift and go to state 248
     elsechance                     shift and go to state 184
 
 state 267
-
-    (40) optionalTerminator -> ENDRANDOMWITH uncontrolledSegment skip .
-    DO_NOTHING      reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment skip .)
-    UNSAFE          reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment skip .)
-    CONCLUDE        reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment skip .)
-    IF              reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment skip .)
-    REPEAT          reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment skip .)
-    RESET           reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment skip .)
-    RETURN          reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment skip .)
-    RANDOM          reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment skip .)
-    [               reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment skip .)
-    FUNCTION        reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment skip .)
-    FUNCTION_START  reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment skip .)
-    DO_ACTION       reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment skip .)
-    DO_CALL         reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment skip .)
-    DO_DIRECTIVE    reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment skip .)
-    META            reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment skip .)
-    LINESKIP        reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment skip .)
-    ENDFUNCTION     reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment skip .)
-    ENDDEF          reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment skip .)
-    ENDF            reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment skip .)
-    ENDWITH         reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment skip .)
-    ENDIF           reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment skip .)
-    ELSE            reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment skip .)
-    ELIF            reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment skip .)
-    ELSER           reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment skip .)
-    ELSERANDOM      reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment skip .)
-    ENDRANDOMWITH   reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment skip .)
-    ENDRWITH        reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment skip .)
-    ENDRANDOM       reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment skip .)
-    ENDR            reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment skip .)
-
-
-state 268
-
-    (41) optionalTerminator -> ENDRWITH uncontrolledSegment skip .
-    DO_NOTHING      reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment skip .)
-    UNSAFE          reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment skip .)
-    CONCLUDE        reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment skip .)
-    IF              reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment skip .)
-    REPEAT          reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment skip .)
-    RESET           reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment skip .)
-    RETURN          reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment skip .)
-    RANDOM          reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment skip .)
-    [               reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment skip .)
-    FUNCTION        reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment skip .)
-    FUNCTION_START  reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment skip .)
-    DO_ACTION       reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment skip .)
-    DO_CALL         reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment skip .)
-    DO_DIRECTIVE    reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment skip .)
-    META            reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment skip .)
-    LINESKIP        reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment skip .)
-    ENDFUNCTION     reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment skip .)
-    ENDDEF          reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment skip .)
-    ENDF            reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment skip .)
-    ENDWITH         reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment skip .)
-    ENDIF           reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment skip .)
-    ELSE            reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment skip .)
-    ELIF            reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment skip .)
-    ELSER           reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment skip .)
-    ELSERANDOM      reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment skip .)
-    ENDRANDOMWITH   reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment skip .)
-    ENDRWITH        reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment skip .)
-    ENDRANDOM       reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment skip .)
-    ENDR            reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment skip .)
-
-
-state 269
 
     (39) optionalChance -> chanceBody actionTypeStart nodeBody optionalChance .
     DO_NOTHING      reduce using rule 39 (optionalChance -> chanceBody actionTypeStart nodeBody optionalChance .)

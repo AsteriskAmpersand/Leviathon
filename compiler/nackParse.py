@@ -309,8 +309,8 @@ class NackParser(Parser):
         s = abc.Segment()
         s.endChance()
         return s
-    @_("ENDRWITH uncontrolledSegment skip",
-       "ENDRANDOMWITH uncontrolledSegment skip")
+    @_("ENDRWITH uncontrolledSegment",
+       "ENDRANDOMWITH uncontrolledSegment")
     def optionalTerminator(self,p):
         s = p.uncontrolledSegment
         s.endChance()
@@ -693,7 +693,7 @@ def moduleParse(path,thkmap,scope,settings,parent = None,external = False):
     return module
 
 if __name__ == '__main__':
-    with open(r"D:\Games SSD\MHW-AI-Analysis\Leviathon\tests\ingameFiles\em007_00_data\em007_36.nack") as inf:
+    with open(r'D:\Games SSD\MHW-AI-Analysis\InlineTest\endrTest.nack') as inf:
         data = inf.read()
     lexer = NackLexer()
     tokenized = list(lexer.tokenize(data))
