@@ -695,6 +695,22 @@ def moduleParse(path,thkmap,scope,settings,parent = None,external = False):
 if __name__ == '__main__':
     with open(r'D:\Games SSD\MHW-AI-Analysis\InlineTest\endrTest.nack') as inf:
         data = inf.read()
+    data = """
+    def node_373
+	if self.fatigued() 
+	elif function#2() 
+		[RegisterVar4 |-] 
+	else 
+		[RegisterVar4 ++] 
+		if [RegisterVar4 <= 18] 
+			[RegisterVar4 |-] 
+			>> node_374 
+		else 
+		endif 
+	endif 
+	return 
+endf
+    """
     lexer = NackLexer()
     tokenized = list(lexer.tokenize(data))
     parser = NackParser()

@@ -318,7 +318,7 @@ class NackFile(ErrorManaged):
                 self.nodes.append(node)
             serialNodes.append(node.compileProperties())
         headerSize = 0x20
-        baseOffset = 0x10+len(serialNodes)+headerSize
+        baseOffset = 0x10*len(serialNodes)+headerSize
         offset = baseOffset
         for node in serialNodes:
             node["offset"] = offset

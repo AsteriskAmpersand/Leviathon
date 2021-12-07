@@ -199,7 +199,7 @@ class FandStructure(ErrorManaged):
             result = "%s_%02d"%(Path(self.settings.thklistPath).stem,scopeToIndex[scopeName])
         else: 
             raise KeyError("Invalid Project Naming Setting")
-        thklPath = self.relative + "/" + result     
+        thklPath = self.relative + "\\" + result     
         if absp in previousFiles:
             previousPaths[scopeName] = previousFiles[absp]
             return

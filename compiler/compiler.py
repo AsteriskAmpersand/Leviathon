@@ -89,6 +89,8 @@ def fandCompile(fand, settings, output=print):
         report("Resolving Function Names")
         wrapCall(project.resolveFunctions(settings.functionResolver))
         report("Compiling to Binary")
+        if settings.verbose:
+            settings.display(repr(project))
         wrapCall(project.compileProperties())
         wrapCall(project.serialize(Path(settings.outputRoot)))
         report("Project Compilation Complete")
@@ -109,7 +111,7 @@ if __name__ in "__main__":
         settings.verbose = False
         settings.thklistPath = file.stem+".thklst"
         settings.outputRoot = folder
-        #settings.display = void
+        settings.display = void
         populateDefaultSettings(settings)
         try:
             fandCompile(str(file), settings)
@@ -126,11 +128,12 @@ if __name__ in "__main__":
     ems_lst = []
     #lst = list(map(Path,em_lst + ems_lst))# ))#
     lst = list(inRoot.rglob("*.fand"))
-    #lst = [Path(r'D:/Games SSD/MHW-AI-Analysis/InlineTest/em001 - Copy.fand')]
+    lst = [Path(r'C:/Users/Asterisk/Downloads/Slos (1)/em/em002/82/data/em002.fand')]
     for path in lst:
         print(path)
         s = path.parent.stem
         (outRoot/s).mkdir(parents=True, exist_ok=True)
-        testCompile(str(outRoot/s), (path))
+        testCompile(path.parent/"Compiled",path)
+        #testCompile(str(outRoot/s), (path))
 
     #fandCompile(r"D:\Games SSD\MHW-AI-Analysis\Leviathon\tests\ingameFiles\em007_00_data\em007.fand",settings)
