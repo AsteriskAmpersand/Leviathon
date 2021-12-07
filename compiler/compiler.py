@@ -123,17 +123,17 @@ if __name__ in "__main__":
     outRoot = Path(
         r"D:\Games SSD\MHW-AI-Analysis\Leviathon\tests\ingameOutputs")
     errors = []
-    em_lst = [r"D:\Games SSD\MHW-AI-Analysis\Leviathon\tests\ingameFiles\em045_00_data\em045.fand",
-              r"D:\Games SSD\MHW-AI-Analysis\Leviathon\tests\ingameFiles\em114_00_data\em114.fand"]
-    ems_lst = []
+    #em_lst = [r"D:\Games SSD\MHW-AI-Analysis\Leviathon\tests\ingameFiles\em045_00_data\em045.fand",
+    #          r"D:\Games SSD\MHW-AI-Analysis\Leviathon\tests\ingameFiles\em114_00_data\em114.fand"]
+    #ems_lst = []
     #lst = list(map(Path,em_lst + ems_lst))# ))#
     lst = list(inRoot.rglob("*.fand"))
-    lst = [Path(r'C:/Users/Asterisk/Downloads/Slos (1)/em/em002/82/data/em002.fand')]
+    #lst = [Path(r'C:/Users/Asterisk/Downloads/Slos (1)/em/em002/82/data/em002.fand')]
     for path in lst:
         print(path)
         s = path.parent.stem
         (outRoot/s).mkdir(parents=True, exist_ok=True)
-        testCompile(path.parent/"Compiled",path)
-        #testCompile(str(outRoot/s), (path))
+        #testCompile(path.parent/"Compiled",path)
+        testCompile(str(outRoot/s), (path))
 
     #fandCompile(r"D:\Games SSD\MHW-AI-Analysis\Leviathon\tests\ingameFiles\em007_00_data\em007.fand",settings)

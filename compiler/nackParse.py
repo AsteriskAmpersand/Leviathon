@@ -12,8 +12,9 @@ import logging
 import itertools
 import re
 
-from compiler.nackLex import NackLexer
 from compiler import nackStructures as abc
+from compiler.macroParser import macroProcessor
+from compiler.nackLex import NackLexer
 from compiler.errorHandler import ErrorManaged
 from compiler.compilerErrors import SemanticError
 
@@ -59,7 +60,7 @@ class THKModule(ErrorManaged):
     def parse(self):
         parsedStructure = None
         if self.decompilable:
-            parsedStructure = parseNack(self.path)
+            parsedStructure = parseNack(self.path,self.settings)
         self.parsedStructure = parsedStructure
         self.parsedStructure.parent = self
         self.subfields = ["parsedStructure"]
@@ -677,10 +678,13 @@ def outputTokenization(tokenized):
         else:
             print(t.value, end= '')
             
-def parseNack(file):
+def parseNack(file,settings=None):
     #print('parseNack',file)
     with open(file,"r") as inf:
         data = inf.read() + "\n"
+    if settings is not None and settings.preprocessor:
+        display = settings.display
+        macroProcessor(data,display)
     lexer = NackLexer()
     tokenized = lexer.tokenize(data)
     parser = NackParser()

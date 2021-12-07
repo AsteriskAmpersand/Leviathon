@@ -43,6 +43,8 @@ class NodeDecompiler(Decompiler):
         header += "\n"
         return header
     def malformedTHK(self,indentationDepth,segmentString):
+        if self.settings.suppressWarnings:
+            return ""
         placeholder = "*& " if self.settings.genPlaceholder else ""
         return '\t'*indentationDepth+placeholder+\
                 "// -Illegal Context was commented out '" +\
@@ -79,5 +81,6 @@ class NodeDecompiler(Decompiler):
             item = enclosure.pop()
             indentationDepth -= 1
             result += '\t'*indentationDepth + item
-            result += " // -Added by the Decompiler to ammend syntactically malformed thk\n"
+            if not self.settings.suppressWarnings:
+                result += " // -Added by the Decompiler to ammend syntactically malformed thk\n"
         return result+"\n"

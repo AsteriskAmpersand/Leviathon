@@ -26,8 +26,8 @@ def generateArgParse():
                         help="Preserve each node's index in the file")
     parser.add_argument('-idShow', action='store_true',  # aliases=['sId'],
                         help='Preserve node Id in the file')
-    parser.add_argument('-xreferences', action='store_true',  # aliases=['xref'],
-                        help='Adds a comment before each node listing all nodes that call it in the project')
+    #parser.add_argument('-xreferences', action='store_true',  # aliases=['xref'],
+    #                    help='Adds a comment before each node listing all nodes that call it in the project')
     parser.add_argument('-raiseInvalidReferences', action='store_true',  # aliases=['iRef'],
                         help='Stop decompilation if an illegal call is found')
     parser.add_argument('-warningsHide', action='store_true',  # aliases=['w'],
