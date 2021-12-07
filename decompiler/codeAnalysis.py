@@ -183,8 +183,8 @@ def cojoinedMatching(parentPath, childPath):
     root = rootMatch(parentPath,childPath)
     if root:
         return (root / childPath)
-    return fallthroughMatch(parentPath,childPath)/childPath
-        
+    return fallthroughMatch(parentPath, childPath)/childPath
+
 class THKSummary():
     #Make a directed graph of the entire folder of thk
     def __init__(self,trace,thklist):

@@ -133,7 +133,7 @@ class NackParser(Parser):
     log.setLevel(logging.ERROR)
     # Get the token list from the lexer (required)
     tokens = NackLexer.tokens
-    debugfile = 'nackParser.out'
+    #debugfile = 'nackParser.out'
 
     def parse(self,iterableTokens):
         self.file = abc.NackFile()

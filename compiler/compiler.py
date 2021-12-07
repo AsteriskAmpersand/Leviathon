@@ -22,16 +22,15 @@ from common.monsterEnum import loadEntities
 #         self.root = None
 #         self.relative = None
 #         self.monster = None
-#         self.registerNames = {}        
+#         self.registerNames = {}
 #         self.unindexedTargets = []
-#         self.indexedTargets = {}        
-#         self.scopeNames = {}        
-#         self.count = -1            
+#         self.indexedTargets = {}
+#         self.scopeNames = {}
+#         self.count = -1
 
 
-
-#incompleteSpecification()
-#thkMap
+# incompleteSpecification()
+# thkMap
 def populateDefaultSettings(settings):
     if settings.entityMap is None:
         actionResolver = loadActionMaps()
@@ -40,33 +39,40 @@ def populateDefaultSettings(settings):
     entityResolver = loadEntities(actionResolver)
     settings.entityMap = entityResolver
     if settings.functionResolver is None:
-        settings.functionResolver = buildCompiler().resolve    
+        settings.functionResolver = buildCompiler().resolve
     else:
-        settings.functionResolver = buildCompiler(settings.functionResolver).resolve        
+        settings.functionResolver = buildCompiler(
+            settings.functionResolver).resolve
     if settings.thkMap is None:
         settings.thkMap = loadTHKMaps().moduleToThk
+
 
 class CompilationError(Exception):
     pass
 
-def nackCompile(nack,settings,output = print):
+
+def nackCompile(nack, settings, output=print):
     pass
 
-def fandCompile(fand,settings,output = print):
+
+def fandCompile(fand, settings, output=print):
     try:
         errorHandler = ErrorHandler(settings)
+
         def report(text):
-            if settings.verbose:settings.display(text)
+            if settings.verbose:
+                settings.display(text)
+
         def wrapCall(*outputs):
             if not errorHandler.proceed():
                 errorHandler.report()
                 raise CompilationError()
             return outputs
         project = parseFand(fand)
-        project.compilerInit(settings,errorHandler)
+        project.compilerInit(settings, errorHandler)
         thkMap = settings.thkMap
         report("Gathering and Initializing Project Files")
-        wrapCall(project.initializeModules(fand,thkMap))
+        wrapCall(project.initializeModules(fand, thkMap))
         report("Creating Symbols Tables")
         wrapCall(project.createSymbolsTables(Path(fand).absolute().parent))
         report("Resolving Local Namespaces")
@@ -91,39 +97,40 @@ def fandCompile(fand,settings,output = print):
     except:
         raise
     return
-    
+
+
 if __name__ in "__main__":
-    def void(*args,**kwargs):
+    def void(*args, **kwargs):
         pass
     errors = []
-    
-    def testCompile(folder,file):        
+
+    def testCompile(folder, file):
         settings = CompilerSettings()
-        settings.verbose = True
+        settings.verbose = False
         settings.thklistPath = file.stem+".thklst"
         settings.outputRoot = folder
         #settings.display = void
         populateDefaultSettings(settings)
         try:
-            fandCompile(str(file),settings)
+            fandCompile(str(file), settings)
         except:
-            print("Errored",file)
+            print("Errored", file)
             errors.append(file)
 
     inRoot = Path(r"D:\Games SSD\MHW-AI-Analysis\Leviathon\tests\ingameFiles")
-    outRoot = Path(r"D:\Games SSD\MHW-AI-Analysis\Leviathon\tests\ingameOutputs")
+    outRoot = Path(
+        r"D:\Games SSD\MHW-AI-Analysis\Leviathon\tests\ingameOutputs")
     errors = []
     em_lst = [r"D:\Games SSD\MHW-AI-Analysis\Leviathon\tests\ingameFiles\em045_00_data\em045.fand",
               r"D:\Games SSD\MHW-AI-Analysis\Leviathon\tests\ingameFiles\em114_00_data\em114.fand"]
     ems_lst = []
-    lst = list(map(Path,em_lst + ems_lst))# ))# 
-    #lst = list(inRoot.rglob("*.fand"))
+    #lst = list(map(Path,em_lst + ems_lst))# ))#
+    lst = list(inRoot.rglob("*.fand"))
     #lst = [Path(r'D:/Games SSD/MHW-AI-Analysis/InlineTest/em001 - Copy.fand')]
     for path in lst:
         print(path)
         s = path.parent.stem
-        (outRoot/s).mkdir(parents = True, exist_ok = True)
-        testCompile(str(outRoot/s),(path))
+        (outRoot/s).mkdir(parents=True, exist_ok=True)
+        testCompile(str(outRoot/s), (path))
 
-                
     #fandCompile(r"D:\Games SSD\MHW-AI-Analysis\Leviathon\tests\ingameFiles\em007_00_data\em007.fand",settings)

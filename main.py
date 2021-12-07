@@ -11,16 +11,37 @@ import sys
 import json
 import argparse
 import regex
+import io
 from pathlib import Path
 
 from decompilerMain import main as decompiler
+from decompilerMain import generateArgParse as decompilerArgs
 from compilerMain import main as compiler
+from compilerMain import generateArgParse as compilerArgs
 
+def getHelp():
+    hlp = io.StringIO("")
+    dp = decompilerArgs()
+    dp.print_help(hlp)
+    hlp.write("\n\n")
+    pp = compilerArgs()
+    hlp2 = io.StringIO("")
+    pp.print_help(hlp2)
+    hlp.seek(0)
+    hlp2.write(hlp.read())
+    hlp2.seek(0)
+    return hlp2.read()
+
+class combinedParser(argparse.ArgumentParser):
+    def print_help(self,file = sys.stdout):
+        hlp = getHelp()
+        file.write(hlp)
 
 def generateArgParse():
-    parser = argparse.ArgumentParser(description='Leviathon Compiler')
+    parser = combinedParser(description='Leviathon Compiler',add_help = False)
     parser.add_argument('input', nargs = 1, type=str, 
                         help='Project file to compile (.fand)')
+    parser.add_argument('-h', '--help',action='help', help="Show this help message and exit", default=argparse.SUPPRESS)
     parser.add_argument('arguments', nargs=argparse.REMAINDER)
     return parser
 
@@ -53,5 +74,4 @@ def main(arglist):
     mode(arglist)
     
 if __name__ in "__main__":
-    main(["D:\Games SSD\MHW-AI-Analysis\InlineTest\em001.fand", "-verbose"])
     main(sys.argv[1:])

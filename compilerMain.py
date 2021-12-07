@@ -34,7 +34,10 @@ def generateArgParse():
     parser.add_argument('-inlineGlobal', action="store_true",
                         help='Inline Global Functions')
     parser.add_argument('-projectNames', type=str, default='index',
-                        choices=["function","nackfile","index"])
+                        choices=["function","nackfile","index"],
+                         help='Function: Outputs the thks names as their scope name.'
+                         "Nackfile: Outputs the thks names as the name of the nackfile"
+                         "Index: Outputs the thks names as their index in the thklst")
     #parser.add_argument('-deduplicate', action="store_true",
     #                    help='Export each scope as a separate file')
     

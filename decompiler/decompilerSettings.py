@@ -5,10 +5,12 @@ Created on Sun Oct 31 01:18:07 2021
 @author: Asterisk
 """
 
+
 class DecompilerSettings():
     def __init__(self):
         self.keepVoid = False
         self.keepLast = False
+        self.genPlaceholder = False
         self.forceIndex = False
         self.forceId = False
         self.listCrossreferences = False

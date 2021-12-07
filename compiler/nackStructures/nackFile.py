@@ -314,7 +314,7 @@ class NackFile(ErrorManaged):
                 node = Node(header,bodylist)
                 self.inheritChildren(node)
                 node.inherit()
-                self.symbolsTable.addNode(node.names(),0,node)
+                self.symbolsTable.addNode(node.names(),index,0,node)
                 self.nodes.append(node)
             serialNodes.append(node.compileProperties())
         headerSize = 0x20
