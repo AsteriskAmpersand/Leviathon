@@ -52,7 +52,7 @@ def buildSettings(args):
     settings = DecompilerSettings()
     settingsRemap = {"nullShow": "keepVoid", "lastShow": "keepLast", "indexShow": "forceIndex",
                      "fixShow": "genPlaceholder",
-                     "idShow": "forceId", "xreferences": "listCrossreferences",
+                     "idShow": "forceId", #"xreferences": "listCrossreferences",
                      "raiseInvalidReferences": "raiseInvalidReferences", "warningsHide": "supressWarnings",
                      "keepRegisters": "keepRegisters", "renameNackFiles": "functionAsThkName",
                      "analyze": "runCodeAnalysis", "outputPath": "outputPath",
