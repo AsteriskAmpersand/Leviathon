@@ -1,7 +1,7 @@
 importactions KestodonF as kestodonf
 importlibrary Global as Global
 
-def node_000 : 7
+def node_000
 	>> Global.node_005 
 	>> node_003 
 	>> node_001 
@@ -9,7 +9,7 @@ def node_000 : 7
 	reset 
 endf 
 
-def node_001 : 4
+def node_001
 	self.targetEnemy(33) 
 	if self.target(20) 
 	else 
@@ -18,7 +18,7 @@ def node_001 : 4
 	return 
 endf 
 
-def node_002 : 8
+def node_002
 	>> Global.node_002 
 	random (34) -> action#3B() 
 	elser (33) -> action#1B() 
@@ -27,7 +27,7 @@ def node_002 : 8
 	return 
 endf 
 
-def node_003 : 9
+def node_003
 	>> node_004 
 	if self.distance_2d_to_target().gt(1500) 
 		>> Global.node_002 
@@ -38,7 +38,7 @@ def node_003 : 9
 	return 
 endf 
 
-def node_004 : 10
+def node_004
 	function#52(4,6) 
 	self.targetArea(target_area.nearest_entrance) 
 	return 

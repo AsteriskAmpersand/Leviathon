@@ -1,7 +1,7 @@
 importactions Gajalaka as gajalaka
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if function#B0(8) 
 	elif function#B0(9) 
@@ -34,7 +34,7 @@ def node_000 : 1
 	reset 
 endf 
 
-def node_001 : 24
+def node_001
 	if function#B0() 
 		>> node_003 
 	elif function#B0(1) 
@@ -69,7 +69,7 @@ def node_001 : 24
 	return 
 endf 
 
-def node_002 : 31
+def node_002
 	if self.targetEnemy(target_em.any_monster) 
 		if self.distance_2d_to_target().leq(6000) 
 			if function#B0(12) 
@@ -104,7 +104,7 @@ def node_002 : 31
 	return 
 endf 
 
-def node_003 : 15
+def node_003
 	if self.distance_3d_to_target().leq(300) 
 		random (35) >> Global.node_053 
 		elser (25) >> Global.node_049 
@@ -146,22 +146,22 @@ def node_003 : 15
 	return 
 endf 
 
-def node_004 : 16
+def node_004
 	>> node_003 
 	return 
 endf 
 
-def node_005 : 17
+def node_005
 	>> node_003 
 	return 
 endf 
 
-def node_006 : 18
+def node_006
 	>> node_003 
 	return 
 endf 
 
-def node_007 : 19
+def node_007
 	if self.distance_3d_to_target().leq(100) 
 		random (50) >> Global.node_025 
 		elser (20) >> Global.node_024 
@@ -200,22 +200,22 @@ def node_007 : 19
 	return 
 endf 
 
-def node_008 : 20
+def node_008
 	>> node_007 
 	return 
 endf 
 
-def node_009 : 21
+def node_009
 	>> node_007 
 	return 
 endf 
 
-def node_010 : 22
+def node_010
 	>> node_007 
 	return 
 endf 
 
-def node_011 : 26
+def node_011
 	if function#68(4) 
 		if self.distance_3d_to_target().leq(300) 
 			random (0) >> Global.node_053 
@@ -249,17 +249,17 @@ def node_011 : 26
 	return 
 endf 
 
-def node_012 : 23
+def node_012
 	>> node_003 
 	return 
 endf 
 
-def node_013 : 25
+def node_013
 	>> node_007 
 	return 
 endf 
 
-def node_014 : 27
+def node_014
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.distance_3d_to_target().leq(300) 
 		random (20) >> Global.node_053 
@@ -308,7 +308,7 @@ def node_014 : 27
 	return 
 endf 
 
-def node_015 : 32
+def node_015
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.distance_3d_to_target().leq(300) 
 		random (35) >> Global.node_053 
@@ -351,7 +351,7 @@ def node_015 : 32
 	return 
 endf 
 
-def node_016 : 28
+def node_016
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.distance_3d_to_target().leq(300) 
 		random (35) >> Global.node_053 
@@ -394,7 +394,7 @@ def node_016 : 28
 	return 
 endf 
 
-def node_017 : 29
+def node_017
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.distance_3d_to_target().leq(100) 
 		random (30) >> Global.node_025 
@@ -440,7 +440,7 @@ def node_017 : 29
 	return 
 endf 
 
-def node_018 : 33
+def node_018
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.distance_3d_to_target().leq(100) 
 		random (50) >> Global.node_025 
@@ -484,7 +484,7 @@ def node_018 : 33
 	return 
 endf 
 
-def node_019 : 30
+def node_019
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.distance_3d_to_target().leq(100) 
 		random (50) >> Global.node_025 
@@ -524,7 +524,7 @@ def node_019 : 30
 	return 
 endf 
 
-def node_020 : 34
+def node_020
 	>> Global.node_006 
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if function#68(4) 
@@ -560,7 +560,7 @@ def node_020 : 34
 	return 
 endf 
 
-def node_021 : 35
+def node_021
 	>> node_025 
 	if self.target(0) 
 		>> node_023 
@@ -615,7 +615,7 @@ def node_021 : 35
 	return 
 endf 
 
-def node_022 : 36
+def node_022
 	if self.target(0) 
 		>> node_023 
 	else 
@@ -678,7 +678,7 @@ def node_022 : 36
 	return 
 endf 
 
-def node_023 : 39
+def node_023
 	if self.vertical_distance_to_target().gt(300) 
 		if self.distance_2d_to_target().leq(500) 
 			>> Global.node_025 
@@ -734,24 +734,24 @@ def node_023 : 39
 	return 
 endf 
 
-def node_024 : 37
-	[RegisterVar4 ++] 
+def node_024
+	[RegisterVar4 |-] 
 	-> action#1B() 
 	-> action#14() 
 	return 
 endf 
 
-def node_025 : 38
+def node_025
 	if function#102() 
-		[RegisterVar3 |-] 
+		[RegisterVar3 ++] 
 	else 
-		if [RegisterVar4 == 0] 
+		if [RegisterVar4 += 0] 
 			>> node_024 
 		else 
-			if [RegisterVar3 <= 10] 
+			if [RegisterVar3 -= 10] 
 				>> node_024 
 			else 
-				[RegisterVar3 ++] 
+				[RegisterVar3 |-] 
 			endif 
 		endif 
 	endif 

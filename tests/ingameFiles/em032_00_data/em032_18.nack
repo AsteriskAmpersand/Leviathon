@@ -1,7 +1,7 @@
 importactions Tigrex as tigrex
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	>> Global.node_020 
 	self.targetEnemy(13) 
 	if function#41() 
@@ -19,14 +19,14 @@ def node_000 : 1
 	conclude 
 endf 
 
-def node_001 : 37
+def node_001
 	>> node_002 
 	>> node_003 
 	>> node_004 
 	return 
 endf 
 
-def node_002 : 38
+def node_002
 	if self.angle_2d_cw_between(30,330) 
 		-> tigrex.quick_turn() 
 	else 
@@ -35,7 +35,7 @@ def node_002 : 38
 	return 
 endf 
 
-def node_003 : 39
+def node_003
 	self.targetEnemy(13) 
 	if self.distance_2d_to_target().leq(1000) 
 		return 
@@ -45,7 +45,7 @@ def node_003 : 39
 	return 
 endf 
 
-def node_004 : 40
+def node_004
 	self.targetEnemy(48) 
 	if self.target(7) 
 		>> node_008 
@@ -61,18 +61,18 @@ def node_004 : 40
 	return 
 endf 
 
-def node_005 : 41
+def node_005
 	>> node_002 
 	>> node_006 
 	return 
 endf 
 
-def node_006 : 42
+def node_006
 	-> tigrex.bite_max() 
 	return 
 endf 
 
-def node_007 : 43
+def node_007
 	if self.fatigued() 
 		-> tigrex.dash_tired(2,1,5,1500,800) 
 	else 
@@ -81,13 +81,13 @@ def node_007 : 43
 	return 
 endf 
 
-def node_008 : 44
+def node_008
 	-> tigrex.sniff_s() 
 	-> tigrex.search() 
 	return 
 endf 
 
-def node_009 : 45
+def node_009
 	if function#5F() 
 		-> tigrex.sniff_s() 
 	else 
@@ -96,7 +96,7 @@ def node_009 : 45
 	return 
 endf 
 
-def node_010 : 46
+def node_010
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.angular_17(270,90) 
 		-> tigrex.quick_turn() 

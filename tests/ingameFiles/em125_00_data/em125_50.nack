@@ -1,6 +1,6 @@
 importactions Namielle as namielle
 
-def node_000 : 1
+def node_000
 	self.targetEnemy(target_em.closest_entity) 
 	if self.target_is(em.Savage_Deviljho) 
 		>> node_003 
@@ -12,17 +12,17 @@ def node_000 : 1
 	conclude 
 endf 
 
-def node_001 : 2
+def node_001
 	-> namielle.water_laser_s_attack_second() 
 	return 
 endf 
 
-def node_002 : 3
+def node_002
 	-> namielle.water_laser_s_attack_fast() 
 	return 
 endf 
 
-def node_003 : 4
+def node_003
 	if self.distance_3d_to_target().gt(1800) 
 		-> namielle.dash(1,0,0,1800) 
 	else 
@@ -32,7 +32,7 @@ def node_003 : 4
 	return 
 endf 
 
-def node_004 : 5
+def node_004
 	-> namielle.quick_turn_fly() 
 	-> namielle.grapple_with_em023_attack_wait() 
 	return 

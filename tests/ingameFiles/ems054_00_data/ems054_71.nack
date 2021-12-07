@@ -1,6 +1,6 @@
 importactions Shamos as shamos
 
-def node_000 : 1
+def node_000
 	>> node_003 
 	if function#F9(800) 
 		>> node_001 
@@ -10,7 +10,7 @@ def node_000 : 1
 	reset 
 endf 
 
-def node_001 : 3
+def node_001
 	random (90) >> node_008 
 	elser (2) >> node_007 
 	elser (8) >> node_006 
@@ -18,7 +18,7 @@ def node_001 : 3
 	reset 
 endf 
 
-def node_002 : 2
+def node_002
 	random (20) >> node_006 
 	elser (20) >> node_008 
 	elser (20) >> node_005 
@@ -29,7 +29,7 @@ def node_002 : 2
 	reset 
 endf 
 
-def node_003 : 15
+def node_003
 	function#EB(1000) 
 	function#DE(2000) 
 	if function#D2(8) 
@@ -55,32 +55,32 @@ def node_003 : 15
 	reset 
 endf 
 
-def node_004 : 4
+def node_004
 	-> action#01() 
 	return 
 endf 
 
-def node_005 : 5
+def node_005
 	-> action#0F() 
 	return 
 endf 
 
-def node_006 : 6
+def node_006
 	-> action#10() 
 	return 
 endf 
 
-def node_007 : 11
+def node_007
 	-> action#16() 
 	return 
 endf 
 
-def node_008 : 14
+def node_008
 	-> action#12() 
 	return 
 endf 
 
-def node_009 : 16
+def node_009
 	if self.angle_2d_cw_between(90,270) 
 		-> action#22() 
 	elif self.angle_2d_cw_between(20,340) 
@@ -89,7 +89,7 @@ def node_009 : 16
 	return 
 endf 
 
-def node_010 : 17
+def node_010
 	-> action#2F() 
 	return 
 endf 

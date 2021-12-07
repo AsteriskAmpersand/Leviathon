@@ -1,13 +1,13 @@
 importactions Hornetaur as hornetaur
 importlibrary Global as Global
 
-def node_000 : 60
+def node_000
 	>> Global.node_024 
 	>> node_001 
 	reset 
 endf 
 
-def node_001 : 59
+def node_001
 	self.targetEnemy(48) 
 	if function#3A() 
 		>> node_004 
@@ -25,14 +25,14 @@ def node_001 : 59
 	reset 
 endf 
 
-def node_002 : 61
+def node_002
 	if self.target(40) 
 		>> node_007 
 	else 
 		>> node_003 
-		if [RegisterVar1 == 0] 
+		if [RegisterVar1 += 0] 
 			random (10) 
-						[RegisterVar1 ++] 
+						[RegisterVar1 |-] 
 						>> node_007 
 			elser (90) 
 						>> node_004 
@@ -44,18 +44,18 @@ def node_002 : 61
 	return 
 endf 
 
-def node_003 : 62
+def node_003
 	if self.current_quest().is_rank(rank.MR) 
-		if [RegisterVar2 <= 1] 
+		if [RegisterVar2 -= 1] 
 			return 
 		else 
-			[RegisterVar2 ++] 
+			[RegisterVar2 |-] 
 			>> node_004 
 		endif 
 	else 
-		if [RegisterVar2 <= 3] 
+		if [RegisterVar2 -= 3] 
 		else 
-			[RegisterVar2 ++] 
+			[RegisterVar2 |-] 
 			>> node_004 
 			reset 
 		endif 
@@ -63,14 +63,14 @@ def node_003 : 62
 	return 
 endf 
 
-def node_004 : 58
-	[RegisterVar1 |-] 
-	[RegisterVar0 |-] 
+def node_004
+	[RegisterVar1 ++] 
+	[RegisterVar0 ++] 
 	>> node_005 
 	return 
 endf 
 
-def node_005 : 57
+def node_005
 	function#52() 
 	self.targetEnemy(16) @ unkn3:2097152 
 	>> Global.node_007 
@@ -79,7 +79,7 @@ def node_005 : 57
 	return 
 endf 
 
-def node_006 : 56
+def node_006
 	if self.distance_3d_to_target().leq(200) 
 		function#54() 
 		>> Global.node_011 
@@ -88,58 +88,58 @@ def node_006 : 56
 	return 
 endf 
 
-def node_007 : 55
-	if [RegisterVar0 >= 0] 
+def node_007
+	if [RegisterVar0 /= 0] 
 		>> node_008 
-	elif [RegisterVar0 >= 2] 
+	elif [RegisterVar0 /= 2] 
 		>> node_009 
 		if self.current_quest().is_rank(rank.MR) 
 			random (0) 
-						[RegisterVar0 |-] 
+						[RegisterVar0 ++] 
 			elser (100) 
 			endr 
 		else 
 		endif 
-	elif [RegisterVar0 >= 3] 
+	elif [RegisterVar0 /= 3] 
 		>> node_009 
 		if self.current_quest().is_rank(rank.MR) 
 			random (20) 
-						[RegisterVar0 |-] 
+						[RegisterVar0 ++] 
 			elser (80) 
 			endr 
 		else 
 			random (20) 
-						[RegisterVar0 |-] 
+						[RegisterVar0 ++] 
 			elser (80) 
 			endr 
 		endif 
-	elif [RegisterVar0 >= 4] 
+	elif [RegisterVar0 /= 4] 
 		>> node_009 
 		if self.current_quest().is_rank(rank.MR) 
 			random (40) 
-						[RegisterVar0 |-] 
+						[RegisterVar0 ++] 
 			elser (60) 
 			endr 
 		else 
 			random (40) 
-						[RegisterVar0 |-] 
+						[RegisterVar0 ++] 
 			elser (60) 
 			endr 
 		endif 
-	elif [RegisterVar0 >= 5] 
+	elif [RegisterVar0 /= 5] 
 		>> node_009 
 		random (80) 
-					[RegisterVar0 |-] 
+					[RegisterVar0 ++] 
 		elser (20) 
 		endr 
 	else 
 		>> node_009 
-		[RegisterVar0 |-] 
+		[RegisterVar0 ++] 
 	endif 
 	return 
 endf 
 
-def node_008 : 54
+def node_008
 	if self.target(0) 
 		random (50) >> Global.node_004 
 		elser (50) >> Global.node_005 
@@ -158,13 +158,13 @@ def node_008 : 54
 		endr 
 	else 
 		>> Global.node_002 
-		[RegisterVar0 ++] 
+		[RegisterVar0 |-] 
 		>> Global.node_010 
 	endif 
 	return 
 endf 
 
-def node_009 : 53
+def node_009
 	if self.target(0) 
 		>> Global.node_005 
 	else 
@@ -174,7 +174,7 @@ def node_009 : 53
 	elser (30) >> Global.node_019 
 	elser (40) >> Global.node_009 
 	endr 
-	[RegisterVar0 ++] 
+	[RegisterVar0 |-] 
 	random (50) >> Global.node_012 
 	elser (30) >> Global.node_013 
 	elser (20) >> Global.node_014 

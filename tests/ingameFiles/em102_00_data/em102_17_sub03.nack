@@ -1,7 +1,7 @@
 importactions PukeiPukei as pukeipukei
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	if function#C2() 
 		>> Global.node_038 
 		>> node_001 
@@ -13,7 +13,7 @@ def node_000 : 1
 	conclude 
 endf 
 
-def node_001 : 18
+def node_001
 	if function#C2() 
 		self.targetArea(target_area.next_exit) 
 	else 
@@ -28,7 +28,7 @@ def node_001 : 18
 	return 
 endf 
 
-def node_002 : 19
+def node_002
 	self.targetEnemy(target_em.any_monster) 
 	if self.flying() >> Global.node_032 
 	else >> Global.node_010 

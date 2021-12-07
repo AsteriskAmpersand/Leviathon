@@ -1,7 +1,7 @@
 importactions Leshen as leshen
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	self.targetEnemy(13) 
 	if self.target(4) 
 		>> Global.node_002 
@@ -11,23 +11,23 @@ def node_000 : 1
 	conclude 
 endf 
 
-def node_001 : 2
+def node_001
 	>> node_004 
 	return 
 endf 
 
-def node_002 : 3
+def node_002
 	>> Global.node_018 
 	return 
 endf 
 
-def node_003 : 4
+def node_003
 	self.targetEnemy(13) 
 	-> leshen.warp_navi_area_move(2,1,5,3000,300) 
 	return 
 endf 
 
-def node_004 : 5
+def node_004
 	self.targetEnemy(48) 
 	if self.target(7) 
 		>> node_010 
@@ -48,13 +48,13 @@ def node_004 : 5
 	return 
 endf 
 
-def node_005 : 9
+def node_005
 	>> Global.node_018 
 	-> leshen.search() 
 	return 
 endf 
 
-def node_006 : 10
+def node_006
 	if function#5F() 
 		-> leshen.search() 
 	else 
@@ -64,17 +64,17 @@ def node_006 : 10
 	return 
 endf 
 
-def node_007 : 11
+def node_007
 	>> Global.node_105 
 	return 
 endf 
 
-def node_008 : 12
+def node_008
 	>> Global.node_132 
 	return 
 endf 
 
-def node_009 : 13
+def node_009
 	self.targetEnemy(48) 
 	if function#103() 
 		-> leshen.crow_rush_ex_scr_through() 
@@ -84,12 +84,12 @@ def node_009 : 13
 	return 
 endf 
 
-def node_010 : 14
-	if [RegisterVar5 == 0] 
-		[RegisterVar5 ++] 
+def node_010
+	if [RegisterVar5 += 0] 
+		[RegisterVar5 |-] 
 	else 
 		>> Global.node_019 
-		[RegisterVar5 |-] 
+		[RegisterVar5 ++] 
 		-> leshen.discover_force_combat() 
 	endif 
 	return 

@@ -1,14 +1,14 @@
 importactions Frostfang_Barioth as frostfang_barioth
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	>> Global.node_003 
 	self.targetEnemy(target_em.closest_entity) 
 	>> node_001 
 	conclude 
 endf 
 
-def node_001 : 9
+def node_001
 	if self.target_is(em.Odogaron) 
 		-> frostfang_barioth.grapple_with_em113_mediation() 
 	elif self.target_is(em.Ebony_Odogaron) 

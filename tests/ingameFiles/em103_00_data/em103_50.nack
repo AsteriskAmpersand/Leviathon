@@ -1,6 +1,6 @@
 importactions Nergigante as nergigante
 
-def node_000 : 1
+def node_000
 	self.targetEnemy(target_em.closest_entity) 
 	if self.target_is(em.Rajang) 
 		>> node_001 
@@ -10,7 +10,7 @@ def node_000 : 1
 	conclude 
 endf 
 
-def node_001 : 2
+def node_001
 	if self.distance_2d_to_target().gt(1400) 
 		-> nergigante.dash(6,0,0,1350) 
 	endif 

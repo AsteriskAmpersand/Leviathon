@@ -1,20 +1,20 @@
 importactions Stygian_Zinogre as stygian_zinogre
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	function#103() 
-	if [RegisterVar3 <= 15] 
-		[RegisterVar3 |-] 
+	if [RegisterVar3 -= 15] 
+		[RegisterVar3 ++] 
 		conclude 
 	else 
 	endif 
-	[RegisterVar3 ++] 
+	[RegisterVar3 |-] 
 	>> node_001 
 	repeat 
 	conclude 
 endf 
 
-def node_001 : 3
+def node_001
 	>> Global.node_006 
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.distance_3d_to_target().leq(3500) 
@@ -25,7 +25,7 @@ def node_001 : 3
 	return 
 endf 
 
-def node_002 : 4
+def node_002
 	if self.target(7) 
 	elif self.target(10) 
 	else 
@@ -38,7 +38,7 @@ def node_002 : 4
 	return 
 endf 
 
-def node_003 : 5
+def node_003
 	self.targetEnemy(58) 
 	random (20) >> Global.node_225 
 	elser (80) 

@@ -1,27 +1,27 @@
 importactions Mernos as mernos
 importlibrary Global as Global
 
-def node_000 : 41
+def node_000
 	if function#36(4,3200) >> node_001 
 	else >> node_002 
 	endif 
 	reset 
 endf 
 
-def node_001 : 53
+def node_001
 	-> mernos.dash() 
 	>> Global.node_009 
 	return 
 endf 
 
-def node_002 : 52
+def node_002
 	if self.hookable() >> node_003 
 	else >> node_004 
 	endif 
 	reset 
 endf 
 
-def node_003 : 51
+def node_003
 	function#52(4,5) 
 	self.targetArea(target_area.nearest_entrance) 
 	-> mernos.short_up_step_fly() 
@@ -31,7 +31,7 @@ def node_003 : 51
 	return 
 endf 
 
-def node_004 : 50
+def node_004
 	>> node_005 
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.target(20) 
@@ -43,7 +43,7 @@ def node_004 : 50
 	return 
 endf 
 
-def node_005 : 54
+def node_005
 	>> Global.node_021 
 	function#52(32,5) 
 	self.targetArea(target_area.nearest_entrance) 

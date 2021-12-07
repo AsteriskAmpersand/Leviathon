@@ -1,7 +1,7 @@
 importactions Deviljho as deviljho
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	>> Global.node_120 
 	>> Global.node_121 
 	if function#101() 
@@ -15,7 +15,7 @@ def node_000 : 1
 	conclude 
 endf 
 
-def node_001 : 2
+def node_001
 	if self.angle_2d_cw_between(60,300) 
 		-> deviljho.back_turn() @ unkn6:65536 
 	else 
@@ -23,7 +23,7 @@ def node_001 : 2
 	return 
 endf 
 
-def node_002 : 3
+def node_002
 	-> deviljho.threat_short() 
 	return 
 endf 

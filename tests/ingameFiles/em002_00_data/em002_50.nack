@@ -1,7 +1,7 @@
 importactions Rathalos as rathalos
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	self.targetEnemy(target_em.closest_entity) 
 	if self.target_is(em.Zinogre) 
 		>> node_001 
@@ -36,7 +36,7 @@ def node_000 : 1
 	conclude 
 endf 
 
-def node_001 : 4
+def node_001
 	if self.distance_2d_to_target().gt(1600) 
 		-> rathalos.dash_no_hit(6,0,0,1500) 
 	endif 
@@ -44,7 +44,7 @@ def node_001 : 4
 	return 
 endf 
 
-def node_002 : 6
+def node_002
 	if self.distance_2d_to_target().gt(1800) 
 		-> rathalos.glide_combat(6,0,0,1800) 
 	endif 

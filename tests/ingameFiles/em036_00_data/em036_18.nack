@@ -1,13 +1,13 @@
 importactions Lavasioth as lavasioth
 importlibrary Global as Global
 
-def node_000 : 73
+def node_000
 	>> node_001 
 	>> node_004 
 	conclude 
 endf 
 
-def node_001 : 80
+def node_001
 	self.targetEnemy(13) 
 	if self.target(4) >> node_003 
 	else 
@@ -19,7 +19,7 @@ def node_001 : 80
 	return 
 endf 
 
-def node_002 : 81
+def node_002
 	if self.distance_2d_to_target().leq(1000) 
 		return 
 	else 
@@ -28,14 +28,14 @@ def node_002 : 81
 	return 
 endf 
 
-def node_003 : 82
+def node_003
 	self.targetEnemy(target_em.last_attacker) 
 	>> Global.node_088 
 	>> Global.node_086 
 	return 
 endf 
 
-def node_004 : 78
+def node_004
 	self.targetEnemy(48) 
 	if function#5F() >> node_005 
 	elif self.target(7) >> node_005 
@@ -47,7 +47,7 @@ def node_004 : 78
 	return 
 endf 
 
-def node_005 : 76
+def node_005
 	if function#105() 
 		if function#102() >> Global.node_072 
 		endif 
@@ -57,7 +57,7 @@ def node_005 : 76
 	return 
 endf 
 
-def node_006 : 77
+def node_006
 	if function#105() 
 		if function#102() >> Global.node_072 
 		endif 
@@ -67,7 +67,7 @@ def node_006 : 77
 	return 
 endf 
 
-def node_007 : 83
+def node_007
 	self.targetEnemy(9) @ parameter2:1000 
 	if function#101() >> Global.node_033 
 	else >> Global.node_059 

@@ -1,7 +1,7 @@
 importactions Boaboa as boaboa
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	>> Global.node_066 
 	if function#B0(8) 
 		>> node_006 
@@ -15,7 +15,7 @@ def node_000 : 1
 	conclude 
 endf 
 
-def node_001 : 17
+def node_001
 	self.targetEnemy(33) 
 	if self.target_is(em.Beotodus) 
 		>> node_002 
@@ -25,7 +25,7 @@ def node_001 : 17
 	return 
 endf 
 
-def node_002 : 18
+def node_002
 	if self.target.in_combat() 
 		>> node_003 
 	else 
@@ -34,7 +34,7 @@ def node_002 : 18
 	return 
 endf 
 
-def node_003 : 20
+def node_003
 	if function#32() 
 		>> node_005 
 	else 
@@ -48,7 +48,7 @@ def node_003 : 20
 	return 
 endf 
 
-def node_004 : 19
+def node_004
 	if self.distance_3d_to_target().leq(500) 
 		>> Global.node_019 
 		random (60) 
@@ -65,7 +65,7 @@ def node_004 : 19
 	return 
 endf 
 
-def node_005 : 15
+def node_005
 	if self.distance_3d_to_target().leq(500) 
 		random (35) >> Global.node_060 
 		elser (25) >> Global.node_055 
@@ -92,7 +92,7 @@ def node_005 : 15
 	return 
 endf 
 
-def node_006 : 16
+def node_006
 	if function#3F() 
 		-> action#26() 
 	else 

@@ -1,7 +1,7 @@
 importactions Zorah_Magdaros as zorah_magdaros
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	if function#106() 
 		>> node_001 
 	elif function#106(1) 
@@ -19,7 +19,7 @@ def node_000 : 1
 	reset 
 endf 
 
-def node_001 : 13
+def node_001
 	>> Global.node_028 
 	if function#102() 
 		>> node_002 
@@ -57,28 +57,28 @@ def node_001 : 13
 	return 
 endf 
 
-def node_002 : 17
+def node_002
 	function#104(3,3) 
 	>> Global.node_003 
 	>> Global.node_012 
 	return 
 endf 
 
-def node_003 : 20
+def node_003
 	function#104(3,9) 
 	>> Global.node_002 
 	-> zorah_magdaros.arm_slam_2leg() 
 	return 
 endf 
 
-def node_004 : 18
+def node_004
 	function#104(3,14) 
 	>> Global.node_000 
 	-> zorah_magdaros.arm_slam_2leg() 
 	return 
 endf 
 
-def node_005 : 19
+def node_005
 	function#104(3,6) 
 	if self.angle_2d_cw_between(60,300) 
 		-> zorah_magdaros.back_walk_2leg() 
@@ -88,13 +88,13 @@ def node_005 : 19
 	return 
 endf 
 
-def node_006 : 21
+def node_006
 	function#104(3,13) 
 	>> node_018 
 	return 
 endf 
 
-def node_007 : 22
+def node_007
 	function#104(3,6) 
 	if self.distance_2d_to_target().gt(100) 
 		>> node_005 
@@ -106,7 +106,7 @@ def node_007 : 22
 	return 
 endf 
 
-def node_008 : 23
+def node_008
 	function#104(3,15) 
 	if self.angle_2d_cw_between(90,270) 
 		-> zorah_magdaros.back_walk_2leg() 
@@ -118,7 +118,7 @@ def node_008 : 23
 	return 
 endf 
 
-def node_009 : 25
+def node_009
 	>> Global.node_028 
 	if function#102() 
 		function#104(3,15) 
@@ -141,7 +141,7 @@ def node_009 : 25
 	return 
 endf 
 
-def node_010 : 26
+def node_010
 	>> node_013 
 	>> node_014 
 	if function#102() 
@@ -163,7 +163,7 @@ def node_010 : 26
 	return 
 endf 
 
-def node_011 : 28
+def node_011
 	>> Global.node_027 
 	function#104(3,25) 
 	if self.distance_2d_to_target().leq(5000) 
@@ -183,51 +183,51 @@ def node_011 : 28
 	return 
 endf 
 
-def node_012 : 30
+def node_012
 	>> Global.node_030 
-	if [RegisterVar1 <= 10] 
+	if [RegisterVar1 -= 10] 
+		function#101() 
+		[RegisterVar1 ++] 
+		-> zorah_magdaros.chance_lava_back_breath_2leg_r() 
+	elif [RegisterVar1 += 0] 
+		[RegisterVar1 |-] 
+		-> zorah_magdaros.chance_lava_back_breath_2leg_l() 
+	elif [RegisterVar1 += 7] 
 		function#101() 
 		[RegisterVar1 |-] 
-		-> zorah_magdaros.chance_lava_back_breath_2leg_r() 
-	elif [RegisterVar1 == 0] 
-		[RegisterVar1 ++] 
-		-> zorah_magdaros.chance_lava_back_breath_2leg_l() 
-	elif [RegisterVar1 == 7] 
-		function#101() 
-		[RegisterVar1 ++] 
 		-> zorah_magdaros.chance_wait_long_2leg() 
-	elif [RegisterVar1 == 9] 
+	elif [RegisterVar1 += 9] 
 		function#101() 
-		[RegisterVar1 ++] 
+		[RegisterVar1 |-] 
 		-> zorah_magdaros.chance_wait_long_2leg() 
 	else 
-		[RegisterVar1 ++] 
+		[RegisterVar1 |-] 
 		-> zorah_magdaros.chance_wait_long_2leg() 
 	endif 
 	return 
 endf 
 
-def node_013 : 32
-	[RegisterVar0 |-] 
+def node_013
+	[RegisterVar0 ++] 
 	if function#109() 
-		[RegisterVar0 ++] 
+		[RegisterVar0 |-] 
 	else 
 	endif 
 	if function#109(2) 
-		[RegisterVar0 ++] 
+		[RegisterVar0 |-] 
 	else 
 	endif 
 	if function#109(3) 
-		[RegisterVar0 ++] 
+		[RegisterVar0 |-] 
 	else 
 	endif 
 	return 
 endf 
 
-def node_014 : 34
+def node_014
 	if function#102() 
-		if [RegisterVar0 <= 2] 
-			[RegisterVar1 |-] 
+		if [RegisterVar0 -= 2] 
+			[RegisterVar1 ++] 
 			function#103(2) 
 			function#101() 
 		endif 
@@ -236,7 +236,7 @@ def node_014 : 34
 	elif function#102(3) 
 	elif function#102(4) 
 	elif function#102(5) 
-		if [RegisterVar0 <= 3] 
+		if [RegisterVar0 -= 3] 
 			function#101() 
 		endif 
 	else 
@@ -244,7 +244,7 @@ def node_014 : 34
 	return 
 endf 
 
-def node_015 : 35
+def node_015
 	if function#102() 
 		>> node_016 
 		if self.hp_percent().gt(90) 
@@ -259,7 +259,7 @@ def node_015 : 35
 	return 
 endf 
 
-def node_016 : 36
+def node_016
 	>> Global.node_030 
 	function#104(3,25) 
 	if function#10B() 
@@ -270,7 +270,7 @@ def node_016 : 36
 	return 
 endf 
 
-def node_017 : 31
+def node_017
 	if function#102() 
 		function#101() 
 	elif function#102(1) 
@@ -281,7 +281,7 @@ def node_017 : 31
 	return 
 endf 
 
-def node_018 : 4
+def node_018
 	if self.distance_2d_to_target().leq(5000) 
 		>> Global.node_037 
 	else 
@@ -291,7 +291,7 @@ def node_018 : 4
 	return 
 endf 
 
-def node_019 : 5
+def node_019
 	>> Global.node_031 
 	return 
 endf 

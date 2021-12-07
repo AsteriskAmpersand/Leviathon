@@ -1,28 +1,28 @@
 importactions Aptonoth as aptonoth
 
-def node_000 : 1
+def node_000
 	>> node_001 
 	conclude 
 endf 
 
-def node_001 : 2
+def node_001
 	if function#B0(2) >> node_004 
 	else >> node_003 
 	endif 
 	return 
 endf 
 
-def node_002 : 6
+def node_002
 endf 
 
-def node_003 : 3
+def node_003
 	random (20) >> node_007 
 	elser (80) 
 	endr 
 	return 
 endf 
 
-def node_004 : 4
+def node_004
 	random (0) 
 	elser (20) >> node_009 
 	elser (20) >> node_005 
@@ -31,7 +31,7 @@ def node_004 : 4
 	return 
 endf 
 
-def node_005 : 11
+def node_005
 	function#EB(1000) 
 	function#DD(900) 
 	function#DE(2500) 
@@ -44,7 +44,7 @@ def node_005 : 11
 	return 
 endf 
 
-def node_006 : 14
+def node_006
 	if self.distance_3d_to_target().leq(800) 
 		>> node_009 
 	else 
@@ -54,37 +54,37 @@ def node_006 : 14
 	return 
 endf 
 
-def node_007 : 8
+def node_007
 	-> aptonoth.dash_tired() 
 	return 
 endf 
 
-def node_008 : 7
+def node_008
 	-> aptonoth.double_floor_down() 
 	return 
 endf 
 
-def node_009 : 9
+def node_009
 	self.targetEnemy(48) 
 	-> aptonoth.walk_tired() 
 	return 
 endf 
 
-def node_010 : 5
+def node_010
 	-> aptonoth.jump_down() 
 	return 
 endf 
 
-def node_011 : 10
+def node_011
 	-> aptonoth.idle_tired(2,0,0,300) 
 	>> node_013 
 	return 
 endf 
 
-def node_012 : 13
+def node_012
 endf 
 
-def node_013 : 12
+def node_013
 	if function#46() @ unknExtra2:1 
 		conclude 
 	endif 

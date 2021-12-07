@@ -1,7 +1,7 @@
 importactions Bazelgeuse as bazelgeuse
 importlibrary Global as Global
 
-def node_000 : 12
+def node_000
 	self.targetArea(21) @ parameter2:700 
 	if self.target_on_part(0) >> node_003 
 	elif self.target_on_part(1) >> node_003 
@@ -15,7 +15,7 @@ def node_000 : 12
 	reset 
 endf 
 
-def node_001 : 9
+def node_001
 	if self.in_combat() 
 		if self.enraged() 
 			random (5) >> Global.node_074 
@@ -43,37 +43,37 @@ def node_001 : 9
 	return 
 endf 
 
-def node_002 : 10
+def node_002
 	random (50) >> Global.node_074 
 	elser (50) >> Global.node_001 
 	endr 
 	return 
 endf 
 
-def node_003 : 36
+def node_003
 	>> Global.node_001 
-	function#A8() 
+	[$U |-] 
 	self.targetEnemy(target_em.random_player_or_cat) 
-	if function#A9(0,1) 
+	if [$U += 1] 
 		self.target_on_part(0) >> node_004 => repeat 
 		self.target_on_part(1) >> node_007 => repeat 
 		self.target_on_part(2) >> node_010 => repeat 
-	elif function#A9(0,2) 
+	elif [$U += 2] 
 		self.target_on_part(0) >> node_004 => repeat 
 		self.target_on_part(1) >> node_007 => repeat 
 		self.target_on_part(2) >> node_010 => repeat 
-	elif function#A9(0,3) 
+	elif [$U += 3] 
 		self.target_on_part(0) >> node_016 => repeat 
 		self.target_on_part(1) >> node_016 => repeat 
 		self.target_on_part(2) >> node_016 => repeat 
 	else 
-		function#A8(1) 
+		[$U ++] 
 		return 
 	endif 
 	return 
 endf 
 
-def node_004 : 35
+def node_004
 	if self.mounted() 
 		>> node_005 
 	else 
@@ -82,21 +82,21 @@ def node_004 : 35
 	return 
 endf 
 
-def node_005 : 34
+def node_005
 	>> Global.node_001 
 	>> node_025 
 	-> bazelgeuse.bite() 
 	return 
 endf 
 
-def node_006 : 33
+def node_006
 	>> Global.node_001 
 	>> node_025 
 	-> bazelgeuse.ride_rage_head_ground() 
 	return 
 endf 
 
-def node_007 : 32
+def node_007
 	if self.mounted() 
 		>> node_008 
 	else 
@@ -105,21 +105,21 @@ def node_007 : 32
 	return 
 endf 
 
-def node_008 : 31
+def node_008
 	>> Global.node_001 
 	>> node_025 
 	-> bazelgeuse.body_press_start() 
 	return 
 endf 
 
-def node_009 : 30
+def node_009
 	>> Global.node_001 
 	>> node_025 
 	-> bazelgeuse.ride_rage_body_ground() 
 	return 
 endf 
 
-def node_010 : 29
+def node_010
 	if self.mounted() 
 		>> node_011 
 	else 
@@ -128,28 +128,28 @@ def node_010 : 29
 	return 
 endf 
 
-def node_011 : 28
+def node_011
 	>> Global.node_001 
 	>> node_025 
 	-> bazelgeuse.tail_stomp() 
 	return 
 endf 
 
-def node_012 : 27
+def node_012
 	>> Global.node_001 
 	>> node_025 
 	-> bazelgeuse.ride_rage_tail_ground() 
 	return 
 endf 
 
-def node_013 : 26
+def node_013
 	>> Global.node_001 
 	>> node_018 
 	-> bazelgeuse.gliding_dash_not_fly_start() 
 	return 
 endf 
 
-def node_014 : 25
+def node_014
 	if function#3B() 
 		if self.mount_staggered_twice() 
 			>> node_015 
@@ -182,12 +182,12 @@ def node_014 : 25
 	return 
 endf 
 
-def node_015 : 24
+def node_015
 	-> bazelgeuse.ride_tired_ground() 
 	return 
 endf 
 
-def node_016 : 23
+def node_016
 	if self.mounted() 
 		>> node_017 
 	else 
@@ -195,12 +195,12 @@ def node_016 : 23
 	return 
 endf 
 
-def node_017 : 22
+def node_017
 	-> bazelgeuse.ride_wait_ground() 
 	return 
 endf 
 
-def node_018 : 21
+def node_018
 	random (20) >> node_019 
 	elser (80) >> node_020 
 	endr 
@@ -208,34 +208,34 @@ def node_018 : 21
 	return 
 endf 
 
-def node_019 : 20
+def node_019
 	self.targetEnemy(21) @ parameter2:1000 
 	return 
 endf 
 
-def node_020 : 19
+def node_020
 	self.targetEnemy(22) @ parameter2:1000 
 	return 
 endf 
 
-def node_021 : 18
+def node_021
 	random (48) >> node_022 
 	elser (52) >> node_023 
 	endr 
 	return 
 endf 
 
-def node_022 : 17
+def node_022
 	self.targetEnemy(12) @ parameter2:1000 
 	return 
 endf 
 
-def node_023 : 16
+def node_023
 	self.targetEnemy(11) @ parameter2:1000 
 	return 
 endf 
 
-def node_024 : 15
+def node_024
 	if self.angular_17(300,60) 
 		>> Global.node_033 
 	else 
@@ -243,7 +243,7 @@ def node_024 : 15
 	return 
 endf 
 
-def node_025 : 14
+def node_025
 	>> Global.node_001 
 	>> Global.node_033 
 	return 

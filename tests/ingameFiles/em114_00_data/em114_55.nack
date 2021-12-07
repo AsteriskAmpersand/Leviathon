@@ -1,10 +1,10 @@
 importactions Radobaan as radobaan
 
-def node_000 : 1
+def node_000
 	conclude 
 endf 
 
-def node_001 : 73
+def node_001
 	if self.targetEnemy(target_em.any_monster) 
 		if self.target(13) 
 		else 
@@ -25,7 +25,7 @@ def node_001 : 73
 	return 
 endf 
 
-def node_002 : 74
+def node_002
 	if self.current_quest().is_rank(rank.MR) 
 		if function#30(2) 
 			*&
@@ -67,7 +67,7 @@ def node_002 : 74
 	return 
 endf 
 
-def node_003 : 75
+def node_003
 	if function#30(2) 
 		random (20) 
 		elser (15) >> node_004 
@@ -84,13 +84,13 @@ def node_003 : 75
 	return 
 endf 
 
-def node_004 : 80
+def node_004
 	>> node_011 
 	-> radobaan.threat_short() 
 	return 
 endf 
 
-def node_005 : 113
+def node_005
 	if function#41() 
 	else 
 		>> node_011 
@@ -99,7 +99,7 @@ def node_005 : 113
 	return 
 endf 
 
-def node_006 : 114
+def node_006
 	if self.target_is(em.Odogaron) 
 		if self.target(39) 
 			self.force_area_change2() 
@@ -112,7 +112,7 @@ def node_006 : 114
 	return 
 endf 
 
-def node_007 : 82
+def node_007
 	if self.vertical_distance_to_target().gt(500) 
 		>> node_020 
 	elif self.distance_3d_to_target().gt(3000) 
@@ -129,7 +129,7 @@ def node_007 : 82
 	return 
 endf 
 
-def node_008 : 146
+def node_008
 	if function#107() 
 		-> radobaan.rolling_end() 
 	elif function#108() 
@@ -138,7 +138,7 @@ def node_008 : 146
 	return 
 endf 
 
-def node_009 : 98
+def node_009
 	self.targetArea(14) 
 	if self.distance_3d_to_target().gt(600) 
 		>> node_017 
@@ -148,7 +148,7 @@ def node_009 : 98
 	return 
 endf 
 
-def node_010 : 143
+def node_010
 	self.targetArea(19) 
 	if self.distance_3d_to_target().gt(1000) 
 		>> node_016 
@@ -158,7 +158,7 @@ def node_010 : 143
 	return 
 endf 
 
-def node_011 : 17
+def node_011
 	if self.distance_3d_to_target().leq(550) 
 		-> radobaan.back_turn() 
 	else 
@@ -174,7 +174,7 @@ def node_011 : 17
 	return 
 endf 
 
-def node_012 : 96
+def node_012
 	if self.angle_2d_cw_between(50,310) 
 		if self.in_combat() 
 			-> radobaan.quick_turn() 
@@ -186,7 +186,7 @@ def node_012 : 96
 	return 
 endf 
 
-def node_013 : 97
+def node_013
 	if self.angle_2d_cw_between(120,240) 
 		if self.in_combat() 
 			-> radobaan.quick_turn() 
@@ -198,12 +198,12 @@ def node_013 : 97
 	return 
 endf 
 
-def node_014 : 94
+def node_014
 	-> radobaan.back_turn() 
 	return 
 endf 
 
-def node_015 : 103
+def node_015
 	if self.fatigued() 
 		-> radobaan.tired_dash(2,1,5,1200,400) 
 	else 
@@ -212,7 +212,7 @@ def node_015 : 103
 	return 
 endf 
 
-def node_016 : 51
+def node_016
 	if self.fatigued() 
 		-> radobaan.tired_dash(2,1,5,1500,800) 
 	else 
@@ -221,7 +221,7 @@ def node_016 : 51
 	return 
 endf 
 
-def node_017 : 84
+def node_017
 	if self.fatigued() 
 		-> radobaan.tired_dash(2,1,5,3000,800) 
 	else 
@@ -230,7 +230,7 @@ def node_017 : 84
 	return 
 endf 
 
-def node_018 : 111
+def node_018
 	if self.fatigued() 
 		-> radobaan.tired_dash(2,1,5,4000,800) 
 	else 
@@ -239,7 +239,7 @@ def node_018 : 111
 	return 
 endf 
 
-def node_019 : 99
+def node_019
 	if self.fatigued() 
 		-> radobaan.tired() 
 	else 
@@ -248,17 +248,17 @@ def node_019 : 99
 	return 
 endf 
 
-def node_020 : 90
+def node_020
 	-> radobaan.threat_short() 
 	return 
 endf 
 
-def node_021 : 139
+def node_021
 	-> radobaan.threat() 
 	return 
 endf 
 
-def node_022 : 91
+def node_022
 	if self.fatigued() 
 		-> radobaan.gas_attack_tired() 
 	else 
@@ -276,24 +276,24 @@ def node_022 : 91
 	return 
 endf 
 
-def node_023 : 86
+def node_023
 	>> node_012 
 	-> radobaan.jab_ago_attack() 
 	return 
 endf 
 
-def node_024 : 87
+def node_024
 	-> radobaan.ago_stamp_attack() 
 	return 
 endf 
 
-def node_025 : 88
+def node_025
 	>> node_011 
 	-> radobaan.tail_rotation_attack() 
 	return 
 endf 
 
-def node_026 : 89
+def node_026
 	if self.angle_2d_cw_between(0,180) 
 		if self.part(3).is_broken(2) 
 			-> radobaan.side_tackle_tired_l() 
@@ -310,33 +310,33 @@ def node_026 : 89
 	return 
 endf 
 
-def node_027 : 92
+def node_027
 	-> radobaan.double_upper_attack() 
 	return 
 endf 
 
-def node_028 : 141
+def node_028
 	>> node_011 
 	-> radobaan.spin_attack() 
 	return 
 endf 
 
-def node_029 : 153
-	if [RegisterVar0 <= 8] 
+def node_029
+	if [RegisterVar0 -= 8] 
 		>> node_030 
-		[RegisterVar0 |-] 
-	elif [RegisterVar0 <= 4] 
+		[RegisterVar0 ++] 
+	elif [RegisterVar0 -= 4] 
 		random (70) >> node_030 
-					[RegisterVar0 |-] 
+					[RegisterVar0 ++] 
 		elser (30) 
 		endr 
 	else 
-		[RegisterVar0 ++] 
+		[RegisterVar0 |-] 
 	endif 
 	return 
 endf 
 
-def node_030 : 147
+def node_030
 	>> node_011 
 	-> radobaan.spin_attack_tracking() @ comboSetting:1 
 	-> radobaan.spin_attack_connection() @ comboSetting:1 
@@ -344,14 +344,14 @@ def node_030 : 147
 	return 
 endf 
 
-def node_031 : 122
+def node_031
 	>> node_012 
 	>> node_043 
 	-> radobaan.rolling_stamp_attack() 
 	return 
 endf 
 
-def node_032 : 133
+def node_032
 	>> node_011 
 	>> node_044 
 	-> radobaan.rolling_attack_start_to_stop() 
@@ -370,7 +370,7 @@ def node_032 : 133
 	return 
 endf 
 
-def node_033 : 134
+def node_033
 	>> node_011 
 	>> node_045 
 	-> radobaan.rolling_attack_start_to_stop() 
@@ -389,7 +389,7 @@ def node_033 : 134
 	return 
 endf 
 
-def node_034 : 135
+def node_034
 	>> node_011 
 	>> node_044 
 	-> radobaan.rolling_attack_start_to_stop() 
@@ -406,7 +406,7 @@ def node_034 : 135
 	return 
 endf 
 
-def node_035 : 136
+def node_035
 	>> node_011 
 	>> node_045 
 	-> radobaan.rolling_attack_start_to_stop() 
@@ -423,7 +423,7 @@ def node_035 : 136
 	return 
 endf 
 
-def node_036 : 137
+def node_036
 	>> node_011 
 	self.targetEnemy(21) @ parameter2:3000 
 	>> node_043 
@@ -436,14 +436,14 @@ def node_036 : 137
 	return 
 endf 
 
-def node_037 : 93
+def node_037
 	>> node_012 
 	>> node_043 
 	-> radobaan.rolling_attack(5) 
 	return 
 endf 
 
-def node_038 : 117
+def node_038
 	>> node_011 
 	>> node_044 
 	-> radobaan.rolling_attack_start_to_stop() 
@@ -462,7 +462,7 @@ def node_038 : 117
 	return 
 endf 
 
-def node_039 : 119
+def node_039
 	>> node_011 
 	>> node_045 
 	-> radobaan.rolling_attack_start_to_stop() 
@@ -481,7 +481,7 @@ def node_039 : 119
 	return 
 endf 
 
-def node_040 : 120
+def node_040
 	>> node_011 
 	>> node_044 
 	-> radobaan.rolling_attack_start_to_stop() 
@@ -498,7 +498,7 @@ def node_040 : 120
 	return 
 endf 
 
-def node_041 : 121
+def node_041
 	>> node_011 
 	>> node_045 
 	-> radobaan.rolling_attack_start_to_stop() 
@@ -515,7 +515,7 @@ def node_041 : 121
 	return 
 endf 
 
-def node_042 : 123
+def node_042
 	>> node_011 
 	self.targetEnemy(21) @ parameter2:3000 
 	>> node_043 
@@ -528,7 +528,7 @@ def node_042 : 123
 	return 
 endf 
 
-def node_043 : 115
+def node_043
 	if self.distance_3d_to_target().leq(2500) 
 		function#101() 
 	elif self.distance_3d_to_target().leq(4500) 
@@ -541,7 +541,7 @@ def node_043 : 115
 	return 
 endf 
 
-def node_044 : 116
+def node_044
 	if self.distance_3d_to_target().leq(3000) 
 		function#101(1) 
 	elif self.distance_3d_to_target().leq(5000) 
@@ -554,7 +554,7 @@ def node_044 : 116
 	return 
 endf 
 
-def node_045 : 118
+def node_045
 	if self.distance_3d_to_target().leq(4000) 
 		function#101() 
 	elif self.distance_3d_to_target().leq(6000) 
@@ -567,7 +567,7 @@ def node_045 : 118
 	return 
 endf 
 
-def node_046 : 131
+def node_046
 	function#101() 
 	if self.angle_2d_cw_between(0,180) 
 		if self.part(3).is_broken(2) 
@@ -595,7 +595,7 @@ def node_046 : 131
 	return 
 endf 
 
-def node_047 : 142
+def node_047
 	>> node_045 
 	if self.angle_2d_cw_between(0,180) 
 		if self.part(3).is_broken(2) 
@@ -627,7 +627,7 @@ def node_047 : 142
 	return 
 endf 
 
-def node_048 : 132
+def node_048
 	>> node_045 
 	-> radobaan.jab_ago_attack_to_rolling_attack() 
 	if function#102() 
@@ -638,99 +638,99 @@ def node_048 : 132
 	return 
 endf 
 
-def node_049 : 95
+def node_049
 	-> radobaan.wait() 
 	return 
 endf 
 
-def node_050 : 100
+def node_050
 	>> node_014 
 	>> node_023 
 	return 
 endf 
 
-def node_051 : 101
+def node_051
 	>> node_014 
 	>> node_025 
 	return 
 endf 
 
-def node_052 : 102
+def node_052
 	>> node_014 
 	>> node_037 
 	return 
 endf 
 
-def node_053 : 124
+def node_053
 	>> node_014 
 	>> node_031 
 	return 
 endf 
 
-def node_054 : 104
+def node_054
 	>> node_013 
 	>> node_015 
 	>> node_023 
 	return 
 endf 
 
-def node_055 : 105
+def node_055
 	>> node_013 
 	>> node_015 
 	>> node_026 
 	return 
 endf 
 
-def node_056 : 106
+def node_056
 	>> node_013 
 	>> node_015 
 	>> node_025 
 	return 
 endf 
 
-def node_057 : 110
+def node_057
 	>> node_013 
 	>> node_015 
 	>> node_024 
 	return 
 endf 
 
-def node_058 : 125
+def node_058
 	>> node_013 
 	>> node_015 
 	>> node_031 
 	return 
 endf 
 
-def node_059 : 109
+def node_059
 	>> node_013 
 	>> node_018 
 	>> node_025 
 	return 
 endf 
 
-def node_060 : 107
+def node_060
 	>> node_013 
 	>> node_018 
 	>> node_027 
 	return 
 endf 
 
-def node_061 : 126
+def node_061
 	>> node_013 
 	>> node_018 
 	>> node_031 
 	return 
 endf 
 
-def node_062 : 138
+def node_062
 	>> node_013 
 	>> node_015 
 	>> node_048 
 	return 
 endf 
 
-def node_063 : 112
+def node_063
 	if self.distance_3d_to_target().gt(5000) 
 		>> node_064 
 		-> radobaan.rolling_walk(5,1,0,0,3000) 
@@ -740,7 +740,7 @@ def node_063 : 112
 	return 
 endf 
 
-def node_064 : 140
+def node_064
 	if function#7D() 
 		-> radobaan.dying_walk(2,5,0,1500) 
 	elif self.fatigued() 
@@ -751,7 +751,7 @@ def node_064 : 140
 	return 
 endf 
 
-def node_065 : 127
+def node_065
 	function#105() 
 	if function#106() 
 		>> node_068 
@@ -760,7 +760,7 @@ def node_065 : 127
 	return 
 endf 
 
-def node_066 : 151
+def node_066
 	function#105() 
 	if function#106(6) 
 		>> node_067 
@@ -769,7 +769,7 @@ def node_066 : 151
 	return 
 endf 
 
-def node_067 : 152
+def node_067
 	if function#103() 
 		random (80) >> node_069 
 		elser (20) 
@@ -779,7 +779,7 @@ def node_067 : 152
 	return 
 endf 
 
-def node_068 : 128
+def node_068
 	if function#103() 
 		random (40) >> node_069 
 		elser (60) 
@@ -789,14 +789,14 @@ def node_068 : 128
 	return 
 endf 
 
-def node_069 : 130
+def node_069
 	function#104() 
 	>> node_018 
 	-> radobaan.attach_bone() 
 	return 
 endf 
 
-def node_070 : 144
+def node_070
 	if self.distance_3d_to_target().gt(3000) 
 		>> node_071 
 		-> radobaan.rolling_walk(5,1,0,0,3000) 
@@ -810,7 +810,7 @@ def node_070 : 144
 	return 
 endf 
 
-def node_071 : 145
+def node_071
 	if self.fatigued() 
 		-> radobaan.tired_dash(2,1,0,2000,800) 
 	else 
@@ -819,7 +819,7 @@ def node_071 : 145
 	return 
 endf 
 
-def node_072 : 154
+def node_072
 	if self.enraged() 
 		>> node_073 
 	elif self.fatigued() 
@@ -830,7 +830,7 @@ def node_072 : 154
 	return 
 endf 
 
-def node_073 : 155
+def node_073
 	random (20) >> node_023 
 	elser (25) >> node_024 
 	elser (15) >> node_022 
@@ -840,7 +840,7 @@ def node_073 : 155
 	return 
 endf 
 
-def node_074 : 156
+def node_074
 	random (20) >> node_023 
 	elser (20) >> node_024 
 	elser (15) >> node_022 
@@ -851,7 +851,7 @@ def node_074 : 156
 	return 
 endf 
 
-def node_075 : 157
+def node_075
 	random (20) >> node_023 
 	elser (25) >> node_024 
 	elser (15) >> node_022 

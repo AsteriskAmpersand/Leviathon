@@ -1,7 +1,7 @@
 importactions Kirin as kirin
 importlibrary Global as Global
 
-def node_000 : 8
+def node_000
 	self.targetArea(21) @ parameter2:700 
 	if self.target_on_part(0) >> node_004 
 	elif self.target_on_part(1) >> node_004 
@@ -14,7 +14,7 @@ def node_000 : 8
 	reset 
 endf 
 
-def node_001 : 9
+def node_001
 	random (20) >> Global.node_039 
 	elser (25) >> Global.node_009 
 	elser (35) >> Global.node_015 
@@ -23,7 +23,7 @@ def node_001 : 9
 	return 
 endf 
 
-def node_002 : 10
+def node_002
 	random (10) >> Global.node_039 
 	elser (20) >> Global.node_007 
 	elser (35) >> Global.node_001 
@@ -32,7 +32,7 @@ def node_002 : 10
 	return 
 endf 
 
-def node_003 : 31
+def node_003
 	random (30) >> Global.node_039 
 	elser (20) >> Global.node_007 
 	elser (35) >> Global.node_001 
@@ -41,26 +41,26 @@ def node_003 : 31
 	return 
 endf 
 
-def node_004 : 30
-	function#A8() 
+def node_004
+	[$U |-] 
 	self.targetEnemy(target_em.random_player_or_cat) 
-	if function#A9(0,1) 
+	if [$U += 1] 
 		self.target_on_part(1) >> node_005 => repeat 
 		self.target_on_part(2) >> node_008 => repeat 
-	elif function#A9(0,2) 
+	elif [$U += 2] 
 		self.target_on_part(1) >> node_005 => repeat 
 		self.target_on_part(2) >> node_008 => repeat 
-	elif function#A9(0,3) 
+	elif [$U += 3] 
 		self.target_on_part(1) >> node_014 => repeat 
 		self.target_on_part(2) >> node_014 => repeat 
 	else 
-		function#A8(1) 
+		[$U ++] 
 		return 
 	endif 
 	return 
 endf 
 
-def node_005 : 29
+def node_005
 	if self.mounted() 
 		>> node_006 
 	else 
@@ -69,17 +69,17 @@ def node_005 : 29
 	return 
 endf 
 
-def node_006 : 28
+def node_006
 	-> kirin.ride_rage_body() 
 	return 
 endf 
 
-def node_007 : 27
+def node_007
 	-> kirin.ride_rage_body_lv2() 
 	return 
 endf 
 
-def node_008 : 26
+def node_008
 	if self.mounted() 
 		>> node_009 
 	else 
@@ -88,23 +88,23 @@ def node_008 : 26
 	return 
 endf 
 
-def node_009 : 25
+def node_009
 	-> kirin.ride_rage_tail() 
 	return 
 endf 
 
-def node_010 : 24
+def node_010
 	-> kirin.ride_rage_tail_lv2() 
 	return 
 endf 
 
-def node_011 : 23
+def node_011
 	>> node_016 
 	-> kirin.ride_rage_all() 
 	return 
 endf 
 
-def node_012 : 22
+def node_012
 	if function#3B() 
 		if self.mount_staggered_twice() 
 			>> node_013 
@@ -137,12 +137,12 @@ def node_012 : 22
 	return 
 endf 
 
-def node_013 : 21
+def node_013
 	-> kirin.ride_tired() 
 	return 
 endf 
 
-def node_014 : 20
+def node_014
 	if self.mounted() 
 		>> node_015 
 	else 
@@ -150,12 +150,12 @@ def node_014 : 20
 	return 
 endf 
 
-def node_015 : 19
+def node_015
 	-> kirin.wait() 
 	return 
 endf 
 
-def node_016 : 18
+def node_016
 	random (20) >> node_017 
 	elser (80) >> node_018 
 	endr 
@@ -163,34 +163,34 @@ def node_016 : 18
 	return 
 endf 
 
-def node_017 : 17
+def node_017
 	self.targetEnemy(21) @ parameter2:1000 
 	return 
 endf 
 
-def node_018 : 16
+def node_018
 	self.targetEnemy(22) @ parameter2:1000 
 	return 
 endf 
 
-def node_019 : 15
+def node_019
 	random (48) >> node_020 
 	elser (52) >> node_021 
 	endr 
 	return 
 endf 
 
-def node_020 : 14
+def node_020
 	self.targetEnemy(12) @ parameter2:1000 
 	return 
 endf 
 
-def node_021 : 13
+def node_021
 	self.targetEnemy(11) @ parameter2:1000 
 	return 
 endf 
 
-def node_022 : 12
+def node_022
 	if self.angular_17(300,60) 
 		-> kirin.quick_turn() 
 	else 

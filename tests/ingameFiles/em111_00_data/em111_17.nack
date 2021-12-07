@@ -1,7 +1,7 @@
 importactions Legiana as legiana
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	if function#C2() 
 		>> Global.node_038 
 		>> Global.node_197 
@@ -17,10 +17,10 @@ def node_000 : 1
 	conclude 
 endf 
 
-def node_001 : 17
+def node_001
 	function#101() 
 	>> Global.node_002 
-	if [RegisterVar2 == 0] 
+	if [RegisterVar2 += 0] 
 		>> Global.node_375 
 		>> Global.node_035 
 		self.targetEnemy(38) 
@@ -36,7 +36,7 @@ def node_001 : 17
 	return 
 endf 
 
-def node_002 : 18
+def node_002
 	self.targetEnemy(target_em.any_monster) 
 	if self.flying() >> Global.node_032 
 	else >> Global.node_010 

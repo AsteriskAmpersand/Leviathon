@@ -1,12 +1,12 @@
 importactions Vaal_Hazak as vaal_hazak
 
-def node_000 : 1
+def node_000
 	self.targetEnemy(target_em.closest_entity) 
 	>> node_001 
 	conclude 
 endf 
 
-def node_001 : 2
+def node_001
 	if self.target_is(em.Rajang) 
 		>> node_002 
 		-> vaal_hazak.grapple_with_em023_mediation() 
@@ -18,7 +18,7 @@ def node_001 : 2
 	return 
 endf 
 
-def node_002 : 3
+def node_002
 	if self.flying() 
 		-> vaal_hazak.landing() 
 	endif 

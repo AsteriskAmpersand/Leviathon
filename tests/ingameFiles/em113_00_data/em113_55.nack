@@ -1,83 +1,83 @@
 importactions Odogaron as odogaron
 
-def node_000 : 1
+def node_000
 	conclude 
 endf 
 
-def node_001 : 298
+def node_001
 	-> odogaron.discover() 
 	return 
 endf 
 
-def node_002 : 299
+def node_002
 	-> odogaron.threat_short() 
 	return 
 endf 
 
-def node_003 : 591
-	if function#AB() 
-		function#AA() 
+def node_003
+	if [$V += 0] 
+		[$V |-] 
 		>> node_002 
 	else 
 	endif 
 	return 
 endf 
 
-def node_004 : 309
+def node_004
 	-> odogaron.angry_begin() 
 	return 
 endf 
 
-def node_005 : 322
+def node_005
 	return 
 endf 
 
-def node_006 : 531
+def node_006
 	-> odogaron.search() 
 	return 
 endf 
 
-def node_007 : 532
+def node_007
 	-> odogaron.lost_search_short() 
 	return 
 endf 
 
-def node_008 : 533
+def node_008
 	-> odogaron.lost_search() 
 	return 
 endf 
 
-def node_009 : 342
+def node_009
 	-> odogaron.tired() 
 	return 
 endf 
 
-def node_010 : 343
+def node_010
 	-> odogaron.refresh() 
 	return 
 endf 
 
-def node_011 : 321
+def node_011
 	-> odogaron.sniff_s() 
 	return 
 endf 
 
-def node_012 : 501
+def node_012
 	-> odogaron.tired() 
 	return 
 endf 
 
-def node_013 : 534
+def node_013
 	-> odogaron.search() 
 	return 
 endf 
 
-def node_014 : 346
+def node_014
 	-> odogaron.threat() 
 	return 
 endf 
 
-def node_015 : 502
+def node_015
 	if function#104(1) 
 		-> odogaron.food_carry_end() 
 	else 
@@ -85,7 +85,7 @@ def node_015 : 502
 	return 
 endf 
 
-def node_016 : 171
+def node_016
 	if self.distance_3d_to_target().leq(900) 
 	else 
 		-> odogaron.dash(1,2,0,800,1500) 
@@ -94,12 +94,12 @@ def node_016 : 171
 	return 
 endf 
 
-def node_017 : 176
+def node_017
 	-> odogaron.dash(1,2,0,800,1500) 
 	return 
 endf 
 
-def node_018 : 175
+def node_018
 	if self.distance_3d_to_target().leq(900) 
 	else 
 		-> odogaron.dash(1,2,0,800,1000) 
@@ -111,7 +111,7 @@ def node_018 : 175
 	return 
 endf 
 
-def node_019 : 535
+def node_019
 	if self.distance_3d_to_target().leq(900) 
 	else 
 		-> odogaron.dash(1,2,0,800,1000) 
@@ -127,7 +127,7 @@ def node_019 : 535
 	return 
 endf 
 
-def node_020 : 292
+def node_020
 	if self.distance_2d_to_target().leq(900) 
 	else 
 		>> node_017 
@@ -143,12 +143,12 @@ def node_020 : 292
 	return 
 endf 
 
-def node_021 : 163
+def node_021
 	-> odogaron.quick_turn() 
 	return 
 endf 
 
-def node_022 : 76
+def node_022
 	if self.angle_2d_cw_between(15,345) 
 		>> node_021 
 	else 
@@ -156,7 +156,7 @@ def node_022 : 76
 	return 
 endf 
 
-def node_023 : 77
+def node_023
 	if self.angle_2d_cw_between(30,330) 
 		>> node_021 
 	else 
@@ -164,7 +164,7 @@ def node_023 : 77
 	return 
 endf 
 
-def node_024 : 78
+def node_024
 	if self.angle_2d_cw_between(45,315) 
 		>> node_021 
 	else 
@@ -172,7 +172,7 @@ def node_024 : 78
 	return 
 endf 
 
-def node_025 : 79
+def node_025
 	if self.angle_2d_cw_between(60,300) 
 		>> node_021 
 	else 
@@ -180,7 +180,7 @@ def node_025 : 79
 	return 
 endf 
 
-def node_026 : 80
+def node_026
 	if self.angle_2d_cw_between(75,285) 
 		>> node_021 
 	else 
@@ -188,7 +188,7 @@ def node_026 : 80
 	return 
 endf 
 
-def node_027 : 81
+def node_027
 	if self.angle_2d_cw_between(90,270) 
 		>> node_021 
 	else 
@@ -196,7 +196,7 @@ def node_027 : 81
 	return 
 endf 
 
-def node_028 : 98
+def node_028
 	if self.angle_2d_cw_between(10,320) 
 		>> node_021 
 	else 
@@ -204,12 +204,12 @@ def node_028 : 98
 	return 
 endf 
 
-def node_029 : 189
+def node_029
 	-> odogaron.back_turn() 
 	return 
 endf 
 
-def node_030 : 251
+def node_030
 	if self.angle_2d_cw_between(15,345) 
 		>> node_029 
 	else 
@@ -217,7 +217,7 @@ def node_030 : 251
 	return 
 endf 
 
-def node_031 : 252
+def node_031
 	if self.angle_2d_cw_between(30,330) 
 		>> node_029 
 	else 
@@ -225,7 +225,7 @@ def node_031 : 252
 	return 
 endf 
 
-def node_032 : 253
+def node_032
 	if self.angle_2d_cw_between(45,315) 
 		>> node_029 
 	else 
@@ -233,7 +233,7 @@ def node_032 : 253
 	return 
 endf 
 
-def node_033 : 254
+def node_033
 	if self.angle_2d_cw_between(60,300) 
 		>> node_029 
 	else 
@@ -241,7 +241,7 @@ def node_033 : 254
 	return 
 endf 
 
-def node_034 : 255
+def node_034
 	if self.angle_2d_cw_between(90,270) 
 		>> node_029 
 	else 
@@ -249,12 +249,12 @@ def node_034 : 255
 	return 
 endf 
 
-def node_035 : 274
+def node_035
 	-> odogaron.turn() 
 	return 
 endf 
 
-def node_036 : 277
+def node_036
 	if self.angle_2d_cw_between(15,345) 
 		>> node_035 
 	else 
@@ -262,7 +262,7 @@ def node_036 : 277
 	return 
 endf 
 
-def node_037 : 278
+def node_037
 	if self.angle_2d_cw_between(30,330) 
 		>> node_035 
 	else 
@@ -270,7 +270,7 @@ def node_037 : 278
 	return 
 endf 
 
-def node_038 : 279
+def node_038
 	if self.angle_2d_cw_between(45,315) 
 		>> node_035 
 	else 
@@ -278,7 +278,7 @@ def node_038 : 279
 	return 
 endf 
 
-def node_039 : 280
+def node_039
 	if self.angle_2d_cw_between(60,300) 
 		>> node_035 
 	else 
@@ -286,7 +286,7 @@ def node_039 : 280
 	return 
 endf 
 
-def node_040 : 281
+def node_040
 	if self.angle_2d_cw_between(90,270) 
 		>> node_035 
 	else 
@@ -294,8 +294,8 @@ def node_040 : 281
 	return 
 endf 
 
-def node_041 : 375
-	[RegisterVar3 |-] 
+def node_041
+	[RegisterVar3 ++] 
 	if function#109() 
 		>> node_042 
 	elif self.fatigued() 
@@ -310,7 +310,7 @@ def node_041 : 375
 	return 
 endf 
 
-def node_042 : 465
+def node_042
 	if self.distance_2d_to_target().leq(800) 
 		random (50) >> node_055 
 		elser (50) 
@@ -338,8 +338,8 @@ def node_042 : 465
 		endr 
 	else 
 		>> node_066 
-		[RegisterVar3 ++] 
-		if [RegisterVar3 <= 3] 
+		[RegisterVar3 |-] 
+		if [RegisterVar3 -= 3] 
 			return 
 		else 
 			repeat 
@@ -348,7 +348,7 @@ def node_042 : 465
 	return 
 endf 
 
-def node_043 : 471
+def node_043
 	if self.distance_2d_to_target().leq(800) 
 	elif self.distance_2d_to_target().leq(1000) 
 		random (50) >> node_052 
@@ -373,8 +373,8 @@ def node_043 : 471
 		endr 
 	else 
 		>> node_066 
-		[RegisterVar3 ++] 
-		if [RegisterVar3 <= 3] 
+		[RegisterVar3 |-] 
+		if [RegisterVar3 -= 3] 
 			return 
 		else 
 			repeat 
@@ -383,7 +383,7 @@ def node_043 : 471
 	return 
 endf 
 
-def node_044 : 466
+def node_044
 	if self.distance_2d_to_target().leq(800) 
 	elif self.distance_2d_to_target().leq(1000) 
 		random (30) >> node_052 
@@ -408,8 +408,8 @@ def node_044 : 466
 		endr 
 	else 
 		>> node_066 
-		[RegisterVar3 ++] 
-		if [RegisterVar3 <= 3] 
+		[RegisterVar3 |-] 
+		if [RegisterVar3 -= 3] 
 			return 
 		else 
 			repeat 
@@ -418,7 +418,7 @@ def node_044 : 466
 	return 
 endf 
 
-def node_045 : 467
+def node_045
 	if self.distance_2d_to_target().leq(800) 
 	elif self.distance_2d_to_target().leq(1000) 
 		>> node_051 
@@ -430,8 +430,8 @@ def node_045 : 467
 		>> node_051 
 	else 
 		>> node_066 
-		[RegisterVar3 ++] 
-		if [RegisterVar3 <= 3] 
+		[RegisterVar3 |-] 
+		if [RegisterVar3 -= 3] 
 			return 
 		else 
 			repeat 
@@ -440,8 +440,8 @@ def node_045 : 467
 	return 
 endf 
 
-def node_046 : 376
-	[RegisterVar3 |-] 
+def node_046
+	[RegisterVar3 ++] 
 	if function#109() 
 		>> node_047 
 	elif self.fatigued() 
@@ -456,7 +456,7 @@ def node_046 : 376
 	return 
 endf 
 
-def node_047 : 468
+def node_047
 	if self.distance_2d_to_target().leq(650) 
 		random (50) >> node_062 
 		elser (50) 
@@ -484,8 +484,8 @@ def node_047 : 468
 		endr 
 	else 
 		>> node_066 
-		[RegisterVar3 ++] 
-		if [RegisterVar3 <= 3] 
+		[RegisterVar3 |-] 
+		if [RegisterVar3 -= 3] 
 			return 
 		else 
 			repeat 
@@ -494,7 +494,7 @@ def node_047 : 468
 	return 
 endf 
 
-def node_048 : 472
+def node_048
 	if self.distance_2d_to_target().leq(650) 
 	elif self.distance_2d_to_target().leq(1000) 
 		random (50) >> node_059 
@@ -519,8 +519,8 @@ def node_048 : 472
 		endr 
 	else 
 		>> node_066 
-		[RegisterVar3 ++] 
-		if [RegisterVar3 <= 3] 
+		[RegisterVar3 |-] 
+		if [RegisterVar3 -= 3] 
 			return 
 		else 
 			repeat 
@@ -529,7 +529,7 @@ def node_048 : 472
 	return 
 endf 
 
-def node_049 : 469
+def node_049
 	if self.distance_2d_to_target().leq(650) 
 	elif self.distance_2d_to_target().leq(1000) 
 		random (30) >> node_059 
@@ -554,8 +554,8 @@ def node_049 : 469
 		endr 
 	else 
 		>> node_066 
-		[RegisterVar3 ++] 
-		if [RegisterVar3 <= 3] 
+		[RegisterVar3 |-] 
+		if [RegisterVar3 -= 3] 
 			return 
 		else 
 			repeat 
@@ -564,7 +564,7 @@ def node_049 : 469
 	return 
 endf 
 
-def node_050 : 470
+def node_050
 	if self.distance_2d_to_target().leq(800) 
 	elif self.distance_2d_to_target().leq(1000) 
 		>> node_058 
@@ -577,8 +577,8 @@ def node_050 : 470
 		repeat 
 	else 
 		>> node_066 
-		[RegisterVar3 ++] 
-		if [RegisterVar3 <= 3] 
+		[RegisterVar3 |-] 
+		if [RegisterVar3 -= 3] 
 			return 
 		else 
 			repeat 
@@ -587,12 +587,12 @@ def node_050 : 470
 	return 
 endf 
 
-def node_051 : 326
+def node_051
 	-> odogaron.dash(1,2,0,850,1500) 
 	return 
 endf 
 
-def node_052 : 453
+def node_052
 	if self.angle_2d_cw_between(0,180) 
 		-> odogaron.long_point_step_to_front_r() 
 	else 
@@ -601,7 +601,7 @@ def node_052 : 453
 	return 
 endf 
 
-def node_053 : 463
+def node_053
 	>> node_066 
 	if self.distance_2d_to_target().leq(800) 
 		if self.angle_2d_cw_between(0,180) 
@@ -620,7 +620,7 @@ def node_053 : 463
 	return 
 endf 
 
-def node_054 : 461
+def node_054
 	if self.angle_2d_cw_between(0,180) 
 		-> odogaron.long_point_step_to_front_r() 
 		if self.angle_2d_cw_between(180,15) 
@@ -639,7 +639,7 @@ def node_054 : 461
 	return 
 endf 
 
-def node_055 : 455
+def node_055
 	if self.angle_2d_cw_between(0,180) 
 		-> odogaron.short_point_step_to_front_r() 
 	else 
@@ -648,7 +648,7 @@ def node_055 : 455
 	return 
 endf 
 
-def node_056 : 459
+def node_056
 	if self.angle_2d_cw_between(0,180) 
 		-> odogaron.short_point_step_to_front_r() 
 		-> odogaron.short_point_step_to_front_l() 
@@ -659,17 +659,17 @@ def node_056 : 459
 	return 
 endf 
 
-def node_057 : 328
+def node_057
 	-> odogaron.back_step_to_front() 
 	return 
 endf 
 
-def node_058 : 327
+def node_058
 	-> odogaron.step_to_side() 
 	return 
 endf 
 
-def node_059 : 454
+def node_059
 	if self.angle_2d_cw_between(0,180) 
 		-> odogaron.long_point_step_to_side_r() 
 	else 
@@ -678,7 +678,7 @@ def node_059 : 454
 	return 
 endf 
 
-def node_060 : 464
+def node_060
 	-> odogaron.step_to_side() 
 	if self.distance_2d_to_target().leq(800) 
 		if self.angle_2d_cw_between(0,180) 
@@ -697,7 +697,7 @@ def node_060 : 464
 	return 
 endf 
 
-def node_061 : 462
+def node_061
 	if self.angle_2d_cw_between(0,180) 
 		-> odogaron.long_point_step_to_front_r() 
 		if self.angle_2d_cw_between(180,15) 
@@ -716,7 +716,7 @@ def node_061 : 462
 	return 
 endf 
 
-def node_062 : 456
+def node_062
 	if self.angle_2d_cw_between(0,180) 
 		-> odogaron.short_point_step_to_side_r() 
 	else 
@@ -725,7 +725,7 @@ def node_062 : 456
 	return 
 endf 
 
-def node_063 : 558
+def node_063
 	if self.angle_2d_cw_between(0,180) 
 		-> odogaron.long_point_step_to_side_r() 
 	else 
@@ -734,7 +734,7 @@ def node_063 : 558
 	return 
 endf 
 
-def node_064 : 460
+def node_064
 	if self.angle_2d_cw_between(0,180) 
 		-> odogaron.short_point_step_to_front_r() 
 		-> odogaron.short_point_step_to_side_l() 
@@ -745,17 +745,17 @@ def node_064 : 460
 	return 
 endf 
 
-def node_065 : 329
+def node_065
 	-> odogaron.back_step_to_side() 
 	return 
 endf 
 
-def node_066 : 447
+def node_066
 	-> odogaron.dash(1,2,0,1250,1500) 
 	return 
 endf 
 
-def node_067 : 436
+def node_067
 	if self.distance_3d_to_target().leq(250) 
 	elif self.distance_3d_to_target().leq(500) 
 		if self.angle_2d_cw_between(45,150) 
@@ -769,7 +769,7 @@ def node_067 : 436
 	return 
 endf 
 
-def node_068 : 473
+def node_068
 	if function#103(1) 
 		if self.distance_2d_to_target().leq(750) 
 		elif self.distance_2d_to_target().leq(1500) 
@@ -798,37 +798,37 @@ def node_068 : 473
 	return 
 endf 
 
-def node_069 : 336
+def node_069
 	-> odogaron.to_front_idle() 
 	return 
 endf 
 
-def node_070 : 396
+def node_070
 	-> odogaron.to_front_idle_l() 
 	return 
 endf 
 
-def node_071 : 397
+def node_071
 	-> odogaron.to_front_idle_l() 
 	return 
 endf 
 
-def node_072 : 337
+def node_072
 	-> odogaron.to_side_idle() 
 	return 
 endf 
 
-def node_073 : 398
+def node_073
 	-> odogaron.to_side_idle_l() 
 	return 
 endf 
 
-def node_074 : 399
+def node_074
 	-> odogaron.to_side_idle_l() 
 	return 
 endf 
 
-def node_075 : 373
+def node_075
 	if self.current_quest().is_rank(rank.MR) 
 		>> node_078 
 	else 
@@ -843,7 +843,7 @@ def node_075 : 373
 	return 
 endf 
 
-def node_076 : 559
+def node_076
 	if function#109() 
 		>> node_081 
 	elif self.fatigued() 
@@ -862,28 +862,7 @@ def node_076 : 559
 	return 
 endf 
 
-def node_077 : 560
-	if function#109() 
-		>> node_081 
-	elif self.fatigued() 
-		>> node_082 
-	elif function#7D() 
-		>> node_081 
-	elif self.enraged() 
-		if self.target.bleed() 
-			>> node_081 
-		else 
-			>> node_081 
-		endif 
-	elif self.target.bleed() 
-		>> node_081 
-	else 
-		>> node_080 
-	endif 
-	return 
-endf 
-
-def node_078 : 561
+def node_077
 	if function#109() 
 		>> node_081 
 	elif self.fatigued() 
@@ -904,14 +883,35 @@ def node_078 : 561
 	return 
 endf 
 
-def node_079 : 390
+def node_078
+	if function#109() 
+		>> node_081 
+	elif self.fatigued() 
+		>> node_082 
+	elif function#7D() 
+		>> node_081 
+	elif self.enraged() 
+		if self.target.bleed() 
+			>> node_081 
+		else 
+			>> node_081 
+		endif 
+	elif self.target.bleed() 
+		>> node_081 
+	else 
+		>> node_080 
+	endif 
+	return 
+endf 
+
+def node_079
 	>> node_041 
 	-> odogaron.quick_bite() @ comboSetting:1 
 	-> odogaron.back_step_to_side() 
 	return 
 endf 
 
-def node_080 : 381
+def node_080
 	>> node_041 
 	random (0) 
 				-> odogaron.quick_bite() @ comboSetting:1 
@@ -924,7 +924,7 @@ def node_080 : 381
 	return 
 endf 
 
-def node_081 : 382
+def node_081
 	>> node_041 
 	random (0) 
 				-> odogaron.quick_bite() @ comboSetting:1 
@@ -939,14 +939,14 @@ def node_081 : 382
 	return 
 endf 
 
-def node_082 : 503
+def node_082
 	>> node_041 
 	-> odogaron.quick_bite() 
 	>> node_072 
 	return 
 endf 
 
-def node_083 : 385
+def node_083
 	if self.current_quest().is_rank(rank.MR) 
 		>> node_086 
 	else 
@@ -961,7 +961,7 @@ def node_083 : 385
 	return 
 endf 
 
-def node_084 : 562
+def node_084
 	if function#109() 
 		>> node_088 
 	elif self.fatigued() 
@@ -980,7 +980,7 @@ def node_084 : 562
 	return 
 endf 
 
-def node_085 : 563
+def node_085
 	if function#109() 
 		>> node_089 
 	elif self.fatigued() 
@@ -1001,7 +1001,7 @@ def node_085 : 563
 	return 
 endf 
 
-def node_086 : 564
+def node_086
 	if function#109() 
 		>> node_089 
 	elif self.fatigued() 
@@ -1022,7 +1022,7 @@ def node_086 : 564
 	return 
 endf 
 
-def node_087 : 386
+def node_087
 	>> node_041 
 	>> node_027 
 	-> odogaron.scratch_l_hand() @ comboSetting:1 
@@ -1030,7 +1030,7 @@ def node_087 : 386
 	return 
 endf 
 
-def node_088 : 420
+def node_088
 	>> node_041 
 	>> node_027 
 	-> odogaron.scratch_l_hand() @ comboSetting:1 
@@ -1039,7 +1039,7 @@ def node_088 : 420
 	return 
 endf 
 
-def node_089 : 478
+def node_089
 	>> node_041 
 	>> node_027 
 	-> odogaron.scratch_l_hand() @ comboSetting:1 
@@ -1048,7 +1048,7 @@ def node_089 : 478
 	return 
 endf 
 
-def node_090 : 504
+def node_090
 	>> node_041 
 	>> node_027 
 	-> odogaron.scratch_l_hand() 
@@ -1056,7 +1056,7 @@ def node_090 : 504
 	return 
 endf 
 
-def node_091 : 391
+def node_091
 	if self.current_quest().is_rank(rank.MR) 
 		>> node_094 
 	else 
@@ -1071,7 +1071,7 @@ def node_091 : 391
 	return 
 endf 
 
-def node_092 : 565
+def node_092
 	if function#109() 
 		>> node_095 
 	elif self.fatigued() 
@@ -1100,7 +1100,7 @@ def node_092 : 565
 	return 
 endf 
 
-def node_093 : 566
+def node_093
 	if function#109() 
 		>> node_097 
 	elif self.fatigued() 
@@ -1131,7 +1131,7 @@ def node_093 : 566
 	return 
 endf 
 
-def node_094 : 567
+def node_094
 	if function#109() 
 		>> node_097 
 	elif self.fatigued() 
@@ -1162,14 +1162,14 @@ def node_094 : 567
 	return 
 endf 
 
-def node_095 : 392
+def node_095
 	>> node_041 
 	-> odogaron.tail_somersault() 
 	>> node_072 
 	return 
 endf 
 
-def node_096 : 422
+def node_096
 	>> node_041 
 	-> odogaron.tail_somersault() @ comboSetting:1 
 	-> odogaron.jump_claw() 
@@ -1178,7 +1178,7 @@ def node_096 : 422
 	return 
 endf 
 
-def node_097 : 477
+def node_097
 	>> node_041 
 	-> odogaron.tail_somersault() @ comboSetting:1 
 	-> odogaron.jump_claw() 
@@ -1187,14 +1187,14 @@ def node_097 : 477
 	return 
 endf 
 
-def node_098 : 505
+def node_098
 	>> node_041 
 	-> odogaron.tail_somersault() 
 	>> node_072 
 	return 
 endf 
 
-def node_099 : 394
+def node_099
 	if function#101() 
 		if self.current_quest().is_rank(rank.MR) 
 			>> node_286 
@@ -1227,7 +1227,7 @@ def node_099 : 394
 	return 
 endf 
 
-def node_100 : 568
+def node_100
 	if function#109() 
 		>> node_104 
 	elif function#7D() 
@@ -1272,7 +1272,7 @@ def node_100 : 568
 	return 
 endf 
 
-def node_101 : 569
+def node_101
 	if function#109() 
 		>> node_105 
 	elif function#7D() 
@@ -1305,7 +1305,7 @@ def node_101 : 569
 	return 
 endf 
 
-def node_102 : 570
+def node_102
 	if function#109() 
 		>> node_105 
 	elif function#7D() 
@@ -1338,13 +1338,13 @@ def node_102 : 570
 	return 
 endf 
 
-def node_103 : 395
+def node_103
 	-> odogaron.triangle_kick_jump() 
 	>> node_065 
 	return 
 endf 
 
-def node_104 : 400
+def node_104
 	-> odogaron.triangle_kick_jump() 
 	if function#101() 
 		-> odogaron.triangle_kick_jump() 
@@ -1355,7 +1355,7 @@ def node_104 : 400
 	return 
 endf 
 
-def node_105 : 402
+def node_105
 	-> odogaron.triangle_kick_jump() 
 	if function#101() 
 		-> odogaron.triangle_kick_jump() 
@@ -1371,7 +1371,7 @@ def node_105 : 402
 	return 
 endf 
 
-def node_106 : 416
+def node_106
 	if self.current_quest().is_rank(rank.MR) 
 		>> node_109 
 	else 
@@ -1386,7 +1386,7 @@ def node_106 : 416
 	return 
 endf 
 
-def node_107 : 571
+def node_107
 	if function#109() 
 		>> node_110 
 	elif self.fatigued() 
@@ -1415,38 +1415,7 @@ def node_107 : 571
 	return 
 endf 
 
-def node_108 : 572
-	if function#109() 
-		>> node_110 
-	elif self.fatigued() 
-		if function#103() 
-			random (35) >> node_075 
-			elser (35) >> node_083 
-			elser (30) >> node_111 
-			endr 
-		else 
-			random (35) >> node_119 
-			elser (35) >> node_137 
-			elser (30) >> node_111 
-			endr 
-		endif 
-	elif function#7D() 
-		>> node_110 
-	elif self.enraged() 
-		if self.target.bleed() 
-			>> node_110 
-		else 
-			>> node_110 
-		endif 
-	elif self.target.bleed() 
-		>> node_110 
-	else 
-		>> node_110 
-	endif 
-	return 
-endf 
-
-def node_109 : 573
+def node_108
 	if function#109() 
 		>> node_110 
 	elif self.fatigued() 
@@ -1477,14 +1446,45 @@ def node_109 : 573
 	return 
 endf 
 
-def node_110 : 417
+def node_109
+	if function#109() 
+		>> node_110 
+	elif self.fatigued() 
+		if function#103() 
+			random (35) >> node_075 
+			elser (35) >> node_083 
+			elser (30) >> node_111 
+			endr 
+		else 
+			random (35) >> node_119 
+			elser (35) >> node_137 
+			elser (30) >> node_111 
+			endr 
+		endif 
+	elif function#7D() 
+		>> node_110 
+	elif self.enraged() 
+		if self.target.bleed() 
+			>> node_110 
+		else 
+			>> node_110 
+		endif 
+	elif self.target.bleed() 
+		>> node_110 
+	else 
+		>> node_110 
+	endif 
+	return 
+endf 
+
+def node_110
 	>> node_041 
 	-> odogaron.claw_attack() 
 	>> node_057 
 	return 
 endf 
 
-def node_111 : 449
+def node_111
 	if self.current_quest().is_rank(rank.MR) 
 		>> node_114 
 	else 
@@ -1499,7 +1499,7 @@ def node_111 : 449
 	return 
 endf 
 
-def node_112 : 574
+def node_112
 	if function#109() 
 		>> node_115 
 	elif self.fatigued() 
@@ -1518,7 +1518,7 @@ def node_112 : 574
 	return 
 endf 
 
-def node_113 : 575
+def node_113
 	if function#109() 
 		>> node_117 
 	elif self.fatigued() 
@@ -1539,7 +1539,7 @@ def node_113 : 575
 	return 
 endf 
 
-def node_114 : 576
+def node_114
 	if function#109() 
 		>> node_117 
 	elif self.fatigued() 
@@ -1560,14 +1560,14 @@ def node_114 : 576
 	return 
 endf 
 
-def node_115 : 450
+def node_115
 	>> node_041 
 	-> odogaron.killer_bite() 
 	>> node_057 
 	return 
 endf 
 
-def node_116 : 452
+def node_116
 	>> node_041 
 	-> odogaron.killer_bite() @ comboSetting:1 
 	-> odogaron.combo_killer_bite_to_tail_somer() @ comboSetting:1 
@@ -1576,7 +1576,7 @@ def node_116 : 452
 	return 
 endf 
 
-def node_117 : 451
+def node_117
 	>> node_046 
 	-> odogaron.killer_bite_sp() @ comboSetting:1 
 	-> odogaron.combo_killer_bite_sp_to_tail_somer() @ comboSetting:1 
@@ -1585,14 +1585,14 @@ def node_117 : 451
 	return 
 endf 
 
-def node_118 : 506
+def node_118
 	>> node_041 
 	-> odogaron.killer_bite() 
 	>> node_069 
 	return 
 endf 
 
-def node_119 : 419
+def node_119
 	>> node_046 
 	if self.angle_2d_cw_between(270,90) 
 		>> node_120 
@@ -1602,7 +1602,7 @@ def node_119 : 419
 	return 
 endf 
 
-def node_120 : 404
+def node_120
 	if self.current_quest().is_rank(rank.MR) 
 		>> node_123 
 	else 
@@ -1617,7 +1617,7 @@ def node_120 : 404
 	return 
 endf 
 
-def node_121 : 577
+def node_121
 	if function#109() 
 		>> node_127 
 	elif self.fatigued() 
@@ -1636,28 +1636,7 @@ def node_121 : 577
 	return 
 endf 
 
-def node_122 : 578
-	if function#109() 
-		>> node_127 
-	elif self.fatigued() 
-		>> node_128 
-	elif function#7D() 
-		>> node_126 
-	elif self.enraged() 
-		if self.target.bleed() 
-			>> node_126 
-		else 
-			>> node_126 
-		endif 
-	elif self.target.bleed() 
-		>> node_126 
-	else 
-		>> node_125 
-	endif 
-	return 
-endf 
-
-def node_123 : 579
+def node_122
 	if function#109() 
 		>> node_127 
 	elif self.fatigued() 
@@ -1678,20 +1657,41 @@ def node_123 : 579
 	return 
 endf 
 
-def node_124 : 405
+def node_123
+	if function#109() 
+		>> node_127 
+	elif self.fatigued() 
+		>> node_128 
+	elif function#7D() 
+		>> node_126 
+	elif self.enraged() 
+		if self.target.bleed() 
+			>> node_126 
+		else 
+			>> node_126 
+		endif 
+	elif self.target.bleed() 
+		>> node_126 
+	else 
+		>> node_125 
+	endif 
+	return 
+endf 
+
+def node_124
 	-> odogaron.quick_claw_attack() @ comboSetting:1 
 	-> odogaron.back_step_to_front() 
 	return 
 endf 
 
-def node_125 : 406
+def node_125
 	-> odogaron.quick_claw_attack() @ comboSetting:1 
 	-> odogaron.round_bite() 
 	>> node_070 
 	return 
 endf 
 
-def node_126 : 407
+def node_126
 	-> odogaron.quick_claw_attack() @ comboSetting:1 
 	-> odogaron.round_bite() @ comboSetting:1 
 	-> odogaron.combo_round_bite_to_killer_bite() 
@@ -1699,7 +1699,7 @@ def node_126 : 407
 	return 
 endf 
 
-def node_127 : 448
+def node_127
 	-> odogaron.quick_claw_attack() @ comboSetting:1 
 	-> odogaron.round_bite() @ comboSetting:1 
 	-> odogaron.combo_round_bite_to_killer_bite_sp() 
@@ -1707,13 +1707,13 @@ def node_127 : 448
 	return 
 endf 
 
-def node_128 : 507
+def node_128
 	-> odogaron.quick_claw_attack() 
 	>> node_069 
 	return 
 endf 
 
-def node_129 : 408
+def node_129
 	if self.current_quest().is_rank(rank.MR) 
 		>> node_132 
 	else 
@@ -1728,7 +1728,7 @@ def node_129 : 408
 	return 
 endf 
 
-def node_130 : 580
+def node_130
 	if function#109() 
 		>> node_135 
 	elif self.fatigued() 
@@ -1747,28 +1747,7 @@ def node_130 : 580
 	return 
 endf 
 
-def node_131 : 581
-	if function#109() 
-		>> node_135 
-	elif self.fatigued() 
-		>> node_136 
-	elif function#7D() 
-		>> node_135 
-	elif self.enraged() 
-		if self.target.bleed() 
-			>> node_135 
-		else 
-			>> node_135 
-		endif 
-	elif self.target.bleed() 
-		>> node_135 
-	else 
-		>> node_134 
-	endif 
-	return 
-endf 
-
-def node_132 : 582
+def node_131
 	if function#109() 
 		>> node_135 
 	elif self.fatigued() 
@@ -1789,20 +1768,41 @@ def node_132 : 582
 	return 
 endf 
 
-def node_133 : 409
+def node_132
+	if function#109() 
+		>> node_135 
+	elif self.fatigued() 
+		>> node_136 
+	elif function#7D() 
+		>> node_135 
+	elif self.enraged() 
+		if self.target.bleed() 
+			>> node_135 
+		else 
+			>> node_135 
+		endif 
+	elif self.target.bleed() 
+		>> node_135 
+	else 
+		>> node_134 
+	endif 
+	return 
+endf 
+
+def node_133
 	-> odogaron.quick_tail() @ comboSetting:1 
 	-> odogaron.back_step_to_front() 
 	return 
 endf 
 
-def node_134 : 410
+def node_134
 	-> odogaron.quick_tail() @ comboSetting:1 
 	-> odogaron.combo_quick_tail_to_scratch_r() 
 	>> node_073 
 	return 
 endf 
 
-def node_135 : 411
+def node_135
 	-> odogaron.quick_tail() @ comboSetting:1 
 	-> odogaron.combo_quick_tail_to_scratch_r() @ comboSetting:1 
 	-> odogaron.combo_scratch_to_tail_somer() 
@@ -1810,13 +1810,13 @@ def node_135 : 411
 	return 
 endf 
 
-def node_136 : 508
+def node_136
 	-> odogaron.quick_tail() 
 	>> node_069 
 	return 
 endf 
 
-def node_137 : 412
+def node_137
 	if self.current_quest().is_rank(rank.MR) 
 		>> node_140 
 	else 
@@ -1831,7 +1831,7 @@ def node_137 : 412
 	return 
 endf 
 
-def node_138 : 583
+def node_138
 	if function#109() 
 		>> node_142 
 	elif self.fatigued() 
@@ -1850,7 +1850,7 @@ def node_138 : 583
 	return 
 endf 
 
-def node_139 : 584
+def node_139
 	if function#109() 
 		>> node_143 
 	elif self.fatigued() 
@@ -1871,7 +1871,7 @@ def node_139 : 584
 	return 
 endf 
 
-def node_140 : 585
+def node_140
 	if function#109() 
 		>> node_143 
 	elif self.fatigued() 
@@ -1892,14 +1892,14 @@ def node_140 : 585
 	return 
 endf 
 
-def node_141 : 413
+def node_141
 	>> node_046 
 	-> odogaron.round_bite() @ comboSetting:1 
 	-> odogaron.back_step_to_front() 
 	return 
 endf 
 
-def node_142 : 423
+def node_142
 	>> node_046 
 	-> odogaron.round_bite() @ comboSetting:1 
 	-> odogaron.round_bite() 
@@ -1907,7 +1907,7 @@ def node_142 : 423
 	return 
 endf 
 
-def node_143 : 479
+def node_143
 	>> node_046 
 	-> odogaron.round_bite() @ comboSetting:1 
 	-> odogaron.round_bite() @ comboSetting:1 
@@ -1916,14 +1916,14 @@ def node_143 : 479
 	return 
 endf 
 
-def node_144 : 509
+def node_144
 	>> node_046 
 	-> odogaron.round_bite() 
 	>> node_069 
 	return 
 endf 
 
-def node_145 : 432
+def node_145
 	if self.current_quest().is_rank(rank.MR) 
 		>> node_148 
 	else 
@@ -1938,7 +1938,7 @@ def node_145 : 432
 	return 
 endf 
 
-def node_146 : 586
+def node_146
 	if function#109() 
 		>> node_152 
 	elif self.fatigued() 
@@ -1957,28 +1957,7 @@ def node_146 : 586
 	return 
 endf 
 
-def node_147 : 587
-	if function#109() 
-		>> node_152 
-	elif self.fatigued() 
-		>> node_153 
-	elif function#7D() 
-		>> node_151 
-	elif self.enraged() 
-		if self.target.bleed() 
-			>> node_151 
-		else 
-			>> node_151 
-		endif 
-	elif self.target.bleed() 
-		>> node_151 
-	else 
-		>> node_150 
-	endif 
-	return 
-endf 
-
-def node_148 : 588
+def node_147
 	if function#109() 
 		>> node_152 
 	elif self.fatigued() 
@@ -1999,20 +1978,41 @@ def node_148 : 588
 	return 
 endf 
 
-def node_149 : 433
+def node_148
+	if function#109() 
+		>> node_152 
+	elif self.fatigued() 
+		>> node_153 
+	elif function#7D() 
+		>> node_151 
+	elif self.enraged() 
+		if self.target.bleed() 
+			>> node_151 
+		else 
+			>> node_151 
+		endif 
+	elif self.target.bleed() 
+		>> node_151 
+	else 
+		>> node_150 
+	endif 
+	return 
+endf 
+
+def node_149
 	-> odogaron.jump_claw() 
 	>> node_065 
 	return 
 endf 
 
-def node_150 : 474
+def node_150
 	-> odogaron.jump_claw() @ comboSetting:1 
 	-> odogaron.round_bite() 
 	>> node_070 
 	return 
 endf 
 
-def node_151 : 475
+def node_151
 	-> odogaron.jump_claw() @ comboSetting:1 
 	-> odogaron.round_bite() @ comboSetting:1 
 	-> odogaron.combo_round_bite_to_killer_bite() 
@@ -2020,7 +2020,7 @@ def node_151 : 475
 	return 
 endf 
 
-def node_152 : 476
+def node_152
 	-> odogaron.jump_claw() @ comboSetting:1 
 	-> odogaron.round_bite() @ comboSetting:1 
 	-> odogaron.combo_round_bite_to_killer_bite_sp() 
@@ -2028,13 +2028,13 @@ def node_152 : 476
 	return 
 endf 
 
-def node_153 : 510
+def node_153
 	-> odogaron.jump_claw() 
 	>> node_072 
 	return 
 endf 
 
-def node_154 : 439
+def node_154
 	if function#B9() 
 		>> node_155 
 	else 
@@ -2059,7 +2059,7 @@ def node_154 : 439
 	return 
 endf 
 
-def node_155 : 555
+def node_155
 	if function#104(1) 
 	else 
 		if function#107() 
@@ -2077,15 +2077,15 @@ def node_155 : 555
 	return 
 endf 
 
-def node_156 : 557
-	if [RegisterVar0 == 0] 
+def node_156
+	if [RegisterVar0 += 0] 
 		if function#104(1) 
 		else 
 			if function#107() 
 			else 
 				if function#105() 
 					if self.distance_3d_recalc_to_target().leq(5000) 
-						[RegisterVar0 ++] 
+						[RegisterVar0 |-] 
 						>> node_157 
 						>> node_158 
 						>> node_159 
@@ -2102,17 +2102,17 @@ def node_156 : 557
 	return 
 endf 
 
-def node_157 : 440
+def node_157
 	>> node_161 
 	return 
 endf 
 
-def node_158 : 441
+def node_158
 	-> odogaron.corpse_carry_start() 
 	return 
 endf 
 
-def node_159 : 442
+def node_159
 	if function#104() 
 		if function#106(1) 
 			-> odogaron.corpse_carry_walk() 
@@ -2127,7 +2127,7 @@ def node_159 : 442
 	return 
 endf 
 
-def node_160 : 443
+def node_160
 	if function#104() 
 		-> odogaron.corpse_carry_end() 
 	else 
@@ -2136,7 +2136,7 @@ def node_160 : 443
 	return 
 endf 
 
-def node_161 : 444
+def node_161
 	if self.distance_3d_to_target().leq(1200) 
 	else 
 		-> odogaron.dash(1,2,0,1000,3000) 
@@ -2145,7 +2145,7 @@ def node_161 : 444
 	return 
 endf 
 
-def node_162 : 445
+def node_162
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> odogaron.corpse_carry_walk(1,2,0,500,2000) 
@@ -2154,7 +2154,7 @@ def node_162 : 445
 	return 
 endf 
 
-def node_163 : 481
+def node_163
 	if function#B9() 
 		>> node_164 
 	else 
@@ -2174,7 +2174,7 @@ def node_163 : 481
 	return 
 endf 
 
-def node_164 : 556
+def node_164
 	if function#104(1) 
 	else 
 		if function#105(1) 
@@ -2187,18 +2187,18 @@ def node_164 : 556
 	return 
 endf 
 
-def node_165 : 482
+def node_165
 	>> node_167 
 	return 
 endf 
 
-def node_166 : 483
+def node_166
 	>> node_037 
 	-> odogaron.food_carry_start() 
 	return 
 endf 
 
-def node_167 : 484
+def node_167
 	if self.distance_3d_to_target().leq(900) 
 	else 
 		-> odogaron.dash(1,2,0,800,3000) 
@@ -2207,13 +2207,13 @@ def node_167 : 484
 	return 
 endf 
 
-def node_168 : 498
+def node_168
 	-> odogaron.food_carry_end() 
 	-> odogaron.food_eat() 
 	return 
 endf 
 
-def node_169 : 499
+def node_169
 	if function#6B(3000) 
 		self.targetEnemy(26) 
 		>> node_173 
@@ -2225,7 +2225,7 @@ def node_169 : 499
 	return 
 endf 
 
-def node_170 : 500
+def node_170
 	if function#6B(3000) 
 		self.targetEnemy(26) 
 		>> node_173 
@@ -2237,7 +2237,7 @@ def node_170 : 500
 	return 
 endf 
 
-def node_171 : 127
+def node_171
 	if function#6B(20000) 
 		self.targetEnemy(26) 
 		>> node_173 
@@ -2249,7 +2249,7 @@ def node_171 : 127
 	return 
 endf 
 
-def node_172 : 262
+def node_172
 	if function#6B(20000) 
 		self.targetEnemy(26) 
 		>> node_173 
@@ -2261,12 +2261,12 @@ def node_172 : 262
 	return 
 endf 
 
-def node_173 : 131
+def node_173
 	-> odogaron.sniff_s() 
 	return 
 endf 
 
-def node_174 : 129
+def node_174
 	if self.distance_3d_to_target().leq(1000) 
 	else 
 		-> odogaron.dash(0,2,0,0,1000) 
@@ -2275,13 +2275,13 @@ def node_174 : 129
 	return 
 endf 
 
-def node_175 : 130
+def node_175
 	>> node_037 
 	-> odogaron.meat_eat() 
 	return 
 endf 
 
-def node_176 : 485
+def node_176
 	if function#108(0,4) 
 		>> node_178 
 		>> node_179 
@@ -2292,7 +2292,7 @@ def node_176 : 485
 	return 
 endf 
 
-def node_177 : 486
+def node_177
 	if function#108(0,4) 
 		>> node_178 
 		>> node_179 
@@ -2303,12 +2303,12 @@ def node_177 : 486
 	return 
 endf 
 
-def node_178 : 487
+def node_178
 	-> odogaron.sniff_s() 
 	return 
 endf 
 
-def node_179 : 488
+def node_179
 	if self.in_map(st.Rotten_Vale).in_area(9) 
 		>> node_181 
 	elif function#102() 
@@ -2323,13 +2323,13 @@ def node_179 : 488
 	return 
 endf 
 
-def node_180 : 491
+def node_180
 	>> node_037 
 	-> odogaron.corpse_eat() 
 	return 
 endf 
 
-def node_181 : 489
+def node_181
 	if self.distance_3d_to_target().leq(1200) 
 	else 
 		-> odogaron.dash(1,2,0,1000,3000) 
@@ -2338,7 +2338,7 @@ def node_181 : 489
 	return 
 endf 
 
-def node_182 : 490
+def node_182
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> odogaron.dash(1,2,0,500,3000) 
@@ -2347,7 +2347,7 @@ def node_182 : 490
 	return 
 endf 
 
-def node_183 : 492
+def node_183
 	if function#108(15000,1) 
 		>> node_185 
 		>> node_186 
@@ -2358,7 +2358,7 @@ def node_183 : 492
 	return 
 endf 
 
-def node_184 : 493
+def node_184
 	if function#108(15000,1) 
 		>> node_185 
 		>> node_186 
@@ -2369,23 +2369,23 @@ def node_184 : 493
 	return 
 endf 
 
-def node_185 : 494
+def node_185
 	-> odogaron.sniff_s() 
 	return 
 endf 
 
-def node_186 : 495
+def node_186
 	>> node_188 
 	return 
 endf 
 
-def node_187 : 496
+def node_187
 	>> node_037 
 	-> odogaron.food_eat() 
 	return 
 endf 
 
-def node_188 : 497
+def node_188
 	if self.distance_3d_to_target().leq(800) 
 	else 
 		-> odogaron.dash(1,2,0,700,3000) 
@@ -2394,45 +2394,45 @@ def node_188 : 497
 	return 
 endf 
 
-def node_189 : 347
+def node_189
 	self.targetArea(22) @ parameter2:300 
 	>> node_021 
 	return 
 endf 
 
-def node_190 : 348
+def node_190
 	-> odogaron.killer_bite() 
 	>> node_069 
 	return 
 endf 
 
-def node_191 : 349
+def node_191
 	-> odogaron.ride_rage_head_lv2() 
 	return 
 endf 
 
-def node_192 : 350
+def node_192
 	-> odogaron.ride_rage_body() 
 	return 
 endf 
 
-def node_193 : 351
+def node_193
 	-> odogaron.ride_rage_body_lv2() 
 	return 
 endf 
 
-def node_194 : 358
+def node_194
 	-> odogaron.tail_somersault() 
 	>> node_072 
 	return 
 endf 
 
-def node_195 : 359
+def node_195
 	-> odogaron.ride_rage_tail_lv2() 
 	return 
 endf 
 
-def node_196 : 236
+def node_196
 	self.targetArea(7) 
 	if self.distance_3d_to_target().leq(450) 
 		>> node_197 
@@ -2442,12 +2442,12 @@ def node_196 : 236
 	return 
 endf 
 
-def node_197 : 300
+def node_197
 	-> odogaron.back_step() 
 	return 
 endf 
 
-def node_198 : 227
+def node_198
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> odogaron.dash(1,2,0,500,1000) 
@@ -2456,97 +2456,97 @@ def node_198 : 227
 	return 
 endf 
 
-def node_199 : 352
+def node_199
 	-> odogaron.ride_rage_crash_head() 
 	return 
 endf 
 
-def node_200 : 353
+def node_200
 	-> odogaron.ride_rage_crash_head_lv2() 
 	return 
 endf 
 
-def node_201 : 354
+def node_201
 	-> odogaron.ride_rage_crash_body() 
 	return 
 endf 
 
-def node_202 : 355
+def node_202
 	-> odogaron.ride_rage_crash_body_lv2() 
 	return 
 endf 
 
-def node_203 : 360
+def node_203
 	-> odogaron.ride_rage_crash_tail() 
 	return 
 endf 
 
-def node_204 : 361
+def node_204
 	-> odogaron.ride_rage_crash_tail_lv2() 
 	return 
 endf 
 
-def node_205 : 356
+def node_205
 	-> odogaron.threat() 
 	return 
 endf 
 
-def node_206 : 357
+def node_206
 	-> odogaron.ride_tired() 
 	return 
 endf 
 
-def node_207 : 318
+def node_207
 	-> odogaron.walk(1,2,0,500,1000) 
 	return 
 endf 
 
-def node_208 : 319
+def node_208
 	-> odogaron.dash(1,2,0,500,1500) 
 	return 
 endf 
 
-def node_209 : 314
+def node_209
 	-> odogaron.search() 
 	return 
 endf 
 
-def node_210 : 317
+def node_210
 	-> odogaron.search() 
 	return 
 endf 
 
-def node_211 : 511
+def node_211
 	-> odogaron.marking() 
 	return 
 endf 
 
-def node_212 : 316
+def node_212
 	-> odogaron.sniff_s() 
 	return 
 endf 
 
-def node_213 : 315
+def node_213
 	-> odogaron.sniff_l() 
 	return 
 endf 
 
-def node_214 : 311
+def node_214
 	-> odogaron.drink() 
 	return 
 endf 
 
-def node_215 : 313
+def node_215
 	-> odogaron.search() 
 	return 
 endf 
 
-def node_216 : 312
+def node_216
 	-> odogaron.sleep() 
 	return 
 endf 
 
-def node_217 : 249
+def node_217
 	if self.distance_3d_to_target().leq(800) 
 		>> node_029 
 	elif self.distance_3d_to_target().leq(1200) 
@@ -2556,7 +2556,7 @@ def node_217 : 249
 	return 
 endf 
 
-def node_218 : 197
+def node_218
 	if self.distance_2d_to_target().leq(1000) 
 		return 
 	else 
@@ -2575,43 +2575,43 @@ def node_218 : 197
 	return 
 endf 
 
-def node_219 : 256
+def node_219
 	-> odogaron.lost_search_short() 
 	return 
 endf 
 
-def node_220 : 60
+def node_220
 	-> odogaron.search() 
 	return 
 endf 
 
-def node_221 : 61
+def node_221
 	-> odogaron.search() 
 	-> odogaron.search() 
 	return 
 endf 
 
-def node_222 : 121
+def node_222
 	-> odogaron.search() 
 	return 
 endf 
 
-def node_223 : 69
+def node_223
 	-> odogaron.search() 
 	return 
 endf 
 
-def node_224 : 65
+def node_224
 	-> odogaron.sniff_s() 
 	return 
 endf 
 
-def node_225 : 66
+def node_225
 	-> odogaron.sniff_l() 
 	return 
 endf 
 
-def node_226 : 71
+def node_226
 	if self.enraged() 
 		-> odogaron.dash(2,1,0,500,650) 
 	else 
@@ -2620,7 +2620,7 @@ def node_226 : 71
 	return 
 endf 
 
-def node_227 : 115
+def node_227
 	if self.enraged() 
 		-> odogaron.dash(2,1,0,1000,650) 
 	else 
@@ -2629,7 +2629,7 @@ def node_227 : 115
 	return 
 endf 
 
-def node_228 : 73
+def node_228
 	if self.enraged() 
 		-> odogaron.peep_grass_search() 
 	else 
@@ -2638,7 +2638,7 @@ def node_228 : 73
 	return 
 endf 
 
-def node_229 : 82
+def node_229
 	if self.target(10) 
 		-> odogaron.dash(2,0,0,1000) 
 	else 
@@ -2649,12 +2649,12 @@ def node_229 : 82
 	return 
 endf 
 
-def node_230 : 539
+def node_230
 	-> odogaron.tired() 
 	return 
 endf 
 
-def node_231 : 344
+def node_231
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> odogaron.dying_walk(1,2,0,500,1500) 
@@ -2663,12 +2663,12 @@ def node_231 : 344
 	return 
 endf 
 
-def node_232 : 537
+def node_232
 	-> odogaron.dying_walk(1,2,0,500,1500) 
 	return 
 endf 
 
-def node_233 : 345
+def node_233
 	if function#7C() 
 		conclude 
 	else 
@@ -2681,7 +2681,7 @@ def node_233 : 345
 	return 
 endf 
 
-def node_234 : 117
+def node_234
 	if function#104(1) 
 		-> odogaron.search() 
 	else 
@@ -2690,7 +2690,7 @@ def node_234 : 117
 	return 
 endf 
 
-def node_235 : 118
+def node_235
 	if function#104(1) 
 		-> odogaron.search() 
 	else 
@@ -2699,7 +2699,7 @@ def node_235 : 118
 	return 
 endf 
 
-def node_236 : 263
+def node_236
 	random (35) 
 				self.targetArea(21) @ parameter2:450 
 	elser (35) 
@@ -2712,7 +2712,7 @@ def node_236 : 263
 	return 
 endf 
 
-def node_237 : 540
+def node_237
 	random (50) 
 				-> odogaron.threat() 
 	elser (50) 
@@ -2720,12 +2720,12 @@ def node_237 : 540
 	return 
 endf 
 
-def node_238 : 541
+def node_238
 	-> odogaron.threat() 
 	return 
 endf 
 
-def node_239 : 512
+def node_239
 	>> node_023 
 	if self.fatigued() 
 		>> node_009 
@@ -2740,7 +2740,7 @@ def node_239 : 512
 	return 
 endf 
 
-def node_240 : 513
+def node_240
 	if self.targetEnemy(target_em.any_monster) 
 		random (20) >> node_023 
 		elser (80) 
@@ -2756,7 +2756,7 @@ def node_240 : 513
 	return 
 endf 
 
-def node_241 : 514
+def node_241
 	>> node_023 
 	random (30) -> odogaron.lost_search_short() 
 	elser (20) -> odogaron.lost_search() 
@@ -2767,13 +2767,13 @@ def node_241 : 514
 	return 
 endf 
 
-def node_242 : 515
+def node_242
 	>> node_037 
 	-> odogaron.sniff_l() 
 	return 
 endf 
 
-def node_243 : 516
+def node_243
 	self.targetEnemy(58) 
 	random (10) >> node_244 
 	elser (90) 
@@ -2788,12 +2788,12 @@ def node_243 : 516
 	return 
 endf 
 
-def node_244 : 517
+def node_244
 	-> odogaron.walk(1,2,0,600,1500) 
 	return 
 endf 
 
-def node_245 : 518
+def node_245
 	if self.targetEnemy(target_em.any_monster) 
 		if self.target(13) 
 		else 
@@ -2801,7 +2801,7 @@ def node_245 : 518
 				if self.vertical_distance_to_target().leq(1000) 
 					if self.target_is(em.Deviljho) 
 						if self.target(49) 
-							[RegisterVar1 |-] 
+							[RegisterVar1 ++] 
 							self.force_area_change2() 
 						else 
 							random (30) >> node_247 
@@ -2812,7 +2812,7 @@ def node_245 : 518
 						endif 
 					elif self.target_is(em.Savage_Deviljho) 
 						if self.target(49) 
-							[RegisterVar1 |-] 
+							[RegisterVar1 ++] 
 							self.force_area_change2() 
 						else 
 							random (30) >> node_247 
@@ -2874,7 +2874,7 @@ def node_245 : 518
 	return 
 endf 
 
-def node_246 : 519
+def node_246
 	if self.targetEnemy(target_em.any_monster) 
 		if self.target(13) 
 		else 
@@ -2882,7 +2882,7 @@ def node_246 : 519
 				if self.vertical_distance_to_target().leq(1000) 
 					if self.target_is(em.Deviljho) 
 						if self.target(49) 
-							[RegisterVar1 |-] 
+							[RegisterVar1 ++] 
 							self.force_area_change2() 
 						else 
 							random (50) >> node_247 
@@ -2893,7 +2893,7 @@ def node_246 : 519
 						endif 
 					elif self.target_is(em.Savage_Deviljho) 
 						if self.target(49) 
-							[RegisterVar1 |-] 
+							[RegisterVar1 ++] 
 							self.force_area_change2() 
 						else 
 							random (50) >> node_247 
@@ -2955,33 +2955,33 @@ def node_246 : 519
 	return 
 endf 
 
-def node_247 : 520
+def node_247
 	return 
 endf 
 
-def node_248 : 521
+def node_248
 	if self.in_map(st.Special_Arena).in_area(-1) 
 		>> node_250 
 	elif self.in_map(st.Challenge_Arena).in_area(-1) 
 		>> node_250 
 	else 
-		if [RegisterVar1 <= 8] 
-			[RegisterVar1 |-] 
+		if [RegisterVar1 -= 8] 
+			[RegisterVar1 ++] 
 			self.force_area_change2() 
-		elif [RegisterVar1 <= 5] 
+		elif [RegisterVar1 -= 5] 
 			random (30) 
-						[RegisterVar1 |-] 
+						[RegisterVar1 ++] 
 						self.force_area_change2() 
 			elser (70) 
 			endr 
 		else 
 		endif 
-		[RegisterVar1 ++] 
+		[RegisterVar1 |-] 
 		if self.target.in_combat() 
 			>> node_250 
-			[RegisterVar1 ++] 
+			[RegisterVar1 |-] 
 		else 
-			[RegisterVar1 ++] 
+			[RegisterVar1 |-] 
 			>> node_251 
 		endif 
 		self.targetEnemy(target_em.closest_entity) 
@@ -3001,7 +3001,7 @@ def node_248 : 521
 	return 
 endf 
 
-def node_249 : 522
+def node_249
 	>> node_250 
 	>> node_250 
 	random (70) 
@@ -3017,7 +3017,7 @@ def node_249 : 522
 	return 
 endf 
 
-def node_250 : 523
+def node_250
 	>> node_015 
 	self.targetEnemy(target_em.closest_entity) 
 	if function#103() 
@@ -3033,7 +3033,7 @@ def node_250 : 523
 	return 
 endf 
 
-def node_251 : 524
+def node_251
 	>> node_015 
 	self.targetEnemy(target_em.closest_entity) 
 	>> node_023 
@@ -3049,7 +3049,7 @@ def node_251 : 524
 	return 
 endf 
 
-def node_252 : 528
+def node_252
 	>> node_045 
 	self.targetEnemy(target_em.closest_entity) 
 	if function#109() 
@@ -3061,7 +3061,7 @@ def node_252 : 528
 	return 
 endf 
 
-def node_253 : 529
+def node_253
 	>> node_045 
 	self.targetEnemy(target_em.closest_entity) 
 	-> odogaron.claw_attack() 
@@ -3069,7 +3069,7 @@ def node_253 : 529
 	return 
 endf 
 
-def node_254 : 530
+def node_254
 	>> node_045 
 	self.targetEnemy(target_em.closest_entity) 
 	-> odogaron.tail_somersault() 
@@ -3077,7 +3077,7 @@ def node_254 : 530
 	return 
 endf 
 
-def node_255 : 542
+def node_255
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if function#5D() 
 		>> node_257 
@@ -3103,17 +3103,17 @@ def node_255 : 542
 	return 
 endf 
 
-def node_256 : 543
-	if [RegisterVar2 <= 10] 
-		[RegisterVar2 |-] 
-	elif [RegisterVar2 <= 1] 
+def node_256
+	if [RegisterVar2 -= 10] 
 		[RegisterVar2 ++] 
+	elif [RegisterVar2 -= 1] 
+		[RegisterVar2 |-] 
 	else 
 	endif 
 	return 
 endf 
 
-def node_257 : 544
+def node_257
 	if self.distance_2d_to_target().leq(1500) 
 		if self.angle_2d_cw_between(300,60) 
 		else 
@@ -3132,13 +3132,13 @@ def node_257 : 544
 	return 
 endf 
 
-def node_258 : 545
+def node_258
 	>> node_259 
 	>> node_260 
 	reset 
 endf 
 
-def node_259 : 546
+def node_259
 	self.targetArea(19) 
 	if self.distance_3d_to_target().leq(1000) 
 	else 
@@ -3147,14 +3147,14 @@ def node_259 : 546
 	return 
 endf 
 
-def node_260 : 547
+def node_260
 	self.targetEnemy(target_em.random_player_or_cat) 
 	>> node_023 
 	>> node_007 
 	return 
 endf 
 
-def node_261 : 548
+def node_261
 	>> node_266 
 	if self.distance_2d_to_target().leq(1000) 
 		if self.target(0) 
@@ -3171,7 +3171,7 @@ def node_261 : 548
 	return 
 endf 
 
-def node_262 : 549
+def node_262
 	>> node_266 
 	if self.distance_2d_to_target().leq(1000) 
 		if self.target(0) 
@@ -3188,7 +3188,7 @@ def node_262 : 549
 	return 
 endf 
 
-def node_263 : 550
+def node_263
 	>> node_266 
 	if self.distance_2d_to_target().leq(2000) 
 		if self.target(14) 
@@ -3205,12 +3205,12 @@ def node_263 : 550
 	return 
 endf 
 
-def node_264 : 551
+def node_264
 	>> node_268 
 	return 
 endf 
 
-def node_265 : 592
+def node_265
 	if self.vertical_distance_to_target().leq(450) 
 	elif self.target(52) 
 		>> node_268 
@@ -3220,7 +3220,7 @@ def node_265 : 592
 	return 
 endf 
 
-def node_266 : 552
+def node_266
 	if self.distance_2d_to_target().leq(600) 
 		if self.vertical_distance_to_target().leq(1500) 
 		else 
@@ -3248,12 +3248,12 @@ def node_266 : 552
 	return 
 endf 
 
-def node_267 : 553
+def node_267
 	-> odogaron.dash(1,2,0,500,1500) 
 	return 
 endf 
 
-def node_268 : 554
+def node_268
 	if self.distance_3d_to_target().leq(400) 
 	else 
 		-> odogaron.dash(1,2,0,300,1500) 
@@ -3269,7 +3269,7 @@ def node_268 : 554
 	return 
 endf 
 
-def node_269 : 589
+def node_269
 	if self.flying() 
 	else 
 		if function#11(450) 
@@ -3288,13 +3288,13 @@ def node_269 : 589
 	return 
 endf 
 
-def node_270 : 590
+def node_270
 	>> node_266 
 	-> odogaron.tail_somersault() 
 	return 
 endf 
 
-def node_271 : 593
+def node_271
 	if function#104(1) 
 	else 
 		if function#107() 
@@ -3312,7 +3312,7 @@ def node_271 : 593
 	return 
 endf 
 
-def node_272 : 594
+def node_272
 	if function#104(1) 
 	else 
 		if function#105(1) 
@@ -3326,15 +3326,15 @@ def node_272 : 594
 	return 
 endf 
 
-def node_273 : 608
-	if [RegisterVar0 == 0] 
+def node_273
+	if [RegisterVar0 += 0] 
 		if function#104(1) 
 		else 
 			if function#107() 
 			else 
 				if function#105() 
 					if self.distance_3d_recalc_to_target().leq(5000) 
-						[RegisterVar0 ++] 
+						[RegisterVar0 |-] 
 						if function#109() 
 						else 
 							>> node_176 
@@ -3357,7 +3357,7 @@ def node_273 : 608
 	return 
 endf 
 
-def node_274 : 595
+def node_274
 	if function#104(1) 
 		if function#109() 
 		else 
@@ -3375,7 +3375,7 @@ def node_274 : 595
 	return 
 endf 
 
-def node_275 : 596
+def node_275
 	>> node_276 
 	if function#109() 
 		reset 
@@ -3384,7 +3384,7 @@ def node_275 : 596
 	return 
 endf 
 
-def node_276 : 597
+def node_276
 	if function#109() 
 	else 
 		>> node_176 
@@ -3392,7 +3392,7 @@ def node_276 : 597
 	return 
 endf 
 
-def node_277 : 598
+def node_277
 	if function#109() 
 	else 
 		if self.fatigued() 
@@ -3404,7 +3404,7 @@ def node_277 : 598
 	return 
 endf 
 
-def node_278 : 609
+def node_278
 	if function#105() 
 		>> node_178 
 		>> node_179 
@@ -3415,7 +3415,7 @@ def node_278 : 609
 	return 
 endf 
 
-def node_279 : 600
+def node_279
 	if function#108(15000,1) 
 		>> node_185 
 		>> node_186 
@@ -3426,7 +3426,7 @@ def node_279 : 600
 	return 
 endf 
 
-def node_280 : 606
+def node_280
 	if function#105(1) 
 		>> node_185 
 		>> node_165 
@@ -3442,7 +3442,7 @@ def node_280 : 606
 	return 
 endf 
 
-def node_281 : 610
+def node_281
 	if function#104(1) 
 	else 
 		if function#105(2) 
@@ -3454,7 +3454,7 @@ def node_281 : 610
 	return 
 endf 
 
-def node_282 : 611
+def node_282
 	if self.distance_2d_to_target().leq(400) 
 		-> odogaron.back_step_to_front() 
 	else 
@@ -3467,7 +3467,7 @@ def node_282 : 611
 	return 
 endf 
 
-def node_283 : 612
+def node_283
 	if function#109() 
 		>> node_081 
 	elif self.fatigued() 
@@ -3488,7 +3488,7 @@ def node_283 : 612
 	return 
 endf 
 
-def node_284 : 613
+def node_284
 	if function#109() 
 		>> node_089 
 	elif self.fatigued() 
@@ -3509,7 +3509,7 @@ def node_284 : 613
 	return 
 endf 
 
-def node_285 : 614
+def node_285
 	if function#109() 
 		>> node_097 
 	elif self.fatigued() 
@@ -3540,7 +3540,7 @@ def node_285 : 614
 	return 
 endf 
 
-def node_286 : 615
+def node_286
 	if function#109() 
 		>> node_105 
 	elif function#7D() 
@@ -3573,7 +3573,7 @@ def node_286 : 615
 	return 
 endf 
 
-def node_287 : 616
+def node_287
 	if function#109() 
 		>> node_110 
 	elif self.fatigued() 
@@ -3604,7 +3604,7 @@ def node_287 : 616
 	return 
 endf 
 
-def node_288 : 617
+def node_288
 	if function#109() 
 		>> node_117 
 	elif self.fatigued() 
@@ -3625,7 +3625,7 @@ def node_288 : 617
 	return 
 endf 
 
-def node_289 : 618
+def node_289
 	>> node_046 
 	if self.angle_2d_cw_between(270,90) 
 		>> node_290 
@@ -3635,7 +3635,7 @@ def node_289 : 618
 	return 
 endf 
 
-def node_290 : 619
+def node_290
 	if function#109() 
 		>> node_127 
 	elif self.fatigued() 
@@ -3656,7 +3656,7 @@ def node_290 : 619
 	return 
 endf 
 
-def node_291 : 620
+def node_291
 	if function#109() 
 		>> node_135 
 	elif self.fatigued() 
@@ -3677,7 +3677,7 @@ def node_291 : 620
 	return 
 endf 
 
-def node_292 : 621
+def node_292
 	if function#109() 
 		>> node_143 
 	elif self.fatigued() 
@@ -3698,7 +3698,7 @@ def node_292 : 621
 	return 
 endf 
 
-def node_293 : 622
+def node_293
 	if function#109() 
 		>> node_152 
 	elif self.fatigued() 
@@ -3719,7 +3719,7 @@ def node_293 : 622
 	return 
 endf 
 
-def node_294 : 633
+def node_294
 	-> odogaron.food_carry_end() 
 	return 
 endf 

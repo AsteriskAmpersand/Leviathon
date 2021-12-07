@@ -1,7 +1,7 @@
 importactions Jagras as jagras
 importlibrary Global as Global
 
-def node_000 : 17
+def node_000
 	function#C6() 
 	if self.targetEnemy(target_em.closest_entity) 
 		if self.target.helpless_0() 
@@ -31,7 +31,7 @@ def node_000 : 17
 	conclude 
 endf 
 
-def node_001 : 18
+def node_001
 	if function#40() 
 		>> node_002 
 	elif self.vertical_distance_to_target().leq(1000) 
@@ -42,7 +42,7 @@ def node_001 : 18
 	return 
 endf 
 
-def node_002 : 19
+def node_002
 	self.targetEnemy(target_em.closest_entity) 
 	if self.distance_3d_to_target().leq(300) 
 		>> Global.node_022 
@@ -61,13 +61,13 @@ def node_002 : 19
 	return 
 endf 
 
-def node_003 : 20
+def node_003
 	>> Global.node_008 
 	>> Global.node_049 
 	return 
 endf 
 
-def node_004 : 21
+def node_004
 	function#54() 
 	function#52(0,1) 
 	self.targetEnemy(16) 
@@ -79,7 +79,7 @@ def node_004 : 21
 	return 
 endf 
 
-def node_005 : 22
+def node_005
 	self.targetEnemy(33) 
 	if self.target(20) 
 	else 
@@ -88,7 +88,7 @@ def node_005 : 22
 	return 
 endf 
 
-def node_006 : 23
+def node_006
 	>> Global.node_008 
 	>> Global.node_049 
 	return 

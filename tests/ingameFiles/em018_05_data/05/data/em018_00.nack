@@ -1,14 +1,14 @@
 importactions Scarred_Yian_Garuga as scarred_yian_garuga
 importlibrary Global as Global
 
-def node_000 : 33
+def node_000
 	>> node_002 
 	>> node_003 
 	>> node_004 
 	reset 
 endf 
 
-def node_001 : 71
+def node_001
 	>> node_002 
 	>> node_003 
 	>> Global.node_035 
@@ -16,7 +16,7 @@ def node_001 : 71
 	reset 
 endf 
 
-def node_002 : 35
+def node_002
 	if function#45() 
 	else 
 		>> Global.node_163 
@@ -25,7 +25,7 @@ def node_002 : 35
 	return 
 endf 
 
-def node_003 : 64
+def node_003
 	if self.target(4) 
 		>> Global.node_282 => reset 
 	elif self.target(3) 
@@ -45,7 +45,7 @@ def node_003 : 64
 	return 
 endf 
 
-def node_004 : 36
+def node_004
 	>> Global.node_296 
 	if self.distance_3d_to_target().leq(300) 
 		self.enraged() >> node_011 => reset 
@@ -75,24 +75,24 @@ def node_004 : 36
 	reset 
 endf 
 
-def node_005 : 65
+def node_005
 	if self.flying() 
 		random (40) >> Global.node_101 
 		elser (30) >> Global.node_102 
 		elser (30) >> Global.node_103 
 		endr 
 	else 
-		if [RegisterVar5 <= 5] 
-			[RegisterVar5 |-] 
+		if [RegisterVar5 -= 5] 
+			[RegisterVar5 ++] 
 			random (60) >> Global.node_078 
 			elser (10) >> Global.node_009 
 			elser (20) >> Global.node_010 
 			elser (10) >> Global.node_034 
 			endr 
 		else 
-			[RegisterVar5 ++] 
-			if [RegisterVar6 <= 3] 
-				[RegisterVar6 |-] 
+			[RegisterVar5 |-] 
+			if [RegisterVar6 -= 3] 
+				[RegisterVar6 ++] 
 				random (20) >> Global.node_097 
 				elser (15) >> Global.node_098 
 				elser (15) >> Global.node_099 
@@ -103,7 +103,7 @@ def node_005 : 65
 				elser (10) >> Global.node_125 
 				endr 
 			else 
-				[RegisterVar6 ++] 
+				[RegisterVar6 |-] 
 				>> Global.node_126 
 			endif 
 		endif 
@@ -111,12 +111,12 @@ def node_005 : 65
 	return 
 endf 
 
-def node_006 : 52
+def node_006
 	>> node_005 
 	return 
 endf 
 
-def node_007 : 53
+def node_007
 	if self.flying() 
 		>> Global.node_038 
 		>> node_005 
@@ -127,7 +127,7 @@ def node_007 : 53
 	return 
 endf 
 
-def node_008 : 54
+def node_008
 	if self.flying() 
 		random (60) >> Global.node_038 
 		elser (40) >> Global.node_030 
@@ -151,12 +151,12 @@ def node_008 : 54
 	return 
 endf 
 
-def node_009 : 55
+def node_009
 	>> node_008 
 	return 
 endf 
 
-def node_010 : 68
+def node_010
 	if self.flying() 
 		>> Global.node_231 
 	else 
@@ -165,42 +165,42 @@ def node_010 : 68
 	return 
 endf 
 
-def node_011 : 66
+def node_011
 	>> node_005 
 	return 
 endf 
 
-def node_012 : 56
+def node_012
 	>> node_006 
 	return 
 endf 
 
-def node_013 : 57
+def node_013
 	>> node_007 
 	return 
 endf 
 
-def node_014 : 58
+def node_014
 	>> node_008 
 	return 
 endf 
 
-def node_015 : 59
+def node_015
 	>> node_009 
 	return 
 endf 
 
-def node_016 : 69
+def node_016
 	>> node_010 
 	return 
 endf 
 
-def node_017 : 67
-	[RegisterVar5 ++] 
-	if [RegisterVar5 <= 2] 
-		[RegisterVar5 |-] 
-		if [RegisterVar6 <= 2] 
-			[RegisterVar6 |-] 
+def node_017
+	[RegisterVar5 |-] 
+	if [RegisterVar5 -= 2] 
+		[RegisterVar5 ++] 
+		if [RegisterVar6 -= 2] 
+			[RegisterVar6 ++] 
 			random (25) >> Global.node_069 
 			elser (10) >> Global.node_070 
 			elser (20) >> Global.node_071 
@@ -210,7 +210,7 @@ def node_017 : 67
 			elser (5) >> Global.node_077 
 			endr 
 		else 
-			[RegisterVar6 ++] 
+			[RegisterVar6 |-] 
 			random (25) >> Global.node_062 
 			elser (15) >> Global.node_067 
 			elser (15) >> Global.node_063 
@@ -227,18 +227,18 @@ def node_017 : 67
 	return 
 endf 
 
-def node_018 : 60
+def node_018
 	>> node_017 
 	return 
 endf 
 
-def node_019 : 61
+def node_019
 	>> Global.node_022 
 	>> node_017 
 	return 
 endf 
 
-def node_020 : 62
+def node_020
 	random (10) >> Global.node_055 
 	elser (10) >> Global.node_056 
 	elser (20) >> Global.node_057 
@@ -250,12 +250,12 @@ def node_020 : 62
 	return 
 endf 
 
-def node_021 : 63
+def node_021
 	>> node_020 
 	return 
 endf 
 
-def node_022 : 70
+def node_022
 	>> node_010 
 	return 
 endf 

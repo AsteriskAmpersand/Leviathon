@@ -1,7 +1,7 @@
 importactions Barioth as barioth
 importlibrary Global as Global
 
-def node_000 : 8
+def node_000
 	>> Global.node_003 
 	function#52() 
 	>> node_001 
@@ -9,7 +9,7 @@ def node_000 : 8
 	reset 
 endf 
 
-def node_001 : 9
+def node_001
 	>> Global.node_194 
 	self.targetArea(target_area.nearest_entrance) 
 	if function#57(1) 
@@ -32,7 +32,7 @@ def node_001 : 9
 	reset 
 endf 
 
-def node_002 : 10
+def node_002
 	if function#57(1) 
 		>> node_010 
 		function#56(4) 
@@ -54,14 +54,14 @@ def node_002 : 10
 	return 
 endf 
 
-def node_003 : 11
+def node_003
 	self.targetArea(target_area.nearest_entrance) 
 	>> Global.node_020 
 	>> node_015 
 	return 
 endf 
 
-def node_004 : 12
+def node_004
 	self.targetArea(target_area.nearest_entrance) 
 	if function#38(0,10003) 
 		>> Global.node_020 
@@ -73,25 +73,25 @@ def node_004 : 12
 	return 
 endf 
 
-def node_005 : 13
+def node_005
 	self.targetArea(target_area.nearest_entrance) 
 	>> Global.node_022 
 	return 
 endf 
 
-def node_006 : 14
+def node_006
 	self.targetArea(target_area.nearest_entrance) 
 	>> Global.node_022 
 	return 
 endf 
 
-def node_007 : 15
+def node_007
 	self.targetArea(target_area.nearest_entrance) 
 	>> Global.node_022 
 	return 
 endf 
 
-def node_008 : 16
+def node_008
 	function#54() 
 	if self.in_map(st.Special_Arena).in_area(-1) 
 		-> barioth.life_search() 
@@ -111,7 +111,7 @@ def node_008 : 16
 	return 
 endf 
 
-def node_009 : 24
+def node_009
 	>> Global.node_007 
 	if function#5A(1) 
 		-> barioth.marking() 
@@ -121,7 +121,7 @@ def node_009 : 24
 	return 
 endf 
 
-def node_010 : 25
+def node_010
 	function#54() 
 	if function#38(0,10003) 
 		-> barioth.sniff_combat_s() 
@@ -135,7 +135,7 @@ def node_010 : 25
 	return 
 endf 
 
-def node_011 : 17
+def node_011
 	function#54() 
 	self.targetEnemy(17) 
 	>> node_015 
@@ -147,7 +147,7 @@ def node_011 : 17
 	return 
 endf 
 
-def node_012 : 18
+def node_012
 	self.targetArea(target_area.nearest_entrance) 
 	>> node_015 
 	if self.distance_2d_to_target().leq(200) 
@@ -161,7 +161,7 @@ def node_012 : 18
 	return 
 endf 
 
-def node_013 : 19
+def node_013
 	self.targetEnemy(17) 
 	function#54() 
 	>> node_015 
@@ -170,14 +170,14 @@ def node_013 : 19
 	return 
 endf 
 
-def node_014 : 20
+def node_014
 	function#54() 
 	>> node_015 
 	-> barioth.sunbath() 
 	return 
 endf 
 
-def node_015 : 21
+def node_015
 	if self.in_map(st.Special_Arena).in_area(-1) 
 	elif self.in_map(st.Challenge_Arena).in_area(-1) 
 	else 

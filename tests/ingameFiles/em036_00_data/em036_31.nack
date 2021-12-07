@@ -1,14 +1,14 @@
 importactions Lavasioth as lavasioth
 importlibrary Global as Global
 
-def node_000 : 74
+def node_000
 	self.targetEnemy(target_em.closest_entity) 
 	>> node_009 
 	>> node_002 
 	reset 
 endf 
 
-def node_001 : 75
+def node_001
 	>> node_003 
 	self.targetEnemy(target_em.closest_entity) 
 	if self.target(11) 
@@ -24,7 +24,7 @@ def node_001 : 75
 	return 
 endf 
 
-def node_002 : 76
+def node_002
 	>> node_003 
 	if self.distance_2d_to_target().leq(2000) 
 		>> node_007 
@@ -36,7 +36,7 @@ def node_002 : 76
 	return 
 endf 
 
-def node_003 : 77
+def node_003
 	if function#6B(10000) 
 		>> Global.node_095 
 		>> node_004 
@@ -46,7 +46,7 @@ def node_003 : 77
 	return 
 endf 
 
-def node_004 : 78
+def node_004
 	self.targetEnemy(26) 
 	if self.distance_2d_to_target().leq(1000) 
 	else 
@@ -56,30 +56,30 @@ def node_004 : 78
 	return 
 endf 
 
-def node_005 : 79
+def node_005
 	>> Global.node_088 
 	>> Global.node_097 
 	conclude 
 endf 
 
-def node_006 : 80
+def node_006
 	>> node_001 
 	return 
 endf 
 
-def node_007 : 81
+def node_007
 	random (50) >> Global.node_082 
 	elser (50) >> Global.node_069 
 	endr 
 	return 
 endf 
 
-def node_008 : 82
+def node_008
 	>> Global.node_082 
 	return 
 endf 
 
-def node_009 : 83
+def node_009
 	if self.target_is(em.Gastodon) 
 	else 
 		>> node_010 
@@ -102,7 +102,7 @@ def node_009 : 83
 	return 
 endf 
 
-def node_010 : 84
+def node_010
 	function#52(0,1) 
 	self.targetEnemy(16) 
 	>> Global.node_084 

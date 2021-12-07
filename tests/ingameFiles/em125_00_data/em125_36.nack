@@ -1,7 +1,7 @@
 importactions Namielle as namielle
 importlibrary Global as Global
 
-def node_000 : 7
+def node_000
 	>> node_001 
 	>> Global.node_222 
 	>> Global.node_223 
@@ -9,7 +9,7 @@ def node_000 : 7
 	reset 
 endf 
 
-def node_001 : 86
+def node_001
 	if self.target_on_part(0) 
 		>> node_002 
 	elif self.target_on_part(1) 
@@ -19,20 +19,20 @@ def node_001 : 86
 	return 
 endf 
 
-def node_002 : 87
+def node_002
 	>> Global.node_069 
 	>> node_004 
 	reset 
 endf 
 
-def node_003 : 82
+def node_003
 	random (50) >> Global.node_202 
 	elser (50) 
 	endr 
 	return 
 endf 
 
-def node_004 : 83
+def node_004
 	if self.mounted() 
 		>> node_005 
 	else 
@@ -41,7 +41,7 @@ def node_004 : 83
 	return 
 endf 
 
-def node_005 : 84
+def node_005
 	>> Global.node_190 
 	if self.target_on_part(0) 
 		>> Global.node_191 
@@ -51,7 +51,7 @@ def node_005 : 84
 	return 
 endf 
 
-def node_006 : 85
+def node_006
 	>> Global.node_190 
 	if self.target_on_part(0) 
 		>> Global.node_192 
@@ -61,7 +61,7 @@ def node_006 : 85
 	return 
 endf 
 
-def node_007 : 90
+def node_007
 	if self.flying() 
 		random (50) >> Global.node_025 
 		elser (50) >> Global.node_027 
@@ -77,7 +77,7 @@ def node_007 : 90
 	return 
 endf 
 
-def node_008 : 88
+def node_008
 	if function#103(2) 
 		random (50) >> Global.node_019 
 		elser (50) 

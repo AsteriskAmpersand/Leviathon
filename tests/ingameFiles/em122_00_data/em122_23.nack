@@ -1,14 +1,14 @@
 importactions Beotodus as beotodus
 importlibrary Global as Global
 
-def node_000 : 8
+def node_000
 	>> Global.node_070 
 	self.targetEnemy(target_em.closest_entity) 
 	>> node_001 
 	conclude 
 endf 
 
-def node_001 : 9
+def node_001
 	if self.target_is(em.Banbaro) 
 		>> node_002 
 	else 
@@ -16,7 +16,7 @@ def node_001 : 9
 	return 
 endf 
 
-def node_002 : 10
+def node_002
 	>> Global.node_005 
 	if function#101() 
 		-> beotodus.grapple_with_em123_mediation() 

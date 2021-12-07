@@ -1,12 +1,12 @@
 importactions Leshen as leshen
 importlibrary Global as Global
 
-def node_000 : 1
-	if [RegisterVar0 == 0] 
+def node_000
+	if [RegisterVar0 += 0] 
 		-> leshen.wait_crow_1() 
 		self.targetEnemy(48) 
 		>> Global.node_130 
-		[RegisterVar0 ++] 
+		[RegisterVar0 |-] 
 	else 
 	endif 
 	function#52() 
@@ -15,7 +15,7 @@ def node_000 : 1
 	reset 
 endf 
 
-def node_001 : 28
+def node_001
 	self.targetArea(target_area.nearest_entrance) 
 	>> node_003 
 	self.targetArea(target_area.nearest_entrance) 
@@ -27,18 +27,18 @@ def node_001 : 28
 	reset 
 endf 
 
-def node_002 : 30
+def node_002
 	>> node_004 
 	return 
 endf 
 
-def node_003 : 29
+def node_003
 	self.targetArea(target_area.nearest_entrance) 
 	-> leshen.warp_navi_crow_move_1(2,1,0,3000,300) 
 	return 
 endf 
 
-def node_004 : 31
+def node_004
 	function#54() 
 	self.targetEnemy(48) 
 	>> node_005 
@@ -47,7 +47,7 @@ def node_004 : 31
 	return 
 endf 
 
-def node_005 : 32
+def node_005
 	random (50) -> leshen.wait_crow_1() 
 	elser (50) -> leshen.wait_crow_2() 
 	endr 

@@ -102,8 +102,9 @@ class CallResolver(dict):
         else:
             return None,""
 
+
 class RegisterScheduler():
-    def __init__(self,force=False):
+    def __init__(self, force=False):
         self.mappings = {}
         self.force = force
     def defaultName(self,registerIndex):

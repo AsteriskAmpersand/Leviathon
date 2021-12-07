@@ -1,10 +1,10 @@
 importactions Nergigante as nergigante
 
-def node_000 : 37
+def node_000
 	conclude 
 endf 
 
-def node_001 : 24
+def node_001
 	if self.flying() 
 		>> node_003 
 	else 
@@ -13,7 +13,7 @@ def node_001 : 24
 	return 
 endf 
 
-def node_002 : 25
+def node_002
 	self.targetEnemy(16) 
 	if self.distance_3d_to_target().leq(600) 
 		return 
@@ -23,7 +23,7 @@ def node_002 : 25
 	repeat 
 endf 
 
-def node_003 : 26
+def node_003
 	self.targetEnemy(16) 
 	if self.distance_3d_to_target().leq(600) 
 		return 
@@ -33,7 +33,7 @@ def node_003 : 26
 	repeat 
 endf 
 
-def node_004 : 245
+def node_004
 	self.targetArea(14) 
 	if self.distance_3d_to_target().gt(600) 
 		>> node_008 
@@ -43,7 +43,7 @@ def node_004 : 245
 	return 
 endf 
 
-def node_005 : 270
+def node_005
 	self.targetArea(19) 
 	if self.distance_3d_to_target().gt(1000) 
 		>> node_008 
@@ -53,73 +53,73 @@ def node_005 : 270
 	return 
 endf 
 
-def node_006 : 219
+def node_006
 	>> node_049 
 	-> nergigante.dash(5) 
 	return 
 endf 
 
-def node_007 : 221
+def node_007
 	>> node_049 
 	-> nergigante.dash(1,5,0,1000) 
 	return 
 endf 
 
-def node_008 : 230
+def node_008
 	>> node_049 
 	-> nergigante.dash(2,5,0,3000) 
 	return 
 endf 
 
-def node_009 : 247
+def node_009
 	>> node_049 
 	-> nergigante.dash(2,1,5,1500,900) 
 	return 
 endf 
 
-def node_010 : 242
+def node_010
 	>> node_049 
 	-> nergigante.dash(2,1,0,4000,1000) 
 	return 
 endf 
 
-def node_011 : 274
+def node_011
 	>> node_049 
 	-> nergigante.dash(1,5,0,500) 
 	return 
 endf 
 
-def node_012 : 222
+def node_012
 	>> node_049 
 	-> nergigante.walk(5) 
 	return 
 endf 
 
-def node_013 : 223
+def node_013
 	>> node_049 
 	-> nergigante.walk(1,5,0,1000) 
 	return 
 endf 
 
-def node_014 : 231
+def node_014
 	>> node_049 
 	-> nergigante.walk(2,5,0,3000) 
 	return 
 endf 
 
-def node_015 : 243
+def node_015
 	>> node_049 
 	-> nergigante.walk(2,1,0,3000,1000) 
 	return 
 endf 
 
-def node_016 : 233
+def node_016
 	>> node_049 
 	-> nergigante.dying_walk(2,5,0,2000) 
 	return 
 endf 
 
-def node_017 : 246
+def node_017
 	if self.distance_3d_to_target().leq(500) 
 		>> node_021 
 	else 
@@ -128,7 +128,7 @@ def node_017 : 246
 	return 
 endf 
 
-def node_018 : 224
+def node_018
 	if self.angle_2d_cw_between(30,330) 
 		if self.flying() 
 			-> nergigante.normal_turn() 
@@ -140,7 +140,7 @@ def node_018 : 224
 	return 
 endf 
 
-def node_019 : 225
+def node_019
 	if self.angle_2d_cw_between(60,300) 
 		if self.flying() 
 			-> nergigante.normal_turn() 
@@ -152,7 +152,7 @@ def node_019 : 225
 	return 
 endf 
 
-def node_020 : 226
+def node_020
 	if self.angle_2d_cw_between(90,270) 
 		if self.flying() 
 			-> nergigante.normal_turn() 
@@ -164,12 +164,12 @@ def node_020 : 226
 	return 
 endf 
 
-def node_021 : 244
+def node_021
 	-> nergigante.back_turn() 
 	return 
 endf 
 
-def node_022 : 194
+def node_022
 	if self.angle_2d_cw_between(30,330) 
 		if self.flying() 
 			-> nergigante.quick_turn() 
@@ -181,7 +181,7 @@ def node_022 : 194
 	return 
 endf 
 
-def node_023 : 196
+def node_023
 	if self.angle_2d_cw_between(60,300) 
 		if self.flying() 
 			-> nergigante.quick_turn() 
@@ -193,7 +193,7 @@ def node_023 : 196
 	return 
 endf 
 
-def node_024 : 195
+def node_024
 	if self.angle_2d_cw_between(90,270) 
 		if self.flying() 
 			-> nergigante.quick_turn() 
@@ -205,7 +205,7 @@ def node_024 : 195
 	return 
 endf 
 
-def node_025 : 249
+def node_025
 	if self.angle_2d_cw_between(300,60) 
 		>> node_026 
 	else 
@@ -226,23 +226,23 @@ def node_025 : 249
 	return 
 endf 
 
-def node_026 : 250
+def node_026
 	>> node_024 
 	-> nergigante.front_step() 
 	return 
 endf 
 
-def node_027 : 252
+def node_027
 	-> nergigante.side_step() 
 	return 
 endf 
 
-def node_028 : 253
+def node_028
 	-> nergigante.back_step() 
 	return 
 endf 
 
-def node_029 : 193
+def node_029
 	if function#102() 
 		-> nergigante.jump_punch_wing_mode() 
 	else 
@@ -251,7 +251,7 @@ def node_029 : 193
 	return 
 endf 
 
-def node_030 : 197
+def node_030
 	>> node_022 
 	if function#102() 
 		-> nergigante.rarm_jump_attack_smode() 
@@ -261,7 +261,7 @@ def node_030 : 197
 	return 
 endf 
 
-def node_031 : 198
+def node_031
 	if self.angle_2d_cw_between(0,180) 
 		-> nergigante.rhand_jab() 
 	else 
@@ -270,44 +270,44 @@ def node_031 : 198
 	return 
 endf 
 
-def node_032 : 202
+def node_032
 	-> nergigante.rarm_side_swing() 
 	return 
 endf 
 
-def node_033 : 203
+def node_033
 	-> nergigante.lhand_upper() 
 	return 
 endf 
 
-def node_034 : 204
+def node_034
 	>> node_024 
 	-> nergigante.head_attack() 
 	return 
 endf 
 
-def node_035 : 239
+def node_035
 	-> nergigante.left_side_tackle() 
 	return 
 endf 
 
-def node_036 : 238
+def node_036
 	-> nergigante.tail_sweep() 
 	return 
 endf 
 
-def node_037 : 240
+def node_037
 	-> nergigante.tail_slap() 
 	return 
 endf 
 
-def node_038 : 241
+def node_038
 	>> node_023 
 	-> nergigante.short_headbutt() 
 	return 
 endf 
 
-def node_039 : 248
+def node_039
 	if self.angle_2d_cw_between(190,170) 
 		-> nergigante.wing_attack() 
 	else 
@@ -316,7 +316,7 @@ def node_039 : 248
 	return 
 endf 
 
-def node_040 : 205
+def node_040
 	if self.angle_2d_cw_between(0,180) 
 		-> nergigante.r_l_hand_jab() 
 	else 
@@ -325,7 +325,7 @@ def node_040 : 205
 	return 
 endf 
 
-def node_041 : 256
+def node_041
 	if self.current_quest().is_rank(rank.AT) 
 		if function#102() 
 			random (19) >> node_031 
@@ -346,12 +346,12 @@ def node_041 : 256
 	return 
 endf 
 
-def node_042 : 257
+def node_042
 	-> nergigante.long_range_attack() 
 	return 
 endf 
 
-def node_043 : 258
+def node_043
 	if self.current_quest().is_rank(rank.AT) 
 		random (41) >> node_076 
 		elser (59) -> nergigante.mid_range_punch() 
@@ -365,7 +365,7 @@ def node_043 : 258
 	return 
 endf 
 
-def node_044 : 251
+def node_044
 	if function#2D() 
 		if self.fatigued() 
 		else 
@@ -410,7 +410,7 @@ def node_044 : 251
 	return 
 endf 
 
-def node_045 : 255
+def node_045
 	if function#2D() 
 		if self.distance_3d_to_target().leq(4000) 
 			if self.fatigued() 
@@ -439,7 +439,7 @@ def node_045 : 255
 	return 
 endf 
 
-def node_046 : 277
+def node_046
 	if self.flying() 
 	else 
 		-> nergigante.flying_attack() 
@@ -447,13 +447,13 @@ def node_046 : 277
 	return 
 endf 
 
-def node_047 : 213
+def node_047
 	>> node_049 
 	-> nergigante.tired() 
 	return 
 endf 
 
-def node_048 : 207
+def node_048
 	if self.flying() 
 	else 
 		-> nergigante.take_off() 
@@ -461,7 +461,7 @@ def node_048 : 207
 	return 
 endf 
 
-def node_049 : 214
+def node_049
 	if self.flying() 
 		-> nergigante.landing() 
 	else 
@@ -469,52 +469,52 @@ def node_049 : 214
 	return 
 endf 
 
-def node_050 : 232
+def node_050
 	>> node_049 
 	-> nergigante.search() 
 	return 
 endf 
 
-def node_051 : 217
+def node_051
 	>> node_049 
 	-> nergigante.lost_search() 
 	return 
 endf 
 
-def node_052 : 218
+def node_052
 	>> node_049 
 	-> nergigante.search() 
 	return 
 endf 
 
-def node_053 : 220
+def node_053
 	>> node_049 
 	-> nergigante.anger_search() 
 	return 
 endf 
 
-def node_054 : 227
+def node_054
 endf 
 
-def node_055 : 228
+def node_055
 	>> node_049 
 	-> nergigante.discover() 
 	return 
 endf 
 
-def node_056 : 234
+def node_056
 	>> node_049 
 	-> nergigante.threat_short() 
 	return 
 endf 
 
-def node_057 : 229
+def node_057
 	>> node_049 
 	-> nergigante.refresh() 
 	return 
 endf 
 
-def node_058 : 268
+def node_058
 	if self.in_map(st.Elder_Recess).in_area(14) 
 		if function#7D() 
 			if function#103() 
@@ -530,19 +530,19 @@ def node_058 : 268
 	return 
 endf 
 
-def node_059 : 267
+def node_059
 	>> node_049 
 	-> nergigante.marking() 
 	return 
 endf 
 
-def node_060 : 235
+def node_060
 	>> node_049 
 	-> nergigante.sleep() 
 	return 
 endf 
 
-def node_061 : 269
+def node_061
 	>> node_049 
 	if function#C9() 
 		-> nergigante.dying_sleep(3,0,0,150) 
@@ -552,7 +552,7 @@ def node_061 : 269
 	return 
 endf 
 
-def node_062 : 265
+def node_062
 	random (33) 
 				self.targetEnemy(21) @ parameter2:1000 
 	elser (25) 
@@ -565,17 +565,17 @@ def node_062 : 265
 	return 
 endf 
 
-def node_063 : 259
+def node_063
 	-> nergigante.ride_tired() 
 	return 
 endf 
 
-def node_064 : 260
+def node_064
 	-> nergigante.ride_wait() 
 	return 
 endf 
 
-def node_065 : 261
+def node_065
 	if self.mounted() 
 		-> nergigante.ride_rage_head() 
 	else 
@@ -586,7 +586,7 @@ def node_065 : 261
 	return 
 endf 
 
-def node_066 : 262
+def node_066
 	if self.mounted() 
 		-> nergigante.ride_rage_body() 
 	else 
@@ -595,7 +595,7 @@ def node_066 : 262
 	return 
 endf 
 
-def node_067 : 263
+def node_067
 	if self.mounted() 
 		-> nergigante.ride_rage_tail() 
 	else 
@@ -604,7 +604,7 @@ def node_067 : 263
 	return 
 endf 
 
-def node_068 : 264
+def node_068
 	if function#29() 
 		self.targetEnemy(7) 
 		>> node_069 
@@ -626,7 +626,7 @@ def node_068 : 264
 	return 
 endf 
 
-def node_069 : 266
+def node_069
 	if self.distance_3d_to_target().leq(500) 
 		>> node_028 
 	elif self.distance_3d_to_target().gt(1000) 
@@ -636,7 +636,7 @@ def node_069 : 266
 	return 
 endf 
 
-def node_070 : 271
+def node_070
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> nergigante.glide_direct_move(2,1,5,3000,500) 
@@ -645,7 +645,7 @@ def node_070 : 271
 	return 
 endf 
 
-def node_071 : 272
+def node_071
 	if self.distance_3d_to_target().leq(1000) 
 	else 
 		-> nergigante.glide_direct_move(2,1,5,3000,900) 
@@ -654,7 +654,7 @@ def node_071 : 272
 	return 
 endf 
 
-def node_072 : 273
+def node_072
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> nergigante.glide(2,1,5,3000,500) 
@@ -663,7 +663,7 @@ def node_072 : 273
 	return 
 endf 
 
-def node_073 : 275
+def node_073
 	if self.flying() 
 		if function#AF(5000) 
 			-> nergigante.landing() 
@@ -678,7 +678,7 @@ def node_073 : 275
 	return 
 endf 
 
-def node_074 : 276
+def node_074
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> nergigante.glide(2,1,5,3000,500) 
@@ -687,24 +687,24 @@ def node_074 : 276
 	return 
 endf 
 
-def node_075 : 278
+def node_075
 	-> nergigante.ex_jumping_punch() 
 	return 
 endf 
 
-def node_076 : 279
+def node_076
 	-> nergigante.mid_range_punch() @ comboSetting:1 
 	-> nergigante.ex_jumping_punch() 
 	return 
 endf 
 
-def node_077 : 280
+def node_077
 	-> nergigante.side_step() @ comboSetting:1 
 	-> nergigante.ex_jumping_punch() 
 	return 
 endf 
 
-def node_078 : 281
+def node_078
 	if self.targetEnemy(target_em.any_monster) 
 		if self.target_is(em.Zorah_Magdaros) @ parameter2:1 
 		elif self.target(13) 
@@ -720,7 +720,7 @@ def node_078 : 281
 	return 
 endf 
 
-def node_079 : 282
+def node_079
 	if self.targetEnemy(target_em.any_monster) 
 		if self.target_is(em.Zorah_Magdaros) @ parameter2:1 
 		elif self.target(13) 
@@ -738,7 +738,7 @@ def node_079 : 282
 	return 
 endf 
 
-def node_080 : 283
+def node_080
 	random (40) >> node_055 
 	elser (25) >> node_029 
 	elser (5) >> node_033 
@@ -748,7 +748,7 @@ def node_080 : 283
 	return 
 endf 
 
-def node_081 : 284
+def node_081
 	>> node_049 
 	>> node_022 
 	if function#102() 
@@ -759,7 +759,7 @@ def node_081 : 284
 	return 
 endf 
 
-def node_082 : 285
+def node_082
 	>> node_049 
 	>> node_022 
 	if function#102() 
@@ -770,7 +770,7 @@ def node_082 : 285
 	return 
 endf 
 
-def node_083 : 286
+def node_083
 	if self.target(55) 
 		if function#7F() 
 			>> node_034 

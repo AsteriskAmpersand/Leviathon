@@ -1,7 +1,7 @@
 importactions Barnos as barnos
 importlibrary Global as Global
 
-def node_000 : 41
+def node_000
 	>> Global.node_007 
 	>> Global.node_010 
 	>> node_005 
@@ -12,14 +12,14 @@ def node_000 : 41
 	reset 
 endf 
 
-def node_001 : 44
+def node_001
 	random (50) >> node_004 
 	elser (50) >> node_002 
 	endr 
 	return 
 endf 
 
-def node_002 : 45
+def node_002
 	-> action#10(2,0,0,3000) 
 	if self.distance_2d_to_target().leq(700) 
 		return 
@@ -29,7 +29,7 @@ def node_002 : 45
 	return 
 endf 
 
-def node_003 : 42
+def node_003
 	if self.distance_2d_to_target().leq(2000) 
 		-> action#11(1,0,0,500) 
 	else 
@@ -43,7 +43,7 @@ def node_003 : 42
 	return 
 endf 
 
-def node_004 : 49
+def node_004
 	>> node_003 
 	-> action#1E() 
 	>> Global.node_002 
@@ -51,20 +51,20 @@ def node_004 : 49
 	return 
 endf 
 
-def node_005 : 48
+def node_005
 	if function#58(1,100) 
 		>> Global.node_013 
 	endif 
 	return 
 endf 
 
-def node_006 : 46
+def node_006
 	>> node_003 
 	>> Global.node_004 
 	return 
 endf 
 
-def node_007 : 47
+def node_007
 	>> node_003 
 	>> Global.node_005 
 	return 

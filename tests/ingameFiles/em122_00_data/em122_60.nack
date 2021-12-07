@@ -1,13 +1,13 @@
 importactions Beotodus as beotodus
 importlibrary Global as Global
 
-def node_000 : 1
-	if [RegisterVar10 <= 1] 
+def node_000
+	if [RegisterVar10 -= 1] 
 	else 
-		if [RegisterVar9 <= 1] 
+		if [RegisterVar9 -= 1] 
 		else 
 			if function#10F() 
-				[RegisterVar9 ++] 
+				[RegisterVar9 |-] 
 				-> beotodus.event_swim_ground_wait() 
 			else 
 				if function#3F() 
@@ -30,7 +30,7 @@ def node_000 : 1
 			endif 
 		endif 
 		>> Global.node_115 
-		[RegisterVar10 ++] 
+		[RegisterVar10 |-] 
 		-> beotodus.event_swim_predator_eat() 
 	endif 
 	self.targetEnemy(48) 

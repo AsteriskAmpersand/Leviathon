@@ -1,7 +1,7 @@
 importactions Radobaan as radobaan
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	>> Global.node_008 
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.target(7) 
@@ -14,17 +14,17 @@ def node_000 : 1
 	conclude 
 endf 
 
-def node_001 : 2
+def node_001
 	-> radobaan.threat_short() 
 	return 
 endf 
 
-def node_002 : 3
+def node_002
 	-> radobaan.threat_short() 
 	return 
 endf 
 
-def node_003 : 4
+def node_003
 	if self.angle_2d_cw_between(30,330) 
 		-> radobaan.quick_turn() 
 	else 

@@ -1,7 +1,7 @@
 importactions Savage_Deviljho as savage_deviljho
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	>> Global.node_184 
 	>> Global.node_185 
 	self.targetEnemy(target_em.closest_entity) 
@@ -12,7 +12,7 @@ def node_000 : 1
 	conclude 
 endf 
 
-def node_001 : 2
+def node_001
 	if self.target_is(em.Bazelgeuse) 
 		-> savage_deviljho.grapple_with_em118_mediation_threat() 
 	elif self.target_is(em.Rathalos) 

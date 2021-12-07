@@ -1,20 +1,20 @@
 importactions Gastodon as gastodon
 
-def node_000 : 1
+def node_000
 	>> node_002 
 	>> node_004 
 	function#54() 
 	conclude 
 endf 
 
-def node_001 : 2
+def node_001
 	function#54() 
 	function#52(160) 
 	self.targetArea(52) 
 	return 
 endf 
 
-def node_002 : 3
+def node_002
 	-> action#09(2,1,0,500,500) 
 	if self.distance_2d_to_target().leq(500) 
 	else 
@@ -23,7 +23,7 @@ def node_002 : 3
 	return 
 endf 
 
-def node_003 : 5
+def node_003
 	random (34) -> action#1D() 
 	elser (33) -> action#1E() 
 	elser (33) -> action#1F() 
@@ -31,7 +31,7 @@ def node_003 : 5
 	return 
 endf 
 
-def node_004 : 6
+def node_004
 	if function#BD() 
 		function#BE() 
 	endif 

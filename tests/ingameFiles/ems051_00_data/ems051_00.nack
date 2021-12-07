@@ -1,7 +1,7 @@
 importactions KestodonM as kestodonm
 importlibrary Global as Global
 
-def node_000 : 7
+def node_000
 	>> Global.node_006 
 	>> Global.node_008 
 	>> Global.node_005 
@@ -16,12 +16,12 @@ def node_000 : 7
 	reset 
 endf 
 
-def node_001 : 35
+def node_001
 	self.targetEnemy(target_em.random_player_or_cat) 
 	return 
 endf 
 
-def node_002 : 15
+def node_002
 	if function#7B() 
 		>> node_005 
 		repeat 
@@ -30,7 +30,7 @@ def node_002 : 15
 	return 
 endf 
 
-def node_003 : 8
+def node_003
 	if function#3A() 
 		>> node_004 
 	else 
@@ -50,7 +50,7 @@ def node_003 : 8
 	return 
 endf 
 
-def node_004 : 6
+def node_004
 	if self.distance_2d_to_target().leq(400) 
 		>> node_012 
 	elif self.distance_2d_to_target().leq(1200) 
@@ -61,7 +61,7 @@ def node_004 : 6
 	return 
 endf 
 
-def node_005 : 16
+def node_005
 	if self.distance_2d_to_target().leq(400) 
 		>> node_006 
 	elif self.distance_2d_to_target().leq(1200) 
@@ -72,25 +72,25 @@ def node_005 : 16
 	return 
 endf 
 
-def node_006 : 17
+def node_006
 	>> Global.node_002 
 	>> Global.node_027 
 	>> Global.node_024 
 	return 
 endf 
 
-def node_007 : 18
+def node_007
 	>> Global.node_024 
 	return 
 endf 
 
-def node_008 : 19
+def node_008
 	>> Global.node_002 
 	>> node_015 
 	return 
 endf 
 
-def node_009 : 32
+def node_009
 	random (70) >> Global.node_022 
 	elser (30) >> Global.node_027 
 				>> Global.node_023 
@@ -98,19 +98,19 @@ def node_009 : 32
 	return 
 endf 
 
-def node_010 : 2
+def node_010
 	>> Global.node_023 
 	return 
 endf 
 
-def node_011 : 3
+def node_011
 	>> Global.node_002 
 	>> Global.node_017 
 	>> Global.node_022 
 	return 
 endf 
 
-def node_012 : 13
+def node_012
 	random (50) >> node_016 
 	elser (50) >> Global.node_002 
 				>> Global.node_027 
@@ -118,18 +118,18 @@ def node_012 : 13
 	return 
 endf 
 
-def node_013 : 10
+def node_013
 	>> Global.node_026 
 	return 
 endf 
 
-def node_014 : 36
+def node_014
 	>> Global.node_002 
 	>> node_015 
 	return 
 endf 
 
-def node_015 : 22
+def node_015
 	-> action#09(2,6,0,700,650) 
 	if self.distance_2d_to_target().leq(700) 
 	else 
@@ -138,7 +138,7 @@ def node_015 : 22
 	return 
 endf 
 
-def node_016 : 37
+def node_016
 	random (50) -> action#19() 
 	elser (50) -> action#1B() 
 	endr 

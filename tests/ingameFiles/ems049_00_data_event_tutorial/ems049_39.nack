@@ -1,7 +1,7 @@
 importactions Jagras as jagras
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	>> node_001 
 	>> Global.node_055 
 	self.targetEnemy(33) 
@@ -14,10 +14,10 @@ def node_000 : 1
 	conclude 
 endf 
 
-def node_001 : 9
+def node_001
 	if self.quest_id(101) 
-		if [RegisterVar2 == 0] 
-			[RegisterVar2 ++] 
+		if [RegisterVar2 += 0] 
+			[RegisterVar2 |-] 
 		else 
 		endif 
 	else 

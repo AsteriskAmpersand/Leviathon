@@ -1,7 +1,7 @@
 importactions Glavenus as glavenus
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	if function#41() 
 		>> Global.node_021 => reset 
 	else 
@@ -12,7 +12,7 @@ def node_000 : 1
 	reset 
 endf 
 
-def node_001 : 2
+def node_001
 	self.targetEnemy(48) 
 	if self.in_map(st.Challenge_Arena).in_area(-1) 
 		>> node_004 
@@ -24,7 +24,7 @@ def node_001 : 2
 	return 
 endf 
 
-def node_002 : 3
+def node_002
 	>> Global.node_009 
 	if self.fatigued() 
 		-> glavenus.tired_wait() 
@@ -36,7 +36,7 @@ def node_002 : 3
 	return 
 endf 
 
-def node_003 : 4
+def node_003
 	if self.targetEnemy(target_em.any_monster) 
 		random (20) >> Global.node_008 
 		elser (80) 
@@ -52,7 +52,7 @@ def node_003 : 4
 	return 
 endf 
 
-def node_004 : 23
+def node_004
 	>> Global.node_008 
 	random (30) -> glavenus.wait() 
 	elser (25) -> glavenus.sniff_s() 

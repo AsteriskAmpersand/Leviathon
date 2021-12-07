@@ -1,7 +1,7 @@
 importactions Tigrex as tigrex
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	>> Global.node_020 
 	*&
 	self.targetEnemy(target_em.closest_entity) 
@@ -10,7 +10,7 @@ def node_000 : 1
 	conclude 
 endf 
 
-def node_001 : 2
+def node_001
 	if self.angle_2d_cw_between(60,300) 
 		-> tigrex.quick_turn() 
 	else 
@@ -18,7 +18,7 @@ def node_001 : 2
 	return 
 endf 
 
-def node_002 : 3
+def node_002
 	-> tigrex.discover() 
 	return 
 endf 

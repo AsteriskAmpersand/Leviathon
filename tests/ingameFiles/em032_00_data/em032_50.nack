@@ -1,7 +1,7 @@
 importactions Tigrex as tigrex
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	>> Global.node_020 
 	self.targetEnemy(target_em.closest_entity) 
 	if self.target_is(em.Brachydios) 
@@ -24,27 +24,27 @@ def node_000 : 1
 	conclude 
 endf 
 
-def node_001 : 2
+def node_001
 	-> tigrex.grapple_with_em063_adjust() 
 	return 
 endf 
 
-def node_002 : 3
+def node_002
 	-> tigrex.grapple_with_em080_adjust() 
 	return 
 endf 
 
-def node_003 : 4
+def node_003
 	-> tigrex.grapple_with_em080_adjust() 
 	return 
 endf 
 
-def node_004 : 5
+def node_004
 	-> tigrex.grapple_with_em100_01_adjust() 
 	return 
 endf 
 
-def node_005 : 7
+def node_005
 	if self.distance_3d_to_target().gt(1600) 
 		-> tigrex.dash_combat(1,0,0,1500) 
 	endif 
@@ -52,7 +52,7 @@ def node_005 : 7
 	return 
 endf 
 
-def node_006 : 8
+def node_006
 	if self.distance_3d_to_target().gt(1350) 
 		-> tigrex.dash(1,0,0,1250) 
 	else 

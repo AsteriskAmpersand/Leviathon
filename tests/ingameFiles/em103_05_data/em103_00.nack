@@ -1,7 +1,7 @@
 importactions Ruiner_Nergigante as ruiner_nergigante
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	self.targetEnemy(66) 
 	>> Global.node_084 
 	>> Global.node_071 
@@ -39,7 +39,7 @@ def node_000 : 1
 		>> node_007 => reset 
 	elif self.target(52) 
 		>> node_011 => reset 
-	elif [RegisterVar3 <= 1] 
+	elif [RegisterVar3 -= 1] 
 		>> node_010 => reset 
 	else 
 		>> node_008 => reset 
@@ -47,7 +47,7 @@ def node_000 : 1
 	reset 
 endf 
 
-def node_001 : 42
+def node_001
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.target.mudded() 
 		>> Global.node_008 
@@ -65,7 +65,7 @@ def node_001 : 42
 	return 
 endf 
 
-def node_002 : 43
+def node_002
 	self.targetArea(19) 
 	if self.distance_3d_to_target().gt(1000) 
 		>> Global.node_006 
@@ -81,7 +81,7 @@ def node_002 : 43
 	return 
 endf 
 
-def node_003 : 48
+def node_003
 	if self.distance_3d_to_target().gt(5000) 
 		>> Global.node_009 
 	else 
@@ -91,7 +91,7 @@ def node_003 : 48
 	return 
 endf 
 
-def node_004 : 44
+def node_004
 	>> Global.node_050 
 	if self.distance_2d_to_target().gt(1000) 
 		>> Global.node_011 
@@ -108,12 +108,12 @@ def node_004 : 44
 	return 
 endf 
 
-def node_005 : 47
+def node_005
 	>> Global.node_009 
 	return 
 endf 
 
-def node_006 : 45
+def node_006
 	>> Global.node_050 
 	if self.distance_2d_to_target().gt(1000) 
 		>> Global.node_011 
@@ -138,12 +138,12 @@ def node_006 : 45
 	return 
 endf 
 
-def node_007 : 49
+def node_007
 	>> Global.node_050 => reset 
 	return 
 endf 
 
-def node_008 : 46
+def node_008
 	if self.distance_3d_to_target().leq(250) 
 		self.enraged() >> node_012 => reset 
 		self.fatigued() >> node_013 => reset 
@@ -168,7 +168,7 @@ def node_008 : 46
 	return 
 endf 
 
-def node_009 : 80
+def node_009
 	if self.angle_2d_cw_between(270,90) 
 		>> Global.node_052 
 	else 
@@ -177,7 +177,7 @@ def node_009 : 80
 	return 
 endf 
 
-def node_010 : 95
+def node_010
 	if function#102() 
 		if self.vertical_distance_to_target().gt(1000) 
 			>> Global.node_011 
@@ -206,12 +206,12 @@ def node_010 : 95
 	return 
 endf 
 
-def node_011 : 96
+def node_011
 	>> Global.node_009 
 	return 
 endf 
 
-def node_012 : 66
+def node_012
 	random (24) >> Global.node_037 
 	elser (40) >> Global.node_028 
 	elser (9) >> Global.node_029 
@@ -220,12 +220,12 @@ def node_012 : 66
 	return 
 endf 
 
-def node_013 : 67
+def node_013
 	>> node_014 
 	return 
 endf 
 
-def node_014 : 65
+def node_014
 	random (23) >> Global.node_037 
 	elser (40) >> Global.node_028 
 	elser (22) >> Global.node_029 
@@ -234,7 +234,7 @@ def node_014 : 65
 	return 
 endf 
 
-def node_015 : 69
+def node_015
 	if self.angle_2d_cw_between(310,50) 
 		random (4) >> Global.node_039 
 		elser (30) >> Global.node_041 
@@ -262,12 +262,12 @@ def node_015 : 69
 	return 
 endf 
 
-def node_016 : 70
+def node_016
 	>> node_017 
 	return 
 endf 
 
-def node_017 : 68
+def node_017
 	if self.angle_2d_cw_between(310,50) 
 		random (15) >> Global.node_039 
 		elser (30) >> Global.node_041 
@@ -295,7 +295,7 @@ def node_017 : 68
 	return 
 endf 
 
-def node_018 : 72
+def node_018
 	random (5) >> Global.node_027 
 	elser (24) >> Global.node_026 
 	elser (22) >> Global.node_044 
@@ -306,12 +306,12 @@ def node_018 : 72
 	return 
 endf 
 
-def node_019 : 73
+def node_019
 	>> node_020 
 	return 
 endf 
 
-def node_020 : 71
+def node_020
 	random (8) >> Global.node_027 
 	elser (24) >> Global.node_026 
 	elser (19) >> Global.node_044 
@@ -322,7 +322,7 @@ def node_020 : 71
 	return 
 endf 
 
-def node_021 : 78
+def node_021
 	random (5) >> Global.node_011 
 	elser (74) >> Global.node_026 
 	elser (21) >> Global.node_031 
@@ -330,12 +330,12 @@ def node_021 : 78
 	return 
 endf 
 
-def node_022 : 79
+def node_022
 	>> node_023 
 	return 
 endf 
 
-def node_023 : 77
+def node_023
 	random (10) >> Global.node_011 
 	elser (71) >> Global.node_026 
 	elser (19) >> Global.node_031 
@@ -343,17 +343,17 @@ def node_023 : 77
 	return 
 endf 
 
-def node_024 : 88
+def node_024
 	>> node_026 
 	return 
 endf 
 
-def node_025 : 89
+def node_025
 	>> node_026 
 	return 
 endf 
 
-def node_026 : 90
+def node_026
 	>> Global.node_011 
 	return 
 endf 

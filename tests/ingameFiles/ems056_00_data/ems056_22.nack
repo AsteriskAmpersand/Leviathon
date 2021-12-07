@@ -1,7 +1,7 @@
 importactions Girros as girros
 importlibrary Global as Global
 
-def node_000 : 30
+def node_000
 	>> node_001 
 	if self.miasmaed() 
 		self.targetEnemy(target_em.random_player_or_cat) 
@@ -21,7 +21,7 @@ def node_000 : 30
 	reset 
 endf 
 
-def node_001 : 36
+def node_001
 	if function#BA() 
 		self.targetEnemy(49) 
 	else 
@@ -35,7 +35,7 @@ def node_001 : 36
 	return 
 endf 
 
-def node_002 : 35
+def node_002
 	self.targetEnemy(33) 
 	if self.target(20) 
 	else 
@@ -44,13 +44,13 @@ def node_002 : 35
 	return 
 endf 
 
-def node_003 : 34
+def node_003
 	>> Global.node_010 
 	>> Global.node_048 
 	return 
 endf 
 
-def node_004 : 40
+def node_004
 	if self.current_quest().is_rank(rank.MR) 
 		random (75) >> node_003 
 		elser (25) >> node_006 
@@ -61,7 +61,7 @@ def node_004 : 40
 	return 
 endf 
 
-def node_005 : 37
+def node_005
 	if self.distance_2d_to_target().leq(1000) 
 		random (50) >> node_006 
 		elser (50) >> node_003 
@@ -72,7 +72,7 @@ def node_005 : 37
 	return 
 endf 
 
-def node_006 : 38
+def node_006
 	>> Global.node_001 
 	random (50) >> Global.node_011 
 				>> Global.node_014 

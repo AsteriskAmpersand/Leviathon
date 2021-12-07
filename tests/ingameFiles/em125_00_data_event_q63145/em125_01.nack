@@ -1,7 +1,7 @@
 importactions Namielle as namielle
 importlibrary Global as Global
 
-def node_000 : 51
+def node_000
 	>> Global.node_215 
 	>> Global.node_068 
 	self.targetEnemy(target_em.random_player_or_cat) 
@@ -14,14 +14,14 @@ def node_000 : 51
 	reset 
 endf 
 
-def node_001 : 71
+def node_001
 	>> Global.node_159 
 	>> node_014 
 	>> Global.node_012 
 	return 
 endf 
 
-def node_002 : 73
+def node_002
 	if self.fatigued() 
 		random (80) 
 		elser (20) 
@@ -33,7 +33,7 @@ def node_002 : 73
 	return 
 endf 
 
-def node_003 : 76
+def node_003
 	if self.enraged() >> node_005 
 	elif self.fatigued() >> node_006 
 	else >> node_004 
@@ -41,21 +41,21 @@ def node_003 : 76
 	return 
 endf 
 
-def node_004 : 77
+def node_004
 	random (70) >> node_015 
 	elser (30) >> node_016 
 	endr 
 	return 
 endf 
 
-def node_005 : 79
+def node_005
 	random (30) >> node_015 
 	elser (70) >> node_016 
 	endr 
 	return 
 endf 
 
-def node_006 : 80
+def node_006
 	random (70) >> node_015 
 	elser (20) >> Global.node_115 
 	elser (10) >> Global.node_165 
@@ -63,7 +63,7 @@ def node_006 : 80
 	return 
 endf 
 
-def node_007 : 52
+def node_007
 	if self.target(7) 
 		>> Global.node_211 
 		>> Global.node_170 
@@ -73,19 +73,19 @@ def node_007 : 52
 	return 
 endf 
 
-def node_008 : 53
+def node_008
 	>> Global.node_168 
 	>> Global.node_166 
 	return 
 endf 
 
-def node_009 : 54
+def node_009
 	>> Global.node_169 
 	>> Global.node_167 
 	return 
 endf 
 
-def node_010 : 55
+def node_010
 	if self.target(7) 
 		>> Global.node_211 
 		>> Global.node_170 
@@ -95,19 +95,19 @@ def node_010 : 55
 	return 
 endf 
 
-def node_011 : 56
+def node_011
 	>> Global.node_168 
 	>> Global.node_166 
 	return 
 endf 
 
-def node_012 : 57
+def node_012
 	>> Global.node_169 
 	>> Global.node_167 
 	return 
 endf 
 
-def node_013 : 70
+def node_013
 	if self.target(10) 
 		if self.distance_3d_to_target().leq(2200) 
 			>> Global.node_159 
@@ -120,7 +120,7 @@ def node_013 : 70
 	return 
 endf 
 
-def node_014 : 72
+def node_014
 	if self.target(7) 
 		if self.enraged() >> Global.node_012 
 		endif 
@@ -130,21 +130,21 @@ def node_014 : 72
 	return 
 endf 
 
-def node_015 : 74
+def node_015
 	self.targetArea(4) 
 	>> Global.node_166 
 	>> node_017 
 	return 
 endf 
 
-def node_016 : 78
+def node_016
 	self.targetArea(6) 
 	>> Global.node_167 
 	>> node_017 
 	return 
 endf 
 
-def node_017 : 75
+def node_017
 	if self.enraged() -> namielle.anger_search_walk(2,1,5,2000,800) 
 	else -> namielle.dash(2,1,5,2000,800) 
 	endif 

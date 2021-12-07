@@ -1,7 +1,7 @@
 importactions Pink_Rathian as pink_rathian
 importlibrary Global as Global
 
-def node_000 : 23
+def node_000
 	>> Global.node_038 
 	>> node_001 
 	>> node_003 
@@ -13,7 +13,7 @@ def node_000 : 23
 	conclude 
 endf 
 
-def node_001 : 32
+def node_001
 	if self.targetEnemy(34) 
 		if self.target(4) 
 			>> node_002 
@@ -25,12 +25,12 @@ def node_001 : 32
 	return 
 endf 
 
-def node_002 : 33
+def node_002
 	>> Global.node_040 
 	conclude 
 endf 
 
-def node_003 : 24
+def node_003
 	if function#AD() 
 		>> node_004 
 	else 
@@ -39,7 +39,7 @@ def node_003 : 24
 	return 
 endf 
 
-def node_004 : 25
+def node_004
 	if self.flying() 
 		>> Global.node_030 
 	else 
@@ -48,13 +48,13 @@ def node_004 : 25
 	return 
 endf 
 
-def node_005 : 26
+def node_005
 	>> node_006 
 	>> node_007 
 	return 
 endf 
 
-def node_006 : 27
+def node_006
 	if self.flying() 
 		self.targetArea(target_area.area_aerial_center) 
 		>> Global.node_027 
@@ -67,7 +67,7 @@ def node_006 : 27
 	return 
 endf 
 
-def node_007 : 28
+def node_007
 	>> node_001 
 	if self.flying() 
 		self.targetArea(target_area.unknown_aerial) 
@@ -79,7 +79,7 @@ def node_007 : 28
 	return 
 endf 
 
-def node_008 : 29
+def node_008
 	if self.flying() 
 		self.targetArea(target_area.area_center) 
 		>> Global.node_001 
@@ -88,7 +88,7 @@ def node_008 : 29
 	return 
 endf 
 
-def node_009 : 30
+def node_009
 	if self.flying() 
 		>> Global.node_030 
 	else 

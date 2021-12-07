@@ -1,28 +1,28 @@
 importactions Diablos as diablos
 
-def node_000 : 1
+def node_000
 	conclude 
 endf 
 
-def node_001 : 40
+def node_001
 	random (50) 
 	elser (50) >> node_025 
 	endr 
 	return 
 endf 
 
-def node_002 : 68
+def node_002
 	>> node_025 
 	return 
 endf 
 
-def node_003 : 123
+def node_003
 	>> node_012 
 	-> diablos.search_life() 
 	return 
 endf 
 
-def node_004 : 122
+def node_004
 	if function#5A() 
 		>> node_001 
 	elif function#5A(1) 
@@ -35,17 +35,17 @@ def node_004 : 122
 	return 
 endf 
 
-def node_005 : 43
+def node_005
 	-> diablos.eat() 
 	return 
 endf 
 
-def node_006 : 44
+def node_006
 	-> diablos.sleep() 
 	return 
 endf 
 
-def node_007 : 144
+def node_007
 	if function#3F() 
 		>> node_064 
 	else 
@@ -53,8 +53,8 @@ def node_007 : 144
 	return 
 endf 
 
-def node_008 : 143
-	if [RegisterVar4 <= 1] 
+def node_008
+	if [RegisterVar4 -= 1] 
 		>> node_094 
 		>> node_009 
 		>> node_010 
@@ -63,24 +63,24 @@ def node_008 : 143
 	return 
 endf 
 
-def node_009 : 173
-	[RegisterVar4 |-] 
+def node_009
+	[RegisterVar4 ++] 
 	return 
 endf 
 
-def node_010 : 142
+def node_010
 	function#52(2,4) 
 	self.targetArea(target_area.nearest_entrance) 
 	>> node_043 
 	reset 
 endf 
 
-def node_011 : 33
+def node_011
 	-> diablos.normal_turn() 
 	return 
 endf 
 
-def node_012 : 31
+def node_012
 	if self.angle_2d_cw_between(30,330) 
 		-> diablos.normal_turn() 
 	else 
@@ -88,7 +88,7 @@ def node_012 : 31
 	return 
 endf 
 
-def node_013 : 32
+def node_013
 	if self.angle_2d_cw_between(80,280) 
 		-> diablos.normal_turn() 
 	else 
@@ -96,7 +96,7 @@ def node_013 : 32
 	return 
 endf 
 
-def node_014 : 95
+def node_014
 	if self.distance_3d_to_target().leq(800) 
 		-> diablos.short_back_step() 
 	elif self.angle_2d_cw_between(30,330) 
@@ -106,12 +106,12 @@ def node_014 : 95
 	return 
 endf 
 
-def node_015 : 93
+def node_015
 	-> diablos.short_back_step() 
 	return 
 endf 
 
-def node_016 : 10
+def node_016
 	if self.current_quest().is_rank(rank.MR) 
 		>> node_112 
 	else 
@@ -148,11 +148,11 @@ def node_016 : 10
 	return 
 endf 
 
-def node_017 : 159
+def node_017
 	if self.in_map(st.Special_Arena).in_area(-1) 
 	elif self.in_map(st.Challenge_Arena).in_area(-1) 
 	else 
-		if [RegisterVar3 <= 8] 
+		if [RegisterVar3 -= 8] 
 			>> node_022 
 			return 
 		else 
@@ -172,11 +172,11 @@ def node_017 : 159
 	return 
 endf 
 
-def node_018 : 160
+def node_018
 	if self.in_map(st.Special_Arena).in_area(-1) 
 	elif self.in_map(st.Challenge_Arena).in_area(-1) 
 	else 
-		if [RegisterVar3 <= 12] 
+		if [RegisterVar3 -= 12] 
 			>> node_022 
 			return 
 		else 
@@ -196,27 +196,27 @@ def node_018 : 160
 	return 
 endf 
 
-def node_019 : 161
-	[RegisterVar3 ++] 
+def node_019
+	[RegisterVar3 |-] 
 	return 
 endf 
 
-def node_020 : 135
-	[RegisterVar3 ++] 
+def node_020
+	[RegisterVar3 |-] 
 	>> node_052 
 	>> node_030 
 	return 
 endf 
 
-def node_021 : 137
+def node_021
 	if self.vertical_distance_to_target().gt(800) 
-		[RegisterVar3 ++] 
+		[RegisterVar3 |-] 
 		>> node_030 
 	elif self.distance_3d_to_target().gt(2500) 
 		>> node_039 
 		repeat 
 	else 
-		[RegisterVar3 ++] 
+		[RegisterVar3 |-] 
 		random (25) >> node_055 
 		elser (50) >> node_070 
 		elser (25) >> node_058 
@@ -225,13 +225,13 @@ def node_021 : 137
 	return 
 endf 
 
-def node_022 : 136
-	[RegisterVar3 |-] 
+def node_022
+	[RegisterVar3 ++] 
 	self.force_area_change2() 
 	return 
 endf 
 
-def node_023 : 162
+def node_023
 	if self.target(39) 
 		>> node_018 
 	else 
@@ -250,18 +250,18 @@ def node_023 : 162
 	return 
 endf 
 
-def node_024 : 200
+def node_024
 	>> node_021 
 	>> node_022 
 	return 
 endf 
 
-def node_025 : 54
+def node_025
 	-> diablos.search_life() 
 	return 
 endf 
 
-def node_026 : 138
+def node_026
 	if self.enraged() 
 		-> diablos.half_lost_search_front() 
 	else 
@@ -270,17 +270,17 @@ def node_026 : 138
 	return 
 endf 
 
-def node_027 : 56
+def node_027
 	-> diablos.search_life() 
 	return 
 endf 
 
-def node_028 : 53
+def node_028
 	-> diablos.refresh() 
 	return 
 endf 
 
-def node_029 : 99
+def node_029
 	if self.in_combat() 
 		-> diablos.idle_tired_combat() 
 	else 
@@ -289,27 +289,27 @@ def node_029 : 99
 	return 
 endf 
 
-def node_030 : 23
+def node_030
 	-> diablos.intimidation() 
 	return 
 endf 
 
-def node_031 : 109
+def node_031
 	-> diablos.threat() 
 	return 
 endf 
 
-def node_032 : 20
+def node_032
 	-> diablos.bind_voice() 
 	return 
 endf 
 
-def node_033 : 139
+def node_033
 	-> diablos.eat_stamina() 
 	return 
 endf 
 
-def node_034 : 80
+def node_034
 	if self.distance_3d_to_target().leq(900) 
 		return 
 	else 
@@ -328,7 +328,7 @@ def node_034 : 80
 	return 
 endf 
 
-def node_035 : 88
+def node_035
 	if self.fatigued() 
 		-> diablos.walk_tired(2,1,5,1500,900) 
 	else 
@@ -337,7 +337,7 @@ def node_035 : 88
 	return 
 endf 
 
-def node_036 : 46
+def node_036
 	if self.distance_3d_to_target().leq(900) 
 		return 
 	else 
@@ -356,7 +356,7 @@ def node_036 : 46
 	return 
 endf 
 
-def node_037 : 174
+def node_037
 	if self.distance_3d_to_target().leq(900) 
 		return 
 	else 
@@ -365,7 +365,7 @@ def node_037 : 174
 	return 
 endf 
 
-def node_038 : 89
+def node_038
 	if self.fatigued() 
 		-> diablos.dash_tired(2,1,0,1500,900) 
 	else 
@@ -374,7 +374,7 @@ def node_038 : 89
 	return 
 endf 
 
-def node_039 : 92
+def node_039
 	if self.distance_3d_to_target().leq(900) 
 		return 
 	else 
@@ -393,7 +393,7 @@ def node_039 : 92
 	return 
 endf 
 
-def node_040 : 81
+def node_040
 	if self.distance_3d_to_target().leq(3000) 
 		return 
 	else 
@@ -412,7 +412,7 @@ def node_040 : 81
 	return 
 endf 
 
-def node_041 : 36
+def node_041
 	if self.distance_3d_recalc_to_target().leq(900) 
 		return 
 	else 
@@ -425,7 +425,7 @@ def node_041 : 36
 	repeat 
 endf 
 
-def node_042 : 207
+def node_042
 	if self.distance_2d_to_target().leq(900) 
 		return 
 	else 
@@ -444,7 +444,7 @@ def node_042 : 207
 	return 
 endf 
 
-def node_043 : 118
+def node_043
 	if self.distance_3d_recalc_to_target().leq(900) 
 		return 
 	else 
@@ -454,7 +454,7 @@ def node_043 : 118
 	repeat 
 endf 
 
-def node_044 : 120
+def node_044
 	if function#3F() 
 	else 
 		if function#48() 
@@ -467,7 +467,7 @@ def node_044 : 120
 	return 
 endf 
 
-def node_045 : 119
+def node_045
 	if function#3F() 
 		if function#49() 
 			self.targetArea(57) 
@@ -489,7 +489,7 @@ def node_045 : 119
 	return 
 endf 
 
-def node_046 : 208
+def node_046
 	if self.distance_3d_recalc_to_target().leq(900) 
 		return 
 	else 
@@ -500,7 +500,7 @@ def node_046 : 208
 	repeat 
 endf 
 
-def node_047 : 209
+def node_047
 	if self.distance_3d_recalc_to_target().leq(900) 
 		return 
 	else 
@@ -511,13 +511,13 @@ def node_047 : 209
 	repeat 
 endf 
 
-def node_048 : 153
+def node_048
 	>> node_044 
 	>> node_049 
 	return 
 endf 
 
-def node_049 : 154
+def node_049
 	self.targetArea(24) 
 	if function#3F() 
 		if self.distance_3d_recalc_to_target().leq(900) 
@@ -536,7 +536,7 @@ def node_049 : 154
 	return 
 endf 
 
-def node_050 : 150
+def node_050
 	if function#101(1500,30) 
 		>> node_051 
 	elif function#101(3000,15) 
@@ -546,7 +546,7 @@ def node_050 : 150
 	return 
 endf 
 
-def node_051 : 151
+def node_051
 	if self.distance_3d_to_target().gt(800) 
 		>> node_055 
 		reset 
@@ -555,12 +555,12 @@ def node_051 : 151
 	return 
 endf 
 
-def node_052 : 9
+def node_052
 	-> diablos.quick_turn() 
 	return 
 endf 
 
-def node_053 : 34
+def node_053
 	if self.angle_2d_cw_between(30,330) 
 		-> diablos.quick_turn() 
 	else 
@@ -568,7 +568,7 @@ def node_053 : 34
 	return 
 endf 
 
-def node_054 : 35
+def node_054
 	if self.angle_2d_cw_between(80,280) 
 		-> diablos.quick_turn() 
 	else 
@@ -576,7 +576,7 @@ def node_054 : 35
 	return 
 endf 
 
-def node_055 : 21
+def node_055
 	if self.in_map(st.Wildspire_Waste).in_area(6) 
 		-> diablos.rush_headbutt2() 
 	else 
@@ -585,19 +585,19 @@ def node_055 : 21
 	return 
 endf 
 
-def node_056 : 141
+def node_056
 	random (70) >> node_072 
 	elser (30) 
 	endr 
 	return 
 endf 
 
-def node_057 : 117
+def node_057
 	>> node_058 
 	return 
 endf 
 
-def node_058 : 106
+def node_058
 	if function#4A() 
 		>> node_039 
 		>> node_071 
@@ -614,7 +614,7 @@ def node_058 : 106
 	return 
 endf 
 
-def node_059 : 113
+def node_059
 	if function#4A() 
 		>> node_039 
 		>> node_071 
@@ -627,7 +627,7 @@ def node_059 : 113
 	return 
 endf 
 
-def node_060 : 145
+def node_060
 	>> node_061 
 	>> node_062 
 	if self.in_map(st.Wildspire_Waste).in_area(6) 
@@ -640,7 +640,7 @@ def node_060 : 145
 	return 
 endf 
 
-def node_061 : 107
+def node_061
 	if self.enraged() -> diablos.dive_to_ground_angry() 
 	elif self.fatigued() -> diablos.dive_to_ground_tired() 
 	else -> diablos.dive_to_ground() 
@@ -648,7 +648,7 @@ def node_061 : 107
 	return 
 endf 
 
-def node_062 : 170
+def node_062
 	if self.enraged() -> diablos.diving_wait1() 
 	elif self.fatigued() -> diablos.diving_wait3() 
 	else -> diablos.diving_wait2() 
@@ -656,7 +656,7 @@ def node_062 : 170
 	return 
 endf 
 
-def node_063 : 112
+def node_063
 	if function#49() 
 		self.targetArea(57) 
 		if self.distance_3d_recalc_to_target().leq(900) 
@@ -673,12 +673,12 @@ def node_063 : 112
 	return 
 endf 
 
-def node_064 : 111
+def node_064
 	-> diablos.appear_attack_vertical() 
 	return 
 endf 
 
-def node_065 : 115
+def node_065
 	if function#49() 
 		self.targetArea(57) 
 		if self.distance_3d_recalc_to_target().leq(900) 
@@ -695,7 +695,7 @@ def node_065 : 115
 	return 
 endf 
 
-def node_066 : 171
+def node_066
 	random (20) -> diablos.diving_wait1() 
 	elser (40) -> diablos.diving_wait2() 
 	elser (30) -> diablos.diving_wait3() 
@@ -704,41 +704,41 @@ def node_066 : 171
 	return 
 endf 
 
-def node_067 : 116
+def node_067
 	-> diablos.appear_attack_slant() 
 	return 
 endf 
 
-def node_068 : 147
+def node_068
 	self.targetEnemy(53) 
 	-> diablos.dive_move_to_wall() 
 	return 
 endf 
 
-def node_069 : 148
+def node_069
 	self.targetEnemy(target_em.random_player_or_cat) 
 	-> diablos.appear_attack_from_wall() 
 	return 
 endf 
 
-def node_070 : 87
+def node_070
 	>> node_053 
 	-> diablos.corner_attack() 
 	return 
 endf 
 
-def node_071 : 86
+def node_071
 	>> node_054 
 	-> diablos.corner_swing_attack() 
 	return 
 endf 
 
-def node_072 : 84
+def node_072
 	-> diablos.tail_swing() 
 	return 
 endf 
 
-def node_073 : 82
+def node_073
 	if self.angle_2d_cw_between(0,180) 
 		-> diablos.side_tackle_r() 
 	else 
@@ -747,12 +747,12 @@ def node_073 : 82
 	return 
 endf 
 
-def node_074 : 158
+def node_074
 	-> diablos.corner_turn_attack() 
 	return 
 endf 
 
-def node_075 : 96
+def node_075
 	if self.distance_3d_to_target().leq(900) 
 	else 
 		>> node_039 
@@ -766,7 +766,7 @@ def node_075 : 96
 	return 
 endf 
 
-def node_076 : 105
+def node_076
 	if self.distance_3d_to_target().leq(900) 
 	else 
 		>> node_039 
@@ -780,7 +780,7 @@ def node_076 : 105
 	return 
 endf 
 
-def node_077 : 140
+def node_077
 	if function#2D(1) 
 		return 
 	elif self.target.helpless_0() 
@@ -796,7 +796,7 @@ def node_077 : 140
 	return 
 endf 
 
-def node_078 : 24
+def node_078
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.target.mudded() 
 		>> node_040 
@@ -814,7 +814,7 @@ def node_078 : 24
 	return 
 endf 
 
-def node_079 : 25
+def node_079
 	if self.angle_2d_cw_between(90,270) 
 		>> node_081 
 	elif self.distance_3d_to_target().gt(3000) 
@@ -825,17 +825,17 @@ def node_079 : 25
 	return 
 endf 
 
-def node_080 : 26
+def node_080
 	-> diablos.half_lost_search_front() 
 	return 
 endf 
 
-def node_081 : 27
+def node_081
 	-> diablos.half_lost_search_back() 
 	return 
 endf 
 
-def node_082 : 30
+def node_082
 	self.targetArea(19) 
 	if self.distance_2d_to_target().gt(1000) 
 		>> node_041 
@@ -846,14 +846,14 @@ def node_082 : 30
 	return 
 endf 
 
-def node_083 : 29
+def node_083
 	self.targetEnemy(target_em.random_player_or_cat) 
 	>> node_012 
 	>> node_095 
 	return 
 endf 
 
-def node_084 : 155
+def node_084
 	>> node_040 
 	random (50) >> node_071 
 	elser (25) >> node_070 
@@ -862,7 +862,7 @@ def node_084 : 155
 	return 
 endf 
 
-def node_085 : 156
+def node_085
 	>> node_042 
 	if self.target(0) @ parameter2:1 
 		>> node_086 
@@ -876,7 +876,7 @@ def node_085 : 156
 	return 
 endf 
 
-def node_086 : 204
+def node_086
 	if self.distance_2d_to_target().leq(900) 
 		if self.above_target() 
 			if self.vertical_distance_to_target().leq(500) 
@@ -900,7 +900,7 @@ def node_086 : 204
 	return 
 endf 
 
-def node_087 : 205
+def node_087
 	if self.distance_2d_to_target().leq(900) 
 		if self.above_target() 
 			if self.vertical_distance_to_target().leq(500) 
@@ -925,7 +925,7 @@ def node_087 : 205
 	return 
 endf 
 
-def node_088 : 206
+def node_088
 	random (20) >> node_058 
 	elser (20) >> node_054 
 				>> node_032 
@@ -935,13 +935,13 @@ def node_088 : 206
 	return 
 endf 
 
-def node_089 : 157
+def node_089
 	>> node_039 
 	>> node_073 
 	return 
 endf 
 
-def node_090 : 203
+def node_090
 	if self.current_quest().is_rank(rank.MR) 
 		>> node_050 
 		>> node_108 
@@ -968,32 +968,32 @@ def node_090 : 203
 	reset 
 endf 
 
-def node_091 : 149
+def node_091
 	if self.in_map(st.Wildspire_Waste).in_area(6) 
-		[RegisterVar2 ++] 
+		[RegisterVar2 |-] 
 	else 
 		return 
 	endif 
-	if [RegisterVar2 <= 10] 
-		[RegisterVar2 |-] 
+	if [RegisterVar2 -= 10] 
+		[RegisterVar2 ++] 
 		>> node_060 
 	else 
 	endif 
 	return 
 endf 
 
-def node_092 : 164
-	if [RegisterVar1 <= 5] 
-		[RegisterVar1 |-] 
+def node_092
+	if [RegisterVar1 -= 5] 
+		[RegisterVar1 ++] 
 		>> node_055 
 		reset 
 	else 
-		[RegisterVar1 ++] 
+		[RegisterVar1 |-] 
 	endif 
 	return 
 endf 
 
-def node_093 : 165
+def node_093
 	self.targetArea(19) 
 	if self.distance_3d_recalc_to_target().gt(1000) 
 		>> node_041 
@@ -1002,7 +1002,7 @@ def node_093 : 165
 	return 
 endf 
 
-def node_094 : 166
+def node_094
 	random (15) -> diablos.wait() 
 	elser (5) -> diablos.sniff_combat_s() 
 	elser (20) -> diablos.sniff_combat_l() 
@@ -1013,7 +1013,7 @@ def node_094 : 166
 	return 
 endf 
 
-def node_095 : 167
+def node_095
 	random (37) -> diablos.wait() 
 	elser (23) -> diablos.search_life() 
 	elser (40) -> diablos.intimidation() 
@@ -1021,12 +1021,12 @@ def node_095 : 167
 	return 
 endf 
 
-def node_096 : 168
+def node_096
 	-> diablos.wait() 
 	return 
 endf 
 
-def node_097 : 169
+def node_097
 	if self.fatigued() 
 		-> diablos.walk_tired(2,1,5,1500,400) 
 	else 
@@ -1035,7 +1035,7 @@ def node_097 : 169
 	return 
 endf 
 
-def node_098 : 176
+def node_098
 	if self.in_map(st.Wildspire_Waste).in_area(3) 
 		if self.distance_3d_to_target().gt(900) 
 			random (20) >> node_058 
@@ -1048,7 +1048,7 @@ def node_098 : 176
 	return 
 endf 
 
-def node_099 : 190
+def node_099
 	if self.in_map(st.Wildspire_Waste).in_area(6) 
 		-> diablos.rush_headbutt_stop2() 
 		if function#4A() 
@@ -1077,7 +1077,7 @@ def node_099 : 190
 	return 
 endf 
 
-def node_100 : 189
+def node_100
 	if function#4A() 
 		>> node_039 
 		>> node_071 
@@ -1090,7 +1090,7 @@ def node_100 : 189
 	return 
 endf 
 
-def node_101 : 188
+def node_101
 	if self.enraged() 
 		random (65) >> node_072 
 		elser (0) >> node_100 
@@ -1106,7 +1106,7 @@ def node_101 : 188
 	return 
 endf 
 
-def node_102 : 180
+def node_102
 	if self.fatigued() 
 		>> node_064 
 	else 
@@ -1116,12 +1116,12 @@ def node_102 : 180
 	return 
 endf 
 
-def node_103 : 185
+def node_103
 	-> diablos.appear_attack_vertical_fast_turn_program() 
 	return 
 endf 
 
-def node_104 : 181
+def node_104
 	if self.angle_2d_cw_between(150,210) 
 		>> node_107 
 	elif self.angle_2d_cw_between(35,150) 
@@ -1134,7 +1134,7 @@ def node_104 : 181
 	return 
 endf 
 
-def node_105 : 182
+def node_105
 	if self.enraged() 
 		if self.distance_3d_to_target().leq(1100) 
 			if self.angle_2d_cw_between(335,25) 
@@ -1173,7 +1173,7 @@ def node_105 : 182
 	return 
 endf 
 
-def node_106 : 184
+def node_106
 	if self.enraged() 
 		if self.distance_3d_to_target().leq(1100) 
 			random (50) >> node_073 
@@ -1199,7 +1199,7 @@ def node_106 : 184
 	return 
 endf 
 
-def node_107 : 183
+def node_107
 	if self.enraged() 
 		if self.distance_3d_to_target().leq(1100) 
 			random (45) >> node_072 
@@ -1225,9 +1225,9 @@ def node_107 : 183
 	return 
 endf 
 
-def node_108 : 199
-	if [RegisterVar1 <= 5] 
-		[RegisterVar1 |-] 
+def node_108
+	if [RegisterVar1 -= 5] 
+		[RegisterVar1 ++] 
 		if self.enraged() 
 			>> node_099 
 		else 
@@ -1235,12 +1235,12 @@ def node_108 : 199
 		endif 
 		reset 
 	else 
-		[RegisterVar1 ++] 
+		[RegisterVar1 |-] 
 	endif 
 	return 
 endf 
 
-def node_109 : 191
+def node_109
 	>> node_040 
 	random (35) >> node_071 
 	elser (25) >> node_070 
@@ -1249,7 +1249,7 @@ def node_109 : 191
 	return 
 endf 
 
-def node_110 : 192
+def node_110
 	>> node_040 
 	>> node_040 
 	if self.distance_2d_to_target().leq(3000) 
@@ -1274,7 +1274,7 @@ def node_110 : 192
 	return 
 endf 
 
-def node_111 : 193
+def node_111
 	if self.in_map(st.Wildspire_Waste).in_area(3) 
 		if self.distance_3d_to_target().gt(900) 
 			random (35) >> node_100 
@@ -1287,7 +1287,7 @@ def node_111 : 193
 	return 
 endf 
 
-def node_112 : 194
+def node_112
 	if self.targetEnemy(target_em.any_monster) 
 		if self.target(13) 
 		else 
@@ -1320,7 +1320,7 @@ def node_112 : 194
 	return 
 endf 
 
-def node_113 : 195
+def node_113
 	if self.target(39) 
 		>> node_115 
 	else 
@@ -1341,11 +1341,11 @@ def node_113 : 195
 	return 
 endf 
 
-def node_114 : 196
+def node_114
 	if self.in_map(st.Special_Arena).in_area(-1) 
 	elif self.in_map(st.Challenge_Arena).in_area(-1) 
 	else 
-		if [RegisterVar3 <= 8] 
+		if [RegisterVar3 -= 8] 
 			>> node_022 
 			return 
 		else 
@@ -1367,11 +1367,11 @@ def node_114 : 196
 	return 
 endf 
 
-def node_115 : 197
+def node_115
 	if self.in_map(st.Special_Arena).in_area(-1) 
 	elif self.in_map(st.Challenge_Arena).in_area(-1) 
 	else 
-		if [RegisterVar3 <= 12] 
+		if [RegisterVar3 -= 12] 
 			>> node_022 
 			return 
 		else 
@@ -1393,7 +1393,7 @@ def node_115 : 197
 	return 
 endf 
 
-def node_116 : 201
+def node_116
 	if function#38(0,10008) 
 		>> node_117 
 	else 
@@ -1401,7 +1401,7 @@ def node_116 : 201
 	return 
 endf 
 
-def node_117 : 202
+def node_117
 	if function#31(94,5000) 
 		function#CF() 
 	else 

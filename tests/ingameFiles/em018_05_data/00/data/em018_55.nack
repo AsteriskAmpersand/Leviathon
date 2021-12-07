@@ -1,10 +1,10 @@
 importactions Yian_Garuga as yian_garuga
 
-def node_000 : 1
+def node_000
 	conclude 
 endf 
 
-def node_001 : 164
+def node_001
 	if self.flying() 
 		if function#AF(5000) 
 			-> yian_garuga.landing() 
@@ -16,7 +16,7 @@ def node_001 : 164
 	return 
 endf 
 
-def node_002 : 165
+def node_002
 	if self.flying() 
 	else 
 		-> yian_garuga.take_off() 
@@ -24,7 +24,7 @@ def node_002 : 165
 	return 
 endf 
 
-def node_003 : 166
+def node_003
 	self.targetArea(target_area.area_aerial_center) 
 	>> node_227 
 	self.targetArea(target_area.area_center) 
@@ -32,14 +32,14 @@ def node_003 : 166
 	return 
 endf 
 
-def node_004 : 325
+def node_004
 	>> node_001 
 	-> yian_garuga.take_off_switch_pattern_by_dist() 
 	>> node_221 
 	return 
 endf 
 
-def node_005 : 391
+def node_005
 	>> node_001 
 	>> node_199 
 	if self.angle_2d_cw_between(0,180) 
@@ -50,7 +50,7 @@ def node_005 : 391
 	return 
 endf 
 
-def node_006 : 541
+def node_006
 	>> node_002 
 	>> node_227 
 	if self.angle_2d_cw_between(0,180) 
@@ -61,28 +61,28 @@ def node_006 : 541
 	return 
 endf 
 
-def node_007 : 542
+def node_007
 	>> node_001 
 	>> node_199 
 	-> yian_garuga.adjust_bite() 
 	return 
 endf 
 
-def node_008 : 549
+def node_008
 	>> node_001 
 	>> node_200 
 	-> yian_garuga.front_attack() 
 	return 
 endf 
 
-def node_009 : 395
+def node_009
 	>> node_001 
 	>> node_199 
 	-> yian_garuga.double_peck() 
 	return 
 endf 
 
-def node_010 : 594
+def node_010
 	if self.angle_2d_cw_between(60,300) 
 		random (40) >> node_007 
 		elser (40) >> node_008 
@@ -94,7 +94,7 @@ def node_010 : 594
 	return 
 endf 
 
-def node_011 : 359
+def node_011
 	>> node_001 
 	>> node_206 
 	>> node_144 
@@ -102,7 +102,7 @@ def node_011 : 359
 	return 
 endf 
 
-def node_012 : 362
+def node_012
 	>> node_001 
 	>> node_206 
 	>> node_145 
@@ -110,7 +110,7 @@ def node_012 : 362
 	return 
 endf 
 
-def node_013 : 534
+def node_013
 	>> node_002 
 	>> node_233 
 	>> node_144 
@@ -118,7 +118,7 @@ def node_013 : 534
 	return 
 endf 
 
-def node_014 : 351
+def node_014
 	>> node_001 
 	>> node_206 
 	>> node_145 
@@ -126,7 +126,7 @@ def node_014 : 351
 	return 
 endf 
 
-def node_015 : 352
+def node_015
 	>> node_001 
 	if self.distance_3d_to_target().leq(600) 
 	else 
@@ -136,7 +136,7 @@ def node_015 : 352
 	return 
 endf 
 
-def node_016 : 355
+def node_016
 	>> node_001 
 	if self.distance_3d_to_target().leq(600) 
 	else 
@@ -146,40 +146,40 @@ def node_016 : 355
 	return 
 endf 
 
-def node_017 : 397
+def node_017
 	>> node_001 
 	-> yian_garuga.corner_turn_walk_breath() 
 	return 
 endf 
 
-def node_018 : 460
+def node_018
 	>> node_001 
 	-> yian_garuga.corner_turn_walk_pecking() 
 	return 
 endf 
 
-def node_019 : 438
+def node_019
 	>> node_001 
 	>> node_144 
 	-> yian_garuga.rush_stop() 
 	return 
 endf 
 
-def node_020 : 356
+def node_020
 	>> node_001 
 	>> node_144 
 	-> yian_garuga.rush_stop2() 
 	return 
 endf 
 
-def node_021 : 353
+def node_021
 	>> node_001 
 	>> node_144 
 	-> yian_garuga.rush() 
 	return 
 endf 
 
-def node_022 : 425
+def node_022
 	>> node_001 
 	>> node_205 
 	if self.distance_3d_to_target().leq(1200) 
@@ -190,7 +190,7 @@ def node_022 : 425
 	return 
 endf 
 
-def node_023 : 540
+def node_023
 	>> node_002 
 	>> node_233 
 	>> node_144 
@@ -198,7 +198,7 @@ def node_023 : 540
 	return 
 endf 
 
-def node_024 : 426
+def node_024
 	>> node_001 
 	>> node_200 
 	if self.enraged() 
@@ -211,14 +211,14 @@ def node_024 : 426
 	return 
 endf 
 
-def node_025 : 656
+def node_025
 	>> node_001 
 	>> node_200 
 	-> yian_garuga.somersault_to_fly() 
 	return 
 endf 
 
-def node_026 : 538
+def node_026
 	>> node_002 
 	>> node_229 
 	if self.enraged() 
@@ -232,7 +232,7 @@ def node_026 : 538
 	return 
 endf 
 
-def node_027 : 427
+def node_027
 	>> node_001 
 	>> node_208 
 	>> node_144 
@@ -240,7 +240,7 @@ def node_027 : 427
 	return 
 endf 
 
-def node_028 : 444
+def node_028
 	>> node_002 
 	>> node_234 
 	>> node_144 
@@ -248,7 +248,7 @@ def node_028 : 444
 	return 
 endf 
 
-def node_029 : 654
+def node_029
 	>> node_001 
 	>> node_208 
 	>> node_144 
@@ -256,7 +256,7 @@ def node_029 : 654
 	return 
 endf 
 
-def node_030 : 655
+def node_030
 	>> node_002 
 	>> node_234 
 	>> node_144 
@@ -264,7 +264,7 @@ def node_030 : 655
 	return 
 endf 
 
-def node_031 : 646
+def node_031
 	if self.distance_3d_to_target().leq(800) 
 		>> node_024 
 	else 
@@ -273,7 +273,7 @@ def node_031 : 646
 	return 
 endf 
 
-def node_032 : 647
+def node_032
 	if self.distance_3d_to_target().leq(800) 
 		>> node_026 
 	else 
@@ -282,7 +282,7 @@ def node_032 : 647
 	return 
 endf 
 
-def node_033 : 428
+def node_033
 	>> node_001 
 	>> node_204 
 	if function#D0(5) 
@@ -293,7 +293,7 @@ def node_033 : 428
 	return 
 endf 
 
-def node_034 : 581
+def node_034
 	if self.distance_3d_to_target().leq(350) 
 		random (60) >> node_033 
 		elser (40) >> node_024 
@@ -310,7 +310,7 @@ def node_034 : 581
 	return 
 endf 
 
-def node_035 : 440
+def node_035
 	if self.flying() 
 		>> node_233 
 		-> yian_garuga.bind_voice_fly() 
@@ -321,21 +321,21 @@ def node_035 : 440
 	return 
 endf 
 
-def node_036 : 601
+def node_036
 	>> node_002 
 	>> node_230 
 	-> yian_garuga.double_peck_fly() 
 	return 
 endf 
 
-def node_037 : 602
+def node_037
 	>> node_001 
 	>> node_200 
 	-> yian_garuga.front_attack_to_fly() 
 	return 
 endf 
 
-def node_038 : 604
+def node_038
 	if self.flying() 
 		>> node_233 
 		-> yian_garuga.machinegun_breath_fly() 
@@ -346,7 +346,7 @@ def node_038 : 604
 	return 
 endf 
 
-def node_039 : 605
+def node_039
 	if self.flying() 
 		>> node_227 
 		if self.angle_2d_cw_between(0,180) 
@@ -366,7 +366,7 @@ def node_039 : 605
 	return 
 endf 
 
-def node_040 : 664
+def node_040
 	if self.target.helpless_0() 
 	elif self.distance_2d_to_target().leq(600) 
 	else 
@@ -377,14 +377,14 @@ def node_040 : 664
 	return 
 endf 
 
-def node_041 : 607
+def node_041
 	>> node_002 
 	>> node_227 
 	-> yian_garuga.special_attack_fly() 
 	return 
 endf 
 
-def node_042 : 623
+def node_042
 	if self.flying() 
 		if self.distance_3d_to_target().leq(350) 
 			random (60) >> node_041 
@@ -421,7 +421,7 @@ def node_042 : 623
 	return 
 endf 
 
-def node_043 : 662
+def node_043
 	if self.flying() 
 		-> yian_garuga.fly_approach_peck_fly() 
 	else 
@@ -430,7 +430,7 @@ def node_043 : 662
 	return 
 endf 
 
-def node_044 : 663
+def node_044
 	if self.flying() 
 		-> yian_garuga.fly_approach_peck_fly2() 
 	else 
@@ -439,19 +439,19 @@ def node_044 : 663
 	return 
 endf 
 
-def node_045 : 686
+def node_045
 	>> node_001 
 	-> yian_garuga.front_attack() 
 	return 
 endf 
 
-def node_046 : 672
+def node_046
 	>> node_001 
 	-> yian_garuga.double_peck() 
 	return 
 endf 
 
-def node_047 : 673
+def node_047
 	>> node_001 
 	if self.enraged() 
 		random (40) -> yian_garuga.double_somersault() 
@@ -463,7 +463,7 @@ def node_047 : 673
 	return 
 endf 
 
-def node_048 : 674
+def node_048
 	>> node_001 
 	if self.distance_3d_to_target().leq(1200) 
 		-> yian_garuga.pecking_walk() 
@@ -473,21 +473,21 @@ def node_048 : 674
 	return 
 endf 
 
-def node_049 : 675
+def node_049
 	>> node_001 
 	>> node_145 
 	-> yian_garuga.combo_breath() 
 	return 
 endf 
 
-def node_050 : 676
+def node_050
 	>> node_001 
 	>> node_145 
 	-> yian_garuga.three_way_breath() 
 	return 
 endf 
 
-def node_051 : 677
+def node_051
 	if self.flying() 
 		-> yian_garuga.bind_voice_fly() 
 	else 
@@ -496,7 +496,7 @@ def node_051 : 677
 	return 
 endf 
 
-def node_052 : 678
+def node_052
 	>> node_002 
 	if self.enraged() 
 		random (20) -> yian_garuga.somersault_kick_fly() 
@@ -509,20 +509,20 @@ def node_052 : 678
 	return 
 endf 
 
-def node_053 : 679
+def node_053
 	>> node_002 
 	-> yian_garuga.double_peck_fly() 
 	return 
 endf 
 
-def node_054 : 681
+def node_054
 	>> node_002 
 	>> node_144 
 	-> yian_garuga.breath_fly() 
 	return 
 endf 
 
-def node_055 : 434
+def node_055
 	>> node_001 
 	>> node_012 
 	if self.distance_3d_to_target().leq(1200) 
@@ -535,7 +535,7 @@ def node_055 : 434
 	return 
 endf 
 
-def node_056 : 580
+def node_056
 	>> node_012 
 	>> node_019 
 	>> node_020 
@@ -544,7 +544,7 @@ def node_056 : 580
 	return 
 endf 
 
-def node_057 : 578
+def node_057
 	>> node_001 
 	>> node_012 
 	>> node_019 
@@ -559,7 +559,7 @@ def node_057 : 578
 	return 
 endf 
 
-def node_058 : 598
+def node_058
 	>> node_012 
 	>> node_019 
 	>> node_014 
@@ -572,7 +572,7 @@ def node_058 : 598
 	return 
 endf 
 
-def node_059 : 552
+def node_059
 	>> node_014 
 	if self.distance_3d_to_target().leq(600) 
 	elif self.distance_3d_to_target().leq(1200) 
@@ -585,7 +585,7 @@ def node_059 : 552
 	return 
 endf 
 
-def node_060 : 579
+def node_060
 	>> node_014 
 	if self.distance_3d_to_target().leq(600) 
 	else 
@@ -596,7 +596,7 @@ def node_060 : 579
 	return 
 endf 
 
-def node_061 : 554
+def node_061
 	>> node_014 
 	>> node_019 
 	>> node_014 
@@ -611,7 +611,7 @@ def node_061 : 554
 	return 
 endf 
 
-def node_062 : 589
+def node_062
 	>> node_001 
 	-> yian_garuga.corner_turn_walk_breath() 
 	if self.distance_3d_to_target().leq(1000) 
@@ -622,7 +622,7 @@ def node_062 : 589
 	return 
 endf 
 
-def node_063 : 599
+def node_063
 	>> node_001 
 	-> yian_garuga.corner_turn_walk_breath() 
 	>> node_021 
@@ -634,7 +634,7 @@ def node_063 : 599
 	return 
 endf 
 
-def node_064 : 590
+def node_064
 	>> node_015 
 	>> node_014 
 	if self.distance_3d_to_target().leq(1000) 
@@ -645,7 +645,7 @@ def node_064 : 590
 	return 
 endf 
 
-def node_065 : 591
+def node_065
 	>> node_015 
 	>> node_011 
 	if self.distance_3d_to_target().leq(1000) 
@@ -656,7 +656,7 @@ def node_065 : 591
 	return 
 endf 
 
-def node_066 : 592
+def node_066
 	>> node_015 
 	>> node_019 
 	if self.distance_3d_to_target().leq(1000) 
@@ -667,7 +667,7 @@ def node_066 : 592
 	return 
 endf 
 
-def node_067 : 593
+def node_067
 	>> node_019 
 	if self.distance_3d_to_target().leq(1000) 
 		>> node_136 
@@ -677,7 +677,7 @@ def node_067 : 593
 	return 
 endf 
 
-def node_068 : 584
+def node_068
 	>> node_021 
 	if self.distance_3d_to_target().leq(1000) 
 		>> node_137 
@@ -687,14 +687,14 @@ def node_068 : 584
 	return 
 endf 
 
-def node_069 : 575
+def node_069
 	>> node_018 
 	>> node_136 
 	>> node_078 
 	return 
 endf 
 
-def node_070 : 461
+def node_070
 	>> node_001 
 	-> yian_garuga.corner_turn_walk_breath() @ comboSetting:1 
 	-> yian_garuga.pecking_step() @ comboSetting:1 
@@ -703,7 +703,7 @@ def node_070 : 461
 	return 
 endf 
 
-def node_071 : 576
+def node_071
 	>> node_015 
 	>> node_014 
 	if self.distance_3d_to_target().leq(600) 
@@ -715,7 +715,7 @@ def node_071 : 576
 	return 
 endf 
 
-def node_072 : 577
+def node_072
 	>> node_015 
 	>> node_019 
 	>> node_022 
@@ -724,7 +724,7 @@ def node_072 : 577
 	return 
 endf 
 
-def node_073 : 585
+def node_073
 	>> node_019 
 	if self.distance_3d_to_target().leq(1000) 
 	else 
@@ -735,14 +735,14 @@ def node_073 : 585
 	return 
 endf 
 
-def node_074 : 558
+def node_074
 	>> node_016 
 	>> node_023 
 	>> node_028 
 	return 
 endf 
 
-def node_075 : 597
+def node_075
 	>> node_016 
 	>> node_023 
 	>> node_013 
@@ -750,20 +750,20 @@ def node_075 : 597
 	return 
 endf 
 
-def node_076 : 595
+def node_076
 	>> node_016 
 	>> node_013 
 	>> node_028 
 	return 
 endf 
 
-def node_077 : 596
+def node_077
 	>> node_016 
 	>> node_028 
 	return 
 endf 
 
-def node_078 : 568
+def node_078
 	if self.angle_2d_cw_between(60,300) 
 		random (10) >> node_084 
 		elser (5) >> node_085 
@@ -783,14 +783,14 @@ def node_078 : 568
 	return 
 endf 
 
-def node_079 : 496
+def node_079
 	>> node_009 
 	>> node_136 
 	>> node_034 
 	return 
 endf 
 
-def node_080 : 582
+def node_080
 	>> node_009 
 	>> node_081 
 	>> node_136 
@@ -798,7 +798,7 @@ def node_080 : 582
 	return 
 endf 
 
-def node_081 : 583
+def node_081
 	if self.angle_2d_cw_between(60,300) 
 		random (40) >> node_005 
 		elser (25) >> node_007 
@@ -811,7 +811,7 @@ def node_081 : 583
 	return 
 endf 
 
-def node_082 : 559
+def node_082
 	>> node_011 
 	>> node_083 
 	>> node_136 
@@ -819,7 +819,7 @@ def node_082 : 559
 	return 
 endf 
 
-def node_083 : 560
+def node_083
 	if self.angle_2d_cw_between(60,300) 
 		random (40) >> node_005 
 		elser (25) >> node_007 
@@ -832,28 +832,28 @@ def node_083 : 560
 	return 
 endf 
 
-def node_084 : 600
+def node_084
 	>> node_005 
 	>> node_136 
 	>> node_034 
 	return 
 endf 
 
-def node_085 : 569
+def node_085
 	>> node_008 
 	>> node_136 
 	>> node_034 
 	return 
 endf 
 
-def node_086 : 571
+def node_086
 	>> node_007 
 	>> node_136 
 	>> node_034 
 	return 
 endf 
 
-def node_087 : 562
+def node_087
 	>> node_008 
 	>> node_088 
 	>> node_136 
@@ -861,7 +861,7 @@ def node_087 : 562
 	return 
 endf 
 
-def node_088 : 566
+def node_088
 	if self.angle_2d_cw_between(60,300) 
 		random (50) >> node_005 
 		elser (35) >> node_007 
@@ -873,7 +873,7 @@ def node_088 : 566
 	return 
 endf 
 
-def node_089 : 563
+def node_089
 	>> node_007 
 	>> node_090 
 	>> node_136 
@@ -881,7 +881,7 @@ def node_089 : 563
 	return 
 endf 
 
-def node_090 : 567
+def node_090
 	if self.angle_2d_cw_between(60,300) 
 		random (50) >> node_005 
 		elser (35) >> node_008 
@@ -893,10 +893,10 @@ def node_090 : 567
 	return 
 endf 
 
-def node_091 : 629
+def node_091
 endf 
 
-def node_092 : 608
+def node_092
 	>> node_001 
 	>> node_038 
 	>> node_136 
@@ -904,7 +904,7 @@ def node_092 : 608
 	return 
 endf 
 
-def node_093 : 650
+def node_093
 	>> node_001 
 	>> node_012 
 	>> node_038 
@@ -912,7 +912,7 @@ def node_093 : 650
 	return 
 endf 
 
-def node_094 : 609
+def node_094
 	>> node_001 
 	>> node_012 
 	>> node_019 
@@ -922,7 +922,7 @@ def node_094 : 609
 	return 
 endf 
 
-def node_095 : 611
+def node_095
 	>> node_001 
 	>> node_014 
 	>> node_019 
@@ -932,7 +932,7 @@ def node_095 : 611
 	return 
 endf 
 
-def node_096 : 652
+def node_096
 	>> node_001 
 	>> node_014 
 	>> node_019 
@@ -943,7 +943,7 @@ def node_096 : 652
 	return 
 endf 
 
-def node_097 : 659
+def node_097
 	>> node_001 
 	-> yian_garuga.corner_turn_walk_breath() 
 	>> node_038 
@@ -952,7 +952,7 @@ def node_097 : 659
 	return 
 endf 
 
-def node_098 : 660
+def node_098
 	>> node_015 
 	>> node_014 
 	>> node_038 
@@ -961,7 +961,7 @@ def node_098 : 660
 	return 
 endf 
 
-def node_099 : 661
+def node_099
 	>> node_015 
 	>> node_019 
 	>> node_038 
@@ -970,7 +970,7 @@ def node_099 : 661
 	return 
 endf 
 
-def node_100 : 610
+def node_100
 	if self.distance_2d_to_target().leq(400) 
 		random (30) >> node_042 
 		elser (70) >> node_101 
@@ -988,7 +988,7 @@ def node_100 : 610
 	return 
 endf 
 
-def node_101 : 648
+def node_101
 	>> node_002 
 	>> node_036 
 	>> node_136 
@@ -996,7 +996,7 @@ def node_101 : 648
 	return 
 endf 
 
-def node_102 : 651
+def node_102
 	>> node_002 
 	>> node_039 
 	>> node_136 
@@ -1006,7 +1006,7 @@ def node_102 : 651
 	return 
 endf 
 
-def node_103 : 649
+def node_103
 	>> node_002 
 	>> node_039 
 	>> node_136 
@@ -1014,7 +1014,7 @@ def node_103 : 649
 	return 
 endf 
 
-def node_104 : 614
+def node_104
 	>> node_001 
 	>> node_012 
 	if self.distance_3d_to_target().leq(1200) 
@@ -1027,7 +1027,7 @@ def node_104 : 614
 	return 
 endf 
 
-def node_105 : 615
+def node_105
 	>> node_012 
 	>> node_019 
 	>> node_020 
@@ -1036,7 +1036,7 @@ def node_105 : 615
 	return 
 endf 
 
-def node_106 : 616
+def node_106
 	>> node_001 
 	>> node_012 
 	>> node_019 
@@ -1051,7 +1051,7 @@ def node_106 : 616
 	return 
 endf 
 
-def node_107 : 617
+def node_107
 	>> node_012 
 	>> node_019 
 	>> node_014 
@@ -1064,7 +1064,7 @@ def node_107 : 617
 	return 
 endf 
 
-def node_108 : 618
+def node_108
 	>> node_014 
 	if self.distance_3d_to_target().leq(600) 
 	elif self.distance_3d_to_target().leq(1200) 
@@ -1077,7 +1077,7 @@ def node_108 : 618
 	return 
 endf 
 
-def node_109 : 619
+def node_109
 	>> node_014 
 	if self.distance_3d_to_target().leq(600) 
 	else 
@@ -1088,7 +1088,7 @@ def node_109 : 619
 	return 
 endf 
 
-def node_110 : 620
+def node_110
 	>> node_014 
 	>> node_019 
 	>> node_014 
@@ -1103,7 +1103,7 @@ def node_110 : 620
 	return 
 endf 
 
-def node_111 : 630
+def node_111
 	>> node_001 
 	-> yian_garuga.corner_turn_walk_breath() 
 	if self.distance_3d_to_target().leq(1000) 
@@ -1114,7 +1114,7 @@ def node_111 : 630
 	return 
 endf 
 
-def node_112 : 631
+def node_112
 	>> node_001 
 	-> yian_garuga.corner_turn_walk_breath() 
 	>> node_021 
@@ -1126,7 +1126,7 @@ def node_112 : 631
 	return 
 endf 
 
-def node_113 : 632
+def node_113
 	>> node_015 
 	>> node_014 
 	if self.distance_3d_to_target().leq(1000) 
@@ -1137,7 +1137,7 @@ def node_113 : 632
 	return 
 endf 
 
-def node_114 : 633
+def node_114
 	>> node_015 
 	>> node_011 
 	if self.distance_3d_to_target().leq(1000) 
@@ -1148,7 +1148,7 @@ def node_114 : 633
 	return 
 endf 
 
-def node_115 : 634
+def node_115
 	>> node_015 
 	>> node_019 
 	if self.distance_3d_to_target().leq(1000) 
@@ -1159,7 +1159,7 @@ def node_115 : 634
 	return 
 endf 
 
-def node_116 : 635
+def node_116
 	>> node_019 
 	if self.distance_3d_to_target().leq(1000) 
 		>> node_136 
@@ -1169,7 +1169,7 @@ def node_116 : 635
 	return 
 endf 
 
-def node_117 : 636
+def node_117
 	>> node_021 
 	if self.distance_3d_to_target().leq(1000) 
 		>> node_137 
@@ -1179,14 +1179,14 @@ def node_117 : 636
 	return 
 endf 
 
-def node_118 : 637
+def node_118
 	>> node_018 
 	>> node_136 
 	>> node_126 
 	return 
 endf 
 
-def node_119 : 638
+def node_119
 	>> node_001 
 	-> yian_garuga.corner_turn_walk_breath() @ comboSetting:1 
 	-> yian_garuga.pecking_step() @ comboSetting:1 
@@ -1195,7 +1195,7 @@ def node_119 : 638
 	return 
 endf 
 
-def node_120 : 639
+def node_120
 	>> node_015 
 	>> node_014 
 	if self.distance_3d_to_target().leq(600) 
@@ -1207,7 +1207,7 @@ def node_120 : 639
 	return 
 endf 
 
-def node_121 : 640
+def node_121
 	>> node_015 
 	>> node_019 
 	>> node_022 
@@ -1216,7 +1216,7 @@ def node_121 : 640
 	return 
 endf 
 
-def node_122 : 641
+def node_122
 	>> node_019 
 	if self.distance_3d_to_target().leq(1000) 
 	else 
@@ -1227,7 +1227,7 @@ def node_122 : 641
 	return 
 endf 
 
-def node_123 : 643
+def node_123
 	>> node_016 
 	>> node_023 
 	>> node_038 
@@ -1235,7 +1235,7 @@ def node_123 : 643
 	return 
 endf 
 
-def node_124 : 644
+def node_124
 	>> node_016 
 	>> node_013 
 	>> node_038 
@@ -1243,14 +1243,14 @@ def node_124 : 644
 	return 
 endf 
 
-def node_125 : 642
+def node_125
 	>> node_016 
 	>> node_038 
 	>> node_032 
 	return 
 endf 
 
-def node_126 : 613
+def node_126
 	if self.angle_2d_cw_between(60,300) 
 		random (20) >> node_127 
 		elser (30) >> node_129 
@@ -1266,7 +1266,7 @@ def node_126 : 613
 	return 
 endf 
 
-def node_127 : 621
+def node_127
 	>> node_009 
 	>> node_132 
 	>> node_136 
@@ -1274,7 +1274,7 @@ def node_127 : 621
 	return 
 endf 
 
-def node_128 : 665
+def node_128
 	>> node_009 
 	>> node_081 
 	>> node_132 
@@ -1283,7 +1283,7 @@ def node_128 : 665
 	return 
 endf 
 
-def node_129 : 627
+def node_129
 	>> node_005 
 	>> node_132 
 	>> node_136 
@@ -1291,7 +1291,7 @@ def node_129 : 627
 	return 
 endf 
 
-def node_130 : 624
+def node_130
 	>> node_011 
 	>> node_132 
 	>> node_136 
@@ -1299,7 +1299,7 @@ def node_130 : 624
 	return 
 endf 
 
-def node_131 : 626
+def node_131
 	>> node_007 
 	>> node_132 
 	>> node_136 
@@ -1307,7 +1307,7 @@ def node_131 : 626
 	return 
 endf 
 
-def node_132 : 622
+def node_132
 	if self.distance_2d_to_target().leq(400) 
 		random (30) >> node_042 
 					reset 
@@ -1336,7 +1336,7 @@ def node_132 : 622
 	return 
 endf 
 
-def node_133 : 628
+def node_133
 	>> node_008 
 	>> node_039 
 	>> node_135 
@@ -1344,7 +1344,7 @@ def node_133 : 628
 	return 
 endf 
 
-def node_134 : 653
+def node_134
 	if self.distance_2d_to_target().leq(400) 
 		random (30) >> node_042 
 					reset 
@@ -1361,7 +1361,7 @@ def node_134 : 653
 	return 
 endf 
 
-def node_135 : 657
+def node_135
 	if self.distance_2d_to_target().leq(400) 
 		random (30) >> node_042 
 					reset 
@@ -1377,8 +1377,8 @@ def node_135 : 657
 	return 
 endf 
 
-def node_136 : 532
-	[RegisterVar4 ++] 
+def node_136
+	[RegisterVar4 |-] 
 	if self.target.helpless_0() 
 		if function#D0(5) 
 			random (50) 
@@ -1405,8 +1405,8 @@ def node_136 : 532
 		endif 
 	else 
 		if self.distance_3d_to_target().leq(1500) 
-			if [RegisterVar4 <= 10] 
-				[RegisterVar4 |-] 
+			if [RegisterVar4 -= 10] 
+				[RegisterVar4 ++] 
 				>> node_035 
 			else 
 			endif 
@@ -1416,8 +1416,8 @@ def node_136 : 532
 	return 
 endf 
 
-def node_137 : 586
-	[RegisterVar4 ++] 
+def node_137
+	[RegisterVar4 |-] 
 	if self.target.helpless_0() 
 		if function#D0(5) 
 			random (50) 
@@ -1444,12 +1444,12 @@ def node_137 : 586
 		endif 
 	else 
 		if self.distance_3d_to_target().leq(1500) 
-			if [RegisterVar4 <= 10] 
-				[RegisterVar4 |-] 
+			if [RegisterVar4 -= 10] 
+				[RegisterVar4 ++] 
 				>> node_035 
 			else 
 				random (30) 
-							[RegisterVar4 |-] 
+							[RegisterVar4 ++] 
 							>> node_035 
 				elser (70) 
 				endr 
@@ -1460,7 +1460,7 @@ def node_137 : 586
 	return 
 endf 
 
-def node_138 : 441
+def node_138
 	if self.target.helpless_0() 
 		if self.distance_3d_to_target().leq(1600) 
 			>> node_033 
@@ -1475,11 +1475,11 @@ def node_138 : 441
 	return 
 endf 
 
-def node_139 : 463
+def node_139
 	if self.distance_3d_to_target().leq(1800) 
-		[RegisterVar1 ++] 
-		if [RegisterVar1 <= 8] 
-			[RegisterVar1 |-] 
+		[RegisterVar1 |-] 
+		if [RegisterVar1 -= 8] 
+			[RegisterVar1 ++] 
 			>> node_204 
 			>> node_033 
 			reset 
@@ -1490,7 +1490,7 @@ def node_139 : 463
 	return 
 endf 
 
-def node_140 : 422
+def node_140
 	if self.fatigued() 
 		random (10) 
 					>> node_181 
@@ -1502,7 +1502,7 @@ def node_140 : 422
 	return 
 endf 
 
-def node_141 : 9
+def node_141
 	if self.flying() 
 		-> yian_garuga.quick_turn_fly() 
 	else 
@@ -1515,7 +1515,7 @@ def node_141 : 9
 	return 
 endf 
 
-def node_142 : 34
+def node_142
 	if self.angle_2d_cw_between(30,330) 
 		if self.flying() 
 			-> yian_garuga.quick_turn_fly() 
@@ -1531,7 +1531,7 @@ def node_142 : 34
 	return 
 endf 
 
-def node_143 : 35
+def node_143
 	if self.angle_2d_cw_between(60,300) 
 		if self.flying() 
 			-> yian_garuga.quick_turn_fly() 
@@ -1547,7 +1547,7 @@ def node_143 : 35
 	return 
 endf 
 
-def node_144 : 86
+def node_144
 	if self.angle_2d_cw_between(90,270) 
 		if self.flying() 
 			-> yian_garuga.quick_turn_fly() 
@@ -1563,7 +1563,7 @@ def node_144 : 86
 	return 
 endf 
 
-def node_145 : 374
+def node_145
 	if self.distance_3d_to_target().leq(600) 
 		if self.flying() 
 			-> yian_garuga.back_turn_fly() 
@@ -1576,19 +1576,19 @@ def node_145 : 374
 	return 
 endf 
 
-def node_146 : 40
+def node_146
 	random (50) 
 	elser (50) >> node_174 
 	endr 
 	return 
 endf 
 
-def node_147 : 68
+def node_147
 	>> node_174 
 	return 
 endf 
 
-def node_148 : 41
+def node_148
 	if function#5A() 
 		>> node_001 
 		>> node_174 
@@ -1675,51 +1675,51 @@ def node_148 : 41
 	return 
 endf 
 
-def node_149 : 43
+def node_149
 	>> node_001 
 	>> node_156 
 	-> yian_garuga.eat() 
 	return 
 endf 
 
-def node_150 : 42
+def node_150
 	>> node_001 
 	>> node_156 
 	-> yian_garuga.drink() 
 	return 
 endf 
 
-def node_151 : 44
+def node_151
 	>> node_001 
 	>> node_157 
 	-> yian_garuga.sleep() 
 	return 
 endf 
 
-def node_152 : 47
+def node_152
 	>> node_001 
 	>> node_157 
 	-> yian_garuga.sunbath() 
 	return 
 endf 
 
-def node_153 : 667
-	if [RegisterVar3 <= 10] 
+def node_153
+	if [RegisterVar3 -= 10] 
 		if function#101(10000) 
 			>> node_186 
 			>> node_154 
-			[RegisterVar3 |-] 
+			[RegisterVar3 ++] 
 			>> node_155 
 			reset 
 		else 
 		endif 
 	else 
-		[RegisterVar3 ++] 
+		[RegisterVar3 |-] 
 	endif 
 	return 
 endf 
 
-def node_154 : 669
+def node_154
 	>> node_267 
 	if function#101(10000) 
 		>> node_209 
@@ -1730,14 +1730,14 @@ def node_154 : 669
 	return 
 endf 
 
-def node_155 : 383
+def node_155
 	>> node_001 
 	>> node_157 
 	-> yian_garuga.eat_stamina() 
 	return 
 endf 
 
-def node_156 : 33
+def node_156
 	if self.flying() 
 		-> yian_garuga.normal_turn_fly() 
 	else 
@@ -1746,7 +1746,7 @@ def node_156 : 33
 	return 
 endf 
 
-def node_157 : 31
+def node_157
 	if self.angle_2d_cw_between(30,330) 
 		if self.flying() 
 			-> yian_garuga.normal_turn_fly() 
@@ -1758,7 +1758,7 @@ def node_157 : 31
 	return 
 endf 
 
-def node_158 : 32
+def node_158
 	if self.angle_2d_cw_between(80,280) 
 		if self.flying() 
 			-> yian_garuga.normal_turn_fly() 
@@ -1770,7 +1770,7 @@ def node_158 : 32
 	return 
 endf 
 
-def node_159 : 66
+def node_159
 	if self.distance_3d_to_target().leq(500) 
 		>> node_160 
 	elif self.angle_2d_cw_between(30,330) 
@@ -1780,7 +1780,7 @@ def node_159 : 66
 	return 
 endf 
 
-def node_160 : 45
+def node_160
 	if self.flying() 
 		-> yian_garuga.back_turn_fly() 
 	else 
@@ -1789,7 +1789,7 @@ def node_160 : 45
 	return 
 endf 
 
-def node_161 : 407
+def node_161
 	>> node_002 
 	if self.angle_2d_cw_between(0,180) 
 		-> yian_garuga.snake_turn_step_fly_l() 
@@ -1799,7 +1799,7 @@ def node_161 : 407
 	return 
 endf 
 
-def node_162 : 408
+def node_162
 	>> node_002 
 	random (50) -> yian_garuga.snake_turn_step_fly_l() 
 	elser (50) -> yian_garuga.snake_turn_step_fly_r() 
@@ -1807,7 +1807,7 @@ def node_162 : 408
 	return 
 endf 
 
-def node_163 : 10
+def node_163
 	if self.targetEnemy(target_em.any_monster) 
 		if self.target(13) 
 		else 
@@ -1836,11 +1836,11 @@ def node_163 : 10
 	return 
 endf 
 
-def node_164 : 289
+def node_164
 	if self.in_map(st.Special_Arena).in_area(-1) 
 	elif self.in_map(st.Challenge_Arena).in_area(-1) 
 	else 
-		if [RegisterVar2 <= 3] 
+		if [RegisterVar2 -= 3] 
 			>> node_171 
 			return 
 		else 
@@ -1862,11 +1862,11 @@ def node_164 : 289
 	return 
 endf 
 
-def node_165 : 288
+def node_165
 	if self.in_map(st.Special_Arena).in_area(-1) 
 	elif self.in_map(st.Challenge_Arena).in_area(-1) 
 	else 
-		if [RegisterVar2 <= 5] 
+		if [RegisterVar2 -= 5] 
 			>> node_171 
 			return 
 		else 
@@ -1888,7 +1888,7 @@ def node_165 : 288
 	return 
 endf 
 
-def node_166 : 291
+def node_166
 	if self.target(39) 
 		>> node_164 
 	else 
@@ -1907,7 +1907,7 @@ def node_166 : 291
 	return 
 endf 
 
-def node_167 : 347
+def node_167
 	if self.target(39) 
 		>> node_165 
 	else 
@@ -1926,21 +1926,21 @@ def node_167 : 347
 	return 
 endf 
 
-def node_168 : 287
-	[RegisterVar2 ++] 
+def node_168
+	[RegisterVar2 |-] 
 	return 
 endf 
 
-def node_169 : 80
-	[RegisterVar2 ++] 
+def node_169
+	[RegisterVar2 |-] 
 	>> node_141 
 	>> node_182 
 	return 
 endf 
 
-def node_170 : 83
+def node_170
 	if self.vertical_distance_to_target().gt(500) 
-		[RegisterVar2 ++] 
+		[RegisterVar2 |-] 
 		>> node_182 
 	elif self.distance_3d_to_target().gt(1500) 
 		if self.flying() 
@@ -1951,7 +1951,7 @@ def node_170 : 83
 			repeat 
 		endif 
 	else 
-		[RegisterVar2 ++] 
+		[RegisterVar2 |-] 
 		if self.flying() 
 			random (40) >> node_011 
 			elser (30) >> node_012 
@@ -1967,42 +1967,42 @@ def node_170 : 83
 	return 
 endf 
 
-def node_171 : 82
-	[RegisterVar2 |-] 
+def node_171
+	[RegisterVar2 ++] 
 	self.force_area_change2() 
 	return 
 endf 
 
-def node_172 : 671
-	[RegisterVar2 ++] 
-	[RegisterVar2 ++] 
-	[RegisterVar2 ++] 
-	[RegisterVar2 ++] 
-	[RegisterVar2 ++] 
+def node_172
+	[RegisterVar2 |-] 
+	[RegisterVar2 |-] 
+	[RegisterVar2 |-] 
+	[RegisterVar2 |-] 
+	[RegisterVar2 |-] 
 	>> node_170 
 	>> node_171 
 	return 
 endf 
 
-def node_173 : 668
+def node_173
 	if function#D0(5) 
-		if [RegisterVar7 == 0] 
+		if [RegisterVar7 += 0] 
 			self.targetEnemy(48) 
 			if self.distance_3d_to_target().leq(5000) 
 				if self.target(4) 
 				elif self.target(11) 
 				else 
-					[RegisterVar7 ++] 
+					[RegisterVar7 |-] 
 					>> node_267 
 					>> node_201 
 				endif 
 			else 
 			endif 
-		elif [RegisterVar7 <= 20] 
-			[RegisterVar7 |-] 
-			repeat 
-		elif [RegisterVar7 <= 1] 
+		elif [RegisterVar7 -= 20] 
 			[RegisterVar7 ++] 
+			repeat 
+		elif [RegisterVar7 -= 1] 
+			[RegisterVar7 |-] 
 		else 
 		endif 
 	else 
@@ -2010,7 +2010,7 @@ def node_173 : 668
 	return 
 endf 
 
-def node_174 : 54
+def node_174
 	random (100) 
 				>> node_175 
 	elser (0) 
@@ -2018,7 +2018,7 @@ def node_174 : 54
 	return 
 endf 
 
-def node_175 : 239
+def node_175
 	if function#3C() 
 		if self.flying() 
 			-> yian_garuga.search_fly2() 
@@ -2035,7 +2035,7 @@ def node_175 : 239
 	return 
 endf 
 
-def node_176 : 55
+def node_176
 	if self.flying() 
 		if self.enraged() 
 			-> yian_garuga.half_lost_search_front_fly() 
@@ -2052,7 +2052,7 @@ def node_176 : 55
 	return 
 endf 
 
-def node_177 : 56
+def node_177
 	if self.flying() 
 		-> yian_garuga.search_fly() 
 	else 
@@ -2061,7 +2061,7 @@ def node_177 : 56
 	return 
 endf 
 
-def node_178 : 254
+def node_178
 	if self.flying() 
 		-> yian_garuga.search_fly4() 
 	else 
@@ -2070,7 +2070,7 @@ def node_178 : 254
 	return 
 endf 
 
-def node_179 : 320
+def node_179
 	>> node_156 
 	if self.flying() 
 		-> yian_garuga.search_fly5() 
@@ -2080,7 +2080,7 @@ def node_179 : 320
 	return 
 endf 
 
-def node_180 : 53
+def node_180
 	if self.flying() 
 		-> yian_garuga.refresh_fly() 
 	else 
@@ -2089,7 +2089,7 @@ def node_180 : 53
 	return 
 endf 
 
-def node_181 : 52
+def node_181
 	>> node_001 
 	if self.in_combat() 
 		-> yian_garuga.idle_tired_combat() 
@@ -2099,7 +2099,7 @@ def node_181 : 52
 	return 
 endf 
 
-def node_182 : 23
+def node_182
 	if self.flying() 
 		-> yian_garuga.intimidation_fly() 
 	else 
@@ -2108,7 +2108,7 @@ def node_182 : 23
 	return 
 endf 
 
-def node_183 : 50
+def node_183
 	if self.flying() 
 		-> yian_garuga.threat_fly_short() 
 	else 
@@ -2117,7 +2117,7 @@ def node_183 : 50
 	return 
 endf 
 
-def node_184 : 20
+def node_184
 	if self.flying() 
 		-> yian_garuga.threat_fly() 
 	else 
@@ -2126,7 +2126,7 @@ def node_184 : 20
 	return 
 endf 
 
-def node_185 : 418
+def node_185
 	if self.flying() 
 		-> yian_garuga.threat_fly() 
 	else 
@@ -2135,7 +2135,7 @@ def node_185 : 418
 	return 
 endf 
 
-def node_186 : 348
+def node_186
 	if self.flying() 
 		if self.in_combat() 
 			-> yian_garuga.sniff_s_fly() 
@@ -2152,7 +2152,7 @@ def node_186 : 348
 	return 
 endf 
 
-def node_187 : 349
+def node_187
 	if self.flying() 
 		if self.in_combat() 
 			-> yian_garuga.sniff_l_fly() 
@@ -2169,19 +2169,19 @@ def node_187 : 349
 	return 
 endf 
 
-def node_188 : 666
+def node_188
 	>> node_001 
 	-> yian_garuga.marking() 
 	return 
 endf 
 
-def node_189 : 682
+def node_189
 	>> node_001 
 	-> yian_garuga.marking2() 
 	return 
 endf 
 
-def node_190 : 85
+def node_190
 	if self.distance_3d_to_target().leq(500) 
 		return 
 	else 
@@ -2200,7 +2200,7 @@ def node_190 : 85
 	return 
 endf 
 
-def node_191 : 88
+def node_191
 	if self.fatigued() 
 		-> yian_garuga.walk_tired(2,1,5,1500,400) 
 	elif self.in_combat() 
@@ -2211,7 +2211,7 @@ def node_191 : 88
 	return 
 endf 
 
-def node_192 : 186
+def node_192
 	if self.distance_3d_to_target().leq(500) 
 		return 
 	else 
@@ -2224,7 +2224,7 @@ def node_192 : 186
 	repeat 
 endf 
 
-def node_193 : 46
+def node_193
 	if self.distance_3d_to_target().leq(600) 
 		return 
 	else 
@@ -2243,7 +2243,7 @@ def node_193 : 46
 	return 
 endf 
 
-def node_194 : 87
+def node_194
 	if self.fatigued() 
 		-> yian_garuga.dash_tired(2,1,0,1500,500) 
 	elif self.in_combat() 
@@ -2254,7 +2254,7 @@ def node_194 : 87
 	return 
 endf 
 
-def node_195 : 376
+def node_195
 	if self.distance_3d_to_target().leq(600) 
 		return 
 	else 
@@ -2273,7 +2273,7 @@ def node_195 : 376
 	return 
 endf 
 
-def node_196 : 377
+def node_196
 	if self.fatigued() 
 		-> yian_garuga.dash_tired(2,1,0,1000,500) 
 	elif self.in_combat() 
@@ -2284,7 +2284,7 @@ def node_196 : 377
 	return 
 endf 
 
-def node_197 : 375
+def node_197
 	>> node_001 
 	if self.distance_3d_to_target().leq(350) 
 		return 
@@ -2304,7 +2304,7 @@ def node_197 : 375
 	return 
 endf 
 
-def node_198 : 36
+def node_198
 	>> node_001 
 	if self.distance_3d_to_target().leq(550) 
 		return 
@@ -2324,7 +2324,7 @@ def node_198 : 36
 	return 
 endf 
 
-def node_199 : 360
+def node_199
 	>> node_001 
 	if self.distance_3d_to_target().leq(600) 
 		return 
@@ -2344,7 +2344,7 @@ def node_199 : 360
 	return 
 endf 
 
-def node_200 : 455
+def node_200
 	>> node_001 
 	if self.distance_3d_to_target().leq(800) 
 		return 
@@ -2364,7 +2364,7 @@ def node_200 : 455
 	return 
 endf 
 
-def node_201 : 98
+def node_201
 	>> node_001 
 	if self.distance_3d_to_target().leq(1000) 
 		return 
@@ -2384,7 +2384,7 @@ def node_201 : 98
 	return 
 endf 
 
-def node_202 : 453
+def node_202
 	>> node_001 
 	if self.distance_3d_to_target().leq(1200) 
 		return 
@@ -2404,7 +2404,7 @@ def node_202 : 453
 	return 
 endf 
 
-def node_203 : 361
+def node_203
 	>> node_001 
 	if self.distance_3d_to_target().leq(1500) 
 		return 
@@ -2424,7 +2424,7 @@ def node_203 : 361
 	return 
 endf 
 
-def node_204 : 457
+def node_204
 	>> node_001 
 	if self.distance_3d_to_target().leq(1800) 
 		return 
@@ -2444,7 +2444,7 @@ def node_204 : 457
 	return 
 endf 
 
-def node_205 : 454
+def node_205
 	>> node_001 
 	if self.distance_3d_to_target().leq(2000) 
 		return 
@@ -2464,7 +2464,7 @@ def node_205 : 454
 	return 
 endf 
 
-def node_206 : 587
+def node_206
 	>> node_001 
 	if self.distance_3d_to_target().leq(2500) 
 		return 
@@ -2484,7 +2484,7 @@ def node_206 : 587
 	return 
 endf 
 
-def node_207 : 251
+def node_207
 	>> node_001 
 	if self.distance_2d_to_target().leq(3000) 
 		return 
@@ -2504,7 +2504,7 @@ def node_207 : 251
 	return 
 endf 
 
-def node_208 : 459
+def node_208
 	>> node_001 
 	if self.distance_2d_to_target().leq(3500) 
 		return 
@@ -2524,7 +2524,7 @@ def node_208 : 459
 	return 
 endf 
 
-def node_209 : 94
+def node_209
 	>> node_001 
 	if self.distance_3d_to_target().leq(500) 
 		return 
@@ -2540,7 +2540,7 @@ def node_209 : 94
 	repeat 
 endf 
 
-def node_210 : 684
+def node_210
 	>> node_001 
 	-> yian_garuga.dash_combat(2,6,0,800,1000) 
 	if self.distance_2d_to_target().leq(1000) 
@@ -2556,7 +2556,7 @@ def node_210 : 684
 	return 
 endf 
 
-def node_211 : 685
+def node_211
 	>> node_001 
 	if self.distance_3d_to_target().leq(550) 
 		return 
@@ -2576,7 +2576,7 @@ def node_211 : 685
 	return 
 endf 
 
-def node_212 : 145
+def node_212
 	>> node_002 
 	if self.distance_3d_to_target().leq(600) 
 	else 
@@ -2590,7 +2590,7 @@ def node_212 : 145
 	return 
 endf 
 
-def node_213 : 148
+def node_213
 	>> node_002 
 	if self.distance_2d_to_target().leq(600) 
 	else 
@@ -2604,7 +2604,7 @@ def node_213 : 148
 	return 
 endf 
 
-def node_214 : 149
+def node_214
 	>> node_002 
 	if self.distance_2d_to_target().leq(1000) 
 	else 
@@ -2618,7 +2618,7 @@ def node_214 : 149
 	return 
 endf 
 
-def node_215 : 146
+def node_215
 	>> node_002 
 	if self.distance_3d_to_target().leq(600) 
 	else 
@@ -2632,7 +2632,7 @@ def node_215 : 146
 	return 
 endf 
 
-def node_216 : 147
+def node_216
 	>> node_002 
 	if self.distance_3d_to_target().leq(1000) 
 	else 
@@ -2646,7 +2646,7 @@ def node_216 : 147
 	return 
 endf 
 
-def node_217 : 150
+def node_217
 	>> node_002 
 	if self.distance_3d_to_target().leq(600) 
 	else 
@@ -2657,7 +2657,7 @@ def node_217 : 150
 	return 
 endf 
 
-def node_218 : 153
+def node_218
 	>> node_002 
 	if self.distance_2d_to_target().leq(600) 
 	else 
@@ -2668,7 +2668,7 @@ def node_218 : 153
 	return 
 endf 
 
-def node_219 : 154
+def node_219
 	>> node_002 
 	if self.distance_2d_to_target().leq(1000) 
 	else 
@@ -2679,7 +2679,7 @@ def node_219 : 154
 	return 
 endf 
 
-def node_220 : 151
+def node_220
 	>> node_002 
 	if self.distance_3d_to_target().leq(600) 
 	else 
@@ -2690,7 +2690,7 @@ def node_220 : 151
 	return 
 endf 
 
-def node_221 : 152
+def node_221
 	>> node_002 
 	if self.distance_3d_to_target().leq(1000) 
 	else 
@@ -2701,7 +2701,7 @@ def node_221 : 152
 	return 
 endf 
 
-def node_222 : 155
+def node_222
 	>> node_002 
 	if self.distance_3d_to_target().leq(600) 
 	else 
@@ -2711,7 +2711,7 @@ def node_222 : 155
 	return 
 endf 
 
-def node_223 : 158
+def node_223
 	>> node_002 
 	if self.distance_2d_to_target().leq(600) 
 	else 
@@ -2721,7 +2721,7 @@ def node_223 : 158
 	return 
 endf 
 
-def node_224 : 159
+def node_224
 	>> node_002 
 	if self.distance_2d_to_target().leq(1000) 
 	else 
@@ -2731,7 +2731,7 @@ def node_224 : 159
 	return 
 endf 
 
-def node_225 : 332
+def node_225
 	>> node_002 
 	if self.distance_2d_to_target().leq(2000) 
 	else 
@@ -2741,7 +2741,7 @@ def node_225 : 332
 	return 
 endf 
 
-def node_226 : 333
+def node_226
 	>> node_002 
 	if self.distance_2d_to_target().leq(3000) 
 	else 
@@ -2751,7 +2751,7 @@ def node_226 : 333
 	return 
 endf 
 
-def node_227 : 156
+def node_227
 	>> node_002 
 	if self.distance_3d_to_target().leq(600) 
 		return 
@@ -2771,7 +2771,7 @@ def node_227 : 156
 	return 
 endf 
 
-def node_228 : 345
+def node_228
 	>> node_002 
 	if self.distance_3d_recalc_to_target().leq(600) 
 		return 
@@ -2791,7 +2791,7 @@ def node_228 : 345
 	return 
 endf 
 
-def node_229 : 309
+def node_229
 	>> node_002 
 	if self.distance_3d_to_target().leq(800) 
 		return 
@@ -2811,7 +2811,7 @@ def node_229 : 309
 	return 
 endf 
 
-def node_230 : 157
+def node_230
 	>> node_002 
 	if self.distance_3d_to_target().leq(1000) 
 		return 
@@ -2831,7 +2831,7 @@ def node_230 : 157
 	return 
 endf 
 
-def node_231 : 253
+def node_231
 	>> node_002 
 	if self.distance_3d_to_target().leq(1500) 
 		return 
@@ -2851,7 +2851,7 @@ def node_231 : 253
 	return 
 endf 
 
-def node_232 : 344
+def node_232
 	>> node_002 
 	if self.distance_3d_recalc_to_target().leq(1500) 
 		return 
@@ -2871,7 +2871,7 @@ def node_232 : 344
 	return 
 endf 
 
-def node_233 : 456
+def node_233
 	>> node_002 
 	if self.distance_3d_to_target().leq(2000) 
 		return 
@@ -2891,7 +2891,7 @@ def node_233 : 456
 	return 
 endf 
 
-def node_234 : 458
+def node_234
 	>> node_002 
 	if self.distance_3d_to_target().leq(3500) 
 		return 
@@ -2911,7 +2911,7 @@ def node_234 : 458
 	return 
 endf 
 
-def node_235 : 160
+def node_235
 	>> node_002 
 	if self.vertical_distance_to_target().leq(1200) 
 		return 
@@ -2941,7 +2941,7 @@ def node_235 : 160
 	return 
 endf 
 
-def node_236 : 161
+def node_236
 	>> node_002 
 	if self.distance_2d_to_target().leq(1000) 
 		return 
@@ -2971,7 +2971,7 @@ def node_236 : 161
 	return 
 endf 
 
-def node_237 : 162
+def node_237
 	>> node_001 
 	if self.flying() 
 	else 
@@ -2980,7 +2980,7 @@ def node_237 : 162
 	return 
 endf 
 
-def node_238 : 163
+def node_238
 	>> node_002 
 	if self.flying() 
 		-> yian_garuga.sudden_drop() 
@@ -2989,13 +2989,13 @@ def node_238 : 163
 	return 
 endf 
 
-def node_239 : 198
+def node_239
 	self.targetArea(target_area.nearest_entrance) 
 	>> node_240 
 	return 
 endf 
 
-def node_240 : 197
+def node_240
 	if function#5A(20) 
 		>> node_241 
 	elif function#5A(21) 
@@ -3026,7 +3026,7 @@ def node_240 : 197
 	return 
 endf 
 
-def node_241 : 196
+def node_241
 	if self.distance_3d_to_target().leq(12000) 
 		>> node_001 
 		>> node_244 
@@ -3036,7 +3036,7 @@ def node_241 : 196
 	return 
 endf 
 
-def node_242 : 195
+def node_242
 	if self.distance_3d_to_target().leq(12000) 
 		>> node_002 
 		>> node_244 
@@ -3046,7 +3046,7 @@ def node_242 : 195
 	return 
 endf 
 
-def node_243 : 194
+def node_243
 	if function#AD() 
 		>> node_244 
 	else 
@@ -3055,7 +3055,7 @@ def node_243 : 194
 	return 
 endf 
 
-def node_244 : 193
+def node_244
 	if function#5A(10) 
 		>> node_002 
 	elif function#5A(11) 
@@ -3091,7 +3091,7 @@ def node_244 : 193
 	return 
 endf 
 
-def node_245 : 192
+def node_245
 	>> node_246 
 	>> node_248 
 	>> node_249 
@@ -3099,7 +3099,7 @@ def node_245 : 192
 	return 
 endf 
 
-def node_246 : 191
+def node_246
 	self.targetArea(target_area.area_aerial_center) 
 	if self.flying() 
 		>> node_221 
@@ -3109,7 +3109,7 @@ def node_246 : 191
 	return 
 endf 
 
-def node_247 : 326
+def node_247
 	self.targetArea(target_area.area_center) 
 	>> node_190 
 	self.targetArea(target_area.area_aerial_center) 
@@ -3117,7 +3117,7 @@ def node_247 : 326
 	return 
 endf 
 
-def node_248 : 190
+def node_248
 	self.targetArea(target_area.nearest_entrance) 
 	if self.flying() 
 		self.targetArea(40) 
@@ -3129,7 +3129,7 @@ def node_248 : 190
 	return 
 endf 
 
-def node_249 : 189
+def node_249
 	if function#5A(10) 
 	elif function#5A(11) 
 	elif function#5A(12) 
@@ -3152,7 +3152,7 @@ def node_249 : 189
 	return 
 endf 
 
-def node_250 : 188
+def node_250
 	self.targetArea(target_area.nearest_entrance) 
 	if self.flying() 
 		>> node_220 
@@ -3162,13 +3162,13 @@ def node_250 : 188
 	return 
 endf 
 
-def node_251 : 319
+def node_251
 	self.targetArea(target_area.nearest_entrance) 
 	>> node_248 
 	return 
 endf 
 
-def node_252 : 205
+def node_252
 	self.targetArea(14) 
 	if function#AD() 
 		>> node_253 
@@ -3179,7 +3179,7 @@ def node_252 : 205
 	return 
 endf 
 
-def node_253 : 204
+def node_253
 	if self.flying() 
 		self.targetArea(40) 
 		>> node_230 
@@ -3189,13 +3189,13 @@ def node_253 : 204
 	return 
 endf 
 
-def node_254 : 203
+def node_254
 	>> node_255 
 	>> node_257 
 	return 
 endf 
 
-def node_255 : 202
+def node_255
 	self.targetArea(target_area.area_aerial_center) 
 	if self.flying() 
 		>> node_221 
@@ -3205,7 +3205,7 @@ def node_255 : 202
 	return 
 endf 
 
-def node_256 : 327
+def node_256
 	self.targetArea(target_area.area_center) 
 	>> node_209 
 	self.targetArea(target_area.area_aerial_center) 
@@ -3213,7 +3213,7 @@ def node_256 : 327
 	return 
 endf 
 
-def node_257 : 201
+def node_257
 	self.targetArea(14) 
 	if self.flying() 
 		self.targetArea(40) 
@@ -3224,7 +3224,7 @@ def node_257 : 201
 	return 
 endf 
 
-def node_258 : 200
+def node_258
 	if self.flying() 
 		self.targetArea(target_area.area_center) 
 		>> node_001 
@@ -3233,7 +3233,7 @@ def node_258 : 200
 	return 
 endf 
 
-def node_259 : 199
+def node_259
 	if self.vertical_distance_to_target().leq(1000) 
 	else 
 		-> yian_garuga.short_down_step_fly() 
@@ -3242,7 +3242,7 @@ def node_259 : 199
 	return 
 endf 
 
-def node_260 : 212
+def node_260
 	self.targetArea(24) 
 	if function#AD() 
 		>> node_261 
@@ -3252,7 +3252,7 @@ def node_260 : 212
 	return 
 endf 
 
-def node_261 : 211
+def node_261
 	if function#5A(10) 
 		>> node_002 
 	elif function#5A(11) 
@@ -3275,7 +3275,7 @@ def node_261 : 211
 	return 
 endf 
 
-def node_262 : 210
+def node_262
 	>> node_263 
 	>> node_264 
 	>> node_265 
@@ -3283,7 +3283,7 @@ def node_262 : 210
 	return 
 endf 
 
-def node_263 : 209
+def node_263
 	if self.flying() 
 		self.targetArea(target_area.area_aerial_center) 
 		>> node_215 
@@ -3296,7 +3296,7 @@ def node_263 : 209
 	return 
 endf 
 
-def node_264 : 208
+def node_264
 	self.targetArea(24) 
 	if self.flying() 
 		if function#5A(10) 
@@ -3314,7 +3314,7 @@ def node_264 : 208
 	return 
 endf 
 
-def node_265 : 207
+def node_265
 	if function#5A(10) 
 	elif function#5A(11) 
 	elif function#5A(12) 
@@ -3330,7 +3330,7 @@ def node_265 : 207
 	return 
 endf 
 
-def node_266 : 206
+def node_266
 	if self.flying() 
 	else 
 		self.targetArea(24) 
@@ -3339,7 +3339,7 @@ def node_266 : 206
 	return 
 endf 
 
-def node_267 : 219
+def node_267
 	if function#AD() 
 		>> node_268 
 	else 
@@ -3348,7 +3348,7 @@ def node_267 : 219
 	return 
 endf 
 
-def node_268 : 218
+def node_268
 	if self.flying() 
 		>> node_230 
 	else 
@@ -3361,14 +3361,14 @@ def node_268 : 218
 	return 
 endf 
 
-def node_269 : 217
+def node_269
 	>> node_271 
 	>> node_273 
 	>> node_274 
 	return 
 endf 
 
-def node_270 : 213
+def node_270
 	if self.flying() 
 		>> node_230 
 	else 
@@ -3381,7 +3381,7 @@ def node_270 : 213
 	return 
 endf 
 
-def node_271 : 216
+def node_271
 	self.targetArea(target_area.area_aerial_center) 
 	if self.flying() 
 		>> node_221 
@@ -3391,7 +3391,7 @@ def node_271 : 216
 	return 
 endf 
 
-def node_272 : 343
+def node_272
 	self.targetArea(target_area.area_center) 
 	>> node_209 
 	self.targetArea(target_area.area_aerial_center) 
@@ -3399,7 +3399,7 @@ def node_272 : 343
 	return 
 endf 
 
-def node_273 : 215
+def node_273
 	if self.flying() 
 		self.targetArea(40) 
 		>> node_222 
@@ -3414,7 +3414,7 @@ def node_273 : 215
 	return 
 endf 
 
-def node_274 : 214
+def node_274
 	if self.flying() 
 		self.targetArea(target_area.area_center) 
 		>> node_001 
@@ -3423,7 +3423,7 @@ def node_274 : 214
 	return 
 endf 
 
-def node_275 : 24
+def node_275
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if function#5D() 
 		function#5E() 
@@ -3436,7 +3436,7 @@ def node_275 : 24
 	return 
 endf 
 
-def node_276 : 25
+def node_276
 	if self.angle_2d_cw_between(90,270) 
 		>> node_278 
 	elif self.distance_3d_to_target().gt(3000) 
@@ -3447,7 +3447,7 @@ def node_276 : 25
 	return 
 endf 
 
-def node_277 : 26
+def node_277
 	if self.flying() 
 		-> yian_garuga.half_lost_search_front_fly() 
 	else 
@@ -3456,7 +3456,7 @@ def node_277 : 26
 	return 
 endf 
 
-def node_278 : 27
+def node_278
 	if self.flying() 
 		-> yian_garuga.half_lost_search_back_fly() 
 	else 
@@ -3465,7 +3465,7 @@ def node_278 : 27
 	return 
 endf 
 
-def node_279 : 350
+def node_279
 	if self.flying() 
 		random (50) -> yian_garuga.half_lost_search_front_fly() 
 		elser (50) -> yian_garuga.half_lost_search_back_fly() 
@@ -3478,17 +3478,17 @@ def node_279 : 350
 	return 
 endf 
 
-def node_280 : 277
+def node_280
 	>> node_021 
 	return 
 endf 
 
-def node_281 : 278
+def node_281
 	>> node_021 
 	return 
 endf 
 
-def node_282 : 30
+def node_282
 	self.targetArea(19) 
 	if self.distance_2d_to_target().gt(1000) 
 		if self.flying() 
@@ -3504,14 +3504,14 @@ def node_282 : 30
 	return 
 endf 
 
-def node_283 : 29
+def node_283
 	self.targetEnemy(target_em.random_player_or_cat) 
 	>> node_157 
 	>> node_293 
 	return 
 endf 
 
-def node_284 : 248
+def node_284
 	if self.flying() >> node_227 
 	else >> node_198 
 	endif 
@@ -3519,7 +3519,7 @@ def node_284 : 248
 	return 
 endf 
 
-def node_285 : 249
+def node_285
 	>> node_001 
 	>> node_210 
 	if self.target(0) @ parameter2:1 
@@ -3534,7 +3534,7 @@ def node_285 : 249
 	return 
 endf 
 
-def node_286 : 243
+def node_286
 	>> node_001 
 	if self.distance_2d_to_target().leq(1200) 
 		if self.above_target() 
@@ -3549,7 +3549,7 @@ def node_286 : 243
 	return 
 endf 
 
-def node_287 : 330
+def node_287
 	>> node_001 
 	if self.distance_2d_to_target().leq(1200) 
 		if self.above_target() 
@@ -3565,7 +3565,7 @@ def node_287 : 330
 	return 
 endf 
 
-def node_288 : 242
+def node_288
 	if self.target.helpless_0() 
 	else 
 		random (35) >> node_035 
@@ -3576,7 +3576,7 @@ def node_288 : 242
 	return 
 endf 
 
-def node_289 : 250
+def node_289
 	if self.flying() 
 		>> node_227 
 	else 
@@ -3586,7 +3586,7 @@ def node_289 : 250
 	return 
 endf 
 
-def node_290 : 683
+def node_290
 	>> node_001 
 	random (20) >> node_046 
 	elser (20) >> node_045 
@@ -3598,7 +3598,7 @@ def node_290 : 683
 	return 
 endf 
 
-def node_291 : 314
+def node_291
 	self.targetArea(19) 
 	if self.distance_3d_recalc_to_target().gt(1000) 
 		if self.flying() 
@@ -3612,7 +3612,7 @@ def node_291 : 314
 	return 
 endf 
 
-def node_292 : 315
+def node_292
 	if self.flying() 
 		random (20) >> node_186 
 		elser (30) >> node_187 
@@ -3630,7 +3630,7 @@ def node_292 : 315
 	return 
 endf 
 
-def node_293 : 316
+def node_293
 	if self.flying() 
 		random (40) >> node_177 
 		elser (60) >> node_182 
@@ -3644,7 +3644,7 @@ def node_293 : 316
 	return 
 endf 
 
-def node_294 : 317
+def node_294
 	if self.flying() 
 		-> yian_garuga.intimidation_fly() 
 	else 
@@ -3653,7 +3653,7 @@ def node_294 : 317
 	return 
 endf 
 
-def node_295 : 318
+def node_295
 	if self.flying() 
 		>> node_160 
 	else 
@@ -3668,7 +3668,7 @@ def node_295 : 318
 	return 
 endf 
 
-def node_296 : 346
+def node_296
 	if self.flying() 
 		if self.target(52) 
 			>> node_227 

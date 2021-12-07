@@ -1,14 +1,14 @@
 importactions KestodonM as kestodonm
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	self.targetEnemy(13) 
 	>> Global.node_002 
 	>> node_001 
 	conclude 
 endf 
 
-def node_001 : 2
+def node_001
 	>> node_002 
 	-> action#09(2,6,0,500,500) 
 	>> node_002 
@@ -19,7 +19,7 @@ def node_001 : 2
 	return 
 endf 
 
-def node_002 : 6
+def node_002
 	if self.distance_2d_to_target().leq(750) 
 		>> node_003 
 		conclude 
@@ -28,7 +28,7 @@ def node_002 : 6
 	return 
 endf 
 
-def node_003 : 5
+def node_003
 	random (60) -> action#19() 
 	elser (40) -> action#1A() 
 	endr 

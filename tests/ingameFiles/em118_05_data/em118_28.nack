@@ -1,19 +1,19 @@
 importactions Seething_Bazelgeuse as seething_bazelgeuse
 importlibrary Global as Global
 
-def node_000 : 14
-	if [RegisterVar0 <= 15] 
-		[RegisterVar0 |-] 
+def node_000
+	if [RegisterVar0 -= 15] 
+		[RegisterVar0 ++] 
 		conclude 
 	else 
 	endif 
-	[RegisterVar0 ++] 
+	[RegisterVar0 |-] 
 	>> node_001 
 	repeat 
 	conclude 
 endf 
 
-def node_001 : 15
+def node_001
 	>> Global.node_001 
 	self.targetEnemy(48) 
 	if self.distance_3d_to_target().leq(3500) 
@@ -24,7 +24,7 @@ def node_001 : 15
 	return 
 endf 
 
-def node_002 : 16
+def node_002
 	>> Global.node_088 
 	if self.flying() 
 		-> seething_bazelgeuse.sniff_s_fly() 
@@ -34,7 +34,7 @@ def node_002 : 16
 	return 
 endf 
 
-def node_003 : 17
+def node_003
 	self.targetEnemy(58) 
 	random (10) >> Global.node_234 
 	elser (90) 

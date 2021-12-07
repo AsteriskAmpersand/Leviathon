@@ -1,89 +1,89 @@
 importactions Great_Girros as great_girros
 
-def node_000 : 1
+def node_000
 	conclude 
 endf 
 
-def node_001 : 298
+def node_001
 	-> great_girros.threat() 
 	return 
 endf 
 
-def node_002 : 309
+def node_002
 	-> great_girros.threat_angry() 
 	return 
 endf 
 
-def node_003 : 299
+def node_003
 	-> great_girros.threat_short() 
 	return 
 endf 
 
-def node_004 : 425
-	if function#AB() 
-		function#AA() 
+def node_004
+	if [$V += 0] 
+		[$V |-] 
 		>> node_003 
 	else 
 	endif 
 	return 
 endf 
 
-def node_005 : 310
+def node_005
 	-> great_girros.order_call() 
 	return 
 endf 
 
-def node_006 : 388
+def node_006
 	-> great_girros.lost_search() 
 	return 
 endf 
 
-def node_007 : 389
+def node_007
 	-> great_girros.short_search() 
 	return 
 endf 
 
-def node_008 : 390
+def node_008
 	-> great_girros.lost_search() 
 	return 
 endf 
 
-def node_009 : 322
+def node_009
 	-> great_girros.tired() 
 	return 
 endf 
 
-def node_010 : 323
+def node_010
 	-> great_girros.refresh() 
 	return 
 endf 
 
-def node_011 : 391
+def node_011
 	-> great_girros.smell() 
 	return 
 endf 
 
-def node_012 : 392
+def node_012
 	-> great_girros.threat_short() 
 	return 
 endf 
 
-def node_013 : 353
+def node_013
 	-> great_girros.threat_short() 
 	return 
 endf 
 
-def node_014 : 387
+def node_014
 	-> great_girros.wait() 
 	return 
 endf 
 
-def node_015 : 324
+def node_015
 	-> great_girros.short_search() 
 	return 
 endf 
 
-def node_016 : 171
+def node_016
 	if self.distance_3d_to_target().leq(800) 
 	else 
 		-> great_girros.run(1,2,0,600,1500) 
@@ -92,12 +92,12 @@ def node_016 : 171
 	return 
 endf 
 
-def node_017 : 176
+def node_017
 	-> great_girros.run(1,2,0,600,1500) 
 	return 
 endf 
 
-def node_018 : 175
+def node_018
 	if self.distance_3d_to_target().leq(800) 
 	else 
 		-> great_girros.run(1,2,0,600,1500) 
@@ -109,7 +109,7 @@ def node_018 : 175
 	return 
 endf 
 
-def node_019 : 393
+def node_019
 	if self.distance_3d_to_target().leq(800) 
 	else 
 		-> great_girros.run(1,2,0,600,1500) 
@@ -125,7 +125,7 @@ def node_019 : 393
 	return 
 endf 
 
-def node_020 : 394
+def node_020
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> great_girros.dying_walk(1,2,0,500,1500) 
@@ -134,12 +134,12 @@ def node_020 : 394
 	return 
 endf 
 
-def node_021 : 396
+def node_021
 	-> great_girros.dying_walk(1,2,0,500,1500) 
 	return 
 endf 
 
-def node_022 : 395
+def node_022
 	self.targetArea(17) 
 	>> node_060 
 	if function#C9() 
@@ -150,33 +150,33 @@ def node_022 : 395
 	return 
 endf 
 
-def node_023 : 336
+def node_023
 	self.targetArea(22) @ parameter2:300 
 	>> node_037 
 	return 
 endf 
 
-def node_024 : 337
+def node_024
 	-> great_girros.simple_bite() 
 	return 
 endf 
 
-def node_025 : 338
+def node_025
 	-> great_girros.ride_rage_head() 
 	return 
 endf 
 
-def node_026 : 339
+def node_026
 	-> great_girros.ride_rage_body() 
 	return 
 endf 
 
-def node_027 : 340
+def node_027
 	-> great_girros.ride_rage_body_lv2() 
 	return 
 endf 
 
-def node_028 : 236
+def node_028
 	if self.distance_3d_to_target().leq(450) 
 		>> node_053 
 	else 
@@ -185,7 +185,7 @@ def node_028 : 236
 	return 
 endf 
 
-def node_029 : 227
+def node_029
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> great_girros.run(1,2,0,500,1000) 
@@ -194,37 +194,37 @@ def node_029 : 227
 	return 
 endf 
 
-def node_030 : 341
+def node_030
 	-> great_girros.ride_rage_crash_head() 
 	return 
 endf 
 
-def node_031 : 342
+def node_031
 	-> great_girros.ride_rage_crash_head_lv2() 
 	return 
 endf 
 
-def node_032 : 343
+def node_032
 	-> great_girros.ride_rage_crash_body() 
 	return 
 endf 
 
-def node_033 : 344
+def node_033
 	-> great_girros.ride_rage_crash_body_lv2() 
 	return 
 endf 
 
-def node_034 : 345
+def node_034
 	-> great_girros.wait() 
 	return 
 endf 
 
-def node_035 : 346
+def node_035
 	-> great_girros.ride_tired() 
 	return 
 endf 
 
-def node_036 : 292
+def node_036
 	if self.distance_2d_to_target().leq(800) 
 		return 
 	else 
@@ -243,12 +243,12 @@ def node_036 : 292
 	return 
 endf 
 
-def node_037 : 163
+def node_037
 	-> great_girros.quick_turn() 
 	return 
 endf 
 
-def node_038 : 76
+def node_038
 	if self.angle_2d_cw_between(15,345) 
 		>> node_037 
 	else 
@@ -256,7 +256,7 @@ def node_038 : 76
 	return 
 endf 
 
-def node_039 : 77
+def node_039
 	if self.angle_2d_cw_between(30,330) 
 		>> node_037 
 	else 
@@ -264,7 +264,7 @@ def node_039 : 77
 	return 
 endf 
 
-def node_040 : 78
+def node_040
 	if self.angle_2d_cw_between(45,315) 
 		>> node_037 
 	else 
@@ -272,7 +272,7 @@ def node_040 : 78
 	return 
 endf 
 
-def node_041 : 79
+def node_041
 	if self.angle_2d_cw_between(60,300) 
 		>> node_037 
 	else 
@@ -280,7 +280,7 @@ def node_041 : 79
 	return 
 endf 
 
-def node_042 : 80
+def node_042
 	if self.angle_2d_cw_between(75,285) 
 		>> node_037 
 	else 
@@ -288,7 +288,7 @@ def node_042 : 80
 	return 
 endf 
 
-def node_043 : 81
+def node_043
 	if self.angle_2d_cw_between(90,270) 
 		>> node_037 
 	else 
@@ -296,7 +296,7 @@ def node_043 : 81
 	return 
 endf 
 
-def node_044 : 98
+def node_044
 	if self.angle_2d_cw_between(10,320) 
 		>> node_037 
 	else 
@@ -304,7 +304,7 @@ def node_044 : 98
 	return 
 endf 
 
-def node_045 : 158
+def node_045
 	if self.distance_2d_to_target().leq(750) 
 		-> great_girros.battle_turn() 
 	else 
@@ -313,7 +313,7 @@ def node_045 : 158
 	return 
 endf 
 
-def node_046 : 84
+def node_046
 	if self.angle_2d_cw_between(15,345) 
 		>> node_045 
 	else 
@@ -321,7 +321,7 @@ def node_046 : 84
 	return 
 endf 
 
-def node_047 : 85
+def node_047
 	if self.angle_2d_cw_between(30,330) 
 		>> node_045 
 	else 
@@ -329,7 +329,7 @@ def node_047 : 85
 	return 
 endf 
 
-def node_048 : 86
+def node_048
 	if self.angle_2d_cw_between(45,315) 
 		>> node_045 
 	else 
@@ -337,7 +337,7 @@ def node_048 : 86
 	return 
 endf 
 
-def node_049 : 87
+def node_049
 	if self.angle_2d_cw_between(60,300) 
 		>> node_045 
 	else 
@@ -345,7 +345,7 @@ def node_049 : 87
 	return 
 endf 
 
-def node_050 : 88
+def node_050
 	if self.angle_2d_cw_between(75,285) 
 		>> node_045 
 	else 
@@ -353,7 +353,7 @@ def node_050 : 88
 	return 
 endf 
 
-def node_051 : 89
+def node_051
 	if self.angle_2d_cw_between(90,270) 
 		>> node_045 
 	else 
@@ -361,7 +361,7 @@ def node_051 : 89
 	return 
 endf 
 
-def node_052 : 99
+def node_052
 	if self.angle_2d_cw_between(10,320) 
 		>> node_045 
 	else 
@@ -369,12 +369,12 @@ def node_052 : 99
 	return 
 endf 
 
-def node_053 : 189
+def node_053
 	-> great_girros.back_turn() 
 	return 
 endf 
 
-def node_054 : 251
+def node_054
 	if self.angle_2d_cw_between(15,345) 
 		>> node_053 
 	else 
@@ -382,7 +382,7 @@ def node_054 : 251
 	return 
 endf 
 
-def node_055 : 252
+def node_055
 	if self.angle_2d_cw_between(30,330) 
 		>> node_053 
 	else 
@@ -390,7 +390,7 @@ def node_055 : 252
 	return 
 endf 
 
-def node_056 : 253
+def node_056
 	if self.angle_2d_cw_between(45,315) 
 		>> node_053 
 	else 
@@ -398,7 +398,7 @@ def node_056 : 253
 	return 
 endf 
 
-def node_057 : 254
+def node_057
 	if self.angle_2d_cw_between(60,300) 
 		>> node_053 
 	else 
@@ -406,7 +406,7 @@ def node_057 : 254
 	return 
 endf 
 
-def node_058 : 255
+def node_058
 	if self.angle_2d_cw_between(90,270) 
 		>> node_053 
 	else 
@@ -414,12 +414,12 @@ def node_058 : 255
 	return 
 endf 
 
-def node_059 : 274
+def node_059
 	-> great_girros.turn() 
 	return 
 endf 
 
-def node_060 : 277
+def node_060
 	if self.angle_2d_cw_between(15,345) 
 		>> node_059 
 	else 
@@ -427,7 +427,7 @@ def node_060 : 277
 	return 
 endf 
 
-def node_061 : 278
+def node_061
 	if self.angle_2d_cw_between(30,330) 
 		>> node_059 
 	else 
@@ -435,7 +435,7 @@ def node_061 : 278
 	return 
 endf 
 
-def node_062 : 279
+def node_062
 	if self.angle_2d_cw_between(45,315) 
 		>> node_059 
 	else 
@@ -443,7 +443,7 @@ def node_062 : 279
 	return 
 endf 
 
-def node_063 : 280
+def node_063
 	if self.angle_2d_cw_between(60,300) 
 		>> node_059 
 	else 
@@ -451,7 +451,7 @@ def node_063 : 280
 	return 
 endf 
 
-def node_064 : 281
+def node_064
 	if self.angle_2d_cw_between(90,270) 
 		>> node_059 
 	else 
@@ -459,7 +459,7 @@ def node_064 : 281
 	return 
 endf 
 
-def node_065 : 301
+def node_065
 	if self.angle_2d_cw_between(330,30) 
 		-> great_girros.quick_bite() 
 	else 
@@ -469,7 +469,7 @@ def node_065 : 301
 	return 
 endf 
 
-def node_066 : 91
+def node_066
 	if self.angle_2d_cw_between(0,180) 
 		-> great_girros.tail_attack_l() 
 	else 
@@ -478,45 +478,45 @@ def node_066 : 91
 	return 
 endf 
 
-def node_067 : 92
+def node_067
 	>> node_043 
 	-> great_girros.simple_bite() 
 	return 
 endf 
 
-def node_068 : 304
+def node_068
 	-> great_girros.stomp() 
 	return 
 endf 
 
-def node_069 : 302
+def node_069
 	-> great_girros.step_rush_bite() 
 	return 
 endf 
 
-def node_070 : 359
+def node_070
 	-> great_girros.step_rush_bite_fixed() 
 	return 
 endf 
 
-def node_071 : 93
+def node_071
 	>> node_044 
 	-> great_girros.rush_bite_first() 
 	return 
 endf 
 
-def node_072 : 303
+def node_072
 	-> great_girros.body_slam() 
 	return 
 endf 
 
-def node_073 : 360
+def node_073
 	>> node_043 
 	-> great_girros.body_slam_quick() 
 	return 
 endf 
 
-def node_074 : 348
+def node_074
 	if function#BC(1,1) 
 		-> great_girros.order_call() 
 		>> node_083 
@@ -530,7 +530,7 @@ def node_074 : 348
 	return 
 endf 
 
-def node_075 : 347
+def node_075
 	if function#BC(1,1) 
 		-> great_girros.back_order_call() 
 		>> node_083 
@@ -543,13 +543,13 @@ def node_075 : 347
 	return 
 endf 
 
-def node_076 : 350
+def node_076
 	>> node_043 
 	-> great_girros.paralysis_breath() 
 	return 
 endf 
 
-def node_077 : 307
+def node_077
 	if self.angle_2d_cw_between(270,90) 
 		>> node_065 
 	else 
@@ -558,7 +558,7 @@ def node_077 : 307
 	return 
 endf 
 
-def node_078 : 308
+def node_078
 	if self.angle_2d_cw_between(315,45) 
 		>> node_067 
 	elif self.angle_2d_cw_between(135,225) 
@@ -569,7 +569,7 @@ def node_078 : 308
 	return 
 endf 
 
-def node_079 : 361
+def node_079
 	if self.distance_2d_to_target().leq(900) 
 		>> node_072 
 	else 
@@ -578,7 +578,7 @@ def node_079 : 361
 	return 
 endf 
 
-def node_080 : 349
+def node_080
 	self.targetEnemy(50) 
 	if self.distance_2d_to_target().leq(850) 
 		>> node_075 
@@ -588,7 +588,7 @@ def node_080 : 349
 	return 
 endf 
 
-def node_081 : 362
+def node_081
 	if self.enraged() 
 		if self.distance_2d_to_target().leq(750) 
 			random (10) >> node_067 
@@ -623,7 +623,7 @@ def node_081 : 362
 	return 
 endf 
 
-def node_082 : 363
+def node_082
 	if self.enraged() 
 		if self.distance_2d_to_target().leq(750) 
 			random (0) >> node_067 
@@ -658,7 +658,7 @@ def node_082 : 363
 	return 
 endf 
 
-def node_083 : 364
+def node_083
 	if self.target(44) 
 	else 
 		if self.fatigued() 
@@ -676,7 +676,7 @@ def node_083 : 364
 	return 
 endf 
 
-def node_084 : 365
+def node_084
 	if self.target(44) 
 	else 
 		if self.fatigued() 
@@ -696,7 +696,7 @@ def node_084 : 365
 	return 
 endf 
 
-def node_085 : 305
+def node_085
 	if self.distance_2d_to_target().leq(650) 
 		random (10) >> node_067 
 		elser (30) >> node_078 
@@ -711,7 +711,7 @@ def node_085 : 305
 	return 
 endf 
 
-def node_086 : 306
+def node_086
 	if self.distance_2d_to_target().leq(800) 
 		random (30) >> node_067 
 		elser (30) >> node_065 
@@ -724,14 +724,14 @@ def node_086 : 306
 	return 
 endf 
 
-def node_087 : 333
+def node_087
 	>> node_003 
 	>> node_043 
 	-> great_girros.simple_bite() 
 	return 
 endf 
 
-def node_088 : 334
+def node_088
 	if self.angle_2d_cw_between(315,45) 
 		>> node_087 
 	elif self.angle_2d_cw_between(135,225) 
@@ -742,20 +742,20 @@ def node_088 : 334
 	return 
 endf 
 
-def node_089 : 330
+def node_089
 	>> node_003 
 	>> node_039 
 	-> great_girros.rush_bite_first() 
 	return 
 endf 
 
-def node_090 : 329
+def node_090
 	>> node_005 
 	-> great_girros.body_slam() 
 	return 
 endf 
 
-def node_091 : 331
+def node_091
 	if self.distance_2d_to_target().leq(650) 
 		random (20) >> node_087 
 		elser (60) >> node_088 
@@ -770,7 +770,7 @@ def node_091 : 331
 	return 
 endf 
 
-def node_092 : 332
+def node_092
 	if self.distance_2d_to_target().leq(800) 
 		random (50) >> node_087 
 		elser (50) >> node_039 
@@ -784,18 +784,18 @@ def node_092 : 332
 	return 
 endf 
 
-def node_093 : 294
+def node_093
 	>> node_036 
 	>> node_094 
 	return 
 endf 
 
-def node_094 : 296
+def node_094
 	-> great_girros.jump_attack() 
 	return 
 endf 
 
-def node_095 : 239
+def node_095
 	>> node_122 
 	self.targetEnemy(34) 
 	if self.distance_3d_to_target().leq(800) 
@@ -806,49 +806,49 @@ def node_095 : 239
 	return 
 endf 
 
-def node_096 : 237
+def node_096
 	-> great_girros.scratch_attack_l() 
 	return 
 endf 
 
-def node_097 : 320
+def node_097
 	>> node_039 
 	-> great_girros.meat_eat() 
 	return 
 endf 
 
-def node_098 : 422
+def node_098
 	>> node_039 
 	-> great_girros.predator_eat() 
 	return 
 endf 
 
-def node_099 : 414
+def node_099
 	self.targetArea(target_area.nearest_entrance) 
 	-> great_girros.walk(1,2,0,500,1500) 
 	return 
 endf 
 
-def node_100 : 415
+def node_100
 	>> node_121 
 	self.targetArea(target_area.nearest_entrance) 
 	-> great_girros.run(1,2,0,500,1500) 
 	return 
 endf 
 
-def node_101 : 421
+def node_101
 	self.targetArea(target_area.nearest_entrance) 
 	-> great_girros.walk(1,2,0,500,1500) 
 	return 
 endf 
 
-def node_102 : 416
+def node_102
 	self.targetArea(target_area.nearest_entrance) 
 	-> great_girros.run(1,2,0,500,1500) 
 	return 
 endf 
 
-def node_103 : 417
+def node_103
 	self.targetArea(17) 
 	>> node_060 
 	if function#5A(10) 
@@ -859,28 +859,28 @@ def node_103 : 417
 	return 
 endf 
 
-def node_104 : 418
+def node_104
 	self.targetArea(17) 
 	>> node_039 
 	-> great_girros.meat_eat() 
 	return 
 endf 
 
-def node_105 : 419
+def node_105
 	self.targetArea(17) 
 	>> node_060 
 	-> great_girros.sleep() 
 	return 
 endf 
 
-def node_106 : 420
+def node_106
 	self.targetArea(17) 
 	>> node_060 
 	-> great_girros.search() 
 	return 
 endf 
 
-def node_107 : 249
+def node_107
 	if self.distance_3d_to_target().leq(800) 
 		>> node_053 
 	elif self.distance_3d_to_target().leq(1200) 
@@ -890,7 +890,7 @@ def node_107 : 249
 	return 
 endf 
 
-def node_108 : 197
+def node_108
 	if self.distance_2d_to_target().leq(1000) 
 		return 
 	else 
@@ -909,32 +909,32 @@ def node_108 : 197
 	return 
 endf 
 
-def node_109 : 256
+def node_109
 	-> great_girros.lost_search() 
 	return 
 endf 
 
-def node_110 : 121
+def node_110
 	-> great_girros.lost_search() 
 	return 
 endf 
 
-def node_111 : 69
+def node_111
 	-> great_girros.lost_search() 
 	return 
 endf 
 
-def node_112 : 65
+def node_112
 	-> great_girros.smell() 
 	return 
 endf 
 
-def node_113 : 66
+def node_113
 	-> great_girros.smell_max() 
 	return 
 endf 
 
-def node_114 : 71
+def node_114
 	if self.enraged() 
 		-> great_girros.run(1,2,0,600,500) 
 	else 
@@ -943,7 +943,7 @@ def node_114 : 71
 	return 
 endf 
 
-def node_115 : 115
+def node_115
 	if self.enraged() 
 		-> great_girros.run(1,2,0,600,1000) 
 	else 
@@ -952,7 +952,7 @@ def node_115 : 115
 	return 
 endf 
 
-def node_116 : 73
+def node_116
 	if self.enraged() 
 		-> great_girros.peep_grass_search() 
 	else 
@@ -961,7 +961,7 @@ def node_116 : 73
 	return 
 endf 
 
-def node_117 : 82
+def node_117
 	if self.target(10) 
 		-> great_girros.run(2,0,0,1000) 
 	else 
@@ -971,22 +971,22 @@ def node_117 : 82
 	return 
 endf 
 
-def node_118 : 398
+def node_118
 	-> great_girros.tired() 
 	return 
 endf 
 
-def node_119 : 117
+def node_119
 	-> great_girros.threat_short() 
 	return 
 endf 
 
-def node_120 : 118
+def node_120
 	-> great_girros.threat_short() 
 	return 
 endf 
 
-def node_121 : 127
+def node_121
 	if function#6B(50000) 
 		self.targetEnemy(26) 
 		>> node_123 
@@ -998,7 +998,7 @@ def node_121 : 127
 	return 
 endf 
 
-def node_122 : 262
+def node_122
 	if function#6B(50000) 
 		self.targetEnemy(26) 
 		>> node_123 
@@ -1010,12 +1010,12 @@ def node_122 : 262
 	return 
 endf 
 
-def node_123 : 131
+def node_123
 	-> great_girros.smell() 
 	return 
 endf 
 
-def node_124 : 129
+def node_124
 	if self.distance_3d_to_target().leq(1000) 
 	else 
 		-> great_girros.run(1,2,0,750,1000) 
@@ -1024,13 +1024,13 @@ def node_124 : 129
 	return 
 endf 
 
-def node_125 : 130
+def node_125
 	>> node_038 
 	-> great_girros.meat_eat_short() 
 	return 
 endf 
 
-def node_126 : 263
+def node_126
 	random (35) 
 				self.targetArea(21) @ parameter2:250 
 	elser (35) 
@@ -1043,7 +1043,7 @@ def node_126 : 263
 	return 
 endf 
 
-def node_127 : 399
+def node_127
 	random (50) 
 				-> great_girros.wait() 
 	elser (50) 
@@ -1051,12 +1051,12 @@ def node_127 : 399
 	return 
 endf 
 
-def node_128 : 400
+def node_128
 	-> great_girros.wait() 
 	return 
 endf 
 
-def node_129 : 366
+def node_129
 	>> node_039 
 	if self.fatigued() 
 		>> node_009 
@@ -1066,7 +1066,7 @@ def node_129 : 366
 	return 
 endf 
 
-def node_130 : 367
+def node_130
 	if self.targetEnemy(target_em.any_monster) 
 		random (20) >> node_039 
 		elser (80) 
@@ -1082,7 +1082,7 @@ def node_130 : 367
 	return 
 endf 
 
-def node_131 : 368
+def node_131
 	>> node_039 
 	random (15) -> great_girros.anger_search() 
 	elser (35) -> great_girros.threat() 
@@ -1091,13 +1091,13 @@ def node_131 : 368
 	return 
 endf 
 
-def node_132 : 369
+def node_132
 	>> node_061 
 	-> great_girros.smell() 
 	return 
 endf 
 
-def node_133 : 370
+def node_133
 	self.targetEnemy(58) 
 	random (10) >> node_134 
 	elser (90) 
@@ -1112,17 +1112,17 @@ def node_133 : 370
 	return 
 endf 
 
-def node_134 : 371
+def node_134
 	-> great_girros.walk(1,2,0,600,1500) 
 	return 
 endf 
 
-def node_135 : 374
+def node_135
 	-> great_girros.in_ground() 
 	return 
 endf 
 
-def node_136 : 376
+def node_136
 	if self.current_quest().is_rank(rank.MR) 
 		>> node_164 
 	else 
@@ -1131,7 +1131,7 @@ def node_136 : 376
 	return 
 endf 
 
-def node_137 : 377
+def node_137
 	if self.current_quest().is_rank(rank.MR) 
 		>> node_165 
 	else 
@@ -1140,33 +1140,33 @@ def node_137 : 377
 	return 
 endf 
 
-def node_138 : 378
+def node_138
 	return 
 endf 
 
-def node_139 : 379
+def node_139
 	if self.in_map(st.Special_Arena).in_area(-1) 
 		>> node_141 
 	elif self.in_map(st.Challenge_Arena).in_area(-1) 
 		>> node_141 
 	else 
-		if [RegisterVar2 <= 8] 
-			[RegisterVar2 |-] 
+		if [RegisterVar2 -= 8] 
+			[RegisterVar2 ++] 
 			self.force_area_change2() 
-		elif [RegisterVar2 <= 5] 
+		elif [RegisterVar2 -= 5] 
 			random (30) 
-						[RegisterVar2 |-] 
+						[RegisterVar2 ++] 
 						self.force_area_change2() 
 			elser (70) 
 			endr 
 		else 
 		endif 
-		[RegisterVar2 ++] 
+		[RegisterVar2 |-] 
 		if self.target.in_combat() 
 			>> node_141 
-			[RegisterVar2 ++] 
+			[RegisterVar2 |-] 
 		else 
-			[RegisterVar2 ++] 
+			[RegisterVar2 |-] 
 			>> node_142 
 		endif 
 		self.targetEnemy(target_em.closest_entity) 
@@ -1186,7 +1186,7 @@ def node_139 : 379
 	return 
 endf 
 
-def node_140 : 380
+def node_140
 	>> node_141 
 	>> node_141 
 	random (70) 
@@ -1202,7 +1202,7 @@ def node_140 : 380
 	return 
 endf 
 
-def node_141 : 381
+def node_141
 	self.targetEnemy(target_em.closest_entity) 
 	random (30) >> node_143 
 	elser (70) >> node_144 
@@ -1210,7 +1210,7 @@ def node_141 : 381
 	return 
 endf 
 
-def node_142 : 382
+def node_142
 	self.targetEnemy(target_em.closest_entity) 
 	>> node_039 
 	if self.in_combat() 
@@ -1225,7 +1225,7 @@ def node_142 : 382
 	return 
 endf 
 
-def node_143 : 385
+def node_143
 	self.targetEnemy(target_em.closest_entity) 
 	if self.vertical_distance_to_target().leq(500) 
 		if self.distance_2d_to_target().leq(2000) 
@@ -1244,7 +1244,7 @@ def node_143 : 385
 	return 
 endf 
 
-def node_144 : 386
+def node_144
 	self.targetEnemy(target_em.closest_entity) 
 	if self.vertical_distance_to_target().leq(500) 
 	else 
@@ -1267,7 +1267,7 @@ def node_144 : 386
 	return 
 endf 
 
-def node_145 : 401
+def node_145
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if function#5D() 
 		>> node_147 
@@ -1298,17 +1298,17 @@ def node_145 : 401
 	return 
 endf 
 
-def node_146 : 402
-	if [RegisterVar3 <= 10] 
-		[RegisterVar3 |-] 
-	elif [RegisterVar3 <= 1] 
+def node_146
+	if [RegisterVar3 -= 10] 
 		[RegisterVar3 ++] 
+	elif [RegisterVar3 -= 1] 
+		[RegisterVar3 |-] 
 	else 
 	endif 
 	return 
 endf 
 
-def node_147 : 403
+def node_147
 	if self.distance_2d_to_target().leq(1500) 
 		if self.angle_2d_cw_between(300,60) 
 		else 
@@ -1327,13 +1327,13 @@ def node_147 : 403
 	return 
 endf 
 
-def node_148 : 404
+def node_148
 	>> node_149 
 	>> node_150 
 	reset 
 endf 
 
-def node_149 : 405
+def node_149
 	self.targetArea(19) 
 	if self.distance_3d_to_target().leq(1000) 
 	else 
@@ -1342,14 +1342,14 @@ def node_149 : 405
 	return 
 endf 
 
-def node_150 : 406
+def node_150
 	self.targetEnemy(target_em.random_player_or_cat) 
 	>> node_039 
 	>> node_007 
 	return 
 endf 
 
-def node_151 : 407
+def node_151
 	>> node_156 
 	if self.distance_2d_to_target().leq(1000) 
 		if self.target(0) 
@@ -1366,7 +1366,7 @@ def node_151 : 407
 	return 
 endf 
 
-def node_152 : 408
+def node_152
 	>> node_156 
 	if self.distance_2d_to_target().leq(1000) 
 		if self.target(0) 
@@ -1383,7 +1383,7 @@ def node_152 : 408
 	return 
 endf 
 
-def node_153 : 409
+def node_153
 	>> node_156 
 	if self.distance_2d_to_target().leq(2000) 
 		if self.target(14) 
@@ -1400,17 +1400,17 @@ def node_153 : 409
 	return 
 endf 
 
-def node_154 : 410
+def node_154
 	>> node_157 
 	return 
 endf 
 
-def node_155 : 412
+def node_155
 	-> great_girros.run(1,2,0,500,1500) 
 	return 
 endf 
 
-def node_156 : 411
+def node_156
 	if self.distance_2d_to_target().leq(600) 
 		if self.vertical_distance_to_target().leq(1500) 
 		else 
@@ -1438,7 +1438,7 @@ def node_156 : 411
 	return 
 endf 
 
-def node_157 : 413
+def node_157
 	if self.distance_3d_to_target().leq(400) 
 	else 
 		-> great_girros.run(1,2,0,300,1500) 
@@ -1454,7 +1454,7 @@ def node_157 : 413
 	return 
 endf 
 
-def node_158 : 423
+def node_158
 	if self.flying() 
 	else 
 		if function#11(450) 
@@ -1472,7 +1472,7 @@ def node_158 : 423
 	return 
 endf 
 
-def node_159 : 424
+def node_159
 	if self.distance_2d_to_target().leq(2000) 
 		-> great_girros.back_order_call() 
 	else 
@@ -1493,7 +1493,7 @@ def node_159 : 424
 	return 
 endf 
 
-def node_160 : 454
+def node_160
 	random (40) >> node_077 
 	elser (30) >> node_078 
 	elser (15) >> node_079 
@@ -1502,7 +1502,7 @@ def node_160 : 454
 	reset 
 endf 
 
-def node_161 : 455
+def node_161
 	random (40) >> node_077 
 	elser (30) >> node_177 
 	elser (15) >> node_079 
@@ -1511,7 +1511,7 @@ def node_161 : 455
 	reset 
 endf 
 
-def node_162 : 430
+def node_162
 	if self.targetEnemy(target_em.any_monster) 
 		if self.target(13) 
 		else 
@@ -1519,7 +1519,7 @@ def node_162 : 430
 				if self.vertical_distance_to_target().leq(1000) 
 					if self.target_is(em.Deviljho) 
 						if self.target(49) 
-							[RegisterVar2 |-] 
+							[RegisterVar2 ++] 
 							self.force_area_change2() 
 						else 
 							random (50) >> node_138 
@@ -1530,7 +1530,7 @@ def node_162 : 430
 						endif 
 					elif self.target_is(em.Savage_Deviljho) 
 						if self.target(49) 
-							[RegisterVar2 |-] 
+							[RegisterVar2 ++] 
 							self.force_area_change2() 
 						else 
 							random (50) >> node_138 
@@ -1592,7 +1592,7 @@ def node_162 : 430
 	return 
 endf 
 
-def node_163 : 431
+def node_163
 	if self.targetEnemy(target_em.any_monster) 
 		if self.target(13) 
 		else 
@@ -1600,7 +1600,7 @@ def node_163 : 431
 				if self.vertical_distance_to_target().leq(1000) 
 					if self.target_is(em.Deviljho) 
 						if self.target(49) 
-							[RegisterVar2 |-] 
+							[RegisterVar2 ++] 
 							self.force_area_change2() 
 						else 
 							random (50) >> node_138 
@@ -1611,7 +1611,7 @@ def node_163 : 431
 						endif 
 					elif self.target_is(em.Savage_Deviljho) 
 						if self.target(49) 
-							[RegisterVar2 |-] 
+							[RegisterVar2 ++] 
 							self.force_area_change2() 
 						else 
 							random (50) >> node_138 
@@ -1673,7 +1673,7 @@ def node_163 : 431
 	return 
 endf 
 
-def node_164 : 426
+def node_164
 	if self.targetEnemy(target_em.any_monster) 
 		if self.target(13) 
 		else 
@@ -1681,7 +1681,7 @@ def node_164 : 426
 				if self.vertical_distance_to_target().leq(1000) 
 					if self.target_is(em.Deviljho) 
 						if self.target(49) 
-							[RegisterVar2 |-] 
+							[RegisterVar2 ++] 
 							self.force_area_change2() 
 						else 
 							random (50) >> node_138 
@@ -1692,7 +1692,7 @@ def node_164 : 426
 						endif 
 					elif self.target_is(em.Savage_Deviljho) 
 						if self.target(49) 
-							[RegisterVar2 |-] 
+							[RegisterVar2 ++] 
 							self.force_area_change2() 
 						else 
 							random (50) >> node_138 
@@ -1754,7 +1754,7 @@ def node_164 : 426
 	return 
 endf 
 
-def node_165 : 427
+def node_165
 	if self.targetEnemy(target_em.any_monster) 
 		if self.target(13) 
 		else 
@@ -1762,7 +1762,7 @@ def node_165 : 427
 				if self.vertical_distance_to_target().leq(1000) 
 					if self.target_is(em.Deviljho) 
 						if self.target(49) 
-							[RegisterVar2 |-] 
+							[RegisterVar2 ++] 
 							self.force_area_change2() 
 						else 
 							random (50) >> node_138 
@@ -1773,7 +1773,7 @@ def node_165 : 427
 						endif 
 					elif self.target_is(em.Savage_Deviljho) 
 						if self.target(49) 
-							[RegisterVar2 |-] 
+							[RegisterVar2 ++] 
 							self.force_area_change2() 
 						else 
 							random (50) >> node_138 
@@ -1835,7 +1835,7 @@ def node_165 : 427
 	return 
 endf 
 
-def node_166 : 428
+def node_166
 	self.targetEnemy(target_em.closest_entity) 
 	random (20) >> node_143 
 	elser (80) >> node_144 
@@ -1843,7 +1843,7 @@ def node_166 : 428
 	return 
 endf 
 
-def node_167 : 440
+def node_167
 	self.targetEnemy(target_em.closest_entity) 
 	random (60) >> node_143 
 	elser (40) >> node_144 
@@ -1851,7 +1851,7 @@ def node_167 : 440
 	return 
 endf 
 
-def node_168 : 429
+def node_168
 	>> node_166 
 	>> node_166 
 	random (80) 
@@ -1867,34 +1867,34 @@ def node_168 : 429
 	return 
 endf 
 
-def node_169 : 433
+def node_169
 	if self.in_map(st.Special_Arena).in_area(-1) 
 		>> node_166 
 	elif self.in_map(st.Challenge_Arena).in_area(-1) 
 		>> node_166 
 	else 
-		if [RegisterVar2 <= 9] 
+		if [RegisterVar2 -= 9] 
 			>> node_144 
-			[RegisterVar2 |-] 
+			[RegisterVar2 ++] 
 			self.force_area_change2() 
-		elif [RegisterVar2 <= 7] 
+		elif [RegisterVar2 -= 7] 
 			random (20) 
 						>> node_144 
-						[RegisterVar2 |-] 
+						[RegisterVar2 ++] 
 						self.force_area_change2() 
 			elser (80) 
 			endr 
-		elif [RegisterVar2 == 0] 
+		elif [RegisterVar2 += 0] 
 			>> node_144 
 		else 
 		endif 
-		[RegisterVar2 ++] 
+		[RegisterVar2 |-] 
 		if self.target.in_combat() 
 			>> node_166 
-			[RegisterVar2 ++] 
+			[RegisterVar2 |-] 
 		else 
 			>> node_142 
-			[RegisterVar2 ++] 
+			[RegisterVar2 |-] 
 		endif 
 		self.targetEnemy(target_em.closest_entity) 
 		if self.distance_2d_to_target().leq(3000) 
@@ -1913,19 +1913,19 @@ def node_169 : 433
 	return 
 endf 
 
-def node_170 : 441
+def node_170
 	-> great_girros.spin_attack() 
 	return 
 endf 
 
-def node_171 : 451
+def node_171
 	>> node_039 
 	>> node_173 
 	-> great_girros.spin_attack() 
 	return 
 endf 
 
-def node_172 : 453
+def node_172
 	if self.distance_3d_to_target().leq(500) 
 		-> great_girros.spin_attack() 
 	elif self.distance_3d_to_target().leq(900) 
@@ -1938,12 +1938,12 @@ def node_172 : 453
 	return 
 endf 
 
-def node_173 : 452
+def node_173
 	-> great_girros.run(1,2,0,500,600) 
 	return 
 endf 
 
-def node_174 : 443
+def node_174
 	-> great_girros.step_rush_bite() 
 	if self.distance_2d_to_target().leq(600) 
 		>> node_177 
@@ -1952,7 +1952,7 @@ def node_174 : 443
 	return 
 endf 
 
-def node_175 : 448
+def node_175
 	>> node_043 
 	-> great_girros.paralysis_breath() 
 	if self.distance_2d_to_target().leq(600) 
@@ -1965,7 +1965,7 @@ def node_175 : 448
 	return 
 endf 
 
-def node_176 : 438
+def node_176
 	>> node_077 
 	>> node_084 
 	random (30) >> node_077 
@@ -1976,7 +1976,7 @@ def node_176 : 438
 	return 
 endf 
 
-def node_177 : 442
+def node_177
 	if self.angle_2d_cw_between(330,30) 
 		random (60) >> node_067 
 		elser (40) >> node_170 
@@ -1991,7 +1991,7 @@ def node_177 : 442
 	return 
 endf 
 
-def node_178 : 445
+def node_178
 	if self.enraged() 
 		if self.distance_2d_to_target().leq(750) 
 			random (10) >> node_067 
@@ -2026,7 +2026,7 @@ def node_178 : 445
 	return 
 endf 
 
-def node_179 : 446
+def node_179
 	if self.distance_2d_to_target().leq(650) 
 		random (10) >> node_067 
 		elser (30) >> node_078 

@@ -1,14 +1,14 @@
 importactions Bazelgeuse as bazelgeuse
 importlibrary Global as Global
 
-def node_000 : 14
+def node_000
 	>> Global.node_057 
 	>> Global.node_193 
 	>> node_001 
 	reset 
 endf 
 
-def node_001 : 15
+def node_001
 	self.targetEnemy(48) 
 	if self.in_map(st.Challenge_Arena).in_area(-1) 
 		>> node_004 
@@ -20,7 +20,7 @@ def node_001 : 15
 	return 
 endf 
 
-def node_002 : 16
+def node_002
 	if self.fatigued() 
 		>> Global.node_073 
 	else 
@@ -34,7 +34,7 @@ def node_002 : 16
 	return 
 endf 
 
-def node_003 : 17
+def node_003
 	if self.targetEnemy(target_em.any_monster) 
 		random (20) >> Global.node_071 
 		elser (80) 
@@ -45,7 +45,7 @@ def node_003 : 17
 	return 
 endf 
 
-def node_004 : 18
+def node_004
 	>> Global.node_033 
 	random (55) >> Global.node_196 
 	elser (35) >> Global.node_071 

@@ -1,12 +1,12 @@
 importactions Kushala_Daora as kushala_daora
 
-def node_000 : 1
+def node_000
 	self.targetEnemy(target_em.closest_entity) 
 	>> node_001 
 	conclude 
 endf 
 
-def node_001 : 6
+def node_001
 	if self.target_is(em.Teostra) 
 		-> kushala_daora.grapple_mediation_threat_fly() 
 	elif self.target_is(em.Nergigante) 

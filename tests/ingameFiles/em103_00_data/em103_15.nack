@@ -1,7 +1,7 @@
 importactions Nergigante as nergigante
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	if self.in_map(st.Everstream).in_area(-1) 
 		>> node_004 
 	elif self.in_map(st.Great_Ravine).in_area(-1) 
@@ -16,7 +16,7 @@ def node_000 : 1
 	reset 
 endf 
 
-def node_001 : 3
+def node_001
 	self.targetArea(target_area.nearest_entrance) 
 	if function#57(2) 
 		>> Global.node_014 
@@ -30,7 +30,7 @@ def node_001 : 3
 	return 
 endf 
 
-def node_002 : 4
+def node_002
 	function#54() 
 	if function#57(2) 
 		>> Global.node_060 
@@ -43,7 +43,7 @@ def node_002 : 4
 	return 
 endf 
 
-def node_003 : 7
+def node_003
 	if self.flying() 
 		self.targetArea(target_area.area_aerial_center) 
 		>> Global.node_072 
@@ -54,7 +54,7 @@ def node_003 : 7
 	return 
 endf 
 
-def node_004 : 8
+def node_004
 	>> Global.node_062 
 	random (40) >> Global.node_055 
 	elser (25) >> Global.node_029 

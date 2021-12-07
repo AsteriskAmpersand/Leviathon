@@ -1,13 +1,13 @@
 importactions Wulg as wulg
 importlibrary Global as Global
 
-def node_000 : 26
+def node_000
 	>> node_001 
 	>> node_002 
 	reset 
 endf 
 
-def node_001 : 22
+def node_001
 	random (50) 
 				self.targetArea(21) @ parameter2:300 
 	elser (50) 
@@ -16,32 +16,32 @@ def node_001 : 22
 	return 
 endf 
 
-def node_002 : 25
+def node_002
 	random (50) >> node_003 
 	elser (50) >> node_004 
 	endr 
 	return 
 endf 
 
-def node_003 : 23
+def node_003
 	>> Global.node_007 
 	>> Global.node_064 
 	return 
 endf 
 
-def node_004 : 24
+def node_004
 	>> Global.node_007 
 	>> Global.node_065 
 	return 
 endf 
 
-def node_005 : 1
+def node_005
 	>> node_006 
 	>> node_007 
 	reset 
 endf 
 
-def node_006 : 20
+def node_006
 	function#54() 
 	function#52(41,2) 
 	self.targetArea(target_area.nearest_entrance) 
@@ -53,7 +53,7 @@ def node_006 : 20
 	return 
 endf 
 
-def node_007 : 21
+def node_007
 	self.targetEnemy(target_em.random_player_or_cat) 
 	>> Global.node_008 
 	>> Global.node_050 

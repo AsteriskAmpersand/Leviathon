@@ -1,7 +1,7 @@
 importactions Deviljho as deviljho
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	>> Global.node_120 
 	>> Global.node_121 
 	if function#101() 
@@ -12,7 +12,7 @@ def node_000 : 1
 	conclude 
 endf 
 
-def node_001 : 3
+def node_001
 	self.targetArea(20) 
 	if self.distance_3d_to_target().gt(600) 
 		>> node_002 
@@ -22,7 +22,7 @@ def node_001 : 3
 	return 
 endf 
 
-def node_002 : 8
+def node_002
 	if self.fatigued() 
 		-> deviljho.tired_dash(5,2,0,0,3000) 
 	else 

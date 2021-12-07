@@ -1,6 +1,6 @@
 importactions Yian_Garuga as yian_garuga
 
-def node_000 : 13
+def node_000
 	self.targetEnemy(target_em.closest_entity) 
 	if self.target_is(em.Zinogre) 
 		>> node_001 
@@ -8,7 +8,7 @@ def node_000 : 13
 	conclude 
 endf 
 
-def node_001 : 14
+def node_001
 	if self.distance_2d_to_target().gt(1600) 
 		-> yian_garuga.dash(6,0,0,1500) 
 	endif 

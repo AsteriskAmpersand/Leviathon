@@ -1,7 +1,7 @@
 importactions Stygian_Zinogre as stygian_zinogre
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	function#103() 
 	if self.fatigued() 
 		random (30) >> node_021 
@@ -21,51 +21,51 @@ def node_000 : 1
 	reset 
 endf 
 
-def node_001 : 3
+def node_001
 	>> node_029 
-	function#A8() 
+	[$U |-] 
 	self.targetEnemy(target_em.random_player_or_cat) 
-	if function#A9(0,1) 
+	if [$U += 1] 
 		self.target_on_part(0) >> node_009 => repeat 
 		self.target_on_part(1) >> node_009 => repeat 
 		self.target_on_part(2) >> node_009 => repeat 
-	elif function#A9(0,2) 
+	elif [$U += 2] 
 		self.target_on_part(0) >> node_003 => repeat 
 		self.target_on_part(1) >> node_004 => repeat 
 		self.target_on_part(2) >> node_005 => repeat 
-	elif function#A9(0,3) 
+	elif [$U += 3] 
 		self.target_on_part(0) >> node_003 => repeat 
 		self.target_on_part(1) >> node_004 => repeat 
 		self.target_on_part(2) >> node_005 => repeat 
 	else 
-		function#A8(1) 
+		[$U ++] 
 		>> node_006 
 	endif 
 	return 
 endf 
 
-def node_002 : 4
+def node_002
 	>> node_029 
-	function#A8() 
+	[$U |-] 
 	self.targetEnemy(target_em.random_player_or_cat) 
-	if function#A9(0,1) 
+	if [$U += 1] 
 		self.target_on_part(0) >> node_009 => repeat 
 		self.target_on_part(1) >> node_009 => repeat 
 		self.target_on_part(2) >> node_009 => repeat 
-	elif function#A9(0,2) 
+	elif [$U += 2] 
 		>> node_006 => repeat 
-	elif function#A9(0,3) 
+	elif [$U += 3] 
 		self.target_on_part(0) >> node_003 => repeat 
 		self.target_on_part(1) >> node_004 => repeat 
 		self.target_on_part(2) >> node_005 => repeat 
 	else 
-		function#A8(1) 
+		[$U ++] 
 		>> node_006 
 	endif 
 	return 
 endf 
 
-def node_003 : 5
+def node_003
 	if self.mounted() 
 		>> node_011 
 	else 
@@ -74,7 +74,7 @@ def node_003 : 5
 	return 
 endf 
 
-def node_004 : 6
+def node_004
 	if self.mounted() 
 		>> node_012 
 	else 
@@ -83,7 +83,7 @@ def node_004 : 6
 	return 
 endf 
 
-def node_005 : 7
+def node_005
 	if self.mounted() 
 		>> node_014 
 	else 
@@ -92,7 +92,7 @@ def node_005 : 7
 	return 
 endf 
 
-def node_006 : 8
+def node_006
 	if self.mounted() 
 		>> node_007 
 	else 
@@ -101,7 +101,7 @@ def node_006 : 8
 	return 
 endf 
 
-def node_007 : 9
+def node_007
 	if function#29() 
 		self.targetArea(7) 
 		>> node_019 
@@ -117,7 +117,7 @@ def node_007 : 9
 	return 
 endf 
 
-def node_008 : 10
+def node_008
 	if function#29() 
 		self.targetArea(7) 
 		>> node_019 
@@ -133,7 +133,7 @@ def node_008 : 10
 	return 
 endf 
 
-def node_009 : 11
+def node_009
 	if self.mounted() 
 		>> node_020 
 	else 
@@ -141,53 +141,53 @@ def node_009 : 11
 	return 
 endf 
 
-def node_010 : 12
+def node_010
 	-> stygian_zinogre.ride_rage_head() 
 	return 
 endf 
 
-def node_011 : 13
+def node_011
 	-> stygian_zinogre.ride_rage_head_lv2() 
 	return 
 endf 
 
-def node_012 : 14
+def node_012
 	-> stygian_zinogre.ride_rage_body() 
 	return 
 endf 
 
-def node_013 : 15
+def node_013
 	-> stygian_zinogre.ride_rage_body_lv2() 
 	return 
 endf 
 
-def node_014 : 16
+def node_014
 	-> stygian_zinogre.ride_rage_tail() 
 	return 
 endf 
 
-def node_015 : 17
+def node_015
 	-> stygian_zinogre.ride_rage_tail_lv2() 
 	return 
 endf 
 
-def node_016 : 18
+def node_016
 	>> node_022 
 	>> Global.node_100 
 	return 
 endf 
 
-def node_017 : 19
+def node_017
 	>> Global.node_116 
 	return 
 endf 
 
-def node_018 : 20
+def node_018
 	>> Global.node_244 
 	return 
 endf 
 
-def node_019 : 21
+def node_019
 	if self.distance_3d_to_target().leq(500) 
 		>> Global.node_041 
 	elif self.distance_3d_to_target().gt(3500) 
@@ -203,17 +203,17 @@ def node_019 : 21
 	return 
 endf 
 
-def node_020 : 22
+def node_020
 	>> Global.node_221 
 	return 
 endf 
 
-def node_021 : 23
+def node_021
 	>> Global.node_217 
 	return 
 endf 
 
-def node_022 : 24
+def node_022
 	random (20) >> node_023 
 	elser (80) >> node_024 
 	endr 
@@ -221,39 +221,39 @@ def node_022 : 24
 	return 
 endf 
 
-def node_023 : 25
+def node_023
 	self.targetEnemy(21) @ parameter2:1000 
 	return 
 endf 
 
-def node_024 : 26
+def node_024
 	self.targetEnemy(22) @ parameter2:1000 
 	return 
 endf 
 
-def node_025 : 27
+def node_025
 	random (48) >> node_026 
 	elser (52) >> node_027 
 	endr 
 	return 
 endf 
 
-def node_026 : 28
+def node_026
 	self.targetEnemy(12) @ parameter2:1000 
 	return 
 endf 
 
-def node_027 : 29
+def node_027
 	self.targetEnemy(11) @ parameter2:1000 
 	return 
 endf 
 
-def node_028 : 30
+def node_028
 	>> Global.node_033 
 	return 
 endf 
 
-def node_029 : 31
+def node_029
 	if function#3B() 
 		if self.mount_staggered_twice() 
 			>> node_030 
@@ -285,7 +285,7 @@ def node_029 : 31
 	return 
 endf 
 
-def node_030 : 32
+def node_030
 	-> stygian_zinogre.ride_tired() 
 	return 
 endf 

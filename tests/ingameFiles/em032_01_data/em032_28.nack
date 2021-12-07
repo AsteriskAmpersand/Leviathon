@@ -1,24 +1,24 @@
 importactions Brute_Tigrex as brute_tigrex
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	>> Global.node_020 
 	if function#41() 
 		>> Global.node_028 
 	else 
 	endif 
-	if [RegisterVar3 <= 15] 
-		[RegisterVar3 |-] 
+	if [RegisterVar3 -= 15] 
+		[RegisterVar3 ++] 
 		conclude 
 	else 
 	endif 
-	[RegisterVar3 ++] 
+	[RegisterVar3 |-] 
 	>> node_001 
 	repeat 
 	conclude 
 endf 
 
-def node_001 : 2
+def node_001
 	>> Global.node_001 
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.distance_3d_to_target().leq(3500) 
@@ -29,7 +29,7 @@ def node_001 : 2
 	return 
 endf 
 
-def node_002 : 3
+def node_002
 	>> Global.node_010 
 	random (30) -> brute_tigrex.sniff_s() 
 	elser (70) -> brute_tigrex.lost_search_front() 
@@ -37,7 +37,7 @@ def node_002 : 3
 	return 
 endf 
 
-def node_003 : 4
+def node_003
 	self.targetEnemy(58) 
 	random (10) >> Global.node_013 
 	elser (90) 

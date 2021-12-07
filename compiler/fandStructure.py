@@ -14,7 +14,8 @@ from common import thklist
 from pathlib import Path
 import queue
 
-THK_Enumeration = {"THK_%02d"%ix:ix for ix in range(100)}
+THK_Enumeration = {"THK_%02d" % ix: ix for ix in range(100)}
+
 
 class FandStructure(ErrorManaged):
     tag = "FandFile"
@@ -61,7 +62,7 @@ class FandStructure(ErrorManaged):
             self.indexedTargets[index] = ("", "", 0)
 
     def calculateSize(self):
-        return max(len(self.scopeNames), max(self.indexedTargets,default = 0))
+        return max(len(self.scopeNames), max(self.indexedTargets, default=0))
 
     def parseModule(self, path, scope, thkMap):
         if self.settings.verbose:
@@ -165,7 +166,7 @@ class FandStructure(ErrorManaged):
             ix = next(autoReg)
             self.registerNames[name] = ix
         mix = max(indices, default=0)
-        if mix > 19 or ix > 19:
+        if mix > 21 or ix > 21:
             self.errorHandler.registryCountExceeded(max(mix, ix))
             return
         for module in self.parsedScopes.values():
@@ -188,18 +189,19 @@ class FandStructure(ErrorManaged):
             outpath = moduleName.replace("/", "\\")
         return {"thinkTableDataHash": tTDH, "rThinkTableHash": tth, "path": outpath}
 
-    def serializeModule(self,outRoot,scopeName,module,scopeToIndex,
-                      previousPaths,previousFiles):
+    def serializeModule(self, outRoot, scopeName, module, scopeToIndex,
+                        previousPaths, previousFiles):
         absp = module.path.absolute()
         if self.settings.projectNames == "function":
             result = scopeName
         elif self.settings.projectNames == "nackFile":
             result = module.path.stem
         elif self.settings.projectNames == "index":
-            result = "%s_%02d"%(Path(self.settings.thklistPath).stem,scopeToIndex[scopeName])
-        else: 
+            result = "%s_%02d" % (
+                Path(self.settings.thklistPath).stem, scopeToIndex[scopeName])
+        else:
             raise KeyError("Invalid Project Naming Setting")
-        thklPath = self.relative + "\\" + result     
+        thklPath = self.relative + "\\" + result
         if absp in previousFiles:
             previousPaths[scopeName] = previousFiles[absp]
             return
@@ -208,14 +210,15 @@ class FandStructure(ErrorManaged):
         previousFiles[absp] = thklPath
         module.serialize(outRoot, result + ".thk")
         return
-        
+
     def serialize(self, outRoot):
         # "function","nackfile","index"
-        scopeToIndex = {tern[0]:index for index,tern in self.indexedTargets.items()}
-        previousPaths,previousFiles = {},{}
+        scopeToIndex = {tern[0]: index for index,
+                        tern in self.indexedTargets.items()}
+        previousPaths, previousFiles = {}, {}
         for scopeName, module in self.parsedScopes.items():
-            self.serializeModule(outRoot, scopeName,module,scopeToIndex,
-                                       previousPaths,previousFiles)
+            self.serializeModule(outRoot, scopeName, module, scopeToIndex,
+                                 previousPaths, previousFiles)
         count = len(self.indexedTargets)
         header = {"signature": thklist.signature, "count": count}
         data = [self.indexedTargets[i][2] for i in range(count)]

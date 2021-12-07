@@ -1,20 +1,20 @@
 importactions Coral_PukeiPukei as coral_pukeipukei
 importlibrary Global as Global
 
-def node_000 : 14
+def node_000
 	>> Global.node_039 
-	if [RegisterVar0 <= 15] 
-		[RegisterVar0 |-] 
+	if [RegisterVar0 -= 15] 
+		[RegisterVar0 ++] 
 		conclude 
 	else 
 	endif 
-	[RegisterVar0 ++] 
+	[RegisterVar0 |-] 
 	>> node_001 
 	repeat 
 	conclude 
 endf 
 
-def node_001 : 15
+def node_001
 	>> Global.node_085 
 	self.targetEnemy(48) 
 	if self.distance_3d_to_target().leq(3500) 
@@ -25,13 +25,13 @@ def node_001 : 15
 	return 
 endf 
 
-def node_002 : 16
+def node_002
 	>> Global.node_076 
 	>> Global.node_110 
 	return 
 endf 
 
-def node_003 : 17
+def node_003
 	self.targetEnemy(58) 
 	random (10) >> Global.node_210 
 	elser (90) 

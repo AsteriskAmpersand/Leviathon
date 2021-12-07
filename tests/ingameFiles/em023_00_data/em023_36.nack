@@ -1,7 +1,7 @@
 importactions Rajang as rajang
 importlibrary Global as Global
 
-def node_000 : 8
+def node_000
 	>> Global.node_104 
 	>> Global.node_089 
 	>> Global.node_090 
@@ -18,7 +18,7 @@ def node_000 : 8
 	reset 
 endf 
 
-def node_001 : 9
+def node_001
 	if function#D0(5) 
 		random (20) >> Global.node_010 
 		elser (20) >> Global.node_001 
@@ -41,7 +41,7 @@ def node_001 : 9
 	return 
 endf 
 
-def node_002 : 10
+def node_002
 	if function#D0(5) 
 		if function#101() 
 			random (15) >> Global.node_010 
@@ -77,7 +77,7 @@ def node_002 : 10
 	return 
 endf 
 
-def node_003 : 11
+def node_003
 	if function#D0(5) 
 		random (15) >> Global.node_010 
 		elser (15) >> Global.node_001 
@@ -100,7 +100,7 @@ def node_003 : 11
 	return 
 endf 
 
-def node_004 : 35
+def node_004
 	if function#D0(5) 
 		random (20) >> Global.node_010 
 		elser (20) >> Global.node_001 
@@ -123,26 +123,26 @@ def node_004 : 35
 	return 
 endf 
 
-def node_005 : 34
-	function#A8() 
+def node_005
+	[$U |-] 
 	self.targetEnemy(target_em.random_player_or_cat) 
-	if function#A9(0,1) 
+	if [$U += 1] 
 		self.target_on_part(1) >> node_006 => repeat 
 		self.target_on_part(2) >> node_009 => repeat 
-	elif function#A9(0,2) 
+	elif [$U += 2] 
 		self.target_on_part(1) >> node_006 => repeat 
 		self.target_on_part(2) >> node_009 => repeat 
-	elif function#A9(0,3) 
+	elif [$U += 3] 
 		self.target_on_part(1) >> node_015 => repeat 
 		self.target_on_part(2) >> node_015 => repeat 
 	else 
-		function#A8(1) 
+		[$U ++] 
 		return 
 	endif 
 	return 
 endf 
 
-def node_006 : 29
+def node_006
 	if self.mounted() 
 		>> node_007 
 	else 
@@ -151,17 +151,17 @@ def node_006 : 29
 	return 
 endf 
 
-def node_007 : 28
+def node_007
 	>> Global.node_002 
 	return 
 endf 
 
-def node_008 : 27
+def node_008
 	-> rajang.ride_rage_head() 
 	return 
 endf 
 
-def node_009 : 26
+def node_009
 	if self.mounted() 
 		>> node_010 
 	else 
@@ -170,23 +170,23 @@ def node_009 : 26
 	return 
 endf 
 
-def node_010 : 25
+def node_010
 	>> Global.node_058 
 	return 
 endf 
 
-def node_011 : 24
+def node_011
 	-> rajang.ride_rage_body() 
 	return 
 endf 
 
-def node_012 : 23
+def node_012
 	>> node_017 
 	>> Global.node_001 
 	return 
 endf 
 
-def node_013 : 22
+def node_013
 	if function#3B() 
 		if self.mount_staggered_twice() 
 			>> node_014 
@@ -219,12 +219,12 @@ def node_013 : 22
 	return 
 endf 
 
-def node_014 : 21
+def node_014
 	-> rajang.ride_tired() 
 	return 
 endf 
 
-def node_015 : 20
+def node_015
 	if self.mounted() 
 		>> node_016 
 	else 
@@ -232,12 +232,12 @@ def node_015 : 20
 	return 
 endf 
 
-def node_016 : 19
+def node_016
 	-> rajang.ride_wait() 
 	return 
 endf 
 
-def node_017 : 18
+def node_017
 	random (20) >> node_018 
 	elser (80) >> node_019 
 	endr 
@@ -245,34 +245,34 @@ def node_017 : 18
 	return 
 endf 
 
-def node_018 : 17
+def node_018
 	self.targetEnemy(21) @ parameter2:1000 
 	return 
 endf 
 
-def node_019 : 16
+def node_019
 	self.targetEnemy(22) @ parameter2:1000 
 	return 
 endf 
 
-def node_020 : 15
+def node_020
 	random (48) >> node_021 
 	elser (52) >> node_022 
 	endr 
 	return 
 endf 
 
-def node_021 : 14
+def node_021
 	self.targetEnemy(12) @ parameter2:1000 
 	return 
 endf 
 
-def node_022 : 13
+def node_022
 	self.targetEnemy(11) @ parameter2:1000 
 	return 
 endf 
 
-def node_023 : 12
+def node_023
 	if self.angular_17(300,60) 
 		-> rajang.quick_turn() 
 	else 

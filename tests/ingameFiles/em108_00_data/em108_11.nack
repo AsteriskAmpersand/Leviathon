@@ -1,7 +1,7 @@
 importactions Jyuratodus as jyuratodus
 importlibrary Global as Global
 
-def node_000 : 73
+def node_000
 	if self.enraged() 
 		>> node_002 
 	elif self.fatigued() 
@@ -12,72 +12,72 @@ def node_000 : 73
 	reset 
 endf 
 
-def node_001 : 75
+def node_001
 	>> node_012 
-	function#A8() 
+	[$U |-] 
 	self.targetEnemy(target_em.random_player_or_cat) 
-	if function#A9(0,1) 
+	if [$U += 1] 
 		>> node_007 => repeat 
-	elif function#A9(0,2) 
+	elif [$U += 2] 
 		>> node_008 => repeat 
-	elif function#A9(0,3) 
+	elif [$U += 3] 
 		>> node_004 => repeat 
-	elif function#A9(0,4) 
+	elif [$U += 4] 
 		>> node_008 => repeat 
 	else 
-		function#A8(1) 
+		[$U ++] 
 		>> node_004 
 		return 
 	endif 
 	return 
 endf 
 
-def node_002 : 91
-	function#A8() 
+def node_002
+	[$U |-] 
 	self.targetEnemy(target_em.random_player_or_cat) 
-	if function#A9(0,1) 
+	if [$U += 1] 
 		>> node_007 => repeat 
-	elif function#A9(0,2) 
+	elif [$U += 2] 
 		>> node_004 => repeat 
-	elif function#A9(0,3) 
+	elif [$U += 3] 
 		>> node_004 => repeat 
-	elif function#A9(0,4) 
+	elif [$U += 4] 
 		>> node_008 => repeat 
 	else 
 		>> node_004 
-		function#A8(1) 
+		[$U ++] 
 		return 
 	endif 
 	return 
 endf 
 
-def node_003 : 90
+def node_003
 	>> node_012 
-	function#A8() 
+	[$U |-] 
 	self.targetEnemy(target_em.random_player_or_cat) 
-	if function#A9(0,1) 
+	if [$U += 1] 
 		>> node_007 => repeat 
-	elif function#A9(0,2) 
+	elif [$U += 2] 
 		>> node_008 => repeat 
-	elif function#A9(0,3) 
+	elif [$U += 3] 
 		>> node_007 => repeat 
-	elif function#A9(0,4) 
+	elif [$U += 4] 
 		>> node_008 => repeat 
 	else 
 		>> node_007 
-		function#A8(1) 
+		[$U ++] 
 		return 
 	endif 
 	return 
 endf 
 
-def node_004 : 89
+def node_004
 	self.target_on_part(0) >> node_005 => return 
 	self.target_on_part(1) >> node_006 => return 
 	return 
 endf 
 
-def node_005 : 81
+def node_005
 	if self.mounted() 
 		-> jyuratodus.swim_ride_rage_head() 
 	elif self.mounted() @ parameter1:1 
@@ -87,7 +87,7 @@ def node_005 : 81
 	return 
 endf 
 
-def node_006 : 80
+def node_006
 	if self.mounted() 
 		-> jyuratodus.swim_ride_rage_body() 
 	elif self.mounted() @ parameter1:1 
@@ -97,7 +97,7 @@ def node_006 : 80
 	return 
 endf 
 
-def node_007 : 82
+def node_007
 	self.targetEnemy(target_em.random_player_or_cat) 
 	random (50) >> Global.node_055 
 	elser (50) -> jyuratodus.swim_chance_idle() 
@@ -105,7 +105,7 @@ def node_007 : 82
 	return 
 endf 
 
-def node_008 : 86
+def node_008
 	if function#29() 
 		self.targetArea(7) 
 		-> jyuratodus.swim_dash() 
@@ -117,7 +117,7 @@ def node_008 : 86
 	return 
 endf 
 
-def node_009 : 88
+def node_009
 	if self.mounted() 
 		>> node_011 
 	else 
@@ -127,19 +127,19 @@ def node_009 : 88
 	return 
 endf 
 
-def node_010 : 84
+def node_010
 	self.target_on_part(0) -> jyuratodus.swim_ride_rage_crash_head_lv2() => return 
 	self.target_on_part(1) -> jyuratodus.swim_ride_rage_crash_body_lv2() => return 
 	return 
 endf 
 
-def node_011 : 85
+def node_011
 	self.target_on_part(0) -> jyuratodus.swim_ride_rage_crash_head() => return 
 	self.target_on_part(1) -> jyuratodus.swim_ride_rage_crash_body() => return 
 	return 
 endf 
 
-def node_012 : 78
+def node_012
 	if function#3B() 
 		if self.mount_staggered_twice() 
 			>> node_013 
@@ -157,7 +157,7 @@ def node_012 : 78
 	return 
 endf 
 
-def node_013 : 79
+def node_013
 	if self.mounted() @ parameter1:1 
 		-> jyuratodus.swim_ride_tired_lv2() 
 	else 

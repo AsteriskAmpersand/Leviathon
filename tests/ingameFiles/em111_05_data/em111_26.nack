@@ -1,7 +1,7 @@
 importactions Shrieking_Legiana as shrieking_legiana
 importlibrary Global as Global
 
-def node_000 : 18
+def node_000
 	self.targetEnemy(34) 
 	if self.target_is(em.Cortos) 
 	elif self.target_is(em.Popo) 
@@ -18,7 +18,7 @@ def node_000 : 18
 	conclude 
 endf 
 
-def node_001 : 19
+def node_001
 	if function#AD() 
 		>> node_002 
 	else 
@@ -27,7 +27,7 @@ def node_001 : 19
 	return 
 endf 
 
-def node_002 : 20
+def node_002
 	>> Global.node_002 
 	if self.flying() 
 		>> Global.node_318 
@@ -37,13 +37,13 @@ def node_002 : 20
 	return 
 endf 
 
-def node_003 : 21
+def node_003
 	>> node_004 
 	>> node_005 
 	return 
 endf 
 
-def node_004 : 22
+def node_004
 	if self.flying() 
 		self.targetArea(target_area.area_aerial_center) 
 		>> Global.node_027 
@@ -56,7 +56,7 @@ def node_004 : 22
 	return 
 endf 
 
-def node_005 : 23
+def node_005
 	self.targetEnemy(34) 
 	if self.flying() 
 		self.targetArea(40) 
@@ -68,7 +68,7 @@ def node_005 : 23
 	return 
 endf 
 
-def node_006 : 25
+def node_006
 	if self.flying() 
 		>> Global.node_318 
 	else 

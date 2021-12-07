@@ -1,7 +1,7 @@
 importactions Kulve_Taroth as kulve_taroth
 importlibrary Global as Global
 
-def node_000 : 74
+def node_000
 	if self.current_quest().is_rank(rank.MR) 
 		>> node_002 
 	else 
@@ -10,7 +10,7 @@ def node_000 : 74
 	reset 
 endf 
 
-def node_001 : 81
+def node_001
 	>> Global.node_299 
 	>> node_003 
 	if function#101() 
@@ -25,7 +25,7 @@ def node_001 : 81
 	return 
 endf 
 
-def node_002 : 82
+def node_002
 	>> Global.node_297 
 	>> node_003 
 	if function#101() 
@@ -40,34 +40,34 @@ def node_002 : 82
 	return 
 endf 
 
-def node_003 : 75
+def node_003
 	if function#3B() 
 		if self.mount_staggered_twice() 
 			>> node_006 
 		endif 
 	else 
 		if self.mount_stabbed() 
-			[RegisterVar5 ++] 
-			if [RegisterVar5 <= 2] 
-				[RegisterVar5 |-] 
+			[RegisterVar5 |-] 
+			if [RegisterVar5 -= 2] 
+				[RegisterVar5 ++] 
 				>> node_006 
 			else 
 			endif 
 		elif self.mount_finisher_ready() 
-			[RegisterVar5 ++] 
-			if [RegisterVar5 <= 2] 
-				[RegisterVar5 |-] 
+			[RegisterVar5 |-] 
+			if [RegisterVar5 -= 2] 
+				[RegisterVar5 ++] 
 				>> node_006 
 			else 
 			endif 
 		else 
-			function#A8(1) 
+			[$U ++] 
 		endif 
 	endif 
 	return 
 endf 
 
-def node_004 : 80
+def node_004
 	if self.mounted() 
 		>> Global.node_312 
 	else 
@@ -75,7 +75,7 @@ def node_004 : 80
 	return 
 endf 
 
-def node_005 : 78
+def node_005
 	if self.fatigued() 
 		random (50) >> Global.node_312 
 		elser (50) 
@@ -85,110 +85,110 @@ def node_005 : 78
 	return 
 endf 
 
-def node_006 : 79
+def node_006
 	>> Global.node_313 
 	return 
 endf 
 
-def node_007 : 55
-	if function#A9() 
-		function#A8() 
+def node_007
+	if [$U += 0] 
+		[$U |-] 
 	endif 
-	if function#A9(1,5) 
-		function#A8(1) 
-		function#A8() 
+	if [$U -= 5] 
+		[$U ++] 
+		[$U |-] 
 	endif 
-	if function#A9(0,1) 
-		function#A8() 
+	if [$U += 1] 
+		[$U |-] 
 		>> node_011 
 	endif 
 	>> Global.node_299 
-	if function#A9(0,2) 
-		function#A8() 
+	if [$U += 2] 
+		[$U |-] 
 		>> node_011 
 		>> Global.node_299 
 	endif 
-	function#A8(1) 
+	[$U ++] 
 	>> node_014 
 	>> Global.node_299 
 	return 
 endf 
 
-def node_008 : 56
-	if function#A9(4,5) 
-		function#A8(1) 
-		function#A8() 
-		function#A8() 
-		function#A8() 
-		function#A8() 
-		function#A8() 
+def node_008
+	if [$U %= 5] 
+		[$U ++] 
+		[$U |-] 
+		[$U |-] 
+		[$U |-] 
+		[$U |-] 
+		[$U |-] 
 	endif 
-	if function#A9(0,5) 
-		function#A8() 
+	if [$U += 5] 
+		[$U |-] 
 		>> node_014 
 		>> Global.node_299 
 	endif 
-	if function#A9(0,6) 
-		function#A8() 
+	if [$U += 6] 
+		[$U |-] 
 		>> node_014 
 		>> Global.node_299 
 	endif 
-	function#A8(1) 
+	[$U ++] 
 	>> node_011 
 	>> Global.node_299 
 	return 
 endf 
 
-def node_009 : 83
-	if function#A9() 
-		function#A8() 
+def node_009
+	if [$U += 0] 
+		[$U |-] 
 	endif 
-	if function#A9(1,5) 
-		function#A8(1) 
-		function#A8() 
+	if [$U -= 5] 
+		[$U ++] 
+		[$U |-] 
 	endif 
-	if function#A9(0,1) 
-		function#A8() 
+	if [$U += 1] 
+		[$U |-] 
 		>> node_011 
 		>> Global.node_297 
 	endif 
-	if function#A9(0,2) 
-		function#A8() 
+	if [$U += 2] 
+		[$U |-] 
 		>> node_011 
 		>> Global.node_297 
 	endif 
-	function#A8(1) 
+	[$U ++] 
 	>> node_014 
 	>> Global.node_297 
 	return 
 endf 
 
-def node_010 : 84
-	if function#A9(4,5) 
-		function#A8(1) 
-		function#A8() 
-		function#A8() 
-		function#A8() 
-		function#A8() 
-		function#A8() 
+def node_010
+	if [$U %= 5] 
+		[$U ++] 
+		[$U |-] 
+		[$U |-] 
+		[$U |-] 
+		[$U |-] 
+		[$U |-] 
 	endif 
-	if function#A9(0,5) 
-		function#A8() 
+	if [$U += 5] 
+		[$U |-] 
 		>> node_014 
 		>> Global.node_297 
 	endif 
-	if function#A9(0,6) 
-		function#A8() 
+	if [$U += 6] 
+		[$U |-] 
 		>> node_014 
 		>> Global.node_297 
 	endif 
-	function#A8(1) 
+	[$U ++] 
 	>> node_011 
 	>> Global.node_297 
 	return 
 endf 
 
-def node_011 : 39
+def node_011
 	>> Global.node_300 
 	>> Global.node_298 
 	if self.mounted() 
@@ -199,7 +199,7 @@ def node_011 : 39
 	return 
 endf 
 
-def node_012 : 40
+def node_012
 	if self.target_on_part(0) 
 		>> Global.node_302 
 	else 
@@ -208,7 +208,7 @@ def node_012 : 40
 	return 
 endf 
 
-def node_013 : 43
+def node_013
 	if self.target_on_part(0) 
 		>> Global.node_302 
 	else 
@@ -217,7 +217,7 @@ def node_013 : 43
 	return 
 endf 
 
-def node_014 : 46
+def node_014
 	if self.mounted() 
 		>> node_015 
 	else 
@@ -226,7 +226,7 @@ def node_014 : 46
 	return 
 endf 
 
-def node_015 : 47
+def node_015
 	if function#29() 
 		self.targetArea(7) 
 		>> Global.node_306 
@@ -239,7 +239,7 @@ def node_015 : 47
 	return 
 endf 
 
-def node_016 : 49
+def node_016
 	if self.target_on_part(0) 
 		>> Global.node_308 
 	else 
@@ -248,7 +248,7 @@ def node_016 : 49
 	return 
 endf 
 
-def node_017 : 48
+def node_017
 	if function#29() 
 		self.targetArea(7) 
 		>> Global.node_306 
@@ -261,7 +261,7 @@ def node_017 : 48
 	return 
 endf 
 
-def node_018 : 50
+def node_018
 	if self.target_on_part(0) 
 		>> Global.node_309 
 	else 

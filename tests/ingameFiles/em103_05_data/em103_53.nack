@@ -1,7 +1,7 @@
 importactions Ruiner_Nergigante as ruiner_nergigante
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	self.targetArea(51) 
 	>> node_001 
 	>> node_002 
@@ -9,7 +9,7 @@ def node_000 : 1
 	conclude 
 endf 
 
-def node_001 : 2
+def node_001
 	if self.flying() 
 		self.targetArea(target_area.area_aerial_center) 
 		>> Global.node_073 
@@ -22,7 +22,7 @@ def node_001 : 2
 	return 
 endf 
 
-def node_002 : 3
+def node_002
 	self.targetArea(51) 
 	if self.flying() 
 		>> Global.node_075 
@@ -33,7 +33,7 @@ def node_002 : 3
 	return 
 endf 
 
-def node_003 : 4
+def node_003
 	self.targetArea(51) 
 	if self.flying() 
 		>> Global.node_074 

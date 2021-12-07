@@ -1,23 +1,23 @@
 importactions Rajang as rajang
 importlibrary Global as Global
 
-def node_000 : 27
+def node_000
 	>> Global.node_258 
 	>> node_002 
 	>> node_003 
 	reset 
 endf 
 
-def node_001 : 54
+def node_001
 	self.targetEnemy(target_em.random_player_or_cat) 
 	>> Global.call#401 // -THK_55 is missing NodeID 401. 
 	reset 
 endf 
 
-def node_002 : 28
+def node_002
 	if function#45() 
-		if [RegisterVar8 <= 1] 
-			[RegisterVar8 |-] 
+		if [RegisterVar8 -= 1] 
+			[RegisterVar8 ++] 
 		else 
 			return 
 		endif 
@@ -31,7 +31,7 @@ def node_002 : 28
 	return 
 endf 
 
-def node_003 : 1
+def node_003
 	if self.target(4) 
 		>> Global.node_241 => reset 
 	elif self.target(3) 
@@ -89,7 +89,7 @@ def node_003 : 1
 	reset 
 endf 
 
-def node_004 : 36
+def node_004
 	>> Global.node_111 
 	random (15) >> Global.node_001 
 	elser (5) >> Global.node_002 
@@ -103,7 +103,7 @@ def node_004 : 36
 	return 
 endf 
 
-def node_005 : 37
+def node_005
 	>> Global.node_111 
 	random (20) >> Global.node_001 
 	elser (10) >> Global.node_002 
@@ -117,7 +117,7 @@ def node_005 : 37
 	return 
 endf 
 
-def node_006 : 38
+def node_006
 	>> Global.node_111 
 	random (25) >> Global.node_001 
 	elser (25) >> Global.node_002 
@@ -129,8 +129,8 @@ def node_006 : 38
 	return 
 endf 
 
-def node_007 : 39
-	if [RegisterVar9 <= 1] 
+def node_007
+	if [RegisterVar9 -= 1] 
 		>> Global.node_111 
 		random (30) >> Global.node_001 
 		elser (30) >> Global.node_002 
@@ -147,8 +147,8 @@ def node_007 : 39
 	return 
 endf 
 
-def node_008 : 40
-	if [RegisterVar9 <= 1] 
+def node_008
+	if [RegisterVar9 -= 1] 
 		>> Global.node_111 
 		random (40) >> Global.node_004 
 		elser (30) >> Global.node_008 
@@ -165,7 +165,7 @@ def node_008 : 40
 	return 
 endf 
 
-def node_009 : 51
+def node_009
 	random (20) >> Global.node_207 
 	elser (15) >> Global.node_209 
 	elser (35) >> Global.node_212 
@@ -175,37 +175,37 @@ def node_009 : 51
 	return 
 endf 
 
-def node_010 : 41
+def node_010
 	>> node_004 
 	return 
 endf 
 
-def node_011 : 42
+def node_011
 	>> node_005 
 	return 
 endf 
 
-def node_012 : 43
+def node_012
 	>> node_006 
 	return 
 endf 
 
-def node_013 : 44
+def node_013
 	>> node_007 
 	return 
 endf 
 
-def node_014 : 45
+def node_014
 	>> node_008 
 	return 
 endf 
 
-def node_015 : 52
+def node_015
 	>> node_009 
 	return 
 endf 
 
-def node_016 : 46
+def node_016
 	>> Global.node_111 
 	random (20) >> Global.node_001 
 	elser (5) >> Global.node_080 
@@ -217,7 +217,7 @@ def node_016 : 46
 	return 
 endf 
 
-def node_017 : 47
+def node_017
 	>> Global.node_111 
 	random (15) >> Global.node_001 
 	elser (10) >> Global.node_080 
@@ -230,7 +230,7 @@ def node_017 : 47
 	return 
 endf 
 
-def node_018 : 48
+def node_018
 	>> Global.node_111 
 	random (15) >> Global.node_001 
 	elser (20) >> Global.node_002 
@@ -242,8 +242,8 @@ def node_018 : 48
 	return 
 endf 
 
-def node_019 : 49
-	if [RegisterVar9 <= 1] 
+def node_019
+	if [RegisterVar9 -= 1] 
 		>> Global.node_111 
 		random (20) >> Global.node_001 
 		elser (40) >> Global.node_002 
@@ -260,8 +260,8 @@ def node_019 : 49
 	return 
 endf 
 
-def node_020 : 50
-	if [RegisterVar9 <= 1] 
+def node_020
+	if [RegisterVar9 -= 1] 
 		>> Global.node_111 
 		random (40) >> Global.node_004 
 		elser (30) >> Global.node_008 
@@ -278,7 +278,7 @@ def node_020 : 50
 	return 
 endf 
 
-def node_021 : 53
+def node_021
 	>> node_009 
 	return 
 endf 

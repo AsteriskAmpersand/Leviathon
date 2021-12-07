@@ -1,7 +1,7 @@
 importactions Deviljho as deviljho
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	>> Global.node_120 
 	>> Global.node_121 
 	if function#101() 
@@ -12,7 +12,7 @@ def node_000 : 1
 	conclude 
 endf 
 
-def node_001 : 2
+def node_001
 	self.targetEnemy(target_em.closest_entity) 
 	if self.target_is(em.Rathalos) 
 		>> node_002 
@@ -30,7 +30,7 @@ def node_001 : 2
 	return 
 endf 
 
-def node_002 : 6
+def node_002
 	if self.distance_2d_to_target().gt(1900) 
 		-> deviljho.dash(6,0,0,1800) 
 	else 
@@ -46,7 +46,7 @@ def node_002 : 6
 	return 
 endf 
 
-def node_003 : 9
+def node_003
 	if self.distance_2d_to_target().gt(1900) 
 		-> deviljho.dash(6,0,0,1800) 
 	else 
@@ -62,7 +62,7 @@ def node_003 : 9
 	return 
 endf 
 
-def node_004 : 7
+def node_004
 	if self.distance_3d_to_target().gt(1800) 
 		-> deviljho.dash(1,0,0,1700) 
 	else 
@@ -78,7 +78,7 @@ def node_004 : 7
 	return 
 endf 
 
-def node_005 : 8
+def node_005
 	if self.distance_3d_to_target().gt(1350) 
 		-> deviljho.dash(1,0,0,1250) 
 	else 
@@ -94,7 +94,7 @@ def node_005 : 8
 	return 
 endf 
 
-def node_006 : 10
+def node_006
 	if self.enraged() 
 	else 
 		function#104(1) 
@@ -102,7 +102,7 @@ def node_006 : 10
 	return 
 endf 
 
-def node_007 : 11
+def node_007
 	if self.distance_3d_to_target().gt(1800) 
 		-> deviljho.dash(1,0,0,1700) 
 	else 

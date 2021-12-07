@@ -1,7 +1,7 @@
 importactions Gajau as gajau
 importlibrary Global as Global
 
-def node_000 : 38
+def node_000
 	>> Global.node_011 
 	>> node_001 
 	>> node_002 
@@ -9,7 +9,7 @@ def node_000 : 38
 	reset 
 endf 
 
-def node_001 : 37
+def node_001
 	self.targetEnemy(33) 
 	if self.distance_2d_to_target().leq(1500) 
 		random (50) 
@@ -25,7 +25,7 @@ def node_001 : 37
 	return 
 endf 
 
-def node_002 : 50
+def node_002
 	if self.targetEnemy(33) 
 		self.targetEnemy(48) 
 		if self.distance_2d_to_target().leq(1000) 
@@ -37,7 +37,7 @@ def node_002 : 50
 	return 
 endf 
 
-def node_003 : 51
+def node_003
 	>> Global.node_002 
 	random (70) >> Global.node_007 
 	elser (30) >> Global.node_008 
@@ -45,14 +45,14 @@ def node_003 : 51
 	return 
 endf 
 
-def node_004 : 57
+def node_004
 	function#54() 
 	function#52(130,5) 
 	self.targetEnemy(16) 
 	return 
 endf 
 
-def node_005 : 58
+def node_005
 	if self.distance_2d_to_target().gt(500) 
 		-> action#08(2,1,0,1000,500) 
 		repeat 

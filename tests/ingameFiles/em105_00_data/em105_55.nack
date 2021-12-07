@@ -1,20 +1,20 @@
 importactions Xeno'jiiva as xeno'jiiva
 
-def node_000 : 37
+def node_000
 	>> node_061 
 	conclude 
 endf 
 
-def node_001 : 214
+def node_001
 	if self.flying() 
 		-> xeno'jiiva.landing() 
-		[RegisterVar0 |-] 
+		[RegisterVar0 ++] 
 	else 
 	endif 
 	return 
 endf 
 
-def node_002 : 433
+def node_002
 	self.targetArea(target_area.area_aerial_center) 
 	*&
 	>> node_055 
@@ -23,7 +23,7 @@ def node_002 : 433
 	return 
 endf 
 
-def node_003 : 207
+def node_003
 	if self.flying() 
 	else 
 		if self.current_quest().is_rank(rank.AT) 
@@ -35,13 +35,13 @@ def node_003 : 207
 		else 
 			-> xeno'jiiva.take_off() 
 		endif 
-		[RegisterVar0 |-] 
-		[RegisterVar1 |-] 
+		[RegisterVar0 ++] 
+		[RegisterVar1 ++] 
 	endif 
 	return 
 endf 
 
-def node_004 : 493
+def node_004
 	if self.flying() 
 		-> xeno'jiiva.turn_fly() 
 	else 
@@ -50,7 +50,7 @@ def node_004 : 493
 	return 
 endf 
 
-def node_005 : 194
+def node_005
 	if self.angle_2d_cw_between(30,330) 
 		if self.flying() 
 			-> xeno'jiiva.turn_fly() 
@@ -62,7 +62,7 @@ def node_005 : 194
 	return 
 endf 
 
-def node_006 : 196
+def node_006
 	if self.angle_2d_cw_between(60,300) 
 		if self.flying() 
 			-> xeno'jiiva.turn_fly() 
@@ -74,7 +74,7 @@ def node_006 : 196
 	return 
 endf 
 
-def node_007 : 195
+def node_007
 	if self.angle_2d_cw_between(90,270) 
 		if self.flying() 
 			-> xeno'jiiva.turn_fly() 
@@ -86,7 +86,7 @@ def node_007 : 195
 	return 
 endf 
 
-def node_008 : 216
+def node_008
 	if self.flying() 
 		-> xeno'jiiva.idle_wait_fly() 
 	else 
@@ -95,19 +95,19 @@ def node_008 : 216
 	return 
 endf 
 
-def node_009 : 234
+def node_009
 	>> node_001 
 	-> xeno'jiiva.threat_short() 
 	return 
 endf 
 
-def node_010 : 228
+def node_010
 	>> node_001 
 	-> xeno'jiiva.discover() 
 	return 
 endf 
 
-def node_011 : 206
+def node_011
 	>> node_001 
 	if self.current_quest().is_rank(rank.AT) 
 		if function#101(1) 
@@ -125,20 +125,20 @@ def node_011 : 206
 	return 
 endf 
 
-def node_012 : 446
+def node_012
 	>> node_001 
 	-> xeno'jiiva.side_step() 
 	return 
 endf 
 
-def node_013 : 205
+def node_013
 	>> node_001 
 	>> node_007 
 	-> xeno'jiiva.front_step() 
 	return 
 endf 
 
-def node_014 : 478
+def node_014
 	>> node_001 
 	>> node_013 
 	if self.distance_3d_to_target().gt(1000) 
@@ -160,32 +160,32 @@ def node_014 : 478
 	return 
 endf 
 
-def node_015 : 219
+def node_015
 	>> node_001 
 	-> xeno'jiiva.dash(5) 
 	return 
 endf 
 
-def node_016 : 221
+def node_016
 	>> node_001 
 	-> xeno'jiiva.dash(1,5,0,1000) 
 	return 
 endf 
 
-def node_017 : 230
+def node_017
 	>> node_001 
 	-> xeno'jiiva.dash(2,5,0,3000) 
 	return 
 endf 
 
-def node_018 : 204
+def node_018
 	>> node_001 
 	>> node_007 
 	-> xeno'jiiva.rush() 
 	return 
 endf 
 
-def node_019 : 476
+def node_019
 	>> node_001 
 	>> node_005 
 	-> xeno'jiiva.rush() 
@@ -208,7 +208,7 @@ def node_019 : 476
 	return 
 endf 
 
-def node_020 : 477
+def node_020
 	>> node_001 
 	>> node_007 
 	-> xeno'jiiva.rush() 
@@ -217,7 +217,7 @@ def node_020 : 477
 	return 
 endf 
 
-def node_021 : 492
+def node_021
 	>> node_001 
 	-> xeno'jiiva.back_turn() 
 	self.targetEnemy(9) @ parameter2:8000 
@@ -228,7 +228,7 @@ def node_021 : 492
 	return 
 endf 
 
-def node_022 : 202
+def node_022
 	>> node_001 
 	if self.target(55) 
 		>> node_087 
@@ -239,7 +239,7 @@ def node_022 : 202
 	return 
 endf 
 
-def node_023 : 480
+def node_023
 	>> node_001 
 	if self.target(55) 
 		>> node_087 
@@ -255,14 +255,14 @@ def node_023 : 480
 	return 
 endf 
 
-def node_024 : 483
+def node_024
 	>> node_001 
 	>> node_011 
 	>> node_023 
 	return 
 endf 
 
-def node_025 : 203
+def node_025
 	>> node_001 
 	if self.target(55) 
 		>> node_087 
@@ -273,7 +273,7 @@ def node_025 : 203
 	return 
 endf 
 
-def node_026 : 447
+def node_026
 	if function#101(1) 
 		>> node_022 
 	else 
@@ -282,21 +282,21 @@ def node_026 : 447
 	return 
 endf 
 
-def node_027 : 468
+def node_027
 	>> node_001 
 	>> node_011 
 	>> node_026 
 	return 
 endf 
 
-def node_028 : 448
+def node_028
 	>> node_001 
 	>> node_005 
 	-> xeno'jiiva.breath_3way() 
 	return 
 endf 
 
-def node_029 : 449
+def node_029
 	>> node_001 
 	>> node_006 
 	if self.current_quest().is_rank(rank.AT) 
@@ -311,7 +311,7 @@ def node_029 : 449
 	return 
 endf 
 
-def node_030 : 450
+def node_030
 	if function#101(1) 
 		>> node_028 
 	else 
@@ -320,21 +320,21 @@ def node_030 : 450
 	return 
 endf 
 
-def node_031 : 469
+def node_031
 	>> node_001 
 	>> node_011 
 	>> node_030 
 	return 
 endf 
 
-def node_032 : 451
+def node_032
 	>> node_001 
 	>> node_005 
 	-> xeno'jiiva.walk(5,1,0,0,1200) 
 	return 
 endf 
 
-def node_033 : 452
+def node_033
 	>> node_001 
 	if self.target(55) 
 		>> node_087 
@@ -345,7 +345,7 @@ def node_033 : 452
 	return 
 endf 
 
-def node_034 : 453
+def node_034
 	if function#101(1) 
 		if self.angle_2d_cw_between(60,300) 
 			>> node_012 
@@ -358,7 +358,7 @@ def node_034 : 453
 	return 
 endf 
 
-def node_035 : 473
+def node_035
 	if function#101(1) 
 		if self.angle_2d_cw_between(90,270) 
 			>> node_012 
@@ -372,21 +372,21 @@ def node_035 : 473
 	return 
 endf 
 
-def node_036 : 482
+def node_036
 	>> node_001 
 	>> node_005 
 	-> xeno'jiiva.laser_snake() 
 	return 
 endf 
 
-def node_037 : 484
+def node_037
 	>> node_001 
 	>> node_011 
 	>> node_036 
 	return 
 endf 
 
-def node_038 : 487
+def node_038
 	>> node_001 
 	if self.angle_2d_cw_between(0,45) 
 		>> node_044 
@@ -403,7 +403,7 @@ def node_038 : 487
 	return 
 endf 
 
-def node_039 : 454
+def node_039
 	>> node_001 
 	if self.angle_2d_cw_between(0,180) 
 		>> node_042 
@@ -413,7 +413,7 @@ def node_039 : 454
 	return 
 endf 
 
-def node_040 : 455
+def node_040
 	>> node_001 
 	if self.current_quest().is_rank(rank.AT) 
 		-> xeno'jiiva.body_press_turn() 
@@ -423,7 +423,7 @@ def node_040 : 455
 	return 
 endf 
 
-def node_041 : 488
+def node_041
 	if function#101(2) 
 		-> xeno'jiiva.scratch() 
 	else 
@@ -432,7 +432,7 @@ def node_041 : 488
 	return 
 endf 
 
-def node_042 : 489
+def node_042
 	if function#101(3) 
 		-> xeno'jiiva.scratch() 
 	else 
@@ -441,7 +441,7 @@ def node_042 : 489
 	return 
 endf 
 
-def node_043 : 490
+def node_043
 	if function#101(2) 
 		if self.current_quest().is_rank(rank.AT) 
 			-> xeno'jiiva.body_press_turn() 
@@ -454,7 +454,7 @@ def node_043 : 490
 	return 
 endf 
 
-def node_044 : 491
+def node_044
 	if function#101(3) 
 		if self.current_quest().is_rank(rank.AT) 
 			-> xeno'jiiva.body_press_turn() 
@@ -467,19 +467,19 @@ def node_044 : 491
 	return 
 endf 
 
-def node_045 : 456
+def node_045
 	>> node_001 
 	-> xeno'jiiva.tail_slap() 
 	return 
 endf 
 
-def node_046 : 457
+def node_046
 	>> node_001 
 	-> xeno'jiiva.aura_tail_slap() 
 	return 
 endf 
 
-def node_047 : 458
+def node_047
 	if self.angle_2d_cw_between(120,240) 
 		if function#101(5) 
 			>> node_045 
@@ -492,20 +492,20 @@ def node_047 : 458
 	return 
 endf 
 
-def node_048 : 470
+def node_048
 	>> node_001 
 	>> node_013 
 	>> node_047 
 	return 
 endf 
 
-def node_049 : 459
+def node_049
 	>> node_001 
 	-> xeno'jiiva.aura_tail_sweep() 
 	return 
 endf 
 
-def node_050 : 460
+def node_050
 	if self.angle_2d_cw_between(120,240) 
 		if function#101(5) 
 			>> node_045 
@@ -518,14 +518,14 @@ def node_050 : 460
 	return 
 endf 
 
-def node_051 : 472
+def node_051
 	>> node_001 
 	>> node_013 
 	>> node_050 
 	return 
 endf 
 
-def node_052 : 474
+def node_052
 	if function#101(5) 
 		if self.angle_2d_cw_between(120,240) 
 			>> node_045 
@@ -544,14 +544,14 @@ def node_052 : 474
 	return 
 endf 
 
-def node_053 : 475
+def node_053
 	>> node_001 
 	>> node_013 
 	>> node_052 
 	return 
 endf 
 
-def node_054 : 462
+def node_054
 	if function#101(4) 
 		-> xeno'jiiva.quick_turn() 
 	else 
@@ -560,7 +560,7 @@ def node_054 : 462
 	return 
 endf 
 
-def node_055 : 389
+def node_055
 	>> node_003 
 	if self.distance_3d_to_target().leq(1000) 
 	else 
@@ -570,7 +570,7 @@ def node_055 : 389
 	return 
 endf 
 
-def node_056 : 485
+def node_056
 	>> node_003 
 	self.targetEnemy(37) 
 	if self.distance_3d_to_target().leq(2000) 
@@ -581,7 +581,7 @@ def node_056 : 485
 	return 
 endf 
 
-def node_057 : 392
+def node_057
 	if self.distance_3d_to_target().leq(1000) 
 	else 
 		-> xeno'jiiva.glide(2,1,0,3000,1000) 
@@ -590,7 +590,7 @@ def node_057 : 392
 	return 
 endf 
 
-def node_058 : 494
+def node_058
 	if self.distance_2d_to_target().leq(1000) 
 	else 
 		-> xeno'jiiva.glide_combat(2,6,0,3000,1000) 
@@ -599,23 +599,23 @@ def node_058 : 494
 	return 
 endf 
 
-def node_059 : 215
+def node_059
 	>> node_003 
 	>> node_005 
 	-> xeno'jiiva.rush_fly() 
-	[RegisterVar0 |-] 
-	[RegisterVar1 |-] 
+	[RegisterVar0 ++] 
+	[RegisterVar1 ++] 
 	return 
 endf 
 
-def node_060 : 481
+def node_060
 	>> node_003 
 	>> node_007 
 	-> xeno'jiiva.laser_jab_fly() 
 	return 
 endf 
 
-def node_061 : 210
+def node_061
 	>> node_003 
 	>> node_007 
 	-> xeno'jiiva.laser_fly() 
@@ -626,32 +626,32 @@ def node_061 : 210
 	return 
 endf 
 
-def node_062 : 209
+def node_062
 	>> node_003 
 	>> node_007 
 	-> xeno'jiiva.aura_scratch_fly() 
 	return 
 endf 
 
-def node_063 : 217
+def node_063
 	>> node_001 
 	-> xeno'jiiva.lost_search() 
 	return 
 endf 
 
-def node_064 : 218
+def node_064
 	>> node_001 
 	-> xeno'jiiva.search() 
 	return 
 endf 
 
-def node_065 : 220
+def node_065
 	>> node_001 
 	-> xeno'jiiva.anger_search() 
 	return 
 endf 
 
-def node_066 : 471
+def node_066
 	>> node_001 
 	if self.current_quest().is_rank(rank.AT) 
 		if function#102() 
@@ -664,33 +664,33 @@ def node_066 : 471
 	return 
 endf 
 
-def node_067 : 465
-	[RegisterVar1 |-] 
+def node_067
+	[RegisterVar1 ++] 
 	-> xeno'jiiva.berserk_start() 
 	return 
 endf 
 
-def node_068 : 466
+def node_068
 	>> node_001 
 	>> node_005 
 	-> xeno'jiiva.super_laser() 
 	return 
 endf 
 
-def node_069 : 467
+def node_069
 	>> node_001 
 	>> node_007 
 	-> xeno'jiiva.super_aura_press() 
 	return 
 endf 
 
-def node_070 : 479
+def node_070
 	>> node_016 
 	>> node_069 
 	return 
 endf 
 
-def node_071 : 436
+def node_071
 	>> node_001 
 	if self.distance_3d_to_target().leq(500) 
 		return 
@@ -700,19 +700,19 @@ def node_071 : 436
 	return 
 endf 
 
-def node_072 : 213
+def node_072
 	>> node_001 
 	-> xeno'jiiva.tired() 
 	return 
 endf 
 
-def node_073 : 416
+def node_073
 	>> node_001 
 	-> xeno'jiiva.refresh() 
 	return 
 endf 
 
-def node_074 : 224
+def node_074
 	if self.angle_2d_cw_between(30,330) 
 		if self.flying() 
 			-> xeno'jiiva.turn_fly() 
@@ -724,7 +724,7 @@ def node_074 : 224
 	return 
 endf 
 
-def node_075 : 225
+def node_075
 	if self.angle_2d_cw_between(60,300) 
 		if self.flying() 
 			-> xeno'jiiva.turn_fly() 
@@ -736,7 +736,7 @@ def node_075 : 225
 	return 
 endf 
 
-def node_076 : 226
+def node_076
 	if self.angle_2d_cw_between(90,270) 
 		if self.flying() 
 			-> xeno'jiiva.turn_fly() 
@@ -748,31 +748,31 @@ def node_076 : 226
 	return 
 endf 
 
-def node_077 : 232
+def node_077
 	>> node_001 
 	-> xeno'jiiva.search() 
 	return 
 endf 
 
-def node_078 : 222
+def node_078
 	>> node_001 
 	-> xeno'jiiva.walk(5) 
 	return 
 endf 
 
-def node_079 : 223
+def node_079
 	>> node_001 
 	-> xeno'jiiva.walk(1,5,0,1000) 
 	return 
 endf 
 
-def node_080 : 231
+def node_080
 	>> node_001 
 	-> xeno'jiiva.walk(2,5,0,3000) 
 	return 
 endf 
 
-def node_081 : 495
+def node_081
 	self.targetArea(19) 
 	if self.distance_3d_to_target().gt(1000) 
 		>> node_016 
@@ -782,28 +782,28 @@ def node_081 : 495
 	return 
 endf 
 
-def node_082 : 496
+def node_082
 	>> node_001 
 	-> xeno'jiiva.berserk_end() 
 	return 
 endf 
 
-def node_083 : 497
+def node_083
 	>> node_003 
 	-> xeno'jiiva.glide_combat(2,6,0,3000,1000) 
 	-> xeno'jiiva.sudden_drop_landing() 
-	[RegisterVar0 |-] 
-	[RegisterVar1 |-] 
+	[RegisterVar0 ++] 
+	[RegisterVar1 ++] 
 	return 
 endf 
 
-def node_084 : 498
+def node_084
 	>> node_001 
 	-> xeno'jiiva.wing_attack() 
 	return 
 endf 
 
-def node_085 : 500
+def node_085
 	>> node_001 
 	if function#101(4) 
 		-> xeno'jiiva.threat_short() 
@@ -813,13 +813,13 @@ def node_085 : 500
 		else 
 			-> xeno'jiiva.laser_take_off() 
 		endif 
-		[RegisterVar0 |-] 
-		[RegisterVar1 |-] 
+		[RegisterVar0 ++] 
+		[RegisterVar1 ++] 
 	endif 
 	return 
 endf 
 
-def node_086 : 499
+def node_086
 	if function#101(4) 
 		if self.angle_2d_cw_between(60,120) 
 			>> node_084 
@@ -844,7 +844,7 @@ def node_086 : 499
 	return 
 endf 
 
-def node_087 : 501
+def node_087
 	if self.target(55) 
 		if function#7F() 
 			>> node_040 

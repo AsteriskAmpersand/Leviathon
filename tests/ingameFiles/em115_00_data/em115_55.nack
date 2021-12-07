@@ -1,11 +1,11 @@
 importactions Vaal_Hazak as vaal_hazak
 
-def node_000 : 37
+def node_000
 	>> node_030 
 	conclude 
 endf 
 
-def node_001 : 214
+def node_001
 	if self.flying() 
 		if function#AF(5000) 
 			-> vaal_hazak.landing() 
@@ -17,7 +17,7 @@ def node_001 : 214
 	return 
 endf 
 
-def node_002 : 433
+def node_002
 	self.targetArea(target_area.area_aerial_center) 
 	>> node_063 
 	self.targetArea(target_area.area_center) 
@@ -25,7 +25,7 @@ def node_002 : 433
 	return 
 endf 
 
-def node_003 : 207
+def node_003
 	if self.flying() 
 	else 
 		-> vaal_hazak.take_off() 
@@ -33,7 +33,7 @@ def node_003 : 207
 	return 
 endf 
 
-def node_004 : 194
+def node_004
 	if self.angle_2d_cw_between(30,330) 
 		if self.flying() 
 			-> vaal_hazak.quick_turn_fly() 
@@ -45,7 +45,7 @@ def node_004 : 194
 	return 
 endf 
 
-def node_005 : 196
+def node_005
 	if self.angle_2d_cw_between(60,300) 
 		if self.flying() 
 			-> vaal_hazak.quick_turn_fly() 
@@ -57,7 +57,7 @@ def node_005 : 196
 	return 
 endf 
 
-def node_006 : 195
+def node_006
 	if self.angle_2d_cw_between(90,270) 
 		if self.flying() 
 			-> vaal_hazak.quick_turn_fly() 
@@ -69,31 +69,31 @@ def node_006 : 195
 	return 
 endf 
 
-def node_007 : 219
+def node_007
 	>> node_001 
 	-> vaal_hazak.dash(5) 
 	return 
 endf 
 
-def node_008 : 221
+def node_008
 	>> node_001 
 	-> vaal_hazak.dash(1,5,0,1000) 
 	return 
 endf 
 
-def node_009 : 463
+def node_009
 	>> node_001 
 	-> vaal_hazak.dash(2,1,5,1500,800) 
 	return 
 endf 
 
-def node_010 : 230
+def node_010
 	>> node_001 
 	-> vaal_hazak.dash(2,5,0,3000) 
 	return 
 endf 
 
-def node_011 : 216
+def node_011
 	>> node_004 
 	if self.flying() 
 		-> vaal_hazak.chance_fly() 
@@ -103,7 +103,7 @@ def node_011 : 216
 	return 
 endf 
 
-def node_012 : 228
+def node_012
 	if self.flying() 
 		-> vaal_hazak.threat_short_fly() 
 	else 
@@ -112,7 +112,7 @@ def node_012 : 228
 	return 
 endf 
 
-def node_013 : 234
+def node_013
 	if self.flying() 
 		-> vaal_hazak.threat_short_fly() 
 	else 
@@ -121,39 +121,39 @@ def node_013 : 234
 	return 
 endf 
 
-def node_014 : 206
+def node_014
 	>> node_001 
 	-> vaal_hazak.step_back() 
 	return 
 endf 
 
-def node_015 : 446
+def node_015
 	>> node_001 
 	>> node_004 
 	-> vaal_hazak.step_front() 
 	return 
 endf 
 
-def node_016 : 199
+def node_016
 	>> node_001 
 	>> node_006 
 	-> vaal_hazak.face_swing() 
 	return 
 endf 
 
-def node_017 : 198
+def node_017
 	>> node_001 
 	-> vaal_hazak.side_scratch() 
 	return 
 endf 
 
-def node_018 : 444
+def node_018
 	>> node_001 
 	-> vaal_hazak.rotate_attack() 
 	return 
 endf 
 
-def node_019 : 447
+def node_019
 	>> node_001 
 	if self.angle_2d_cw_between(60,120) 
 		>> node_017 
@@ -167,14 +167,14 @@ def node_019 : 447
 	return 
 endf 
 
-def node_020 : 457
+def node_020
 	>> node_001 
 	>> node_006 
 	-> vaal_hazak.bite_middle() 
 	return 
 endf 
 
-def node_021 : 197
+def node_021
 	>> node_001 
 	>> node_006 
 	-> vaal_hazak.bite_3ren() 
@@ -184,7 +184,7 @@ def node_021 : 197
 	return 
 endf 
 
-def node_022 : 193
+def node_022
 	>> node_001 
 	-> vaal_hazak.syouki_breath() 
 	if self.enraged() 
@@ -195,19 +195,19 @@ def node_022 : 193
 	return 
 endf 
 
-def node_023 : 461
+def node_023
 	>> node_001 
 	-> vaal_hazak.desperate_tackle_no_breath() 
 	return 
 endf 
 
-def node_024 : 449
+def node_024
 	>> node_001 
 	-> vaal_hazak.desperate_tackle() 
 	return 
 endf 
 
-def node_025 : 204
+def node_025
 	>> node_001 
 	if self.enraged() 
 	else 
@@ -217,25 +217,25 @@ def node_025 : 204
 	return 
 endf 
 
-def node_026 : 205
+def node_026
 	>> node_001 
 	-> vaal_hazak.strong_bite() 
 	return 
 endf 
 
-def node_027 : 445
+def node_027
 	>> node_001 
 	-> vaal_hazak.scratch_bite() 
 	return 
 endf 
 
-def node_028 : 203
+def node_028
 	>> node_001 
 	-> vaal_hazak.tail_to_scratch() 
 	return 
 endf 
 
-def node_029 : 448
+def node_029
 	if self.angle_2d_cw_between(60,120) 
 		>> node_027 
 	elif self.angle_2d_cw_between(120,240) 
@@ -248,7 +248,7 @@ def node_029 : 448
 	return 
 endf 
 
-def node_030 : 202
+def node_030
 	>> node_001 
 	if self.current_quest().is_rank(rank.AT) 
 	else 
@@ -261,7 +261,7 @@ def node_030 : 202
 	return 
 endf 
 
-def node_031 : 458
+def node_031
 	>> node_001 
 	if self.current_quest().is_rank(rank.AT) 
 		if function#102(5000) 
@@ -282,7 +282,7 @@ def node_031 : 458
 	return 
 endf 
 
-def node_032 : 460
+def node_032
 	if function#101(1) 
 		>> node_030 
 	else 
@@ -291,7 +291,7 @@ def node_032 : 460
 	return 
 endf 
 
-def node_033 : 465
+def node_033
 	if function#101(1) 
 		>> node_030 
 	else 
@@ -300,7 +300,7 @@ def node_033 : 465
 	return 
 endf 
 
-def node_034 : 467
+def node_034
 	if function#101(1) 
 		>> node_030 
 	else 
@@ -309,19 +309,19 @@ def node_034 : 467
 	return 
 endf 
 
-def node_035 : 468
+def node_035
 	>> node_001 
 	-> vaal_hazak.jump_attack_high() 
 	return 
 endf 
 
-def node_036 : 469
+def node_036
 	>> node_001 
 	-> vaal_hazak.jump_attack_wall_down() 
 	return 
 endf 
 
-def node_037 : 459
+def node_037
 	random (33) 
 				self.targetEnemy(21) @ parameter2:1000 
 	elser (25) 
@@ -334,7 +334,7 @@ def node_037 : 459
 	return 
 endf 
 
-def node_038 : 464
+def node_038
 	self.targetUnknown(48,0) 
 	if self.distance_3d_to_target().leq(1000) 
 		>> node_029 
@@ -342,7 +342,7 @@ def node_038 : 464
 	return 
 endf 
 
-def node_039 : 450
+def node_039
 	if self.targetEnemy(target_em.any_monster) 
 		if self.target(13) 
 		else 
@@ -363,7 +363,7 @@ def node_039 : 450
 	return 
 endf 
 
-def node_040 : 451
+def node_040
 	if function#30(2) 
 		random (70) 
 		elser (0) >> node_042 
@@ -380,7 +380,7 @@ def node_040 : 451
 	return 
 endf 
 
-def node_041 : 452
+def node_041
 	if function#30(2) 
 		random (80) 
 		elser (0) >> node_042 
@@ -397,17 +397,17 @@ def node_041 : 452
 	return 
 endf 
 
-def node_042 : 453
+def node_042
 	>> node_001 
 	>> node_005 
 	-> vaal_hazak.threat_short() 
 	return 
 endf 
 
-def node_043 : 454
+def node_043
 endf 
 
-def node_044 : 455
+def node_044
 	if self.target_is(em.Odogaron) 
 		if self.target(39) 
 			self.force_area_change2() 
@@ -432,7 +432,7 @@ def node_044 : 455
 	return 
 endf 
 
-def node_045 : 456
+def node_045
 	if self.vertical_distance_to_target().gt(500) 
 		>> node_012 
 	elif self.distance_3d_to_target().gt(2500) 
@@ -447,7 +447,7 @@ def node_045 : 456
 	return 
 endf 
 
-def node_046 : 436
+def node_046
 	>> node_001 
 	if self.distance_3d_to_target().leq(1000) 
 		return 
@@ -457,43 +457,43 @@ def node_046 : 436
 	return 
 endf 
 
-def node_047 : 217
+def node_047
 	>> node_001 
 	-> vaal_hazak.lost_search() 
 	return 
 endf 
 
-def node_048 : 218
+def node_048
 	>> node_001 
 	-> vaal_hazak.combat_search() 
 	return 
 endf 
 
-def node_049 : 220
+def node_049
 	>> node_001 
 	-> vaal_hazak.anger_search() 
 	return 
 endf 
 
-def node_050 : 232
+def node_050
 	>> node_001 
 	-> vaal_hazak.life_search() 
 	return 
 endf 
 
-def node_051 : 213
+def node_051
 	>> node_001 
 	-> vaal_hazak.tired() 
 	return 
 endf 
 
-def node_052 : 416
+def node_052
 	>> node_001 
 	-> vaal_hazak.refresh() 
 	return 
 endf 
 
-def node_053 : 224
+def node_053
 	if self.angle_2d_cw_between(30,330) 
 		if self.flying() 
 			-> vaal_hazak.turn_fly() 
@@ -505,7 +505,7 @@ def node_053 : 224
 	return 
 endf 
 
-def node_054 : 225
+def node_054
 	if self.angle_2d_cw_between(60,300) 
 		if self.flying() 
 			-> vaal_hazak.turn_fly() 
@@ -517,7 +517,7 @@ def node_054 : 225
 	return 
 endf 
 
-def node_055 : 226
+def node_055
 	if self.angle_2d_cw_between(90,270) 
 		if self.flying() 
 			-> vaal_hazak.turn_fly() 
@@ -529,43 +529,43 @@ def node_055 : 226
 	return 
 endf 
 
-def node_056 : 222
+def node_056
 	>> node_001 
 	-> vaal_hazak.walk(5) 
 	return 
 endf 
 
-def node_057 : 223
+def node_057
 	>> node_001 
 	-> vaal_hazak.walk(1,5,0,1000) 
 	return 
 endf 
 
-def node_058 : 231
+def node_058
 	>> node_001 
 	-> vaal_hazak.walk(2,5,0,3000) 
 	return 
 endf 
 
-def node_059 : 440
+def node_059
 	>> node_001 
 	-> vaal_hazak.eat() 
 	return 
 endf 
 
-def node_060 : 438
+def node_060
 	>> node_001 
 	-> vaal_hazak.rest() 
 	return 
 endf 
 
-def node_061 : 439
+def node_061
 	>> node_001 
 	-> vaal_hazak.sleep() 
 	return 
 endf 
 
-def node_062 : 437
+def node_062
 	>> node_001 
 	if function#C9() 
 		-> vaal_hazak.dying_sleep(3,0,0,150) 
@@ -575,7 +575,7 @@ def node_062 : 437
 	return 
 endf 
 
-def node_063 : 389
+def node_063
 	if self.distance_2d_to_target().leq(600) 
 	else 
 		-> vaal_hazak.glide_combat(2,6,0,3000,500) 
@@ -584,7 +584,7 @@ def node_063 : 389
 	return 
 endf 
 
-def node_064 : 388
+def node_064
 	if self.distance_2d_to_target().leq(1000) 
 	else 
 		-> vaal_hazak.glide_combat(2,6,0,3000,900) 
@@ -593,7 +593,7 @@ def node_064 : 388
 	return 
 endf 
 
-def node_065 : 382
+def node_065
 	if function#5A(20) 
 		>> node_066 
 	elif function#5A(21) 
@@ -624,7 +624,7 @@ def node_065 : 382
 	return 
 endf 
 
-def node_066 : 381
+def node_066
 	if self.distance_3d_to_target().leq(12000) 
 		>> node_001 
 		>> node_068 
@@ -634,7 +634,7 @@ def node_066 : 381
 	return 
 endf 
 
-def node_067 : 379
+def node_067
 	if function#AD() 
 		>> node_068 
 	else 
@@ -643,7 +643,7 @@ def node_067 : 379
 	return 
 endf 
 
-def node_068 : 378
+def node_068
 	if function#5A(10) 
 		>> node_003 
 	elif function#5A(11) 
@@ -679,7 +679,7 @@ def node_068 : 378
 	return 
 endf 
 
-def node_069 : 377
+def node_069
 	>> node_070 
 	>> node_071 
 	>> node_072 
@@ -687,7 +687,7 @@ def node_069 : 377
 	return 
 endf 
 
-def node_070 : 376
+def node_070
 	if self.flying() 
 		self.targetArea(target_area.area_aerial_center) 
 		>> node_065 
@@ -700,7 +700,7 @@ def node_070 : 376
 	return 
 endf 
 
-def node_071 : 375
+def node_071
 	self.targetArea(target_area.nearest_entrance) 
 	if self.flying() 
 		self.targetArea(40) 
@@ -712,7 +712,7 @@ def node_071 : 375
 	return 
 endf 
 
-def node_072 : 374
+def node_072
 	if function#5A(10) 
 	elif function#5A(11) 
 	elif function#5A(12) 
@@ -735,7 +735,7 @@ def node_072 : 374
 	return 
 endf 
 
-def node_073 : 373
+def node_073
 	self.targetArea(target_area.nearest_entrance) 
 	if self.flying() 
 		>> node_065 
@@ -745,7 +745,7 @@ def node_073 : 373
 	return 
 endf 
 
-def node_074 : 357
+def node_074
 	if self.flying() 
 		>> node_063 
 	else 
@@ -758,14 +758,14 @@ def node_074 : 357
 	return 
 endf 
 
-def node_075 : 356
+def node_075
 	>> node_077 
 	>> node_078 
 	>> node_079 
 	return 
 endf 
 
-def node_076 : 355
+def node_076
 	if self.flying() 
 		>> node_063 
 	else 
@@ -778,7 +778,7 @@ def node_076 : 355
 	return 
 endf 
 
-def node_077 : 354
+def node_077
 	if self.flying() 
 		self.targetArea(target_area.area_aerial_center) 
 		>> node_063 
@@ -795,7 +795,7 @@ def node_077 : 354
 	return 
 endf 
 
-def node_078 : 353
+def node_078
 	if self.flying() 
 		self.targetArea(40) 
 		>> node_063 
@@ -810,7 +810,7 @@ def node_078 : 353
 	return 
 endf 
 
-def node_079 : 352
+def node_079
 	if self.flying() 
 		self.targetArea(target_area.area_center) 
 		>> node_001 
@@ -819,7 +819,7 @@ def node_079 : 352
 	return 
 endf 
 
-def node_080 : 462
+def node_080
 	self.targetArea(19) 
 	if self.distance_3d_to_target().gt(1000) 
 		>> node_009 
@@ -829,7 +829,7 @@ def node_080 : 462
 	return 
 endf 
 
-def node_081 : 466
+def node_081
 	if self.current_quest().is_rank(rank.AT) 
 		if function#101(2) 
 		elif function#58(0,10) 

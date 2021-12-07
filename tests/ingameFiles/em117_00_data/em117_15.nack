@@ -1,7 +1,7 @@
 importactions Kulve_Taroth as kulve_taroth
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	if self.current_quest().is_rank(rank.MR) 
 		>> node_003 
 	elif self.current_quest().is_rank(rank.AT) 
@@ -12,7 +12,7 @@ def node_000 : 1
 	reset 
 endf 
 
-def node_001 : 2
+def node_001
 	>> Global.node_094 
 	if function#107() 
 		>> Global.node_342 
@@ -23,7 +23,7 @@ def node_001 : 2
 	return 
 endf 
 
-def node_002 : 3
+def node_002
 	>> Global.node_094 
 	if function#107() 
 		>> Global.node_339 
@@ -34,7 +34,7 @@ def node_002 : 3
 	return 
 endf 
 
-def node_003 : 4
+def node_003
 	if function#107() 
 		>> Global.node_342 
 		>> Global.node_343 

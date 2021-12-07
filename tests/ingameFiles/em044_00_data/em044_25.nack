@@ -1,7 +1,7 @@
 importactions Barroth as barroth
 importlibrary Global as Global
 
-def node_000 : 12
+def node_000
 	if self.in_combat() 
 		conclude 
 	else 
@@ -23,7 +23,7 @@ def node_000 : 12
 	conclude 
 endf 
 
-def node_001 : 13
+def node_001
 	if self.target_is(em.Rathian) 
 		>> Global.node_012 
 		-> barroth.search_desire() 
@@ -32,7 +32,7 @@ def node_001 : 13
 	return 
 endf 
 
-def node_002 : 9
+def node_002
 	if self.distance_3d_to_target().leq(4000) 
 		>> Global.node_012 
 		>> Global.node_030 
@@ -43,7 +43,7 @@ def node_002 : 9
 	return 
 endf 
 
-def node_003 : 11
+def node_003
 	return 
 endf 
 

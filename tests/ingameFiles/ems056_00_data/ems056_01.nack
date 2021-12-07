@@ -1,7 +1,7 @@
 importactions Girros as girros
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	>> Global.node_053 
 	self.targetArea(1) 
 	if self.distance_3d_to_target().leq(700) 
@@ -13,12 +13,12 @@ def node_000 : 1
 	reset 
 endf 
 
-def node_001 : 19
+def node_001
 	>> Global.node_018 
 	return 
 endf 
 
-def node_002 : 2
+def node_002
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.target(7) 
 		>> node_003 
@@ -28,19 +28,19 @@ def node_002 : 2
 	return 
 endf 
 
-def node_003 : 4
+def node_003
 	>> Global.node_010 
 	-> action#1A() 
 	return 
 endf 
 
-def node_004 : 3
+def node_004
 	>> Global.node_010 
 	>> Global.node_015 
 	return 
 endf 
 
-def node_005 : 8
+def node_005
 	if function#62(315,45) 
 		self.targetArea(9) @ parameter2:1000 
 	elif function#62(45,135) 

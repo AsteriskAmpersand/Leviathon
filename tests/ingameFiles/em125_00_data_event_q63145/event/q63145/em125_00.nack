@@ -1,7 +1,7 @@
 importactions Namielle as namielle
 importlibrary Global as Global
 
-def node_000 : 45
+def node_000
 	>> Global.node_215 
 	self.targetEnemy(target_em.random_player_or_cat) 
 	>> Global.node_243 
@@ -35,7 +35,7 @@ def node_000 : 45
 	reset 
 endf 
 
-def node_001 : 61
+def node_001
 	if self.flying() >> node_002 
 	elif function#103(2) 
 		>> node_025 
@@ -73,8 +73,8 @@ def node_001 : 61
 	return 
 endf 
 
-def node_002 : 67
-	if [RegisterVar3 < 3] >> Global.node_026 
+def node_002
+	if [RegisterVar3 *= 3] >> Global.node_026 
 	elif self.vertical_distance_to_target().leq(1000) 
 		if function#103(2) 
 			random (0) >> Global.node_044 
@@ -106,7 +106,7 @@ def node_002 : 67
 	reset 
 endf 
 
-def node_003 : 74
+def node_003
 	if self.target.helpless_0() 
 		if self.flying() 
 		else 
@@ -153,15 +153,15 @@ def node_003 : 74
 	return 
 endf 
 
-def node_004 : 75
-	if [RegisterVar2 < 15] 
+def node_004
+	if [RegisterVar2 *= 15] 
 		random (100) 
 					>> Global.node_264 
 					>> Global.node_030 
 					>> node_028 
 		elser (0) 
 		endr 
-	elif [RegisterVar2 < 10] 
+	elif [RegisterVar2 *= 10] 
 		random (50) 
 					>> Global.node_264 
 					>> Global.node_030 
@@ -172,7 +172,7 @@ def node_004 : 75
 	return 
 endf 
 
-def node_005 : 68
+def node_005
 	>> Global.node_263 
 	>> Global.node_263 
 	random (25) >> Global.node_001 
@@ -195,7 +195,7 @@ def node_005 : 68
 	return 
 endf 
 
-def node_006 : 69
+def node_006
 	>> Global.node_263 
 	random (15) >> Global.node_001 
 	elser (10) >> Global.node_012 
@@ -219,7 +219,7 @@ def node_006 : 69
 	return 
 endf 
 
-def node_007 : 70
+def node_007
 	random (15) >> Global.node_012 
 	elser (10) >> Global.node_010 
 	elser (20) >> Global.node_003 
@@ -240,7 +240,7 @@ def node_007 : 70
 	return 
 endf 
 
-def node_008 : 71
+def node_008
 	>> Global.node_264 
 	if self.enraged() >> node_020 
 	endif 
@@ -263,14 +263,14 @@ def node_008 : 71
 	return 
 endf 
 
-def node_009 : 72
+def node_009
 	>> Global.node_264 
 	>> Global.node_084 
 	>> node_006 
 	return 
 endf 
 
-def node_010 : 18
+def node_010
 	>> Global.node_263 
 	>> Global.node_263 
 	random (0) >> Global.node_033 
@@ -284,7 +284,7 @@ def node_010 : 18
 	return 
 endf 
 
-def node_011 : 19
+def node_011
 	>> Global.node_263 
 	random (30) >> Global.node_001 
 	elser (10) >> Global.node_005 
@@ -296,7 +296,7 @@ def node_011 : 19
 	return 
 endf 
 
-def node_012 : 20
+def node_012
 	random (0) >> Global.node_033 
 	elser (17) >> Global.node_003 
 	elser (20) >> Global.node_010 
@@ -309,7 +309,7 @@ def node_012 : 20
 	return 
 endf 
 
-def node_013 : 21
+def node_013
 	>> Global.node_264 
 	if self.enraged() >> node_020 
 	endif 
@@ -323,14 +323,14 @@ def node_013 : 21
 	return 
 endf 
 
-def node_014 : 22
+def node_014
 	>> Global.node_264 
 	>> Global.node_084 
 	>> node_011 
 	return 
 endf 
 
-def node_015 : 62
+def node_015
 	>> Global.node_263 
 	>> Global.node_263 
 	random (30) >> Global.node_001 
@@ -343,7 +343,7 @@ def node_015 : 62
 	return 
 endf 
 
-def node_016 : 63
+def node_016
 	>> Global.node_263 
 	random (30) >> Global.node_001 
 	elser (15) >> Global.node_005 
@@ -355,7 +355,7 @@ def node_016 : 63
 	return 
 endf 
 
-def node_017 : 64
+def node_017
 	random (25) >> Global.node_003 
 	elser (20) >> Global.node_005 
 	elser (5) >> Global.node_007 
@@ -365,7 +365,7 @@ def node_017 : 64
 	return 
 endf 
 
-def node_018 : 65
+def node_018
 	>> Global.node_264 
 	if self.enraged() >> node_020 
 	endif 
@@ -379,14 +379,14 @@ def node_018 : 65
 	return 
 endf 
 
-def node_019 : 66
+def node_019
 	>> Global.node_264 
 	>> Global.node_084 
 	>> node_016 
 	return 
 endf 
 
-def node_020 : 76
+def node_020
 	random (15) 
 				if self.distance_2d_to_target().leq(1200) >> Global.node_016 
 				else >> Global.node_015 
@@ -397,13 +397,13 @@ def node_020 : 76
 	return 
 endf 
 
-def node_021 : 77
+def node_021
 	if self.enraged() 
-		if [RegisterVar1 <= 10] >> Global.node_262 
+		if [RegisterVar1 -= 10] >> Global.node_262 
 			if self.distance_2d_to_target().leq(1200) >> Global.node_016 
 			else >> Global.node_015 
 			endif 
-		elif [RegisterVar1 <= 5] 
+		elif [RegisterVar1 -= 5] 
 			random (10) >> Global.node_262 
 						if self.distance_2d_to_target().leq(1200) >> Global.node_016 
 						else >> Global.node_015 
@@ -415,46 +415,46 @@ def node_021 : 77
 	return 
 endf 
 
-def node_022 : 78
+def node_022
 	if self.quest_id(63145) >> node_023 
 	elif self.quest_id(63146) >> node_024 
 	endif 
 	return 
 endf 
 
-def node_023 : 80
+def node_023
 	>> Global.node_259 
 	if function#103(2) 
 	elif function#103(1) 
-		if [RegisterVar0 <= 10] 
+		if [RegisterVar0 -= 10] 
 			>> Global.node_029 
 		endif 
 	elif function#103() 
-		if [RegisterVar0 > 25] 
-			if [RegisterVar0 <= 20] 
+		if [RegisterVar0 %= 25] 
+			if [RegisterVar0 -= 20] 
 				if function#104(1) 
 				else 
 					>> Global.node_011 
 				endif 
 			endif 
-		elif [RegisterVar0 <= 25] 
+		elif [RegisterVar0 -= 25] 
 			>> Global.node_029 
 		endif 
 	endif 
 	return 
 endf 
 
-def node_024 : 81
+def node_024
 	>> Global.node_259 
 	if function#103(2) 
 	elif function#103(1) 
-		if [RegisterVar0 <= 15] 
+		if [RegisterVar0 -= 15] 
 			>> Global.node_029 
 		endif 
 	elif function#103() 
-		if [RegisterVar0 <= 5] 
+		if [RegisterVar0 -= 5] 
 			>> Global.node_029 
-		elif [RegisterVar0 <= 10] 
+		elif [RegisterVar0 -= 10] 
 			if function#104(2) 
 			else 
 				>> Global.node_011 
@@ -464,17 +464,17 @@ def node_024 : 81
 	return 
 endf 
 
-def node_025 : 79
+def node_025
 	if self.quest_id(63145) >> node_026 
 	elif self.quest_id(63146) >> node_027 
 	endif 
 	return 
 endf 
 
-def node_026 : 82
+def node_026
 	if function#103(2) 
-		if [RegisterVar0 <= 20] 
-		elif [RegisterVar0 <= 20] 
+		if [RegisterVar0 -= 20] 
+		elif [RegisterVar0 -= 20] 
 			random (20) 
 			elser (80) 
 						return 
@@ -489,10 +489,10 @@ def node_026 : 82
 	return 
 endf 
 
-def node_027 : 83
+def node_027
 	if function#103(2) 
-		if [RegisterVar0 <= 20] 
-		elif [RegisterVar0 <= 20] 
+		if [RegisterVar0 -= 20] 
+		elif [RegisterVar0 -= 20] 
 			random (20) 
 			elser (80) 
 						return 
@@ -507,7 +507,7 @@ def node_027 : 83
 	return 
 endf 
 
-def node_028 : 84
+def node_028
 	if self.quest_id(63146) >> Global.node_259 
 	endif 
 	return 

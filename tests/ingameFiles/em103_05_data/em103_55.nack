@@ -1,12 +1,12 @@
 importactions Ruiner_Nergigante as ruiner_nergigante
 
-def node_000 : 37
+def node_000
 	self.targetEnemy(50) 
 	>> node_082 
 	conclude 
 endf 
 
-def node_001 : 24
+def node_001
 	if self.flying() 
 		>> node_003 
 	else 
@@ -15,7 +15,7 @@ def node_001 : 24
 	return 
 endf 
 
-def node_002 : 25
+def node_002
 	self.targetEnemy(16) 
 	if self.distance_3d_to_target().leq(600) 
 		return 
@@ -25,7 +25,7 @@ def node_002 : 25
 	repeat 
 endf 
 
-def node_003 : 26
+def node_003
 	self.targetEnemy(16) 
 	if self.distance_3d_to_target().leq(600) 
 		return 
@@ -35,7 +35,7 @@ def node_003 : 26
 	repeat 
 endf 
 
-def node_004 : 245
+def node_004
 	self.targetArea(14) 
 	if self.distance_3d_to_target().gt(600) 
 		>> node_009 
@@ -45,7 +45,7 @@ def node_004 : 245
 	return 
 endf 
 
-def node_005 : 270
+def node_005
 	self.targetArea(19) 
 	if self.distance_3d_to_target().gt(1000) 
 		>> node_009 
@@ -55,79 +55,79 @@ def node_005 : 270
 	return 
 endf 
 
-def node_006 : 219
+def node_006
 	>> node_050 
 	-> ruiner_nergigante.dash(5) 
 	return 
 endf 
 
-def node_007 : 221
+def node_007
 	>> node_050 
 	-> ruiner_nergigante.dash(1,5,0,1000) 
 	return 
 endf 
 
-def node_008 : 315
+def node_008
 	>> node_050 
 	-> ruiner_nergigante.dash(1,5,0,1500) 
 	return 
 endf 
 
-def node_009 : 230
+def node_009
 	>> node_050 
 	-> ruiner_nergigante.dash(2,5,0,3000) 
 	return 
 endf 
 
-def node_010 : 247
+def node_010
 	>> node_050 
 	-> ruiner_nergigante.dash(2,1,5,1500,900) 
 	return 
 endf 
 
-def node_011 : 242
+def node_011
 	>> node_050 
 	-> ruiner_nergigante.dash(2,1,0,4000,1000) 
 	return 
 endf 
 
-def node_012 : 274
+def node_012
 	>> node_050 
 	-> ruiner_nergigante.dash(1,5,0,500) 
 	return 
 endf 
 
-def node_013 : 222
+def node_013
 	>> node_050 
 	-> ruiner_nergigante.walk(5) 
 	return 
 endf 
 
-def node_014 : 223
+def node_014
 	>> node_050 
 	-> ruiner_nergigante.walk(1,5,0,1000) 
 	return 
 endf 
 
-def node_015 : 231
+def node_015
 	>> node_050 
 	-> ruiner_nergigante.walk(2,5,0,3000) 
 	return 
 endf 
 
-def node_016 : 243
+def node_016
 	>> node_050 
 	-> ruiner_nergigante.walk(2,1,0,3000,1000) 
 	return 
 endf 
 
-def node_017 : 233
+def node_017
 	>> node_050 
 	-> ruiner_nergigante.dying_walk(2,5,0,2000) 
 	return 
 endf 
 
-def node_018 : 246
+def node_018
 	if self.distance_3d_to_target().leq(500) 
 		>> node_022 
 	else 
@@ -136,7 +136,7 @@ def node_018 : 246
 	return 
 endf 
 
-def node_019 : 224
+def node_019
 	if self.angle_2d_cw_between(30,330) 
 		if self.flying() 
 			-> ruiner_nergigante.normal_turn() 
@@ -148,7 +148,7 @@ def node_019 : 224
 	return 
 endf 
 
-def node_020 : 225
+def node_020
 	if self.angle_2d_cw_between(60,300) 
 		if self.flying() 
 			-> ruiner_nergigante.normal_turn() 
@@ -160,7 +160,7 @@ def node_020 : 225
 	return 
 endf 
 
-def node_021 : 226
+def node_021
 	if self.angle_2d_cw_between(90,270) 
 		if self.flying() 
 			-> ruiner_nergigante.normal_turn() 
@@ -172,12 +172,12 @@ def node_021 : 226
 	return 
 endf 
 
-def node_022 : 244
+def node_022
 	-> ruiner_nergigante.back_turn() 
 	return 
 endf 
 
-def node_023 : 194
+def node_023
 	if self.angle_2d_cw_between(30,330) 
 		if self.flying() 
 			-> ruiner_nergigante.quick_turn() 
@@ -189,7 +189,7 @@ def node_023 : 194
 	return 
 endf 
 
-def node_024 : 196
+def node_024
 	if self.angle_2d_cw_between(60,300) 
 		if self.flying() 
 			-> ruiner_nergigante.quick_turn() 
@@ -201,7 +201,7 @@ def node_024 : 196
 	return 
 endf 
 
-def node_025 : 195
+def node_025
 	if self.angle_2d_cw_between(90,270) 
 		if self.flying() 
 			-> ruiner_nergigante.quick_turn() 
@@ -213,7 +213,7 @@ def node_025 : 195
 	return 
 endf 
 
-def node_026 : 249
+def node_026
 	if self.angle_2d_cw_between(300,60) 
 		>> node_027 
 	else 
@@ -222,13 +222,13 @@ def node_026 : 249
 	return 
 endf 
 
-def node_027 : 250
+def node_027
 	>> node_025 
 	-> ruiner_nergigante.front_step() 
 	return 
 endf 
 
-def node_028 : 252
+def node_028
 	if self.angle_2d_cw_between(0,180) 
 		if function#10C(4) 
 			-> ruiner_nergigante.strong_side_step_attack() 
@@ -245,12 +245,12 @@ def node_028 : 252
 	return 
 endf 
 
-def node_029 : 253
+def node_029
 	-> ruiner_nergigante.back_step() 
 	return 
 endf 
 
-def node_030 : 193
+def node_030
 	if function#10C(2) 
 		if function#10C(1) 
 			-> ruiner_nergigante.strong_double_punch() 
@@ -263,13 +263,13 @@ def node_030 : 193
 	return 
 endf 
 
-def node_031 : 197
+def node_031
 	>> node_024 
 	-> ruiner_nergigante.rarm_jump_attack_smode() 
 	return 
 endf 
 
-def node_032 : 198
+def node_032
 	if self.angle_2d_cw_between(0,180) 
 		-> ruiner_nergigante.rhand_jab() 
 	else 
@@ -278,17 +278,17 @@ def node_032 : 198
 	return 
 endf 
 
-def node_033 : 202
+def node_033
 	-> ruiner_nergigante.rarm_side_swing() 
 	return 
 endf 
 
-def node_034 : 203
+def node_034
 	-> ruiner_nergigante.lhand_upper() 
 	return 
 endf 
 
-def node_035 : 204
+def node_035
 	>> node_025 
 	if function#10C() 
 		-> ruiner_nergigante.strong_head_attack() 
@@ -298,33 +298,33 @@ def node_035 : 204
 	return 
 endf 
 
-def node_036 : 239
+def node_036
 	-> ruiner_nergigante.left_side_tackle() 
 	return 
 endf 
 
-def node_037 : 238
+def node_037
 	-> ruiner_nergigante.tail_sweep() 
 	return 
 endf 
 
-def node_038 : 240
+def node_038
 	-> ruiner_nergigante.tail_slap() 
 	return 
 endf 
 
-def node_039 : 241
+def node_039
 	>> node_024 
 	-> ruiner_nergigante.short_headbutt() 
 	return 
 endf 
 
-def node_040 : 248
+def node_040
 	-> ruiner_nergigante.wing_attack() 
 	return 
 endf 
 
-def node_041 : 205
+def node_041
 	if self.angle_2d_cw_between(0,180) 
 		-> ruiner_nergigante.r_l_hand_jab() 
 	else 
@@ -333,24 +333,24 @@ def node_041 : 205
 	return 
 endf 
 
-def node_042 : 256
+def node_042
 	random (45) >> node_032 
 	elser (55) >> node_041 
 	endr 
 	return 
 endf 
 
-def node_043 : 257
+def node_043
 	-> ruiner_nergigante.long_range_attack() 
 	return 
 endf 
 
-def node_044 : 258
+def node_044
 	-> ruiner_nergigante.mid_range_punch() 
 	return 
 endf 
 
-def node_045 : 251
+def node_045
 	if function#2D() 
 		if self.fatigued() 
 		else 
@@ -378,7 +378,7 @@ def node_045 : 251
 	return 
 endf 
 
-def node_046 : 255
+def node_046
 	if function#2D() 
 		if self.distance_3d_to_target().leq(4000) 
 			if self.fatigued() 
@@ -398,7 +398,7 @@ def node_046 : 255
 	return 
 endf 
 
-def node_047 : 277
+def node_047
 	if self.flying() 
 	else 
 		-> ruiner_nergigante.flying_attack() 
@@ -406,13 +406,13 @@ def node_047 : 277
 	return 
 endf 
 
-def node_048 : 213
+def node_048
 	>> node_050 
 	-> ruiner_nergigante.tired() 
 	return 
 endf 
 
-def node_049 : 207
+def node_049
 	if self.flying() 
 	else 
 		-> ruiner_nergigante.take_off() 
@@ -420,7 +420,7 @@ def node_049 : 207
 	return 
 endf 
 
-def node_050 : 214
+def node_050
 	if self.flying() 
 		-> ruiner_nergigante.landing() 
 	else 
@@ -428,52 +428,52 @@ def node_050 : 214
 	return 
 endf 
 
-def node_051 : 232
+def node_051
 	>> node_050 
 	-> ruiner_nergigante.search() 
 	return 
 endf 
 
-def node_052 : 217
+def node_052
 	>> node_050 
 	-> ruiner_nergigante.lost_search() 
 	return 
 endf 
 
-def node_053 : 218
+def node_053
 	>> node_050 
 	-> ruiner_nergigante.search() 
 	return 
 endf 
 
-def node_054 : 220
+def node_054
 	>> node_050 
 	-> ruiner_nergigante.anger_search() 
 	return 
 endf 
 
-def node_055 : 227
+def node_055
 endf 
 
-def node_056 : 228
+def node_056
 	>> node_050 
 	-> ruiner_nergigante.discover() 
 	return 
 endf 
 
-def node_057 : 234
+def node_057
 	>> node_050 
 	-> ruiner_nergigante.threat_short() 
 	return 
 endf 
 
-def node_058 : 229
+def node_058
 	>> node_050 
 	-> ruiner_nergigante.refresh() 
 	return 
 endf 
 
-def node_059 : 268
+def node_059
 	if self.hp_percent().gt(20) 
 		if self.in_map(st.Elder_Recess).in_area(14) 
 			if function#103() 
@@ -499,19 +499,19 @@ def node_059 : 268
 	return 
 endf 
 
-def node_060 : 267
+def node_060
 	>> node_050 
 	-> ruiner_nergigante.marking() 
 	return 
 endf 
 
-def node_061 : 235
+def node_061
 	>> node_050 
 	-> ruiner_nergigante.sleep() 
 	return 
 endf 
 
-def node_062 : 269
+def node_062
 	>> node_050 
 	if function#C9() 
 		-> ruiner_nergigante.dying_sleep(3,0,0,150) 
@@ -521,7 +521,7 @@ def node_062 : 269
 	return 
 endf 
 
-def node_063 : 265
+def node_063
 	random (33) 
 				self.targetEnemy(21) @ parameter2:1000 
 	elser (25) 
@@ -534,17 +534,17 @@ def node_063 : 265
 	return 
 endf 
 
-def node_064 : 259
+def node_064
 	-> ruiner_nergigante.ride_tired() 
 	return 
 endf 
 
-def node_065 : 260
+def node_065
 	-> ruiner_nergigante.ride_wait() 
 	return 
 endf 
 
-def node_066 : 261
+def node_066
 	if self.mounted() 
 		-> ruiner_nergigante.ride_rage_head() 
 	else 
@@ -555,7 +555,7 @@ def node_066 : 261
 	return 
 endf 
 
-def node_067 : 262
+def node_067
 	if self.mounted() 
 		-> ruiner_nergigante.ride_rage_body() 
 	else 
@@ -564,7 +564,7 @@ def node_067 : 262
 	return 
 endf 
 
-def node_068 : 263
+def node_068
 	if self.mounted() 
 		-> ruiner_nergigante.ride_rage_tail() 
 	else 
@@ -573,7 +573,7 @@ def node_068 : 263
 	return 
 endf 
 
-def node_069 : 264
+def node_069
 	if function#29() 
 		self.targetEnemy(7) 
 		>> node_070 
@@ -595,7 +595,7 @@ def node_069 : 264
 	return 
 endf 
 
-def node_070 : 266
+def node_070
 	if self.distance_3d_to_target().leq(500) 
 		>> node_029 
 	elif self.distance_3d_to_target().gt(1000) 
@@ -605,107 +605,107 @@ def node_070 : 266
 	return 
 endf 
 
-def node_071 : 302
-	[RegisterVar3 |-] 
+def node_071
+	[RegisterVar3 ++] 
 	if self.in_map(st.Upper_Origin_Isle).in_area(-1) 
-		[RegisterVar3 |-] 
+		[RegisterVar3 ++] 
 	elif self.in_map(st.Wildspire_Waste).in_area(11) 
-		[RegisterVar3 |-] 
+		[RegisterVar3 ++] 
 	elif self.in_map(st.Elder_Recess).in_area(1) 
-		[RegisterVar3 |-] 
+		[RegisterVar3 ++] 
 	elif self.in_map(st.Elder_Recess).in_area(4) 
 		if self.vertical_distance_to_target().gt(990) 
-			[RegisterVar3 ++] 
-		else 
 			[RegisterVar3 |-] 
+		else 
+			[RegisterVar3 ++] 
 		endif 
 	elif self.in_map(st.Guiding_Lands).in_area(8) 
-		[RegisterVar3 |-] 
-	elif self.vertical_distance_to_target().gt(450) 
 		[RegisterVar3 ++] 
-	else 
+	elif self.vertical_distance_to_target().gt(450) 
 		[RegisterVar3 |-] 
+	else 
+		[RegisterVar3 ++] 
 	endif 
 	return 
 endf 
 
-def node_072 : 314
-	[RegisterVar3 |-] 
+def node_072
+	[RegisterVar3 ++] 
 	if self.in_map(st.Upper_Origin_Isle).in_area(-1) 
-		[RegisterVar3 |-] 
+		[RegisterVar3 ++] 
 	elif self.in_map(st.Ancient_Forest).in_area(2) 
 		if self.vertical_distance_to_target().gt(350) 
-			[RegisterVar3 ++] 
-		else 
 			[RegisterVar3 |-] 
+		else 
+			[RegisterVar3 ++] 
 		endif 
 	elif self.in_map(st.Ancient_Forest).in_area(5) 
 		if self.vertical_distance_to_target().gt(350) 
-			[RegisterVar3 ++] 
-		else 
 			[RegisterVar3 |-] 
+		else 
+			[RegisterVar3 ++] 
 		endif 
 	elif self.in_map(st.Ancient_Forest).in_area(6) 
 		if self.vertical_distance_to_target().gt(400) 
-			[RegisterVar3 ++] 
-		else 
 			[RegisterVar3 |-] 
+		else 
+			[RegisterVar3 ++] 
 		endif 
 	elif self.in_map(st.Wildspire_Waste).in_area(3) 
 		if self.vertical_distance_to_target().gt(300) 
-			[RegisterVar3 ++] 
-		else 
 			[RegisterVar3 |-] 
+		else 
+			[RegisterVar3 ++] 
 		endif 
 	elif self.in_map(st.Wildspire_Waste).in_area(11) 
-		[RegisterVar3 |-] 
+		[RegisterVar3 ++] 
 	elif self.in_map(st.Coral_Highlands).in_area(2) 
 		if self.vertical_distance_to_target().gt(350) 
-			[RegisterVar3 ++] 
-		else 
 			[RegisterVar3 |-] 
+		else 
+			[RegisterVar3 ++] 
 		endif 
 	elif self.in_map(st.Coral_Highlands).in_area(10) 
 		if self.vertical_distance_to_target().gt(400) 
-			[RegisterVar3 ++] 
-		else 
 			[RegisterVar3 |-] 
+		else 
+			[RegisterVar3 ++] 
 		endif 
 	elif self.in_map(st.Rotten_Vale).in_area(0) 
 		if self.vertical_distance_to_target().gt(200) 
-			[RegisterVar3 ++] 
-		else 
 			[RegisterVar3 |-] 
+		else 
+			[RegisterVar3 ++] 
 		endif 
 	elif self.in_map(st.Elder_Recess).in_area(1) 
-		[RegisterVar3 |-] 
+		[RegisterVar3 ++] 
 	elif self.in_map(st.Elder_Recess).in_area(2) 
 		if self.vertical_distance_to_target().gt(200) 
-			[RegisterVar3 ++] 
-		else 
 			[RegisterVar3 |-] 
+		else 
+			[RegisterVar3 ++] 
 		endif 
 	elif self.in_map(st.Elder_Recess).in_area(4) 
 		if self.vertical_distance_to_target().gt(990) 
-			[RegisterVar3 ++] 
-		else 
 			[RegisterVar3 |-] 
+		else 
+			[RegisterVar3 ++] 
 		endif 
 	elif self.in_map(st.Hoarfrost_Reach).in_area(18) 
 		if self.vertical_distance_to_target().gt(400) 
-			[RegisterVar3 ++] 
-		else 
 			[RegisterVar3 |-] 
+		else 
+			[RegisterVar3 ++] 
 		endif 
 	elif self.vertical_distance_to_target().gt(450) 
-		[RegisterVar3 ++] 
-	else 
 		[RegisterVar3 |-] 
+	else 
+		[RegisterVar3 ++] 
 	endif 
 	return 
 endf 
 
-def node_073 : 271
+def node_073
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> ruiner_nergigante.glide_direct_move(2,1,5,3000,500) 
@@ -714,7 +714,7 @@ def node_073 : 271
 	return 
 endf 
 
-def node_074 : 272
+def node_074
 	if self.distance_3d_to_target().leq(1000) 
 	else 
 		-> ruiner_nergigante.glide_direct_move(2,1,5,3000,900) 
@@ -723,7 +723,7 @@ def node_074 : 272
 	return 
 endf 
 
-def node_075 : 273
+def node_075
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> ruiner_nergigante.glide(2,1,5,3000,500) 
@@ -732,7 +732,7 @@ def node_075 : 273
 	return 
 endf 
 
-def node_076 : 275
+def node_076
 	if self.flying() 
 		if function#AF(5000) 
 			-> ruiner_nergigante.landing() 
@@ -747,7 +747,7 @@ def node_076 : 275
 	return 
 endf 
 
-def node_077 : 276
+def node_077
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> ruiner_nergigante.glide(2,1,5,3000,500) 
@@ -756,7 +756,7 @@ def node_077 : 276
 	return 
 endf 
 
-def node_078 : 301
+def node_078
 	if function#B9() 
 		if self.angle_2d_cw_between(0,180) 
 			-> ruiner_nergigante.rhand_jab() @ comboSetting:1 
@@ -775,7 +775,7 @@ def node_078 : 301
 	return 
 endf 
 
-def node_079 : 278
+def node_079
 	if function#B9() 
 		-> ruiner_nergigante.ex_jumping_punch() 
 	else 
@@ -784,7 +784,7 @@ def node_079 : 278
 	return 
 endf 
 
-def node_080 : 279
+def node_080
 	if function#10C(2) 
 		-> ruiner_nergigante.strong_rarm_atatck_to_left() 
 	else 
@@ -793,7 +793,7 @@ def node_080 : 279
 	return 
 endf 
 
-def node_081 : 293
+def node_081
 	if function#10C(2) 
 		if self.angle_2d_cw_between(50,180) 
 			-> ruiner_nergigante.strong_rarm_atatck_to_left() 
@@ -806,7 +806,7 @@ def node_081 : 293
 	return 
 endf 
 
-def node_082 : 280
+def node_082
 	if function#10C(4) 
 		-> ruiner_nergigante.mid_range_punch() @ comboSetting:1 
 		-> ruiner_nergigante.strong_rarm_combo() 
@@ -816,7 +816,7 @@ def node_082 : 280
 	return 
 endf 
 
-def node_083 : 281
+def node_083
 	if function#10C(1) 
 		-> ruiner_nergigante.strong_larm_combo() 
 	else 
@@ -825,25 +825,25 @@ def node_083 : 281
 	return 
 endf 
 
-def node_084 : 294
-	[RegisterVar0 |-] 
+def node_084
+	[RegisterVar0 ++] 
 	if self.hp_percent().gt(40) 
-		[RegisterVar0 ++] 
-	else 
 		[RegisterVar0 |-] 
+	else 
+		[RegisterVar0 ++] 
 	endif 
 	return 
 endf 
 
-def node_085 : 297
-	if [RegisterVar1 == 0] 
-		[RegisterVar1 ++] 
+def node_085
+	if [RegisterVar1 += 0] 
+		[RegisterVar1 |-] 
 	else 
 		if self.target.helpless_0() 
 			if self.distance_3d_to_target().leq(5000) 
 				if function#B9() 
 					>> node_087 
-				elif [RegisterVar0 == 0] 
+				elif [RegisterVar0 += 0] 
 					>> node_086 
 				else 
 					>> node_087 
@@ -856,7 +856,7 @@ def node_085 : 297
 	return 
 endf 
 
-def node_086 : 298
+def node_086
 	if self.enraged() 
 		random (70) >> node_088 
 		elser (30) 
@@ -873,7 +873,7 @@ def node_086 : 298
 	return 
 endf 
 
-def node_087 : 299
+def node_087
 	if self.enraged() 
 		random (95) >> node_088 
 		elser (5) 
@@ -890,7 +890,7 @@ def node_087 : 299
 	return 
 endf 
 
-def node_088 : 300
+def node_088
 	if function#105(8) 
 		>> node_093 
 		>> node_097 
@@ -908,10 +908,10 @@ def node_088 : 300
 	return 
 endf 
 
-def node_089 : 291
+def node_089
 	if function#B9() 
 		>> node_091 
-	elif [RegisterVar0 == 0] 
+	elif [RegisterVar0 += 0] 
 		>> node_090 
 	else 
 		>> node_091 
@@ -919,7 +919,7 @@ def node_089 : 291
 	return 
 endf 
 
-def node_090 : 295
+def node_090
 	if function#101(2,3) 
 		function#10D() 
 	else 
@@ -956,7 +956,7 @@ def node_090 : 295
 	return 
 endf 
 
-def node_091 : 296
+def node_091
 	if function#101(1,2) 
 		function#10D() 
 	else 
@@ -989,7 +989,7 @@ def node_091 : 296
 	return 
 endf 
 
-def node_092 : 292
+def node_092
 	if function#2D() 
 	else 
 		self.targetEnemy(48) 
@@ -1017,70 +1017,70 @@ def node_092 : 292
 	return 
 endf 
 
-def node_093 : 282
+def node_093
 	>> node_050 
 	-> ruiner_nergigante.black_thorn_break_arm_r() 
 	return 
 endf 
 
-def node_094 : 306
+def node_094
 	>> node_050 
 	-> ruiner_nergigante.black_thorn_break_arm_l() 
 	return 
 endf 
 
-def node_095 : 284
+def node_095
 	>> node_050 
 	-> ruiner_nergigante.black_thorn_break_wing_r() 
 	return 
 endf 
 
-def node_096 : 285
+def node_096
 	>> node_050 
 	-> ruiner_nergigante.black_thorn_break_wing_l() 
 	return 
 endf 
 
-def node_097 : 303
+def node_097
 	if function#B9() 
-	elif [RegisterVar0 == 0] 
+	elif [RegisterVar0 += 0] 
 		>> node_058 
 	else 
 	endif 
 	return 
 endf 
 
-def node_098 : 286
+def node_098
 	>> node_050 
 	-> ruiner_nergigante.special_head() 
 	return 
 endf 
 
-def node_099 : 287
+def node_099
 	>> node_050 
 	-> ruiner_nergigante.special_arm_r() 
 	return 
 endf 
 
-def node_100 : 288
+def node_100
 	>> node_050 
 	-> ruiner_nergigante.special_arm_l() 
 	return 
 endf 
 
-def node_101 : 289
+def node_101
 	>> node_050 
 	-> ruiner_nergigante.special_wing_r() 
 	return 
 endf 
 
-def node_102 : 290
+def node_102
 	>> node_050 
 	-> ruiner_nergigante.special_wing_l() 
 	return 
 endf 
 
-def node_103 : 304
+def node_103
 	if function#101(2,3) 
 		function#10D() 
 	else 
@@ -1115,7 +1115,7 @@ def node_103 : 304
 	return 
 endf 
 
-def node_104 : 305
+def node_104
 	if function#105(8) 
 		function#10D() 
 		if function#10E(0,180) 
@@ -1155,7 +1155,7 @@ def node_104 : 305
 	return 
 endf 
 
-def node_105 : 307
+def node_105
 	if self.targetEnemy(target_em.any_monster) 
 		if self.target(13) 
 		else 
@@ -1189,7 +1189,7 @@ def node_105 : 307
 	return 
 endf 
 
-def node_106 : 308
+def node_106
 	if function#30(2) 
 		random (25) 
 		elser (10) >> node_108 
@@ -1212,7 +1212,7 @@ def node_106 : 308
 	return 
 endf 
 
-def node_107 : 309
+def node_107
 	if function#30(2) 
 		random (35) 
 		elser (40) >> node_108 
@@ -1229,7 +1229,7 @@ def node_107 : 309
 	return 
 endf 
 
-def node_108 : 310
+def node_108
 	>> node_050 
 	random (60) >> node_058 
 	elser (40) -> ruiner_nergigante.anger_search() 
@@ -1238,7 +1238,7 @@ def node_108 : 310
 	return 
 endf 
 
-def node_109 : 311
+def node_109
 	if self.target_is(em.Velkhana) 
 		if self.target(39) 
 			self.force_area_change2() 
@@ -1269,7 +1269,7 @@ def node_109 : 311
 	return 
 endf 
 
-def node_110 : 312
+def node_110
 	>> node_050 
 	if self.vertical_distance_to_target().gt(800) 
 		random (50) >> node_009 
@@ -1293,27 +1293,27 @@ def node_110 : 312
 	return 
 endf 
 
-def node_111 : 313
+def node_111
 	>> node_110 
 	>> node_109 
 	return 
 endf 
 
-def node_112 : 316
+def node_112
 	>> node_050 
 	>> node_024 
 	-> ruiner_nergigante.jump_attack_up_smode() 
 	return 
 endf 
 
-def node_113 : 318
+def node_113
 	>> node_050 
 	>> node_024 
 	-> ruiner_nergigante.jump_attack_wall_down_smode() 
 	return 
 endf 
 
-def node_114 : 317
+def node_114
 	if self.target(55) 
 		if function#7F() 
 			>> node_035 

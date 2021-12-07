@@ -1,7 +1,7 @@
 importactions Behemoth as behemoth
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	>> Global.node_051 
 	if self.mounted() 
 		random (47) >> node_001 
@@ -15,42 +15,42 @@ def node_000 : 1
 	reset 
 endf 
 
-def node_001 : 2
+def node_001
 	>> node_003 
-	function#A8() 
+	[$U |-] 
 	self.targetEnemy(target_em.random_player_or_cat) 
-	if function#A9(0,1) 
+	if [$U += 1] 
 		>> node_004 => repeat 
-	elif function#A9(0,2) 
+	elif [$U += 2] 
 		self.target_on_part(0) >> Global.node_044 => repeat 
 		self.target_on_part(1) >> Global.node_045 => repeat 
-	elif function#A9(0,3) 
+	elif [$U += 3] 
 		self.target_on_part(0) >> Global.node_044 => repeat 
 		self.target_on_part(1) >> Global.node_045 => repeat 
 	else 
-		function#A8(1) 
+		[$U ++] 
 	endif 
 	return 
 endf 
 
-def node_002 : 3
+def node_002
 	>> node_003 
-	function#A8() 
+	[$U |-] 
 	self.targetEnemy(target_em.random_player_or_cat) 
-	if function#A9(0,1) 
+	if [$U += 1] 
 		>> node_004 => repeat 
-	elif function#A9(0,2) 
+	elif [$U += 2] 
 		self.target_on_part(0) >> Global.node_044 => repeat 
 		self.target_on_part(1) >> Global.node_045 => repeat 
-	elif function#A9(0,3) 
+	elif [$U += 3] 
 		>> node_004 => repeat 
 	else 
-		function#A8(1) 
+		[$U ++] 
 	endif 
 	return 
 endf 
 
-def node_003 : 4
+def node_003
 	if function#3B() 
 		if self.mount_staggered_twice() 
 			>> Global.node_042 
@@ -83,7 +83,7 @@ def node_003 : 4
 	return 
 endf 
 
-def node_004 : 5
+def node_004
 	if self.mounted() 
 		>> Global.node_043 
 	else 

@@ -1,7 +1,7 @@
 importactions Deviljho as deviljho
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	>> Global.node_120 
 	>> Global.node_121 
 	self.targetEnemy(target_em.random_player_or_cat) 
@@ -21,17 +21,17 @@ def node_000 : 1
 	conclude 
 endf 
 
-def node_001 : 2
+def node_001
 	-> deviljho.bind_voice() 
 	return 
 endf 
 
-def node_002 : 3
+def node_002
 	-> deviljho.bind_voice() 
 	return 
 endf 
 
-def node_003 : 4
+def node_003
 	if self.angle_2d_cw_between(30,330) 
 		-> deviljho.quick_turn() 
 	else 

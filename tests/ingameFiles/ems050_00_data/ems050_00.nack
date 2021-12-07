@@ -1,7 +1,7 @@
 importactions Mernos as mernos
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	>> Global.node_021 
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.target(20) 
@@ -15,7 +15,7 @@ def node_000 : 1
 	reset 
 endf 
 
-def node_001 : 36
+def node_001
 	if function#3A() >> Global.node_032 
 	else 
 		random (50) >> Global.node_027 
@@ -25,7 +25,7 @@ def node_001 : 36
 	return 
 endf 
 
-def node_002 : 37
+def node_002
 	if self.distance_2d_to_target().gt(800) 
 		self.targetEnemy(target_em.random_player_or_cat) 
 		function#74(0,300) 

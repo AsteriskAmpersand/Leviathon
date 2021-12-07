@@ -1,6 +1,6 @@
 importactions Popo as popo
 
-def node_000 : 8
+def node_000
 	if self.angle_2d_cw_between(30,330) 
 		-> action#0B() 
 	else 
@@ -8,7 +8,7 @@ def node_000 : 8
 	return 
 endf 
 
-def node_001 : 5
+def node_001
 	if self.distance_3d_to_target().leq(3000) 
 		>> node_000 
 	else 
@@ -25,7 +25,7 @@ def node_001 : 5
 	return 
 endf 
 
-def node_002 : 6
+def node_002
 	if function#B0() 
 		if self.distance_3d_to_target().leq(1500) 
 			-> action#0E() 
@@ -46,7 +46,7 @@ def node_002 : 6
 	return 
 endf 
 
-def node_003 : 7
+def node_003
 	>> node_000 
 	if function#B0() 
 		if self.distance_3d_to_target().leq(1000) 
@@ -64,7 +64,7 @@ def node_003 : 7
 	return 
 endf 
 
-def node_004 : 9
+def node_004
 	if self.distance_3d_to_target().leq(300) 
 		-> action#12() 
 	else 

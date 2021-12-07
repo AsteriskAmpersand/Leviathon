@@ -1,13 +1,13 @@
 importactions Jagras as jagras
 
-def node_000 : 1
+def node_000
 	>> node_011 
 	self.targetEnemy(target_em.random_player_or_cat) 
 	>> node_001 
 	conclude 
 endf 
 
-def node_001 : 2
+def node_001
 	if function#3D() 
 		-> action#3E() 
 	else 
@@ -16,7 +16,7 @@ def node_001 : 2
 	return 
 endf 
 
-def node_002 : 3
+def node_002
 	if self.distance_3d_to_target().leq(350) 
 		>> node_007 
 	elif self.distance_3d_to_target().leq(500) 
@@ -29,7 +29,7 @@ def node_002 : 3
 	return 
 endf 
 
-def node_003 : 4
+def node_003
 	if self.angle_2d_cw_between(15,345) 
 		-> action#31() 
 	else 
@@ -37,7 +37,7 @@ def node_003 : 4
 	return 
 endf 
 
-def node_004 : 5
+def node_004
 	if function#33(0,3) 
 		-> action#09() 
 	elif function#33(1,3) 
@@ -50,7 +50,7 @@ def node_004 : 5
 	return 
 endf 
 
-def node_005 : 6
+def node_005
 	if function#33(0,2) 
 		-> action#28() 
 	elif function#33(1,2) 
@@ -61,7 +61,7 @@ def node_005 : 6
 	return 
 endf 
 
-def node_006 : 7
+def node_006
 	if function#33(0,2) 
 		-> action#26() 
 	elif function#33(1,2) 
@@ -72,7 +72,7 @@ def node_006 : 7
 	return 
 endf 
 
-def node_007 : 8
+def node_007
 	if self.angle_2d_cw_between(345,15) 
 		>> node_005 
 	elif self.angle_2d_cw_between(270,90) 
@@ -84,19 +84,19 @@ def node_007 : 8
 	return 
 endf 
 
-def node_008 : 9
+def node_008
 	>> node_003 
 	>> node_006 
 	return 
 endf 
 
-def node_009 : 10
+def node_009
 	>> node_003 
 	-> action#2C() 
 	return 
 endf 
 
-def node_010 : 11
+def node_010
 	>> node_004 
 	>> node_003 
 	if self.distance_3d_to_target().leq(350) 
@@ -110,7 +110,7 @@ def node_010 : 11
 	return 
 endf 
 
-def node_011 : 12
+def node_011
 	if function#40() 
 		-> action#37() 
 	else 

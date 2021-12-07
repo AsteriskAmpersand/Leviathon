@@ -1,12 +1,12 @@
 importactions Lunastra as lunastra
 importlibrary Global as Global
 
-def node_000 : 65
+def node_000
 	>> Global.node_002 
 	>> node_001 
-	if function#A9(1,5) 
+	if [$U -= 5] 
 		>> node_003 
-	elif function#A9(1,1) 
+	elif [$U -= 1] 
 		>> node_002 
 	elif self.mounted() 
 		random (65) >> node_002 
@@ -20,7 +20,7 @@ def node_000 : 65
 	reset 
 endf 
 
-def node_001 : 81
+def node_001
 	if function#3B() 
 		if self.mount_staggered_twice() 
 			>> node_014 
@@ -47,60 +47,60 @@ def node_001 : 81
 				endr 
 			endif 
 		else 
-			function#A8(1) 
+			[$U ++] 
 			>> node_015 
 		endif 
 	endif 
 	return 
 endf 
 
-def node_002 : 66
-	if function#A9() 
-		function#A8() 
+def node_002
+	if [$U += 0] 
+		[$U |-] 
 	endif 
-	if function#A9(0,1) 
-		function#A8() 
+	if [$U += 1] 
+		[$U |-] 
 		>> node_004 
 	endif 
-	if function#A9(0,2) 
-		function#A8() 
+	if [$U += 2] 
+		[$U |-] 
 		>> node_004 
 	endif 
-	if function#A9(0,3) 
-		function#A8() 
+	if [$U += 3] 
+		[$U |-] 
 		>> node_007 
 	endif 
-	function#A8(1) 
+	[$U ++] 
 	>> node_013 
 	return 
 endf 
 
-def node_003 : 67
-	if function#A9() 
-		function#A8() 
-		function#A8() 
-		function#A8() 
-		function#A8() 
-		function#A8() 
+def node_003
+	if [$U += 0] 
+		[$U |-] 
+		[$U |-] 
+		[$U |-] 
+		[$U |-] 
+		[$U |-] 
 	endif 
-	if function#A9(0,5) 
-		function#A8() 
+	if [$U += 5] 
+		[$U |-] 
 		>> node_007 
 	endif 
-	if function#A9(0,6) 
-		function#A8() 
+	if [$U += 6] 
+		[$U |-] 
 		>> node_004 
 	endif 
-	if function#A9(0,7) 
-		function#A8() 
+	if [$U += 7] 
+		[$U |-] 
 		>> node_007 
 	endif 
-	function#A8(1) 
+	[$U ++] 
 	>> node_013 
 	return 
 endf 
 
-def node_004 : 68
+def node_004
 	if self.mounted() 
 		>> node_005 
 	else 
@@ -109,7 +109,7 @@ def node_004 : 68
 	return 
 endf 
 
-def node_005 : 69
+def node_005
 	>> Global.node_154 
 	if self.target_on_part(0) 
 		>> Global.node_155 
@@ -119,7 +119,7 @@ def node_005 : 69
 	return 
 endf 
 
-def node_006 : 70
+def node_006
 	>> Global.node_154 
 	if self.target_on_part(0) 
 		>> Global.node_156 
@@ -129,7 +129,7 @@ def node_006 : 70
 	return 
 endf 
 
-def node_007 : 71
+def node_007
 	if self.mounted() 
 		>> node_008 
 	else 
@@ -138,7 +138,7 @@ def node_007 : 71
 	return 
 endf 
 
-def node_008 : 72
+def node_008
 	if function#29() 
 		self.targetArea(7) 
 		>> node_012 
@@ -155,7 +155,7 @@ def node_008 : 72
 	return 
 endf 
 
-def node_009 : 73
+def node_009
 	if self.target_on_part(0) 
 		>> Global.node_161 
 	else 
@@ -164,7 +164,7 @@ def node_009 : 73
 	return 
 endf 
 
-def node_010 : 74
+def node_010
 	if function#29() 
 		self.targetArea(7) 
 		>> node_012 
@@ -181,7 +181,7 @@ def node_010 : 74
 	return 
 endf 
 
-def node_011 : 75
+def node_011
 	if self.target_on_part(0) 
 		>> Global.node_162 
 	else 
@@ -190,7 +190,7 @@ def node_011 : 75
 	return 
 endf 
 
-def node_012 : 82
+def node_012
 	if self.in_map(st.Elder_Recess).in_area(10) 
 	else 
 		return 
@@ -203,7 +203,7 @@ def node_012 : 82
 	return 
 endf 
 
-def node_013 : 76
+def node_013
 	if self.mounted() 
 		>> Global.node_165 
 	else 
@@ -211,12 +211,12 @@ def node_013 : 76
 	return 
 endf 
 
-def node_014 : 78
+def node_014
 	>> Global.node_166 
 	return 
 endf 
 
-def node_015 : 79
+def node_015
 	if self.fatigued() 
 		random (35) >> Global.node_165 
 		elser (65) 

@@ -1,7 +1,7 @@
 importactions Stygian_Zinogre as stygian_zinogre
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	function#103() 
 	>> node_001 
 	>> node_002 
@@ -9,12 +9,12 @@ def node_000 : 1
 	conclude 
 endf 
 
-def node_001 : 3
+def node_001
 	>> Global.node_220 
 	return 
 endf 
 
-def node_002 : 4
+def node_002
 	self.targetArea(24) 
 	if self.distance_3d_to_target().gt(500) 
 		-> stygian_zinogre.dying_walk(2,1,0,1500,500) 
@@ -26,7 +26,7 @@ def node_002 : 4
 	return 
 endf 
 
-def node_003 : 5
+def node_003
 	if function#7C() 
 	else 
 		if function#C9() 

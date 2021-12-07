@@ -1,7 +1,7 @@
 importactions Boaboa as boaboa
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	>> node_001 
 	if function#B0(8) 
 		>> node_030 
@@ -22,7 +22,7 @@ def node_000 : 1
 	reset 
 endf 
 
-def node_001 : 648
+def node_001
 	if function#10E(22) 
 		if function#10E(5) 
 			*&
@@ -54,11 +54,11 @@ def node_001 : 648
 						endif 
 					else 
 						if function#B0(8) 
-							if [RegisterVar9 > 5] 
+							if [RegisterVar9 %= 5] 
 								>> node_225 
 								>> node_188 
 								>> node_199 
-								[RegisterVar9 ++] 
+								[RegisterVar9 |-] 
 							else 
 								>> node_194 
 							endif 
@@ -84,7 +84,7 @@ def node_001 : 648
 	return 
 endf 
 
-def node_002 : 649
+def node_002
 	if function#B0(8) 
 		>> node_194 
 	else 
@@ -93,7 +93,7 @@ def node_002 : 649
 	return 
 endf 
 
-def node_003 : 650
+def node_003
 	if function#B0(8) 
 		*&
 	else 
@@ -102,10 +102,10 @@ def node_003 : 650
 	return 
 endf 
 
-def node_004 : 651
+def node_004
 endf 
 
-def node_005 : 24
+def node_005
 	function#52(0,4) 
 	self.targetEnemy(16) 
 	if self.distance_2d_to_target().leq(1000) 
@@ -140,7 +140,7 @@ def node_005 : 24
 	return 
 endf 
 
-def node_006 : 36
+def node_006
 	if self.targetEnemy(target_em.any_monster) 
 		if self.distance_2d_to_target().leq(6000) 
 			if function#B0(12) 
@@ -165,7 +165,7 @@ def node_006 : 36
 	return 
 endf 
 
-def node_007 : 15
+def node_007
 	>> Global.node_001 
 	>> Global.node_017 
 	random (40) >> Global.node_007 
@@ -180,22 +180,22 @@ def node_007 : 15
 	return 
 endf 
 
-def node_008 : 16
+def node_008
 	>> node_007 
 	return 
 endf 
 
-def node_009 : 17
+def node_009
 	>> node_007 
 	return 
 endf 
 
-def node_010 : 18
+def node_010
 	>> node_007 
 	return 
 endf 
 
-def node_011 : 19
+def node_011
 	>> Global.node_001 
 	>> Global.node_017 
 	random (50) >> Global.node_007 
@@ -210,22 +210,22 @@ def node_011 : 19
 	return 
 endf 
 
-def node_012 : 20
+def node_012
 	>> node_011 
 	return 
 endf 
 
-def node_013 : 21
+def node_013
 	>> node_011 
 	return 
 endf 
 
-def node_014 : 22
+def node_014
 	>> node_011 
 	return 
 endf 
 
-def node_015 : 39
+def node_015
 	>> Global.node_001 
 	>> Global.node_017 
 	random (30) >> Global.node_007 
@@ -240,7 +240,7 @@ def node_015 : 39
 	return 
 endf 
 
-def node_016 : 35
+def node_016
 	>> Global.node_001 
 	>> Global.node_017 
 	random (20) >> Global.node_029 
@@ -258,7 +258,7 @@ def node_016 : 35
 	return 
 endf 
 
-def node_017 : 37
+def node_017
 	>> Global.node_001 
 	>> Global.node_017 
 	random (10) >> Global.node_029 
@@ -276,7 +276,7 @@ def node_017 : 37
 	return 
 endf 
 
-def node_018 : 30
+def node_018
 	>> Global.node_001 
 	>> Global.node_017 
 	random (20) >> Global.node_029 
@@ -294,7 +294,7 @@ def node_018 : 30
 	return 
 endf 
 
-def node_019 : 38
+def node_019
 	>> Global.node_001 
 	>> Global.node_017 
 	random (10) >> Global.node_029 
@@ -312,54 +312,54 @@ def node_019 : 38
 	return 
 endf 
 
-def node_020 : 29
+def node_020
 endf 
 
-def node_021 : 25
+def node_021
 	self.targetEnemy(48) 
 	>> Global.node_017 
 	>> Global.node_029 
 	return 
 endf 
 
-def node_022 : 26
+def node_022
 	>> Global.node_001 
 	>> Global.node_017 
 	>> Global.node_029 
 	return 
 endf 
 
-def node_023 : 27
+def node_023
 	>> Global.node_039 
 	return 
 endf 
 
-def node_024 : 28
+def node_024
 	>> Global.node_040 
 	return 
 endf 
 
-def node_025 : 32
+def node_025
 	>> Global.node_001 
 	>> Global.node_017 
 	-> action#1E() 
 	return 
 endf 
 
-def node_026 : 33
+def node_026
 	>> Global.node_001 
 	>> Global.node_017 
 	-> action#20() 
 	return 
 endf 
 
-def node_027 : 40
+def node_027
 	>> Global.node_038 
 	-> action#3D() 
 	return 
 endf 
 
-def node_028 : 41
+def node_028
 	>> Global.node_038 
 	function#54() 
 	function#52(0,4) 
@@ -369,10 +369,10 @@ def node_028 : 41
 	return 
 endf 
 
-def node_029 : 502
+def node_029
 endf 
 
-def node_030 : 503
+def node_030
 	if function#10E(7) 
 		*&
 	else 
@@ -382,7 +382,7 @@ def node_030 : 503
 	return 
 endf 
 
-def node_031 : 515
+def node_031
 	if self.quest_id(1224) 
 		>> node_086 
 	else 
@@ -392,10 +392,10 @@ def node_031 : 515
 	return 
 endf 
 
-def node_032 : 690
+def node_032
 endf 
 
-def node_033 : 488
+def node_033
 	if function#10E(11) 
 		>> node_069 
 	else 
@@ -404,29 +404,29 @@ def node_033 : 488
 	return 
 endf 
 
-def node_034 : 639
+def node_034
 	if function#10E(11) 
 		*&
 	else 
 		return 
 	endif 
-	if [RegisterVar12 == 0] 
+	if [RegisterVar12 += 0] 
 		>> node_035 
 		>> node_073 
 		>> node_036 
 		if function#63() 
 			>> node_076 
-			[RegisterVar12 |-] 
 			[RegisterVar12 ++] 
+			[RegisterVar12 |-] 
 		else 
 			if function#10E() 
 				>> node_076 
-				[RegisterVar12 |-] 
 				[RegisterVar12 ++] 
+				[RegisterVar12 |-] 
 			elif function#10E(0,1) 
 				>> node_076 
-				[RegisterVar12 |-] 
 				[RegisterVar12 ++] 
+				[RegisterVar12 |-] 
 			elif function#10E(0,2) 
 				>> node_077 
 			else 
@@ -440,14 +440,14 @@ def node_034 : 639
 	return 
 endf 
 
-def node_035 : 671
+def node_035
 	>> node_194 
 	function#BE() 
 	>> node_195 
 	return 
 endf 
 
-def node_036 : 672
+def node_036
 	if function#63() 
 		>> node_076 
 		>> node_037 
@@ -467,16 +467,16 @@ def node_036 : 672
 	return 
 endf 
 
-def node_037 : 673
-	[RegisterVar12 |-] 
+def node_037
 	[RegisterVar12 ++] 
+	[RegisterVar12 |-] 
 	return 
 endf 
 
-def node_038 : 483
+def node_038
 endf 
 
-def node_039 : 548
+def node_039
 	>> node_045 
 	>> node_048 
 	>> node_225 
@@ -494,7 +494,7 @@ def node_039 : 548
 	return 
 endf 
 
-def node_040 : 685
+def node_040
 	if function#10D(11,1000) 
 		>> node_041 
 	else 
@@ -503,7 +503,7 @@ def node_040 : 685
 	return 
 endf 
 
-def node_041 : 686
+def node_041
 	if function#10E(21) 
 		>> node_042 
 	else 
@@ -512,10 +512,10 @@ def node_041 : 686
 	return 
 endf 
 
-def node_042 : 688
+def node_042
 	>> node_052 
 	>> node_053 
-	if [RegisterVar18 == 0] 
+	if [RegisterVar18 += 0] 
 		>> node_051 
 	else 
 		>> node_061 
@@ -523,10 +523,10 @@ def node_042 : 688
 	return 
 endf 
 
-def node_043 : 689
+def node_043
 	>> node_052 
 	>> node_053 
-	if [RegisterVar18 == 0] 
+	if [RegisterVar18 += 0] 
 		>> node_051 
 	else 
 		>> node_061 
@@ -534,8 +534,8 @@ def node_043 : 689
 	return 
 endf 
 
-def node_044 : 687
-	if [RegisterVar18 == 0] 
+def node_044
+	if [RegisterVar18 += 0] 
 		>> node_055 
 	else 
 		>> node_061 
@@ -543,7 +543,7 @@ def node_044 : 687
 	return 
 endf 
 
-def node_045 : 499
+def node_045
 	>> node_046 
 	if function#10E(8,100) 
 		*&
@@ -587,18 +587,18 @@ def node_045 : 499
 	return 
 endf 
 
-def node_046 : 576
-	if [RegisterVar10 == 0] 
+def node_046
+	if [RegisterVar10 += 0] 
 		>> node_047 
-		[RegisterVar10 |-] 
 		[RegisterVar10 ++] 
+		[RegisterVar10 |-] 
 	else 
 		*&
 	endif 
 	return 
 endf 
 
-def node_047 : 539
+def node_047
 	if function#63() 
 		*&
 	else 
@@ -613,7 +613,7 @@ def node_047 : 539
 	return 
 endf 
 
-def node_048 : 514
+def node_048
 	if function#10E(11) 
 		>> node_194 
 		reset 
@@ -623,7 +623,7 @@ def node_048 : 514
 	return 
 endf 
 
-def node_049 : 663
+def node_049
 	if function#63() 
 		*&
 	else 
@@ -638,8 +638,8 @@ def node_049 : 663
 	return 
 endf 
 
-def node_050 : 664
-	if [RegisterVar17 == 0] 
+def node_050
+	if [RegisterVar17 += 0] 
 		>> node_225 
 		if self.target(4) 
 			if self.distance_3d_recalc_to_target().leq(5000) 
@@ -675,8 +675,8 @@ def node_050 : 664
 				>> node_194 
 				repeat 
 			endif 
-			[RegisterVar17 |-] 
 			[RegisterVar17 ++] 
+			[RegisterVar17 |-] 
 		endif 
 		repeat 
 	else 
@@ -685,7 +685,7 @@ def node_050 : 664
 	return 
 endf 
 
-def node_051 : 610
+def node_051
 	function#10E(18,1000) 
 	if self.distance_3d_recalc_to_target().leq(200) 
 		>> node_057 
@@ -710,12 +710,12 @@ def node_051 : 610
 	return 
 endf 
 
-def node_052 : 612
+def node_052
 	>> node_034 
 	function#54() 
 	self.targetEnemy(target_em.any_monster) 
 	if self.target(13) 
-		if [RegisterVar18 == 0] 
+		if [RegisterVar18 += 0] 
 			>> node_051 
 		else 
 			>> node_061 
@@ -725,7 +725,7 @@ def node_052 : 612
 	return 
 endf 
 
-def node_053 : 613
+def node_053
 	>> node_034 
 	function#54() 
 	self.targetEnemy(target_em.any_monster) 
@@ -743,7 +743,7 @@ def node_053 : 613
 	return 
 endf 
 
-def node_054 : 611
+def node_054
 	>> node_034 
 	>> node_059 
 	>> node_225 
@@ -759,7 +759,7 @@ def node_054 : 611
 	return 
 endf 
 
-def node_055 : 551
+def node_055
 	>> node_225 
 	if self.distance_3d_recalc_to_target().leq(1000) 
 		>> node_063 
@@ -793,7 +793,7 @@ def node_055 : 551
 	return 
 endf 
 
-def node_056 : 609
+def node_056
 	>> node_225 
 	if self.distance_3d_recalc_to_target().leq(1000) 
 		>> node_063 
@@ -815,7 +815,7 @@ def node_056 : 609
 	return 
 endf 
 
-def node_057 : 614
+def node_057
 	>> node_034 
 	function#54() 
 	self.targetEnemy(target_em.any_monster) 
@@ -835,7 +835,7 @@ def node_057 : 614
 	return 
 endf 
 
-def node_058 : 712
+def node_058
 	if self.distance_3d_recalc_to_target().leq(1000) 
 		random (50) 
 					>> Global.node_024 
@@ -860,7 +860,7 @@ def node_058 : 712
 	return 
 endf 
 
-def node_059 : 549
+def node_059
 	if function#10E(10) 
 		>> node_060 
 	else 
@@ -869,7 +869,7 @@ def node_059 : 549
 	return 
 endf 
 
-def node_060 : 668
+def node_060
 	if function#3F() 
 	else 
 		>> node_225 
@@ -879,24 +879,24 @@ def node_060 : 668
 	return 
 endf 
 
-def node_061 : 552
+def node_061
 	if function#3F() 
 	else 
 		>> node_059 
 	endif 
 	if self.distance_3d_recalc_to_target().leq(1000) 
-		if [RegisterVar14 == 0] 
+		if [RegisterVar14 += 0] 
 			>> node_194 
 			function#10E(14) 
-			[RegisterVar14 ++] 
+			[RegisterVar14 |-] 
 		else 
 			>> node_194 
 		endif 
 	elif self.distance_3d_recalc_to_target().leq(1500) 
-		if [RegisterVar14 == 0] 
+		if [RegisterVar14 += 0] 
 			>> node_194 
 			function#10E(14) 
-			[RegisterVar14 ++] 
+			[RegisterVar14 |-] 
 		else 
 			>> node_194 
 		endif 
@@ -908,24 +908,24 @@ def node_061 : 552
 		else 
 			>> node_211 
 		endif 
-		[RegisterVar14 |-] 
-		[RegisterVar18 |-] 
+		[RegisterVar14 ++] 
+		[RegisterVar18 ++] 
 	else 
 		>> node_062 
 	endif 
 	return 
 endf 
 
-def node_062 : 550
+def node_062
 	>> node_034 
 	if function#10D(2,3000) 
 		>> node_195 
-		if [RegisterVar18 == 0] 
+		if [RegisterVar18 += 0] 
 			*&
 		else 
 			function#10E(14) 
-			[RegisterVar14 |-] 
-			[RegisterVar18 |-] 
+			[RegisterVar14 ++] 
+			[RegisterVar18 ++] 
 		endif 
 		>> node_211 
 	else 
@@ -936,42 +936,42 @@ def node_062 : 550
 	return 
 endf 
 
-def node_063 : 544
+def node_063
 	-> action#0E() 
 	function#54() 
 	self.targetArea(10) @ parameter2:1000 
 	>> node_064 
 	>> node_225 
 	>> node_188 
-	[RegisterVar18 ++] 
-	[RegisterVar18 ++] 
-	[RegisterVar18 ++] 
+	[RegisterVar18 |-] 
+	[RegisterVar18 |-] 
+	[RegisterVar18 |-] 
 	return 
 endf 
 
-def node_064 : 545
+def node_064
 	-> action#0A(2,3,0,1000,7) 
 	return 
 endf 
 
-def node_065 : 540
-	[RegisterVar18 ++] 
-	[RegisterVar18 ++] 
-	[RegisterVar18 ++] 
+def node_065
+	[RegisterVar18 |-] 
+	[RegisterVar18 |-] 
+	[RegisterVar18 |-] 
 	return 
 endf 
 
-def node_066 : 529
-	if [RegisterVar18 == 0] 
+def node_066
+	if [RegisterVar18 += 0] 
 		*&
 	else 
 		function#10E(14) 
-		[RegisterVar18 |-] 
+		[RegisterVar18 ++] 
 	endif 
 	return 
 endf 
 
-def node_067 : 587
+def node_067
 	if function#3F() 
 		-> action#25() 
 	else 
@@ -992,10 +992,10 @@ def node_067 : 587
 	return 
 endf 
 
-def node_068 : 490
+def node_068
 endf 
 
-def node_069 : 492
+def node_069
 	>> node_072 
 	>> node_075 
 	>> node_070 
@@ -1004,7 +1004,7 @@ def node_069 : 492
 	return 
 endf 
 
-def node_070 : 489
+def node_070
 	if function#10E(12) 
 		if self.quest_id(1224) 
 			>> node_086 
@@ -1018,7 +1018,7 @@ def node_070 : 489
 	return 
 endf 
 
-def node_071 : 586
+def node_071
 	if function#10E(12) 
 		>> node_194 
 		repeat 
@@ -1028,8 +1028,8 @@ def node_071 : 586
 	return 
 endf 
 
-def node_072 : 667
-	if [RegisterVar12 == 0] 
+def node_072
+	if [RegisterVar12 += 0] 
 		>> node_194 
 		function#BE() 
 		>> node_195 
@@ -1040,8 +1040,8 @@ def node_072 : 667
 	return 
 endf 
 
-def node_073 : 622
-	if [RegisterVar5 == 0] 
+def node_073
+	if [RegisterVar5 += 0] 
 		if function#63() 
 			function#105(0,17) 
 		else 
@@ -1062,7 +1062,7 @@ def node_073 : 622
 	return 
 endf 
 
-def node_074 : 652
+def node_074
 	if self.distance_3d_recalc_to_target().leq(200) 
 		>> node_225 
 		>> Global.node_017 
@@ -1076,9 +1076,9 @@ def node_074 : 652
 	return 
 endf 
 
-def node_075 : 659
-	[RegisterVar12 |-] 
+def node_075
 	[RegisterVar12 ++] 
+	[RegisterVar12 |-] 
 	if function#63() 
 		>> node_076 
 	else 
@@ -1097,18 +1097,18 @@ def node_075 : 659
 	return 
 endf 
 
-def node_076 : 590
+def node_076
 	if function#10E(7) 
 		*&
 	else 
 		>> node_194 
 		reset 
 	endif 
-	if [RegisterVar5 == 0] 
+	if [RegisterVar5 += 0] 
 		if function#10D(10,1500) 
 			>> node_204 
-			[RegisterVar5 |-] 
 			[RegisterVar5 ++] 
+			[RegisterVar5 |-] 
 			function#107(5) 
 		else 
 			>> node_225 
@@ -1122,7 +1122,7 @@ def node_076 : 590
 	return 
 endf 
 
-def node_077 : 655
+def node_077
 	if function#10E(7) 
 		*&
 	else 
@@ -1144,7 +1144,7 @@ def node_077 : 655
 	return 
 endf 
 
-def node_078 : 654
+def node_078
 	if function#63() 
 		>> node_079 
 	else 
@@ -1157,7 +1157,7 @@ def node_078 : 654
 	return 
 endf 
 
-def node_079 : 660
+def node_079
 	if function#10E(7) 
 		*&
 	else 
@@ -1192,7 +1192,7 @@ def node_079 : 660
 	return 
 endf 
 
-def node_080 : 658
+def node_080
 	if function#10E(7) 
 		*&
 	else 
@@ -1206,12 +1206,12 @@ def node_080 : 658
 		function#105(0,22) 
 		if self.distance_3d_recalc_to_target().leq(800) 
 			if function#10E() 
-				if [RegisterVar16 == 0] 
+				if [RegisterVar16 += 0] 
 					>> node_225 
 					>> node_188 
 					>> Global.node_026 
-					[RegisterVar16 |-] 
 					[RegisterVar16 ++] 
+					[RegisterVar16 |-] 
 				else 
 					>> node_225 
 					>> node_188 
@@ -1229,7 +1229,7 @@ def node_080 : 658
 		endif 
 		repeat 
 	elif self.distance_3d_recalc_to_target().leq(400) 
-		if [RegisterVar16 == 0] 
+		if [RegisterVar16 += 0] 
 			>> node_218 
 		else 
 			>> node_225 
@@ -1238,7 +1238,7 @@ def node_080 : 658
 		endif 
 		repeat 
 	elif self.distance_3d_recalc_to_target().leq(800) 
-		if [RegisterVar16 == 0] 
+		if [RegisterVar16 += 0] 
 			>> node_214 
 		else 
 			>> node_225 
@@ -1247,7 +1247,7 @@ def node_080 : 658
 		endif 
 		repeat 
 	else 
-		if [RegisterVar16 == 0] 
+		if [RegisterVar16 += 0] 
 			>> node_216 
 		else 
 			>> node_225 
@@ -1259,19 +1259,19 @@ def node_080 : 658
 	return 
 endf 
 
-def node_081 : 494
+def node_081
 	function#54() 
 	function#52(0,5) 
 	self.targetEnemy(16) 
 	return 
 endf 
 
-def node_082 : 497
+def node_082
 	-> action#0A(2,1,0,1500,200) 
 	return 
 endf 
 
-def node_083 : 580
+def node_083
 	if function#10D(10,2000) 
 		>> node_084 
 		function#107(5) 
@@ -1279,28 +1279,28 @@ def node_083 : 580
 		>> node_225 
 		>> node_188 
 		>> node_211 
-		[RegisterVar11 ++] 
-		[RegisterVar11 ++] 
-		[RegisterVar11 ++] 
+		[RegisterVar11 |-] 
+		[RegisterVar11 |-] 
+		[RegisterVar11 |-] 
 		repeat 
 	endif 
 	return 
 endf 
 
-def node_084 : 581
-	if [RegisterVar11 == 0] 
+def node_084
+	if [RegisterVar11 += 0] 
 		*&
 	else 
 		>> node_204 
-		[RegisterVar11 |-] 
+		[RegisterVar11 ++] 
 	endif 
 	return 
 endf 
 
-def node_085 : 506
+def node_085
 endf 
 
-def node_086 : 507
+def node_086
 	>> node_098 
 	>> node_087 
 	>> node_092 
@@ -1310,8 +1310,8 @@ def node_086 : 507
 	return 
 endf 
 
-def node_087 : 505
-	if [RegisterVar16 == 0] 
+def node_087
+	if [RegisterVar16 += 0] 
 		>> node_225 
 		>> node_188 
 		if self.target(4) 
@@ -1326,26 +1326,26 @@ def node_087 : 505
 			endif 
 			>> node_204 
 		endif 
-		[RegisterVar16 |-] 
 		[RegisterVar16 ++] 
+		[RegisterVar16 |-] 
 	else 
 		*&
 	endif 
 	return 
 endf 
 
-def node_088 : 530
-	if [RegisterVar17 == 0] 
+def node_088
+	if [RegisterVar17 += 0] 
 		function#10E(15) 
-		[RegisterVar17 |-] 
 		[RegisterVar17 ++] 
+		[RegisterVar17 |-] 
 	else 
 		*&
 	endif 
 	return 
 endf 
 
-def node_089 : 644
+def node_089
 	if function#63() 
 		>> node_225 
 		>> node_203 
@@ -1366,7 +1366,7 @@ def node_089 : 644
 	return 
 endf 
 
-def node_090 : 645
+def node_090
 	function#54() 
 	function#105(0,5) 
 	>> node_188 
@@ -1374,7 +1374,7 @@ def node_090 : 645
 	return 
 endf 
 
-def node_091 : 646
+def node_091
 	function#54() 
 	function#105(0,6) 
 	>> node_188 
@@ -1382,7 +1382,7 @@ def node_091 : 646
 	return 
 endf 
 
-def node_092 : 508
+def node_092
 	if function#103(5) 
 		>> node_171 
 	else 
@@ -1392,7 +1392,7 @@ def node_092 : 508
 	return 
 endf 
 
-def node_093 : 509
+def node_093
 	if function#10E(5) 
 		>> node_194 
 		repeat 
@@ -1402,7 +1402,7 @@ def node_093 : 509
 	return 
 endf 
 
-def node_094 : 510
+def node_094
 	if function#103(2) 
 		>> node_194 
 		repeat 
@@ -1417,7 +1417,7 @@ def node_094 : 510
 	return 
 endf 
 
-def node_095 : 696
+def node_095
 	if function#63() 
 		>> node_097 
 	else 
@@ -1430,10 +1430,10 @@ def node_095 : 696
 	return 
 endf 
 
-def node_096 : 697
+def node_096
 endf 
 
-def node_097 : 511
+def node_097
 	if function#10A(3) 
 		>> node_098 
 		>> node_229 
@@ -1445,7 +1445,7 @@ def node_097 : 511
 	return 
 endf 
 
-def node_098 : 553
+def node_098
 	if function#103(7) 
 		>> node_230 
 		>> node_099 
@@ -1455,7 +1455,7 @@ def node_098 : 553
 	return 
 endf 
 
-def node_099 : 691
+def node_099
 	if function#103(11) 
 		>> node_195 
 		>> node_135 
@@ -1465,8 +1465,8 @@ def node_099 : 691
 	return 
 endf 
 
-def node_100 : 123
-	if [RegisterVar3 == 0] 
+def node_100
+	if [RegisterVar3 += 0] 
 		>> node_101 
 		>> node_243 
 	else 
@@ -1475,7 +1475,7 @@ def node_100 : 123
 	reset 
 endf 
 
-def node_101 : 116
+def node_101
 	if function#10A() 
 		>> node_103 
 		>> node_106 
@@ -1491,18 +1491,18 @@ def node_101 : 116
 	return 
 endf 
 
-def node_102 : 692
+def node_102
 endf 
 
-def node_103 : 556
+def node_103
 	*&
 	>> node_111 
 	if function#10A(3) 
-		if [RegisterVar15 == 0] 
+		if [RegisterVar15 += 0] 
 			if function#10A(9) 
 				>> node_104 
-				[RegisterVar15 |-] 
 				[RegisterVar15 ++] 
+				[RegisterVar15 |-] 
 			else 
 				if self.distance_3d_recalc_to_target().leq(1000) 
 					>> node_208 
@@ -1520,7 +1520,7 @@ def node_103 : 556
 	return 
 endf 
 
-def node_104 : 513
+def node_104
 	function#54() 
 	if function#63() 
 		function#105(0,4) 
@@ -1548,7 +1548,7 @@ def node_104 : 513
 	return 
 endf 
 
-def node_105 : 704
+def node_105
 	if function#63() 
 		>> node_211 
 	else 
@@ -1567,7 +1567,7 @@ def node_105 : 704
 	return 
 endf 
 
-def node_106 : 557
+def node_106
 	>> node_098 
 	>> node_111 
 	if function#103(1) 
@@ -1581,10 +1581,10 @@ def node_106 : 557
 	return 
 endf 
 
-def node_107 : 693
+def node_107
 endf 
 
-def node_108 : 694
+def node_108
 	if function#63() 
 		>> node_109 
 	else 
@@ -1593,10 +1593,10 @@ def node_108 : 694
 	return 
 endf 
 
-def node_109 : 695
-	if [RegisterVar13 == 0] 
-		[RegisterVar13 |-] 
+def node_109
+	if [RegisterVar13 += 0] 
 		[RegisterVar13 ++] 
+		[RegisterVar13 |-] 
 		>> node_234 
 	else 
 		>> node_235 
@@ -1604,7 +1604,7 @@ def node_109 : 695
 	return 
 endf 
 
-def node_110 : 554
+def node_110
 	>> node_098 
 	>> node_111 
 	if function#103(1) 
@@ -1625,7 +1625,7 @@ def node_110 : 554
 	return 
 endf 
 
-def node_111 : 555
+def node_111
 	if function#3F() 
 		>> node_194 
 		repeat 
@@ -1635,10 +1635,10 @@ def node_111 : 555
 	return 
 endf 
 
-def node_112 : 698
+def node_112
 endf 
 
-def node_113 : 597
+def node_113
 	if function#10A() 
 		>> node_097 
 	else 
@@ -1654,24 +1654,24 @@ def node_113 : 597
 	return 
 endf 
 
-def node_114 : 598
+def node_114
 	>> node_225 
 	if self.distance_3d_recalc_to_target().leq(1000) 
 		>> node_188 
 		-> action#5A() 
 	else 
-		if [RegisterVar14 == 0] 
+		if [RegisterVar14 += 0] 
 			>> node_216 
 		else 
 			>> node_211 
-			[RegisterVar14 |-] 
+			[RegisterVar14 ++] 
 		endif 
 		repeat 
 	endif 
 	return 
 endf 
 
-def node_115 : 599
+def node_115
 	if function#10A(3) 
 		*&
 	else 
@@ -1683,12 +1683,12 @@ def node_115 : 599
 	return 
 endf 
 
-def node_116 : 600
+def node_116
 	>> node_229 
 	if self.distance_3d_recalc_to_target().leq(2000) 
 		>> node_236 
 	else 
-		if [RegisterVar14 == 0] 
+		if [RegisterVar14 += 0] 
 			-> action#0A(2,1,0,800,500) 
 			>> Global.node_026 
 			-> action#6D() 
@@ -1699,9 +1699,9 @@ def node_116 : 600
 		if self.distance_3d_recalc_to_target().leq(1000) 
 			>> node_229 
 			-> action#0A(2,1,0,1000,500) 
-			[RegisterVar14 ++] 
-			[RegisterVar14 ++] 
-			[RegisterVar14 ++] 
+			[RegisterVar14 |-] 
+			[RegisterVar14 |-] 
+			[RegisterVar14 |-] 
 			repeat 
 		else 
 			>> node_211 
@@ -1710,7 +1710,7 @@ def node_116 : 600
 	return 
 endf 
 
-def node_117 : 261
+def node_117
 	>> node_098 
 	if function#3F() 
 		>> node_194 
@@ -1735,10 +1735,10 @@ def node_117 : 261
 	return 
 endf 
 
-def node_118 : 521
+def node_118
 endf 
 
-def node_119 : 522
+def node_119
 	>> node_120 
 	>> node_121 
 	if function#103(7) 
@@ -1751,7 +1751,7 @@ def node_119 : 522
 	return 
 endf 
 
-def node_120 : 361
+def node_120
 	if function#10E(5) 
 		if function#3F() 
 			>> node_193 
@@ -1765,10 +1765,10 @@ def node_120 : 361
 	return 
 endf 
 
-def node_121 : 59
+def node_121
 	>> node_230 
 	if function#103(2) 
-		if [RegisterVar2 >= 0] 
+		if [RegisterVar2 /= 0] 
 			>> node_123 
 			>> node_199 
 			>> node_199 
@@ -1789,10 +1789,10 @@ def node_121 : 59
 	return 
 endf 
 
-def node_122 : 523
+def node_122
 	if function#103(2) 
 		>> node_230 
-		if [RegisterVar2 == 0] 
+		if [RegisterVar2 += 0] 
 			>> node_123 
 			>> node_199 
 		else 
@@ -1805,7 +1805,7 @@ def node_122 : 523
 	return 
 endf 
 
-def node_123 : 257
+def node_123
 	>> node_230 
 	>> node_195 
 	if self.distance_3d_to_target().leq(1500) 
@@ -1817,7 +1817,7 @@ def node_123 : 257
 	return 
 endf 
 
-def node_124 : 203
+def node_124
 	if function#B0(9) 
 		random (50) 
 					>> node_125 
@@ -1831,7 +1831,7 @@ def node_124 : 203
 	return 
 endf 
 
-def node_125 : 636
+def node_125
 	>> node_230 
 	if self.distance_3d_recalc_to_target().leq(1200) 
 		*&
@@ -1845,7 +1845,7 @@ def node_125 : 636
 	return 
 endf 
 
-def node_126 : 637
+def node_126
 	>> node_230 
 	if self.distance_3d_recalc_to_target().leq(1500) 
 		*&
@@ -1859,7 +1859,7 @@ def node_126 : 637
 	return 
 endf 
 
-def node_127 : 638
+def node_127
 	>> node_225 
 	if self.distance_3d_recalc_to_target().leq(1000) 
 		*&
@@ -1873,13 +1873,13 @@ def node_127 : 638
 	return 
 endf 
 
-def node_128 : 525
+def node_128
 	>> node_129 
 	>> node_130 
 	return 
 endf 
 
-def node_129 : 61
+def node_129
 	>> node_230 
 	if function#110() 
 		return 
@@ -1912,7 +1912,7 @@ def node_129 : 61
 	return 
 endf 
 
-def node_130 : 682
+def node_130
 	if function#103(17) 
 		>> node_230 
 		if self.distance_3d_recalc_to_target().leq(3000) 
@@ -1941,7 +1941,7 @@ def node_130 : 682
 	return 
 endf 
 
-def node_131 : 674
+def node_131
 	if function#63() 
 		>> node_135 
 	else 
@@ -1957,8 +1957,8 @@ def node_131 : 674
 	return 
 endf 
 
-def node_132 : 526
-	if [RegisterVar1 == 0] 
+def node_132
+	if [RegisterVar1 += 0] 
 		*&
 	else 
 		>> node_195 
@@ -1968,8 +1968,8 @@ def node_132 : 526
 			>> node_230 
 			>> node_133 
 			>> node_198 
-			[RegisterVar0 |-] 
 			[RegisterVar0 ++] 
+			[RegisterVar0 |-] 
 		else 
 			>> node_193 
 		endif 
@@ -1979,7 +1979,7 @@ def node_132 : 526
 	return 
 endf 
 
-def node_133 : 620
+def node_133
 	random (50) 
 				>> node_193 
 	elser (10) 
@@ -1995,18 +1995,18 @@ def node_133 : 620
 	return 
 endf 
 
-def node_134 : 675
+def node_134
 endf 
 
-def node_135 : 558
+def node_135
 	if function#103(12) 
-		if [RegisterVar11 == 0] 
+		if [RegisterVar11 += 0] 
 			>> node_136 
 		else 
 			>> node_144 
 		endif 
 	else 
-		if [RegisterVar11 == 0] 
+		if [RegisterVar11 += 0] 
 			>> node_136 
 		else 
 			>> node_144 
@@ -2015,7 +2015,7 @@ def node_135 : 558
 	return 
 endf 
 
-def node_136 : 562
+def node_136
 	if function#63() 
 		random (50) 
 					>> node_137 
@@ -2042,7 +2042,7 @@ def node_136 : 562
 	return 
 endf 
 
-def node_137 : 559
+def node_137
 	>> node_166 
 	if self.target.in_combat() 
 		if function#103(8) 
@@ -2095,7 +2095,7 @@ def node_137 : 559
 	return 
 endf 
 
-def node_138 : 706
+def node_138
 	if function#103(15) 
 		>> node_188 
 		>> node_199 
@@ -2109,7 +2109,7 @@ def node_138 : 706
 	return 
 endf 
 
-def node_139 : 560
+def node_139
 	>> node_166 
 	if self.distance_3d_recalc_to_target().leq(2500) 
 		if self.target.in_combat() 
@@ -2158,7 +2158,7 @@ def node_139 : 560
 	return 
 endf 
 
-def node_140 : 708
+def node_140
 	if function#103(15) 
 		>> node_188 
 		>> node_199 
@@ -2172,7 +2172,7 @@ def node_140 : 708
 	return 
 endf 
 
-def node_141 : 561
+def node_141
 	>> node_166 
 	if self.distance_3d_recalc_to_target().leq(1000) 
 		>> node_148 
@@ -2192,7 +2192,7 @@ def node_141 : 561
 	return 
 endf 
 
-def node_142 : 707
+def node_142
 	if function#103(15) 
 		>> node_188 
 		>> node_199 
@@ -2202,7 +2202,7 @@ def node_142 : 707
 	return 
 endf 
 
-def node_143 : 711
+def node_143
 	random (30) 
 				-> action#75() 
 	elser (30) 
@@ -2213,7 +2213,7 @@ def node_143 : 711
 	return 
 endf 
 
-def node_144 : 567
+def node_144
 	if function#63() 
 		random (50) 
 					>> node_145 
@@ -2234,7 +2234,7 @@ def node_144 : 567
 	return 
 endf 
 
-def node_145 : 568
+def node_145
 	>> node_166 
 	if self.distance_3d_recalc_to_target().leq(2000) 
 		if self.target.in_combat() 
@@ -2272,7 +2272,7 @@ def node_145 : 568
 	return 
 endf 
 
-def node_146 : 569
+def node_146
 	>> node_166 
 	if self.distance_3d_recalc_to_target().leq(2500) 
 		if self.target.in_combat() 
@@ -2310,7 +2310,7 @@ def node_146 : 569
 	return 
 endf 
 
-def node_147 : 570
+def node_147
 	>> node_166 
 	if self.distance_3d_recalc_to_target().leq(1000) 
 		>> node_148 
@@ -2330,7 +2330,7 @@ def node_147 : 570
 	return 
 endf 
 
-def node_148 : 632
+def node_148
 	function#54() 
 	self.targetArea(10) @ parameter2:1000 
 	-> action#0A(2,3,0,1000,7) 
@@ -2339,7 +2339,7 @@ def node_148 : 632
 	return 
 endf 
 
-def node_149 : 699
+def node_149
 	random (50) 
 				>> Global.node_055 
 	elser (25) 
@@ -2353,7 +2353,7 @@ def node_149 : 699
 	return 
 endf 
 
-def node_150 : 701
+def node_150
 	random (1) 
 				>> Global.node_026 
 				>> node_197 
@@ -2368,7 +2368,7 @@ def node_150 : 701
 	return 
 endf 
 
-def node_151 : 700
+def node_151
 	random (15) 
 				>> Global.node_024 
 	elser (40) 
@@ -2382,7 +2382,7 @@ def node_151 : 700
 	return 
 endf 
 
-def node_152 : 702
+def node_152
 	random (40) 
 				>> Global.node_026 
 				>> node_192 
@@ -2402,7 +2402,7 @@ def node_152 : 702
 	return 
 endf 
 
-def node_153 : 705
+def node_153
 	if function#103(16) 
 		if self.distance_3d_recalc_to_target().leq(1000) 
 			random (50) 
@@ -2477,23 +2477,23 @@ def node_153 : 705
 	return 
 endf 
 
-def node_154 : 713
-	if [RegisterVar11 == 0] 
+def node_154
+	if [RegisterVar11 += 0] 
 		*&
 	else 
-		[RegisterVar11 |-] 
+		[RegisterVar11 ++] 
 	endif 
 	return 
 endf 
 
-def node_155 : 716
+def node_155
 	function#54() 
 	self.targetArea(10) @ parameter2:1000 
 	-> action#0A(2,3,0,1000,3) 
 	return 
 endf 
 
-def node_156 : 714
+def node_156
 	random (50) 
 				-> action#0A(2,1,0,2000,1200) 
 	elser (50) 
@@ -2502,7 +2502,7 @@ def node_156 : 714
 	return 
 endf 
 
-def node_157 : 715
+def node_157
 	random (50) 
 				-> action#0A(2,1,0,2000,700) 
 	elser (50) 
@@ -2512,17 +2512,17 @@ def node_157 : 715
 	return 
 endf 
 
-def node_158 : 676
+def node_158
 endf 
 
-def node_159 : 677
+def node_159
 	>> node_130 
 	>> node_160 
 	>> node_129 
 	return 
 endf 
 
-def node_160 : 679
+def node_160
 	if function#103(14) 
 		>> node_230 
 		if function#10E(26,3) 
@@ -2548,7 +2548,7 @@ def node_160 : 679
 	return 
 endf 
 
-def node_161 : 710
+def node_161
 	if function#103(13) 
 		function#10E(24) 
 		>> node_162 
@@ -2560,7 +2560,7 @@ def node_161 : 710
 	return 
 endf 
 
-def node_162 : 709
+def node_162
 	if self.distance_3d_recalc_to_target().leq(3000) 
 		*&
 	else 
@@ -2570,12 +2570,12 @@ def node_162 : 709
 	return 
 endf 
 
-def node_163 : 666
+def node_163
 	>> node_121 
 	if function#10E(25) 
-		[RegisterVar11 |-] 
 		[RegisterVar11 ++] 
-		[RegisterVar15 |-] 
+		[RegisterVar11 |-] 
+		[RegisterVar15 ++] 
 		if function#105(5,5000) 
 			*&
 		else 
@@ -2609,7 +2609,7 @@ def node_163 : 666
 	return 
 endf 
 
-def node_164 : 717
+def node_164
 	random (10) 
 				>> node_193 
 	elser (10) 
@@ -2637,10 +2637,10 @@ def node_164 : 717
 	return 
 endf 
 
-def node_165 : 683
+def node_165
 endf 
 
-def node_166 : 681
+def node_166
 	if function#63() 
 		if function#10E(26,3) 
 			>> node_167 
@@ -2703,12 +2703,12 @@ def node_166 : 681
 	return 
 endf 
 
-def node_167 : 669
+def node_167
 	>> node_121 
 	if function#10E(25) 
-		[RegisterVar11 |-] 
 		[RegisterVar11 ++] 
-		if [RegisterVar13 == 0] 
+		[RegisterVar11 |-] 
+		if [RegisterVar13 += 0] 
 			-> action#0A(2,1,0,1000,2000) 
 			>> node_225 
 			if self.distance_3d_recalc_to_target().leq(2500) 
@@ -2717,8 +2717,8 @@ def node_167 : 669
 				>> node_188 
 				>> node_204 
 			endif 
-			[RegisterVar13 |-] 
 			[RegisterVar13 ++] 
+			[RegisterVar13 |-] 
 		else 
 			*&
 		endif 
@@ -2732,12 +2732,12 @@ def node_167 : 669
 		endif 
 		repeat 
 	else 
-		[RegisterVar13 |-] 
+		[RegisterVar13 ++] 
 	endif 
 	return 
 endf 
 
-def node_168 : 678
+def node_168
 	if function#105(5,5000) 
 		random (20) 
 					-> action#0A(2,1,0,500,1000) 
@@ -2775,15 +2775,15 @@ def node_168 : 678
 	return 
 endf 
 
-def node_169 : 68
+def node_169
 	>> node_216 
 	return 
 endf 
 
-def node_170 : 77
+def node_170
 endf 
 
-def node_171 : 449
+def node_171
 	if function#10E(2) 
 		function#10E(3) 
 	else 
@@ -2792,108 +2792,108 @@ def node_171 : 449
 	return 
 endf 
 
-def node_172 : 188
+def node_172
 endf 
 
-def node_173 : 220
-	[RegisterVar1 ++] 
-	[RegisterVar1 ++] 
-	[RegisterVar1 ++] 
-	return 
-endf 
-
-def node_174 : 222
-	[RegisterVar2 ++] 
-	[RegisterVar2 ++] 
-	[RegisterVar2 ++] 
-	return 
-endf 
-
-def node_175 : 262
-	[RegisterVar3 ++] 
-	[RegisterVar3 ++] 
-	[RegisterVar3 ++] 
-	return 
-endf 
-
-def node_176 : 191
-	[RegisterVar4 ++] 
-	return 
-endf 
-
-def node_177 : 223
-	[RegisterVar5 ++] 
-	[RegisterVar5 ++] 
-	[RegisterVar5 ++] 
-	return 
-endf 
-
-def node_178 : 189
-	[RegisterVar6 ++] 
-	[RegisterVar6 ++] 
-	[RegisterVar6 ++] 
-	return 
-endf 
-
-def node_179 : 466
-	[RegisterVar7 ++] 
-	[RegisterVar7 ++] 
-	[RegisterVar7 ++] 
-	return 
-endf 
-
-def node_180 : 382
-	[RegisterVar0 |-] 
+def node_173
 	[RegisterVar1 |-] 
+	[RegisterVar1 |-] 
+	[RegisterVar1 |-] 
+	return 
+endf 
+
+def node_174
 	[RegisterVar2 |-] 
+	[RegisterVar2 |-] 
+	[RegisterVar2 |-] 
+	return 
+endf 
+
+def node_175
 	[RegisterVar3 |-] 
+	[RegisterVar3 |-] 
+	[RegisterVar3 |-] 
+	return 
+endf 
+
+def node_176
 	[RegisterVar4 |-] 
+	return 
+endf 
+
+def node_177
 	[RegisterVar5 |-] 
+	[RegisterVar5 |-] 
+	[RegisterVar5 |-] 
+	return 
+endf 
+
+def node_178
 	[RegisterVar6 |-] 
+	[RegisterVar6 |-] 
+	[RegisterVar6 |-] 
+	return 
+endf 
+
+def node_179
+	[RegisterVar7 |-] 
+	[RegisterVar7 |-] 
 	[RegisterVar7 |-] 
 	return 
 endf 
 
-def node_181 : 527
-	[RegisterVar8 ++] 
-	[RegisterVar8 ++] 
-	[RegisterVar8 ++] 
-	[RegisterVar8 ++] 
-	[RegisterVar8 ++] 
+def node_180
+	[RegisterVar0 ++] 
+	[RegisterVar1 ++] 
+	[RegisterVar2 ++] 
+	[RegisterVar3 ++] 
+	[RegisterVar4 ++] 
+	[RegisterVar5 ++] 
+	[RegisterVar6 ++] 
+	[RegisterVar7 ++] 
 	return 
 endf 
 
-def node_182 : 217
-endf 
-
-def node_183 : 200
-	[RegisterVar0 ++] 
-	[RegisterVar0 ++] 
-	[RegisterVar0 ++] 
+def node_181
+	[RegisterVar8 |-] 
+	[RegisterVar8 |-] 
+	[RegisterVar8 |-] 
+	[RegisterVar8 |-] 
+	[RegisterVar8 |-] 
 	return 
 endf 
 
-def node_184 : 201
-	[RegisterVar2 ++] 
-	[RegisterVar2 ++] 
-	[RegisterVar2 ++] 
+def node_182
+endf 
+
+def node_183
+	[RegisterVar0 |-] 
+	[RegisterVar0 |-] 
+	[RegisterVar0 |-] 
 	return 
 endf 
 
-def node_185 : 218
+def node_184
+	[RegisterVar2 |-] 
+	[RegisterVar2 |-] 
+	[RegisterVar2 |-] 
+	return 
 endf 
 
-def node_186 : 172
+def node_185
+endf 
+
+def node_186
 	-> action#4A() 
 	return 
 endf 
 
-def node_187 : 192
+def node_187
 	-> action#02() 
 	return 
 endf 
 
-def node_188 : 193
+def node_188
 	if self.angle_2d_cw_between(30,330) 
 		-> action#0B() 
 	else 
@@ -2901,7 +2901,7 @@ def node_188 : 193
 	return 
 endf 
 
-def node_189 : 703
+def node_189
 	if self.angle_2d_cw_between(30,330) 
 		-> action#0C() 
 	else 
@@ -2909,27 +2909,27 @@ def node_189 : 703
 	return 
 endf 
 
-def node_190 : 185
+def node_190
 	-> action#11() 
 	return 
 endf 
 
-def node_191 : 190
+def node_191
 	-> action#12() 
 	return 
 endf 
 
-def node_192 : 187
+def node_192
 	-> action#14() 
 	return 
 endf 
 
-def node_193 : 195
+def node_193
 	-> action#26() 
 	return 
 endf 
 
-def node_194 : 196
+def node_194
 	if function#3F() 
 		-> action#26() 
 	else 
@@ -2939,7 +2939,7 @@ def node_194 : 196
 	return 
 endf 
 
-def node_195 : 198
+def node_195
 	if function#3F() 
 		-> action#25() 
 	else 
@@ -2947,12 +2947,12 @@ def node_195 : 198
 	return 
 endf 
 
-def node_196 : 186
+def node_196
 	-> action#13() 
 	return 
 endf 
 
-def node_197 : 197
+def node_197
 	random (35) 
 				-> action#4D() 
 	elser (35) 
@@ -2963,7 +2963,7 @@ def node_197 : 197
 	return 
 endf 
 
-def node_198 : 516
+def node_198
 	>> node_230 
 	if function#3F() 
 		*&
@@ -2985,20 +2985,20 @@ def node_198 : 516
 		endr 
 		-> action#51() 
 	endif 
-	[RegisterVar0 |-] 
 	[RegisterVar0 ++] 
+	[RegisterVar0 |-] 
 	return 
 endf 
 
-def node_199 : 249
+def node_199
 	-> action#15() 
 	return 
 endf 
 
-def node_200 : 238
+def node_200
 endf 
 
-def node_201 : 306
+def node_201
 	if function#63() 
 		-> action#57() 
 	else 
@@ -3011,7 +3011,7 @@ def node_201 : 306
 	return 
 endf 
 
-def node_202 : 252
+def node_202
 	if function#63() 
 		-> action#6E() 
 	else 
@@ -3024,7 +3024,7 @@ def node_202 : 252
 	return 
 endf 
 
-def node_203 : 243
+def node_203
 	if function#63() 
 		-> action#6F() 
 	else 
@@ -3039,7 +3039,7 @@ def node_203 : 243
 	return 
 endf 
 
-def node_204 : 241
+def node_204
 	if function#63() 
 		-> action#5D() 
 		-> action#01() 
@@ -3057,7 +3057,7 @@ def node_204 : 241
 	return 
 endf 
 
-def node_205 : 173
+def node_205
 	if function#63() 
 		-> action#5A() 
 	else 
@@ -3070,7 +3070,7 @@ def node_205 : 173
 	return 
 endf 
 
-def node_206 : 240
+def node_206
 	if function#63() 
 		-> action#64() 
 	else 
@@ -3083,12 +3083,12 @@ def node_206 : 240
 	return 
 endf 
 
-def node_207 : 239
+def node_207
 	-> action#74() 
 	return 
 endf 
 
-def node_208 : 237
+def node_208
 	if function#63() 
 		-> action#75() 
 	else 
@@ -3101,7 +3101,7 @@ def node_208 : 237
 	return 
 endf 
 
-def node_209 : 337
+def node_209
 	-> action#7A() 
 	if function#10E(4) 
 		reset 
@@ -3111,70 +3111,70 @@ def node_209 : 337
 	return 
 endf 
 
-def node_210 : 411
+def node_210
 	-> action#7B() 
 	return 
 endf 
 
-def node_211 : 538
+def node_211
 	-> action#41() 
 	return 
 endf 
 
-def node_212 : 194
+def node_212
 endf 
 
-def node_213 : 175
+def node_213
 	-> action#09(2,0,0,200) 
 	return 
 endf 
 
-def node_214 : 180
+def node_214
 	-> action#09(2,4,0,500,50) 
 	return 
 endf 
 
-def node_215 : 176
+def node_215
 	-> action#0A(2,0,0,200) 
 	return 
 endf 
 
-def node_216 : 181
+def node_216
 	-> action#0A(2,4,0,500,50) 
 	return 
 endf 
 
-def node_217 : 177
+def node_217
 	-> action#08(2,0,0,200) 
 	return 
 endf 
 
-def node_218 : 182
+def node_218
 	-> action#08(2,4,0,200,50) 
 	return 
 endf 
 
-def node_219 : 178
+def node_219
 	-> action#42(2,0,0,200) 
 	return 
 endf 
 
-def node_220 : 183
+def node_220
 	-> action#42(2,4,0,200,50) 
 	return 
 endf 
 
-def node_221 : 179
+def node_221
 	-> action#43(2,0,0,200) 
 	return 
 endf 
 
-def node_222 : 184
+def node_222
 	-> action#43(2,4,0,200,50) 
 	return 
 endf 
 
-def node_223 : 315
+def node_223
 	if function#63() 
 		-> action#78() 
 	else 
@@ -3187,55 +3187,55 @@ def node_223 : 315
 	return 
 endf 
 
-def node_224 : 90
+def node_224
 endf 
 
-def node_225 : 91
+def node_225
 	function#54() 
 	self.targetEnemy(50) 
 	return 
 endf 
 
-def node_226 : 98
+def node_226
 	function#54() 
 	function#108() 
 	return 
 endf 
 
-def node_227 : 641
+def node_227
 	function#54() 
 	function#10E(19) 
 	return 
 endf 
 
-def node_228 : 92
+def node_228
 	function#54() 
 	function#10A(3) 
 	return 
 endf 
 
-def node_229 : 444
+def node_229
 	function#54() 
 	function#10A(7) 
 	return 
 endf 
 
-def node_230 : 93
+def node_230
 	function#54() 
 	function#103(3) 
 	return 
 endf 
 
-def node_231 : 621
+def node_231
 	function#54() 
 	self.targetArea(10) @ parameter2:1000 
 	return 
 endf 
 
-def node_232 : 153
+def node_232
 endf 
 
-def node_233 : 135
+def node_233
 	if function#10D(10,3000) 
 		>> node_228 
 		>> node_235 
@@ -3247,7 +3247,7 @@ def node_233 : 135
 	return 
 endf 
 
-def node_234 : 635
+def node_234
 	function#10A(7) 
 	if self.distance_3d_recalc_to_target().leq(1000) 
 		-> action#74() 
@@ -3261,7 +3261,7 @@ def node_234 : 635
 	return 
 endf 
 
-def node_235 : 254
+def node_235
 	function#10A(7) 
 	if self.distance_3d_recalc_to_target().leq(600) 
 		>> Global.node_024 
@@ -3277,7 +3277,7 @@ def node_235 : 254
 	return 
 endf 
 
-def node_236 : 602
+def node_236
 	if self.distance_3d_recalc_to_target().leq(1100) 
 		>> node_188 
 		-> action#75() 
@@ -3290,7 +3290,7 @@ def node_236 : 602
 	return 
 endf 
 
-def node_237 : 605
+def node_237
 	if self.distance_3d_recalc_to_target().leq(1200) 
 		>> node_188 
 		-> action#76() 
@@ -3303,7 +3303,7 @@ def node_237 : 605
 	return 
 endf 
 
-def node_238 : 606
+def node_238
 	if self.distance_3d_recalc_to_target().leq(1300) 
 		>> node_188 
 		-> action#77() 
@@ -3316,20 +3316,20 @@ def node_238 : 606
 	return 
 endf 
 
-def node_239 : 607
+def node_239
 	if function#10A(3) 
-		if [RegisterVar18 == 0] 
+		if [RegisterVar18 += 0] 
 			if self.target(13) 
 				-> action#1A() 
-				[RegisterVar18 ++] 
-				[RegisterVar18 ++] 
-				[RegisterVar18 ++] 
+				[RegisterVar18 |-] 
+				[RegisterVar18 |-] 
+				[RegisterVar18 |-] 
 			else 
 				>> node_211 
 			endif 
 			repeat 
 		else 
-			[RegisterVar18 |-] 
+			[RegisterVar18 ++] 
 		endif 
 	else 
 		*&
@@ -3337,10 +3337,10 @@ def node_239 : 607
 	return 
 endf 
 
-def node_240 : 155
+def node_240
 endf 
 
-def node_241 : 62
+def node_241
 	if function#10A() 
 		>> node_242 
 		function#54() 
@@ -3351,29 +3351,29 @@ def node_241 : 62
 	return 
 endf 
 
-def node_242 : 236
+def node_242
 	if function#10A(3) 
 		>> node_117 
 	endif 
 	return 
 endf 
 
-def node_243 : 127
+def node_243
 	if function#103(2) 
 		>> node_194 
 		function#BE() 
 		repeat 
 	endif 
-	if [RegisterVar3 < 0] 
+	if [RegisterVar3 *= 0] 
 		>> node_194 
 	endif 
 	return 
 endf 
 
-def node_244 : 137
+def node_244
 endf 
 
-def node_245 : 199
+def node_245
 	>> node_230 
 	if self.distance_3d_recalc_to_target().leq(1300) 
 		>> node_183 
@@ -3385,18 +3385,18 @@ def node_245 : 199
 	return 
 endf 
 
-def node_246 : 141
-	if [RegisterVar0 <= 1] 
+def node_246
+	if [RegisterVar0 -= 1] 
 		>> node_230 
 		>> node_248 
 	endif 
 	return 
 endf 
 
-def node_247 : 75
+def node_247
 endf 
 
-def node_248 : 58
+def node_248
 	>> node_195 
 	>> node_230 
 	>> node_129 
@@ -3409,7 +3409,7 @@ def node_248 : 58
 		repeat 
 	else 
 		>> node_230 
-		if [RegisterVar0 <= 1] 
+		if [RegisterVar0 -= 1] 
 			>> node_129 
 			>> node_121 
 			if function#103(2) 
@@ -3437,7 +3437,7 @@ def node_248 : 58
 	return 
 endf 
 
-def node_249 : 69
+def node_249
 	>> node_121 
 	>> node_129 
 	if self.distance_3d_to_target().leq(1200) 

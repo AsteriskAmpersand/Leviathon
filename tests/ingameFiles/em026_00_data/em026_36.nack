@@ -1,7 +1,7 @@
 importactions Lunastra as lunastra
 importlibrary Global as Global
 
-def node_000 : 7
+def node_000
 	>> node_004 
 	>> node_001 
 	self.targetEnemy(target_em.random_player_or_cat) 
@@ -11,7 +11,7 @@ def node_000 : 7
 	reset 
 endf 
 
-def node_001 : 89
+def node_001
 	if function#101(0,2) 
 		if self.current_quest().is_rank(rank.AT) >> Global.node_026 
 		else >> Global.node_024 
@@ -26,7 +26,7 @@ def node_001 : 89
 	return 
 endf 
 
-def node_002 : 90
+def node_002
 	if self.flying() 
 	else 
 		random (40) >> Global.node_012 
@@ -42,7 +42,7 @@ def node_002 : 90
 	return 
 endf 
 
-def node_003 : 91
+def node_003
 	if self.flying() >> Global.node_201 
 	endif 
 	>> Global.node_197 
@@ -53,7 +53,7 @@ def node_003 : 91
 	return 
 endf 
 
-def node_004 : 86
+def node_004
 	if self.target_on_part(0) 
 		>> node_005 
 	elif self.target_on_part(1) 
@@ -63,21 +63,21 @@ def node_004 : 86
 	return 
 endf 
 
-def node_005 : 87
+def node_005
 	>> Global.node_002 
 	>> node_006 
 	>> node_007 
 	reset 
 endf 
 
-def node_006 : 82
+def node_006
 	random (50) >> Global.node_166 
 	elser (50) 
 	endr 
 	return 
 endf 
 
-def node_007 : 83
+def node_007
 	if self.mounted() 
 		>> node_008 
 	else 
@@ -86,7 +86,7 @@ def node_007 : 83
 	return 
 endf 
 
-def node_008 : 84
+def node_008
 	>> Global.node_154 
 	if self.target_on_part(0) 
 		>> Global.node_155 
@@ -96,7 +96,7 @@ def node_008 : 84
 	return 
 endf 
 
-def node_009 : 85
+def node_009
 	>> Global.node_154 
 	if self.target_on_part(0) 
 		>> Global.node_156 

@@ -1,7 +1,7 @@
 importactions Deviljho as deviljho
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	>> Global.node_120 
 	>> Global.node_121 
 	if function#101() 
@@ -13,7 +13,7 @@ def node_000 : 1
 	conclude 
 endf 
 
-def node_001 : 2
+def node_001
 	>> node_003 
 	self.targetEnemy(34) 
 	if self.distance_3d_to_target().leq(1000) 
@@ -32,7 +32,7 @@ def node_001 : 2
 	return 
 endf 
 
-def node_002 : 3
+def node_002
 	if self.target_is(em.Aptonoth) 
 		-> deviljho.fox_walk(1,0,0,700) @ unkn6:65536 
 	else 
@@ -41,7 +41,7 @@ def node_002 : 3
 	return 
 endf 
 
-def node_003 : 4
+def node_003
 	if function#6B(20000) 
 		>> node_004 
 		>> node_005 
@@ -53,7 +53,7 @@ def node_003 : 4
 	return 
 endf 
 
-def node_004 : 5
+def node_004
 	self.targetEnemy(26) 
 	if self.distance_3d_to_target().leq(600) 
 	else 
@@ -63,7 +63,7 @@ def node_004 : 5
 	return 
 endf 
 
-def node_005 : 6
+def node_005
 	if self.distance_3d_to_target().leq(300) 
 		-> deviljho.back_turn() @ unkn6:65536 
 	elif self.angle_2d_cw_between(30,330) 
@@ -74,7 +74,7 @@ def node_005 : 6
 	conclude 
 endf 
 
-def node_006 : 9
+def node_006
 	self.targetEnemy(60) 
 	if self.distance_3d_to_target().leq(600) 
 	else 
@@ -84,7 +84,7 @@ def node_006 : 9
 	return 
 endf 
 
-def node_007 : 10
+def node_007
 	if self.distance_3d_to_target().leq(300) 
 		-> deviljho.back_turn() @ unkn6:65536 
 	elif self.angle_2d_cw_between(30,330) 

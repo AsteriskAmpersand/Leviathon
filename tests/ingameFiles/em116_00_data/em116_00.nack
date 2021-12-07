@@ -1,7 +1,7 @@
 importactions Dodogama as dodogama
 importlibrary Global as Global
 
-def node_000 : 121
+def node_000
 	if self.current_quest().is_rank(rank.MR) 
 		>> node_001 
 	else 
@@ -10,7 +10,7 @@ def node_000 : 121
 	reset 
 endf 
 
-def node_001 : 1
+def node_001
 	if function#45() 
 	else 
 		>> Global.node_003 
@@ -21,7 +21,7 @@ def node_001 : 1
 	reset 
 endf 
 
-def node_002 : 120
+def node_002
 	if function#45() 
 	else 
 		>> Global.node_003 
@@ -32,7 +32,7 @@ def node_002 : 120
 	reset 
 endf 
 
-def node_003 : 59
+def node_003
 	if self.target(4) 
 		>> node_004 
 		reset 
@@ -68,7 +68,7 @@ def node_003 : 59
 	return 
 endf 
 
-def node_004 : 102
+def node_004
 	self.targetArea(19) 
 	if self.distance_3d_to_target().gt(1000) 
 		>> Global.node_029 
@@ -84,12 +84,12 @@ def node_004 : 102
 	return 
 endf 
 
-def node_005 : 62
+def node_005
 	>> node_006 
 	return 
 endf 
 
-def node_006 : 61
+def node_006
 	if self.angle_2d_cw_between(60,300) 
 		>> Global.node_140 
 	elif self.distance_3d_to_target().gt(1500) 
@@ -99,7 +99,7 @@ def node_006 : 61
 	return 
 endf 
 
-def node_007 : 97
+def node_007
 	return 
 	if self.target.helpless_0() 
 		>> node_008 
@@ -108,7 +108,7 @@ def node_007 : 97
 	return 
 endf 
 
-def node_008 : 86
+def node_008
 	if function#101() 
 	else 
 		if self.enraged() 
@@ -118,7 +118,7 @@ def node_008 : 86
 	return 
 endf 
 
-def node_009 : 112
+def node_009
 	if self.angle_2d_cw_between(45,135) 
 		>> node_011 
 	elif self.angle_2d_cw_between(225,315) 
@@ -129,7 +129,7 @@ def node_009 : 112
 	return 
 endf 
 
-def node_010 : 8
+def node_010
 	if self.distance_2d_to_target().leq(300) 
 		if self.enraged() >> node_012 
 		elif self.fatigued() >> node_019 
@@ -159,7 +159,7 @@ def node_010 : 8
 	return 
 endf 
 
-def node_011 : 113
+def node_011
 	if self.distance_2d_to_target().leq(300) 
 		if self.enraged() >> node_017 
 		elif self.fatigued() >> node_024 
@@ -189,7 +189,7 @@ def node_011 : 113
 	return 
 endf 
 
-def node_012 : 87
+def node_012
 	if self.target.blast_blighted() 
 		if function#101() 
 			random (5) >> Global.node_105 
@@ -244,7 +244,7 @@ def node_012 : 87
 	return 
 endf 
 
-def node_013 : 89
+def node_013
 	if self.target.blast_blighted() 
 		if function#101() 
 			random (5) >> Global.node_105 
@@ -299,7 +299,7 @@ def node_013 : 89
 	return 
 endf 
 
-def node_014 : 91
+def node_014
 	if self.target.blast_blighted() 
 		if function#101() 
 			random (50) >> Global.node_106 
@@ -342,7 +342,7 @@ def node_014 : 91
 	return 
 endf 
 
-def node_015 : 93
+def node_015
 	if self.target.blast_blighted() 
 		if function#101() 
 			random (50) >> Global.node_106 
@@ -385,7 +385,7 @@ def node_015 : 93
 	return 
 endf 
 
-def node_016 : 95
+def node_016
 	if self.target.blast_blighted() 
 		if function#101() 
 			random (50) >> Global.node_028 
@@ -440,7 +440,7 @@ def node_016 : 95
 	return 
 endf 
 
-def node_017 : 114
+def node_017
 	if self.target.blast_blighted() 
 		if function#101() 
 			random (5) >> Global.node_105 
@@ -495,7 +495,7 @@ def node_017 : 114
 	return 
 endf 
 
-def node_018 : 115
+def node_018
 	if self.target.blast_blighted() 
 		if function#101() 
 			random (5) >> Global.node_105 
@@ -550,7 +550,7 @@ def node_018 : 115
 	return 
 endf 
 
-def node_019 : 9
+def node_019
 	if self.target.blast_blighted() 
 		if function#101() 
 			random (10) >> Global.node_105 
@@ -611,7 +611,7 @@ def node_019 : 9
 	return 
 endf 
 
-def node_020 : 10
+def node_020
 	if self.target.blast_blighted() 
 		if function#101() 
 			random (10) >> Global.node_105 
@@ -672,7 +672,7 @@ def node_020 : 10
 	return 
 endf 
 
-def node_021 : 11
+def node_021
 	if self.target.blast_blighted() 
 		if function#101() 
 			random (20) >> Global.node_106 
@@ -721,7 +721,7 @@ def node_021 : 11
 	return 
 endf 
 
-def node_022 : 12
+def node_022
 	if self.target.blast_blighted() 
 		if function#101() 
 			random (20) >> Global.node_106 
@@ -770,7 +770,7 @@ def node_022 : 12
 	return 
 endf 
 
-def node_023 : 13
+def node_023
 	if self.target.blast_blighted() 
 		if function#101() 
 			random (20) >> Global.node_028 
@@ -831,7 +831,7 @@ def node_023 : 13
 	return 
 endf 
 
-def node_024 : 116
+def node_024
 	if self.target.blast_blighted() 
 		if function#101() 
 			random (10) >> Global.node_105 
@@ -892,7 +892,7 @@ def node_024 : 116
 	return 
 endf 
 
-def node_025 : 117
+def node_025
 	if self.target.blast_blighted() 
 		if function#101() 
 			random (10) >> Global.node_105 
@@ -953,7 +953,7 @@ def node_025 : 117
 	return 
 endf 
 
-def node_026 : 107
+def node_026
 	if self.target.blast_blighted() 
 		if function#101() 
 			random (37) >> Global.node_105 
@@ -1008,7 +1008,7 @@ def node_026 : 107
 	return 
 endf 
 
-def node_027 : 108
+def node_027
 	if self.target.blast_blighted() 
 		if function#101() 
 			random (37) >> Global.node_105 
@@ -1063,7 +1063,7 @@ def node_027 : 108
 	return 
 endf 
 
-def node_028 : 109
+def node_028
 	if self.target.blast_blighted() 
 		if function#101() 
 			random (50) >> Global.node_106 
@@ -1106,7 +1106,7 @@ def node_028 : 109
 	return 
 endf 
 
-def node_029 : 110
+def node_029
 	if self.target.blast_blighted() 
 		if function#101() 
 			random (50) >> Global.node_106 
@@ -1149,7 +1149,7 @@ def node_029 : 110
 	return 
 endf 
 
-def node_030 : 111
+def node_030
 	if self.target.blast_blighted() 
 		if function#101() 
 			random (50) >> Global.node_028 
@@ -1204,7 +1204,7 @@ def node_030 : 111
 	return 
 endf 
 
-def node_031 : 118
+def node_031
 	if self.target.blast_blighted() 
 		if function#101() 
 			random (37) >> Global.node_105 
@@ -1259,7 +1259,7 @@ def node_031 : 118
 	return 
 endf 
 
-def node_032 : 119
+def node_032
 	if self.target.blast_blighted() 
 		if function#101() 
 			random (37) >> Global.node_105 
@@ -1314,7 +1314,7 @@ def node_032 : 119
 	return 
 endf 
 
-def node_033 : 122
+def node_033
 	if self.angle_2d_cw_between(45,135) 
 		>> node_035 
 	elif self.angle_2d_cw_between(225,315) 
@@ -1325,7 +1325,7 @@ def node_033 : 122
 	return 
 endf 
 
-def node_034 : 123
+def node_034
 	if self.distance_2d_to_target().leq(300) 
 		if self.enraged() >> node_036 
 		elif self.fatigued() >> node_043 
@@ -1355,7 +1355,7 @@ def node_034 : 123
 	return 
 endf 
 
-def node_035 : 124
+def node_035
 	if self.distance_2d_to_target().leq(300) 
 		if self.enraged() >> node_041 
 		elif self.fatigued() >> node_048 
@@ -1385,7 +1385,7 @@ def node_035 : 124
 	return 
 endf 
 
-def node_036 : 125
+def node_036
 	if self.target.blast_blighted() 
 		if function#101() 
 			random (5) >> Global.node_105 
@@ -1440,7 +1440,7 @@ def node_036 : 125
 	return 
 endf 
 
-def node_037 : 126
+def node_037
 	if self.target.blast_blighted() 
 		if function#101() 
 			random (5) >> Global.node_105 
@@ -1495,7 +1495,7 @@ def node_037 : 126
 	return 
 endf 
 
-def node_038 : 127
+def node_038
 	if self.target.blast_blighted() 
 		if function#101() 
 			random (50) >> Global.node_106 
@@ -1538,7 +1538,7 @@ def node_038 : 127
 	return 
 endf 
 
-def node_039 : 128
+def node_039
 	if self.target.blast_blighted() 
 		if function#101() 
 			random (50) >> Global.node_106 
@@ -1581,7 +1581,7 @@ def node_039 : 128
 	return 
 endf 
 
-def node_040 : 129
+def node_040
 	if self.target.blast_blighted() 
 		if function#101() 
 			random (50) >> Global.node_028 
@@ -1636,7 +1636,7 @@ def node_040 : 129
 	return 
 endf 
 
-def node_041 : 130
+def node_041
 	if self.target.blast_blighted() 
 		if function#101() 
 			random (5) >> Global.node_105 
@@ -1691,7 +1691,7 @@ def node_041 : 130
 	return 
 endf 
 
-def node_042 : 131
+def node_042
 	if self.target.blast_blighted() 
 		if function#101() 
 			random (5) >> Global.node_105 
@@ -1746,7 +1746,7 @@ def node_042 : 131
 	return 
 endf 
 
-def node_043 : 132
+def node_043
 	if self.target.blast_blighted() 
 		if function#101() 
 			random (15) >> Global.node_105 
@@ -1807,7 +1807,7 @@ def node_043 : 132
 	return 
 endf 
 
-def node_044 : 133
+def node_044
 	if self.target.blast_blighted() 
 		if function#101() 
 			random (15) >> Global.node_105 
@@ -1868,7 +1868,7 @@ def node_044 : 133
 	return 
 endf 
 
-def node_045 : 134
+def node_045
 	if self.target.blast_blighted() 
 		if function#101() 
 			random (25) >> Global.node_106 
@@ -1917,7 +1917,7 @@ def node_045 : 134
 	return 
 endf 
 
-def node_046 : 135
+def node_046
 	if self.target.blast_blighted() 
 		if function#101() 
 			random (20) >> Global.node_106 
@@ -1966,7 +1966,7 @@ def node_046 : 135
 	return 
 endf 
 
-def node_047 : 136
+def node_047
 	if self.target.blast_blighted() 
 		if function#101() 
 			random (20) >> Global.node_028 
@@ -2027,7 +2027,7 @@ def node_047 : 136
 	return 
 endf 
 
-def node_048 : 137
+def node_048
 	if self.target.blast_blighted() 
 		if function#101() 
 			random (10) >> Global.node_105 
@@ -2088,7 +2088,7 @@ def node_048 : 137
 	return 
 endf 
 
-def node_049 : 138
+def node_049
 	if self.target.blast_blighted() 
 		if function#101() 
 			random (15) >> Global.node_105 
@@ -2149,7 +2149,7 @@ def node_049 : 138
 	return 
 endf 
 
-def node_050 : 139
+def node_050
 	if self.target.blast_blighted() 
 		if function#101() 
 			random (37) >> Global.node_105 
@@ -2204,7 +2204,7 @@ def node_050 : 139
 	return 
 endf 
 
-def node_051 : 140
+def node_051
 	if self.target.blast_blighted() 
 		if function#101() 
 			random (37) >> Global.node_105 
@@ -2259,7 +2259,7 @@ def node_051 : 140
 	return 
 endf 
 
-def node_052 : 141
+def node_052
 	if self.target.blast_blighted() 
 		if function#101() 
 			random (50) >> Global.node_106 
@@ -2302,7 +2302,7 @@ def node_052 : 141
 	return 
 endf 
 
-def node_053 : 142
+def node_053
 	if self.target.blast_blighted() 
 		if function#101() 
 			random (50) >> Global.node_106 
@@ -2345,7 +2345,7 @@ def node_053 : 142
 	return 
 endf 
 
-def node_054 : 143
+def node_054
 	if self.target.blast_blighted() 
 		if function#101() 
 			random (50) >> Global.node_028 
@@ -2400,7 +2400,7 @@ def node_054 : 143
 	return 
 endf 
 
-def node_055 : 144
+def node_055
 	if self.target.blast_blighted() 
 		if function#101() 
 			random (37) >> Global.node_105 
@@ -2455,7 +2455,7 @@ def node_055 : 144
 	return 
 endf 
 
-def node_056 : 145
+def node_056
 	if self.target.blast_blighted() 
 		if function#101() 
 			random (37) >> Global.node_105 

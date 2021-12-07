@@ -1,14 +1,14 @@
 importactions Girros as girros
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	>> Global.node_053 
 	>> node_001 
 	>> node_007 
 	reset 
 endf 
 
-def node_001 : 61
+def node_001
 	if function#7B() 
 		>> node_002 
 		repeat 
@@ -17,7 +17,7 @@ def node_001 : 61
 	return 
 endf 
 
-def node_002 : 62
+def node_002
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.distance_3d_to_target().leq(750) 
 		>> node_003 
@@ -30,24 +30,24 @@ def node_002 : 62
 	return 
 endf 
 
-def node_003 : 63
+def node_003
 	>> Global.node_010 
 	return 
 endf 
 
-def node_004 : 64
+def node_004
 	self.targetArea(1) @ unkn3:2097152, unkn12:4, unknExtra1:200 
 	>> Global.node_003 
 	return 
 endf 
 
-def node_005 : 66
+def node_005
 	self.targetArea(1) @ unkn3:2097152, unkn12:4, unknExtra1:200 
 	>> Global.node_003 
 	return 
 endf 
 
-def node_006 : 101
+def node_006
 	if function#BA() 
 		self.targetEnemy(49) 
 	else 
@@ -60,7 +60,7 @@ def node_006 : 101
 	return 
 endf 
 
-def node_007 : 111
+def node_007
 	if function#BB() 
 		>> node_006 
 		if self.target_is(em.Great_Girros) 
@@ -95,7 +95,7 @@ def node_007 : 111
 	return 
 endf 
 
-def node_008 : 113
+def node_008
 	>> node_009 
 	if self.distance_2d_to_target().leq(350) 
 	else 
@@ -124,7 +124,7 @@ def node_008 : 113
 	return 
 endf 
 
-def node_009 : 114
+def node_009
 	>> node_006 
 	if function#BB() 
 		if self.target_is(em.Great_Girros) 
@@ -142,7 +142,7 @@ def node_009 : 114
 	return 
 endf 
 
-def node_010 : 115
+def node_010
 	if function#BA() 
 		self.targetEnemy(49) @ unkn12:4, unknExtra1:350 
 	else 
@@ -155,12 +155,12 @@ def node_010 : 115
 	return 
 endf 
 
-def node_011 : 116
+def node_011
 	function#102() 
 	return 
 endf 
 
-def node_012 : 117
+def node_012
 	if self.distance_2d_to_target().leq(500) 
 	else 
 		>> Global.node_003 
@@ -173,13 +173,13 @@ def node_012 : 117
 	return 
 endf 
 
-def node_013 : 118
+def node_013
 	>> Global.node_010 
 	>> Global.node_038 
 	return 
 endf 
 
-def node_014 : 119
+def node_014
 	if function#3A() 
 		>> node_026 
 	elif function#32() 
@@ -207,7 +207,7 @@ def node_014 : 119
 	return 
 endf 
 
-def node_015 : 120
+def node_015
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.target(20) 
 		if self.target(10) 
@@ -226,7 +226,7 @@ def node_015 : 120
 	return 
 endf 
 
-def node_016 : 89
+def node_016
 	function#52(50,4) 
 	self.targetArea(target_area.nearest_entrance) 
 	function#54() 
@@ -237,18 +237,18 @@ def node_016 : 89
 	reset 
 endf 
 
-def node_017 : 90
+def node_017
 	>> Global.node_010 
 	>> Global.node_043 
 	reset 
 endf 
 
-def node_018 : 92
+def node_018
 	>> Global.node_044 
 	reset 
 endf 
 
-def node_019 : 121
+def node_019
 	if self.distance_2d_to_target().leq(800) 
 		>> Global.node_021 
 	else 
@@ -273,7 +273,7 @@ def node_019 : 121
 	reset 
 endf 
 
-def node_020 : 4
+def node_020
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.target.paralyzed() 
 		random (80) >> node_026 
@@ -297,7 +297,7 @@ def node_020 : 4
 	return 
 endf 
 
-def node_021 : 6
+def node_021
 	random (50) >> Global.node_013 
 				>> Global.node_015 
 	elser (50) >> Global.node_011 
@@ -308,7 +308,7 @@ def node_021 : 6
 	return 
 endf 
 
-def node_022 : 7
+def node_022
 	random (50) >> Global.node_013 
 				>> Global.node_015 
 	elser (50) >> Global.node_011 
@@ -319,7 +319,7 @@ def node_022 : 7
 	return 
 endf 
 
-def node_023 : 8
+def node_023
 	random (0) >> Global.node_016 
 	elser (50) >> Global.node_003 
 				>> Global.node_011 
@@ -331,7 +331,7 @@ def node_023 : 8
 	return 
 endf 
 
-def node_024 : 9
+def node_024
 	>> Global.node_003 
 	random (50) >> Global.node_013 
 				>> Global.node_015 
@@ -341,7 +341,7 @@ def node_024 : 9
 	return 
 endf 
 
-def node_025 : 10
+def node_025
 	>> Global.node_003 
 	random (50) >> Global.node_013 
 				>> Global.node_015 
@@ -351,7 +351,7 @@ def node_025 : 10
 	return 
 endf 
 
-def node_026 : 5
+def node_026
 	self.targetEnemy(target_em.random_player_or_cat) 
 	>> node_015 
 	if self.distance_3d_to_target().leq(250) 
@@ -368,28 +368,28 @@ def node_026 : 5
 	return 
 endf 
 
-def node_027 : 11
+def node_027
 	random (65) >> Global.node_020 
 	elser (35) >> Global.node_018 
 	endr 
 	return 
 endf 
 
-def node_028 : 12
+def node_028
 	random (75) >> Global.node_022 
 	elser (25) >> Global.node_023 
 	endr 
 	return 
 endf 
 
-def node_029 : 13
+def node_029
 	random (75) >> Global.node_024 
 	elser (25) >> Global.node_025 
 	endr 
 	return 
 endf 
 
-def node_030 : 14
+def node_030
 	if function#BB() 
 		self.targetEnemy(target_em.random_player_or_cat) @ unkn3:16777216, unkn12:4, unknExtra1:700 
 	else 
@@ -400,7 +400,7 @@ def node_030 : 14
 	return 
 endf 
 
-def node_031 : 15
+def node_031
 	if function#BB() 
 		self.targetEnemy(target_em.random_player_or_cat) @ unkn3:16777216, unkn12:4, unknExtra1:700 
 	else 

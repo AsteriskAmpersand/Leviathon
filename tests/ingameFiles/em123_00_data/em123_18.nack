@@ -1,7 +1,7 @@
 importactions Banbaro as banbaro
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	>> Global.node_103 
 	self.targetEnemy(13) 
 	if self.target(4) 
@@ -12,14 +12,14 @@ def node_000 : 1
 	conclude 
 endf 
 
-def node_001 : 3
+def node_001
 	>> Global.node_036 
 	>> node_002 
 	>> node_003 
 	return 
 endf 
 
-def node_002 : 4
+def node_002
 	self.targetEnemy(13) 
 	if self.distance_2d_to_target().leq(1000) 
 		return 
@@ -39,7 +39,7 @@ def node_002 : 4
 	return 
 endf 
 
-def node_003 : 5
+def node_003
 	self.targetEnemy(48) 
 	if self.target(7) 
 		>> node_005 
@@ -55,7 +55,7 @@ def node_003 : 5
 	return 
 endf 
 
-def node_004 : 6
+def node_004
 	if function#5F() 
 		>> Global.node_086 
 	else 
@@ -65,7 +65,7 @@ def node_004 : 6
 	return 
 endf 
 
-def node_005 : 7
+def node_005
 	>> Global.node_086 
 	return 
 endf 

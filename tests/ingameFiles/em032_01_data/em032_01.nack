@@ -1,7 +1,7 @@
 importactions Brute_Tigrex as brute_tigrex
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	if function#41() 
 		-> brute_tigrex.dash(2,5,0,1500) => reset 
 	else 
@@ -33,53 +33,53 @@ def node_000 : 1
 	reset 
 endf 
 
-def node_001 : 11
+def node_001
 	>> node_013 
 	return 
 endf 
 
-def node_002 : 12
+def node_002
 	>> node_010 
 	return 
 endf 
 
-def node_003 : 13
+def node_003
 	random (70) >> node_010 
 	elser (30) >> node_011 
 	endr 
 	return 
 endf 
 
-def node_004 : 14
+def node_004
 	>> node_013 
 	return 
 endf 
 
-def node_005 : 15
+def node_005
 	>> node_010 
 	return 
 endf 
 
-def node_006 : 16
+def node_006
 	random (30) >> node_010 
 	elser (70) >> node_011 
 	endr 
 	return 
 endf 
 
-def node_007 : 17
+def node_007
 	>> node_013 
 	return 
 endf 
 
-def node_008 : 18
+def node_008
 	random (80) >> node_010 
 	elser (20) >> node_018 
 	endr 
 	return 
 endf 
 
-def node_009 : 19
+def node_009
 	random (70) >> node_010 
 	elser (10) >> node_012 
 	elser (20) >> node_018 
@@ -87,28 +87,28 @@ def node_009 : 19
 	return 
 endf 
 
-def node_010 : 20
+def node_010
 	self.targetArea(4) 
 	>> node_020 
 	>> node_017 
 	return 
 endf 
 
-def node_011 : 21
+def node_011
 	self.targetArea(6) 
 	>> node_021 
 	>> node_017 
 	return 
 endf 
 
-def node_012 : 22
+def node_012
 	self.targetArea(21) @ parameter2:1000 
 	-> brute_tigrex.turn() @ unkn6:65536 
 	>> node_019 
 	return 
 endf 
 
-def node_013 : 23
+def node_013
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.target(7) 
 		>> node_015 
@@ -120,7 +120,7 @@ def node_013 : 23
 	return 
 endf 
 
-def node_014 : 24
+def node_014
 	if self.angle_2d_cw_between(60,300) 
 		-> brute_tigrex.turn() 
 	else 
@@ -135,7 +135,7 @@ def node_014 : 24
 	return 
 endf 
 
-def node_015 : 25
+def node_015
 	if self.distance_3d_to_target().leq(550) 
 		-> brute_tigrex.quick_turn() @ unkn6:65536 
 	else 
@@ -152,7 +152,7 @@ def node_015 : 25
 	return 
 endf 
 
-def node_016 : 26
+def node_016
 	if self.distance_3d_to_target().leq(550) 
 		-> brute_tigrex.quick_turn() @ unkn6:65536 
 	else 
@@ -165,7 +165,7 @@ def node_016 : 26
 	return 
 endf 
 
-def node_017 : 27
+def node_017
 	if self.enraged() 
 		-> brute_tigrex.walk_srarch_angry(2,1,5,2500,800) @ unkn6:65536 
 	else 
@@ -180,12 +180,12 @@ def node_017 : 27
 	return 
 endf 
 
-def node_018 : 28
+def node_018
 	-> brute_tigrex.tired() @ unkn6:65536 
 	return 
 endf 
 
-def node_019 : 29
+def node_019
 	if self.enraged() 
 		random (70) -> brute_tigrex.lost_search_front() 
 		elser (30) -> brute_tigrex.lost_search_back() @ unkn6:65536 
@@ -198,7 +198,7 @@ def node_019 : 29
 	return 
 endf 
 
-def node_020 : 30
+def node_020
 	if self.enraged() 
 		-> brute_tigrex.sniff_combat_s() @ unkn6:65536 
 	else 
@@ -207,7 +207,7 @@ def node_020 : 30
 	return 
 endf 
 
-def node_021 : 31
+def node_021
 	if self.enraged() 
 		-> brute_tigrex.sniff_combat_l() @ unkn6:65536 
 	else 

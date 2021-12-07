@@ -1,7 +1,7 @@
 importactions Lavasioth as lavasioth
 importlibrary Global as Global
 
-def node_000 : 73
+def node_000
 	>> Global.node_080 
 	>> Global.node_002 
 	self.targetArea(19) >> node_001 
@@ -13,14 +13,14 @@ def node_000 : 73
 	reset 
 endf 
 
-def node_001 : 83
+def node_001
 	if self.distance_3d_to_target().gt(600) >> Global.node_083 
 		repeat 
 	endif 
 	return 
 endf 
 
-def node_002 : 82
+def node_002
 	>> Global.node_088 
 	random (20) >> Global.node_100 
 	elser (40) >> Global.node_095 
@@ -29,7 +29,7 @@ def node_002 : 82
 	return 
 endf 
 
-def node_003 : 81
+def node_003
 	>> Global.node_088 
 	if self.fatigued() >> Global.node_099 
 	else 
@@ -40,7 +40,7 @@ def node_003 : 81
 	return 
 endf 
 
-def node_004 : 80
+def node_004
 	if self.targetEnemy(target_em.any_monster) 
 		random (20) >> Global.node_089 
 		elser (80) 

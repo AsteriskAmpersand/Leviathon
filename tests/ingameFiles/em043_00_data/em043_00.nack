@@ -1,7 +1,7 @@
 importactions Deviljho as deviljho
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	>> Global.node_120 
 	>> Global.node_121 
 	if function#101() 
@@ -36,7 +36,7 @@ def node_000 : 1
 			>> node_024 => reset 
 		elif self.target(52) 
 			>> node_023 => reset 
-		elif [RegisterVar6 == 1] 
+		elif [RegisterVar6 += 1] 
 			>> node_022 => reset 
 		else 
 			>> node_001 
@@ -45,7 +45,7 @@ def node_000 : 1
 	reset 
 endf 
 
-def node_001 : 95
+def node_001
 	if self.distance_3d_to_target().leq(500) 
 		self.enraged() >> node_008 => reset 
 		self.fatigued() >> node_014 => reset 
@@ -74,7 +74,7 @@ def node_001 : 95
 	return 
 endf 
 
-def node_002 : 2
+def node_002
 	random (0) 
 	elser (3) >> Global.node_009 
 	elser (5) >> Global.node_010 
@@ -109,7 +109,7 @@ def node_002 : 2
 	return 
 endf 
 
-def node_003 : 3
+def node_003
 	random (0) 
 	elser (3) >> Global.node_009 
 	elser (0) >> Global.node_010 
@@ -144,7 +144,7 @@ def node_003 : 3
 	return 
 endf 
 
-def node_004 : 4
+def node_004
 	random (0) 
 	elser (3) >> Global.node_009 
 	elser (0) >> Global.node_010 
@@ -179,7 +179,7 @@ def node_004 : 4
 	return 
 endf 
 
-def node_005 : 5
+def node_005
 	random (0) 
 	elser (3) >> Global.node_009 
 	elser (0) >> Global.node_010 
@@ -214,7 +214,7 @@ def node_005 : 5
 	return 
 endf 
 
-def node_006 : 6
+def node_006
 	random (0) 
 	elser (3) >> Global.node_009 
 	elser (0) >> Global.node_010 
@@ -249,7 +249,7 @@ def node_006 : 6
 	return 
 endf 
 
-def node_007 : 78
+def node_007
 	random (0) 
 	elser (3) >> Global.node_009 
 	elser (0) >> Global.node_010 
@@ -284,7 +284,7 @@ def node_007 : 78
 	return 
 endf 
 
-def node_008 : 7
+def node_008
 	random (0) 
 	elser (0) >> Global.node_009 
 	elser (0) >> Global.node_010 
@@ -319,7 +319,7 @@ def node_008 : 7
 	return 
 endf 
 
-def node_009 : 8
+def node_009
 	random (0) 
 	elser (0) >> Global.node_009 
 	elser (0) >> Global.node_010 
@@ -354,7 +354,7 @@ def node_009 : 8
 	return 
 endf 
 
-def node_010 : 9
+def node_010
 	random (0) 
 	elser (0) >> Global.node_009 
 	elser (0) >> Global.node_010 
@@ -389,7 +389,7 @@ def node_010 : 9
 	return 
 endf 
 
-def node_011 : 10
+def node_011
 	random (0) 
 	elser (0) >> Global.node_009 
 	elser (0) >> Global.node_010 
@@ -424,7 +424,7 @@ def node_011 : 10
 	return 
 endf 
 
-def node_012 : 11
+def node_012
 	random (0) 
 	elser (0) >> Global.node_009 
 	elser (0) >> Global.node_010 
@@ -459,7 +459,7 @@ def node_012 : 11
 	return 
 endf 
 
-def node_013 : 83
+def node_013
 	random (0) 
 	elser (0) >> Global.node_009 
 	elser (0) >> Global.node_010 
@@ -494,7 +494,7 @@ def node_013 : 83
 	return 
 endf 
 
-def node_014 : 12
+def node_014
 	random (0) 
 	elser (10) >> Global.node_009 
 	elser (15) >> Global.node_010 
@@ -529,7 +529,7 @@ def node_014 : 12
 	return 
 endf 
 
-def node_015 : 13
+def node_015
 	random (0) 
 	elser (10) >> Global.node_009 
 	elser (7) >> Global.node_010 
@@ -564,7 +564,7 @@ def node_015 : 13
 	return 
 endf 
 
-def node_016 : 14
+def node_016
 	random (0) 
 	elser (10) >> Global.node_009 
 	elser (0) >> Global.node_010 
@@ -599,7 +599,7 @@ def node_016 : 14
 	return 
 endf 
 
-def node_017 : 15
+def node_017
 	random (0) 
 	elser (12) >> Global.node_009 
 	elser (0) >> Global.node_010 
@@ -634,7 +634,7 @@ def node_017 : 15
 	return 
 endf 
 
-def node_018 : 16
+def node_018
 	random (0) 
 	elser (15) >> Global.node_009 
 	elser (0) >> Global.node_010 
@@ -669,7 +669,7 @@ def node_018 : 16
 	return 
 endf 
 
-def node_019 : 84
+def node_019
 	random (0) 
 	elser (15) >> Global.node_009 
 	elser (0) >> Global.node_010 
@@ -704,8 +704,8 @@ def node_019 : 84
 	return 
 endf 
 
-def node_020 : 56
-	[RegisterVar6 |-] 
+def node_020
+	[RegisterVar6 ++] 
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if function#5D() 
 		function#5E() 
@@ -719,17 +719,17 @@ def node_020 : 56
 	elif self.in_map(st.Elder_Recess).in_area(1) 
 	elif self.in_map(st.Elder_Recess).in_area(4) 
 		if self.vertical_distance_to_target().gt(990) 
-			[RegisterVar6 ++] 
+			[RegisterVar6 |-] 
 		else 
 		endif 
 	elif self.vertical_distance_to_target().gt(450) 
-		[RegisterVar6 ++] 
+		[RegisterVar6 |-] 
 	else 
 	endif 
 	return 
 endf 
 
-def node_021 : 57
+def node_021
 	self.targetArea(19) 
 	if self.distance_3d_to_target().gt(1000) 
 		>> Global.node_021 
@@ -745,7 +745,7 @@ def node_021 : 57
 	return 
 endf 
 
-def node_022 : 77
+def node_022
 	if self.vertical_distance_to_target().leq(700) 
 		if self.distance_3d_to_target().leq(3000) 
 			random (60) >> Global.node_021 
@@ -761,12 +761,12 @@ def node_022 : 77
 	return 
 endf 
 
-def node_023 : 97
+def node_023
 	>> Global.node_021 
 	return 
 endf 
 
-def node_024 : 63
+def node_024
 	if self.distance_2d_to_target().gt(1000) 
 		-> deviljho.dash(6,0,0,800) 
 	else 
@@ -790,7 +790,7 @@ def node_024 : 63
 	return 
 endf 
 
-def node_025 : 96
+def node_025
 	if self.distance_2d_to_target().gt(1000) 
 		-> deviljho.dash(6,0,0,800) 
 	else 
@@ -805,7 +805,7 @@ def node_025 : 96
 	return 
 endf 
 
-def node_026 : 64
+def node_026
 	if self.distance_2d_to_target().gt(3000) 
 		-> deviljho.dash(1,0,0,2500) 
 	else 
@@ -815,7 +815,7 @@ def node_026 : 64
 	return 
 endf 
 
-def node_027 : 65
+def node_027
 	if self.below_target() 
 		self.targetEnemy(target_em.random_player_or_cat) 
 		-> deviljho.dash() 
@@ -828,7 +828,7 @@ def node_027 : 65
 	return 
 endf 
 
-def node_028 : 66
+def node_028
 	if self.angle_2d_cw_between(90,270) 
 		-> deviljho.combat_search() 
 	elif self.distance_3d_to_target().gt(3000) 
@@ -839,24 +839,24 @@ def node_028 : 66
 	return 
 endf 
 
-def node_029 : 73
+def node_029
 	>> Global.node_059 
 	return 
 endf 
 
-def node_030 : 75
+def node_030
 	>> Global.node_012 
 	-> deviljho.jump_attack_high() 
 	return 
 endf 
 
-def node_031 : 76
+def node_031
 	>> Global.node_012 
 	-> deviljho.jump_attack_wall_down() 
 	return 
 endf 
 
-def node_032 : 79
+def node_032
 	if self.target.helpless_1() 
 		if self.distance_3d_to_target().gt(4000) 
 		elif self.distance_3d_to_target().leq(1000) 
@@ -887,7 +887,7 @@ def node_032 : 79
 	return 
 endf 
 
-def node_033 : 94
+def node_033
 	if function#105() 
 		if self.in_map(st.Ancient_Forest).in_area(6) 
 			>> node_034 
@@ -900,13 +900,13 @@ def node_033 : 94
 	return 
 endf 
 
-def node_034 : 80
-	[RegisterVar1 ++] 
-	if [RegisterVar1 == 1] 
+def node_034
+	[RegisterVar1 |-] 
+	if [RegisterVar1 += 1] 
 		random (80) >> node_035 
 		elser (20) 
 		endr 
-	elif [RegisterVar1 <= 2] 
+	elif [RegisterVar1 -= 2] 
 		random (50) >> node_036 
 		elser (50) 
 		endr 
@@ -915,15 +915,15 @@ def node_034 : 80
 	return 
 endf 
 
-def node_035 : 81
+def node_035
 	random (0) -> deviljho.ride_rage_head() 
 	elser (100) -> deviljho.ride_rage_body() 
 	endr 
 	return 
 endf 
 
-def node_036 : 85
-	[RegisterVar1 |-] 
+def node_036
+	[RegisterVar1 ++] 
 	if function#29() 
 		self.targetArea(7) 
 		>> node_042 
@@ -939,7 +939,7 @@ def node_036 : 85
 	return 
 endf 
 
-def node_037 : 89
+def node_037
 	-> deviljho.ride_rage_crash_head_mini_game() 
 	random (70) >> node_041 
 	elser (30) 
@@ -947,7 +947,7 @@ def node_037 : 89
 	return 
 endf 
 
-def node_038 : 90
+def node_038
 	-> deviljho.ride_rage_crash_head_lv2_mini_game() 
 	random (100) >> node_041 
 	elser (0) 
@@ -955,7 +955,7 @@ def node_038 : 90
 	return 
 endf 
 
-def node_039 : 91
+def node_039
 	-> deviljho.ride_rage_crash_body_mini_game() 
 	random (70) >> node_041 
 	elser (30) 
@@ -963,7 +963,7 @@ def node_039 : 91
 	return 
 endf 
 
-def node_040 : 92
+def node_040
 	-> deviljho.ride_rage_crash_body_lv2_mini_game() 
 	random (100) >> node_041 
 	elser (0) 
@@ -971,7 +971,7 @@ def node_040 : 92
 	return 
 endf 
 
-def node_041 : 93
+def node_041
 	if function#105() 
 		-> deviljho.ride_tired() 
 	else 
@@ -979,7 +979,7 @@ def node_041 : 93
 	return 
 endf 
 
-def node_042 : 87
+def node_042
 	if self.distance_3d_to_target().leq(500) 
 		-> deviljho.back_turn() 
 	elif self.distance_3d_to_target().gt(3500) 
@@ -1000,7 +1000,7 @@ def node_042 : 87
 	return 
 endf 
 
-def node_043 : 88
+def node_043
 	if self.fatigued() 
 		-> deviljho.tired_dash(2,1,0,3000,500) 
 	else 

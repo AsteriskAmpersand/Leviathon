@@ -1,24 +1,24 @@
 importactions Uragaan as uragaan
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	>> Global.node_009 
 	if function#41() 
 		>> Global.node_010 
 	else 
 	endif 
-	if [RegisterVar0 <= 15] 
-		[RegisterVar0 |-] 
+	if [RegisterVar0 -= 15] 
+		[RegisterVar0 ++] 
 		conclude 
 	else 
 	endif 
-	[RegisterVar0 ++] 
+	[RegisterVar0 |-] 
 	>> node_001 
 	repeat 
 	conclude 
 endf 
 
-def node_001 : 2
+def node_001
 	>> Global.node_001 
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.distance_3d_to_target().leq(3500) 
@@ -29,7 +29,7 @@ def node_001 : 2
 	return 
 endf 
 
-def node_002 : 3
+def node_002
 	>> node_004 
 	if self.enraged() 
 		-> uragaan.search() 
@@ -41,7 +41,7 @@ def node_002 : 3
 	return 
 endf 
 
-def node_003 : 4
+def node_003
 	self.targetEnemy(58) 
 	random (10) >> node_006 
 	elser (90) 
@@ -55,7 +55,7 @@ def node_003 : 4
 	return 
 endf 
 
-def node_004 : 5
+def node_004
 	if self.angle_2d_cw_between(50,310) 
 		-> uragaan.quick_turn() 
 	else 
@@ -64,7 +64,7 @@ def node_004 : 5
 	return 
 endf 
 
-def node_005 : 6
+def node_005
 	if self.angle_2d_cw_between(120,240) 
 		-> uragaan.quick_turn() 
 	else 
@@ -73,7 +73,7 @@ def node_005 : 6
 	return 
 endf 
 
-def node_006 : 23
+def node_006
 	if self.fatigued() 
 		-> uragaan.tired_walk(2,1,0,1500,600) 
 	else 

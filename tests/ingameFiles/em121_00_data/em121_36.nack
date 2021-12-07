@@ -1,21 +1,21 @@
 importactions Behemoth as behemoth
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	>> Global.node_041 
 	self.enraged() >> node_002 => reset 
 	self.fatigued() >> node_003 => reset 
 	>> node_001 => reset 
 endf 
 
-def node_001 : 2
-	if [RegisterVar1 == 1] 
+def node_001
+	if [RegisterVar1 += 1] 
 		random (20) >> Global.node_065 
 		elser (8) >> Global.node_056 
 		elser (42) >> Global.node_059 
 		elser (30) >> Global.node_062 
 		endr 
-	elif [RegisterVar1 == 2] 
+	elif [RegisterVar1 += 2] 
 		random (37) >> Global.node_067 
 		elser (35) >> Global.node_059 
 		elser (28) >> Global.node_062 
@@ -23,7 +23,7 @@ def node_001 : 2
 		random (85) >> Global.node_074 
 		elser (15) 
 		endr 
-	elif [RegisterVar1 == 3] 
+	elif [RegisterVar1 += 3] 
 		random (37) >> Global.node_064 
 		elser (18) >> Global.node_060 
 		elser (30) >> Global.node_059 
@@ -42,12 +42,12 @@ def node_001 : 2
 	return 
 endf 
 
-def node_002 : 3
+def node_002
 	>> node_001 
 	return 
 endf 
 
-def node_003 : 4
+def node_003
 	>> node_001 
 	return 
 endf 

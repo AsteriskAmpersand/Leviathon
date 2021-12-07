@@ -1,7 +1,7 @@
 importactions Barroth as barroth
 importlibrary Global as Global
 
-def node_000 : 8
+def node_000
 	>> Global.node_015 
 	>> Global.node_050 
 	>> Global.node_096 
@@ -9,7 +9,7 @@ def node_000 : 8
 	reset 
 endf 
 
-def node_001 : 9
+def node_001
 	self.targetEnemy(48) 
 	if self.in_map(st.Challenge_Arena).in_area(-1) 
 		>> node_004 
@@ -21,7 +21,7 @@ def node_001 : 9
 	return 
 endf 
 
-def node_002 : 10
+def node_002
 	if self.fatigued() 
 		>> Global.node_029 
 	else 
@@ -35,7 +35,7 @@ def node_002 : 10
 	return 
 endf 
 
-def node_003 : 11
+def node_003
 	if self.targetEnemy(target_em.any_monster) 
 		random (20) >> Global.node_027 
 		elser (80) 
@@ -46,7 +46,7 @@ def node_003 : 11
 	return 
 endf 
 
-def node_004 : 14
+def node_004
 	>> Global.node_057 
 	random (55) >> Global.node_099 
 	elser (35) >> Global.node_027 

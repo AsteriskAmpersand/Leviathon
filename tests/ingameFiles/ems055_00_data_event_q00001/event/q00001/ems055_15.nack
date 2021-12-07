@@ -1,7 +1,7 @@
 importactions Barnos as barnos
 importlibrary Global as Global
 
-def node_000 : 41
+def node_000
 	-> action#03() 
 	if function#B0(6) >> node_016 
 	elif function#B0(2) >> node_001 
@@ -14,7 +14,7 @@ def node_000 : 41
 	reset 
 endf 
 
-def node_001 : 57
+def node_001
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.target(20) 
 		>> node_007 
@@ -24,40 +24,40 @@ def node_001 : 57
 	return 
 endf 
 
-def node_002 : 59
+def node_002
 	self.targetEnemy(target_em.random_player_or_cat) 
 	>> node_013 
 	return 
 endf 
 
-def node_003 : 60
+def node_003
 	>> node_015 
 	return 
 endf 
 
-def node_004 : 77
-	if [RegisterVar0 == 0] 
+def node_004
+	if [RegisterVar0 += 0] 
 		>> node_017 
-		[RegisterVar0 ++] 
+		[RegisterVar0 |-] 
 	else 
 		>> node_019 
 	endif 
 	return 
 endf 
 
-def node_005 : 61
+def node_005
 	>> node_014 
 	return 
 endf 
 
-def node_006 : 54
+def node_006
 	random (50) -> action#22() 
 	elser (50) -> action#24() 
 	endr 
 	return 
 endf 
 
-def node_007 : 52
+def node_007
 	if self.target(0) 
 		if self.distance_3d_to_target().gt(700) >> node_010 
 		else >> node_011 
@@ -70,7 +70,7 @@ def node_007 : 52
 	return 
 endf 
 
-def node_008 : 79
+def node_008
 	if self.distance_3d_to_target().leq(800) 
 		-> action#17() 
 		>> Global.node_021 
@@ -83,7 +83,7 @@ def node_008 : 79
 	return 
 endf 
 
-def node_009 : 80
+def node_009
 	function#74(90,800) 
 	-> action#18(1,2,0,200,500) 
 	function#74(270,800) 
@@ -91,7 +91,7 @@ def node_009 : 80
 	return 
 endf 
 
-def node_010 : 81
+def node_010
 	function#52() 
 	self.targetEnemy(16) 
 	-> action#15(1,0,0,300) 
@@ -100,12 +100,12 @@ def node_010 : 81
 	return 
 endf 
 
-def node_011 : 82
+def node_011
 	>> node_020 
 	return 
 endf 
 
-def node_012 : 55
+def node_012
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.distance_2d_to_target().leq(1000) 
 		if self.flying() 
@@ -123,7 +123,7 @@ def node_012 : 55
 	return 
 endf 
 
-def node_013 : 51
+def node_013
 	if self.target(20) 
 		>> node_020 
 	else 
@@ -132,7 +132,7 @@ def node_013 : 51
 	return 
 endf 
 
-def node_014 : 56
+def node_014
 	function#52(32) 
 	self.targetEnemy(16) 
 	>> node_022 
@@ -140,7 +140,7 @@ def node_014 : 56
 	return 
 endf 
 
-def node_015 : 65
+def node_015
 	function#52(32) 
 	self.targetEnemy(16) 
 	>> node_023 
@@ -148,7 +148,7 @@ def node_015 : 65
 	return 
 endf 
 
-def node_016 : 68
+def node_016
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.target(20) 
 		function#52() 
@@ -166,7 +166,7 @@ def node_016 : 68
 	return 
 endf 
 
-def node_017 : 78
+def node_017
 	function#52(4) 
 	self.targetEnemy(16) 
 	-> action#16() 
@@ -174,27 +174,27 @@ def node_017 : 78
 	return 
 endf 
 
-def node_018 : 74
+def node_018
 	random (20) >> node_020 
 	elser (80) 
 	endr 
 	return 
 endf 
 
-def node_019 : 76
+def node_019
 	random (80) >> node_020 
 	elser (20) >> Global.node_002 
 	endr 
 	return 
 endf 
 
-def node_020 : 75
+def node_020
 	>> Global.node_021 
 	>> Global.node_001 
 	return 
 endf 
 
-def node_021 : 69
+def node_021
 	-> action#16(1,2,0,500,500) 
 	if self.distance_2d_to_target().leq(800) 
 		return 
@@ -204,7 +204,7 @@ def node_021 : 69
 	return 
 endf 
 
-def node_022 : 70
+def node_022
 	-> action#15(1,2,0,500,800) 
 	if self.distance_3d_to_target().leq(500) 
 		return 
@@ -214,7 +214,7 @@ def node_022 : 70
 	return 
 endf 
 
-def node_023 : 71
+def node_023
 	-> action#16(1,2,0,500,800) 
 	if self.distance_3d_to_target().leq(500) 
 		return 

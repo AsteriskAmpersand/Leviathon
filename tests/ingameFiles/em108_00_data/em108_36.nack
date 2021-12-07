@@ -1,7 +1,7 @@
 importactions Jyuratodus as jyuratodus
 importlibrary Global as Global
 
-def node_000 : 86
+def node_000
 	if self.current_quest().is_rank(rank.MR) 
 		>> node_001 
 	else 
@@ -10,7 +10,7 @@ def node_000 : 86
 	reset 
 endf 
 
-def node_001 : 85
+def node_001
 	self.targetEnemy(21) @ parameter2:750 
 	>> node_009 
 	if self.enraged() >> node_014 
@@ -19,7 +19,7 @@ def node_001 : 85
 	reset 
 endf 
 
-def node_002 : 73
+def node_002
 	self.targetEnemy(21) @ parameter2:750 
 	>> node_009 
 	if self.enraged() >> node_004 
@@ -28,7 +28,7 @@ def node_002 : 73
 	reset 
 endf 
 
-def node_003 : 74
+def node_003
 	random (35) >> node_006 
 	elser (25) >> node_007 
 	elser (10) >> node_008 
@@ -38,7 +38,7 @@ def node_003 : 74
 	return 
 endf 
 
-def node_004 : 75
+def node_004
 	random (30) >> node_006 
 	elser (25) >> node_007 
 	elser (15) >> node_008 
@@ -48,7 +48,7 @@ def node_004 : 75
 	return 
 endf 
 
-def node_005 : 76
+def node_005
 	random (35) >> node_006 
 	elser (25) >> node_007 
 	elser (10) >> Global.node_072 
@@ -58,35 +58,35 @@ def node_005 : 76
 	return 
 endf 
 
-def node_006 : 77
+def node_006
 	if function#101() >> Global.node_023 
 	else >> Global.node_034 
 	endif 
 	return 
 endf 
 
-def node_007 : 78
+def node_007
 	if function#101() >> Global.node_025 
 	else >> Global.node_038 
 	endif 
 	return 
 endf 
 
-def node_008 : 79
+def node_008
 	if function#101() >> Global.node_027 
 	else >> Global.node_037 
 	endif 
 	return 
 endf 
 
-def node_009 : 80
+def node_009
 	self.targetEnemy(target_em.random_player_or_cat) 
 	self.target_on_part(0) >> node_010 => reset 
 	self.target_on_part(1) >> node_011 => reset 
 	return 
 endf 
 
-def node_010 : 83
+def node_010
 	if self.mounted() -> jyuratodus.swim_ride_rage_head() 
 	elif self.mounted() -> jyuratodus.swim_ride_rage_head() @ parameter1:1 
 	endif 
@@ -94,7 +94,7 @@ def node_010 : 83
 	return 
 endf 
 
-def node_011 : 84
+def node_011
 	if self.mounted() -> jyuratodus.swim_ride_rage_body() 
 	elif self.mounted() -> jyuratodus.swim_ride_rage_body_lv2() @ parameter1:1 
 	endif 
@@ -102,7 +102,7 @@ def node_011 : 84
 	return 
 endf 
 
-def node_012 : 82
+def node_012
 	if function#3B() 
 		if self.mount_staggered_twice() >> node_013 
 		endif 
@@ -116,13 +116,13 @@ def node_012 : 82
 	return 
 endf 
 
-def node_013 : 81
+def node_013
 	if self.mounted() -> jyuratodus.swim_ride_tired_lv2() @ parameter1:1 
 	endif 
 	return 
 endf 
 
-def node_014 : 87
+def node_014
 	random (40) >> node_006 
 	elser (35) >> node_007 
 	elser (25) >> node_008 
@@ -132,7 +132,7 @@ def node_014 : 87
 	return 
 endf 
 
-def node_015 : 88
+def node_015
 	random (50) >> node_006 
 	elser (35) >> node_007 
 	elser (0) >> Global.node_072 
@@ -142,7 +142,7 @@ def node_015 : 88
 	return 
 endf 
 
-def node_016 : 89
+def node_016
 	random (45) >> node_006 
 	elser (30) >> node_007 
 	elser (15) >> node_008 

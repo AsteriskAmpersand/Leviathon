@@ -1,37 +1,37 @@
 importactions Brachydios as brachydios
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	>> Global.node_103 
 	>> node_008 
 	>> node_009 
-	function#A8() 
+	[$U |-] 
 	if self.mounted() >> node_001 
 	else >> node_002 
 	endif 
 	reset 
 endf 
 
-def node_001 : 4
-	if function#A9(0,1) >> Global.node_065 
-	elif function#A9(3,3) >> Global.node_067 
+def node_001
+	if [$U += 1] >> Global.node_065 
+	elif [$U /= 3] >> Global.node_067 
 	else 
-		function#A8(1) 
+		[$U ++] 
 		>> node_003 
 	endif 
 	return 
 endf 
 
-def node_002 : 5
-	if function#A9(3,2) >> Global.node_067 
+def node_002
+	if [$U /= 2] >> Global.node_067 
 	else 
-		function#A8(1) 
+		[$U ++] 
 		>> node_003 
 	endif 
 	return 
 endf 
 
-def node_003 : 7
+def node_003
 	if function#29() 
 		self.targetEnemy(7) 
 		>> node_004 
@@ -45,7 +45,7 @@ def node_003 : 7
 	return 
 endf 
 
-def node_004 : 10
+def node_004
 	if self.distance_3d_to_target().gt(3500) 
 		if self.vertical_distance_to_target().leq(1000) 
 			>> node_007 
@@ -57,7 +57,7 @@ def node_004 : 10
 	return 
 endf 
 
-def node_005 : 8
+def node_005
 	if self.target_on_part(0) -> brachydios.ride_rage_crash_head() 
 	elif self.target_on_part(1) -> brachydios.ride_rage_crash_body() 
 	elif self.target_on_part(2) -> brachydios.ride_rage_crash_tail() 
@@ -65,7 +65,7 @@ def node_005 : 8
 	return 
 endf 
 
-def node_006 : 9
+def node_006
 	if self.target_on_part(0) -> brachydios.ride_rage_crash_head_lv2() 
 	elif self.target_on_part(1) -> brachydios.ride_rage_crash_body_lv2() 
 	elif self.target_on_part(2) -> brachydios.ride_rage_crash_tail_lv2() 
@@ -73,13 +73,13 @@ def node_006 : 9
 	return 
 endf 
 
-def node_007 : 11
+def node_007
 	>> Global.node_074 
 	>> Global.node_036 
 	return 
 endf 
 
-def node_008 : 3
+def node_008
 	if self.fatigued() 
 		random (30) -> brachydios.tired_idle() 
 		elser (70) 
@@ -88,7 +88,7 @@ def node_008 : 3
 	return 
 endf 
 
-def node_009 : 12
+def node_009
 	if function#3B() 
 		if self.mount_staggered_twice() >> node_012 
 		endif 
@@ -100,7 +100,7 @@ def node_009 : 12
 	return 
 endf 
 
-def node_010 : 14
+def node_010
 	if self.mounted() 
 		random (60) >> node_012 
 		elser (40) 
@@ -113,7 +113,7 @@ def node_010 : 14
 	return 
 endf 
 
-def node_011 : 15
+def node_011
 	if self.mounted() 
 		random (40) >> node_012 
 		elser (60) 
@@ -126,7 +126,7 @@ def node_011 : 15
 	return 
 endf 
 
-def node_012 : 13
+def node_012
 	-> brachydios.ride_tired() 
 	return 
 endf 

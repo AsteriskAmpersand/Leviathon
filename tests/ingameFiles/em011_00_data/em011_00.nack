@@ -1,13 +1,13 @@
 importactions Kirin as kirin
 importlibrary Global as Global
 
-def node_000 : 27
+def node_000
 	>> node_001 
 	>> node_002 
 	reset 
 endf 
 
-def node_001 : 28
+def node_001
 	if function#45() 
 	else 
 		>> Global.node_045 
@@ -17,7 +17,7 @@ def node_001 : 28
 	return 
 endf 
 
-def node_002 : 1
+def node_002
 	if self.target(4) 
 		>> Global.node_104 => reset 
 	elif self.target(3) 
@@ -54,7 +54,7 @@ def node_002 : 1
 	reset 
 endf 
 
-def node_003 : 30
+def node_003
 	if self.current_quest().is_rank(rank.MR) 
 		random (5) >> Global.node_015 
 		elser (5) >> Global.node_009 
@@ -81,7 +81,7 @@ def node_003 : 30
 	return 
 endf 
 
-def node_004 : 14
+def node_004
 	if self.current_quest().is_rank(rank.MR) 
 		random (10) >> Global.node_009 
 		elser (10) >> Global.node_001 
@@ -108,7 +108,7 @@ def node_004 : 14
 	return 
 endf 
 
-def node_005 : 15
+def node_005
 	if self.current_quest().is_rank(rank.MR) 
 		random (15) >> Global.node_001 
 		elser (5) >> Global.node_007 
@@ -143,7 +143,7 @@ def node_005 : 15
 	return 
 endf 
 
-def node_006 : 16
+def node_006
 	if self.current_quest().is_rank(rank.MR) 
 		random (10) >> Global.node_001 
 		elser (5) >> Global.node_018 
@@ -174,7 +174,7 @@ def node_006 : 16
 	return 
 endf 
 
-def node_007 : 17
+def node_007
 	if self.current_quest().is_rank(rank.MR) 
 		random (40) >> Global.node_089 
 		elser (40) >> Global.node_090 
@@ -191,7 +191,7 @@ def node_007 : 17
 	return 
 endf 
 
-def node_008 : 31
+def node_008
 	if self.current_quest().is_rank(rank.MR) 
 		random (0) >> Global.node_015 
 		elser (5) >> Global.node_009 
@@ -219,7 +219,7 @@ def node_008 : 31
 	return 
 endf 
 
-def node_009 : 18
+def node_009
 	if self.current_quest().is_rank(rank.MR) 
 		random (10) >> Global.node_009 
 		elser (10) >> Global.node_001 
@@ -247,7 +247,7 @@ def node_009 : 18
 	return 
 endf 
 
-def node_010 : 19
+def node_010
 	if self.current_quest().is_rank(rank.MR) 
 		random (10) >> Global.node_001 
 		elser (0) >> Global.node_007 
@@ -282,7 +282,7 @@ def node_010 : 19
 	return 
 endf 
 
-def node_011 : 20
+def node_011
 	if self.current_quest().is_rank(rank.MR) 
 		random (0) >> Global.node_001 
 		elser (5) >> Global.node_018 
@@ -313,7 +313,7 @@ def node_011 : 20
 	return 
 endf 
 
-def node_012 : 21
+def node_012
 	if self.current_quest().is_rank(rank.MR) 
 		random (40) >> Global.node_089 
 		elser (40) >> Global.node_090 
@@ -330,7 +330,7 @@ def node_012 : 21
 	return 
 endf 
 
-def node_013 : 29
+def node_013
 	>> Global.node_100 
 	>> Global.node_009 
 	reset 

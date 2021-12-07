@@ -1,14 +1,14 @@
 importactions Fulgur_Anjanath as fulgur_anjanath
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	>> node_098 
 	if self.target.pinned() 
 		>> node_046 
 	else 
 	endif 
 	if function#105() 
-		[RegisterVar0 |-] 
+		[RegisterVar0 ++] 
 		-> fulgur_anjanath.asyu_charge_start() 
 	else 
 	endif 
@@ -39,7 +39,7 @@ def node_000 : 1
 		>> node_064 
 	elif self.target(0) 
 		>> node_066 
-	elif [RegisterVar3 == 1] 
+	elif [RegisterVar3 += 1] 
 		>> node_063 
 	elif self.distance_3d_to_target().leq(500) 
 		if self.enraged() >> node_007 
@@ -69,7 +69,7 @@ def node_000 : 1
 	reset 
 endf 
 
-def node_001 : 2
+def node_001
 	if function#103() 
 		random (20) >> node_086 
 		elser (0) >> node_039 
@@ -112,7 +112,7 @@ def node_001 : 2
 	return 
 endf 
 
-def node_002 : 3
+def node_002
 	if function#103() 
 		random (0) >> node_043 
 		elser (14) >> node_034 
@@ -155,7 +155,7 @@ def node_002 : 3
 	return 
 endf 
 
-def node_003 : 95
+def node_003
 	if function#103() 
 		random (0) >> node_043 
 		elser (0) >> node_044 
@@ -195,7 +195,7 @@ def node_003 : 95
 	return 
 endf 
 
-def node_004 : 4
+def node_004
 	if function#103() 
 		random (0) >> node_043 
 		elser (0) >> node_044 
@@ -234,7 +234,7 @@ def node_004 : 4
 	return 
 endf 
 
-def node_005 : 5
+def node_005
 	if function#103() 
 		random (85) >> node_055 
 		elser (15) >> node_077 
@@ -251,12 +251,12 @@ def node_005 : 5
 	return 
 endf 
 
-def node_006 : 6
+def node_006
 	>> node_055 
 	return 
 endf 
 
-def node_007 : 7
+def node_007
 	if function#103() 
 		random (20) >> node_086 
 		elser (8) >> node_092 
@@ -296,7 +296,7 @@ def node_007 : 7
 	return 
 endf 
 
-def node_008 : 8
+def node_008
 	if function#103() 
 		random (0) >> node_043 
 		elser (0) >> node_085 
@@ -348,7 +348,7 @@ def node_008 : 8
 	return 
 endf 
 
-def node_009 : 96
+def node_009
 	if function#103() 
 		random (0) >> node_043 
 		elser (0) >> node_044 
@@ -393,7 +393,7 @@ def node_009 : 96
 	return 
 endf 
 
-def node_010 : 9
+def node_010
 	if function#103() 
 		random (0) >> node_043 
 		elser (0) >> node_044 
@@ -436,7 +436,7 @@ def node_010 : 9
 	return 
 endf 
 
-def node_011 : 10
+def node_011
 	if function#103() 
 		random (50) >> node_055 
 		elser (35) >> node_077 
@@ -456,12 +456,12 @@ def node_011 : 10
 	return 
 endf 
 
-def node_012 : 11
+def node_012
 	>> node_055 
 	return 
 endf 
 
-def node_013 : 12
+def node_013
 	random (35) >> node_036 
 	elser (15) >> node_023 
 	elser (40) >> node_025 
@@ -471,7 +471,7 @@ def node_013 : 12
 	return 
 endf 
 
-def node_014 : 13
+def node_014
 	random (5) >> node_043 
 	elser (31) >> node_045 
 	elser (30) >> node_025 
@@ -481,7 +481,7 @@ def node_014 : 13
 	return 
 endf 
 
-def node_015 : 97
+def node_015
 	random (5) >> node_043 
 	elser (9) >> node_044 
 	elser (16) >> node_055 
@@ -493,7 +493,7 @@ def node_015 : 97
 	return 
 endf 
 
-def node_016 : 14
+def node_016
 	random (5) >> node_043 
 	elser (9) >> node_044 
 	elser (16) >> node_055 
@@ -505,21 +505,21 @@ def node_016 : 14
 	return 
 endf 
 
-def node_017 : 15
+def node_017
 	random (90) >> node_055 
 	elser (10) >> node_059 
 	endr 
 	return 
 endf 
 
-def node_018 : 16
+def node_018
 	random (85) >> node_055 
 	elser (15) >> node_059 
 	endr 
 	return 
 endf 
 
-def node_019 : 17
+def node_019
 	if self.angle_2d_cw_between(30,330) 
 		-> fulgur_anjanath.turn() 
 	else 
@@ -528,7 +528,7 @@ def node_019 : 17
 	return 
 endf 
 
-def node_020 : 18
+def node_020
 	if self.angle_2d_cw_between(120,240) 
 		-> fulgur_anjanath.turn() 
 	else 
@@ -537,7 +537,7 @@ def node_020 : 18
 	return 
 endf 
 
-def node_021 : 19
+def node_021
 	if self.distance_3d_to_target().gt(3000) 
 	elif self.vertical_distance_to_target().gt(500) 
 	elif function#41() 
@@ -549,7 +549,7 @@ def node_021 : 19
 			if self.fatigued() 
 			elif self.enraged() 
 				if self.target.stunned_0() 
-					if [RegisterVar0 <= 5] 
+					if [RegisterVar0 -= 5] 
 						>> node_079 
 					else 
 						if self.distance_2d_to_target().leq(600) 
@@ -637,7 +637,7 @@ def node_021 : 19
 	return 
 endf 
 
-def node_022 : 20
+def node_022
 	if self.distance_3d_to_target().gt(3500) 
 	elif self.vertical_distance_to_target().gt(500) 
 	elif function#41() 
@@ -649,8 +649,8 @@ def node_022 : 20
 	return 
 endf 
 
-def node_023 : 21
-	[RegisterVar1 |-] 
+def node_023
+	[RegisterVar1 ++] 
 	if self.distance_3d_to_target().leq(450) 
 		-> fulgur_anjanath.charged_petit_bite_near() 
 	elif self.distance_3d_to_target().leq(1100) 
@@ -662,8 +662,8 @@ def node_023 : 21
 	return 
 endf 
 
-def node_024 : 43
-	[RegisterVar1 |-] 
+def node_024
+	[RegisterVar1 ++] 
 	if self.distance_3d_to_target().leq(450) 
 		-> fulgur_anjanath.charged_cut_bite_near() 
 	elif self.distance_3d_to_target().leq(1100) 
@@ -675,7 +675,7 @@ def node_024 : 43
 	return 
 endf 
 
-def node_025 : 22
+def node_025
 	if self.target(55) 
 		>> node_027 
 	else 
@@ -694,14 +694,14 @@ def node_025 : 22
 	return 
 endf 
 
-def node_026 : 23
-	[RegisterVar1 |-] 
+def node_026
+	[RegisterVar1 ++] 
 	-> fulgur_anjanath.asyu_turn_bite_near() 
 	return 
 endf 
 
-def node_027 : 24
-	[RegisterVar1 |-] 
+def node_027
+	[RegisterVar1 ++] 
 	if self.angle_2d_cw_between(345,15) 
 		-> fulgur_anjanath.asyu_turn_bite_near() 
 	elif self.angle_2d_cw_between(15,40) 
@@ -718,14 +718,14 @@ def node_027 : 24
 	return 
 endf 
 
-def node_028 : 25
-	[RegisterVar1 |-] 
+def node_028
+	[RegisterVar1 ++] 
 	-> fulgur_anjanath.asyu_bite() 
 	return 
 endf 
 
-def node_029 : 26
-	[RegisterVar1 |-] 
+def node_029
+	[RegisterVar1 ++] 
 	if self.distance_3d_to_target().leq(1300) 
 		-> fulgur_anjanath.asyu_step_bite() 
 	else 
@@ -736,8 +736,8 @@ def node_029 : 26
 	return 
 endf 
 
-def node_030 : 27
-	[RegisterVar1 |-] 
+def node_030
+	[RegisterVar1 ++] 
 	if self.angle_2d_cw_between(330,30) 
 		-> fulgur_anjanath.charged_dash_bite() 
 	else 
@@ -747,8 +747,8 @@ def node_030 : 27
 	return 
 endf 
 
-def node_031 : 28
-	[RegisterVar1 |-] 
+def node_031
+	[RegisterVar1 ++] 
 	if self.angle_2d_cw_between(0,170) 
 		-> fulgur_anjanath.charged_side_bite() 
 	elif self.angle_2d_cw_between(190,0) 
@@ -759,46 +759,46 @@ def node_031 : 28
 	return 
 endf 
 
-def node_032 : 29
-	[RegisterVar1 |-] 
+def node_032
+	[RegisterVar1 ++] 
 	-> fulgur_anjanath.tail_wind() 
 	return 
 endf 
 
-def node_033 : 30
+def node_033
 	>> node_020 
 	-> fulgur_anjanath.charged_rush_bite() 
 	return 
 endf 
 
-def node_034 : 31
-	[RegisterVar1 |-] 
+def node_034
+	[RegisterVar1 ++] 
 	>> node_019 
 	-> fulgur_anjanath.charged_bite_2ren() 
 	return 
 endf 
 
-def node_035 : 32
-	[RegisterVar1 |-] 
+def node_035
+	[RegisterVar1 ++] 
 	-> fulgur_anjanath.charged_bite_2ren_combo() 
 	-> fulgur_anjanath.charged_bite_3ren() 
 	return 
 endf 
 
-def node_036 : 33
-	[RegisterVar1 |-] 
+def node_036
+	[RegisterVar1 ++] 
 	-> fulgur_anjanath.side_kick() 
 	return 
 endf 
 
-def node_037 : 34
-	[RegisterVar1 |-] 
+def node_037
+	[RegisterVar1 ++] 
 	-> fulgur_anjanath.ride_rage_tail() 
 	return 
 endf 
 
-def node_038 : 35
-	[RegisterVar1 |-] 
+def node_038
+	[RegisterVar1 ++] 
 	if self.angle_2d_cw_between(315,45) 
 		self.targetArea(9) @ parameter2:1700 
 		-> fulgur_anjanath.dash() 
@@ -811,7 +811,7 @@ def node_038 : 35
 	return 
 endf 
 
-def node_039 : 36
+def node_039
 	if self.angle_2d_cw_between(260,100) 
 		>> node_023 
 	else 
@@ -820,7 +820,7 @@ def node_039 : 36
 	return 
 endf 
 
-def node_040 : 50
+def node_040
 	if self.angle_2d_cw_between(260,100) 
 		>> node_024 
 	else 
@@ -829,15 +829,15 @@ def node_040 : 50
 	return 
 endf 
 
-def node_041 : 37
-	[RegisterVar1 |-] 
+def node_041
+	[RegisterVar1 ++] 
 	>> node_019 
 	-> fulgur_anjanath.jump_attack_2() 
 	return 
 endf 
 
-def node_042 : 68
-	[RegisterVar1 |-] 
+def node_042
+	[RegisterVar1 ++] 
 	if self.distance_3d_to_target().leq(100) 
 		>> node_025 
 	elif self.angle_2d_cw_between(340,20) 
@@ -848,22 +848,22 @@ def node_042 : 68
 	return 
 endf 
 
-def node_043 : 72
-	[RegisterVar1 |-] 
+def node_043
+	[RegisterVar1 ++] 
 	>> node_019 
 	-> fulgur_anjanath.mid_range_attack() 
 	return 
 endf 
 
-def node_044 : 74
-	[RegisterVar1 |-] 
+def node_044
+	[RegisterVar1 ++] 
 	>> node_019 
 	-> fulgur_anjanath.mid_range_attack2() 
 	return 
 endf 
 
-def node_045 : 38
-	[RegisterVar1 |-] 
+def node_045
+	[RegisterVar1 ++] 
 	>> node_020 
 	-> fulgur_anjanath.charged_near_catch_attack() 
 	if self.target.pinned() 
@@ -874,14 +874,14 @@ def node_045 : 38
 	return 
 endf 
 
-def node_046 : 39
+def node_046
 	self.targetArea(3) 
 	-> fulgur_anjanath.catch_throw() 
 	>> node_022 
 	return 
 endf 
 
-def node_047 : 40
+def node_047
 	if self.distance_3d_to_target().leq(200) 
 		-> fulgur_anjanath.back_turn() 
 		-> fulgur_anjanath.charged_corner_bite() 
@@ -895,17 +895,17 @@ def node_047 : 40
 	return 
 endf 
 
-def node_048 : 41
-	[RegisterVar0 ++] 
-	if [RegisterVar0 <= 10] 
+def node_048
+	[RegisterVar0 |-] 
+	if [RegisterVar0 -= 10] 
 		random (99) >> node_050 
 		elser (1) 
 		endr 
-	elif [RegisterVar0 <= 7] 
+	elif [RegisterVar0 -= 7] 
 		random (90) >> node_050 
 		elser (10) 
 		endr 
-	elif [RegisterVar0 <= 5] 
+	elif [RegisterVar0 -= 5] 
 		random (70) >> node_050 
 		elser (30) 
 		endr 
@@ -914,23 +914,23 @@ def node_048 : 41
 	return 
 endf 
 
-def node_049 : 42
-	[RegisterVar0 ++] 
+def node_049
+	[RegisterVar0 |-] 
 	if self.current_quest().is_rank(rank.MR) 
-		if [RegisterVar0 <= 3] 
+		if [RegisterVar0 -= 3] 
 			>> node_052 
 		else 
 		endif 
 	else 
 		if function#B9() 
-			if [RegisterVar0 == 5] 
+			if [RegisterVar0 += 5] 
 				>> node_052 
 			else 
 			endif 
 		else 
-			if [RegisterVar0 == 5] 
+			if [RegisterVar0 += 5] 
 				>> node_051 
-			elif [RegisterVar0 <= 6] 
+			elif [RegisterVar0 -= 6] 
 				>> node_052 
 			else 
 			endif 
@@ -939,21 +939,21 @@ def node_049 : 42
 	return 
 endf 
 
-def node_050 : 69
+def node_050
 	function#101() 
-	[RegisterVar0 |-] 
+	[RegisterVar0 ++] 
 	-> fulgur_anjanath.breath_charge() 
 	return 
 endf 
 
-def node_051 : 71
+def node_051
 	>> node_019 
 	-> fulgur_anjanath.breath_sign() 
 	return 
 endf 
 
-def node_052 : 70
-	[RegisterVar0 |-] 
+def node_052
+	[RegisterVar0 ++] 
 	if self.current_quest().is_rank(rank.MR) 
 		-> fulgur_anjanath.die_water_slide_fall() 
 	else 
@@ -966,23 +966,23 @@ def node_052 : 70
 	return 
 endf 
 
-def node_053 : 44
+def node_053
 endf 
 
-def node_054 : 49
+def node_054
 	>> node_019 
 	-> fulgur_anjanath.nose_breath_in() 
 	return 
 endf 
 
-def node_055 : 51
-	[RegisterVar1 |-] 
+def node_055
+	[RegisterVar1 ++] 
 	>> node_056 
 	return 
 endf 
 
-def node_056 : 52
-	[RegisterVar1 |-] 
+def node_056
+	[RegisterVar1 ++] 
 	if self.fatigued() 
 		-> fulgur_anjanath.tired_dash(2,1,0,1500,800) 
 	else 
@@ -991,8 +991,8 @@ def node_056 : 52
 	return 
 endf 
 
-def node_057 : 108
-	[RegisterVar1 |-] 
+def node_057
+	[RegisterVar1 ++] 
 	if self.fatigued() 
 		-> fulgur_anjanath.tired_dash(2,1,0,1500,1500) 
 	else 
@@ -1001,22 +1001,22 @@ def node_057 : 108
 	return 
 endf 
 
-def node_058 : 53
-	[RegisterVar1 |-] 
+def node_058
+	[RegisterVar1 ++] 
 	>> node_020 
 	-> fulgur_anjanath.jump_attack() 
 	return 
 endf 
 
-def node_059 : 54
-	[RegisterVar1 |-] 
+def node_059
+	[RegisterVar1 ++] 
 	>> node_020 
 	-> fulgur_anjanath.tired() 
 	return 
 endf 
 
-def node_060 : 55
-	[RegisterVar1 |-] 
+def node_060
+	[RegisterVar1 ++] 
 	>> node_020 
 	random (55) -> fulgur_anjanath.predator_walk_l() 
 	elser (45) -> fulgur_anjanath.predator_walk_r() 
@@ -1024,8 +1024,8 @@ def node_060 : 55
 	return 
 endf 
 
-def node_061 : 56
-	[RegisterVar3 |-] 
+def node_061
+	[RegisterVar3 ++] 
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if function#5D() 
 		function#5E() 
@@ -1037,27 +1037,27 @@ def node_061 : 56
 	endif 
 	if self.in_map(st.Ancient_Forest).in_area(5) 
 		if self.vertical_distance_to_target().gt(400) 
-			[RegisterVar3 ++] 
-		elif self.target(52) 
-			[RegisterVar3 ++] 
-		else 
 			[RegisterVar3 |-] 
+		elif self.target(52) 
+			[RegisterVar3 |-] 
+		else 
+			[RegisterVar3 ++] 
 		endif 
 	elif self.in_map(st.Ancient_Forest).in_area(2) 
 		if self.vertical_distance_to_target().gt(400) 
-			[RegisterVar3 ++] 
-		elif self.target(52) 
-			[RegisterVar3 ++] 
-		else 
 			[RegisterVar3 |-] 
+		elif self.target(52) 
+			[RegisterVar3 |-] 
+		else 
+			[RegisterVar3 ++] 
 		endif 
 	else 
 		if self.vertical_distance_to_target().gt(400) 
-			[RegisterVar3 ++] 
-		elif self.target(52) 
-			[RegisterVar3 ++] 
-		else 
 			[RegisterVar3 |-] 
+		elif self.target(52) 
+			[RegisterVar3 |-] 
+		else 
+			[RegisterVar3 ++] 
 			if self.target.mudded() 
 				>> node_057 
 				>> node_041 
@@ -1068,7 +1068,7 @@ def node_061 : 56
 	return 
 endf 
 
-def node_062 : 57
+def node_062
 	self.targetArea(19) 
 	if self.distance_3d_to_target().gt(1000) 
 		>> Global.node_014 
@@ -1119,7 +1119,7 @@ def node_062 : 57
 	return 
 endf 
 
-def node_063 : 77
+def node_063
 	if self.target(52) 
 		>> node_055 
 	else 
@@ -1138,7 +1138,7 @@ def node_063 : 77
 	return 
 endf 
 
-def node_064 : 63
+def node_064
 	if self.above_target() 
 		if self.distance_2d_to_target().gt(3000) 
 			-> fulgur_anjanath.dash(1,0,0,2500) 
@@ -1158,7 +1158,7 @@ def node_064 : 63
 	return 
 endf 
 
-def node_065 : 64
+def node_065
 	if self.distance_2d_to_target().gt(2500) 
 		-> fulgur_anjanath.dash(1,0,0,2000) 
 	else 
@@ -1176,7 +1176,7 @@ def node_065 : 64
 	return 
 endf 
 
-def node_066 : 113
+def node_066
 	if self.below_target() 
 		self.targetArea(77) 
 		>> node_019 
@@ -1188,7 +1188,7 @@ def node_066 : 113
 	return 
 endf 
 
-def node_067 : 65
+def node_067
 	if self.below_target() 
 		self.targetEnemy(target_em.random_player_or_cat) 
 		-> fulgur_anjanath.dash() 
@@ -1201,7 +1201,7 @@ def node_067 : 65
 	return 
 endf 
 
-def node_068 : 66
+def node_068
 	if self.angle_2d_cw_between(90,270) 
 		-> fulgur_anjanath.combat_search() 
 	elif self.distance_3d_to_target().gt(3000) 
@@ -1212,12 +1212,12 @@ def node_068 : 66
 	return 
 endf 
 
-def node_069 : 73
+def node_069
 	>> node_041 
 	return 
 endf 
 
-def node_070 : 109
+def node_070
 	if self.enraged() >> node_072 
 		*&
 	elif self.fatigued() >> node_073 
@@ -1226,7 +1226,7 @@ def node_070 : 109
 	return 
 endf 
 
-def node_071 : 111
+def node_071
 	if function#103() 
 		random (20) >> node_086 
 		elser (0) >> node_039 
@@ -1269,7 +1269,7 @@ def node_071 : 111
 	return 
 endf 
 
-def node_072 : 110
+def node_072
 	if function#103() 
 		random (20) >> node_086 
 		elser (8) >> node_092 
@@ -1309,7 +1309,7 @@ def node_072 : 110
 	return 
 endf 
 
-def node_073 : 112
+def node_073
 	random (35) >> node_036 
 	elser (15) >> node_023 
 	elser (40) >> node_025 
@@ -1319,7 +1319,7 @@ def node_073 : 112
 	return 
 endf 
 
-def node_074 : 67
+def node_074
 	if function#75(2) 
 		random (4) -> fulgur_anjanath.pain_left_foot() 
 		elser (96) 
@@ -1333,60 +1333,60 @@ def node_074 : 67
 	return 
 endf 
 
-def node_075 : 75
-	[RegisterVar1 |-] 
+def node_075
+	[RegisterVar1 ++] 
 	>> node_019 
 	-> fulgur_anjanath.jump_attack_high() 
 	return 
 endf 
 
-def node_076 : 76
-	[RegisterVar1 |-] 
+def node_076
+	[RegisterVar1 ++] 
 	>> node_019 
 	-> fulgur_anjanath.jump_attack_wall_down() 
 	return 
 endf 
 
-def node_077 : 80
-	if [RegisterVar1 <= 2] 
+def node_077
+	if [RegisterVar1 -= 2] 
 		>> node_099 
 	else 
 		if self.angle_2d_cw_between(90,270) 
 			-> fulgur_anjanath.turn() 
 		else 
 		endif 
-		[RegisterVar1 ++] 
+		[RegisterVar1 |-] 
 		-> fulgur_anjanath.asyu_nose_breath() 
 	endif 
 	return 
 endf 
 
-def node_078 : 78
-	[RegisterVar1 |-] 
+def node_078
+	[RegisterVar1 ++] 
 	-> fulgur_anjanath.asyu_rush_bite() 
 	return 
 endf 
 
-def node_079 : 81
-	[RegisterVar1 |-] 
+def node_079
+	[RegisterVar1 ++] 
 	if self.distance_3d_to_target().leq(2500) 
 	else 
 		-> fulgur_anjanath.dash(2,1,0,1500,2000) 
 	endif 
 	-> fulgur_anjanath.asyu_charge_attack() 
-	[RegisterVar0 |-] 
+	[RegisterVar0 ++] 
 	return 
 endf 
 
-def node_080 : 82
-	[RegisterVar0 ++] 
+def node_080
+	[RegisterVar0 |-] 
 	if function#B9() 
-		if [RegisterVar0 <= 30] 
+		if [RegisterVar0 -= 30] 
 			>> node_079 
 		else 
 		endif 
 	else 
-		if [RegisterVar0 <= 15] 
+		if [RegisterVar0 -= 15] 
 			>> node_079 
 		else 
 		endif 
@@ -1394,7 +1394,7 @@ def node_080 : 82
 	return 
 endf 
 
-def node_081 : 83
+def node_081
 	if self.angle_2d_cw_between(90,270) 
 		-> fulgur_anjanath.turn() 
 	else 
@@ -1406,57 +1406,57 @@ def node_081 : 83
 	return 
 endf 
 
-def node_082 : 84
-	[RegisterVar1 |-] 
+def node_082
+	[RegisterVar1 ++] 
 	-> fulgur_anjanath.charged_bite_3ren() 
 	return 
 endf 
 
-def node_083 : 85
+def node_083
 	>> node_034 
 	>> node_040 
 	return 
 endf 
 
-def node_084 : 86
+def node_084
 	>> node_034 
 	>> node_025 
 	return 
 endf 
 
-def node_085 : 87
+def node_085
 	>> node_034 
 	>> node_039 
 	return 
 endf 
 
-def node_086 : 88
-	[RegisterVar1 |-] 
+def node_086
+	[RegisterVar1 ++] 
 	-> fulgur_anjanath.asyu_side_kick() 
 	return 
 endf 
 
-def node_087 : 89
-	[RegisterVar1 |-] 
+def node_087
+	[RegisterVar1 ++] 
 	>> node_019 
 	-> fulgur_anjanath.asyu_dash_bite() 
 	return 
 endf 
 
-def node_088 : 90
-	[RegisterVar1 |-] 
+def node_088
+	[RegisterVar1 ++] 
 	-> fulgur_anjanath.asyu_middle_range_sweep() 
 	return 
 endf 
 
-def node_089 : 91
-	[RegisterVar1 |-] 
+def node_089
+	[RegisterVar1 ++] 
 	-> fulgur_anjanath.asyu_triple_nose_breath() 
 	return 
 endf 
 
-def node_090 : 101
-	[RegisterVar1 |-] 
+def node_090
+	[RegisterVar1 ++] 
 	if self.distance_3d_to_target().leq(400) 
 		-> fulgur_anjanath.asyu_short_head_butt_back() 
 	else 
@@ -1465,8 +1465,8 @@ def node_090 : 101
 	return 
 endf 
 
-def node_091 : 102
-	[RegisterVar1 |-] 
+def node_091
+	[RegisterVar1 ++] 
 	-> fulgur_anjanath.asyu_elec_max_bite() 
 	return 
 	>> node_025 
@@ -1477,7 +1477,7 @@ def node_091 : 102
 	return 
 endf 
 
-def node_092 : 98
+def node_092
 	>> node_025 
 	if self.target.helpless_1() 
 		>> node_021 
@@ -1490,7 +1490,7 @@ def node_092 : 98
 	return 
 endf 
 
-def node_093 : 106
+def node_093
 	>> node_025 
 	if self.target.helpless_1() 
 		>> node_021 
@@ -1503,7 +1503,7 @@ def node_093 : 106
 	return 
 endf 
 
-def node_094 : 99
+def node_094
 	>> node_077 
 	if self.target.helpless_1() 
 		>> node_021 
@@ -1516,7 +1516,7 @@ def node_094 : 99
 	return 
 endf 
 
-def node_095 : 100
+def node_095
 	>> node_077 
 	if self.target.helpless_1() 
 		>> node_021 
@@ -1530,7 +1530,7 @@ def node_095 : 100
 	return 
 endf 
 
-def node_096 : 103
+def node_096
 	if self.distance_3d_to_target().leq(400) 
 		-> fulgur_anjanath.asyu_short_head_butt_back() 
 	else 
@@ -1547,7 +1547,7 @@ def node_096 : 103
 	return 
 endf 
 
-def node_097 : 104
+def node_097
 	if self.distance_3d_to_target().leq(400) 
 		-> fulgur_anjanath.asyu_short_head_butt_back() 
 	else 
@@ -1564,7 +1564,7 @@ def node_097 : 104
 	return 
 endf 
 
-def node_098 : 105
+def node_098
 	if self.fatigued() 
 	else 
 		function#106(0,1) 
@@ -1572,8 +1572,8 @@ def node_098 : 105
 	return 
 endf 
 
-def node_099 : 107
-	[RegisterVar1 |-] 
+def node_099
+	[RegisterVar1 ++] 
 	if function#103() 
 		if self.enraged() 
 			if self.distance_2d_to_target().leq(600) 

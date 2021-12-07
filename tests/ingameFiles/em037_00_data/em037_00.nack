@@ -1,21 +1,21 @@
 importactions Nargacuga as nargacuga
 importlibrary Global as Global
 
-def node_000 : 27
+def node_000
 	>> Global.node_120 
 	>> node_002 
 	>> node_003 
 	reset 
 endf 
 
-def node_001 : 29
+def node_001
 	self.targetEnemy(target_em.random_player_or_cat) 
 	>> Global.node_017 
 	>> Global.node_068 
 	reset 
 endf 
 
-def node_002 : 28
+def node_002
 	if function#45() 
 	else 
 		>> Global.node_134 
@@ -24,7 +24,7 @@ def node_002 : 28
 	return 
 endf 
 
-def node_003 : 1
+def node_003
 	if self.target(4) 
 		>> Global.node_207 => reset 
 	elif self.target(3) 

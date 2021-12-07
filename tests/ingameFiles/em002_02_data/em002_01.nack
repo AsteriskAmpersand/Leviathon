@@ -1,7 +1,7 @@
 importactions Silver_Rathalos as silver_rathalos
 importlibrary Global as Global
 
-def node_000 : 51
+def node_000
 	>> Global.node_272 
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.flying() 
@@ -12,7 +12,7 @@ def node_000 : 51
 	reset 
 endf 
 
-def node_001 : 61
+def node_001
 	if self.distance_2d_to_target().leq(700) 
 		if self.vertical_distance_to_target().leq(750) 
 			if self.enraged() >> node_007 
@@ -46,7 +46,7 @@ def node_001 : 61
 	return 
 endf 
 
-def node_002 : 62
+def node_002
 	>> node_003 
 	if self.distance_2d_to_target().leq(850) 
 		if self.vertical_distance_to_target().leq(1200) 
@@ -76,7 +76,7 @@ def node_002 : 62
 	return 
 endf 
 
-def node_003 : 69
+def node_003
 	if self.fatigued() 
 		>> Global.node_001 
 	else 
@@ -84,7 +84,7 @@ def node_003 : 69
 	return 
 endf 
 
-def node_004 : 52
+def node_004
 	if self.target(7) 
 		>> Global.node_183 
 		>> Global.node_098 
@@ -94,19 +94,19 @@ def node_004 : 52
 	return 
 endf 
 
-def node_005 : 53
+def node_005
 	>> Global.node_096 
 	>> Global.node_094 
 	return 
 endf 
 
-def node_006 : 54
+def node_006
 	>> Global.node_097 
 	>> Global.node_095 
 	return 
 endf 
 
-def node_007 : 55
+def node_007
 	if self.target(7) 
 		>> Global.node_183 
 		>> Global.node_098 
@@ -116,19 +116,19 @@ def node_007 : 55
 	return 
 endf 
 
-def node_008 : 56
+def node_008
 	>> Global.node_096 
 	>> Global.node_094 
 	return 
 endf 
 
-def node_009 : 57
+def node_009
 	>> Global.node_097 
 	>> Global.node_095 
 	return 
 endf 
 
-def node_010 : 58
+def node_010
 	if self.target(7) 
 		>> Global.node_183 
 		>> Global.node_098 
@@ -138,7 +138,7 @@ def node_010 : 58
 	return 
 endf 
 
-def node_011 : 59
+def node_011
 	random (70) 
 				>> Global.node_096 
 				>> Global.node_094 
@@ -148,7 +148,7 @@ def node_011 : 59
 	return 
 endf 
 
-def node_012 : 60
+def node_012
 	random (70) 
 				>> Global.node_097 
 				>> Global.node_095 
@@ -158,7 +158,7 @@ def node_012 : 60
 	return 
 endf 
 
-def node_013 : 63
+def node_013
 	if self.target(7) 
 		>> Global.node_107 
 	else 
@@ -167,19 +167,19 @@ def node_013 : 63
 	return 
 endf 
 
-def node_014 : 64
+def node_014
 	>> Global.node_105 
 	>> Global.node_103 
 	return 
 endf 
 
-def node_015 : 65
+def node_015
 	>> Global.node_106 
 	>> Global.node_104 
 	return 
 endf 
 
-def node_016 : 66
+def node_016
 	if self.target(7) 
 		>> Global.node_107 
 	else 
@@ -188,13 +188,13 @@ def node_016 : 66
 	return 
 endf 
 
-def node_017 : 67
+def node_017
 	>> Global.node_105 
 	>> Global.node_103 
 	return 
 endf 
 
-def node_018 : 68
+def node_018
 	>> Global.node_106 
 	>> Global.node_104 
 	return 

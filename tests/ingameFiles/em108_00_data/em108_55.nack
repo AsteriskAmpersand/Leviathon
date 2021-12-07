@@ -1,10 +1,10 @@
 importactions Jyuratodus as jyuratodus
 
-def node_000 : 73
+def node_000
 	conclude 
 endf 
 
-def node_001 : 135
+def node_001
 	if self.current_quest().is_rank(rank.MR) 
 		>> node_103 
 	else 
@@ -29,7 +29,7 @@ def node_001 : 135
 	return 
 endf 
 
-def node_002 : 168
+def node_002
 	if function#45() 
 	else 
 		>> node_001 
@@ -37,14 +37,14 @@ def node_002 : 168
 	return 
 endf 
 
-def node_003 : 136
+def node_003
 	if function#30(2) >> node_004 
 	else >> node_005 
 	endif 
 	return 
 endf 
 
-def node_004 : 164
+def node_004
 	random (35) 
 	elser (0) >> node_011 
 	elser (10) >> node_009 
@@ -53,7 +53,7 @@ def node_004 : 164
 	return 
 endf 
 
-def node_005 : 165
+def node_005
 	random (35) 
 	elser (10) >> node_011 
 	elser (55) >> node_009 
@@ -62,14 +62,14 @@ def node_005 : 165
 	return 
 endf 
 
-def node_006 : 137
+def node_006
 	if function#30(2) >> node_007 
 	else >> node_008 
 	endif 
 	return 
 endf 
 
-def node_007 : 166
+def node_007
 	random (10) 
 	elser (35) >> node_011 
 	elser (0) >> node_009 
@@ -78,7 +78,7 @@ def node_007 : 166
 	return 
 endf 
 
-def node_008 : 167
+def node_008
 	random (35) 
 	elser (55) >> node_011 
 	elser (10) >> node_009 
@@ -87,7 +87,7 @@ def node_008 : 167
 	return 
 endf 
 
-def node_009 : 138
+def node_009
 	if function#101() 
 		>> node_023 
 	elif self.distance_3d_to_target().gt(1500) 
@@ -100,12 +100,12 @@ def node_009 : 138
 	return 
 endf 
 
-def node_010 : 139
-	if [RegisterVar2 <= 3] 
+def node_010
+	if [RegisterVar2 -= 3] 
 		>> node_065 
 		>> node_087 
 		self.force_area_change2() 
-	elif [RegisterVar2 == 2] 
+	elif [RegisterVar2 += 2] 
 		>> node_062 
 		>> node_053 
 		>> node_086 
@@ -120,13 +120,13 @@ def node_010 : 139
 	return 
 endf 
 
-def node_011 : 140
+def node_011
 	>> node_062 
 	>> node_053 
 	return 
 endf 
 
-def node_012 : 145
+def node_012
 	if function#101() 
 		-> jyuratodus.grapple_with_em044_mediation_threat() 
 	else 
@@ -135,7 +135,7 @@ def node_012 : 145
 	return 
 endf 
 
-def node_013 : 209
+def node_013
 	>> node_009 
 	>> node_086 
 	>> node_086 
@@ -144,7 +144,7 @@ def node_013 : 209
 	return 
 endf 
 
-def node_014 : 162
+def node_014
 	function#31(49,1000) 
 	self.targetEnemy(target_em.closest_entity) 
 	random (50) >> node_068 
@@ -154,7 +154,7 @@ def node_014 : 162
 	return 
 endf 
 
-def node_015 : 163
+def node_015
 	>> node_062 
 	if function#101() >> node_024 
 	else >> node_034 
@@ -162,7 +162,7 @@ def node_015 : 163
 	return 
 endf 
 
-def node_016 : 147
+def node_016
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if function#5D() 
 		function#5E() 
@@ -173,7 +173,7 @@ def node_016 : 147
 	return 
 endf 
 
-def node_017 : 174
+def node_017
 	>> node_031 
 	if self.distance_2d_to_target().gt(1200) >> node_061 
 	endif 
@@ -183,7 +183,7 @@ def node_017 : 174
 	return 
 endf 
 
-def node_018 : 158
+def node_018
 	if self.target(4) >> node_019 
 	elif self.target(3) >> node_019 
 	elif self.target(12) >> node_020 
@@ -197,7 +197,7 @@ def node_018 : 158
 	return 
 endf 
 
-def node_019 : 159
+def node_019
 	self.targetArea(9) 
 	if function#104() 
 	else >> node_052 
@@ -217,7 +217,7 @@ def node_019 : 159
 	return 
 endf 
 
-def node_020 : 160
+def node_020
 	if function#101() >> node_031 
 	endif 
 	if self.distance_2d_to_target().gt(1000) >> node_060 
@@ -226,7 +226,7 @@ def node_020 : 160
 	return 
 endf 
 
-def node_021 : 161
+def node_021
 	if self.distance_2d_to_target().gt(1000) >> node_061 
 	endif 
 	if function#101() >> node_023 
@@ -235,7 +235,7 @@ def node_021 : 161
 	return 
 endf 
 
-def node_022 : 210
+def node_022
 	if function#101() 
 		random (35) >> node_024 
 		elser (20) >> node_027 
@@ -260,37 +260,37 @@ def node_022 : 210
 	reset 
 endf 
 
-def node_023 : 111
+def node_023
 	>> node_062 
 	-> jyuratodus.breath_gimmick() 
 	>> node_081 
 	return 
 endf 
 
-def node_024 : 114
+def node_024
 	>> node_062 
 	-> jyuratodus.bite() 
 	return 
 endf 
 
-def node_025 : 103
+def node_025
 	-> jyuratodus.double_tail_attack_l() 
 	return 
 endf 
 
-def node_026 : 108
+def node_026
 	>> node_062 
 	-> jyuratodus.slide_attack() 
 	return 
 endf 
 
-def node_027 : 109
+def node_027
 	>> node_062 
 	-> jyuratodus.slide_homing_attack_pre() 
 	return 
 endf 
 
-def node_028 : 117
+def node_028
 	if function#2D(1) 
 		return 
 	else 
@@ -311,7 +311,7 @@ def node_028 : 117
 	return 
 endf 
 
-def node_029 : 116
+def node_029
 	if function#2D(1) 
 		return 
 	else 
@@ -332,7 +332,7 @@ def node_029 : 116
 	return 
 endf 
 
-def node_030 : 118
+def node_030
 	if function#101() 
 		-> jyuratodus.stand_to_swim() 
 		>> node_079 
@@ -341,7 +341,7 @@ def node_030 : 118
 	return 
 endf 
 
-def node_031 : 155
+def node_031
 	if function#101() 
 		-> jyuratodus.stand_to_swim() 
 	else 
@@ -349,7 +349,7 @@ def node_031 : 155
 	return 
 endf 
 
-def node_032 : 180
+def node_032
 	if function#B9() 
 		random (100) 
 					self.targetEnemy(21) @ parameter2:500 
@@ -369,7 +369,7 @@ def node_032 : 180
 	return 
 endf 
 
-def node_033 : 104
+def node_033
 	if self.angle_2d_cw_between(10,180) 
 		>> node_065 
 	else 
@@ -378,51 +378,51 @@ def node_033 : 104
 	return 
 endf 
 
-def node_034 : 123
+def node_034
 	>> node_060 
 	>> node_062 
 	-> jyuratodus.swim_single_bite() 
 	return 
 endf 
 
-def node_035 : 125
+def node_035
 	>> node_062 
 	-> jyuratodus.swim_breath_double() 
 	>> node_082 
 	return 
 endf 
 
-def node_036 : 153
+def node_036
 	>> node_062 
 	-> jyuratodus.swim_triple_breath() 
 	>> node_083 
 	return 
 endf 
 
-def node_037 : 105
+def node_037
 	>> node_062 
 	-> jyuratodus.swim_bite() 
 	return 
 endf 
 
-def node_038 : 82
+def node_038
 	-> jyuratodus.swim_tail_attack() 
 	return 
 endf 
 
-def node_039 : 79
+def node_039
 	>> node_085 
 	-> jyuratodus.swim_rush_pre() 
 	return 
 endf 
 
-def node_040 : 142
+def node_040
 	>> node_085 
 	-> jyuratodus.swim_diving_attack(1,0,0,500) 
 	return 
 endf 
 
-def node_041 : 143
+def node_041
 	if self.angle_2d_ccw_between(60,0) 
 		>> node_034 
 	else 
@@ -431,7 +431,7 @@ def node_041 : 143
 	return 
 endf 
 
-def node_042 : 120
+def node_042
 	if self.angle_2d_ccw_between(60,0) 
 		>> node_037 
 	else 
@@ -440,7 +440,7 @@ def node_042 : 120
 	return 
 endf 
 
-def node_043 : 130
+def node_043
 	if self.angle_2d_ccw_between(90,0) 
 		>> node_033 
 	else 
@@ -449,7 +449,7 @@ def node_043 : 130
 	return 
 endf 
 
-def node_044 : 146
+def node_044
 	if self.angle_2d_ccw_between(60,0) 
 		>> node_039 
 	else 
@@ -458,7 +458,7 @@ def node_044 : 146
 	return 
 endf 
 
-def node_045 : 148
+def node_045
 	if self.angle_2d_ccw_between(60,0) 
 		>> node_035 
 	else 
@@ -467,7 +467,7 @@ def node_045 : 148
 	return 
 endf 
 
-def node_046 : 133
+def node_046
 	if function#2D(1) 
 		>> node_062 
 		>> node_039 
@@ -486,7 +486,7 @@ def node_046 : 133
 	return 
 endf 
 
-def node_047 : 132
+def node_047
 	if function#2D(1) 
 		return 
 	else 
@@ -507,7 +507,7 @@ def node_047 : 132
 	return 
 endf 
 
-def node_048 : 134
+def node_048
 	if function#2D(1) 
 		return 
 	else 
@@ -528,21 +528,21 @@ def node_048 : 134
 	return 
 endf 
 
-def node_049 : 152
-	if [RegisterVar1 <= 4] 
+def node_049
+	if [RegisterVar1 -= 4] 
 		>> node_046 
 	endif 
 	return 
 endf 
 
-def node_050 : 169
-	if [RegisterVar1 <= 8] 
+def node_050
+	if [RegisterVar1 -= 8] 
 		>> node_046 
 	endif 
 	return 
 endf 
 
-def node_051 : 179
+def node_051
 	random (90) 
 				if function#2D(1) 
 				elif self.distance_3d_to_target().gt(1000) >> node_040 
@@ -556,7 +556,7 @@ def node_051 : 179
 	return 
 endf 
 
-def node_052 : 176
+def node_052
 	if function#101() 
 	else 
 		if self.in_combat() -> jyuratodus.swim_to_stand_combat() 
@@ -566,7 +566,7 @@ def node_052 : 176
 	return 
 endf 
 
-def node_053 : 144
+def node_053
 	>> node_062 
 	if function#101() -> jyuratodus.threat_short() 
 	else -> jyuratodus.swim_chance_idle() 
@@ -574,14 +574,14 @@ def node_053 : 144
 	return 
 endf 
 
-def node_054 : 157
+def node_054
 	if function#101() >> node_027 
 	else >> node_039 
 	endif 
 	return 
 endf 
 
-def node_055 : 89
+def node_055
 	>> node_062 
 	if function#101() 
 		-> jyuratodus.dash(2,1,0,1500,600) 
@@ -591,7 +591,7 @@ def node_055 : 89
 	return 
 endf 
 
-def node_056 : 90
+def node_056
 	>> node_062 
 	if function#101() 
 		-> jyuratodus.dash(2,1,0,3000,600) 
@@ -601,7 +601,7 @@ def node_056 : 90
 	return 
 endf 
 
-def node_057 : 91
+def node_057
 	>> node_062 
 	if function#101() 
 		-> jyuratodus.dash(2,1,0,4000,600) 
@@ -611,7 +611,7 @@ def node_057 : 91
 	return 
 endf 
 
-def node_058 : 74
+def node_058
 	if function#101() 
 		if self.in_combat() -> jyuratodus.dash_combat(2,0,0,1000) 
 		else -> jyuratodus.dash(2,0,0,1000) 
@@ -621,7 +621,7 @@ def node_058 : 74
 	return 
 endf 
 
-def node_059 : 175
+def node_059
 	if self.distance_2d_to_target().leq(500) 
 		return 
 	else 
@@ -634,7 +634,7 @@ def node_059 : 175
 	repeat 
 endf 
 
-def node_060 : 141
+def node_060
 	if self.distance_2d_to_target().leq(750) 
 		return 
 	else 
@@ -647,7 +647,7 @@ def node_060 : 141
 	repeat 
 endf 
 
-def node_061 : 156
+def node_061
 	if self.distance_2d_to_target().leq(1000) 
 		return 
 	else 
@@ -660,7 +660,7 @@ def node_061 : 156
 	repeat 
 endf 
 
-def node_062 : 87
+def node_062
 	if self.angular_15(60,0) 
 		if self.distance_2d_to_target().leq(750) 
 			>> node_064 
@@ -672,7 +672,7 @@ def node_062 : 87
 	return 
 endf 
 
-def node_063 : 88
+def node_063
 	if function#101() 
 		-> jyuratodus.quick_turn() 
 	else 
@@ -682,7 +682,7 @@ def node_063 : 88
 	return 
 endf 
 
-def node_064 : 119
+def node_064
 	if function#101() 
 		-> jyuratodus.quick_turn() 
 	else 
@@ -692,79 +692,79 @@ def node_064 : 119
 	return 
 endf 
 
-def node_065 : 102
+def node_065
 	self.targetEnemy(10) @ parameter2:1000 
 	>> node_064 
 	self.targetEnemy(target_em.random_player_or_cat) 
 	return 
 endf 
 
-def node_066 : 121
+def node_066
 	if self.distance_3d_to_target().leq(750) >> node_064 
 	else >> node_062 
 	endif 
 	return 
 endf 
 
-def node_067 : 86
+def node_067
 	random (20) >> node_068 
 	elser (80) 
 	endr 
 	return 
 endf 
 
-def node_068 : 75
+def node_068
 	if function#101() -> jyuratodus.search() 
 	else -> jyuratodus.swim_search() 
 	endif 
 	return 
 endf 
 
-def node_069 : 78
+def node_069
 	>> node_052 
 	-> jyuratodus.drink() 
 	return 
 endf 
 
-def node_070 : 76
+def node_070
 	if function#101() -> jyuratodus.meat_eat_ashu() 
 	else -> jyuratodus.swim_eat_ashu() 
 	endif 
 	return 
 endf 
 
-def node_071 : 77
+def node_071
 	>> node_052 
 	-> jyuratodus.sleep() 
 	return 
 endf 
 
-def node_072 : 93
+def node_072
 	-> jyuratodus.tired() 
 	return 
 endf 
 
-def node_073 : 107
+def node_073
 	if function#101() -> jyuratodus.threat() 
 	else -> jyuratodus.swim_threat() 
 	endif 
 	return 
 endf 
 
-def node_074 : 106
+def node_074
 	if function#101() -> jyuratodus.refresh() 
 	else -> jyuratodus.swim_refresh() 
 	endif 
 	return 
 endf 
 
-def node_075 : 98
+def node_075
 	>> node_031 
 	-> jyuratodus.swim_lost_search() 
 	return 
 endf 
 
-def node_076 : 171
+def node_076
 	if function#102() -> jyuratodus.swim_sniff() 
 	else 
 		random (25) -> jyuratodus.sniff_s() 
@@ -774,7 +774,7 @@ def node_076 : 171
 	return 
 endf 
 
-def node_077 : 170
+def node_077
 	self.targetArea(19) 
 	if self.distance_3d_to_target().gt(600) >> node_056 
 		repeat 
@@ -783,18 +783,18 @@ def node_077 : 170
 	return 
 endf 
 
-def node_078 : 96
+def node_078
 	return 
-	if [RegisterVar0 == 10] 
-		[RegisterVar0 |-] 
+	if [RegisterVar0 += 10] 
+		[RegisterVar0 ++] 
 		>> node_079 
 	else 
-		[RegisterVar0 ++] 
+		[RegisterVar0 |-] 
 	endif 
 	return 
 endf 
 
-def node_079 : 97
+def node_079
 	if function#106() 
 		function#107() 
 		>> node_059 
@@ -805,65 +805,65 @@ def node_079 : 97
 	return 
 endf 
 
-def node_080 : 99
+def node_080
 	random (100) -> jyuratodus.swim_marking() 
 	elser (0) 
 	endr 
 	return 
 endf 
 
-def node_081 : 181
-	[RegisterVar1 ++] 
-	return 
-endf 
-
-def node_082 : 149
-	[RegisterVar1 ++] 
-	[RegisterVar1 ++] 
-	return 
-endf 
-
-def node_083 : 154
-	[RegisterVar1 ++] 
-	[RegisterVar1 ++] 
-	[RegisterVar1 ++] 
-	return 
-endf 
-
-def node_084 : 150
-	[RegisterVar1 ++] 
-	[RegisterVar1 ++] 
-	[RegisterVar1 ++] 
-	[RegisterVar1 ++] 
-	return 
-endf 
-
-def node_085 : 151
+def node_081
 	[RegisterVar1 |-] 
 	return 
 endf 
 
-def node_086 : 177
-	[RegisterVar2 ++] 
+def node_082
+	[RegisterVar1 |-] 
+	[RegisterVar1 |-] 
 	return 
 endf 
 
-def node_087 : 178
+def node_083
+	[RegisterVar1 |-] 
+	[RegisterVar1 |-] 
+	[RegisterVar1 |-] 
+	return 
+endf 
+
+def node_084
+	[RegisterVar1 |-] 
+	[RegisterVar1 |-] 
+	[RegisterVar1 |-] 
+	[RegisterVar1 |-] 
+	return 
+endf 
+
+def node_085
+	[RegisterVar1 ++] 
+	return 
+endf 
+
+def node_086
 	[RegisterVar2 |-] 
 	return 
 endf 
 
-def node_088 : 173
-	[RegisterVar3 ++] 
+def node_087
+	[RegisterVar2 ++] 
 	return 
 endf 
 
-def node_089 : 172
+def node_088
 	[RegisterVar3 |-] 
 	return 
 endf 
 
-def node_090 : 197
+def node_089
+	[RegisterVar3 ++] 
+	return 
+endf 
+
+def node_090
 	if self.target(4) >> node_019 
 	elif self.target(3) >> node_019 
 	elif self.target(12) >> node_091 
@@ -877,7 +877,7 @@ def node_090 : 197
 	return 
 endf 
 
-def node_091 : 198
+def node_091
 	if function#101() >> node_031 
 	endif 
 	if self.distance_2d_to_target().gt(1000) >> node_060 
@@ -886,7 +886,7 @@ def node_091 : 198
 	return 
 endf 
 
-def node_092 : 193
+def node_092
 	if function#2D(1) 
 		return 
 	else 
@@ -907,7 +907,7 @@ def node_092 : 193
 	return 
 endf 
 
-def node_093 : 194
+def node_093
 	if function#2D(1) 
 		return 
 	else 
@@ -928,8 +928,8 @@ def node_093 : 194
 	return 
 endf 
 
-def node_094 : 195
-	if [RegisterVar1 <= 4] 
+def node_094
+	if [RegisterVar1 -= 4] 
 		if self.distance_3d_to_target().leq(1500) 
 			random (30) >> node_097 
 						>> node_098 
@@ -942,27 +942,27 @@ def node_094 : 195
 	return 
 endf 
 
-def node_095 : 196
-	if [RegisterVar1 <= 8] 
+def node_095
+	if [RegisterVar1 -= 8] 
 		>> node_100 
 	endif 
 	return 
 endf 
 
-def node_096 : 191
+def node_096
 	>> node_085 
 	-> jyuratodus.swim_diving_attack_g(1,0,0,1000) 
 	return 
 endf 
 
-def node_097 : 182
+def node_097
 	>> node_063 
 	-> jyuratodus.snake_stomach_slide_rush() 
 	>> node_084 
 	return @ unkn11:3 
 endf 
 
-def node_098 : 186
+def node_098
 	if self.enraged() 
 		if self.distance_3d_to_target().leq(1000) 
 			random (80) >> node_096 
@@ -989,7 +989,7 @@ def node_098 : 186
 	return 
 endf 
 
-def node_099 : 201
+def node_099
 	if self.enraged() 
 		if self.distance_3d_to_target().leq(500) 
 		elif self.distance_3d_to_target().leq(1300) 
@@ -1013,7 +1013,7 @@ def node_099 : 201
 	return 
 endf 
 
-def node_100 : 192
+def node_100
 	if function#2D(1) 
 		>> node_062 
 		>> node_039 
@@ -1032,7 +1032,7 @@ def node_100 : 192
 	return 
 endf 
 
-def node_101 : 190
+def node_101
 	random (100) 
 				self.targetEnemy(21) @ parameter2:500 
 				>> node_023 
@@ -1042,7 +1042,7 @@ def node_101 : 190
 	return 
 endf 
 
-def node_102 : 189
+def node_102
 	random (70) 
 				if function#2D(1) 
 				elif self.distance_3d_to_target().gt(1000) >> node_096 
@@ -1056,7 +1056,7 @@ def node_102 : 189
 	return 
 endf 
 
-def node_103 : 202
+def node_103
 	if self.targetEnemy(target_em.any_monster) 
 		if self.target(13) 
 		else 
@@ -1077,14 +1077,14 @@ def node_103 : 202
 	return 
 endf 
 
-def node_104 : 203
+def node_104
 	if function#30(2) >> node_105 
 	else >> node_106 
 	endif 
 	return 
 endf 
 
-def node_105 : 204
+def node_105
 	random (35) 
 	elser (0) >> node_011 
 	elser (10) >> node_009 
@@ -1094,7 +1094,7 @@ def node_105 : 204
 	return 
 endf 
 
-def node_106 : 205
+def node_106
 	random (35) 
 	elser (10) >> node_011 
 	elser (55) >> node_009 
@@ -1104,14 +1104,14 @@ def node_106 : 205
 	return 
 endf 
 
-def node_107 : 206
+def node_107
 	if function#30(2) >> node_108 
 	else >> node_109 
 	endif 
 	return 
 endf 
 
-def node_108 : 207
+def node_108
 	random (10) 
 	elser (35) >> node_011 
 	elser (0) >> node_009 
@@ -1121,7 +1121,7 @@ def node_108 : 207
 	return 
 endf 
 
-def node_109 : 208
+def node_109
 	random (35) 
 	elser (55) >> node_011 
 	elser (10) >> node_009 

@@ -1,7 +1,7 @@
 importactions Barnos as barnos
 importlibrary Global as Global
 
-def node_000 : 50
+def node_000
 	if self.hookable() -> action#20() 
 	endif 
 	>> Global.node_007 
@@ -20,8 +20,8 @@ def node_000 : 50
 	reset 
 endf 
 
-def node_001 : 55
-	[RegisterVar0 |-] 
+def node_001
+	[RegisterVar0 ++] 
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if function#3A() >> node_003 
 	elif function#32() >> node_002 
@@ -30,7 +30,7 @@ def node_001 : 55
 	return 
 endf 
 
-def node_002 : 51
+def node_002
 	>> Global.node_017 
 	-> action#17(1,0,0,300) 
 	if function#2D(1) >> node_004 
@@ -40,20 +40,20 @@ def node_002 : 51
 	return 
 endf 
 
-def node_003 : 52
+def node_003
 	>> Global.node_018 
 	>> node_007 
 	return 
 endf 
 
-def node_004 : 57
+def node_004
 	random (30) >> Global.node_024 
 	elser (70) >> Global.node_001 
 	endr 
 	return 
 endf 
 
-def node_005 : 58
+def node_005
 	if self.distance_2d_to_target().leq(300) 
 		random (35) >> Global.node_023 
 		elser (30) >> Global.node_024 
@@ -70,7 +70,7 @@ def node_005 : 58
 	return 
 endf 
 
-def node_006 : 54
+def node_006
 	if function#3A() >> Global.node_018 
 	else 
 		>> Global.node_017 
@@ -81,7 +81,7 @@ def node_006 : 54
 	return 
 endf 
 
-def node_007 : 61
+def node_007
 	if self.targetEnemy(target_em.any_monster) 
 		if self.distance_2d_to_target().leq(2000) 
 			random (50) 

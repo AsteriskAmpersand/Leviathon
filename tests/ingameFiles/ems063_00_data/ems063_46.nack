@@ -1,21 +1,21 @@
 importactions Wulg as wulg
 importlibrary Global as Global
 
-def node_000 : 9
+def node_000
 	>> node_002 
 	conclude 
 endf 
 
-def node_001 : 1
+def node_001
 	>> Global.node_056 
 	>> Global.node_066 
 	conclude 
 endf 
 
-def node_002 : 10
+def node_002
 	if self.quest_id(101) 
-		if [RegisterVar3 == 0] 
-			[RegisterVar3 ++] 
+		if [RegisterVar3 += 0] 
+			[RegisterVar3 |-] 
 		else 
 		endif 
 	else 

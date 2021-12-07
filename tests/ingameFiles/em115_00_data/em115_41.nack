@@ -1,13 +1,13 @@
 importactions Vaal_Hazak as vaal_hazak
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	self.targetArea(20) 
 	>> node_001 
 	conclude 
 endf 
 
-def node_001 : 2
+def node_001
 	if self.distance_3d_to_target().gt(600) 
 		>> Global.node_007 
 		repeat 

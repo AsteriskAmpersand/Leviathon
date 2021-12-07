@@ -1,7 +1,7 @@
 importactions Brachydios as brachydios
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	self.targetEnemy(13) 
 	if function#41() 
 	elif self.target(4) >> Global.node_102 
@@ -13,20 +13,20 @@ def node_000 : 1
 	conclude 
 endf 
 
-def node_001 : 3
+def node_001
 	>> Global.node_072 
 	>> node_002 
 	return 
 endf 
 
-def node_002 : 5
+def node_002
 	>> node_005 
 	>> node_005 
 	>> node_005 
 	return 
 endf 
 
-def node_003 : 7
+def node_003
 	self.targetEnemy(48) 
 	if self.target(7) >> node_006 
 	elif self.target(10) >> node_007 
@@ -37,31 +37,31 @@ def node_003 : 7
 	return 
 endf 
 
-def node_004 : 4
+def node_004
 	>> Global.node_072 
 	>> Global.node_036 
 	return 
 endf 
 
-def node_005 : 6
+def node_005
 	if self.distance_2d_to_target().gt(1000) >> Global.node_084 
 	endif 
 	return 
 endf 
 
-def node_006 : 8
+def node_006
 	-> brachydios.sniffs_s() 
 	-> brachydios.quick_search() 
 	return 
 endf 
 
-def node_007 : 9
+def node_007
 	self.targetEnemy(9) @ parameter2:1000 
 	>> Global.node_031 
 	return 
 endf 
 
-def node_008 : 10
+def node_008
 	if function#5C() -> brachydios.sniffs_s() 
 	else -> brachydios.threat_short() 
 	endif 

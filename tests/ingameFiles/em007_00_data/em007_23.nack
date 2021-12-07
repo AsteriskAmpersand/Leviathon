@@ -1,14 +1,14 @@
 importactions Diablos as diablos
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	>> Global.node_007 
 	self.targetEnemy(target_em.closest_entity) 
 	>> node_001 
 	conclude 
 endf 
 
-def node_001 : 8
+def node_001
 	if self.target_is(em.Diablos) 
 		>> node_002 
 	elif self.target_is(em.Black_Diablos) 
@@ -30,37 +30,37 @@ def node_001 : 8
 	return 
 endf 
 
-def node_002 : 10
+def node_002
 	>> Global.node_053 
 	-> diablos.grapple_with_em007_mediation() 
 	return 
 endf 
 
-def node_003 : 14
+def node_003
 	>> Global.node_053 
 	-> diablos.grapple_wait_end_mediation_threat() 
 	return 
 endf 
 
-def node_004 : 15
+def node_004
 	>> Global.node_053 
 	-> diablos.grapple_with_em044_mediation_threat() 
 	return 
 endf 
 
-def node_005 : 16
+def node_005
 	>> Global.node_053 
 	-> diablos.grapple_with_em080_mediation() 
 	return 
 endf 
 
-def node_006 : 17
+def node_006
 	>> Global.node_053 
 	-> diablos.grapple_with_em100_01_mediation() 
 	return 
 endf 
 
-def node_007 : 11
+def node_007
 	if self.target(13) 
 		conclude 
 	elif self.target(0) 

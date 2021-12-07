@@ -1,12 +1,12 @@
 importactions Girros as girros
 
-def node_000 : 1
+def node_000
 	>> node_001 
 	>> node_002 
 	conclude 
 endf 
 
-def node_001 : 3
+def node_001
 	function#E4(7) 
 	function#E4(4) 
 	function#E4(1) 
@@ -19,11 +19,11 @@ def node_001 : 3
 	return 
 endf 
 
-def node_002 : 2
+def node_002
 	function#D3() 
-	[RegisterVar1 |-] 
-	[RegisterVar3 |-] 
-	[RegisterVar4 |-] 
+	[RegisterVar1 ++] 
+	[RegisterVar3 ++] 
+	[RegisterVar4 ++] 
 	if function#D4(8) 
 		>> node_004 
 	else 
@@ -32,12 +32,12 @@ def node_002 : 2
 	conclude 
 endf 
 
-def node_003 : 11
+def node_003
 	-> action#5C(8) 
 	return 
 endf 
 
-def node_004 : 12
+def node_004
 	-> action#5C(8,0,0,4) 
 	return 
 endf 

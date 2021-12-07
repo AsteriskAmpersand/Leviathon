@@ -1,7 +1,7 @@
 importactions Wulg as wulg
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	if function#B0() 
 		>> node_001 
 	else 
@@ -10,7 +10,7 @@ def node_000 : 1
 	reset 
 endf 
 
-def node_001 : 46
+def node_001
 	if function#104() 
 		if function#3F() 
 			-> wulg.damage_clawgrab_initiate() 
@@ -52,7 +52,7 @@ def node_001 : 46
 	return 
 endf 
 
-def node_002 : 47
+def node_002
 	>> Global.node_055 
 	>> node_033 
 	>> node_013 
@@ -63,7 +63,7 @@ def node_002 : 47
 	return 
 endf 
 
-def node_003 : 51
+def node_003
 	if function#114() 
 		>> node_042 
 	else 
@@ -78,7 +78,7 @@ def node_003 : 51
 	return 
 endf 
 
-def node_004 : 20
+def node_004
 	function#54() 
 	if function#B0() 
 		function#52(0,4) 
@@ -98,7 +98,7 @@ def node_004 : 20
 	return 
 endf 
 
-def node_005 : 52
+def node_005
 	>> node_033 
 	function#54() 
 	if self.distance_3d_to_target().leq(500) 
@@ -117,7 +117,7 @@ def node_005 : 52
 	return 
 endf 
 
-def node_006 : 68
+def node_006
 	>> node_033 
 	function#54() 
 	if self.distance_3d_to_target().leq(500) 
@@ -128,7 +128,7 @@ def node_006 : 68
 	return 
 endf 
 
-def node_007 : 3
+def node_007
 	if function#5A() 
 		>> node_008 
 	elif function#5A(1) 
@@ -143,22 +143,22 @@ def node_007 : 3
 	return 
 endf 
 
-def node_008 : 4
+def node_008
 	>> Global.node_047 
 	return 
 endf 
 
-def node_009 : 5
+def node_009
 	>> Global.node_044 
 	return 
 endf 
 
-def node_010 : 6
+def node_010
 	>> Global.node_045 
 	return 
 endf 
 
-def node_011 : 23
+def node_011
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.distance_3d_to_target().leq(3500) 
 		>> Global.node_099 
@@ -171,12 +171,12 @@ def node_011 : 23
 	return 
 endf 
 
-def node_012 : 21
+def node_012
 	>> Global.node_047 
 	return 
 endf 
 
-def node_013 : 28
+def node_013
 	if function#31(82,1500) 
 		>> node_014 
 	elif function#31(83,1500) 
@@ -188,21 +188,21 @@ def node_013 : 28
 	return 
 endf 
 
-def node_014 : 31
+def node_014
 	self.targetEnemy(target_em.closest_entity) 
 	>> node_015 
 	>> node_016 
 	return 
 endf 
 
-def node_015 : 29
+def node_015
 	>> Global.node_036 
 	>> Global.node_048 
 	>> Global.node_049 
 	return 
 endf 
 
-def node_016 : 30
+def node_016
 	function#52(0,4) 
 	self.targetArea(target_area.nearest_entrance) 
 	>> Global.node_002 
@@ -210,7 +210,7 @@ def node_016 : 30
 	return 
 endf 
 
-def node_017 : 37
+def node_017
 	>> Global.node_055 
 	>> node_033 
 	>> node_043 
@@ -233,7 +233,7 @@ def node_017 : 37
 	return 
 endf 
 
-def node_018 : 41
+def node_018
 	>> Global.node_022 
 	self.targetArea(10) @ parameter2:800 
 	>> Global.node_007 
@@ -243,21 +243,21 @@ def node_018 : 41
 	return 
 endf 
 
-def node_019 : 42
+def node_019
 	>> Global.node_007 
 	>> Global.node_022 
 	-> wulg.damage_petit() 
 	return 
 endf 
 
-def node_020 : 54
+def node_020
 	random (10) 
 				>> Global.node_008 
 				-> wulg.damage_petit() 
 	elser (15) 
 				>> Global.node_038 
 				-> wulg.wall_wait() 
-				[RegisterVar1 |-] 
+				[RegisterVar1 ++] 
 				if self.distance_2d_to_target().gt(600) 
 				else 
 					>> Global.node_008 
@@ -266,53 +266,53 @@ def node_020 : 54
 	elser (15) 
 				>> Global.node_038 
 				-> wulg.jump() 
-				[RegisterVar0 |-] 
+				[RegisterVar0 ++] 
 				if self.distance_3d_to_target().gt(600) 
 				else 
 					>> Global.node_008 
 					-> wulg.damage_petit() 
 				endif 
 	elser (30) 
-				if [RegisterVar0 <= 1] 
+				if [RegisterVar0 -= 1] 
 					-> wulg.narrow_dash() 
-					[RegisterVar0 |-] 
+					[RegisterVar0 ++] 
 				else 
 					-> wulg.tired_dash() 
-					[RegisterVar1 |-] 
-					[RegisterVar0 ++] 
+					[RegisterVar1 ++] 
+					[RegisterVar0 |-] 
 				endif 
 	elser (30) 
-				if [RegisterVar1 <= 1] 
+				if [RegisterVar1 -= 1] 
 					-> wulg.tired_dash() 
-					[RegisterVar1 |-] 
+					[RegisterVar1 ++] 
 				else 
 					-> wulg.narrow_dash() 
-					[RegisterVar0 |-] 
-					[RegisterVar1 ++] 
+					[RegisterVar0 ++] 
+					[RegisterVar1 |-] 
 				endif 
 	endr 
 	return 
 endf 
 
-def node_021 : 43
+def node_021
 	>> Global.node_039 
 	>> node_028 
 	return 
 endf 
 
-def node_022 : 44
+def node_022
 	>> Global.node_039 
 	>> node_030 
 	return 
 endf 
 
-def node_023 : 45
+def node_023
 	>> Global.node_039 
 	>> node_029 
 	return 
 endf 
 
-def node_024 : 67
+def node_024
 	>> Global.node_055 
 	>> node_033 
 	>> node_043 
@@ -332,7 +332,7 @@ def node_024 : 67
 	return 
 endf 
 
-def node_025 : 38
+def node_025
 	if function#3F() 
 		-> wulg.damage_clawgrab_turn_r() 
 	else 
@@ -343,7 +343,7 @@ def node_025 : 38
 	return 
 endf 
 
-def node_026 : 40
+def node_026
 	if function#3F() 
 		-> wulg.damage_clawgrab_initiate() 
 	else 
@@ -352,7 +352,7 @@ def node_026 : 40
 	return 
 endf 
 
-def node_027 : 39
+def node_027
 	if function#3F() 
 		if function#112() 
 			-> wulg.damage_clawgrab_turn_l() 
@@ -365,7 +365,7 @@ def node_027 : 39
 	reset 
 endf 
 
-def node_028 : 48
+def node_028
 	if self.distance_3d_to_target().leq(600) 
 	elif self.distance_2d_to_target().leq(1200) 
 		-> wulg.tired_walk(2,6,0,150,500) 
@@ -378,7 +378,7 @@ def node_028 : 48
 	return 
 endf 
 
-def node_029 : 49
+def node_029
 	if self.distance_3d_to_target().leq(2500) 
 		-> wulg.quick_turn(2,6,0,500,1100) 
 	else 
@@ -388,7 +388,7 @@ def node_029 : 49
 	return 
 endf 
 
-def node_030 : 50
+def node_030
 	if self.distance_3d_to_target().leq(1200) 
 		-> wulg.tired_walk(2,6,0,200,500) 
 	elif self.distance_3d_to_target().leq(2500) 
@@ -401,7 +401,7 @@ def node_030 : 50
 	return 
 endf 
 
-def node_031 : 53
+def node_031
 	if function#105() 
 		>> node_027 
 		reset 
@@ -420,7 +420,7 @@ def node_031 : 53
 	return 
 endf 
 
-def node_032 : 64
+def node_032
 	if function#3F() 
 		if function#112() 
 			-> wulg.damage_clawgrab_turn_l() 
@@ -433,12 +433,12 @@ def node_032 : 64
 	reset 
 endf 
 
-def node_033 : 69
+def node_033
 	>> node_034 
 	return 
 endf 
 
-def node_034 : 72
+def node_034
 	if function#58(4,100) 
 		if function#118() 
 			if function#B0() 
@@ -457,7 +457,7 @@ def node_034 : 72
 	return 
 endf 
 
-def node_035 : 70
+def node_035
 	if function#119() 
 		self.targetEnemy(32) 
 		if function#3F() 
@@ -472,7 +472,7 @@ def node_035 : 70
 	return 
 endf 
 
-def node_036 : 71
+def node_036
 	if function#6C(2) 
 		self.targetEnemy(28) 
 		if function#3F() 
@@ -487,7 +487,7 @@ def node_036 : 71
 	return 
 endf 
 
-def node_037 : 55
+def node_037
 	if function#6B(2000) 
 		self.targetEnemy(26) @ unkn3:2097152, unkn12:4, unknExtra1:75 
 		>> node_038 
@@ -501,7 +501,7 @@ def node_037 : 55
 	return 
 endf 
 
-def node_038 : 56
+def node_038
 	if self.distance_2d_to_target().leq(300) 
 	else 
 		-> wulg.quick_turn(2,6,0,1000,300) 
@@ -510,14 +510,14 @@ def node_038 : 56
 	return 
 endf 
 
-def node_039 : 57
+def node_039
 	>> Global.node_039 
 	-> wulg.discover() 
 	function#54() 
 	return 
 endf 
 
-def node_040 : 73
+def node_040
 	function#54() 
 	if function#B0() 
 		function#52(0,4) 
@@ -532,7 +532,7 @@ def node_040 : 73
 	return 
 endf 
 
-def node_041 : 58
+def node_041
 	function#52(18,3) 
 	if function#10F(4000) 
 		function#54() 
@@ -545,7 +545,7 @@ def node_041 : 58
 	return 
 endf 
 
-def node_042 : 66
+def node_042
 	if function#107(8000) 
 		>> node_024 
 	else 
@@ -560,7 +560,7 @@ def node_042 : 66
 	return 
 endf 
 
-def node_043 : 59
+def node_043
 	if self.target(20) 
 		if self.target(10) 
 			>> node_045 
@@ -578,26 +578,26 @@ def node_043 : 59
 	return 
 endf 
 
-def node_044 : 63
+def node_044
 	-> wulg.sniffs_l() 
 	-> wulg.damage_low() 
 	function#113() 
 	reset 
 endf 
 
-def node_045 : 60
+def node_045
 	>> Global.node_008 
 	>> Global.node_064 
 	reset 
 endf 
 
-def node_046 : 62
+def node_046
 	>> Global.node_008 
 	>> Global.node_064 
 	reset 
 endf 
 
-def node_047 : 61
+def node_047
 	if self.distance_2d_to_target().leq(1100) 
 		>> node_019 
 	elif self.distance_2d_to_target().leq(1400) 
@@ -615,7 +615,7 @@ def node_047 : 61
 	reset 
 endf 
 
-def node_048 : 65
+def node_048
 	if function#3F() 
 		-> wulg.damage_clawgrab_turn_l() 
 	else 

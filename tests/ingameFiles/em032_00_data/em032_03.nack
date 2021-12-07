@@ -1,7 +1,7 @@
 importactions Tigrex as tigrex
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	>> Global.node_020 
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if function#41() 
@@ -16,17 +16,17 @@ def node_000 : 1
 	conclude 
 endf 
 
-def node_001 : 32
+def node_001
 	>> Global.node_021 
 	return 
 endf 
 
-def node_002 : 33
+def node_002
 	-> tigrex.roar() 
 	return 
 endf 
 
-def node_003 : 34
+def node_003
 	if self.angle_2d_cw_between(30,330) 
 		-> tigrex.quick_turn() 
 	else 

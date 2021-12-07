@@ -1,7 +1,7 @@
 importactions Banbaro as banbaro
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	>> Global.node_103 
 	function#52() 
 	>> node_001 
@@ -9,7 +9,7 @@ def node_000 : 1
 	reset 
 endf 
 
-def node_001 : 4
+def node_001
 	>> Global.node_004 
 	self.targetArea(target_area.nearest_entrance) 
 	if function#57(1) 
@@ -32,7 +32,7 @@ def node_001 : 4
 	reset 
 endf 
 
-def node_002 : 5
+def node_002
 	if function#57(1) 
 		>> node_009 
 	elif function#57(2) 
@@ -50,37 +50,37 @@ def node_002 : 5
 	return 
 endf 
 
-def node_003 : 6
+def node_003
 	self.targetArea(target_area.nearest_entrance) 
 	>> Global.node_143 
 	return 
 endf 
 
-def node_004 : 7
+def node_004
 	self.targetArea(target_area.nearest_entrance) 
 	>> Global.node_052 
 	return 
 endf 
 
-def node_005 : 8
+def node_005
 	self.targetArea(target_area.nearest_entrance) 
 	>> Global.node_143 
 	return 
 endf 
 
-def node_006 : 9
+def node_006
 	self.targetArea(target_area.nearest_entrance) 
 	>> Global.node_143 
 	return 
 endf 
 
-def node_007 : 10
+def node_007
 	self.targetArea(target_area.nearest_entrance) 
 	>> Global.node_143 
 	return 
 endf 
 
-def node_008 : 11
+def node_008
 	self.targetEnemy(17) 
 	if function#5A(5) 
 		function#54() 
@@ -93,7 +93,7 @@ def node_008 : 11
 	return 
 endf 
 
-def node_009 : 12
+def node_009
 	self.targetEnemy(17) 
 	>> Global.node_026 
 	function#54() 
@@ -101,7 +101,7 @@ def node_009 : 12
 	return 
 endf 
 
-def node_010 : 13
+def node_010
 	self.targetEnemy(17) 
 	function#54() 
 	>> Global.node_086 
@@ -109,7 +109,7 @@ def node_010 : 13
 	return 
 endf 
 
-def node_011 : 14
+def node_011
 	self.targetEnemy(17) 
 	>> Global.node_023 
 	function#54() 
@@ -117,7 +117,7 @@ def node_011 : 14
 	return 
 endf 
 
-def node_012 : 15
+def node_012
 	self.targetEnemy(17) 
 	function#54() 
 	>> Global.node_023 
@@ -125,7 +125,7 @@ def node_012 : 15
 	return 
 endf 
 
-def node_013 : 3
+def node_013
 	if self.in_map(st.Special_Arena).in_area(-1) 
 		>> Global.node_178 
 	elif self.in_map(st.Challenge_Arena).in_area(-1) 

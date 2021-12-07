@@ -1,7 +1,7 @@
 importactions KestodonF as kestodonf
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	>> Global.node_005 
 	>> Global.node_008 
 	>> Global.node_009 
@@ -15,20 +15,20 @@ def node_000 : 1
 	reset 
 endf 
 
-def node_001 : 20
+def node_001
 	function#52() 
 	self.targetArea(target_area.nearest_entrance) @ unkn3:2097152, unkn12:4, unknExtra1:500 
 	return 
 endf 
 
-def node_002 : 2
+def node_002
 	random (95) -> action#04(2,1,0,500,300) 
 	elser (5) >> Global.node_024 
 	endr 
 	return 
 endf 
 
-def node_003 : 3
+def node_003
 	if function#5A() 
 		>> node_004 
 	elif function#5A(1) 
@@ -49,12 +49,12 @@ def node_003 : 3
 	return 
 endf 
 
-def node_004 : 4
+def node_004
 	>> Global.node_024 
 	return 
 endf 
 
-def node_005 : 21
+def node_005
 	self.targetEnemy(17) 
 	>> Global.node_001 
 	if function#3C() 
@@ -65,7 +65,7 @@ def node_005 : 21
 	return 
 endf 
 
-def node_006 : 22
+def node_006
 	self.targetEnemy(17) 
 	>> Global.node_001 
 	if function#3C(1) 
@@ -76,21 +76,21 @@ def node_006 : 22
 	return 
 endf 
 
-def node_007 : 23
+def node_007
 	self.targetEnemy(17) 
 	>> Global.node_001 
 	-> action#29() 
 	return 
 endf 
 
-def node_008 : 24
+def node_008
 	self.targetEnemy(17) 
 	>> Global.node_001 
 	-> action#27() 
 	return 
 endf 
 
-def node_009 : 25
+def node_009
 	self.targetEnemy(17) 
 	>> Global.node_001 
 	if function#3C() 
@@ -101,7 +101,7 @@ def node_009 : 25
 	return 
 endf 
 
-def node_010 : 26
+def node_010
 	self.targetEnemy(17) 
 	>> Global.node_001 
 	if function#3C() 
@@ -116,7 +116,7 @@ def node_010 : 26
 	return 
 endf 
 
-def node_011 : 16
+def node_011
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.vertical_distance_to_target().leq(400) 
 		if self.distance_2d_to_target().leq(1000) 
@@ -130,7 +130,7 @@ def node_011 : 16
 	return 
 endf 
 
-def node_012 : 14
+def node_012
 	if self.distance_2d_to_target().leq(1000) 
 		>> node_015 
 		reset 
@@ -139,12 +139,12 @@ def node_012 : 14
 	return 
 endf 
 
-def node_013 : 12
+def node_013
 	-> action#09(2,0,0,300) 
 	return 
 endf 
 
-def node_014 : 18
+def node_014
 	self.targetUnknown(1,0) 
 	if self.target(7) 
 	else 
@@ -153,7 +153,7 @@ def node_014 : 18
 	return 
 endf 
 
-def node_015 : 15
+def node_015
 	>> Global.node_002 
 	random (25) -> action#58() 
 	elser (25) -> action#19() 

@@ -1,7 +1,7 @@
 importactions Black_Diablos as black_diablos
 importlibrary Global as Global
 
-def node_000 : 8
+def node_000
 	>> Global.node_007 
 	self.targetEnemy(target_em.closest_entity) 
 	if self.target_is(em.Rathian) 
@@ -25,7 +25,7 @@ def node_000 : 8
 	conclude 
 endf 
 
-def node_001 : 10
+def node_001
 	self.targetEnemy(target_em.closest_entity) 
 	if self.distance_3d_to_target().gt(2500) 
 		-> black_diablos.grapple_dash_to_em001(1,0,0,2500) 
@@ -40,7 +40,7 @@ def node_001 : 10
 	return 
 endf 
 
-def node_002 : 9
+def node_002
 	>> Global.node_056 
 	if self.distance_3d_to_target().leq(1000) 
 		-> black_diablos.short_back_step() 
@@ -51,7 +51,7 @@ def node_002 : 9
 	return 
 endf 
 
-def node_003 : 11
+def node_003
 	if function#C1() 
 		if self.distance_3d_to_target().gt(1851) 
 			-> black_diablos.dash(1,0,0,1851) 
@@ -78,7 +78,7 @@ def node_003 : 11
 	return 
 endf 
 
-def node_004 : 16
+def node_004
 	>> Global.node_056 
 	if self.distance_3d_to_target().leq(1700) 
 		-> black_diablos.short_back_step() 
@@ -91,7 +91,7 @@ def node_004 : 16
 	return 
 endf 
 
-def node_005 : 17
+def node_005
 	if self.distance_2d_to_target().gt(1800) 
 		-> black_diablos.dash(6,0,0,1700) 
 	endif 
@@ -104,17 +104,17 @@ def node_005 : 17
 	return 
 endf 
 
-def node_006 : 13
+def node_006
 	-> black_diablos.grapple_with_em007_start_attacker_win() 
 	return 
 endf 
 
-def node_007 : 14
+def node_007
 	-> black_diablos.grapple_with_em007_start_attacker_lose() 
 	return 
 endf 
 
-def node_008 : 15
+def node_008
 	if self.distance_3d_to_target().leq(2500) 
 		return 
 	else 

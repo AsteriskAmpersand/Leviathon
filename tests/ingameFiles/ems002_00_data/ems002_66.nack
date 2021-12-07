@@ -1,21 +1,21 @@
 importactions Apceros as apceros
 
-def node_000 : 1
+def node_000
 	>> node_002 
 	>> node_005 
 	conclude 
 endf 
 
-def node_001 : 20
+def node_001
 endf 
 
-def node_002 : 21
+def node_002
 	function#54() 
 	>> node_003 
 	return 
 endf 
 
-def node_003 : 22
+def node_003
 	function#E4(4) 
 	function#E4(1) 
 	function#E4(2) 
@@ -29,11 +29,11 @@ def node_003 : 22
 	return 
 endf 
 
-def node_004 : 19
+def node_004
 endf 
 
-def node_005 : 18
-	if [RegisterVar1 <= 1] 
+def node_005
+	if [RegisterVar1 -= 1] 
 		>> node_006 
 	else 
 		>> node_031 
@@ -42,11 +42,11 @@ def node_005 : 18
 	return 
 endf 
 
-def node_006 : 29
-	if [RegisterVar8 <= 2] 
+def node_006
+	if [RegisterVar8 -= 2] 
 		>> node_016 
 		>> node_008 
-	elif [RegisterVar8 <= 1] 
+	elif [RegisterVar8 -= 1] 
 		>> node_014 
 	else 
 		>> node_016 
@@ -55,17 +55,17 @@ def node_006 : 29
 	return 
 endf 
 
-def node_007 : 37
+def node_007
 endf 
 
-def node_008 : 38
+def node_008
 	self.targetEnemy(48) 
 	>> node_010 
 	if self.distance_3d_to_target().leq(500) 
 		>> node_009 
 		>> node_034 
 	else 
-		if [RegisterVar9 <= 10] 
+		if [RegisterVar9 -= 10] 
 			>> node_016 
 			>> node_034 
 			>> node_033 
@@ -76,7 +76,7 @@ def node_008 : 38
 	repeat 
 endf 
 
-def node_009 : 44
+def node_009
 	if self.vertical_distance_to_target().gt(800) 
 		>> node_017 
 		>> node_033 
@@ -91,8 +91,8 @@ def node_009 : 44
 	return 
 endf 
 
-def node_010 : 45
-	if [RegisterVar10 <= 5] 
+def node_010
+	if [RegisterVar10 -= 5] 
 		>> node_035 
 		>> node_020 
 		conclude 
@@ -104,10 +104,10 @@ def node_010 : 45
 	return 
 endf 
 
-def node_011 : 41
+def node_011
 endf 
 
-def node_012 : 40
+def node_012
 	if function#46() 
 		>> node_026 
 		conclude 
@@ -117,32 +117,32 @@ def node_012 : 40
 	reset 
 endf 
 
-def node_013 : 16
+def node_013
 endf 
 
-def node_014 : 5
+def node_014
 	self.targetEnemy(48) 
 	>> node_022 
 	return 
 endf 
 
-def node_015 : 34
+def node_015
 	>> node_023 
 	return 
 endf 
 
-def node_016 : 33
+def node_016
 	self.targetEnemy(48) 
 	>> node_024 
 	return 
 endf 
 
-def node_017 : 15
+def node_017
 	>> node_026 
 	return 
 endf 
 
-def node_018 : 35
+def node_018
 	if self.angle_2d_cw_between(30,330) 
 		>> node_025 
 	else 
@@ -150,86 +150,86 @@ def node_018 : 35
 	return 
 endf 
 
-def node_019 : 39
+def node_019
 	>> node_027 
 	>> node_012 
 	>> node_032 
 	return 
 endf 
 
-def node_020 : 49
+def node_020
 	>> node_028 
 	return 
 endf 
 
-def node_021 : 17
+def node_021
 endf 
 
-def node_022 : 7
+def node_022
 	-> apceros.dash_tunnel() 
 	return 
 endf 
 
-def node_023 : 26
+def node_023
 	-> apceros.dash_tight() 
 	return 
 endf 
 
-def node_024 : 27
+def node_024
 	-> apceros.fox_walk() 
 	return 
 endf 
 
-def node_025 : 28
+def node_025
 	-> apceros.landing() 
 	return 
 endf 
 
-def node_026 : 14
+def node_026
 	-> apceros.glide_combat_no_use_flyway() 
 	return 
 endf 
 
-def node_027 : 36
+def node_027
 	-> apceros.idle_fly(1,0,0,300) 
 	return 
 endf 
 
-def node_028 : 48
+def node_028
 	-> apceros.sudden_rise() 
 	return 
 endf 
 
-def node_029 : 30
+def node_029
 endf 
 
-def node_030 : 31
-	[RegisterVar8 ++] 
-	return 
-endf 
-
-def node_031 : 32
+def node_030
 	[RegisterVar8 |-] 
 	return 
 endf 
 
-def node_032 : 42
-	[RegisterVar9 ++] 
+def node_031
+	[RegisterVar8 ++] 
 	return 
 endf 
 
-def node_033 : 43
+def node_032
 	[RegisterVar9 |-] 
 	return 
 endf 
 
-def node_034 : 46
-	[RegisterVar10 ++] 
+def node_033
+	[RegisterVar9 ++] 
 	return 
 endf 
 
-def node_035 : 47
+def node_034
 	[RegisterVar10 |-] 
+	return 
+endf 
+
+def node_035
+	[RegisterVar10 ++] 
 	return 
 endf 
 

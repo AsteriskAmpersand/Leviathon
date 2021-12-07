@@ -1,6 +1,6 @@
 importactions Jagras as jagras
 
-def node_000 : 1
+def node_000
 	-> action#01() 
 	-> action#01() >> node_001 => reset 
 	-> action#01() >> node_002 => reset 
@@ -9,30 +9,20 @@ def node_000 : 1
 	-> action#01() >> node_005 => reset 
 endf 
 
-def node_001 : 2
+def node_001
 	-> action#01() 
 	-> action#01() 
 	-> action#01() => return 
 endf 
 
-def node_002 : 3
+def node_002
 	-> action#01() 
 	-> action#01() 
 	-> action#01() => return 
 	-> action#01() => return 
 endf 
 
-def node_003 : 4
-	-> action#01() 
-	-> action#01() 
-	-> action#01() 
-	-> action#01() 
-	-> action#01() 
-	-> action#01() => return 
-endf 
-
-def node_004 : 5
-	-> action#01() 
+def node_003
 	-> action#01() 
 	-> action#01() 
 	-> action#01() 
@@ -41,7 +31,17 @@ def node_004 : 5
 	-> action#01() => return 
 endf 
 
-def node_005 : 6
+def node_004
+	-> action#01() 
+	-> action#01() 
+	-> action#01() 
+	-> action#01() 
+	-> action#01() 
+	-> action#01() 
+	-> action#01() => return 
+endf 
+
+def node_005
 	-> action#01() 
 	-> action#01() => return 
 endf 

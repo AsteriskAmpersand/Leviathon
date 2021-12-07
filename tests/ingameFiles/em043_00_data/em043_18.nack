@@ -1,7 +1,7 @@
 importactions Deviljho as deviljho
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	>> Global.node_120 
 	>> Global.node_121 
 	self.targetEnemy(13) 
@@ -35,14 +35,14 @@ def node_000 : 1
 	conclude 
 endf 
 
-def node_001 : 2
+def node_001
 	>> node_002 
 	>> node_003 
 	>> node_004 
 	return 
 endf 
 
-def node_002 : 3
+def node_002
 	if self.distance_3d_to_target().leq(800) 
 		-> deviljho.back_turn() 
 	elif self.angle_2d_cw_between(30,330) 
@@ -52,7 +52,7 @@ def node_002 : 3
 	return 
 endf 
 
-def node_003 : 4
+def node_003
 	self.targetEnemy(13) 
 	if self.distance_2d_to_target().leq(1000) 
 		return 
@@ -72,7 +72,7 @@ def node_003 : 4
 	return 
 endf 
 
-def node_004 : 5
+def node_004
 	self.targetEnemy(48) 
 	if self.target(7) 
 		>> node_008 
@@ -88,13 +88,13 @@ def node_004 : 5
 	return 
 endf 
 
-def node_005 : 6
+def node_005
 	>> node_002 
 	>> node_006 
 	return 
 endf 
 
-def node_006 : 7
+def node_006
 	random (50) >> Global.node_046 
 	elser (30) >> Global.node_047 
 	elser (20) >> Global.node_061 
@@ -102,7 +102,7 @@ def node_006 : 7
 	return 
 endf 
 
-def node_007 : 8
+def node_007
 	if self.fatigued() 
 		-> deviljho.tired_dash(2,6,5,1500,900) 
 	else 
@@ -111,13 +111,13 @@ def node_007 : 8
 	return 
 endf 
 
-def node_008 : 9
+def node_008
 	-> deviljho.sniff_s() 
 	-> deviljho.search() 
 	return 
 endf 
 
-def node_009 : 10
+def node_009
 	if function#5F() 
 		-> deviljho.sniff_s() 
 	else 
@@ -126,7 +126,7 @@ def node_009 : 10
 	return 
 endf 
 
-def node_010 : 11
+def node_010
 	self.targetEnemy(9) @ parameter2:1000 
 	>> Global.node_061 
 	return 

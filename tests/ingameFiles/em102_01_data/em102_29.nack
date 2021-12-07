@@ -1,7 +1,7 @@
 importactions Coral_PukeiPukei as coral_pukeipukei
 importlibrary Global as Global
 
-def node_000 : 14
+def node_000
 	>> Global.node_039 
 	>> Global.node_085 
 	>> Global.node_206 
@@ -9,7 +9,7 @@ def node_000 : 14
 	reset 
 endf 
 
-def node_001 : 15
+def node_001
 	self.targetEnemy(48) 
 	if self.in_map(st.Challenge_Arena).in_area(-1) 
 		>> node_004 
@@ -21,7 +21,7 @@ def node_001 : 15
 	return 
 endf 
 
-def node_002 : 16
+def node_002
 	if self.fatigued() 
 		>> Global.node_105 
 	else 
@@ -35,7 +35,7 @@ def node_002 : 16
 	return 
 endf 
 
-def node_003 : 17
+def node_003
 	if self.targetEnemy(target_em.any_monster) 
 		random (20) >> Global.node_101 
 		elser (80) 
@@ -46,7 +46,7 @@ def node_003 : 17
 	return 
 endf 
 
-def node_004 : 18
+def node_004
 	>> Global.node_053 
 	random (55) >> Global.node_209 
 	elser (35) >> Global.node_101 

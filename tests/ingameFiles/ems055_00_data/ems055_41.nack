@@ -1,14 +1,14 @@
 importactions Barnos as barnos
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	>> Global.node_007 
 	if function#72() >> node_001 
 	endif 
 	conclude 
 endf 
 
-def node_001 : 40
+def node_001
 	self.targetEnemy(13) 
 	if function#2D() >> node_002 
 	else >> node_003 
@@ -16,7 +16,7 @@ def node_001 : 40
 	return 
 endf 
 
-def node_002 : 44
+def node_002
 	if self.hookable() 
 		function#52(4) 
 		self.targetEnemy(16) 
@@ -29,7 +29,7 @@ def node_002 : 44
 	return 
 endf 
 
-def node_003 : 45
+def node_003
 	if self.target_is(em.Barnos) 
 	elif self.target(38) 
 	elif self.hp_percent().gt(30) 
@@ -44,7 +44,7 @@ def node_003 : 45
 	return 
 endf 
 
-def node_004 : 41
+def node_004
 	function#52(130) 
 	self.targetEnemy(16) 
 	-> action#13(1,0,0,500) 

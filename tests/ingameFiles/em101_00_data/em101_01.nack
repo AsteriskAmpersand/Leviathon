@@ -1,14 +1,14 @@
 importactions Great_Jagras as great_jagras
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	>> Global.node_002 
 	self.targetEnemy(target_em.random_player_or_cat) 
 	>> node_001 
 	reset 
 endf 
 
-def node_001 : 16
+def node_001
 	if self.distance_2d_to_target().leq(700) 
 		if self.vertical_distance_to_target().leq(750) 
 			self.enraged() >> node_005 => reset 
@@ -37,7 +37,7 @@ def node_001 : 16
 	return 
 endf 
 
-def node_002 : 17
+def node_002
 	if self.target(7) 
 		>> Global.node_042 
 		>> Global.node_134 
@@ -47,19 +47,19 @@ def node_002 : 17
 	return 
 endf 
 
-def node_003 : 18
+def node_003
 	>> Global.node_132 
 	>> Global.node_130 
 	return 
 endf 
 
-def node_004 : 19
+def node_004
 	>> Global.node_133 
 	>> Global.node_131 
 	return 
 endf 
 
-def node_005 : 20
+def node_005
 	if self.target(7) 
 		>> Global.node_042 
 		>> Global.node_134 
@@ -69,19 +69,19 @@ def node_005 : 20
 	return 
 endf 
 
-def node_006 : 21
+def node_006
 	>> Global.node_132 
 	>> Global.node_130 
 	return 
 endf 
 
-def node_007 : 22
+def node_007
 	>> Global.node_133 
 	>> Global.node_131 
 	return 
 endf 
 
-def node_008 : 23
+def node_008
 	if self.target(7) 
 		>> Global.node_042 
 		>> Global.node_134 
@@ -91,7 +91,7 @@ def node_008 : 23
 	return 
 endf 
 
-def node_009 : 24
+def node_009
 	random (70) 
 				>> Global.node_132 
 				>> Global.node_130 
@@ -102,7 +102,7 @@ def node_009 : 24
 	return 
 endf 
 
-def node_010 : 25
+def node_010
 	random (70) 
 				>> Global.node_133 
 				>> Global.node_131 

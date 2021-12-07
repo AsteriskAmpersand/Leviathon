@@ -1,7 +1,7 @@
 importactions Jagras as jagras
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	>> Global.node_054 
 	>> node_009 
 	>> node_012 
@@ -13,7 +13,7 @@ def node_000 : 1
 	reset 
 endf 
 
-def node_001 : 20
+def node_001
 	function#52() 
 	if function#5A(10) 
 		self.targetArea(target_area.nearest_entrance) 
@@ -24,7 +24,7 @@ def node_001 : 20
 	return 
 endf 
 
-def node_002 : 3
+def node_002
 	if function#5A() 
 		>> node_003 
 	elif function#5A(1) 
@@ -41,23 +41,23 @@ def node_002 : 3
 	return 
 endf 
 
-def node_003 : 4
+def node_003
 	>> Global.node_046 
 	>> Global.node_046 
 	return 
 endf 
 
-def node_004 : 5
+def node_004
 	>> Global.node_043 
 	return 
 endf 
 
-def node_005 : 6
+def node_005
 	>> Global.node_044 
 	return 
 endf 
 
-def node_006 : 23
+def node_006
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.distance_3d_to_target().leq(3500) 
 		>> Global.node_092 
@@ -70,19 +70,19 @@ def node_006 : 23
 	return 
 endf 
 
-def node_007 : 22
+def node_007
 	self.targetEnemy(target_em.random_player_or_cat) 
 	>> Global.node_038 
 	>> Global.node_046 
 	return 
 endf 
 
-def node_008 : 21
+def node_008
 	>> Global.node_046 
 	return 
 endf 
 
-def node_009 : 25
+def node_009
 	function#4B() 
 	if self.target(20) 
 	else 
@@ -95,7 +95,7 @@ def node_009 : 25
 	return 
 endf 
 
-def node_010 : 26
+def node_010
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.target(20) 
 		>> node_011 
@@ -104,14 +104,14 @@ def node_010 : 26
 	return 
 endf 
 
-def node_011 : 27
+def node_011
 	self.targetEnemy(target_em.random_player_or_cat) @ unkn3:2097152, unkn12:4, unknExtra1:200 
 	>> Global.node_002 
 	>> node_008 
 	reset 
 endf 
 
-def node_012 : 28
+def node_012
 	if function#31(2,1500) 
 		>> node_013 
 	elif function#31(8,1500) 
@@ -121,14 +121,14 @@ def node_012 : 28
 	return 
 endf 
 
-def node_013 : 31
+def node_013
 	self.targetEnemy(target_em.closest_entity) 
 	>> node_014 
 	>> node_015 
 	return 
 endf 
 
-def node_014 : 29
+def node_014
 	>> Global.node_037 
 	>> Global.node_047 
 	>> Global.node_048 
@@ -138,7 +138,7 @@ def node_014 : 29
 	return 
 endf 
 
-def node_015 : 30
+def node_015
 	function#52() 
 	self.targetArea(target_area.nearest_entrance) 
 	>> Global.node_001 
@@ -146,9 +146,9 @@ def node_015 : 30
 	return 
 endf 
 
-def node_016 : 34
+def node_016
 	if self.quest_id(101) 
-		if [RegisterVar1 < 0] 
+		if [RegisterVar1 *= 0] 
 			>> node_017 
 		else 
 			>> node_018 
@@ -158,42 +158,42 @@ def node_016 : 34
 	return 
 endf 
 
-def node_017 : 35
+def node_017
 	function#52() 
 	if function#5A(99) 
 		self.targetArea(target_area.nearest_entrance) 
 	else 
-		if [RegisterVar2 < 4] 
-			[RegisterVar2 |-] 
+		if [RegisterVar2 *= 4] 
+			[RegisterVar2 ++] 
 			self.targetArea(target_area.nearest_entrance) 
 		else 
-			[RegisterVar2 ++] 
+			[RegisterVar2 |-] 
 			function#54() 
 			repeat 
 		endif 
 	endif 
-	[RegisterVar2 |-] 
+	[RegisterVar2 ++] 
 	>> Global.node_031 
 	function#54() 
 	>> node_008 
 	reset 
 endf 
 
-def node_018 : 36
+def node_018
 	function#52() 
 	if function#5A(99) 
-		if [RegisterVar2 < 4] 
-			[RegisterVar2 |-] 
+		if [RegisterVar2 *= 4] 
+			[RegisterVar2 ++] 
 			self.targetArea(target_area.nearest_entrance) 
 		else 
-			[RegisterVar2 ++] 
+			[RegisterVar2 |-] 
 			function#54() 
 			repeat 
 		endif 
 	else 
 		self.targetArea(target_area.nearest_entrance) 
 	endif 
-	[RegisterVar2 |-] 
+	[RegisterVar2 ++] 
 	return 
 endf 
 

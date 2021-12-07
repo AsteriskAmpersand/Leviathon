@@ -1,7 +1,7 @@
 importactions Noios as noios
 importlibrary Global as Global
 
-def node_000 : 41
+def node_000
 	>> Global.node_014 
 	>> Global.node_007 
 	>> node_010 
@@ -15,7 +15,7 @@ def node_000 : 41
 	reset 
 endf 
 
-def node_001 : 44
+def node_001
 	if function#58(0,50) 
 		>> node_009 
 		return 
@@ -26,26 +26,26 @@ def node_001 : 44
 	return 
 endf 
 
-def node_002 : 50
+def node_002
 	>> node_004 
 	if function#5A(1) >> Global.node_002 
 	endif 
 	return 
 endf 
 
-def node_003 : 51
-	if [RegisterVar0 == 0] 
+def node_003
+	if [RegisterVar0 += 0] 
 		random (70) >> node_004 
 		elser (30) >> node_005 
 		endr 
 	else 
 		>> node_004 
-		[RegisterVar0 |-] 
+		[RegisterVar0 ++] 
 	endif 
 	return 
 endf 
 
-def node_004 : 45
+def node_004
 	-> action#10(2,1,0,1500,500) 
 	if self.distance_2d_to_target().leq(700) 
 		return 
@@ -55,14 +55,14 @@ def node_004 : 45
 	return 
 endf 
 
-def node_005 : 52
+def node_005
 	if function#102() 
 		function#103() 
 		>> node_006 
 		-> action#4A() 
 		if function#104() 
 			>> node_007 
-			[RegisterVar0 ++] 
+			[RegisterVar0 |-] 
 		else 
 			>> Global.node_002 
 		endif 
@@ -72,13 +72,13 @@ def node_005 : 52
 	return 
 endf 
 
-def node_006 : 53
+def node_006
 	-> action#10(1,0,0,1000) 
 	-> action#18(1,0,0,300) 
 	return 
 endf 
 
-def node_007 : 54
+def node_007
 	>> Global.node_004 
 	random (70) >> Global.node_002 
 	elser (30) >> Global.node_004 
@@ -86,7 +86,7 @@ def node_007 : 54
 	return 
 endf 
 
-def node_008 : 42
+def node_008
 	if self.distance_2d_to_target().leq(1500) 
 		-> action#11() 
 	else 
@@ -100,13 +100,13 @@ def node_008 : 42
 	return 
 endf 
 
-def node_009 : 47
+def node_009
 	>> node_008 
 	>> Global.node_005 
 	return 
 endf 
 
-def node_010 : 36
+def node_010
 	if function#51(0,2000) 
 		>> Global.node_010 
 	else 
@@ -114,20 +114,20 @@ def node_010 : 36
 	return 
 endf 
 
-def node_011 : 48
+def node_011
 	if function#58(1,100) 
 		>> Global.node_012 
 	endif 
 	return 
 endf 
 
-def node_012 : 49
+def node_012
 	>> node_008 
 	>> Global.node_002 
 	return 
 endf 
 
-def node_013 : 46
+def node_013
 	>> node_008 
 	>> Global.node_004 
 	return 

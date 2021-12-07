@@ -1,15 +1,15 @@
 importactions Behemoth as behemoth
 
-def node_000 : 37
+def node_000
 	conclude 
 endf 
 
-def node_001 : 24
+def node_001
 	>> node_002 
 	return 
 endf 
 
-def node_002 : 25
+def node_002
 	self.targetEnemy(16) 
 	if self.distance_3d_to_target().leq(600) 
 		return 
@@ -19,7 +19,7 @@ def node_002 : 25
 	repeat 
 endf 
 
-def node_003 : 245
+def node_003
 	self.targetArea(14) 
 	if self.distance_3d_to_target().gt(1500) 
 		>> node_007 
@@ -29,7 +29,7 @@ def node_003 : 245
 	return 
 endf 
 
-def node_004 : 270
+def node_004
 	self.targetArea(19) 
 	if self.distance_3d_to_target().gt(1500) 
 		>> node_007 
@@ -39,55 +39,55 @@ def node_004 : 270
 	return 
 endf 
 
-def node_005 : 219
+def node_005
 	-> behemoth.dash(5) 
 	return 
 endf 
 
-def node_006 : 221
+def node_006
 	-> behemoth.dash(1,5,0,2000) 
 	return 
 endf 
 
-def node_007 : 230
+def node_007
 	-> behemoth.dash(2,1,5,3000,550) 
 	return 
 endf 
 
-def node_008 : 247
+def node_008
 endf 
 
-def node_009 : 242
+def node_009
 	-> behemoth.dash(2,1,5,5000,1400) 
 	return 
 endf 
 
-def node_010 : 274
+def node_010
 	-> behemoth.dash(1,5,0,1000) 
 	return 
 endf 
 
-def node_011 : 222
+def node_011
 	-> behemoth.walk(5) 
 	return 
 endf 
 
-def node_012 : 223
+def node_012
 	-> behemoth.walk(1,5,0,2000) 
 	return 
 endf 
 
-def node_013 : 231
+def node_013
 	-> behemoth.walk(2,1,5,3000,550) 
 	return 
 endf 
 
-def node_014 : 243
+def node_014
 	-> behemoth.walk(2,1,5,3000,1400) 
 	return 
 endf 
 
-def node_015 : 314
+def node_015
 	if self.current_quest().is_rank(rank.AT) 
 		>> node_028 
 	else 
@@ -96,7 +96,7 @@ def node_015 : 314
 	return 
 endf 
 
-def node_016 : 315
+def node_016
 	if self.current_quest().is_rank(rank.AT) 
 		>> node_028 
 	else 
@@ -105,12 +105,12 @@ def node_016 : 315
 	return 
 endf 
 
-def node_017 : 233
+def node_017
 	-> behemoth.dying_walk(2,5,0,2000) 
 	return 
 endf 
 
-def node_018 : 246
+def node_018
 	if self.distance_3d_to_target().leq(700) 
 		>> node_022 
 	else 
@@ -119,7 +119,7 @@ def node_018 : 246
 	return 
 endf 
 
-def node_019 : 224
+def node_019
 	if self.angle_2d_cw_between(30,330) 
 		-> behemoth.normal_turn() 
 	else 
@@ -127,7 +127,7 @@ def node_019 : 224
 	return 
 endf 
 
-def node_020 : 225
+def node_020
 	if self.angle_2d_cw_between(60,300) 
 		-> behemoth.normal_turn() 
 	else 
@@ -135,7 +135,7 @@ def node_020 : 225
 	return 
 endf 
 
-def node_021 : 226
+def node_021
 	if self.angle_2d_cw_between(90,270) 
 		-> behemoth.normal_turn() 
 	else 
@@ -143,12 +143,12 @@ def node_021 : 226
 	return 
 endf 
 
-def node_022 : 244
+def node_022
 	-> behemoth.back_step() 
 	return 
 endf 
 
-def node_023 : 194
+def node_023
 	if self.angle_2d_cw_between(30,330) 
 		>> node_026 
 	else 
@@ -156,7 +156,7 @@ def node_023 : 194
 	return 
 endf 
 
-def node_024 : 196
+def node_024
 	if self.angle_2d_cw_between(60,300) 
 		>> node_026 
 	else 
@@ -164,7 +164,7 @@ def node_024 : 196
 	return 
 endf 
 
-def node_025 : 195
+def node_025
 	if self.angle_2d_cw_between(90,270) 
 		>> node_026 
 	else 
@@ -172,7 +172,7 @@ def node_025 : 195
 	return 
 endf 
 
-def node_026 : 301
+def node_026
 	if self.angle_2d_cw_between(270,90) 
 		-> behemoth.combat_turn() 
 	else 
@@ -181,73 +181,73 @@ def node_026 : 301
 	return 
 endf 
 
-def node_027 : 213
+def node_027
 	-> behemoth.ride_tired() 
 	return 
 endf 
 
-def node_028 : 305
+def node_028
 	-> behemoth.front_step() 
 	return 
 endf 
 
-def node_029 : 207
+def node_029
 endf 
 
-def node_030 : 317
+def node_030
 	-> behemoth.heal() 
 	return 
 endf 
 
-def node_031 : 232
+def node_031
 	-> behemoth.search() 
 	return 
 endf 
 
-def node_032 : 217
+def node_032
 	-> behemoth.search() 
 	return 
 endf 
 
-def node_033 : 218
+def node_033
 	-> behemoth.search() 
 	return 
 endf 
 
-def node_034 : 220
+def node_034
 	-> behemoth.damage_stun() 
 	return 
 endf 
 
-def node_035 : 227
+def node_035
 endf 
 
-def node_036 : 228
+def node_036
 	-> behemoth.discover() 
 	return 
 endf 
 
-def node_037 : 234
+def node_037
 	-> behemoth.discover() 
 	return 
 endf 
 
-def node_038 : 229
+def node_038
 	-> behemoth.refresh() 
 	return 
 endf 
 
-def node_039 : 235
+def node_039
 	-> behemoth.damage_ride_down() 
 	return 
 endf 
 
-def node_040 : 269
+def node_040
 	-> action#7F(3,0,0,150) 
 	return 
 endf 
 
-def node_041 : 265
+def node_041
 	random (33) 
 				self.targetEnemy(21) @ parameter2:1000 
 	elser (25) 
@@ -260,17 +260,17 @@ def node_041 : 265
 	return 
 endf 
 
-def node_042 : 259
+def node_042
 	-> behemoth.ride_tired() 
 	return 
 endf 
 
-def node_043 : 260
+def node_043
 	-> behemoth.ride_wait() 
 	return 
 endf 
 
-def node_044 : 261
+def node_044
 	self.targetEnemy(target_em.last_attacker) 
 	>> node_023 
 	if self.mounted() 
@@ -281,7 +281,7 @@ def node_044 : 261
 	return 
 endf 
 
-def node_045 : 262
+def node_045
 	self.targetEnemy(target_em.last_attacker) 
 	>> node_023 
 	if self.mounted() 
@@ -292,10 +292,10 @@ def node_045 : 262
 	return 
 endf 
 
-def node_046 : 263
+def node_046
 endf 
 
-def node_047 : 293
+def node_047
 	if function#102() 
 		function#104() 
 		-> behemoth.mode_change() 
@@ -304,7 +304,7 @@ def node_047 : 293
 	return 
 endf 
 
-def node_048 : 294
+def node_048
 	if function#2D() 
 	else 
 		self.targetEnemy(48) 
@@ -319,9 +319,9 @@ def node_048 : 294
 	return 
 endf 
 
-def node_049 : 295
+def node_049
 	function#107() 
-	if [RegisterVar1 == 1] 
+	if [RegisterVar1 += 1] 
 		if function#108(0,45) 
 			if self.target(4) 
 			else 
@@ -330,7 +330,7 @@ def node_049 : 295
 			endif 
 		else 
 		endif 
-	elif [RegisterVar1 == 2] 
+	elif [RegisterVar1 += 2] 
 		if function#108(0,20) 
 			if self.target(4) 
 			else 
@@ -339,7 +339,7 @@ def node_049 : 295
 			endif 
 		else 
 		endif 
-	elif [RegisterVar1 == 3] 
+	elif [RegisterVar1 += 3] 
 		if self.current_quest().is_rank(rank.AT) 
 			if function#108(0,345) 
 				if self.target(4) 
@@ -355,7 +355,7 @@ def node_049 : 295
 		else 
 			function#109() 
 		endif 
-	elif [RegisterVar1 == 4] 
+	elif [RegisterVar1 += 4] 
 		if function#108(0,30) 
 			if self.target(4) 
 			else 
@@ -368,7 +368,7 @@ def node_049 : 295
 	return 
 endf 
 
-def node_050 : 297
+def node_050
 	if function#10A() 
 		>> node_073 
 	else 
@@ -376,38 +376,38 @@ def node_050 : 297
 	return 
 endf 
 
-def node_051 : 298
-	[RegisterVar1 |-] 
+def node_051
+	[RegisterVar1 ++] 
 	if function#110(105,8) 
-		[RegisterVar1 ++] 
+		[RegisterVar1 |-] 
 	elif function#110(105,4) 
-		[RegisterVar1 ++] 
-		[RegisterVar1 ++] 
+		[RegisterVar1 |-] 
+		[RegisterVar1 |-] 
 	elif function#110(105,11) 
-		[RegisterVar1 ++] 
-		[RegisterVar1 ++] 
-		[RegisterVar1 ++] 
+		[RegisterVar1 |-] 
+		[RegisterVar1 |-] 
+		[RegisterVar1 |-] 
 	elif function#110(105,13) 
-		[RegisterVar1 ++] 
-		[RegisterVar1 ++] 
-		[RegisterVar1 ++] 
+		[RegisterVar1 |-] 
+		[RegisterVar1 |-] 
+		[RegisterVar1 |-] 
 	elif function#110(105,12) 
-		[RegisterVar1 ++] 
-		[RegisterVar1 ++] 
-		[RegisterVar1 ++] 
-		[RegisterVar1 ++] 
+		[RegisterVar1 |-] 
+		[RegisterVar1 |-] 
+		[RegisterVar1 |-] 
+		[RegisterVar1 |-] 
 	elif function#110(105,14) 
-		[RegisterVar1 ++] 
-		[RegisterVar1 ++] 
-		[RegisterVar1 ++] 
-		[RegisterVar1 ++] 
+		[RegisterVar1 |-] 
+		[RegisterVar1 |-] 
+		[RegisterVar1 |-] 
+		[RegisterVar1 |-] 
 	else 
 	endif 
 	return 
 endf 
 
-def node_052 : 303
-	if [RegisterVar1 == 3] 
+def node_052
+	if [RegisterVar1 += 3] 
 		if self.target(3) 
 		else 
 			if function#103() 
@@ -421,18 +421,18 @@ def node_052 : 303
 	return 
 endf 
 
-def node_053 : 310
+def node_053
 	if self.current_quest().is_rank(rank.AT) 
-		if [RegisterVar1 == 4] 
-			if [RegisterVar2 == 0] 
+		if [RegisterVar1 += 4] 
+			if [RegisterVar2 += 0] 
 				if self.hp_percent().gt(20) 
-					[RegisterVar2 ++] 
+					[RegisterVar2 |-] 
 					>> node_073 
 				else 
 				endif 
-			elif [RegisterVar2 == 1] 
+			elif [RegisterVar2 += 1] 
 				if self.hp_percent().gt(10) 
-					[RegisterVar2 ++] 
+					[RegisterVar2 |-] 
 					>> node_073 
 				else 
 				endif 
@@ -445,15 +445,15 @@ def node_053 : 310
 	return 
 endf 
 
-def node_054 : 311
+def node_054
 endf 
 
-def node_055 : 296
+def node_055
 	-> behemoth.rarm_nagi_attack() 
 	return 
 endf 
 
-def node_056 : 278
+def node_056
 	if self.angle_2d_cw_between(300,60) 
 		-> behemoth.rarm_nagi_attack() 
 	elif self.angle_2d_cw_between(120,240) 
@@ -464,7 +464,7 @@ def node_056 : 278
 	return 
 endf 
 
-def node_057 : 286
+def node_057
 	if self.angle_2d_cw_between(250,110) 
 		-> behemoth.turn_attack_90() 
 	else 
@@ -473,52 +473,52 @@ def node_057 : 286
 	return 
 endf 
 
-def node_058 : 279
+def node_058
 	>> node_024 
 	-> behemoth.horn_attack() 
 	return 
 endf 
 
-def node_059 : 282
+def node_059
 	-> behemoth.side_tackle() 
 	return 
 endf 
 
-def node_060 : 284
+def node_060
 	-> behemoth.spin_attack() 
 	return 
 endf 
 
-def node_061 : 285
+def node_061
 	-> behemoth.body_press() 
 	return 
 endf 
 
-def node_062 : 287
+def node_062
 	>> node_025 
 	-> behemoth.long_range_attack() 
 	return 
 endf 
 
-def node_063 : 288
+def node_063
 	>> node_025 
 	-> behemoth.jump_attack() 
 	return 
 endf 
 
-def node_064 : 280
+def node_064
 	>> node_025 
 	-> behemoth.standup_punch() 
 	return 
 endf 
 
-def node_065 : 289
+def node_065
 	>> node_025 
 	-> behemoth.pinpoint_meteor() 
 	return 
 endf 
 
-def node_066 : 299
+def node_066
 	>> node_025 
 	if function#103() 
 		-> behemoth.pinpoint_meteor() 
@@ -528,12 +528,12 @@ def node_066 : 299
 	return 
 endf 
 
-def node_067 : 300
+def node_067
 	-> behemoth.spell_cast() 
 	return 
 endf 
 
-def node_068 : 316
+def node_068
 	if self.current_quest().is_rank(rank.AT) 
 		>> node_066 
 	else 
@@ -542,7 +542,7 @@ def node_068 : 316
 	return 
 endf 
 
-def node_069 : 306
+def node_069
 	if self.distance_3d_to_target().gt(1600) 
 		>> node_028 
 	else 
@@ -552,7 +552,7 @@ def node_069 : 306
 	return 
 endf 
 
-def node_070 : 302
+def node_070
 	if self.distance_3d_to_target().gt(4000) 
 		>> node_009 
 	elif self.distance_3d_to_target().gt(3000) 
@@ -575,7 +575,7 @@ def node_070 : 302
 	return 
 endf 
 
-def node_071 : 292
+def node_071
 	if function#103() 
 	else 
 		self.targetEnemy(50) 
@@ -588,25 +588,25 @@ def node_071 : 292
 	return 
 endf 
 
-def node_072 : 290
+def node_072
 	self.targetEnemy(50) 
 	if self.target(4) 
 	else 
 		>> node_025 
-		[RegisterVar0 ++] 
+		[RegisterVar0 |-] 
 		-> behemoth.comet_meteor() 
 	endif 
 	return 
 endf 
 
-def node_073 : 291
+def node_073
 	>> node_048 
 	function#106() 
 	-> behemoth.meteor_start() 
 	return 
 endf 
 
-def node_074 : 304
+def node_074
 	>> node_041 
 	if self.current_quest().is_rank(rank.AT) 
 		-> behemoth.maelstorm_multi() 
@@ -616,48 +616,48 @@ def node_074 : 304
 	return 
 endf 
 
-def node_075 : 307
-	if [RegisterVar0 == 0] 
+def node_075
+	if [RegisterVar0 += 0] 
 		if self.hp_percent().gt(70) 
 			>> node_072 
 		else 
 		endif 
-	elif [RegisterVar0 == 1] 
+	elif [RegisterVar0 += 1] 
 		if self.hp_percent().gt(65) 
 			>> node_072 
 		else 
 		endif 
-	elif [RegisterVar0 == 2] 
+	elif [RegisterVar0 += 2] 
 		if self.hp_percent().gt(60) 
 			>> node_072 
 		else 
 		endif 
-	elif [RegisterVar0 == 3] 
+	elif [RegisterVar0 += 3] 
 		if self.hp_percent().gt(50) 
 			>> node_072 
 		else 
 		endif 
-	elif [RegisterVar0 == 4] 
+	elif [RegisterVar0 += 4] 
 		if self.hp_percent().gt(45) 
 			>> node_072 
 		else 
 		endif 
-	elif [RegisterVar0 == 5] 
+	elif [RegisterVar0 += 5] 
 		if self.hp_percent().gt(40) 
 			>> node_072 
 		else 
 		endif 
-	elif [RegisterVar0 == 6] 
+	elif [RegisterVar0 += 6] 
 		if self.hp_percent().gt(35) 
 			>> node_072 
 		else 
 		endif 
-	elif [RegisterVar0 == 7] 
+	elif [RegisterVar0 += 7] 
 		if self.hp_percent().gt(10) 
 			>> node_072 
 		else 
 		endif 
-	elif [RegisterVar0 == 8] 
+	elif [RegisterVar0 += 8] 
 		if self.hp_percent().gt(5) 
 			>> node_072 
 		else 
@@ -667,33 +667,33 @@ def node_075 : 307
 	return 
 endf 
 
-def node_076 : 308
-	if [RegisterVar0 == 0] 
+def node_076
+	if [RegisterVar0 += 0] 
 		if self.hp_percent().gt(100) 
 			>> node_072 
 		else 
 		endif 
-	elif [RegisterVar0 == 1] 
+	elif [RegisterVar0 += 1] 
 		if self.hp_percent().gt(90) 
 			>> node_072 
 		else 
 		endif 
-	elif [RegisterVar0 == 2] 
+	elif [RegisterVar0 += 2] 
 		if self.hp_percent().gt(65) 
 			>> node_072 
 		else 
 		endif 
-	elif [RegisterVar0 == 3] 
+	elif [RegisterVar0 += 3] 
 		if self.hp_percent().gt(23) 
 			>> node_072 
 		else 
 		endif 
-	elif [RegisterVar0 == 4] 
+	elif [RegisterVar0 += 4] 
 		if self.hp_percent().gt(13) 
 			>> node_072 
 		else 
 		endif 
-	elif [RegisterVar0 == 5] 
+	elif [RegisterVar0 += 5] 
 		if self.hp_percent().gt(3) 
 			>> node_072 
 		else 
@@ -703,23 +703,23 @@ def node_076 : 308
 	return 
 endf 
 
-def node_077 : 309
-	if [RegisterVar0 == 0] 
+def node_077
+	if [RegisterVar0 += 0] 
 		if self.hp_percent().gt(20) 
 			>> node_072 
 		else 
 		endif 
-	elif [RegisterVar0 == 1] 
+	elif [RegisterVar0 += 1] 
 		if self.hp_percent().gt(15) 
 			>> node_072 
 		else 
 		endif 
-	elif [RegisterVar0 == 2] 
+	elif [RegisterVar0 += 2] 
 		if self.hp_percent().gt(10) 
 			>> node_072 
 		else 
 		endif 
-	elif [RegisterVar0 == 3] 
+	elif [RegisterVar0 += 3] 
 		if self.hp_percent().gt(5) 
 			>> node_072 
 		else 
@@ -729,7 +729,7 @@ def node_077 : 309
 	return 
 endf 
 
-def node_078 : 312
+def node_078
 	if self.current_quest().is_rank(rank.AT) 
 		if self.target.helpless_0() 
 			random (80) >> node_070 
@@ -764,7 +764,7 @@ def node_078 : 312
 	return 
 endf 
 
-def node_079 : 313
+def node_079
 	if self.current_quest().is_rank(rank.AT) 
 		if self.target.helpless_0() 
 			random (75) >> node_069 

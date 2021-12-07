@@ -1,7 +1,7 @@
 importactions Ebony_Odogaron as ebony_odogaron
 importlibrary Global as Global
 
-def node_000 : 135
+def node_000
 	>> node_001 
 	>> Global.node_015 
 	>> Global.node_236 
@@ -15,7 +15,7 @@ def node_000 : 135
 	reset 
 endf 
 
-def node_001 : 138
+def node_001
 	if self.target_on_part(0) 
 		>> node_002 
 	elif self.target_on_part(1) 
@@ -27,19 +27,19 @@ def node_001 : 138
 	return 
 endf 
 
-def node_002 : 142
+def node_002
 	>> node_004 
 	reset 
 endf 
 
-def node_003 : 143
+def node_003
 	random (50) >> Global.node_206 
 	elser (50) 
 	endr 
 	return 
 endf 
 
-def node_004 : 139
+def node_004
 	if self.mounted() 
 		>> node_005 
 	else 
@@ -48,7 +48,7 @@ def node_004 : 139
 	return 
 endf 
 
-def node_005 : 140
+def node_005
 	>> Global.node_189 
 	if self.target_on_part(0) 
 		>> Global.node_190 
@@ -60,7 +60,7 @@ def node_005 : 140
 	return 
 endf 
 
-def node_006 : 141
+def node_006
 	>> Global.node_189 
 	if self.target_on_part(0) 
 		>> Global.node_191 
@@ -72,7 +72,7 @@ def node_006 : 141
 	return 
 endf 
 
-def node_007 : 136
+def node_007
 	random (25) >> Global.node_075 
 	elser (20) >> Global.node_083 
 	elser (20) >> Global.node_091 
@@ -83,7 +83,7 @@ def node_007 : 136
 	return 
 endf 
 
-def node_008 : 137
+def node_008
 	random (35) >> Global.node_119 
 	elser (25) >> Global.node_137 
 	elser (20) >> Global.node_111 

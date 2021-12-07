@@ -1,7 +1,7 @@
 importactions Fulgur_Anjanath as fulgur_anjanath
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if function#41() 
 		>> Global.node_039 
@@ -15,17 +15,17 @@ def node_000 : 1
 	conclude 
 endf 
 
-def node_001 : 2
+def node_001
 	-> fulgur_anjanath.threat_short() 
 	return 
 endf 
 
-def node_002 : 3
+def node_002
 	-> fulgur_anjanath.threat_short() 
 	return 
 endf 
 
-def node_003 : 4
+def node_003
 	if self.angle_2d_cw_between(30,330) 
 		-> fulgur_anjanath.turn() 
 	else 
@@ -34,7 +34,7 @@ def node_003 : 4
 	return 
 endf 
 
-def node_004 : 5
+def node_004
 	if self.distance_3d_to_target().gt(3000) 
 		-> fulgur_anjanath.dash(1,0,0,2000) 
 	elif self.distance_3d_to_target().leq(1000) 

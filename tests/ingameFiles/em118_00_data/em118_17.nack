@@ -1,9 +1,9 @@
 importactions Bazelgeuse as bazelgeuse
 importlibrary Global as Global
 
-def node_000 : 8
-	if function#AB() 
-		function#AA() 
+def node_000
+	if [$V += 0] 
+		[$V |-] 
 		>> node_001 
 	else 
 	endif 
@@ -11,19 +11,19 @@ def node_000 : 8
 	conclude 
 endf 
 
-def node_001 : 9
+def node_001
 	>> node_003 
 	>> Global.node_075 
 	return 
 endf 
 
-def node_002 : 10
+def node_002
 	>> Global.node_129 
 	return 
 endf 
 
-def node_003 : 16
-	[RegisterVar4 |-] 
+def node_003
+	[RegisterVar4 ++] 
 	return 
 endf 
 

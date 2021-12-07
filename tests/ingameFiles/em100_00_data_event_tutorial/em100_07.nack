@@ -1,6 +1,6 @@
 importactions Anjanath as anjanath
 
-def node_000 : 1
+def node_000
 	if self.current_quest().is_rank(rank.MR) 
 		>> node_001 
 	else 
@@ -9,9 +9,9 @@ def node_000 : 1
 	conclude 
 endf 
 
-def node_001 : 3
+def node_001
 	function#102() 
-	[RegisterVar0 |-] 
+	[RegisterVar0 ++] 
 	if function#41() 
 	else 
 		-> anjanath.discover() 
@@ -20,8 +20,8 @@ def node_001 : 3
 	conclude 
 endf 
 
-def node_002 : 2
-	[RegisterVar0 |-] 
+def node_002
+	[RegisterVar0 ++] 
 	if function#41() 
 	else 
 		-> anjanath.discover() 

@@ -1,7 +1,7 @@
 importactions Radobaan as radobaan
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	>> Global.node_008 
 	self.targetEnemy(21) @ parameter2:700 
 	>> node_007 
@@ -17,7 +17,7 @@ def node_000 : 1
 	reset 
 endf 
 
-def node_001 : 2
+def node_001
 	random (55) >> Global.node_023 
 	elser (35) >> Global.node_027 
 	elser (5) >> Global.node_019 
@@ -26,7 +26,7 @@ def node_001 : 2
 	return 
 endf 
 
-def node_002 : 3
+def node_002
 	random (45) >> Global.node_023 
 	elser (20) >> Global.node_027 
 	elser (25) >> Global.node_024 
@@ -36,7 +36,7 @@ def node_002 : 3
 	return 
 endf 
 
-def node_003 : 4
+def node_003
 	random (50) >> Global.node_023 
 	elser (35) >> Global.node_022 
 	elser (5) >> Global.node_020 
@@ -45,7 +45,7 @@ def node_003 : 4
 	return 
 endf 
 
-def node_004 : 12
+def node_004
 	random (45) >> Global.node_023 
 	elser (25) >> Global.node_027 
 	elser (20) >> Global.node_019 
@@ -54,7 +54,7 @@ def node_004 : 12
 	return 
 endf 
 
-def node_005 : 13
+def node_005
 	random (45) >> Global.node_023 
 	elser (20) >> Global.node_027 
 	elser (15) >> Global.node_024 
@@ -64,7 +64,7 @@ def node_005 : 13
 	return 
 endf 
 
-def node_006 : 14
+def node_006
 	random (40) >> Global.node_023 
 	elser (30) >> Global.node_022 
 	elser (5) >> Global.node_020 
@@ -73,7 +73,7 @@ def node_006 : 14
 	return 
 endf 
 
-def node_007 : 11
+def node_007
 	if self.target_on_part(0) -> radobaan.tired() 
 		-> radobaan.ride_rage_head() => reset 
 	elif self.target_on_part(1) -> radobaan.tired() 

@@ -1,7 +1,7 @@
 importactions Gastodon as gastodon
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	>> Global.node_037 
 	>> Global.node_012 
 	>> Global.node_005 
@@ -18,20 +18,20 @@ def node_000 : 1
 	reset 
 endf 
 
-def node_001 : 11
+def node_001
 	function#52() 
 	self.targetArea(target_area.nearest_entrance) @ unkn3:2097152, unkn12:4, unknExtra1:500 
 	return 
 endf 
 
-def node_002 : 2
+def node_002
 	random (90) -> action#04(2,1,0,500,300) 
 	elser (10) >> Global.node_040 
 	endr 
 	return 
 endf 
 
-def node_003 : 3
+def node_003
 	if function#5A() 
 		>> node_004 
 	elif function#5A(1) 
@@ -60,12 +60,12 @@ def node_003 : 3
 	return 
 endf 
 
-def node_004 : 4
+def node_004
 	>> Global.node_040 
 	return 
 endf 
 
-def node_005 : 5
+def node_005
 	self.targetEnemy(17) 
 	>> Global.node_001 
 	if function#3C() 
@@ -76,7 +76,7 @@ def node_005 : 5
 	return 
 endf 
 
-def node_006 : 6
+def node_006
 	self.targetEnemy(17) 
 	>> Global.node_001 
 	if function#3C(1) 
@@ -87,43 +87,43 @@ def node_006 : 6
 	return 
 endf 
 
-def node_007 : 7
+def node_007
 	self.targetEnemy(17) 
 	>> Global.node_001 
 	-> action#29() 
 	return 
 endf 
 
-def node_008 : 8
+def node_008
 	self.targetEnemy(17) 
 	>> Global.node_001 
 	-> action#27() 
 	return 
 endf 
 
-def node_009 : 12
+def node_009
 	-> action#58() 
 	return 
 endf 
 
-def node_010 : 13
+def node_010
 	self.targetEnemy(17) 
 	>> Global.node_001 
 	-> action#5A() 
 	return 
 endf 
 
-def node_011 : 14
+def node_011
 	-> action#5C() 
 	return 
 endf 
 
-def node_012 : 15
+def node_012
 	-> action#5E() 
 	return 
 endf 
 
-def node_013 : 16
+def node_013
 	random (50) -> action#58() 
 	elser (50) 
 				self.targetEnemy(17) 
@@ -133,14 +133,14 @@ def node_013 : 16
 	return 
 endf 
 
-def node_014 : 18
+def node_014
 	random (50) -> action#5C() 
 	elser (50) -> action#5E() 
 	endr 
 	return 
 endf 
 
-def node_015 : 17
+def node_015
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if function#101() 
 		if self.target(7) 

@@ -1,19 +1,19 @@
 importactions Dodogama as dodogama
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	self.targetArea(24) 
 	>> node_001 
 	conclude 
 endf 
 
-def node_001 : 3
+def node_001
 	>> node_002 
 	>> node_003 
 	return 
 endf 
 
-def node_002 : 6
+def node_002
 	if self.distance_3d_to_target().leq(200) 
 	elif self.distance_3d_to_target().leq(600) 
 		>> Global.node_032 
@@ -26,7 +26,7 @@ def node_002 : 6
 	return 
 endf 
 
-def node_003 : 7
+def node_003
 	function#54() 
 	function#52(0,3) 
 	self.targetArea(17) 

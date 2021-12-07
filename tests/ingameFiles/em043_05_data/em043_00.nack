@@ -1,7 +1,7 @@
 importactions Savage_Deviljho as savage_deviljho
 importlibrary Global as Global
 
-def node_000 : 96
+def node_000
 	>> Global.node_184 
 	>> Global.node_185 
 	>> Global.node_194 
@@ -29,7 +29,7 @@ def node_000 : 96
 	reset 
 endf 
 
-def node_001 : 104
+def node_001
 	if self.distance_2d_to_target().leq(500) 
 		random (20) >> Global.node_012 
 		elser (25) >> Global.node_015 
@@ -72,7 +72,7 @@ def node_001 : 104
 	return 
 endf 
 
-def node_002 : 105
+def node_002
 	if self.distance_2d_to_target().leq(500) 
 		random (15) >> Global.node_012 
 		elser (20) >> Global.node_015 
@@ -120,7 +120,7 @@ def node_002 : 105
 	return 
 endf 
 
-def node_003 : 98
+def node_003
 	if self.distance_2d_to_target().leq(500) 
 		random (25) >> Global.node_048 
 		elser (25) >> Global.node_049 
@@ -157,7 +157,7 @@ def node_003 : 98
 	return 
 endf 
 
-def node_004 : 102
+def node_004
 	if function#101() 
 		>> Global.node_158 
 		>> Global.node_058 
@@ -192,7 +192,7 @@ def node_004 : 102
 	return 
 endf 
 
-def node_005 : 101
+def node_005
 	if self.target(44) 
 	else 
 		if self.distance_2d_to_target().leq(2500) 
@@ -225,7 +225,7 @@ def node_005 : 101
 	return 
 endf 
 
-def node_006 : 100
+def node_006
 	if self.target(44) 
 	else 
 		if self.distance_2d_to_target().leq(2500) 
@@ -248,7 +248,7 @@ def node_006 : 100
 	return 
 endf 
 
-def node_007 : 99
+def node_007
 	if function#101() 
 		>> node_003 
 	else 
@@ -262,7 +262,7 @@ def node_007 : 99
 	return 
 endf 
 
-def node_008 : 95
+def node_008
 	if self.distance_2d_to_target().leq(500) 
 		random (20) >> Global.node_012 
 		elser (20) >> Global.node_015 
@@ -308,7 +308,7 @@ def node_008 : 95
 	return 
 endf 
 
-def node_009 : 97
+def node_009
 	if self.distance_2d_to_target().leq(500) 
 		random (20) >> Global.node_012 
 		elser (10) >> Global.node_015 
@@ -361,7 +361,7 @@ def node_009 : 97
 	return 
 endf 
 
-def node_010 : 1
+def node_010
 	>> Global.node_184 
 	>> Global.node_185 
 	if function#101() 
@@ -392,7 +392,7 @@ def node_010 : 1
 			>> Global.node_084 => reset 
 		elif self.target(0) 
 			>> node_032 => reset 
-		elif [RegisterVar8 == 1] 
+		elif [RegisterVar8 += 1] 
 			>> node_031 => reset 
 		elif self.distance_3d_to_target().leq(500) 
 			self.enraged() >> node_017 => reset 
@@ -423,7 +423,7 @@ def node_010 : 1
 	reset 
 endf 
 
-def node_011 : 2
+def node_011
 	random (0) 
 	elser (3) >> Global.node_073 
 	elser (5) >> Global.node_074 
@@ -458,7 +458,7 @@ def node_011 : 2
 	return 
 endf 
 
-def node_012 : 3
+def node_012
 	random (0) 
 	elser (3) >> Global.node_073 
 	elser (0) >> Global.node_074 
@@ -493,7 +493,7 @@ def node_012 : 3
 	return 
 endf 
 
-def node_013 : 4
+def node_013
 	random (0) 
 	elser (3) >> Global.node_073 
 	elser (0) >> Global.node_074 
@@ -528,7 +528,7 @@ def node_013 : 4
 	return 
 endf 
 
-def node_014 : 5
+def node_014
 	random (0) 
 	elser (3) >> Global.node_073 
 	elser (0) >> Global.node_074 
@@ -563,7 +563,7 @@ def node_014 : 5
 	return 
 endf 
 
-def node_015 : 6
+def node_015
 	random (0) 
 	elser (3) >> Global.node_073 
 	elser (0) >> Global.node_074 
@@ -598,7 +598,7 @@ def node_015 : 6
 	return 
 endf 
 
-def node_016 : 78
+def node_016
 	random (0) 
 	elser (3) >> Global.node_073 
 	elser (0) >> Global.node_074 
@@ -633,7 +633,7 @@ def node_016 : 78
 	return 
 endf 
 
-def node_017 : 7
+def node_017
 	random (0) 
 	elser (0) >> Global.node_073 
 	elser (0) >> Global.node_074 
@@ -668,7 +668,7 @@ def node_017 : 7
 	return 
 endf 
 
-def node_018 : 8
+def node_018
 	random (0) 
 	elser (0) >> Global.node_073 
 	elser (0) >> Global.node_074 
@@ -703,7 +703,7 @@ def node_018 : 8
 	return 
 endf 
 
-def node_019 : 9
+def node_019
 	random (0) 
 	elser (0) >> Global.node_073 
 	elser (0) >> Global.node_074 
@@ -738,7 +738,7 @@ def node_019 : 9
 	return 
 endf 
 
-def node_020 : 10
+def node_020
 	random (0) 
 	elser (0) >> Global.node_073 
 	elser (0) >> Global.node_074 
@@ -773,7 +773,7 @@ def node_020 : 10
 	return 
 endf 
 
-def node_021 : 11
+def node_021
 	random (0) 
 	elser (0) >> Global.node_073 
 	elser (0) >> Global.node_074 
@@ -808,7 +808,7 @@ def node_021 : 11
 	return 
 endf 
 
-def node_022 : 83
+def node_022
 	random (0) 
 	elser (0) >> Global.node_073 
 	elser (0) >> Global.node_074 
@@ -843,7 +843,7 @@ def node_022 : 83
 	return 
 endf 
 
-def node_023 : 12
+def node_023
 	random (0) 
 	elser (10) >> Global.node_073 
 	elser (15) >> Global.node_074 
@@ -878,7 +878,7 @@ def node_023 : 12
 	return 
 endf 
 
-def node_024 : 13
+def node_024
 	random (0) 
 	elser (10) >> Global.node_073 
 	elser (7) >> Global.node_074 
@@ -913,7 +913,7 @@ def node_024 : 13
 	return 
 endf 
 
-def node_025 : 14
+def node_025
 	random (0) 
 	elser (10) >> Global.node_073 
 	elser (0) >> Global.node_074 
@@ -948,7 +948,7 @@ def node_025 : 14
 	return 
 endf 
 
-def node_026 : 15
+def node_026
 	random (0) 
 	elser (12) >> Global.node_073 
 	elser (0) >> Global.node_074 
@@ -983,7 +983,7 @@ def node_026 : 15
 	return 
 endf 
 
-def node_027 : 16
+def node_027
 	random (0) 
 	elser (15) >> Global.node_073 
 	elser (0) >> Global.node_074 
@@ -1018,7 +1018,7 @@ def node_027 : 16
 	return 
 endf 
 
-def node_028 : 84
+def node_028
 	random (0) 
 	elser (15) >> Global.node_073 
 	elser (0) >> Global.node_074 
@@ -1053,8 +1053,8 @@ def node_028 : 84
 	return 
 endf 
 
-def node_029 : 56
-	[RegisterVar8 |-] 
+def node_029
+	[RegisterVar8 ++] 
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if function#5D() 
 		function#5E() 
@@ -1066,49 +1066,49 @@ def node_029 : 56
 	endif 
 	if self.in_map(st.Ancient_Forest).in_area(5) 
 		if self.vertical_distance_to_target().gt(350) 
-			[RegisterVar8 ++] 
+			[RegisterVar8 |-] 
 		endif 
 	elif self.in_map(st.Ancient_Forest).in_area(2) 
 		if self.vertical_distance_to_target().gt(340) 
-			[RegisterVar8 ++] 
+			[RegisterVar8 |-] 
 		endif 
 	elif self.in_map(st.Ancient_Forest).in_area(6) 
 		if self.vertical_distance_to_target().gt(300) 
-			[RegisterVar8 ++] 
+			[RegisterVar8 |-] 
 		endif 
 	elif self.in_map(st.Wildspire_Waste).in_area(3) 
 		if self.vertical_distance_to_target().gt(300) 
-			[RegisterVar8 ++] 
+			[RegisterVar8 |-] 
 		endif 
 	elif self.in_map(st.Coral_Highlands).in_area(2) 
 		if self.vertical_distance_to_target().gt(300) 
-			[RegisterVar8 ++] 
+			[RegisterVar8 |-] 
 		endif 
 	elif self.in_map(st.Coral_Highlands).in_area(10) 
 		if self.vertical_distance_to_target().gt(300) 
-			[RegisterVar8 ++] 
+			[RegisterVar8 |-] 
 		endif 
 	elif self.in_map(st.Rotten_Vale).in_area(0) 
 		if self.vertical_distance_to_target().gt(300) 
-			[RegisterVar8 ++] 
+			[RegisterVar8 |-] 
 		endif 
 	elif self.in_map(st.Elder_Recess).in_area(2) 
 		if self.vertical_distance_to_target().gt(300) 
-			[RegisterVar8 ++] 
+			[RegisterVar8 |-] 
 		endif 
 	elif self.in_map(st.Elder_Recess).in_area(6) 
 		if self.vertical_distance_to_target().gt(100) 
-			[RegisterVar8 ++] 
+			[RegisterVar8 |-] 
 		endif 
 	else 
 		if self.vertical_distance_to_target().gt(400) 
-			[RegisterVar8 ++] 
+			[RegisterVar8 |-] 
 		endif 
 	endif 
 	return 
 endf 
 
-def node_030 : 57
+def node_030
 	self.targetArea(19) 
 	if self.distance_3d_to_target().gt(1000) 
 		>> Global.node_085 
@@ -1124,7 +1124,7 @@ def node_030 : 57
 	return 
 endf 
 
-def node_031 : 77
+def node_031
 	if self.vertical_distance_to_target().leq(700) 
 		if self.distance_3d_to_target().leq(3000) 
 			random (60) >> Global.node_085 
@@ -1140,7 +1140,7 @@ def node_031 : 77
 	return 
 endf 
 
-def node_032 : 63
+def node_032
 	if self.above_target() 
 		if self.distance_2d_to_target().gt(3000) 
 			-> savage_deviljho.dash(6,0,0,2500) 
@@ -1160,7 +1160,7 @@ def node_032 : 63
 	return 
 endf 
 
-def node_033 : 64
+def node_033
 	if self.distance_2d_to_target().gt(3000) 
 		-> savage_deviljho.dash(1,0,0,2500) 
 	else 
@@ -1170,7 +1170,7 @@ def node_033 : 64
 	return 
 endf 
 
-def node_034 : 65
+def node_034
 	if self.below_target() 
 		self.targetEnemy(target_em.random_player_or_cat) 
 		-> savage_deviljho.dash() 
@@ -1183,7 +1183,7 @@ def node_034 : 65
 	return 
 endf 
 
-def node_035 : 66
+def node_035
 	if self.angle_2d_cw_between(90,270) 
 		-> savage_deviljho.combat_search() 
 	elif self.distance_3d_to_target().gt(3000) 
@@ -1194,24 +1194,24 @@ def node_035 : 66
 	return 
 endf 
 
-def node_036 : 73
+def node_036
 	>> Global.node_123 
 	return 
 endf 
 
-def node_037 : 75
+def node_037
 	>> Global.node_076 
 	-> savage_deviljho.jump_attack_high() 
 	return 
 endf 
 
-def node_038 : 76
+def node_038
 	>> Global.node_076 
 	-> savage_deviljho.jump_attack_wall_down() 
 	return 
 endf 
 
-def node_039 : 79
+def node_039
 	if self.target.helpless_1() 
 		if self.distance_3d_to_target().gt(4000) 
 		elif self.distance_3d_to_target().leq(1000) 
@@ -1242,7 +1242,7 @@ def node_039 : 79
 	return 
 endf 
 
-def node_040 : 94
+def node_040
 	if function#105() 
 		if self.in_map(st.Ancient_Forest).in_area(6) 
 			>> node_041 
@@ -1255,13 +1255,13 @@ def node_040 : 94
 	return 
 endf 
 
-def node_041 : 80
-	[RegisterVar2 ++] 
-	if [RegisterVar2 == 1] 
+def node_041
+	[RegisterVar2 |-] 
+	if [RegisterVar2 += 1] 
 		random (80) >> node_042 
 		elser (20) 
 		endr 
-	elif [RegisterVar2 <= 2] 
+	elif [RegisterVar2 -= 2] 
 		random (50) >> node_043 
 		elser (50) 
 		endr 
@@ -1270,15 +1270,15 @@ def node_041 : 80
 	return 
 endf 
 
-def node_042 : 81
+def node_042
 	random (0) -> savage_deviljho.ride_rage_head() 
 	elser (100) -> savage_deviljho.ride_rage_body() 
 	endr 
 	return 
 endf 
 
-def node_043 : 85
-	[RegisterVar2 |-] 
+def node_043
+	[RegisterVar2 ++] 
 	if function#29() 
 		self.targetArea(7) 
 		>> node_049 
@@ -1294,7 +1294,7 @@ def node_043 : 85
 	return 
 endf 
 
-def node_044 : 89
+def node_044
 	-> savage_deviljho.ride_rage_crash_head_mini_game() 
 	random (70) >> node_048 
 	elser (30) 
@@ -1302,7 +1302,7 @@ def node_044 : 89
 	return 
 endf 
 
-def node_045 : 90
+def node_045
 	-> savage_deviljho.ride_rage_crash_head_lv2_mini_game() 
 	random (100) >> node_048 
 	elser (0) 
@@ -1310,7 +1310,7 @@ def node_045 : 90
 	return 
 endf 
 
-def node_046 : 91
+def node_046
 	-> savage_deviljho.ride_rage_crash_body_mini_game() 
 	random (70) >> node_048 
 	elser (30) 
@@ -1318,7 +1318,7 @@ def node_046 : 91
 	return 
 endf 
 
-def node_047 : 92
+def node_047
 	-> savage_deviljho.ride_rage_crash_body_lv2_mini_game() 
 	random (100) >> node_048 
 	elser (0) 
@@ -1326,7 +1326,7 @@ def node_047 : 92
 	return 
 endf 
 
-def node_048 : 93
+def node_048
 	if function#105() 
 		-> savage_deviljho.ride_tired() 
 	else 
@@ -1334,7 +1334,7 @@ def node_048 : 93
 	return 
 endf 
 
-def node_049 : 87
+def node_049
 	if self.distance_3d_to_target().leq(500) 
 		-> savage_deviljho.back_turn() 
 	elif self.distance_3d_to_target().gt(3500) 
@@ -1355,7 +1355,7 @@ def node_049 : 87
 	return 
 endf 
 
-def node_050 : 88
+def node_050
 	if self.fatigued() 
 		-> savage_deviljho.tired_dash(2,1,0,3000,500) 
 	else 

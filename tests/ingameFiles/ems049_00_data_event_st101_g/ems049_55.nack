@@ -1,10 +1,10 @@
 importactions Jagras as jagras
 
-def node_000 : 1
+def node_000
 	conclude 
 endf 
 
-def node_001 : 18
+def node_001
 	if self.distance_3d_to_target().leq(500) 
 	else 
 		>> node_091 
@@ -13,7 +13,7 @@ def node_001 : 18
 	return 
 endf 
 
-def node_002 : 142
+def node_002
 	if self.distance_3d_to_target().leq(500) 
 	else 
 		>> node_091 
@@ -37,7 +37,7 @@ def node_002 : 142
 	return 
 endf 
 
-def node_003 : 159
+def node_003
 	if self.distance_2d_to_target().leq(750) 
 	else 
 		>> node_091 
@@ -61,7 +61,7 @@ def node_003 : 159
 	return 
 endf 
 
-def node_004 : 161
+def node_004
 	if self.distance_3d_to_target().leq(500) 
 	else 
 		>> node_091 
@@ -110,7 +110,7 @@ def node_004 : 161
 	return 
 endf 
 
-def node_005 : 162
+def node_005
 	if function#40() 
 		-> action#04() 
 	else 
@@ -124,12 +124,12 @@ def node_005 : 162
 	return 
 endf 
 
-def node_006 : 154
+def node_006
 	>> node_125 
 	return 
 endf 
 
-def node_007 : 6
+def node_007
 	if self.angle_2d_cw_between(15,345) 
 		>> node_125 
 	else 
@@ -137,7 +137,7 @@ def node_007 : 6
 	return 
 endf 
 
-def node_008 : 4
+def node_008
 	if self.angle_2d_cw_between(30,330) 
 		>> node_125 
 	else 
@@ -145,7 +145,7 @@ def node_008 : 4
 	return 
 endf 
 
-def node_009 : 7
+def node_009
 	if self.angle_2d_cw_between(45,315) 
 		>> node_125 
 	else 
@@ -153,7 +153,7 @@ def node_009 : 7
 	return 
 endf 
 
-def node_010 : 5
+def node_010
 	if self.angle_2d_cw_between(60,300) 
 		>> node_125 
 	else 
@@ -161,7 +161,7 @@ def node_010 : 5
 	return 
 endf 
 
-def node_011 : 8
+def node_011
 	if self.angle_2d_cw_between(90,270) 
 		>> node_125 
 	else 
@@ -169,13 +169,13 @@ def node_011 : 8
 	return 
 endf 
 
-def node_012 : 9
+def node_012
 	>> node_008 
 	>> node_076 
 	return 
 endf 
 
-def node_013 : 136
+def node_013
 	if self.angle_2d_cw_between(0,180) 
 		>> node_121 
 	else 
@@ -184,7 +184,7 @@ def node_013 : 136
 	return 
 endf 
 
-def node_014 : 137
+def node_014
 	if self.angle_2d_cw_between(330,30) 
 		>> node_012 
 	elif self.angle_2d_cw_between(210,150) 
@@ -195,26 +195,26 @@ def node_014 : 137
 	return 
 endf 
 
-def node_015 : 10
+def node_015
 	>> node_008 
 	>> node_077 
 	return 
 endf 
 
-def node_016 : 11
+def node_016
 	random (65) >> node_014 
 	elser (35) >> node_015 
 	endr 
 	return 
 endf 
 
-def node_017 : 12
+def node_017
 	>> node_008 
 	>> node_016 
 	return 
 endf 
 
-def node_018 : 13
+def node_018
 	if self.angle_2d_cw_between(330,30) 
 		>> node_016 
 	elif self.angle_2d_cw_between(270,90) 
@@ -225,13 +225,13 @@ def node_018 : 13
 	return 
 endf 
 
-def node_019 : 14
+def node_019
 	>> node_010 
 	>> node_123 
 	return 
 endf 
 
-def node_020 : 16
+def node_020
 	if self.angle_2d_cw_between(0,180) 
 		>> node_115 
 	else 
@@ -240,7 +240,7 @@ def node_020 : 16
 	return 
 endf 
 
-def node_021 : 17
+def node_021
 	if self.angle_2d_cw_between(315,45) 
 		>> node_114 
 	elif self.angle_2d_cw_between(0,180) 
@@ -251,13 +251,13 @@ def node_021 : 17
 	return 
 endf 
 
-def node_022 : 117
+def node_022
 	>> node_011 
 	>> node_114 
 	return 
 endf 
 
-def node_023 : 152
+def node_023
 	if self.angle_2d_cw_between(0,180) 
 		>> node_116 
 	else 
@@ -266,7 +266,7 @@ def node_023 : 152
 	return 
 endf 
 
-def node_024 : 160
+def node_024
 	random (50) 
 	elser (20) >> node_114 
 	elser (15) >> node_115 
@@ -275,7 +275,7 @@ def node_024 : 160
 	return 
 endf 
 
-def node_025 : 116
+def node_025
 	if self.distance_3d_to_target().leq(600) 
 		self.targetEnemy(target_em.random_player_or_cat) @ unkn3:2097152, unkn12:4, unknExtra1:500 
 	elif self.distance_3d_to_target().leq(700) 
@@ -291,7 +291,7 @@ def node_025 : 116
 	return 
 endf 
 
-def node_026 : 155
+def node_026
 	>> node_006 
 	if function#40() 
 		-> action#0B(0,2,0,0,300) 
@@ -301,13 +301,13 @@ def node_026 : 155
 	return 
 endf 
 
-def node_027 : 120
+def node_027
 	self.targetEnemy(target_em.random_player_or_cat) @ unkn3:2097152, unkn12:4, unknExtra1:500 
 	>> node_136 
 	return 
 endf 
 
-def node_028 : 156
+def node_028
 	>> node_006 
 	if function#40() 
 		-> action#0C(0,2,0,0,600) 
@@ -317,7 +317,7 @@ def node_028 : 156
 	return 
 endf 
 
-def node_029 : 121
+def node_029
 	if function#62(330,30) 
 		>> node_114 
 	elif function#62(30,180) 
@@ -328,7 +328,7 @@ def node_029 : 121
 	return 
 endf 
 
-def node_030 : 122
+def node_030
 	if function#67(0,2) 
 	else 
 		self.targetArea(26) @ parameter2:500 
@@ -337,7 +337,7 @@ def node_030 : 122
 	return 
 endf 
 
-def node_031 : 107
+def node_031
 	if self.distance_3d_to_target().leq(500) 
 	else 
 		>> node_081 
@@ -346,13 +346,13 @@ def node_031 : 107
 	return 
 endf 
 
-def node_032 : 108
+def node_032
 	>> node_086 
 	>> node_033 
 	return 
 endf 
 
-def node_033 : 150
+def node_033
 	if self.distance_3d_to_target().leq(350) 
 	else 
 		>> node_091 
@@ -361,7 +361,7 @@ def node_033 : 150
 	return 
 endf 
 
-def node_034 : 109
+def node_034
 	if self.distance_3d_to_target().leq(400) 
 	else 
 		if function#40() 
@@ -389,7 +389,7 @@ def node_034 : 109
 	return 
 endf 
 
-def node_035 : 163
+def node_035
 	if self.distance_3d_to_target().leq(400) 
 	else 
 		if function#40() 
@@ -417,7 +417,7 @@ def node_035 : 163
 	return 
 endf 
 
-def node_036 : 132
+def node_036
 	if self.distance_2d_to_target().leq(600) 
 	else 
 		>> node_093 
@@ -433,7 +433,7 @@ def node_036 : 132
 	return 
 endf 
 
-def node_037 : 144
+def node_037
 	if self.distance_3d_to_target().leq(1300) 
 	else 
 		>> node_094 
@@ -442,7 +442,7 @@ def node_037 : 144
 	return 
 endf 
 
-def node_038 : 103
+def node_038
 	if self.angle_2d_cw_between(45,315) 
 		>> node_124 
 	else 
@@ -450,7 +450,7 @@ def node_038 : 103
 	return 
 endf 
 
-def node_039 : 104
+def node_039
 	if self.angle_2d_cw_between(90,270) 
 		>> node_124 
 	else 
@@ -458,7 +458,7 @@ def node_039 : 104
 	return 
 endf 
 
-def node_040 : 125
+def node_040
 	if self.angle_2d_cw_between(30,330) 
 		>> node_078 
 	else 
@@ -466,7 +466,7 @@ def node_040 : 125
 	return 
 endf 
 
-def node_041 : 105
+def node_041
 	if self.angle_2d_cw_between(45,315) 
 		>> node_078 
 	else 
@@ -474,7 +474,7 @@ def node_041 : 105
 	return 
 endf 
 
-def node_042 : 106
+def node_042
 	if self.angle_2d_cw_between(90,270) 
 		>> node_078 
 	else 
@@ -482,18 +482,18 @@ def node_042 : 106
 	return 
 endf 
 
-def node_043 : 92
+def node_043
 	>> node_067 
 	return 
 endf 
 
-def node_044 : 93
+def node_044
 	>> node_068 
 	>> node_100 
 	return 
 endf 
 
-def node_045 : 94
+def node_045
 	if function#101() 
 		>> node_070 
 	else 
@@ -502,12 +502,12 @@ def node_045 : 94
 	return 
 endf 
 
-def node_046 : 95
+def node_046
 	>> node_107 
 	return 
 endf 
 
-def node_047 : 146
+def node_047
 	if self.distance_3d_to_target().leq(750) 
 		>> node_022 
 	else 
@@ -517,7 +517,7 @@ def node_047 : 146
 	return 
 endf 
 
-def node_048 : 145
+def node_048
 	if self.distance_3d_to_target().leq(750) 
 		>> node_022 
 		>> node_008 
@@ -530,33 +530,33 @@ def node_048 : 145
 	return 
 endf 
 
-def node_049 : 88
+def node_049
 	>> node_075 
 	return 
 endf 
 
-def node_050 : 89
+def node_050
 	>> node_104 
 	return 
 endf 
 
-def node_051 : 90
+def node_051
 	>> node_068 
 	>> node_100 
 	return 
 endf 
 
-def node_052 : 91
+def node_052
 	>> node_074 
 	return 
 endf 
 
-def node_053 : 126
+def node_053
 	>> node_104 
 	return 
 endf 
 
-def node_054 : 147
+def node_054
 	if function#51(0,2000) 
 		>> node_056 
 		reset 
@@ -565,7 +565,7 @@ def node_054 : 147
 	return 
 endf 
 
-def node_055 : 151
+def node_055
 	if function#51(0,1500) 
 		>> node_056 
 		conclude 
@@ -574,7 +574,7 @@ def node_055 : 151
 	return 
 endf 
 
-def node_056 : 148
+def node_056
 	if self.distance_3d_to_target().leq(800) 
 		>> node_011 
 		>> node_022 
@@ -585,9 +585,9 @@ def node_056 : 148
 	return 
 endf 
 
-def node_057 : 141
+def node_057
 	if function#6B(4000) 
-		[RegisterVar0 ++] 
+		[RegisterVar0 |-] 
 		self.targetEnemy(26) @ unkn3:2097152, unkn12:4, unknExtra1:75 
 		>> node_058 
 		>> node_059 
@@ -597,7 +597,7 @@ def node_057 : 141
 	return 
 endf 
 
-def node_058 : 138
+def node_058
 	if self.distance_3d_to_target().leq(500) 
 	else 
 		>> node_091 
@@ -606,14 +606,14 @@ def node_058 : 138
 	return 
 endf 
 
-def node_059 : 139
+def node_059
 	>> node_008 
 	>> node_045 
 	return 
 endf 
 
-def node_060 : 140
-	[RegisterVar0 |-] 
+def node_060
+	[RegisterVar0 ++] 
 	if self.in_combat() 
 		self.targetEnemy(target_em.random_player_or_cat) 
 		>> node_008 
@@ -623,37 +623,37 @@ def node_060 : 140
 	return 
 endf 
 
-def node_061 : 124
+def node_061
 	>> node_112 
 	return 
 endf 
 
-def node_062 : 130
+def node_062
 	>> node_140 
 	return 
 endf 
 
-def node_063 : 85
+def node_063
 	>> node_071 
 	return 
 endf 
 
-def node_064 : 128
+def node_064
 	>> node_072 
 	return 
 endf 
 
-def node_065 : 86
+def node_065
 	>> node_072 
 	return 
 endf 
 
-def node_066 : 87
+def node_066
 	>> node_073 
 	return 
 endf 
 
-def node_067 : 72
+def node_067
 	if function#33(0,2) 
 		>> node_095 
 	else 
@@ -662,7 +662,7 @@ def node_067 : 72
 	return 
 endf 
 
-def node_068 : 73
+def node_068
 	if function#33(0,2) 
 		>> node_098 
 	else 
@@ -671,7 +671,7 @@ def node_068 : 73
 	return 
 endf 
 
-def node_069 : 74
+def node_069
 	if function#33(0,2) 
 		>> node_101 
 	else 
@@ -680,7 +680,7 @@ def node_069 : 74
 	return 
 endf 
 
-def node_070 : 153
+def node_070
 	if function#33(0,2) 
 		-> action#17() 
 	else 
@@ -689,7 +689,7 @@ def node_070 : 153
 	return 
 endf 
 
-def node_071 : 84
+def node_071
 	if function#33(0,2) 
 		>> node_129 
 	else 
@@ -698,7 +698,7 @@ def node_071 : 84
 	return 
 endf 
 
-def node_072 : 75
+def node_072
 	if function#33(0,2) 
 		>> node_105 
 	else 
@@ -707,7 +707,7 @@ def node_072 : 75
 	return 
 endf 
 
-def node_073 : 77
+def node_073
 	if function#33(0,2) 
 		>> node_134 
 	else 
@@ -716,7 +716,7 @@ def node_073 : 77
 	return 
 endf 
 
-def node_074 : 76
+def node_074
 	if function#33(0,2) 
 		>> node_113 
 	else 
@@ -725,7 +725,7 @@ def node_074 : 76
 	return 
 endf 
 
-def node_075 : 78
+def node_075
 	if function#33(0,2) 
 		>> node_131 
 	else 
@@ -734,7 +734,7 @@ def node_075 : 78
 	return 
 endf 
 
-def node_076 : 79
+def node_076
 	if function#33(0,2) 
 		>> node_117 
 	else 
@@ -743,7 +743,7 @@ def node_076 : 79
 	return 
 endf 
 
-def node_077 : 80
+def node_077
 	if self.angle_2d_cw_between(0,180) 
 		>> node_119 
 	else 
@@ -752,7 +752,7 @@ def node_077 : 80
 	return 
 endf 
 
-def node_078 : 82
+def node_078
 	if function#33(0,2) 
 		>> node_126 
 	else 
@@ -761,7 +761,7 @@ def node_078 : 82
 	return 
 endf 
 
-def node_079 : 20
+def node_079
 	if function#40() 
 		-> action#02() 
 	else 
@@ -770,7 +770,7 @@ def node_079 : 20
 	return 
 endf 
 
-def node_080 : 21
+def node_080
 	if function#40() 
 		-> action#0B() 
 	else 
@@ -779,7 +779,7 @@ def node_080 : 21
 	return 
 endf 
 
-def node_081 : 96
+def node_081
 	if function#40() 
 		-> action#0B(2,0,0,600) 
 	else 
@@ -788,7 +788,7 @@ def node_081 : 96
 	return 
 endf 
 
-def node_082 : 22
+def node_082
 	if function#40() 
 		-> action#0D() 
 	else 
@@ -797,7 +797,7 @@ def node_082 : 22
 	return 
 endf 
 
-def node_083 : 97
+def node_083
 	if function#40() 
 		-> action#0D(2,0,0,300) 
 	else 
@@ -806,7 +806,7 @@ def node_083 : 97
 	return 
 endf 
 
-def node_084 : 23
+def node_084
 	if function#40() 
 		-> action#0E() 
 	else 
@@ -815,7 +815,7 @@ def node_084 : 23
 	return 
 endf 
 
-def node_085 : 98
+def node_085
 	if function#40() 
 		-> action#0E(2,0,0,500) 
 	else 
@@ -824,7 +824,7 @@ def node_085 : 98
 	return 
 endf 
 
-def node_086 : 149
+def node_086
 	if function#40() 
 		-> action#0E(2,0,0,1500) 
 	else 
@@ -833,7 +833,7 @@ def node_086 : 149
 	return 
 endf 
 
-def node_087 : 24
+def node_087
 	if function#40() 
 		-> action#0C() 
 	else 
@@ -842,7 +842,7 @@ def node_087 : 24
 	return 
 endf 
 
-def node_088 : 99
+def node_088
 	if function#40() 
 		-> action#0C(2,0,0,1000) 
 	else 
@@ -851,7 +851,7 @@ def node_088 : 99
 	return 
 endf 
 
-def node_089 : 110
+def node_089
 	if function#40() 
 		-> action#0C(0,1,0,0,800) 
 	else 
@@ -860,7 +860,7 @@ def node_089 : 110
 	return 
 endf 
 
-def node_090 : 25
+def node_090
 	if function#40() 
 		-> action#0C() 
 	else 
@@ -869,7 +869,7 @@ def node_090 : 25
 	return 
 endf 
 
-def node_091 : 100
+def node_091
 	if function#40() 
 		-> action#0C(2,0,0,1000) 
 	else 
@@ -878,7 +878,7 @@ def node_091 : 100
 	return 
 endf 
 
-def node_092 : 131
+def node_092
 	if function#40() 
 		-> action#0C(2,0,0,1500) 
 	else 
@@ -887,7 +887,7 @@ def node_092 : 131
 	return 
 endf 
 
-def node_093 : 133
+def node_093
 	if function#40() 
 		-> action#0C(2,3,0,1000,5) 
 	else 
@@ -896,7 +896,7 @@ def node_093 : 133
 	return 
 endf 
 
-def node_094 : 143
+def node_094
 	if function#40() 
 		-> action#0C(2,1,0,1000,1000) 
 	else 
@@ -905,7 +905,7 @@ def node_094 : 143
 	return 
 endf 
 
-def node_095 : 26
+def node_095
 	if function#40() 
 		-> action#04() 
 	else 
@@ -914,7 +914,7 @@ def node_095 : 26
 	return 
 endf 
 
-def node_096 : 27
+def node_096
 	if function#40() 
 		-> action#04() 
 	else 
@@ -923,7 +923,7 @@ def node_096 : 27
 	return 
 endf 
 
-def node_097 : 28
+def node_097
 	if function#40() 
 		-> action#04() 
 	else 
@@ -932,7 +932,7 @@ def node_097 : 28
 	return 
 endf 
 
-def node_098 : 29
+def node_098
 	if function#40() 
 		-> action#04() 
 	else 
@@ -941,7 +941,7 @@ def node_098 : 29
 	return 
 endf 
 
-def node_099 : 30
+def node_099
 	if function#40() 
 		-> action#04() 
 	else 
@@ -950,7 +950,7 @@ def node_099 : 30
 	return 
 endf 
 
-def node_100 : 31
+def node_100
 	if function#40() 
 		-> action#04() 
 	else 
@@ -959,7 +959,7 @@ def node_100 : 31
 	return 
 endf 
 
-def node_101 : 32
+def node_101
 	if function#40() 
 		-> action#04() 
 	else 
@@ -968,7 +968,7 @@ def node_101 : 32
 	return 
 endf 
 
-def node_102 : 33
+def node_102
 	if function#40() 
 		-> action#04() 
 	else 
@@ -977,7 +977,7 @@ def node_102 : 33
 	return 
 endf 
 
-def node_103 : 34
+def node_103
 	if function#40() 
 		-> action#04() 
 	else 
@@ -986,7 +986,7 @@ def node_103 : 34
 	return 
 endf 
 
-def node_104 : 35
+def node_104
 	if function#40() 
 		-> action#04() 
 	else 
@@ -995,7 +995,7 @@ def node_104 : 35
 	return 
 endf 
 
-def node_105 : 36
+def node_105
 	if function#40() 
 		-> action#04() 
 	else 
@@ -1004,7 +1004,7 @@ def node_105 : 36
 	return 
 endf 
 
-def node_106 : 37
+def node_106
 	if function#40() 
 		-> action#04() 
 	else 
@@ -1013,7 +1013,7 @@ def node_106 : 37
 	return 
 endf 
 
-def node_107 : 38
+def node_107
 	if function#40() 
 		-> action#04() 
 	else 
@@ -1022,7 +1022,7 @@ def node_107 : 38
 	return 
 endf 
 
-def node_108 : 39
+def node_108
 	if function#40() 
 		-> action#04() 
 	else 
@@ -1031,7 +1031,7 @@ def node_108 : 39
 	return 
 endf 
 
-def node_109 : 40
+def node_109
 	if function#40() 
 		-> action#0B() 
 	else 
@@ -1040,7 +1040,7 @@ def node_109 : 40
 	return 
 endf 
 
-def node_110 : 101
+def node_110
 	if function#40() 
 		-> action#0B(2,0,0,500) 
 	else 
@@ -1049,7 +1049,7 @@ def node_110 : 101
 	return 
 endf 
 
-def node_111 : 41
+def node_111
 	if function#40() 
 		-> action#0D() 
 	else 
@@ -1058,7 +1058,7 @@ def node_111 : 41
 	return 
 endf 
 
-def node_112 : 102
+def node_112
 	if function#40() 
 		-> action#0D(2,0,0,500) 
 	else 
@@ -1067,7 +1067,7 @@ def node_112 : 102
 	return 
 endf 
 
-def node_113 : 42
+def node_113
 	if function#40() 
 		-> action#22() 
 	else 
@@ -1076,7 +1076,7 @@ def node_113 : 42
 	return 
 endf 
 
-def node_114 : 43
+def node_114
 	if function#40() 
 		-> action#0C() 
 	else 
@@ -1085,7 +1085,7 @@ def node_114 : 43
 	return 
 endf 
 
-def node_115 : 44
+def node_115
 	if function#40() 
 		-> action#0C() 
 	else 
@@ -1094,7 +1094,7 @@ def node_115 : 44
 	return 
 endf 
 
-def node_116 : 45
+def node_116
 	if function#40() 
 		-> action#0C() 
 	else 
@@ -1103,7 +1103,7 @@ def node_116 : 45
 	return 
 endf 
 
-def node_117 : 47
+def node_117
 	if function#40() 
 		-> action#2D() 
 	else 
@@ -1112,7 +1112,7 @@ def node_117 : 47
 	return 
 endf 
 
-def node_118 : 48
+def node_118
 	if function#40() 
 		-> action#2D() 
 	else 
@@ -1121,7 +1121,7 @@ def node_118 : 48
 	return 
 endf 
 
-def node_119 : 49
+def node_119
 	if function#40() 
 		-> action#2D() 
 	else 
@@ -1130,7 +1130,7 @@ def node_119 : 49
 	return 
 endf 
 
-def node_120 : 50
+def node_120
 	if function#40() 
 		-> action#2D() 
 	else 
@@ -1139,7 +1139,7 @@ def node_120 : 50
 	return 
 endf 
 
-def node_121 : 134
+def node_121
 	if function#40() 
 		-> action#2D() 
 	else 
@@ -1148,7 +1148,7 @@ def node_121 : 134
 	return 
 endf 
 
-def node_122 : 135
+def node_122
 	if function#40() 
 		-> action#2D() 
 	else 
@@ -1157,7 +1157,7 @@ def node_122 : 135
 	return 
 endf 
 
-def node_123 : 51
+def node_123
 	if function#40() 
 		-> action#2D() 
 	else 
@@ -1166,7 +1166,7 @@ def node_123 : 51
 	return 
 endf 
 
-def node_124 : 52
+def node_124
 	if function#40() 
 		-> action#2E() 
 	else 
@@ -1175,7 +1175,7 @@ def node_124 : 52
 	return 
 endf 
 
-def node_125 : 54
+def node_125
 	if function#40() 
 		-> action#2F() 
 	else 
@@ -1184,7 +1184,7 @@ def node_125 : 54
 	return 
 endf 
 
-def node_126 : 55
+def node_126
 	if function#40() 
 		-> action#2E() 
 	else 
@@ -1193,7 +1193,7 @@ def node_126 : 55
 	return 
 endf 
 
-def node_127 : 56
+def node_127
 	if function#40() 
 		-> action#2E() 
 	else 
@@ -1202,7 +1202,7 @@ def node_127 : 56
 	return 
 endf 
 
-def node_128 : 57
+def node_128
 	if function#40() 
 		-> action#3F() 
 	else 
@@ -1211,7 +1211,7 @@ def node_128 : 57
 	return 
 endf 
 
-def node_129 : 58
+def node_129
 	if function#40() 
 		-> action#3F() 
 	else 
@@ -1220,7 +1220,7 @@ def node_129 : 58
 	return 
 endf 
 
-def node_130 : 59
+def node_130
 	if function#40() 
 		-> action#3F() 
 	else 
@@ -1229,7 +1229,7 @@ def node_130 : 59
 	return 
 endf 
 
-def node_131 : 60
+def node_131
 	if function#40() 
 		-> action#3F() 
 	else 
@@ -1238,7 +1238,7 @@ def node_131 : 60
 	return 
 endf 
 
-def node_132 : 61
+def node_132
 	if function#40() 
 		-> action#3F() 
 	else 
@@ -1247,7 +1247,7 @@ def node_132 : 61
 	return 
 endf 
 
-def node_133 : 62
+def node_133
 	if function#40() 
 		-> action#3F() 
 	else 
@@ -1256,7 +1256,7 @@ def node_133 : 62
 	return 
 endf 
 
-def node_134 : 63
+def node_134
 	if function#40() 
 		-> action#3F() 
 	else 
@@ -1265,7 +1265,7 @@ def node_134 : 63
 	return 
 endf 
 
-def node_135 : 64
+def node_135
 	if function#40() 
 		-> action#3F() 
 	else 
@@ -1274,7 +1274,7 @@ def node_135 : 64
 	return 
 endf 
 
-def node_136 : 67
+def node_136
 	if function#40() 
 		-> action#0C() 
 	else 
@@ -1283,7 +1283,7 @@ def node_136 : 67
 	return 
 endf 
 
-def node_137 : 68
+def node_137
 	if function#40() 
 		-> action#0D() 
 	else 
@@ -1292,7 +1292,7 @@ def node_137 : 68
 	return 
 endf 
 
-def node_138 : 70
+def node_138
 	if function#40() 
 		-> action#0C() 
 	else 
@@ -1301,7 +1301,7 @@ def node_138 : 70
 	return 
 endf 
 
-def node_139 : 71
+def node_139
 	if function#40() 
 		-> action#0C() 
 	else 
@@ -1310,7 +1310,7 @@ def node_139 : 71
 	return 
 endf 
 
-def node_140 : 129
+def node_140
 	if function#40() 
 		-> action#3F() 
 	else 

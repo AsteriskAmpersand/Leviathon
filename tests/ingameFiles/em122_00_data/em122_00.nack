@@ -1,21 +1,21 @@
 importactions Beotodus as beotodus
 importlibrary Global as Global
 
-def node_000 : 27
+def node_000
 	>> Global.node_070 
 	>> node_002 
 	>> node_003 
 	reset 
 endf 
 
-def node_001 : 29
+def node_001
 	self.targetEnemy(target_em.random_player_or_cat) 
 	>> Global.node_027 
 	reset 
 endf 
 
-def node_002 : 28
-	if [RegisterVar8 <= 1] 
+def node_002
+	if [RegisterVar8 -= 1] 
 		>> Global.node_078 
 	elif function#45() 
 		return 
@@ -28,7 +28,7 @@ def node_002 : 28
 	return 
 endf 
 
-def node_003 : 1
+def node_003
 	if self.target(4) 
 		>> Global.node_158 => reset 
 	elif self.target(3) 
@@ -72,7 +72,7 @@ def node_003 : 1
 	reset 
 endf 
 
-def node_004 : 14
+def node_004
 	if function#102() 
 		>> Global.node_074 
 		if self.enraged() 
@@ -106,7 +106,7 @@ def node_004 : 14
 	return 
 endf 
 
-def node_005 : 15
+def node_005
 	if function#102() 
 		>> Global.node_074 
 		random (0) >> Global.node_026 
@@ -129,7 +129,7 @@ def node_005 : 15
 	return 
 endf 
 
-def node_006 : 30
+def node_006
 	if function#102() 
 		random (40) >> Global.node_035 
 		elser (35) >> Global.node_037 
@@ -144,7 +144,7 @@ def node_006 : 30
 	return 
 endf 
 
-def node_007 : 16
+def node_007
 	if function#102() 
 		random (35) >> Global.node_035 
 		elser (40) >> Global.node_037 
@@ -160,37 +160,37 @@ def node_007 : 16
 	return 
 endf 
 
-def node_008 : 17
+def node_008
 	>> Global.node_143 
 	return 
 endf 
 
-def node_009 : 18
+def node_009
 	>> node_004 
 	return 
 endf 
 
-def node_010 : 19
+def node_010
 	>> node_005 
 	return 
 endf 
 
-def node_011 : 31
+def node_011
 	>> node_006 
 	return 
 endf 
 
-def node_012 : 20
+def node_012
 	>> node_007 
 	return 
 endf 
 
-def node_013 : 21
+def node_013
 	>> node_008 
 	return 
 endf 
 
-def node_014 : 22
+def node_014
 	>> node_004 
 	random (10) >> Global.node_104 
 	elser (90) 
@@ -198,7 +198,7 @@ def node_014 : 22
 	return 
 endf 
 
-def node_015 : 23
+def node_015
 	>> node_005 
 	random (10) >> Global.node_104 
 	elser (90) 
@@ -206,7 +206,7 @@ def node_015 : 23
 	return 
 endf 
 
-def node_016 : 32
+def node_016
 	>> node_006 
 	random (10) >> Global.node_104 
 	elser (90) 
@@ -214,7 +214,7 @@ def node_016 : 32
 	return 
 endf 
 
-def node_017 : 24
+def node_017
 	>> node_007 
 	random (10) >> Global.node_104 
 	elser (90) 
@@ -222,7 +222,7 @@ def node_017 : 24
 	return 
 endf 
 
-def node_018 : 25
+def node_018
 	>> node_008 
 	random (10) >> Global.node_104 
 	elser (90) 

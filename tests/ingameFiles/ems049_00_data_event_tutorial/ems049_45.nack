@@ -1,9 +1,9 @@
 importactions Jagras as jagras
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	self.targetEnemy(target_em.random_player_or_cat) 
-	if [RegisterVar0 <= 1] 
+	if [RegisterVar0 -= 1] 
 	elif self.target(3) 
 	else 
 		>> node_001 
@@ -12,7 +12,7 @@ def node_000 : 1
 	conclude 
 endf 
 
-def node_001 : 11
+def node_001
 	if function#4B() 
 	else 
 		return 
@@ -37,7 +37,7 @@ def node_001 : 11
 	return 
 endf 
 
-def node_002 : 10
+def node_002
 	self.targetEnemy(target_em.random_player_or_cat) 
 	>> Global.node_030 
 	return 

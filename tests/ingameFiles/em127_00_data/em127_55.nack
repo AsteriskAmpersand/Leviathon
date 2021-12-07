@@ -1,10 +1,10 @@
 importactions Leshen as leshen
 
-def node_000 : 1
+def node_000
 	conclude 
 endf 
 
-def node_001 : 83
+def node_001
 	self.targetArea(14) 
 	if self.distance_3d_to_target().gt(600) 
 		-> leshen.warp_navi_area_move(2,1,5,8000,300) 
@@ -14,7 +14,7 @@ def node_001 : 83
 	return 
 endf 
 
-def node_002 : 87
+def node_002
 	if function#110() 
 	else 
 		self.targetArea(19) 
@@ -27,7 +27,7 @@ def node_002 : 87
 	return 
 endf 
 
-def node_003 : 211
+def node_003
 	self.targetEnemy(target_em.any_monster) 
 	if self.distance_3d_to_target().leq(500) 
 		self.targetEnemy(target_em.random_player_or_cat) 
@@ -64,7 +64,7 @@ def node_003 : 211
 	return 
 endf 
 
-def node_004 : 212
+def node_004
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if function#109() 
 		function#104() 
@@ -74,7 +74,7 @@ def node_004 : 212
 	return 
 endf 
 
-def node_005 : 215
+def node_005
 	if function#101() 
 		if function#103() 
 			>> node_010 
@@ -85,7 +85,7 @@ def node_005 : 215
 	return 
 endf 
 
-def node_006 : 231
+def node_006
 	if function#103() 
 		random (15) >> node_089 
 		elser (15) >> node_088 
@@ -104,7 +104,7 @@ def node_006 : 231
 	return 
 endf 
 
-def node_007 : 232
+def node_007
 	if function#103() 
 		-> leshen.crow_rush_ex() 
 	else 
@@ -113,27 +113,27 @@ def node_007 : 232
 	return 
 endf 
 
-def node_008 : 91
+def node_008
 	-> leshen.threat() 
 	return 
 endf 
 
-def node_009 : 92
+def node_009
 	-> leshen.discover() 
 	return 
 endf 
 
-def node_010 : 152
+def node_010
 	-> leshen.level_up() 
 	return 
 endf 
 
-def node_011 : 170
+def node_011
 	-> leshen.maximize_level() 
 	return 
 endf 
 
-def node_012 : 95
+def node_012
 	if self.angle_2d_cw_between(15,345) 
 		-> leshen.turn() 
 	else 
@@ -141,7 +141,7 @@ def node_012 : 95
 	return 
 endf 
 
-def node_013 : 96
+def node_013
 	if self.angle_2d_cw_between(30,330) 
 		-> leshen.turn() 
 	else 
@@ -149,7 +149,7 @@ def node_013 : 96
 	return 
 endf 
 
-def node_014 : 97
+def node_014
 	if self.angle_2d_cw_between(60,300) 
 		-> leshen.turn() 
 	else 
@@ -157,7 +157,7 @@ def node_014 : 97
 	return 
 endf 
 
-def node_015 : 98
+def node_015
 	if self.angle_2d_cw_between(90,270) 
 		-> leshen.turn() 
 	else 
@@ -165,12 +165,12 @@ def node_015 : 98
 	return 
 endf 
 
-def node_016 : 99
+def node_016
 	-> leshen.turn() 
 	return 
 endf 
 
-def node_017 : 100
+def node_017
 	if self.angle_2d_cw_between(15,345) 
 		if self.distance_2d_to_target().leq(100) 
 			-> leshen.back_turn() 
@@ -182,7 +182,7 @@ def node_017 : 100
 	return 
 endf 
 
-def node_018 : 101
+def node_018
 	if self.angle_2d_cw_between(30,330) 
 		if self.distance_2d_to_target().leq(100) 
 			-> leshen.back_turn() 
@@ -194,7 +194,7 @@ def node_018 : 101
 	return 
 endf 
 
-def node_019 : 102
+def node_019
 	if self.angle_2d_cw_between(60,300) 
 		if self.distance_2d_to_target().leq(100) 
 			-> leshen.back_turn() 
@@ -206,7 +206,7 @@ def node_019 : 102
 	return 
 endf 
 
-def node_020 : 103
+def node_020
 	if self.angle_2d_cw_between(90,270) 
 		if self.distance_2d_to_target().leq(100) 
 			-> leshen.back_turn() 
@@ -218,12 +218,12 @@ def node_020 : 103
 	return 
 endf 
 
-def node_021 : 104
+def node_021
 	-> leshen.back_turn() 
 	return 
 endf 
 
-def node_022 : 117
+def node_022
 	if self.distance_3d_to_target().leq(100) 
 		-> leshen.back_turn() 
 	else 
@@ -231,17 +231,17 @@ def node_022 : 117
 	return 
 endf 
 
-def node_023 : 228
+def node_023
 	-> leshen.warp_navi(2,1,5,8000,300) 
 	return 
 endf 
 
-def node_024 : 93
+def node_024
 	-> leshen.walk(2,1,5,1000,500) 
 	return 
 endf 
 
-def node_025 : 167
+def node_025
 	-> leshen.walk(2,1,0,300,350) 
 	if self.distance_3d_to_target().leq(350) 
 	else 
@@ -270,12 +270,12 @@ def node_025 : 167
 	return 
 endf 
 
-def node_026 : 105
+def node_026
 	-> leshen.warp_navi(2,1,5,1500,450) 
 	return 
 endf 
 
-def node_027 : 142
+def node_027
 	if self.distance_3d_to_target().leq(300) 
 	else 
 		-> leshen.warp_navi(2,1,0,1000,300) 
@@ -308,7 +308,7 @@ def node_027 : 142
 	return 
 endf 
 
-def node_028 : 162
+def node_028
 	if self.distance_3d_to_target().leq(1900) 
 	else 
 		-> leshen.warp_navi(2,1,0,2000,1900) 
@@ -325,7 +325,7 @@ def node_028 : 162
 	return 
 endf 
 
-def node_029 : 153
+def node_029
 	if self.distance_3d_to_target().leq(2900) 
 	else 
 		-> leshen.warp_navi(2,1,0,2000,2900) 
@@ -342,7 +342,7 @@ def node_029 : 153
 	return 
 endf 
 
-def node_030 : 94
+def node_030
 	-> leshen.warp_navi(2,1,5,1000,250) 
 	if self.distance_2d_to_target().leq(300) 
 		return 
@@ -375,7 +375,7 @@ def node_030 : 94
 	return 
 endf 
 
-def node_031 : 124
+def node_031
 	-> leshen.warp_navi(2,1,5,1000,450) 
 	if self.distance_2d_to_target().leq(500) 
 		return 
@@ -408,7 +408,7 @@ def node_031 : 124
 	return 
 endf 
 
-def node_032 : 106
+def node_032
 	-> leshen.warp_navi(2,1,5,1000,950) 
 	if self.distance_2d_to_target().leq(1000) 
 		return 
@@ -441,7 +441,7 @@ def node_032 : 106
 	return 
 endf 
 
-def node_033 : 107
+def node_033
 	-> leshen.warp_navi(2,1,5,2000,1900) 
 	if self.distance_2d_to_target().leq(2000) 
 		return 
@@ -458,7 +458,7 @@ def node_033 : 107
 	return 
 endf 
 
-def node_034 : 108
+def node_034
 	-> leshen.warp_navi(2,1,5,3000,2900) 
 	if self.distance_2d_to_target().leq(3000) 
 		return 
@@ -475,7 +475,7 @@ def node_034 : 108
 	return 
 endf 
 
-def node_035 : 109
+def node_035
 	-> leshen.warp_navi(2,1,5,1000,250) 
 	if self.distance_3d_to_target().leq(300) 
 		return 
@@ -508,7 +508,7 @@ def node_035 : 109
 	return 
 endf 
 
-def node_036 : 125
+def node_036
 	-> leshen.warp_navi(2,1,5,1000,450) 
 	if self.distance_3d_to_target().leq(500) 
 		return 
@@ -541,7 +541,7 @@ def node_036 : 125
 	return 
 endf 
 
-def node_037 : 110
+def node_037
 	-> leshen.warp_navi(2,1,5,1000,950) 
 	if self.distance_3d_to_target().leq(1000) 
 		return 
@@ -574,7 +574,7 @@ def node_037 : 110
 	return 
 endf 
 
-def node_038 : 111
+def node_038
 	-> leshen.warp_navi(2,1,5,2000,1900) 
 	if self.distance_3d_to_target().leq(2000) 
 		return 
@@ -591,7 +591,7 @@ def node_038 : 111
 	return 
 endf 
 
-def node_039 : 112
+def node_039
 	-> leshen.warp_navi(2,1,5,3000,2900) 
 	if self.distance_3d_to_target().leq(3000) 
 		return 
@@ -608,7 +608,7 @@ def node_039 : 112
 	return 
 endf 
 
-def node_040 : 139
+def node_040
 	-> leshen.warp_navi(2,1,5,3000,250) 
 	if self.distance_3d_to_target().leq(300) 
 		return 
@@ -625,7 +625,7 @@ def node_040 : 139
 	return 
 endf 
 
-def node_041 : 113
+def node_041
 	if self.distance_3d_to_target().leq(250) 
 	else 
 		-> leshen.warp_navi(2,1,0,1000,250) 
@@ -658,7 +658,7 @@ def node_041 : 113
 	return 
 endf 
 
-def node_042 : 114
+def node_042
 	if self.distance_3d_to_target().leq(250) 
 	else 
 		-> leshen.warp_navi(2,1,0,1000,250) 
@@ -691,74 +691,74 @@ def node_042 : 114
 	return 
 endf 
 
-def node_043 : 122
+def node_043
 	self.targetEnemy(10) @ parameter2:1300 
 	-> leshen.warp_navi_no_ground_act(2,1,5,1300,300) 
 	return 
 endf 
 
-def node_044 : 230
+def node_044
 	function#10A(4,1300) 
 	-> leshen.warp_navi_no_ground_act(2,1,5,1300,300) 
 	return 
 endf 
 
-def node_045 : 143
+def node_045
 	self.targetEnemy(9) @ parameter2:1800 
 	-> leshen.warp_navi_no_ground_act(2,1,5,1800,300) 
 	return 
 endf 
 
-def node_046 : 146
+def node_046
 	self.targetEnemy(10) @ parameter2:1800 
 	-> leshen.warp_navi_no_ground_act(2,1,5,1800,300) 
 	return 
 endf 
 
-def node_047 : 144
+def node_047
 	self.targetEnemy(12) @ parameter2:1800 
 	-> leshen.warp_navi_no_ground_act(2,1,5,1800,300) 
 	return 
 endf 
 
-def node_048 : 145
+def node_048
 	self.targetEnemy(11) @ parameter2:1800 
 	-> leshen.warp_navi_no_ground_act(2,1,5,1800,300) 
 	return 
 endf 
 
-def node_049 : 154
+def node_049
 	self.targetEnemy(9) @ parameter2:2800 
 	-> leshen.warp_navi_no_ground_act(2,1,5,2800,300) 
 	return 
 endf 
 
-def node_050 : 155
+def node_050
 	self.targetEnemy(10) @ parameter2:2800 
 	-> leshen.warp_navi_no_ground_act(2,1,5,2800,300) 
 	return 
 endf 
 
-def node_051 : 156
+def node_051
 	self.targetEnemy(12) @ parameter2:2800 
 	-> leshen.warp_navi_no_ground_act(2,1,5,2800,300) 
 	return 
 endf 
 
-def node_052 : 157
+def node_052
 	self.targetEnemy(11) @ parameter2:2800 
 	-> leshen.warp_navi_no_ground_act(2,1,5,2800,300) 
 	return 
 endf 
 
-def node_053 : 149
+def node_053
 	random (50) >> node_054 
 	elser (50) >> node_055 
 	endr 
 	return 
 endf 
 
-def node_054 : 160
+def node_054
 	random (25) >> node_045 
 	elser (25) >> node_046 
 	elser (25) >> node_047 
@@ -767,7 +767,7 @@ def node_054 : 160
 	return 
 endf 
 
-def node_055 : 161
+def node_055
 	random (25) >> node_049 
 	elser (25) >> node_050 
 	elser (25) >> node_051 
@@ -776,14 +776,14 @@ def node_055 : 161
 	return 
 endf 
 
-def node_056 : 159
+def node_056
 	random (50) >> node_057 
 	elser (50) >> node_058 
 	endr 
 	return 
 endf 
 
-def node_057 : 150
+def node_057
 	random (13) >> node_059 
 	elser (12) >> node_060 
 	elser (13) >> node_061 
@@ -796,7 +796,7 @@ def node_057 : 150
 	return 
 endf 
 
-def node_058 : 158
+def node_058
 	random (13) >> node_067 
 	elser (12) >> node_068 
 	elser (13) >> node_069 
@@ -809,110 +809,110 @@ def node_058 : 158
 	return 
 endf 
 
-def node_059 : 173
+def node_059
 	function#10B(0,1500) 
 	-> leshen.warp_navi_no_ground_act(2,6,5,3000,300) 
 	return 
 endf 
 
-def node_060 : 174
+def node_060
 	function#10B(7,1500) 
 	-> leshen.warp_navi_no_ground_act(2,6,5,3000,300) 
 	return 
 endf 
 
-def node_061 : 175
+def node_061
 	function#10B(6,1500) 
 	-> leshen.warp_navi_no_ground_act(2,6,5,3000,300) 
 	return 
 endf 
 
-def node_062 : 176
+def node_062
 	function#10B(5,1500) 
 	-> leshen.warp_navi_no_ground_act(2,6,5,3000,300) 
 	return 
 endf 
 
-def node_063 : 177
+def node_063
 	function#10B(4,1500) 
 	-> leshen.warp_navi_no_ground_act(2,6,5,3000,300) 
 	return 
 endf 
 
-def node_064 : 178
+def node_064
 	function#10B(3,1500) 
 	-> leshen.warp_navi_no_ground_act(2,6,5,3000,300) 
 	return 
 endf 
 
-def node_065 : 179
+def node_065
 	function#10B(2,1500) 
 	-> leshen.warp_navi_no_ground_act(2,6,5,3000,300) 
 	return 
 endf 
 
-def node_066 : 180
+def node_066
 	function#10B(1,1500) 
 	-> leshen.warp_navi_no_ground_act(2,6,5,3000,300) 
 	return 
 endf 
 
-def node_067 : 181
+def node_067
 	function#10B(0,2300) 
 	-> leshen.warp_navi_no_ground_act(2,6,5,4000,300) 
 	return 
 endf 
 
-def node_068 : 182
+def node_068
 	function#10B(7,2300) 
 	-> leshen.warp_navi_no_ground_act(2,6,5,4000,300) 
 	return 
 endf 
 
-def node_069 : 183
+def node_069
 	function#10B(6,2300) 
 	-> leshen.warp_navi_no_ground_act(2,6,5,4000,300) 
 	return 
 endf 
 
-def node_070 : 184
+def node_070
 	function#10B(5,2300) 
 	-> leshen.warp_navi_no_ground_act(2,6,5,4000,300) 
 	return 
 endf 
 
-def node_071 : 185
+def node_071
 	function#10B(4,2300) 
 	-> leshen.warp_navi_no_ground_act(2,6,5,4000,300) 
 	return 
 endf 
 
-def node_072 : 186
+def node_072
 	function#10B(3,2300) 
 	-> leshen.warp_navi_no_ground_act(2,6,5,4000,300) 
 	return 
 endf 
 
-def node_073 : 187
+def node_073
 	function#10B(2,2300) 
 	-> leshen.warp_navi_no_ground_act(2,6,5,4000,300) 
 	return 
 endf 
 
-def node_074 : 188
+def node_074
 	function#10B(1,2300) 
 	-> leshen.warp_navi_no_ground_act(2,6,5,4000,300) 
 	return 
 endf 
 
-def node_075 : 204
+def node_075
 	random (50) >> node_076 
 	elser (50) >> node_077 
 	endr 
 	return 
 endf 
 
-def node_076 : 202
+def node_076
 	random (20) >> node_078 
 	elser (20) >> node_079 
 	elser (20) >> node_080 
@@ -922,7 +922,7 @@ def node_076 : 202
 	return 
 endf 
 
-def node_077 : 203
+def node_077
 	random (20) >> node_083 
 	elser (20) >> node_084 
 	elser (20) >> node_085 
@@ -932,82 +932,82 @@ def node_077 : 203
 	return 
 endf 
 
-def node_078 : 192
+def node_078
 	function#10A(6,1500) 
 	-> leshen.warp_navi_no_ground_act(2,1,5,2000,300) 
 	return 
 endf 
 
-def node_079 : 195
+def node_079
 	function#10A(5,1500) 
 	-> leshen.warp_navi_no_ground_act(2,1,5,2000,300) 
 	return 
 endf 
 
-def node_080 : 193
+def node_080
 	function#10A(2,1500) 
 	-> leshen.warp_navi_no_ground_act(2,1,5,2000,300) 
 	return 
 endf 
 
-def node_081 : 196
+def node_081
 	function#10A(3,1500) 
 	-> leshen.warp_navi_no_ground_act(2,1,5,2000,300) 
 	return 
 endf 
 
-def node_082 : 194
+def node_082
 	function#10A(4,1500) 
 	-> leshen.warp_navi_no_ground_act(2,1,5,2000,300) 
 	return 
 endf 
 
-def node_083 : 197
+def node_083
 	function#10A(6,2300) 
 	-> leshen.warp_navi_no_ground_act(2,1,5,2500,300) 
 	return 
 endf 
 
-def node_084 : 198
+def node_084
 	function#10A(5,2300) 
 	-> leshen.warp_navi_no_ground_act(2,1,5,2500,300) 
 	return 
 endf 
 
-def node_085 : 199
+def node_085
 	function#10A(2,2300) 
 	-> leshen.warp_navi_no_ground_act(2,1,5,2500,300) 
 	return 
 endf 
 
-def node_086 : 200
+def node_086
 	function#10A(3,2300) 
 	-> leshen.warp_navi_no_ground_act(2,1,5,2500,300) 
 	return 
 endf 
 
-def node_087 : 201
+def node_087
 	function#10A(4,2300) 
 	-> leshen.warp_navi_no_ground_act(2,1,5,2500,300) 
 	return 
 endf 
 
-def node_088 : 115
+def node_088
 	-> leshen.scratch() 
 	return 
 endf 
 
-def node_089 : 116
+def node_089
 	-> leshen.double_scratch() 
 	return 
 endf 
 
-def node_090 : 118
+def node_090
 	-> leshen.slam() 
 	return 
 endf 
 
-def node_091 : 140
+def node_091
 	>> node_027 
 	if function#103() 
 		if function#108() 
@@ -1025,7 +1025,7 @@ def node_091 : 140
 	return 
 endf 
 
-def node_092 : 164
+def node_092
 	if function#103() 
 		if function#108() 
 			-> leshen.scratch_after_warp() 
@@ -1042,7 +1042,7 @@ def node_092 : 164
 	return 
 endf 
 
-def node_093 : 119
+def node_093
 	if self.distance_3d_to_target().leq(1200) 
 		>> node_056 
 	elif self.distance_3d_to_target().leq(3000) 
@@ -1053,12 +1053,12 @@ def node_093 : 119
 	return 
 endf 
 
-def node_094 : 191
+def node_094
 	-> leshen.root_stab() 
 	return 
 endf 
 
-def node_095 : 120
+def node_095
 	if self.distance_3d_to_target().leq(1000) 
 		>> node_056 
 	else 
@@ -1091,7 +1091,7 @@ def node_095 : 120
 	return 
 endf 
 
-def node_096 : 190
+def node_096
 	-> leshen.root_wall() 
 	if function#108(0,4) 
 		random (50) >> node_097 
@@ -1119,7 +1119,7 @@ def node_096 : 190
 	return 
 endf 
 
-def node_097 : 121
+def node_097
 	>> node_022 
 	if self.distance_3d_to_target().leq(3000) 
 	else >> node_028 
@@ -1132,17 +1132,17 @@ def node_097 : 121
 	return 
 endf 
 
-def node_098 : 123
+def node_098
 	-> leshen.around_root_stab() 
 	return 
 endf 
 
-def node_099 : 189
+def node_099
 	-> leshen.around_wave_root_stab() 
 	return 
 endf 
 
-def node_100 : 126
+def node_100
 	>> node_022 
 	if self.distance_3d_to_target().leq(3000) 
 	else >> node_028 
@@ -1169,22 +1169,22 @@ def node_100 : 126
 	return 
 endf 
 
-def node_101 : 151
+def node_101
 	-> leshen.mark_target() 
 	return 
 endf 
 
-def node_102 : 127
+def node_102
 	-> leshen.summon_slave() 
 	return 
 endf 
 
-def node_103 : 128
+def node_103
 	-> leshen.summon_crow() 
 	return 
 endf 
 
-def node_104 : 129
+def node_104
 	>> node_022 
 	if self.distance_3d_to_target().leq(3000) 
 	else >> node_028 
@@ -1197,7 +1197,7 @@ def node_104 : 129
 	return 
 endf 
 
-def node_105 : 130
+def node_105
 	>> node_022 
 	if self.distance_3d_to_target().leq(3000) 
 	else >> node_028 
@@ -1206,7 +1206,7 @@ def node_105 : 130
 	return 
 endf 
 
-def node_106 : 132
+def node_106
 	>> node_022 
 	if self.distance_3d_to_target().leq(500) 
 	else >> node_027 
@@ -1223,7 +1223,7 @@ def node_106 : 132
 	return 
 endf 
 
-def node_107 : 133
+def node_107
 	if function#109() 
 		if function#106(3) 
 			random (30) -> leshen.catch_attack() 
@@ -1266,7 +1266,7 @@ def node_107 : 133
 	return 
 endf 
 
-def node_108 : 135
+def node_108
 	>> node_027 
 	if self.distance_3d_to_target().leq(500) 
 		if function#108() 
@@ -1324,7 +1324,7 @@ def node_108 : 135
 	return 
 endf 
 
-def node_109 : 136
+def node_109
 	>> node_056 
 	>> node_004 
 	if self.distance_3d_to_target().leq(500) 
@@ -1367,7 +1367,7 @@ def node_109 : 136
 	return 
 endf 
 
-def node_110 : 207
+def node_110
 	>> node_027 
 	if self.distance_3d_to_target().leq(500) 
 		if function#108() 
@@ -1448,7 +1448,7 @@ def node_110 : 207
 	return 
 endf 
 
-def node_111 : 208
+def node_111
 	>> node_056 
 	>> node_004 
 	if self.distance_3d_to_target().leq(500) 
@@ -1506,7 +1506,7 @@ def node_111 : 208
 	return 
 endf 
 
-def node_112 : 213
+def node_112
 	>> node_027 
 	if self.distance_3d_to_target().leq(500) 
 		if function#108() 
@@ -1581,7 +1581,7 @@ def node_112 : 213
 	return 
 endf 
 
-def node_113 : 214
+def node_113
 	>> node_056 
 	>> node_004 
 	if self.distance_3d_to_target().leq(500) 
@@ -1633,7 +1633,7 @@ def node_113 : 214
 	return 
 endf 
 
-def node_114 : 138
+def node_114
 	if function#103() 
 		>> node_118 
 		if self.distance_3d_to_target().leq(500) 
@@ -1662,7 +1662,7 @@ def node_114 : 138
 	return 
 endf 
 
-def node_115 : 221
+def node_115
 	if function#103() 
 		>> node_118 
 		>> node_118 
@@ -1693,7 +1693,7 @@ def node_115 : 221
 	return 
 endf 
 
-def node_116 : 165
+def node_116
 	if function#103() 
 		if self.distance_3d_to_target().leq(500) 
 			>> node_111 
@@ -1714,7 +1714,7 @@ def node_116 : 165
 	return 
 endf 
 
-def node_117 : 166
+def node_117
 	if function#103() 
 		if self.distance_3d_to_target().leq(500) 
 			>> node_111 
@@ -1735,14 +1735,14 @@ def node_117 : 166
 	return 
 endf 
 
-def node_118 : 216
+def node_118
 	>> node_057 
 	>> node_004 
 	>> node_104 
 	return 
 endf 
 
-def node_119 : 217
+def node_119
 	>> node_027 
 	if self.distance_3d_to_target().leq(500) 
 		random (5) >> node_089 
@@ -1761,7 +1761,7 @@ def node_119 : 217
 	return 
 endf 
 
-def node_120 : 218
+def node_120
 	>> node_056 
 	>> node_004 
 	if self.distance_3d_to_target().leq(500) 
@@ -1781,7 +1781,7 @@ def node_120 : 218
 	return 
 endf 
 
-def node_121 : 219
+def node_121
 	>> node_027 
 	if self.distance_3d_to_target().leq(500) 
 		random (20) >> node_089 
@@ -1798,7 +1798,7 @@ def node_121 : 219
 	return 
 endf 
 
-def node_122 : 220
+def node_122
 	>> node_056 
 	>> node_004 
 	if self.distance_3d_to_target().leq(500) 
@@ -1816,7 +1816,7 @@ def node_122 : 220
 	return 
 endf 
 
-def node_123 : 224
+def node_123
 	if function#103() 
 		>> node_118 
 		if self.distance_3d_to_target().leq(500) 
@@ -1845,7 +1845,7 @@ def node_123 : 224
 	return 
 endf 
 
-def node_124 : 225
+def node_124
 	if function#103() 
 		>> node_118 
 		>> node_118 
@@ -1876,7 +1876,7 @@ def node_124 : 225
 	return 
 endf 
 
-def node_125 : 222
+def node_125
 	>> node_027 
 	if self.distance_3d_to_target().leq(500) 
 		random (5) >> node_089 
@@ -1895,7 +1895,7 @@ def node_125 : 222
 	return 
 endf 
 
-def node_126 : 223
+def node_126
 	>> node_056 
 	>> node_004 
 	if self.distance_3d_to_target().leq(500) 
@@ -1915,7 +1915,7 @@ def node_126 : 223
 	return 
 endf 
 
-def node_127 : 168
+def node_127
 	>> node_025 
 	if function#108(0,4) 
 		if self.distance_3d_to_target().leq(500) 
@@ -1963,7 +1963,7 @@ def node_127 : 168
 	return 
 endf 
 
-def node_128 : 209
+def node_128
 	>> node_025 
 	if function#108(0,4) 
 		if self.distance_3d_to_target().leq(500) 
@@ -2015,7 +2015,7 @@ def node_128 : 209
 	return 
 endf 
 
-def node_129 : 226
+def node_129
 	>> node_025 
 	if self.distance_3d_to_target().leq(500) 
 		random (30) >> node_088 
@@ -2038,12 +2038,12 @@ def node_129 : 226
 	return 
 endf 
 
-def node_130 : 169
+def node_130
 	-> leshen.warp_crow_rush() 
 	return 
 endf 
 
-def node_131 : 134
+def node_131
 	>> node_022 
 	if self.distance_3d_to_target().leq(1000) 
 		>> node_044 
@@ -2055,7 +2055,7 @@ def node_131 : 134
 	return 
 endf 
 
-def node_132 : 229
+def node_132
 	>> node_022 
 	if self.distance_3d_to_target().leq(3000) 
 	else >> node_028 
@@ -2064,7 +2064,7 @@ def node_132 : 229
 	return 
 endf 
 
-def node_133 : 227
+def node_133
 	>> node_025 
 	if self.distance_3d_to_target().leq(500) 
 		random (35) >> node_089 
@@ -2086,7 +2086,7 @@ def node_133 : 227
 	return 
 endf 
 
-def node_134 : 205
+def node_134
 	>> node_027 
 	if self.distance_3d_to_target().leq(500) 
 		if function#108() 
@@ -2118,7 +2118,7 @@ def node_134 : 205
 	return 
 endf 
 
-def node_135 : 206
+def node_135
 	>> node_056 
 	>> node_004 
 	if self.distance_3d_to_target().leq(500) 

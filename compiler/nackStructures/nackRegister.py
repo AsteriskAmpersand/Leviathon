@@ -5,7 +5,7 @@ Created on Thu Nov 25 04:42:16 2021
 @author: Asterisk
 """
 from compiler.errorHandler import ErrorManaged, copy
-
+from common.registerOperations import sUnaryOperatorsMap,sBinaryOperatorsMap
         
 class Register():
     def resolveLocal(self, symbolsTable):
@@ -76,11 +76,6 @@ class RegisterOp():
     def collectRegisters(self):
         return self.base.collectRegisters()
 
-
-regSymbols = ["==", "<=", "<", ">=", ">", "!="]
-regComps = {regSymbols[i]: i for i in range(len(regSymbols))}
-
-
 class RegisterComparison(RegisterOp, ErrorManaged):
     subfields = ["base", "target", "comparison"]
 
@@ -110,8 +105,12 @@ class RegisterComparison(RegisterOp, ErrorManaged):
     def resolveProperties(self, storage):
         if self.base.raw_id is None:
             self.errorHandler.unresolvedIdentifier(str(self.base))
-        storage("functionType", 0x94+self.base.raw_id)
-        storage("parameter1", regComps[self.comparison])
+        if self.base.raw_id > 19:
+            delta = self.base.raw_id-19
+            storage("functionType", 0x94+self.base.raw_id+2*delta-1)
+        else:
+            storage("functionType", 0x94+self.base.raw_id)
+        storage("parameter1", sBinaryOperatorsMap[self.comparison])
         storage("parameter2", self.target.getRaw())
 
     def __repr__(self):
@@ -119,8 +118,7 @@ class RegisterComparison(RegisterOp, ErrorManaged):
                                                     self.comparison,
                                                     self.target)))
 
-unaryOps = {"++": 0, "|-": 1}
-
+#TODO - InterRegisterComparison
 
 class RegisterUnaryOp(RegisterOp, ErrorManaged):
     tag = "Register Unary Operator"
@@ -138,8 +136,12 @@ class RegisterUnaryOp(RegisterOp, ErrorManaged):
         if self.base.raw_id is None:
             self.errorHandler.unresolvedIdentifier(str(self.base))
         else:
-            storage("functionType", 0x94+self.base.raw_id)
-            storage("parameter1", unaryOps[self.operator])
+            if self.base.raw_id > 19:
+                delta = self.base.raw_id-19
+                storage("functionType", 0x94+self.base.raw_id+2*(delta-1))
+            else:
+                storage("functionType", 0x80+self.base.raw_id)
+            storage("parameter1", sUnaryOperatorsMap[self.operator])
 
     def __repr__(self):
         return "<RegComp> %s %s"%tuple(map(repr,(self.base,

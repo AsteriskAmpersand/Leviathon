@@ -1,7 +1,7 @@
 importactions Shara_Ishvalda as shara_ishvalda
 importlibrary Global as Global
 
-def node_000 : 8
+def node_000
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.distance_3d_to_target().leq(1200) 
 		self.enraged() >> node_004 => reset 
@@ -19,53 +19,53 @@ def node_000 : 8
 	reset 
 endf 
 
-def node_001 : 9
+def node_001
 	>> node_010 
 	return 
 endf 
 
-def node_002 : 10
+def node_002
 	>> node_011 
 	return 
 endf 
 
-def node_003 : 11
+def node_003
 	random (70) >> node_011 
 	elser (30) >> node_012 
 	endr 
 	return 
 endf 
 
-def node_004 : 12
+def node_004
 	>> node_010 
 	return 
 endf 
 
-def node_005 : 13
+def node_005
 	>> node_011 
 	return 
 endf 
 
-def node_006 : 14
+def node_006
 	random (30) >> node_011 
 	elser (70) >> node_012 
 	endr 
 	return 
 endf 
 
-def node_007 : 15
+def node_007
 	>> node_010 
 	return 
 endf 
 
-def node_008 : 16
+def node_008
 	random (80) >> node_011 
 	elser (20) >> Global.node_132 
 	endr 
 	return 
 endf 
 
-def node_009 : 17
+def node_009
 	random (70) >> node_011 
 	elser (10) >> node_015 
 	elser (20) >> Global.node_132 
@@ -73,7 +73,7 @@ def node_009 : 17
 	return 
 endf 
 
-def node_010 : 21
+def node_010
 	self.targetEnemy(target_em.random_player_or_cat) 
 	random (70) >> Global.node_007 
 	elser (15) >> Global.node_011 
@@ -82,36 +82,36 @@ def node_010 : 21
 	return 
 endf 
 
-def node_011 : 18
+def node_011
 	self.targetArea(4) 
 	>> node_013 
 	>> node_016 
 	return 
 endf 
 
-def node_012 : 19
+def node_012
 	self.targetArea(6) 
 	>> node_014 
 	>> node_016 
 	return 
 endf 
 
-def node_013 : 27
+def node_013
 	>> Global.node_129 
 	return 
 endf 
 
-def node_014 : 28
+def node_014
 	>> Global.node_130 
 	return 
 endf 
 
-def node_015 : 29
+def node_015
 	>> Global.node_128 
 	return 
 endf 
 
-def node_016 : 25
+def node_016
 	>> Global.node_150 
 	if self.distance_3d_to_target().leq(1200) 
 		return 

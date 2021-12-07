@@ -1,19 +1,19 @@
 importactions TzitziYaKu as tzitziyaku
 importlibrary Global as Global
 
-def node_000 : 1
-	if [RegisterVar0 <= 15] 
-		[RegisterVar0 |-] 
+def node_000
+	if [RegisterVar0 -= 15] 
+		[RegisterVar0 ++] 
 		conclude 
 	else 
 	endif 
-	[RegisterVar0 ++] 
+	[RegisterVar0 |-] 
 	>> node_001 
 	repeat 
 	conclude 
 endf 
 
-def node_001 : 2
+def node_001
 	>> Global.node_025 
 	>> Global.node_014 
 	self.targetEnemy(target_em.random_player_or_cat) 
@@ -25,7 +25,7 @@ def node_001 : 2
 	return 
 endf 
 
-def node_002 : 3
+def node_002
 	>> node_004 
 	if self.enraged() 
 		-> tzitziyaku.anger_search() 
@@ -37,7 +37,7 @@ def node_002 : 3
 	return 
 endf 
 
-def node_003 : 4
+def node_003
 	if self.enraged() 
 		-> tzitziyaku.anger_search() 
 	elif self.fatigued() 
@@ -48,7 +48,7 @@ def node_003 : 4
 	return 
 endf 
 
-def node_004 : 5
+def node_004
 	if self.angle_2d_cw_between(50,310) 
 		-> tzitziyaku.turn() 
 	else 
@@ -57,7 +57,7 @@ def node_004 : 5
 	return 
 endf 
 
-def node_005 : 6
+def node_005
 	if self.angle_2d_cw_between(120,240) 
 		-> tzitziyaku.back_turn() 
 	else 

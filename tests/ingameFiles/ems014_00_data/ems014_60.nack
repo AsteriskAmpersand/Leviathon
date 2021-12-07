@@ -1,7 +1,7 @@
 importactions Popo as popo
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	if function#B0(3) 
 		>> node_001 
 	elif function#B0(4) 
@@ -14,9 +14,9 @@ def node_000 : 1
 	conclude 
 endf 
 
-def node_001 : 10
-	if [RegisterVar0 == 0] 
-		[RegisterVar0 ++] 
+def node_001
+	if [RegisterVar0 += 0] 
+		[RegisterVar0 |-] 
 		-> action#1F() 
 	else 
 		random (40) >> node_003 
@@ -30,7 +30,7 @@ def node_001 : 10
 	conclude 
 endf 
 
-def node_002 : 11
+def node_002
 	if function#10A() 
 	else 
 		random (35) -> action#26() 
@@ -43,7 +43,7 @@ def node_002 : 11
 	return 
 endf 
 
-def node_003 : 12
+def node_003
 	if function#10C() 
 		>> Global.node_000 
 		-> action#10() 

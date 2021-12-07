@@ -1,7 +1,7 @@
 importactions Wulg as wulg
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	if function#3F() 
 		-> wulg.damage_clawgrab_initiate() 
 	else 
@@ -13,7 +13,7 @@ def node_000 : 1
 	reset 
 endf 
 
-def node_001 : 61
+def node_001
 	if function#7B() 
 		>> node_014 
 		repeat 
@@ -22,7 +22,7 @@ def node_001 : 61
 	return 
 endf 
 
-def node_002 : 84
+def node_002
 	if function#67(1) 
 		>> node_018 
 	else 
@@ -31,7 +31,7 @@ def node_002 : 84
 	return 
 endf 
 
-def node_003 : 78
+def node_003
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.distance_3d_to_target().leq(1500) 
 		>> Global.node_008 
@@ -44,7 +44,7 @@ def node_003 : 78
 	return 
 endf 
 
-def node_004 : 85
+def node_004
 	if function#32() 
 		>> node_005 
 	else 
@@ -53,7 +53,7 @@ def node_004 : 85
 	return 
 endf 
 
-def node_005 : 4
+def node_005
 	if function#3A() 
 		>> node_006 
 	else 
@@ -67,7 +67,7 @@ def node_005 : 4
 	return 
 endf 
 
-def node_006 : 5
+def node_006
 	function#111() 
 	>> node_034 
 	self.targetEnemy(target_em.random_player_or_cat) 
@@ -76,7 +76,7 @@ def node_006 : 5
 	return 
 endf 
 
-def node_007 : 77
+def node_007
 	if self.target(20) 
 		if self.target(10) 
 			>> node_009 
@@ -94,7 +94,7 @@ def node_007 : 77
 	return 
 endf 
 
-def node_008 : 89
+def node_008
 	function#52(18,2) 
 	self.targetArea(target_area.nearest_entrance) 
 	function#54() 
@@ -105,18 +105,18 @@ def node_008 : 89
 	reset 
 endf 
 
-def node_009 : 90
+def node_009
 	>> Global.node_008 
 	>> Global.node_064 
 	reset 
 endf 
 
-def node_010 : 92
+def node_010
 	>> node_027 
 	reset 
 endf 
 
-def node_011 : 95
+def node_011
 	if self.distance_2d_to_target().leq(800) 
 		>> Global.node_024 
 	else 
@@ -141,7 +141,7 @@ def node_011 : 95
 	reset 
 endf 
 
-def node_012 : 105
+def node_012
 	if self.target(20) 
 		if self.target(10) 
 			>> node_009 
@@ -159,7 +159,7 @@ def node_012 : 105
 	return 
 endf 
 
-def node_013 : 106
+def node_013
 	if self.distance_2d_to_target().leq(800) 
 		>> Global.node_024 
 	else 
@@ -187,7 +187,7 @@ def node_013 : 106
 	reset 
 endf 
 
-def node_014 : 62
+def node_014
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.distance_3d_to_target().leq(1000) 
 		>> node_004 
@@ -200,24 +200,24 @@ def node_014 : 62
 	return 
 endf 
 
-def node_015 : 63
+def node_015
 	>> Global.node_008 
 	return 
 endf 
 
-def node_016 : 64
+def node_016
 	self.targetArea(1) @ unkn3:2097152, unkn12:4, unknExtra1:1000 
 	>> Global.node_089 
 	return 
 endf 
 
-def node_017 : 66
+def node_017
 	self.targetArea(1) @ unkn3:2097152, unkn12:4, unknExtra1:1000 
 	>> Global.node_002 
 	return 
 endf 
 
-def node_018 : 80
+def node_018
 	function#52(22,2) 
 	self.targetArea(target_area.nearest_entrance) 
 	if self.distance_2d_to_target().leq(1000) 
@@ -243,7 +243,7 @@ def node_018 : 80
 	return 
 endf 
 
-def node_019 : 81
+def node_019
 	function#52(50,2) 
 	self.targetArea(target_area.nearest_entrance) 
 	>> Global.node_002 
@@ -253,7 +253,7 @@ def node_019 : 81
 	return 
 endf 
 
-def node_020 : 82
+def node_020
 	self.targetEnemy(target_em.random_player_or_cat) 
 	>> Global.node_002 
 	if function#32() 
@@ -264,7 +264,7 @@ def node_020 : 82
 	return 
 endf 
 
-def node_021 : 93
+def node_021
 	if self.distance_3d_to_target().leq(350) 
 		>> node_022 
 	elif self.distance_3d_to_target().leq(500) 
@@ -279,7 +279,7 @@ def node_021 : 93
 	return 
 endf 
 
-def node_022 : 6
+def node_022
 	random (20) >> Global.node_018 
 	elser (70) >> node_036 
 	elser (10) >> Global.node_022 
@@ -288,7 +288,7 @@ def node_022 : 6
 	return 
 endf 
 
-def node_023 : 7
+def node_023
 	random (20) >> Global.node_018 
 	elser (70) >> node_036 
 	elser (10) >> Global.node_022 
@@ -297,7 +297,7 @@ def node_023 : 7
 	return 
 endf 
 
-def node_024 : 8
+def node_024
 	random (20) >> Global.node_019 
 	elser (60) >> node_036 
 	elser (20) >> Global.node_002 
@@ -306,21 +306,21 @@ def node_024 : 8
 	return 
 endf 
 
-def node_025 : 9
+def node_025
 	>> Global.node_006 
 	>> Global.node_002 
 	>> Global.node_018 
 	return 
 endf 
 
-def node_026 : 10
+def node_026
 	>> Global.node_006 
 	>> Global.node_002 
 	>> Global.node_018 
 	return 
 endf 
 
-def node_027 : 94
+def node_027
 	if self.distance_3d_to_target().leq(400) 
 		>> node_028 
 	elif self.distance_3d_to_target().leq(900) 
@@ -335,42 +335,42 @@ def node_027 : 94
 	return 
 endf 
 
-def node_028 : 11
+def node_028
 	random (65) >> Global.node_022 
 	elser (35) >> Global.node_021 
 	endr 
 	return 
 endf 
 
-def node_029 : 12
+def node_029
 	random (75) >> Global.node_025 
 	elser (25) >> Global.node_026 
 	endr 
 	return 
 endf 
 
-def node_030 : 13
+def node_030
 	random (75) >> Global.node_027 
 	elser (25) >> Global.node_028 
 	endr 
 	return 
 endf 
 
-def node_031 : 14
+def node_031
 	self.targetEnemy(target_em.random_player_or_cat) @ unkn3:8388608, unkn12:4, unknExtra1:700 
 	>> Global.node_006 
 	>> Global.node_002 
 	return 
 endf 
 
-def node_032 : 15
+def node_032
 	self.targetEnemy(target_em.random_player_or_cat) @ unkn3:8388608, unkn12:4, unknExtra1:700 
 	>> Global.node_006 
 	>> Global.node_002 
 	return 
 endf 
 
-def node_033 : 98
+def node_033
 	if function#102() 
 		>> node_007 
 		>> node_035 
@@ -384,7 +384,7 @@ def node_033 : 98
 	return 
 endf 
 
-def node_034 : 97
+def node_034
 	if function#10B() 
 		>> node_007 
 		>> Global.node_070 
@@ -402,7 +402,7 @@ def node_034 : 97
 	return 
 endf 
 
-def node_035 : 99
+def node_035
 	if self.distance_2d_to_target().leq(200) 
 		>> node_039 
 		>> node_039 
@@ -420,7 +420,7 @@ def node_035 : 99
 	return 
 endf 
 
-def node_036 : 100
+def node_036
 	if self.distance_2d_to_target().leq(700) 
 	else 
 		>> node_038 
@@ -441,7 +441,7 @@ def node_036 : 100
 	return 
 endf 
 
-def node_037 : 96
+def node_037
 	if function#32() 
 		random (100) 
 					>> Global.node_070 
@@ -470,7 +470,7 @@ def node_037 : 96
 	return 
 endf 
 
-def node_038 : 101
+def node_038
 	if self.distance_3d_to_target().leq(700) 
 	else 
 		-> wulg.die_water_slide(2,6,0,300,600) 
@@ -479,13 +479,13 @@ def node_038 : 101
 	return 
 endf 
 
-def node_039 : 102
+def node_039
 	>> node_040 
 	-> wulg.die_hole_fall() 
 	return 
 endf 
 
-def node_040 : 103
+def node_040
 	if self.angle_2d_cw_between(90,270) 
 		-> wulg.die_down() 
 	else 
@@ -493,7 +493,7 @@ def node_040 : 103
 	return 
 endf 
 
-def node_041 : 104
+def node_041
 	if function#B0() 
 		if function#110() 
 		else 

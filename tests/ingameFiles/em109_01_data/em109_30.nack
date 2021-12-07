@@ -1,14 +1,14 @@
 importactions Viper_TobiKadachi as viper_tobikadachi
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	self.targetEnemy(target_em.closest_entity) 
 	>> node_009 
 	>> node_002 
 	reset 
 endf 
 
-def node_001 : 8
+def node_001
 	self.targetEnemy(target_em.closest_entity) 
 	if self.target(11) 
 		>> Global.node_084 
@@ -26,7 +26,7 @@ def node_001 : 8
 	return 
 endf 
 
-def node_002 : 9
+def node_002
 	if self.distance_2d_to_target().leq(2000) 
 		>> node_006 
 	elif self.distance_2d_to_target().leq(4000) 
@@ -37,33 +37,33 @@ def node_002 : 9
 	return 
 endf 
 
-def node_003 : 10
+def node_003
 endf 
 
-def node_004 : 11
+def node_004
 endf 
 
-def node_005 : 12
+def node_005
 endf 
 
-def node_006 : 13
+def node_006
 	>> node_001 
 	return 
 endf 
 
-def node_007 : 14
+def node_007
 	random (50) >> Global.node_032 
 	elser (50) >> Global.node_117 
 	endr 
 	return 
 endf 
 
-def node_008 : 15
+def node_008
 	>> Global.node_032 
 	return 
 endf 
 
-def node_009 : 16
+def node_009
 	if self.target_is(em.Popo) 
 	elif self.target_is(em.Aptonoth) 
 	else 

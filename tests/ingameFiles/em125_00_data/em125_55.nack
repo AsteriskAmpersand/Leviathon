@@ -1,10 +1,10 @@
 importactions Namielle as namielle
 
-def node_000 : 37
+def node_000
 	conclude 
 endf 
 
-def node_001 : 560
+def node_001
 	if self.angular_15(90,0) 
 		random (50) >> node_007 
 		elser (50) >> node_030 
@@ -18,7 +18,7 @@ def node_001 : 560
 	return 
 endf 
 
-def node_002 : 620
+def node_002
 	>> node_261 
 	if self.distance_2d_to_target().leq(800) >> node_043 
 		if self.distance_2d_to_target().leq(800) >> node_004 
@@ -30,7 +30,7 @@ def node_002 : 620
 	return 
 endf 
 
-def node_003 : 636
+def node_003
 	>> node_261 
 	>> node_261 
 	if self.distance_2d_to_target().leq(800) >> node_043 
@@ -40,50 +40,50 @@ def node_003 : 636
 	return 
 endf 
 
-def node_004 : 623
+def node_004
 	-> namielle.water_breath_double_one() 
 	return 
 endf 
 
-def node_005 : 563
+def node_005
 	if self.angle_2d_cw_between(0,180) -> namielle.water_flow_in() 
 	else -> namielle.turn_water_spray() 
 	endif 
 	return 
 endf 
 
-def node_006 : 607
+def node_006
 	if function#107() -> namielle.quick_claw_attack() 
 	else >> node_012 
 	endif 
 	return 
 endf 
 
-def node_007 : 621
+def node_007
 	if self.angular_15(60,0) -> namielle.water_quick_breath() 
 	else >> node_002 
 	endif 
 	return 
 endf 
 
-def node_008 : 622
+def node_008
 	>> node_014 
 	return 
 endf 
 
-def node_009 : 561
+def node_009
 	-> namielle.water_claw_attack_l() 
 	return 
 endf 
 
-def node_010 : 562
+def node_010
 	if function#107() -> namielle.water_claw_attack_r() 
 	else >> node_012 
 	endif 
 	return 
 endf 
 
-def node_011 : 564
+def node_011
 	>> node_068 
 	if function#106() 
 		function#102() 
@@ -103,7 +103,7 @@ def node_011 : 564
 	return 
 endf 
 
-def node_012 : 567
+def node_012
 	if self.distance_2d_to_target().leq(800) 
 		if self.distance_2d_to_target().leq(400) >> node_043 
 		endif 
@@ -113,7 +113,7 @@ def node_012 : 567
 	return 
 endf 
 
-def node_013 : 565
+def node_013
 	>> node_261 
 	if self.current_quest().is_rank(rank.AT) 
 		if self.enraged() -> namielle.water_laser_s_attack_second() 
@@ -124,7 +124,7 @@ def node_013 : 565
 	return 
 endf 
 
-def node_014 : 566
+def node_014
 	>> node_163 
 	>> node_261 
 	if self.angle_2d_cw_between(0,180) -> namielle.water_laser_3way() 
@@ -133,14 +133,14 @@ def node_014 : 566
 	return 
 endf 
 
-def node_015 : 618
+def node_015
 	>> node_068 
 	>> node_161 
 	-> namielle.special_spark() 
 	return 
 endf 
 
-def node_016 : 568
+def node_016
 	>> node_068 
 	if self.distance_2d_to_target().gt(2000) 
 		if function#104(1) >> node_030 
@@ -157,7 +157,7 @@ def node_016 : 568
 	return 
 endf 
 
-def node_017 : 617
+def node_017
 	if self.distance_2d_to_target().leq(1000) >> node_018 
 	elif self.distance_2d_to_target().gt(2000) >> node_019 
 	elif self.angle_2d_cw_between(45,135) >> node_020 
@@ -167,27 +167,27 @@ def node_017 : 617
 	return 
 endf 
 
-def node_018 : 616
+def node_018
 	-> namielle.spark_wing_attack_r() 
 	return 
 endf 
 
-def node_019 : 569
+def node_019
 	-> namielle.spark_wing_attack_l() 
 	return 
 endf 
 
-def node_020 : 638
+def node_020
 	-> namielle.water_charge_legendary_start() 
 	return 
 endf 
 
-def node_021 : 637
+def node_021
 	-> namielle.water_charge_start() 
 	return 
 endf 
 
-def node_022 : 572
+def node_022
 	self.targetEnemy(50) 
 	>> node_068 
 	if self.distance_2d_to_target().gt(1200) >> node_084 
@@ -198,19 +198,19 @@ def node_022 : 572
 	return 
 endf 
 
-def node_023 : 571
+def node_023
 	-> namielle.threat_short_fly() 
 	return 
 endf 
 
-def node_024 : 570
+def node_024
 	>> node_069 
 	>> node_265 
 	-> namielle.rush_fly_to_fly_start() 
 	return 
 endf 
 
-def node_025 : 577
+def node_025
 	>> node_069 
 	function#105() 
 	-> namielle.rush_fly_to_fly_start() 
@@ -219,7 +219,7 @@ def node_025 : 577
 	return 
 endf 
 
-def node_026 : 588
+def node_026
 	>> node_069 
 	>> node_266 
 	-> namielle.rush_fly_to_turn_start() 
@@ -227,7 +227,7 @@ def node_026 : 588
 	return 
 endf 
 
-def node_027 : 589
+def node_027
 	>> node_069 
 	function#105() 
 	-> namielle.rush_fly_to_turn_start() 
@@ -237,7 +237,7 @@ def node_027 : 589
 	return 
 endf 
 
-def node_028 : 590
+def node_028
 	>> node_069 
 	-> namielle.rush_fly_to_ground_turn() 
 	>> node_265 
@@ -251,7 +251,7 @@ def node_028 : 590
 	return 
 endf 
 
-def node_029 : 578
+def node_029
 	if self.flying() -> namielle.water_laser_s_rev_attack_fast() 
 	else -> namielle.water_laser_s_rev_start() 
 	endif 
@@ -265,14 +265,14 @@ def node_029 : 578
 	return 
 endf 
 
-def node_030 : 582
+def node_030
 	if self.angle_2d_cw_between(0,180) >> node_032 
 	else >> node_031 
 	endif 
 	return 
 endf 
 
-def node_031 : 581
+def node_031
 	if function#104(2) >> node_034 
 	elif function#107() >> node_034 
 	elif function#103(1) >> node_012 
@@ -281,7 +281,7 @@ def node_031 : 581
 	return 
 endf 
 
-def node_032 : 580
+def node_032
 	if function#104(2) >> node_035 
 	elif function#107() >> node_035 
 	elif function#103(1) >> node_012 
@@ -290,7 +290,7 @@ def node_032 : 580
 	return 
 endf 
 
-def node_033 : 619
+def node_033
 	if function#104(2) >> node_036 
 	elif function#107() >> node_036 
 	else >> node_002 
@@ -298,17 +298,17 @@ def node_033 : 619
 	return 
 endf 
 
-def node_034 : 629
+def node_034
 	-> namielle.turn_spin_quick_start_l() 
 	return 
 endf 
 
-def node_035 : 630
+def node_035
 	-> namielle.turn_spin_quick_start_r() 
 	return 
 endf 
 
-def node_036 : 631
+def node_036
 	if self.distance_2d_to_target().leq(800) 
 		if self.angle_2d_cw_between(0,45) -> namielle.special_spark_end() 
 			return 
@@ -318,31 +318,31 @@ def node_036 : 631
 	return 
 endf 
 
-def node_037 : 602
+def node_037
 	if self.angle_2d_cw_between(0,180) >> node_039 
 	else >> node_038 
 	endif 
 	return 
 endf 
 
-def node_038 : 600
+def node_038
 	-> namielle.turn_jump_l() 
 	return 
 endf 
 
-def node_039 : 601
+def node_039
 	-> namielle.turn_jump_r() 
 	return 
 endf 
 
-def node_040 : 604
+def node_040
 	if self.angle_2d_cw_between(0,180) >> node_041 
 	else >> node_042 
 	endif 
 	return 
 endf 
 
-def node_041 : 586
+def node_041
 	if self.angle_2d_ccw_between(45,0) 
 		if self.distance_2d_to_target().leq(1000) -> namielle.turn_step_front_l() 
 		else -> namielle.turn_step_front_l() 
@@ -353,7 +353,7 @@ def node_041 : 586
 	return 
 endf 
 
-def node_042 : 587
+def node_042
 	if self.angle_2d_ccw_between(45,0) 
 		if self.distance_2d_to_target().leq(1000) -> namielle.turn_step_front_r() 
 		else -> namielle.turn_step_front_r() 
@@ -364,52 +364,52 @@ def node_042 : 587
 	return 
 endf 
 
-def node_043 : 591
+def node_043
 	if self.angle_2d_cw_between(0,180) -> namielle.turn_step_side_r() 
 	else -> namielle.turn_step_side_l() 
 	endif 
 	return 
 endf 
 
-def node_044 : 583
+def node_044
 	if self.angle_2d_cw_between(0,180) -> namielle.turn_step_l_fly() 
 	else -> namielle.turn_step_r_fly() 
 	endif 
 	return 
 endf 
 
-def node_045 : 585
+def node_045
 	if self.angle_2d_cw_between(0,180) -> namielle.turn_step_r_fly() 
 	else -> namielle.turn_step_l_fly() 
 	endif 
 	return 
 endf 
 
-def node_046 : 595
+def node_046
 	>> node_030 
 	>> node_014 
 	return 
 endf 
 
-def node_047 : 596
+def node_047
 	>> node_030 
 	>> node_013 
 	return 
 endf 
 
-def node_048 : 603
+def node_048
 	>> node_030 
 	>> node_010 
 	return 
 endf 
 
-def node_049 : 628
+def node_049
 	>> node_030 
 	>> node_015 
 	return 
 endf 
 
-def node_050 : 597
+def node_050
 	>> node_005 
 	if function#103(2) >> node_019 
 	elif function#107() >> node_010 
@@ -418,25 +418,25 @@ def node_050 : 597
 	return 
 endf 
 
-def node_051 : 606
+def node_051
 	>> node_005 
 	>> node_016 
 	return 
 endf 
 
-def node_052 : 612
+def node_052
 	>> node_005 
 	>> node_012 
 	return 
 endf 
 
-def node_053 : 610
+def node_053
 	>> node_006 
 	>> node_009 
 	return 
 endf 
 
-def node_054 : 608
+def node_054
 	>> node_006 
 	if function#103(2) >> node_019 
 	elif function#107() >> node_010 
@@ -445,13 +445,13 @@ def node_054 : 608
 	return 
 endf 
 
-def node_055 : 609
+def node_055
 	>> node_006 
 	>> node_016 
 	return 
 endf 
 
-def node_056 : 648
+def node_056
 	>> node_030 
 	if self.angle_2d_cw_between(90,270) >> node_007 
 	else >> node_010 
@@ -459,43 +459,43 @@ def node_056 : 648
 	return 
 endf 
 
-def node_057 : 646
+def node_057
 	>> node_009 
 	>> node_030 
 	return 
 endf 
 
-def node_058 : 647
+def node_058
 	>> node_009 
 	>> node_030 
 	return 
 endf 
 
-def node_059 : 633
+def node_059
 	>> node_012 
 	>> node_017 
 	return 
 endf 
 
-def node_060 : 635
+def node_060
 	>> node_005 
 	>> node_017 
 	return 
 endf 
 
-def node_061 : 632
+def node_061
 	>> node_006 
 	>> node_017 
 	return 
 endf 
 
-def node_062 : 599
+def node_062
 	if self.enraged() 
-		if [RegisterVar1 <= 10] >> node_262 
+		if [RegisterVar1 -= 10] >> node_262 
 			if self.distance_2d_to_target().leq(1200) >> node_016 
 			else >> node_015 
 			endif 
-		elif [RegisterVar1 <= 5] 
+		elif [RegisterVar1 -= 5] 
 			random (10) >> node_262 
 						if self.distance_2d_to_target().leq(1200) >> node_016 
 						else >> node_015 
@@ -505,15 +505,15 @@ def node_062 : 599
 		endif 
 	elif function#104(2) 
 	elif function#104(1) 
-		if [RegisterVar1 <= 10] >> node_011 
-		elif [RegisterVar1 <= 5] 
+		if [RegisterVar1 -= 10] >> node_011 
+		elif [RegisterVar1 -= 5] 
 			random (25) >> node_011 
 			elser (75) 
 			endr 
 		endif 
 	else 
-		if [RegisterVar1 <= 10] >> node_011 
-		elif [RegisterVar1 <= 5] 
+		if [RegisterVar1 -= 10] >> node_011 
+		elif [RegisterVar1 -= 5] 
 			random (30) >> node_011 
 			elser (70) 
 			endr 
@@ -522,18 +522,18 @@ def node_062 : 599
 	return 
 endf 
 
-def node_063 : 643
+def node_063
 	if function#104(2) 
 	elif function#104(1) 
-		if [RegisterVar1 <= 10] >> node_011 
-		elif [RegisterVar1 <= 5] 
+		if [RegisterVar1 -= 10] >> node_011 
+		elif [RegisterVar1 -= 5] 
 			random (30) >> node_011 
 			elser (70) 
 			endr 
 		endif 
 	else 
-		if [RegisterVar1 <= 10] >> node_011 
-		elif [RegisterVar1 <= 5] 
+		if [RegisterVar1 -= 10] >> node_011 
+		elif [RegisterVar1 -= 5] 
 			random (50) >> node_011 
 			elser (50) 
 			endr 
@@ -542,12 +542,12 @@ def node_063 : 643
 	return 
 endf 
 
-def node_064 : 579
+def node_064
 	>> node_259 
 	if function#B9() 
 		if function#103(2) 
 		elif function#103(1) 
-			if [RegisterVar0 <= 20] 
+			if [RegisterVar0 -= 20] 
 				if self.in_map(st.Coral_Highlands).in_area(8) 
 				elif self.in_map(st.Coral_Highlands).in_area(9) 
 				elif self.in_map(st.Coral_Highlands).in_area(11) 
@@ -556,14 +556,14 @@ def node_064 : 579
 				endif 
 			endif 
 		elif function#103() 
-			if [RegisterVar0 <= 10] 
+			if [RegisterVar0 -= 10] 
 				>> node_029 
 			endif 
 		endif 
 	else 
 		if function#103(2) 
 		elif function#103(1) 
-			if [RegisterVar0 <= 15] 
+			if [RegisterVar0 -= 15] 
 				if self.in_map(st.Coral_Highlands).in_area(8) 
 				elif self.in_map(st.Coral_Highlands).in_area(9) 
 				elif self.in_map(st.Coral_Highlands).in_area(11) 
@@ -572,7 +572,7 @@ def node_064 : 579
 				endif 
 			endif 
 		elif function#103() 
-			if [RegisterVar0 <= 15] 
+			if [RegisterVar0 -= 15] 
 				>> node_029 
 			endif 
 		endif 
@@ -580,26 +580,26 @@ def node_064 : 579
 	return 
 endf 
 
-def node_065 : 645
+def node_065
 	>> node_259 
 	if function#103(2) 
 	elif function#103(1) 
-		if [RegisterVar0 <= 5] 
+		if [RegisterVar0 -= 5] 
 			>> node_029 
 		endif 
 	elif function#103() 
-		if [RegisterVar0 <= 5] 
+		if [RegisterVar0 -= 5] 
 			>> node_029 
 		endif 
 	endif 
 	return 
 endf 
 
-def node_066 : 576
+def node_066
 	if function#B9() 
 		if function#103(2) 
-			if [RegisterVar0 <= 25] 
-			elif [RegisterVar0 <= 20] 
+			if [RegisterVar0 -= 25] 
+			elif [RegisterVar0 -= 20] 
 				random (20) 
 				elser (80) 
 							return 
@@ -613,8 +613,8 @@ def node_066 : 576
 		endif 
 	else 
 		if function#103(2) 
-			if [RegisterVar0 <= 20] 
-			elif [RegisterVar0 <= 15] 
+			if [RegisterVar0 -= 20] 
+			elif [RegisterVar0 -= 15] 
 				random (20) 
 				elser (80) 
 							return 
@@ -630,10 +630,10 @@ def node_066 : 576
 	return 
 endf 
 
-def node_067 : 644
+def node_067
 	if function#103(2) 
-		if [RegisterVar0 <= 15] 
-		elif [RegisterVar0 <= 10] 
+		if [RegisterVar0 -= 15] 
+		elif [RegisterVar0 -= 10] 
 			random (20) 
 			elser (80) 
 						return 
@@ -646,7 +646,7 @@ def node_067 : 644
 	return 
 endf 
 
-def node_068 : 222
+def node_068
 	if self.flying() 
 		if function#AF(5000) 
 			-> namielle.landing() 
@@ -658,7 +658,7 @@ def node_068 : 222
 	return 
 endf 
 
-def node_069 : 223
+def node_069
 	if self.flying() 
 	else 
 		-> namielle.take_off() 
@@ -666,7 +666,7 @@ def node_069 : 223
 	return 
 endf 
 
-def node_070 : 411
+def node_070
 	self.targetArea(target_area.area_aerial_center) 
 	>> node_097 
 	self.targetArea(target_area.area_center) 
@@ -674,14 +674,14 @@ def node_070 : 411
 	return 
 endf 
 
-def node_071 : 573
+def node_071
 	if self.flying() >> node_102 
 	else >> node_085 
 	endif 
 	return 
 endf 
 
-def node_072 : 641
+def node_072
 	if self.vertical_distance_to_target().gt(500) 
 		if self.above_target() -> namielle.short_up_step_fly() 
 		else -> namielle.short_down_step_fly() 
@@ -690,7 +690,7 @@ def node_072 : 641
 	return 
 endf 
 
-def node_073 : 559
+def node_073
 	if self.distance_3d_to_target().leq(700) 
 	else 
 		*&
@@ -699,7 +699,7 @@ def node_073 : 559
 	return 
 endf 
 
-def node_074 : 444
+def node_074
 	>> node_215 
 	self.targetArea(target_area.nearest_entrance) 
 	if self.distance_3d_to_target().leq(700) 
@@ -710,7 +710,7 @@ def node_074 : 444
 	return 
 endf 
 
-def node_075 : 445
+def node_075
 	>> node_215 
 	self.targetArea(target_area.area_center) 
 	if self.distance_3d_to_target().leq(700) 
@@ -721,7 +721,7 @@ def node_075 : 445
 	return 
 endf 
 
-def node_076 : 446
+def node_076
 	>> node_215 
 	self.targetArea(39) 
 	if self.distance_3d_to_target().leq(700) 
@@ -732,7 +732,7 @@ def node_076 : 446
 	return 
 endf 
 
-def node_077 : 356
+def node_077
 	if self.distance_3d_to_target().leq(700) 
 	else 
 		-> namielle.dying_walk(1,2,0,600,1500) 
@@ -741,7 +741,7 @@ def node_077 : 356
 	return 
 endf 
 
-def node_078 : 194
+def node_078
 	if self.distance_3d_to_target().leq(700) 
 	else 
 		-> namielle.dash(1,2,0,600,1500) 
@@ -750,7 +750,7 @@ def node_078 : 194
 	return 
 endf 
 
-def node_079 : 272
+def node_079
 	if self.distance_3d_to_target().leq(700) 
 	else 
 		-> namielle.dash(1,2,0,600,1500) 
@@ -766,7 +766,7 @@ def node_079 : 272
 	return 
 endf 
 
-def node_080 : 529
+def node_080
 	if self.distance_3d_to_target().leq(700) 
 	else 
 		-> namielle.dash(1,2,0,600,1500) 
@@ -790,7 +790,7 @@ def node_080 : 529
 	return 
 endf 
 
-def node_081 : 530
+def node_081
 	if self.distance_2d_to_target().leq(700) 
 	else 
 		-> namielle.dash(1,2,0,600,1500) 
@@ -806,7 +806,7 @@ def node_081 : 530
 	return 
 endf 
 
-def node_082 : 531
+def node_082
 	if self.distance_2d_to_target().leq(700) 
 	else 
 		-> namielle.dash(1,2,0,600,1500) 
@@ -830,7 +830,7 @@ def node_082 : 531
 	return 
 endf 
 
-def node_083 : 611
+def node_083
 	if self.distance_2d_to_target().leq(500) 
 	else 
 		-> namielle.dash(6,2,0,500,1500) 
@@ -846,7 +846,7 @@ def node_083 : 611
 	return 
 endf 
 
-def node_084 : 598
+def node_084
 	if self.distance_2d_to_target().leq(1000) 
 	else 
 		-> namielle.dash(6,2,0,1000,1500) 
@@ -854,14 +854,14 @@ def node_084 : 598
 	return 
 endf 
 
-def node_085 : 592
+def node_085
 	>> node_084 
 	>> node_084 
 	>> node_084 
 	return 
 endf 
 
-def node_086 : 343
+def node_086
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> namielle.dying_walk_fly(2,1,5,3000,500) 
@@ -870,7 +870,7 @@ def node_086 : 343
 	return 
 endf 
 
-def node_087 : 344
+def node_087
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> namielle.dying_glide_direct_move(2,1,5,3000,500) 
@@ -879,7 +879,7 @@ def node_087 : 344
 	return 
 endf 
 
-def node_088 : 345
+def node_088
 	if self.distance_3d_to_target().leq(1000) 
 	else 
 		-> namielle.dying_glide_direct_move(2,1,5,3000,900) 
@@ -888,7 +888,7 @@ def node_088 : 345
 	return 
 endf 
 
-def node_089 : 346
+def node_089
 	if self.distance_2d_to_target().leq(600) 
 	else 
 		-> namielle.glide_combat(2,1,5,3000,500) 
@@ -897,7 +897,7 @@ def node_089 : 346
 	return 
 endf 
 
-def node_090 : 347
+def node_090
 	if self.distance_2d_to_target().leq(1000) 
 	else 
 		-> namielle.glide_combat(2,1,5,3000,900) 
@@ -906,7 +906,7 @@ def node_090 : 347
 	return 
 endf 
 
-def node_091 : 401
+def node_091
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> namielle.glide(2,1,5,3000,500) 
@@ -915,7 +915,7 @@ def node_091 : 401
 	return 
 endf 
 
-def node_092 : 402
+def node_092
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> namielle.glide_direct_move(2,1,5,3000,500) 
@@ -924,7 +924,7 @@ def node_092 : 402
 	return 
 endf 
 
-def node_093 : 403
+def node_093
 	if self.distance_3d_to_target().leq(1000) 
 	else 
 		-> namielle.glide_direct_move(2,1,5,3000,900) 
@@ -933,7 +933,7 @@ def node_093 : 403
 	return 
 endf 
 
-def node_094 : 404
+def node_094
 	if self.distance_2d_to_target().leq(600) 
 	else 
 		-> namielle.glide_combat(2,1,5,3000,500) 
@@ -942,7 +942,7 @@ def node_094 : 404
 	return 
 endf 
 
-def node_095 : 405
+def node_095
 	if self.distance_2d_to_target().leq(1000) 
 	else 
 		-> namielle.glide_combat(2,1,5,3000,900) 
@@ -951,7 +951,7 @@ def node_095 : 405
 	return 
 endf 
 
-def node_096 : 196
+def node_096
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> namielle.glide(2,1,0,3000,500) 
@@ -960,7 +960,7 @@ def node_096 : 196
 	return 
 endf 
 
-def node_097 : 195
+def node_097
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> namielle.glide_direct_move(2,1,0,3000,500) 
@@ -969,7 +969,7 @@ def node_097 : 195
 	return 
 endf 
 
-def node_098 : 279
+def node_098
 	if self.distance_3d_to_target().leq(1000) 
 	else 
 		-> namielle.glide_direct_move(2,1,0,3000,900) 
@@ -978,7 +978,7 @@ def node_098 : 279
 	return 
 endf 
 
-def node_099 : 532
+def node_099
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> namielle.glide_direct_move(2,1,0,1500,500) 
@@ -994,7 +994,7 @@ def node_099 : 532
 	return 
 endf 
 
-def node_100 : 197
+def node_100
 	if self.distance_2d_to_target().leq(600) 
 	else 
 		-> namielle.glide_combat(2,1,0,3000,500) 
@@ -1003,7 +1003,7 @@ def node_100 : 197
 	return 
 endf 
 
-def node_101 : 280
+def node_101
 	if self.distance_2d_to_target().leq(1000) 
 	else 
 		-> namielle.glide_combat(2,1,0,3000,900) 
@@ -1012,7 +1012,7 @@ def node_101 : 280
 	return 
 endf 
 
-def node_102 : 533
+def node_102
 	if self.distance_2d_to_target().leq(600) 
 	else 
 		-> namielle.glide_combat(2,1,0,1500,500) 
@@ -1028,7 +1028,7 @@ def node_102 : 533
 	return 
 endf 
 
-def node_103 : 257
+def node_103
 	if self.distance_3d_to_target().leq(1000) 
 	else 
 		-> namielle.glide_direct_move(2,1,0,1500,700) 
@@ -1052,7 +1052,7 @@ def node_103 : 257
 	return 
 endf 
 
-def node_104 : 256
+def node_104
 	if self.distance_2d_to_target().leq(1000) 
 	else 
 		-> namielle.glide_combat(2,0,0,1500) 
@@ -1076,26 +1076,26 @@ def node_104 : 256
 	return 
 endf 
 
-def node_105 : 552
+def node_105
 	>> node_068 
 	-> namielle.take_off_switch_pattern_by_dist() 
 	>> node_098 
 	return 
 endf 
 
-def node_106 : 398
+def node_106
 	>> node_068 
 	-> namielle.sudden_rise() 
 	return 
 endf 
 
-def node_107 : 400
+def node_107
 	>> node_069 
 	-> namielle.sudden_drop() 
 	return 
 endf 
 
-def node_108 : 324
+def node_108
 	if self.flying() 
 		-> namielle.discover_fly() 
 	else 
@@ -1104,7 +1104,7 @@ def node_108 : 324
 	return 
 endf 
 
-def node_109 : 526
+def node_109
 	if self.flying() 
 		-> namielle.discover_fly() 
 	else 
@@ -1113,7 +1113,7 @@ def node_109 : 526
 	return 
 endf 
 
-def node_110 : 325
+def node_110
 	if self.flying() 
 		-> namielle.threat_short_fly() 
 	else 
@@ -1122,7 +1122,7 @@ def node_110 : 325
 	return 
 endf 
 
-def node_111 : 328
+def node_111
 	if self.flying() 
 		-> namielle.lost_search() 
 	else 
@@ -1131,16 +1131,16 @@ def node_111 : 328
 	return 
 endf 
 
-def node_112 : 556
-	if function#AB() 
-		function#AA() 
+def node_112
+	if [$V += 0] 
+		[$V |-] 
 		>> node_110 
 	else 
 	endif 
 	return 
 endf 
 
-def node_113 : 330
+def node_113
 	if self.flying() 
 		-> namielle.search_fly() 
 	else 
@@ -1149,7 +1149,7 @@ def node_113 : 330
 	return 
 endf 
 
-def node_114 : 329
+def node_114
 	if self.flying() 
 		-> namielle.search_fly() 
 	else 
@@ -1158,19 +1158,19 @@ def node_114 : 329
 	return 
 endf 
 
-def node_115 : 336
+def node_115
 	>> node_068 
 	-> namielle.tired() 
 	return 
 endf 
 
-def node_116 : 337
+def node_116
 	>> node_068 
 	-> namielle.refresh() 
 	return 
 endf 
 
-def node_117 : 369
+def node_117
 	>> node_068 
 	if self.in_combat() 
 		-> namielle.lost_search() 
@@ -1180,13 +1180,13 @@ def node_117 : 369
 	return 
 endf 
 
-def node_118 : 370
+def node_118
 	>> node_068 
 	-> namielle.lost_search() 
 	return 
 endf 
 
-def node_119 : 457
+def node_119
 	if self.flying() 
 		-> namielle.threat_short_fly() 
 	else 
@@ -1195,7 +1195,7 @@ def node_119 : 457
 	return 
 endf 
 
-def node_120 : 485
+def node_120
 	if self.flying() 
 		-> namielle.dying_walk() 
 		-> namielle.chance_fly() 
@@ -1206,13 +1206,13 @@ def node_120 : 485
 	return 
 endf 
 
-def node_121 : 206
+def node_121
 	self.targetArea(target_area.nearest_entrance) 
 	>> node_122 
 	return 
 endf 
 
-def node_122 : 424
+def node_122
 	if function#5A(20) 
 		>> node_123 
 	elif function#5A(21) 
@@ -1243,7 +1243,7 @@ def node_122 : 424
 	return 
 endf 
 
-def node_123 : 425
+def node_123
 	if self.distance_3d_to_target().leq(15000) 
 		>> node_068 
 		>> node_126 
@@ -1253,7 +1253,7 @@ def node_123 : 425
 	return 
 endf 
 
-def node_124 : 426
+def node_124
 	if self.distance_3d_to_target().leq(15000) 
 		>> node_069 
 		>> node_126 
@@ -1263,7 +1263,7 @@ def node_124 : 426
 	return 
 endf 
 
-def node_125 : 427
+def node_125
 	if function#AD() 
 		>> node_126 
 	else 
@@ -1272,7 +1272,7 @@ def node_125 : 427
 	return 
 endf 
 
-def node_126 : 207
+def node_126
 	if function#5A(10) 
 		>> node_069 
 	elif function#5A(11) 
@@ -1308,7 +1308,7 @@ def node_126 : 207
 	return 
 endf 
 
-def node_127 : 208
+def node_127
 	>> node_128 
 	>> node_129 
 	>> node_130 
@@ -1316,7 +1316,7 @@ def node_127 : 208
 	return 
 endf 
 
-def node_128 : 209
+def node_128
 	if self.flying() 
 		self.targetArea(target_area.area_aerial_center) 
 		>> node_093 
@@ -1329,7 +1329,7 @@ def node_128 : 209
 	return 
 endf 
 
-def node_129 : 210
+def node_129
 	self.targetArea(target_area.nearest_entrance) 
 	if self.flying() 
 		self.targetArea(40) 
@@ -1341,7 +1341,7 @@ def node_129 : 210
 	return 
 endf 
 
-def node_130 : 205
+def node_130
 	if function#5A(10) 
 	elif function#5A(11) 
 	elif function#5A(12) 
@@ -1364,7 +1364,7 @@ def node_130 : 205
 	return 
 endf 
 
-def node_131 : 278
+def node_131
 	self.targetArea(target_area.nearest_entrance) 
 	if self.flying() 
 		>> node_092 
@@ -1374,7 +1374,7 @@ def node_131 : 278
 	return 
 endf 
 
-def node_132 : 199
+def node_132
 	self.targetArea(14) 
 	if function#AD() 
 		>> node_133 
@@ -1385,7 +1385,7 @@ def node_132 : 199
 	return 
 endf 
 
-def node_133 : 200
+def node_133
 	if self.flying() 
 		self.targetArea(40) 
 		>> node_097 
@@ -1395,13 +1395,13 @@ def node_133 : 200
 	return 
 endf 
 
-def node_134 : 201
+def node_134
 	>> node_135 
 	>> node_137 
 	return 
 endf 
 
-def node_135 : 553
+def node_135
 	if self.flying() 
 		self.targetArea(target_area.area_aerial_center) 
 		>> node_098 
@@ -1412,7 +1412,7 @@ def node_135 : 553
 	return 
 endf 
 
-def node_136 : 554
+def node_136
 	self.targetArea(target_area.area_center) 
 	>> node_078 
 	self.targetArea(target_area.area_aerial_center) 
@@ -1420,7 +1420,7 @@ def node_136 : 554
 	return 
 endf 
 
-def node_137 : 203
+def node_137
 	self.targetArea(14) 
 	if self.flying() 
 		self.targetArea(40) 
@@ -1431,7 +1431,7 @@ def node_137 : 203
 	return 
 endf 
 
-def node_138 : 204
+def node_138
 	self.targetArea(target_area.area_center) 
 	if self.flying() 
 		if self.fatigued() 
@@ -1444,7 +1444,7 @@ def node_138 : 204
 	return 
 endf 
 
-def node_139 : 349
+def node_139
 	self.targetArea(24) 
 	if function#AD() 
 		>> node_140 
@@ -1454,14 +1454,14 @@ def node_139 : 349
 	return 
 endf 
 
-def node_140 : 350
+def node_140
 	>> node_068 
 	self.targetArea(24) 
 	>> node_077 
 	return 
 endf 
 
-def node_141 : 351
+def node_141
 	>> node_142 
 	>> node_143 
 	>> node_144 
@@ -1469,7 +1469,7 @@ def node_141 : 351
 	return 
 endf 
 
-def node_142 : 352
+def node_142
 	if self.flying() 
 		self.targetArea(target_area.area_aerial_center) 
 		>> node_088 
@@ -1482,7 +1482,7 @@ def node_142 : 352
 	return 
 endf 
 
-def node_143 : 353
+def node_143
 	self.targetArea(24) 
 	if self.flying() 
 		self.targetArea(40) 
@@ -1494,7 +1494,7 @@ def node_143 : 353
 	return 
 endf 
 
-def node_144 : 354
+def node_144
 	if self.flying() 
 		self.targetArea(target_area.area_center) 
 		>> node_068 
@@ -1503,7 +1503,7 @@ def node_144 : 354
 	return 
 endf 
 
-def node_145 : 355
+def node_145
 	if self.flying() 
 	else 
 		self.targetArea(24) 
@@ -1512,7 +1512,7 @@ def node_145 : 355
 	return 
 endf 
 
-def node_146 : 362
+def node_146
 	if function#AD() 
 		>> node_147 
 	else 
@@ -1521,7 +1521,7 @@ def node_146 : 362
 	return 
 endf 
 
-def node_147 : 363
+def node_147
 	if self.flying() 
 		>> node_101 
 	else 
@@ -1534,14 +1534,14 @@ def node_147 : 363
 	return 
 endf 
 
-def node_148 : 364
+def node_148
 	>> node_149 
 	>> node_150 
 	>> node_151 
 	return 
 endf 
 
-def node_149 : 365
+def node_149
 	if self.flying() 
 		self.targetArea(target_area.area_aerial_center) 
 		>> node_097 
@@ -1558,7 +1558,7 @@ def node_149 : 365
 	return 
 endf 
 
-def node_150 : 366
+def node_150
 	if self.flying() 
 		self.targetArea(40) 
 		>> node_096 
@@ -1573,7 +1573,7 @@ def node_150 : 366
 	return 
 endf 
 
-def node_151 : 367
+def node_151
 	if self.flying() 
 		self.targetArea(target_area.area_center) 
 		>> node_068 
@@ -1582,7 +1582,7 @@ def node_151 : 367
 	return 
 endf 
 
-def node_152 : 557
+def node_152
 	self.targetArea(target_area.area_center) 
 	if self.flying() 
 		if self.fatigued() 
@@ -1595,7 +1595,7 @@ def node_152 : 557
 	return 
 endf 
 
-def node_153 : 368
+def node_153
 	if self.flying() 
 		>> node_101 
 	else 
@@ -1608,7 +1608,7 @@ def node_153 : 368
 	return 
 endf 
 
-def node_154 : 309
+def node_154
 	if self.flying() 
 		-> namielle.turn_fly() 
 	else 
@@ -1617,7 +1617,7 @@ def node_154 : 309
 	return 
 endf 
 
-def node_155 : 310
+def node_155
 	if self.angle_2d_cw_between(15,345) 
 		>> node_154 
 	else 
@@ -1625,7 +1625,7 @@ def node_155 : 310
 	return 
 endf 
 
-def node_156 : 311
+def node_156
 	if self.angle_2d_cw_between(30,330) 
 		>> node_154 
 	else 
@@ -1633,7 +1633,7 @@ def node_156 : 311
 	return 
 endf 
 
-def node_157 : 312
+def node_157
 	if self.angle_2d_cw_between(60,300) 
 		>> node_154 
 	else 
@@ -1641,7 +1641,7 @@ def node_157 : 312
 	return 
 endf 
 
-def node_158 : 313
+def node_158
 	if self.angle_2d_cw_between(90,270) 
 		>> node_154 
 	else 
@@ -1649,7 +1649,7 @@ def node_158 : 313
 	return 
 endf 
 
-def node_159 : 357
+def node_159
 	if self.flying() 
 		>> node_230 
 	else 
@@ -1658,7 +1658,7 @@ def node_159 : 357
 	return 
 endf 
 
-def node_160 : 358
+def node_160
 	if self.angle_2d_cw_between(15,345) 
 		>> node_159 
 	else 
@@ -1666,7 +1666,7 @@ def node_160 : 358
 	return 
 endf 
 
-def node_161 : 359
+def node_161
 	if self.angle_2d_cw_between(30,330) 
 		>> node_159 
 	else 
@@ -1674,7 +1674,7 @@ def node_161 : 359
 	return 
 endf 
 
-def node_162 : 360
+def node_162
 	if self.angle_2d_cw_between(60,300) 
 		>> node_159 
 	else 
@@ -1682,7 +1682,7 @@ def node_162 : 360
 	return 
 endf 
 
-def node_163 : 361
+def node_163
 	if self.angle_2d_cw_between(90,270) 
 		>> node_159 
 	else 
@@ -1690,19 +1690,19 @@ def node_163 : 361
 	return 
 endf 
 
-def node_164 : 226
+def node_164
 	>> node_068 
 	-> namielle.lost_search() 
 	return 
 endf 
 
-def node_165 : 227
+def node_165
 	>> node_068 
 	-> namielle.lost_search() 
 	return 
 endf 
 
-def node_166 : 228
+def node_166
 	>> node_068 
 	random (50) -> namielle.combat_search() 
 	elser (50) -> namielle.lost_search() 
@@ -1710,7 +1710,7 @@ def node_166 : 228
 	return 
 endf 
 
-def node_167 : 229
+def node_167
 	>> node_068 
 	random (50) -> namielle.combat_search() 
 	elser (50) -> namielle.lost_search() 
@@ -1718,19 +1718,19 @@ def node_167 : 229
 	return 
 endf 
 
-def node_168 : 230
+def node_168
 	>> node_068 
 	-> namielle.dash(2,1,0,1000,750) 
 	return 
 endf 
 
-def node_169 : 231
+def node_169
 	>> node_068 
 	-> namielle.dash(2,1,0,2000,750) 
 	return 
 endf 
 
-def node_170 : 232
+def node_170
 	>> node_068 
 	if self.distance_2d_to_target().leq(900) 
 		random (65) >> node_074 
@@ -1746,7 +1746,7 @@ def node_170 : 232
 	return 
 endf 
 
-def node_171 : 233
+def node_171
 	>> node_068 
 	if self.target(10) 
 		-> namielle.dash(2,0,0,1000) 
@@ -1761,13 +1761,13 @@ def node_171 : 233
 	return 
 endf 
 
-def node_172 : 242
+def node_172
 	>> node_068 
 	-> namielle.tired() 
 	return 
 endf 
 
-def node_173 : 282
+def node_173
 	if self.distance_3d_to_target().leq(900) 
 		>> node_043 
 	elif self.distance_3d_to_target().leq(1350) 
@@ -1777,7 +1777,7 @@ def node_173 : 282
 	return 
 endf 
 
-def node_174 : 289
+def node_174
 	if self.distance_2d_to_target().leq(900) 
 	else 
 		-> namielle.dash(2,0,0,1500) 
@@ -1793,13 +1793,13 @@ def node_174 : 289
 	return 
 endf 
 
-def node_175 : 292
+def node_175
 	>> node_068 
 	-> namielle.lost_search() 
 	return 
 endf 
 
-def node_176 : 295
+def node_176
 	>> node_068 
 	>> node_156 
 	-> namielle.life_search() 
@@ -1816,7 +1816,7 @@ def node_176 : 295
 	return 
 endf 
 
-def node_177 : 300
+def node_177
 	>> node_068 
 	self.targetArea(17) 
 	>> node_156 
@@ -1824,7 +1824,7 @@ def node_177 : 300
 	return 
 endf 
 
-def node_178 : 307
+def node_178
 	>> node_068 
 	self.targetArea(17) 
 	random (75) >> node_176 
@@ -1834,7 +1834,7 @@ def node_178 : 307
 	return 
 endf 
 
-def node_179 : 303
+def node_179
 	>> node_068 
 	self.targetArea(17) 
 	>> node_156 
@@ -1842,14 +1842,14 @@ def node_179 : 303
 	return 
 endf 
 
-def node_180 : 305
+def node_180
 	>> node_068 
 	>> node_155 
 	-> namielle.spark_charge() 
 	return 
 endf 
 
-def node_181 : 306
+def node_181
 	>> node_068 
 	self.targetArea(17) 
 	>> node_156 
@@ -1857,56 +1857,56 @@ def node_181 : 306
 	return 
 endf 
 
-def node_182 : 296
+def node_182
 	>> node_069 
 	>> node_156 
 	-> namielle.threat_short_fly() 
 	return 
 endf 
 
-def node_183 : 301
+def node_183
 	>> node_069 
 	>> node_156 
 	-> namielle.chance_fly() 
 	return 
 endf 
 
-def node_184 : 308
+def node_184
 	>> node_069 
 	>> node_156 
 	-> namielle.threat_short_fly() 
 	return 
 endf 
 
-def node_185 : 299
+def node_185
 	>> node_069 
 	>> node_155 
 	-> namielle.threat_short_fly() 
 	return 
 endf 
 
-def node_186 : 297
+def node_186
 	>> node_069 
 	>> node_156 
 	-> namielle.threat_short_fly() 
 	return 
 endf 
 
-def node_187 : 534
+def node_187
 	>> node_069 
 	self.targetEnemy(17) 
 	-> namielle.sudden_drop() 
 	return 
 endf 
 
-def node_188 : 348
+def node_188
 	>> node_068 
 	>> node_156 
 	-> namielle.dying_sleep() 
 	return 
 endf 
 
-def node_189 : 422
+def node_189
 	if self.distance_2d_to_target().leq(500) 
 	else 
 		-> namielle.glide_direct_move(1,2,0,400,1500) 
@@ -1915,38 +1915,38 @@ def node_189 : 422
 	return 
 endf 
 
-def node_190 : 385
+def node_190
 	>> node_069 
 	self.targetArea(22) @ parameter2:500 
 	-> namielle.quick_turn_fly() 
 	return 
 endf 
 
-def node_191 : 527
+def node_191
 	>> node_069 
 	-> namielle.ride_rage_head() 
 	return 
 endf 
 
-def node_192 : 386
+def node_192
 	>> node_069 
 	-> namielle.ride_rage_head_lv2() 
 	return 
 endf 
 
-def node_193 : 528
+def node_193
 	>> node_069 
 	-> namielle.ride_rage_body() 
 	return 
 endf 
 
-def node_194 : 387
+def node_194
 	>> node_069 
 	-> namielle.ride_rage_body_lv2() 
 	return 
 endf 
 
-def node_195 : 394
+def node_195
 	>> node_069 
 	if self.distance_2d_to_target().leq(600) 
 		>> node_225 
@@ -1957,7 +1957,7 @@ def node_195 : 394
 	return 
 endf 
 
-def node_196 : 551
+def node_196
 	if function#11(1000) 
 	else 
 		if self.above_area() 
@@ -1969,49 +1969,49 @@ def node_196 : 551
 	return 
 endf 
 
-def node_197 : 388
+def node_197
 	>> node_069 
 	-> namielle.ride_rage_crash_head() 
 	return 
 endf 
 
-def node_198 : 389
+def node_198
 	>> node_069 
 	-> namielle.ride_rage_crash_head_lv2() 
 	return 
 endf 
 
-def node_199 : 390
+def node_199
 	>> node_069 
 	-> namielle.ride_rage_crash_body() 
 	return 
 endf 
 
-def node_200 : 391
+def node_200
 	>> node_069 
 	-> namielle.ride_rage_crash_body_lv2() 
 	return 
 endf 
 
-def node_201 : 393
+def node_201
 	>> node_069 
 	-> namielle.ride_wait() 
 	return 
 endf 
 
-def node_202 : 392
+def node_202
 	>> node_069 
 	-> namielle.ride_tired() 
 	return 
 endf 
 
-def node_203 : 275
+def node_203
 	>> node_068 
 	-> namielle.step_back() 
 	return 
 endf 
 
-def node_204 : 284
+def node_204
 	if self.angle_2d_cw_between(15,345) 
 		>> node_203 
 	else 
@@ -2019,7 +2019,7 @@ def node_204 : 284
 	return 
 endf 
 
-def node_205 : 285
+def node_205
 	if self.angle_2d_cw_between(30,330) 
 		>> node_203 
 	else 
@@ -2027,7 +2027,7 @@ def node_205 : 285
 	return 
 endf 
 
-def node_206 : 286
+def node_206
 	if self.angle_2d_cw_between(45,315) 
 		>> node_203 
 	else 
@@ -2035,7 +2035,7 @@ def node_206 : 286
 	return 
 endf 
 
-def node_207 : 287
+def node_207
 	if self.angle_2d_cw_between(60,300) 
 		>> node_203 
 	else 
@@ -2043,7 +2043,7 @@ def node_207 : 287
 	return 
 endf 
 
-def node_208 : 288
+def node_208
 	if self.angle_2d_cw_between(90,270) 
 		>> node_203 
 	else 
@@ -2051,13 +2051,13 @@ def node_208 : 288
 	return 
 endf 
 
-def node_209 : 271
+def node_209
 	>> node_068 
 	-> namielle.quick_turn() 
 	return 
 endf 
 
-def node_210 : 212
+def node_210
 	if self.angle_2d_cw_between(15,345) 
 		>> node_209 
 	else 
@@ -2065,7 +2065,7 @@ def node_210 : 212
 	return 
 endf 
 
-def node_211 : 213
+def node_211
 	if self.angle_2d_cw_between(30,330) 
 		>> node_209 
 	else 
@@ -2073,7 +2073,7 @@ def node_211 : 213
 	return 
 endf 
 
-def node_212 : 214
+def node_212
 	if self.angle_2d_cw_between(45,315) 
 		>> node_209 
 	else 
@@ -2081,7 +2081,7 @@ def node_212 : 214
 	return 
 endf 
 
-def node_213 : 216
+def node_213
 	if self.angle_2d_cw_between(60,300) 
 		>> node_209 
 	else 
@@ -2089,7 +2089,7 @@ def node_213 : 216
 	return 
 endf 
 
-def node_214 : 215
+def node_214
 	if self.angle_2d_cw_between(90,270) 
 		>> node_209 
 	else 
@@ -2097,7 +2097,7 @@ def node_214 : 215
 	return 
 endf 
 
-def node_215 : 458
+def node_215
 	if self.targetEnemy(target_em.any_monster) 
 		if self.target(13) 
 		else 
@@ -2164,17 +2164,17 @@ def node_215 : 458
 	return 
 endf 
 
-def node_216 : 459
+def node_216
 	return 
 endf 
 
-def node_217 : 460
+def node_217
 	>> node_161 
 	>> node_119 
 	return 
 endf 
 
-def node_218 : 461
+def node_218
 	if self.flying() >> node_026 
 	else 
 		if self.distance_2d_to_target().gt(1500) >> node_030 
@@ -2188,18 +2188,18 @@ def node_218 : 461
 	return 
 endf 
 
-def node_219 : 462
+def node_219
 	self.force_area_change2() 
 	return 
 endf 
 
-def node_220 : 639
+def node_220
 	>> node_218 
 	>> node_219 
 	return 
 endf 
 
-def node_221 : 640
+def node_221
 	function#31(49,1000) 
 	self.targetEnemy(target_em.closest_entity) 
 	random (35) >> node_216 
@@ -2210,7 +2210,7 @@ def node_221 : 640
 	return 
 endf 
 
-def node_222 : 397
+def node_222
 	random (35) 
 				self.targetArea(21) @ parameter2:300 
 	elser (35) 
@@ -2223,7 +2223,7 @@ def node_222 : 397
 	return 
 endf 
 
-def node_223 : 535
+def node_223
 	random (5) 
 				if self.flying() 
 					-> namielle.chance_fly() 
@@ -2235,7 +2235,7 @@ def node_223 : 535
 	return 
 endf 
 
-def node_224 : 536
+def node_224
 	if self.flying() 
 		-> namielle.chance_fly() 
 	else 
@@ -2244,13 +2244,13 @@ def node_224 : 536
 	return 
 endf 
 
-def node_225 : 464
+def node_225
 	>> node_069 
 	-> namielle.quick_turn_fly() 
 	return 
 endf 
 
-def node_226 : 465
+def node_226
 	if self.angle_2d_cw_between(15,345) 
 		>> node_225 
 	else 
@@ -2258,7 +2258,7 @@ def node_226 : 465
 	return 
 endf 
 
-def node_227 : 466
+def node_227
 	if self.angle_2d_cw_between(30,330) 
 		>> node_225 
 	else 
@@ -2266,7 +2266,7 @@ def node_227 : 466
 	return 
 endf 
 
-def node_228 : 467
+def node_228
 	if self.angle_2d_cw_between(45,315) 
 		>> node_225 
 	else 
@@ -2274,7 +2274,7 @@ def node_228 : 467
 	return 
 endf 
 
-def node_229 : 468
+def node_229
 	if self.angle_2d_cw_between(90,270) 
 		>> node_225 
 	else 
@@ -2282,7 +2282,7 @@ def node_229 : 468
 	return 
 endf 
 
-def node_230 : 469
+def node_230
 	if self.angle_2d_cw_between(0,180) 
 		-> namielle.quick_turn_fly() 
 	else 
@@ -2291,7 +2291,7 @@ def node_230 : 469
 	return 
 endf 
 
-def node_231 : 470
+def node_231
 	if self.angle_2d_cw_between(15,345) 
 		>> node_230 
 	else 
@@ -2299,7 +2299,7 @@ def node_231 : 470
 	return 
 endf 
 
-def node_232 : 471
+def node_232
 	if self.angle_2d_cw_between(30,330) 
 		>> node_230 
 	else 
@@ -2307,7 +2307,7 @@ def node_232 : 471
 	return 
 endf 
 
-def node_233 : 472
+def node_233
 	if self.angle_2d_cw_between(45,315) 
 		>> node_230 
 	else 
@@ -2315,7 +2315,7 @@ def node_233 : 472
 	return 
 endf 
 
-def node_234 : 473
+def node_234
 	if self.angle_2d_cw_between(90,270) 
 		>> node_230 
 	else 
@@ -2323,7 +2323,7 @@ def node_234 : 473
 	return 
 endf 
 
-def node_235 : 518
+def node_235
 	>> node_068 
 	>> node_161 
 	if self.flying() 
@@ -2334,7 +2334,7 @@ def node_235 : 518
 	return 
 endf 
 
-def node_236 : 519
+def node_236
 	>> node_068 
 	if self.targetEnemy(target_em.any_monster) 
 		random (20) >> node_161 
@@ -2349,7 +2349,7 @@ def node_236 : 519
 	return 
 endf 
 
-def node_237 : 520
+def node_237
 	>> node_068 
 	>> node_161 
 	random (40) -> namielle.chance() 
@@ -2360,14 +2360,14 @@ def node_237 : 520
 	return 
 endf 
 
-def node_238 : 521
+def node_238
 	>> node_068 
 	>> node_156 
 	-> namielle.life_search() 
 	return 
 endf 
 
-def node_239 : 522
+def node_239
 	>> node_068 
 	self.targetEnemy(58) 
 	random (0) >> node_240 
@@ -2383,17 +2383,17 @@ def node_239 : 522
 	return 
 endf 
 
-def node_240 : 523
+def node_240
 	-> namielle.walk(1,2,0,600,1500) 
 	return 
 endf 
 
-def node_241 : 524
+def node_241
 	-> namielle.glide_combat(1,2,0,600,2000) 
 	return 
 endf 
 
-def node_242 : 525
+def node_242
 	if self.fatigued() 
 		>> node_068 
 	else 
@@ -2401,7 +2401,7 @@ def node_242 : 525
 	return 
 endf 
 
-def node_243 : 537
+def node_243
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if function#5D() 
 		>> node_245 
@@ -2442,17 +2442,17 @@ def node_243 : 537
 	return 
 endf 
 
-def node_244 : 538
-	if [RegisterVar4 <= 10] 
-		[RegisterVar4 |-] 
-	elif [RegisterVar4 <= 1] 
+def node_244
+	if [RegisterVar4 -= 10] 
 		[RegisterVar4 ++] 
+	elif [RegisterVar4 -= 1] 
+		[RegisterVar4 |-] 
 	else 
 	endif 
 	return 
 endf 
 
-def node_245 : 539
+def node_245
 	if self.distance_2d_to_target().leq(1500) 
 		if self.angle_2d_cw_between(300,60) 
 		else 
@@ -2471,13 +2471,13 @@ def node_245 : 539
 	return 
 endf 
 
-def node_246 : 540
+def node_246
 	>> node_247 
 	>> node_248 
 	reset 
 endf 
 
-def node_247 : 331
+def node_247
 	self.targetArea(19) 
 	if self.distance_2d_to_target().leq(900) 
 	else 
@@ -2490,14 +2490,14 @@ def node_247 : 331
 	return 
 endf 
 
-def node_248 : 335
+def node_248
 	self.targetEnemy(target_em.random_player_or_cat) 
 	>> node_068 
 	-> namielle.lost_search() 
 	return 
 endf 
 
-def node_249 : 541
+def node_249
 	if function#103(1) 
 	else 
 		>> node_029 
@@ -2523,7 +2523,7 @@ def node_249 : 541
 	return 
 endf 
 
-def node_250 : 542
+def node_250
 	if self.target(56) 
 		self.targetArea(77) 
 		>> node_079 
@@ -2554,7 +2554,7 @@ def node_250 : 542
 	return 
 endf 
 
-def node_251 : 543
+def node_251
 	>> node_249 
 	return 
 	if self.flying() 
@@ -2576,7 +2576,7 @@ def node_251 : 543
 	return 
 endf 
 
-def node_252 : 544
+def node_252
 	if self.flying() 
 		>> node_258 
 	else 
@@ -2585,7 +2585,7 @@ def node_252 : 544
 	return 
 endf 
 
-def node_253 : 545
+def node_253
 	if self.distance_2d_to_target().leq(600) 
 		if self.vertical_distance_to_target().leq(1500) 
 		else 
@@ -2613,7 +2613,7 @@ def node_253 : 545
 	return 
 endf 
 
-def node_254 : 546
+def node_254
 	if self.distance_3d_to_target().leq(400) 
 	else 
 		-> namielle.dash(1,2,0,300,1500) 
@@ -2629,7 +2629,7 @@ def node_254 : 546
 	return 
 endf 
 
-def node_255 : 547
+def node_255
 	if self.distance_2d_to_target().leq(300) 
 		if self.vertical_distance_to_target().leq(1000) 
 		else 
@@ -2658,7 +2658,7 @@ def node_255 : 547
 	return 
 endf 
 
-def node_256 : 548
+def node_256
 	if self.above_target() 
 		random (0) >> node_230 
 		elser (50) >> node_228 
@@ -2676,13 +2676,13 @@ def node_256 : 548
 	return 
 endf 
 
-def node_257 : 549
+def node_257
 	>> node_069 
 	-> namielle.short_up_step_fly() 
 	return 
 endf 
 
-def node_258 : 550
+def node_258
 	if self.distance_3d_to_target().leq(300) 
 	else 
 		-> namielle.glide_direct_move(1,2,0,200,1500) 
@@ -2698,43 +2698,43 @@ def node_258 : 550
 	return 
 endf 
 
-def node_259 : 574
-	[RegisterVar0 ++] 
-	return 
-endf 
-
-def node_260 : 575
+def node_259
 	[RegisterVar0 |-] 
 	return 
 endf 
 
-def node_261 : 593
-	[RegisterVar1 ++] 
+def node_260
+	[RegisterVar0 ++] 
 	return 
 endf 
 
-def node_262 : 594
+def node_261
 	[RegisterVar1 |-] 
 	return 
 endf 
 
-def node_263 : 613
-	[RegisterVar2 ++] 
+def node_262
+	[RegisterVar1 ++] 
 	return 
 endf 
 
-def node_264 : 614
+def node_263
 	[RegisterVar2 |-] 
 	return 
 endf 
 
-def node_265 : 626
-	[RegisterVar3 ++] 
+def node_264
+	[RegisterVar2 ++] 
 	return 
 endf 
 
-def node_266 : 627
+def node_265
 	[RegisterVar3 |-] 
+	return 
+endf 
+
+def node_266
+	[RegisterVar3 ++] 
 	return 
 endf 
 

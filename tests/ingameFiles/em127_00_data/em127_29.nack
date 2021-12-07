@@ -1,7 +1,7 @@
 importactions Leshen as leshen
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	>> Global.node_002 
 	>> Global.node_005 
 	>> node_005 
@@ -9,7 +9,7 @@ def node_000 : 1
 	reset 
 endf 
 
-def node_001 : 2
+def node_001
 	self.targetEnemy(48) 
 	if self.in_map(st.Challenge_Arena).in_area(-1) 
 		>> node_004 
@@ -21,7 +21,7 @@ def node_001 : 2
 	return 
 endf 
 
-def node_002 : 24
+def node_002
 	if self.target(7) 
 	elif self.target(10) 
 	else 
@@ -31,7 +31,7 @@ def node_002 : 24
 	return 
 endf 
 
-def node_003 : 25
+def node_003
 	if self.targetEnemy(target_em.any_monster) 
 		random (20) >> Global.node_018 
 		elser (80) 
@@ -43,13 +43,13 @@ def node_003 : 25
 	return 
 endf 
 
-def node_004 : 23
+def node_004
 	>> Global.node_018 
 	-> leshen.search() 
 	return 
 endf 
 
-def node_005 : 26
+def node_005
 	if function#103() 
 	else 
 		if self.targetEnemy(target_em.any_monster) 
@@ -78,7 +78,7 @@ def node_005 : 26
 	return 
 endf 
 
-def node_006 : 27
+def node_006
 	self.targetEnemy(target_em.any_monster) 
 	random (50) >> Global.node_097 
 	elser (50) >> Global.node_100 

@@ -1,7 +1,7 @@
 importactions Noios as noios
 importlibrary Global as Global
 
-def node_000 : 44
+def node_000
 	>> Global.node_016 
 	self.targetEnemy(16) 
 	>> node_001 
@@ -9,14 +9,14 @@ def node_000 : 44
 	conclude 
 endf 
 
-def node_001 : 45
+def node_001
 	if self.hookable() -> action#14(6,0,0,500) 
 	else -> action#13(6,0,0,500) 
 	endif 
 	return 
 endf 
 
-def node_002 : 1
+def node_002
 	>> Global.node_007 
 	if function#72() 
 		if self.hookable() 
@@ -30,7 +30,7 @@ def node_002 : 1
 	conclude 
 endf 
 
-def node_003 : 40
+def node_003
 	function#52(136) 
 	self.targetEnemy(16) 
 	if self.hookable() 
@@ -42,7 +42,7 @@ def node_003 : 40
 	return 
 endf 
 
-def node_004 : 41
+def node_004
 	function#52(16) 
 	self.targetEnemy(16) 
 	-> action#13(1,0,0,500) 
@@ -50,7 +50,7 @@ def node_004 : 41
 	return 
 endf 
 
-def node_005 : 43
+def node_005
 	function#52() 
 	self.targetEnemy(16) 
 	-> action#14() 

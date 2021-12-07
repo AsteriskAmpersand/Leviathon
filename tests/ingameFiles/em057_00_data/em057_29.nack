@@ -1,7 +1,7 @@
 importactions Zinogre as zinogre
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	function#103() 
 	>> Global.node_004 
 	>> Global.node_006 
@@ -10,7 +10,7 @@ def node_000 : 1
 	reset 
 endf 
 
-def node_001 : 3
+def node_001
 	self.targetEnemy(48) 
 	if self.in_map(st.Challenge_Arena).in_area(-1) 
 		>> node_004 
@@ -22,7 +22,7 @@ def node_001 : 3
 	return 
 endf 
 
-def node_002 : 4
+def node_002
 	if self.target(7) 
 	elif self.target(10) 
 	else 
@@ -43,7 +43,7 @@ def node_002 : 4
 	return 
 endf 
 
-def node_003 : 5
+def node_003
 	if self.targetEnemy(target_em.any_monster) 
 		random (20) 
 		elser (80) >> Global.node_035 
@@ -59,7 +59,7 @@ def node_003 : 5
 	return 
 endf 
 
-def node_004 : 6
+def node_004
 	>> Global.node_035 
 	random (40) >> Global.node_184 
 	elser (30) >> Global.node_179 

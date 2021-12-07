@@ -1,7 +1,7 @@
 importactions Aptonoth as aptonoth
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	>> node_004 
 	>> node_003 
 	>> node_001 
@@ -10,24 +10,24 @@ def node_000 : 1
 	conclude 
 endf 
 
-def node_001 : 6
+def node_001
 	self.targetArea(21) @ parameter2:400 
 	return 
 endf 
 
-def node_002 : 7
+def node_002
 	-> aptonoth.idle_r(2,0,0,300) 
 	return 
 endf 
 
-def node_003 : 8
+def node_003
 	random (50) -> aptonoth.walk_tired() 
 	elser (50) -> aptonoth.walk_combat() 
 	endr 
 	return 
 endf 
 
-def node_004 : 9
+def node_004
 	if function#51(0,2000) 
 		>> Global.node_006 => reset 
 	else 

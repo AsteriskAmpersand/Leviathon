@@ -1,13 +1,13 @@
 importactions Pink_Rathian as pink_rathian
 
-def node_000 : 1
+def node_000
 	self.targetEnemy(target_em.closest_entity) 
 	-> pink_rathian.grapple_to_em100_start() 
 	-> pink_rathian.grapple_to_em100() 
 	conclude 
 endf 
 
-def node_001 : 2
+def node_001
 	if self.distance_2d_to_target().leq(3000) 
 		>> node_002 
 	else 
@@ -16,7 +16,7 @@ def node_001 : 2
 	return 
 endf 
 
-def node_002 : 3
+def node_002
 	if self.vertical_distance_to_target().gt(1000) 
 		-> pink_rathian.glide_combat_only_groundnavi() 
 	else 

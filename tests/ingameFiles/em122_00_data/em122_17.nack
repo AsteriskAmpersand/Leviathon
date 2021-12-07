@@ -1,11 +1,11 @@
 importactions Beotodus as beotodus
 importlibrary Global as Global
 
-def node_000 : 8
+def node_000
 	>> Global.node_077 
 	>> Global.node_070 
-	if function#AB() 
-		function#AA() 
+	if [$V += 0] 
+		[$V |-] 
 		>> node_001 
 	else 
 	endif 
@@ -14,13 +14,13 @@ def node_000 : 8
 	conclude 
 endf 
 
-def node_001 : 9
+def node_001
 	>> node_003 
 	>> Global.node_106 
 	return 
 endf 
 
-def node_002 : 10
+def node_002
 	if self.distance_3d_to_target().leq(800) 
 		return 
 	else 
@@ -29,8 +29,8 @@ def node_002 : 10
 	repeat 
 endf 
 
-def node_003 : 16
-	[RegisterVar5 |-] 
+def node_003
+	[RegisterVar5 ++] 
 	return 
 endf 
 

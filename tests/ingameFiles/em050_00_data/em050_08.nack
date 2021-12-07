@@ -1,17 +1,17 @@
 importactions Alatreon as alatreon
 importlibrary Global as Global
 
-def node_000 : 7
+def node_000
 	>> node_001 
-	[RegisterVar4 |-] 
-	[RegisterVar8 |-] 
+	[RegisterVar4 ++] 
+	[RegisterVar8 ++] 
 	if self.flying() >> node_003 
 	else >> node_002 
 	endif 
 	conclude 
 endf 
 
-def node_001 : 10
+def node_001
 	random (35) 
 				self.targetEnemy(50) 
 	elser (65) 
@@ -30,7 +30,7 @@ def node_001 : 10
 	return 
 endf 
 
-def node_002 : 8
+def node_002
 	if function#101(1) 
 		>> Global.node_080 
 	elif function#101(2) 
@@ -41,7 +41,7 @@ def node_002 : 8
 	return 
 endf 
 
-def node_003 : 9
+def node_003
 	if function#101(1) 
 		>> Global.node_154 
 	elif function#101(2) 

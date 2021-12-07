@@ -1,6 +1,6 @@
 importactions Aptonoth as aptonoth
 
-def node_000 : 8
+def node_000
 	if self.angle_2d_cw_between(30,330) 
 		-> aptonoth.take_off_switch_pattern_adjust() 
 	else 
@@ -8,7 +8,7 @@ def node_000 : 8
 	return 
 endf 
 
-def node_001 : 10
+def node_001
 	if self.distance_2d_to_target().leq(500) 
 	else 
 		-> aptonoth.idle_r(2,6,0,800,500) 
@@ -16,7 +16,7 @@ def node_001 : 10
 	return 
 endf 
 
-def node_002 : 11
+def node_002
 	-> aptonoth.take_off_switch_pattern_adjust() 
 	if self.distance_2d_to_target().leq(500) 
 	else 
@@ -25,7 +25,7 @@ def node_002 : 11
 	return 
 endf 
 
-def node_003 : 5
+def node_003
 	if self.distance_3d_to_target().leq(3000) 
 		>> node_000 
 	else 
@@ -42,7 +42,7 @@ def node_003 : 5
 	return 
 endf 
 
-def node_004 : 6
+def node_004
 	if function#B0() 
 		if self.distance_3d_to_target().leq(1500) 
 			-> aptonoth.walk_tired() 
@@ -63,9 +63,9 @@ def node_004 : 6
 	return 
 endf 
 
-def node_005 : 7
-	if [RegisterVar2 <= 5] 
-		[RegisterVar2 |-] 
+def node_005
+	if [RegisterVar2 -= 5] 
+		[RegisterVar2 ++] 
 		return 
 	else 
 		>> node_000 
@@ -74,27 +74,27 @@ def node_005 : 7
 				random (58) -> aptonoth.dash() 
 				elser (42) -> aptonoth.walk_tired() 
 				endr 
-				[RegisterVar2 ++] 
-				[RegisterVar2 ++] 
+				[RegisterVar2 |-] 
+				[RegisterVar2 |-] 
 			else 
 				-> aptonoth.walk_tired() 
-				[RegisterVar2 ++] 
+				[RegisterVar2 |-] 
 			endif 
 		elif function#B0(1) 
 			-> aptonoth.jump_no_use_navi() 
 			if self.distance_3d_to_target().leq(2000) 
-				[RegisterVar2 ++] 
-				[RegisterVar2 ++] 
+				[RegisterVar2 |-] 
+				[RegisterVar2 |-] 
 			else 
-				[RegisterVar2 ++] 
+				[RegisterVar2 |-] 
 			endif 
 		else 
 			-> aptonoth.jump_attack_wall_up() 
 			if self.distance_3d_to_target().leq(2000) 
-				[RegisterVar2 ++] 
-				[RegisterVar2 ++] 
+				[RegisterVar2 |-] 
+				[RegisterVar2 |-] 
 			else 
-				[RegisterVar2 ++] 
+				[RegisterVar2 |-] 
 			endif 
 		endif 
 		repeat 
@@ -102,7 +102,7 @@ def node_005 : 7
 	return 
 endf 
 
-def node_006 : 9
+def node_006
 	if self.distance_3d_to_target().leq(300) 
 		-> aptonoth.dash_no_hit() 
 	else 
@@ -118,7 +118,7 @@ def node_006 : 9
 	return 
 endf 
 
-def node_007 : 12
+def node_007
 	>> node_000 
 	>> node_002 
 	-> aptonoth.fox_walk() 

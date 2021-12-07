@@ -1,14 +1,14 @@
 importactions Ruiner_Nergigante as ruiner_nergigante
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	>> Global.node_063 
 	self.enraged() >> node_002 => reset 
 	self.fatigued() >> node_003 => reset 
 	>> node_001 => reset 
 endf 
 
-def node_001 : 2
+def node_001
 	if self.target_on_part(0) 
 		random (80) >> Global.node_066 
 		elser (20) >> Global.node_065 
@@ -38,7 +38,7 @@ def node_001 : 2
 	return 
 endf 
 
-def node_002 : 3
+def node_002
 	if self.target_on_part(0) 
 		random (90) >> Global.node_066 
 		elser (10) >> Global.node_065 
@@ -68,7 +68,7 @@ def node_002 : 3
 	return 
 endf 
 
-def node_003 : 4
+def node_003
 	>> node_001 
 	return 
 endf 

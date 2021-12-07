@@ -1,7 +1,7 @@
 importactions Vaal_Hazak as vaal_hazak
 importlibrary Global as Global
 
-def node_000 : 6
+def node_000
 	self.targetArea(24) 
 	if self.distance_3d_to_target().gt(1000) 
 		>> Global.node_046 
@@ -12,7 +12,7 @@ def node_000 : 6
 	conclude 
 endf 
 
-def node_001 : 7
+def node_001
 	if function#7C() 
 		conclude 
 	else 
@@ -22,7 +22,7 @@ def node_001 : 7
 	return 
 endf 
 
-def node_002 : 8
+def node_002
 	if self.current_quest().is_rank(rank.AT) 
 		>> Global.node_081 
 		>> Global.node_030 

@@ -1,7 +1,7 @@
 importactions KuluYaKu as kuluyaku
 importlibrary Global as Global
 
-def node_000 : 18
+def node_000
 	if self.current_quest().is_rank(rank.MR) 
 		>> node_001 
 	else 
@@ -10,7 +10,7 @@ def node_000 : 18
 	reset 
 endf 
 
-def node_001 : 17
+def node_001
 	self.targetEnemy(21) @ parameter2:700 
 	function#41() -> kuluyaku.damage_fly() => reset 
 	>> node_006 
@@ -19,7 +19,7 @@ def node_001 : 17
 	>> node_012 => reset 
 endf 
 
-def node_002 : 1
+def node_002
 	self.targetEnemy(21) @ parameter2:700 
 	function#41() -> kuluyaku.damage_fly() => reset 
 	>> node_006 
@@ -28,7 +28,7 @@ def node_002 : 1
 	>> node_003 => reset 
 endf 
 
-def node_003 : 2
+def node_003
 	random (40) >> Global.node_077 
 	elser (10) >> Global.node_076 
 	elser (5) >> Global.node_095 
@@ -37,7 +37,7 @@ def node_003 : 2
 	return 
 endf 
 
-def node_004 : 3
+def node_004
 	random (40) >> Global.node_077 
 	elser (15) >> Global.node_076 
 	elser (10) >> Global.node_095 
@@ -47,14 +47,14 @@ def node_004 : 3
 	return 
 endf 
 
-def node_005 : 4
+def node_005
 	random (35) >> Global.node_077 
 	elser (65) >> Global.node_067 
 	endr 
 	return 
 endf 
 
-def node_006 : 16
+def node_006
 	if function#101(3) 
 		-> kuluyaku.carry_tired() 
 	else 
@@ -71,14 +71,14 @@ def node_006 : 16
 	return 
 endf 
 
-def node_007 : 13
+def node_007
 	>> Global.node_057 
 	>> Global.node_057 
 	>> Global.node_077 
 	return 
 endf 
 
-def node_008 : 14
+def node_008
 	>> Global.node_077 
 	>> Global.node_057 
 	>> Global.node_095 
@@ -86,7 +86,7 @@ def node_008 : 14
 	return 
 endf 
 
-def node_009 : 15
+def node_009
 	>> Global.node_073 
 	>> Global.node_057 
 	>> Global.node_094 
@@ -95,7 +95,7 @@ def node_009 : 15
 	return 
 endf 
 
-def node_010 : 19
+def node_010
 	random (45) >> Global.node_077 
 	elser (20) >> Global.node_076 
 	elser (15) >> Global.node_095 
@@ -105,14 +105,14 @@ def node_010 : 19
 	return 
 endf 
 
-def node_011 : 20
+def node_011
 	random (80) >> Global.node_077 
 	elser (20) >> Global.node_067 
 	endr 
 	return 
 endf 
 
-def node_012 : 21
+def node_012
 	random (50) >> Global.node_077 
 	elser (25) >> Global.node_076 
 	elser (10) >> Global.node_095 

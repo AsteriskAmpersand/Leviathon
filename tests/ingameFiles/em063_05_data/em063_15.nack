@@ -1,7 +1,7 @@
 importactions Raging_Brachydios as raging_brachydios
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	function#52(16) 
 	>> node_001 
 	>> node_002 
@@ -9,7 +9,7 @@ def node_000 : 1
 	reset 
 endf 
 
-def node_001 : 3
+def node_001
 	>> Global.node_001 
 	self.targetArea(target_area.nearest_entrance) 
 	if function#57(1) >> Global.node_134 
@@ -29,7 +29,7 @@ def node_001 : 3
 	return 
 endf 
 
-def node_002 : 4
+def node_002
 	if function#57(1) >> node_003 
 	elif function#57(2) >> node_004 
 	elif function#57(3) >> node_005 
@@ -40,19 +40,19 @@ def node_002 : 4
 	return 
 endf 
 
-def node_003 : 6
+def node_003
 	-> raging_brachydios.combat_search() 
 	return 
 endf 
 
-def node_004 : 8
+def node_004
 	>> node_009 
 	-> raging_brachydios.sleep() 
 	>> Global.node_112 
 	return 
 endf 
 
-def node_005 : 9
+def node_005
 	self.targetEnemy(17) 
 	if function#5A() 
 		>> node_009 
@@ -64,7 +64,7 @@ def node_005 : 9
 	return 
 endf 
 
-def node_006 : 7
+def node_006
 	>> node_009 
 	>> Global.node_120 
 	-> raging_brachydios.sunbath() 
@@ -72,7 +72,7 @@ def node_006 : 7
 	return 
 endf 
 
-def node_007 : 11
+def node_007
 	>> Global.node_120 
 	random (75) -> raging_brachydios.sniffs_s() 
 	elser (25) >> node_008 
@@ -81,14 +81,14 @@ def node_007 : 11
 	return 
 endf 
 
-def node_008 : 5
+def node_008
 	>> node_009 
 	>> Global.node_120 
 	-> raging_brachydios.marking() 
 	return 
 endf 
 
-def node_009 : 10
+def node_009
 	random (10) -> raging_brachydios.quick_search() 
 	elser (90) 
 	endr 

@@ -1,19 +1,19 @@
 importactions Dodogama as dodogama
 importlibrary Global as Global
 
-def node_000 : 11
-	if [RegisterVar1 <= 15] 
-		[RegisterVar1 |-] 
+def node_000
+	if [RegisterVar1 -= 15] 
+		[RegisterVar1 ++] 
 		conclude 
 	else 
 	endif 
-	[RegisterVar1 ++] 
+	[RegisterVar1 |-] 
 	>> node_001 
 	repeat 
 	conclude 
 endf 
 
-def node_001 : 12
+def node_001
 	>> Global.node_003 
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.distance_3d_to_target().leq(3500) 
@@ -24,7 +24,7 @@ def node_001 : 12
 	return 
 endf 
 
-def node_002 : 13
+def node_002
 	if self.target(7) 
 	elif self.target(10) 
 	else 
@@ -38,7 +38,7 @@ def node_002 : 13
 	return 
 endf 
 
-def node_003 : 14
+def node_003
 	self.targetEnemy(58) 
 	random (20) >> Global.node_030 
 	elser (80) 

@@ -1,7 +1,7 @@
 importactions Rathalos as rathalos
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	self.targetArea(9) @ parameter2:1 
 	>> Global.node_002 
 	self.targetArea(51) 
@@ -9,7 +9,7 @@ def node_000 : 1
 	conclude 
 endf 
 
-def node_001 : 3
+def node_001
 	if function#AD() 
 		>> node_002 
 	else 
@@ -18,19 +18,19 @@ def node_001 : 3
 	return 
 endf 
 
-def node_002 : 4
+def node_002
 	>> Global.node_002 
 	>> Global.node_027 
 	return 
 endf 
 
-def node_003 : 5
+def node_003
 	>> node_004 
 	>> node_005 
 	return 
 endf 
 
-def node_004 : 6
+def node_004
 	if self.flying() 
 		self.targetArea(target_area.area_aerial_center) 
 		>> Global.node_028 
@@ -43,14 +43,14 @@ def node_004 : 6
 	return 
 endf 
 
-def node_005 : 7
+def node_005
 	>> Global.node_002 
 	self.targetArea(51) 
 	>> Global.node_025 
 	return 
 endf 
 
-def node_006 : 8
+def node_006
 	if self.flying() 
 		self.targetArea(target_area.area_center) 
 		>> Global.node_001 
@@ -59,7 +59,7 @@ def node_006 : 8
 	return 
 endf 
 
-def node_007 : 9
+def node_007
 	if self.flying() 
 		>> Global.node_031 
 	else 

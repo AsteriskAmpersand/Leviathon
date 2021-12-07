@@ -1,6 +1,6 @@
 importactions Acidic_Glavenus as acidic_glavenus
 
-def node_000 : 1
+def node_000
 	self.targetEnemy(34) 
 	if function#41() 
 	elif self.vertical_distance_to_target().gt(1000) 
@@ -17,7 +17,7 @@ def node_000 : 1
 	conclude 
 endf 
 
-def node_001 : 48
+def node_001
 	if self.distance_3d_to_target().leq(1500) 
 		-> acidic_glavenus.back_turn() 
 	elif self.angle_2d_cw_between(40,320) 
@@ -27,7 +27,7 @@ def node_001 : 48
 	return 
 endf 
 
-def node_002 : 49
+def node_002
 	if self.distance_3d_to_target().leq(1000) 
 		-> acidic_glavenus.back_turn() 
 	else 
@@ -35,7 +35,7 @@ def node_002 : 49
 	return 
 endf 
 
-def node_003 : 50
+def node_003
 	if self.target_is(em.Rathalos) 
 		>> node_001 
 		-> acidic_glavenus.threat_big() 
@@ -44,7 +44,7 @@ def node_003 : 50
 	return 
 endf 
 
-def node_004 : 51
+def node_004
 	if self.distance_3d_to_target().leq(4000) 
 		>> node_001 
 		-> acidic_glavenus.discover() 
@@ -55,7 +55,7 @@ def node_004 : 51
 	return 
 endf 
 
-def node_005 : 52
+def node_005
 	if self.distance_3d_to_target().leq(1500) 
 		>> node_001 
 		-> acidic_glavenus.search() 
@@ -65,7 +65,7 @@ def node_005 : 52
 	return 
 endf 
 
-def node_006 : 53
+def node_006
 	return 
 endf 
 

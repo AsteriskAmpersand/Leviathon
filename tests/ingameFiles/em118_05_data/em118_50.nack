@@ -1,11 +1,11 @@
 importactions Seething_Bazelgeuse as seething_bazelgeuse
 
-def node_000 : 1
+def node_000
 	>> node_001 
 	conclude 
 endf 
 
-def node_001 : 8
+def node_001
 	self.targetEnemy(target_em.closest_entity) 
 	if self.target_is(em.Savage_Deviljho) 
 		>> node_003 
@@ -14,7 +14,7 @@ def node_001 : 8
 	return 
 endf 
 
-def node_002 : 9
+def node_002
 	if self.flying() 
 		if function#AF(5000) 
 			-> seething_bazelgeuse.landing() 
@@ -25,7 +25,7 @@ def node_002 : 9
 	return 
 endf 
 
-def node_003 : 10
+def node_003
 	if function#104() 
 	else 
 		>> node_002 

@@ -1,15 +1,15 @@
 importactions Jyuratodus as jyuratodus
 importlibrary Global as Global
 
-def node_000 : 73
+def node_000
 	self.targetArea(14) 
 	if function#101() 
 		>> Global.node_031 
 		>> node_001 
 		>> Global.node_079 
 	else 
-		if function#AB() 
-			function#AA() 
+		if [$V += 0] 
+			[$V |-] 
 			>> Global.node_053 
 		endif 
 		>> node_001 
@@ -17,7 +17,7 @@ def node_000 : 73
 	conclude 
 endf 
 
-def node_001 : 75
+def node_001
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		>> Global.node_058 

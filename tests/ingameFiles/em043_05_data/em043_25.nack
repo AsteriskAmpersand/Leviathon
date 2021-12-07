@@ -1,13 +1,13 @@
 importactions Savage_Deviljho as savage_deviljho
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	>> Global.node_184 
 	>> Global.node_185 
 	conclude 
 endf 
 
-def node_001 : 2
+def node_001
 	if self.distance_3d_to_target().leq(1500) 
 		-> savage_deviljho.back_turn() 
 	elif self.angle_2d_cw_between(40,320) 
@@ -17,7 +17,7 @@ def node_001 : 2
 	return 
 endf 
 
-def node_002 : 3
+def node_002
 	if self.distance_3d_to_target().leq(1000) 
 		-> savage_deviljho.back_turn() 
 	else 
@@ -25,7 +25,7 @@ def node_002 : 3
 	return 
 endf 
 
-def node_003 : 4
+def node_003
 	if self.target_is(em.Rathalos) 
 		>> node_001 
 		-> savage_deviljho.threat_fly() 
@@ -34,7 +34,7 @@ def node_003 : 4
 	return 
 endf 
 
-def node_004 : 5
+def node_004
 	if self.distance_3d_to_target().leq(4000) 
 		>> node_001 
 		-> savage_deviljho.discover() 
@@ -45,7 +45,7 @@ def node_004 : 5
 	return 
 endf 
 
-def node_005 : 6
+def node_005
 	if self.distance_3d_to_target().leq(1500) 
 		>> node_001 
 		-> savage_deviljho.lost_search() 
@@ -55,11 +55,11 @@ def node_005 : 6
 	return 
 endf 
 
-def node_006 : 7
+def node_006
 	return 
 endf 
 
-def node_007 : 9
+def node_007
 	self.targetEnemy(34) 
 	if function#41() 
 	elif function#101() 

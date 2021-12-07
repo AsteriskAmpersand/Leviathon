@@ -1,7 +1,7 @@
 importactions Anjanath as anjanath
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	>> Global.node_045 
 	self.targetEnemy(target_em.closest_entity) 
 	>> node_009 
@@ -9,7 +9,7 @@ def node_000 : 1
 	reset 
 endf 
 
-def node_001 : 2
+def node_001
 	>> node_003 
 	if self.distance_3d_to_target().leq(1500) 
 		>> node_002 
@@ -24,7 +24,7 @@ def node_001 : 2
 	return 
 endf 
 
-def node_002 : 3
+def node_002
 	>> node_003 
 	self.targetEnemy(target_em.closest_entity) 
 	if self.target(11) 
@@ -44,7 +44,7 @@ def node_002 : 3
 	return 
 endf 
 
-def node_003 : 5
+def node_003
 	if function#6B(20000) 
 		-> anjanath.sniff_l() 
 		>> node_004 
@@ -54,7 +54,7 @@ def node_003 : 5
 	return 
 endf 
 
-def node_004 : 6
+def node_004
 	self.targetEnemy(26) 
 	if self.distance_3d_to_target().leq(600) 
 	else 
@@ -64,7 +64,7 @@ def node_004 : 6
 	return 
 endf 
 
-def node_005 : 7
+def node_005
 	if self.distance_3d_to_target().leq(300) 
 		-> anjanath.back_turn() @ unkn6:65536 
 	elif self.angle_2d_cw_between(30,330) 
@@ -74,12 +74,12 @@ def node_005 : 7
 	conclude 
 endf 
 
-def node_006 : 8
+def node_006
 	>> node_011 
 	return 
 endf 
 
-def node_007 : 9
+def node_007
 	random (20) >> node_012 
 	elser (65) >> node_013 
 	elser (15) >> node_011 
@@ -87,12 +87,12 @@ def node_007 : 9
 	return 
 endf 
 
-def node_008 : 10
+def node_008
 	>> node_012 
 	return 
 endf 
 
-def node_009 : 11
+def node_009
 	if self.target_is(em.Aptonoth) 
 	elif self.target_is(em.Apceros) 
 	else 
@@ -109,7 +109,7 @@ def node_009 : 11
 	return 
 endf 
 
-def node_010 : 4
+def node_010
 	if self.angle_2d_cw_between(40,320) 
 		-> anjanath.turn() @ unkn6:65536 
 	else 
@@ -117,7 +117,7 @@ def node_010 : 4
 	return 
 endf 
 
-def node_011 : 12
+def node_011
 	>> node_010 
 	random (45) -> anjanath.predator_walk_l() @ unkn6:65536 
 	elser (55) -> anjanath.predator_walk_r() @ unkn6:65536 
@@ -125,12 +125,12 @@ def node_011 : 12
 	return 
 endf 
 
-def node_012 : 13
+def node_012
 	-> anjanath.tired_dash(2,5,0,1500) @ parameter1:35, unkn6:65536 
 	return 
 endf 
 
-def node_013 : 14
+def node_013
 	-> anjanath.tired_walk(2,5,0,1500) @ parameter1:35, unkn6:65536 
 	return 
 endf 

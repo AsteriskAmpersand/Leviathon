@@ -1,10 +1,10 @@
 importactions Vaal_Hazak as vaal_hazak
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	>> Global.node_001 
-	if function#AB() 
-		function#AA() 
+	if [$V += 0] 
+		[$V |-] 
 		>> Global.node_013 
 	else 
 	endif 
@@ -12,7 +12,7 @@ def node_000 : 1
 	conclude 
 endf 
 
-def node_001 : 10
+def node_001
 	self.targetArea(14) 
 	if self.distance_3d_to_target().gt(600) 
 		>> Global.node_007 
@@ -21,7 +21,7 @@ def node_001 : 10
 	return 
 endf 
 
-def node_002 : 2
+def node_002
 	return 
 endf 
 

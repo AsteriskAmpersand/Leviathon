@@ -1,7 +1,7 @@
 importactions Savage_Deviljho as savage_deviljho
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	>> Global.node_184 
 	>> Global.node_185 
 	if function#101() 
@@ -12,7 +12,7 @@ def node_000 : 1
 	conclude 
 endf 
 
-def node_001 : 2
+def node_001
 	self.targetEnemy(target_em.closest_entity) 
 	if self.target_is(em.Rathalos) 
 		>> node_002 
@@ -46,7 +46,7 @@ def node_001 : 2
 	return 
 endf 
 
-def node_002 : 6
+def node_002
 	if self.distance_2d_to_target().gt(1900) 
 		-> savage_deviljho.dash(6,0,0,1800) 
 	else 
@@ -61,7 +61,7 @@ def node_002 : 6
 	return 
 endf 
 
-def node_003 : 9
+def node_003
 	if self.distance_2d_to_target().gt(1900) 
 		-> savage_deviljho.dash(6,0,0,1800) 
 	else 
@@ -76,7 +76,7 @@ def node_003 : 9
 	return 
 endf 
 
-def node_004 : 7
+def node_004
 	if self.distance_3d_to_target().gt(1800) 
 		-> savage_deviljho.dash(1,0,0,1700) 
 	else 
@@ -91,7 +91,7 @@ def node_004 : 7
 	return 
 endf 
 
-def node_005 : 8
+def node_005
 	if self.distance_3d_to_target().gt(1350) 
 		-> savage_deviljho.dash(1,0,0,1250) 
 	else 
@@ -106,7 +106,7 @@ def node_005 : 8
 	return 
 endf 
 
-def node_006 : 11
+def node_006
 	if self.distance_3d_to_target().gt(2100) 
 		-> savage_deviljho.dash(6,0,0,2000) 
 	else 
@@ -121,7 +121,7 @@ def node_006 : 11
 	return 
 endf 
 
-def node_007 : 12
+def node_007
 	if self.distance_3d_to_target().gt(1800) 
 		-> savage_deviljho.dash(6,0,0,1800) 
 	endif 
@@ -131,7 +131,7 @@ def node_007 : 12
 	return 
 endf 
 
-def node_008 : 13
+def node_008
 	if self.distance_3d_to_target().gt(1800) 
 		-> savage_deviljho.dash(6,0,0,1800) 
 	endif 
@@ -141,7 +141,7 @@ def node_008 : 13
 	return 
 endf 
 
-def node_009 : 14
+def node_009
 	if self.distance_3d_to_target().gt(1800) 
 		-> savage_deviljho.dash(6,0,0,1800) 
 	endif 
@@ -151,7 +151,7 @@ def node_009 : 14
 	return 
 endf 
 
-def node_010 : 15
+def node_010
 	if self.distance_3d_to_target().gt(1800) 
 		-> savage_deviljho.dash(1,0,0,1700) 
 	else 

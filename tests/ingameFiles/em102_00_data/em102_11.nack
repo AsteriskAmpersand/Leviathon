@@ -1,12 +1,12 @@
 importactions PukeiPukei as pukeipukei
 importlibrary Global as Global
 
-def node_000 : 74
+def node_000
 	>> Global.node_001 
 	>> node_001 
-	if function#A9(1,5) 
+	if [$U -= 5] 
 		>> node_003 
-	elif function#A9(1,1) 
+	elif [$U -= 1] 
 		>> node_002 
 	elif self.mounted() 
 		random (65) >> node_002 
@@ -20,7 +20,7 @@ def node_000 : 74
 	reset 
 endf 
 
-def node_001 : 78
+def node_001
 	if function#3B() 
 		if self.mount_staggered_twice() 
 			>> node_013 
@@ -47,60 +47,60 @@ def node_001 : 78
 				endr 
 			endif 
 		else 
-			function#A8(1) 
+			[$U ++] 
 			>> node_014 
 		endif 
 	endif 
 	return 
 endf 
 
-def node_002 : 55
-	if function#A9() 
-		function#A8() 
+def node_002
+	if [$U += 0] 
+		[$U |-] 
 	endif 
-	if function#A9(0,1) 
-		function#A8() 
+	if [$U += 1] 
+		[$U |-] 
 		>> node_004 
 	endif 
-	if function#A9(0,2) 
-		function#A8() 
+	if [$U += 2] 
+		[$U |-] 
 		>> node_004 
 	endif 
-	if function#A9(0,3) 
-		function#A8() 
+	if [$U += 3] 
+		[$U |-] 
 		>> node_007 
 	endif 
-	function#A8(1) 
+	[$U ++] 
 	>> node_012 
 	return 
 endf 
 
-def node_003 : 56
-	if function#A9() 
-		function#A8() 
-		function#A8() 
-		function#A8() 
-		function#A8() 
-		function#A8() 
+def node_003
+	if [$U += 0] 
+		[$U |-] 
+		[$U |-] 
+		[$U |-] 
+		[$U |-] 
+		[$U |-] 
 	endif 
-	if function#A9(0,5) 
-		function#A8() 
+	if [$U += 5] 
+		[$U |-] 
 		>> node_007 
 	endif 
-	if function#A9(0,6) 
-		function#A8() 
+	if [$U += 6] 
+		[$U |-] 
 		>> node_004 
 	endif 
-	if function#A9(0,7) 
-		function#A8() 
+	if [$U += 7] 
+		[$U |-] 
 		>> node_007 
 	endif 
-	function#A8(1) 
+	[$U ++] 
 	>> node_012 
 	return 
 endf 
 
-def node_004 : 39
+def node_004
 	if self.mounted() 
 		>> node_005 
 	else 
@@ -109,7 +109,7 @@ def node_004 : 39
 	return 
 endf 
 
-def node_005 : 40
+def node_005
 	>> Global.node_181 
 	if self.target_on_part(0) 
 		>> Global.node_183 
@@ -121,7 +121,7 @@ def node_005 : 40
 	return 
 endf 
 
-def node_006 : 43
+def node_006
 	>> Global.node_181 
 	if self.target_on_part(0) 
 		>> Global.node_184 
@@ -133,7 +133,7 @@ def node_006 : 43
 	return 
 endf 
 
-def node_007 : 46
+def node_007
 	if self.mounted() 
 		>> node_008 
 	else 
@@ -142,7 +142,7 @@ def node_007 : 46
 	return 
 endf 
 
-def node_008 : 47
+def node_008
 	if function#29() 
 		self.targetArea(7) 
 		>> Global.node_189 
@@ -154,7 +154,7 @@ def node_008 : 47
 	return 
 endf 
 
-def node_009 : 49
+def node_009
 	if self.target_on_part(0) 
 		>> Global.node_190 
 	elif self.target_on_part(1) 
@@ -165,7 +165,7 @@ def node_009 : 49
 	return 
 endf 
 
-def node_010 : 48
+def node_010
 	if function#29() 
 		self.targetArea(7) 
 		>> Global.node_189 
@@ -177,7 +177,7 @@ def node_010 : 48
 	return 
 endf 
 
-def node_011 : 50
+def node_011
 	if self.target_on_part(0) 
 		>> Global.node_191 
 	elif self.target_on_part(1) 
@@ -188,7 +188,7 @@ def node_011 : 50
 	return 
 endf 
 
-def node_012 : 51
+def node_012
 	if self.mounted() 
 		>> Global.node_196 
 	else 
@@ -196,12 +196,12 @@ def node_012 : 51
 	return 
 endf 
 
-def node_013 : 57
+def node_013
 	>> Global.node_197 
 	return 
 endf 
 
-def node_014 : 52
+def node_014
 	if self.fatigued() 
 		random (35) >> Global.node_196 
 		elser (65) 

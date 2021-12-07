@@ -15,10 +15,10 @@ if __name__ in "__main__":
         # print(folder)
         # print(file)
         ts = DecompilerSettings()
-        ts.verbose = True
+        ts.verbose = False
         ts.outputPath = folder
         ts.display = void
-        ts.forceId = True
+        ts.forceId = False
         THKLDecompiler(ts).read(file).writeFile()
     root = r"D:\Games SSD\MHW\chunk\em"
     outRoot = Path(r"D:\Games SSD\MHW-AI-Analysis\Leviathon\tests\ingameFiles")

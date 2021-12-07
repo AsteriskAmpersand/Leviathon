@@ -1,7 +1,7 @@
 importactions Vaal_Hazak as vaal_hazak
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	>> Global.node_003 
 	if self.mounted() 
 		random (47) >> node_001 
@@ -15,44 +15,44 @@ def node_000 : 1
 	reset 
 endf 
 
-def node_001 : 9
+def node_001
 	>> node_003 
-	function#A8() 
+	[$U |-] 
 	self.targetEnemy(target_em.random_player_or_cat) 
-	if function#A9(0,1) 
+	if [$U += 1] 
 		>> node_004 => repeat 
-	elif function#A9(0,2) 
+	elif [$U += 2] 
 		self.target_on_part(0) >> node_008 => repeat 
 		self.target_on_part(1) >> node_009 => repeat 
-	elif function#A9(0,3) 
+	elif [$U += 3] 
 		self.target_on_part(0) >> node_008 => repeat 
 		self.target_on_part(1) >> node_009 => repeat 
 	else 
-		function#A8(1) 
+		[$U ++] 
 		>> node_010 
 	endif 
 	return 
 endf 
 
-def node_002 : 10
+def node_002
 	>> node_003 
-	function#A8() 
+	[$U |-] 
 	self.targetEnemy(target_em.random_player_or_cat) 
-	if function#A9(0,1) 
+	if [$U += 1] 
 		>> node_004 => repeat 
-	elif function#A9(0,2) 
+	elif [$U += 2] 
 		>> node_010 => repeat 
-	elif function#A9(0,3) 
+	elif [$U += 3] 
 		self.target_on_part(0) >> node_008 => repeat 
 		self.target_on_part(1) >> node_009 => repeat 
 	else 
-		function#A8(1) 
+		[$U ++] 
 		>> node_010 
 	endif 
 	return 
 endf 
 
-def node_003 : 11
+def node_003
 	if function#3B() 
 		if self.mount_staggered_twice() 
 			>> node_006 
@@ -84,7 +84,7 @@ def node_003 : 11
 	return 
 endf 
 
-def node_004 : 12
+def node_004
 	if self.mounted() 
 		>> node_007 
 	else 
@@ -92,7 +92,7 @@ def node_004 : 12
 	return 
 endf 
 
-def node_005 : 2
+def node_005
 	random (33) 
 				self.targetEnemy(21) @ parameter2:1000 
 	elser (25) 
@@ -105,19 +105,19 @@ def node_005 : 2
 	return 
 endf 
 
-def node_006 : 3
+def node_006
 	>> Global.node_003 
 	-> vaal_hazak.ride_tired() 
 	return 
 endf 
 
-def node_007 : 4
+def node_007
 	>> Global.node_003 
 	-> vaal_hazak.ride_wait() 
 	return 
 endf 
 
-def node_008 : 5
+def node_008
 	if self.mounted() 
 		-> vaal_hazak.ride_rage_head() 
 	else 
@@ -126,7 +126,7 @@ def node_008 : 5
 	return 
 endf 
 
-def node_009 : 6
+def node_009
 	if self.mounted() 
 		-> vaal_hazak.ride_rage_body() 
 	else 
@@ -135,7 +135,7 @@ def node_009 : 6
 	return 
 endf 
 
-def node_010 : 7
+def node_010
 	if function#29() 
 		self.targetEnemy(7) 
 		>> node_011 
@@ -154,7 +154,7 @@ def node_010 : 7
 	return 
 endf 
 
-def node_011 : 8
+def node_011
 	if self.distance_3d_to_target().leq(500) 
 		>> Global.node_004 
 	elif self.distance_3d_to_target().gt(1000) 

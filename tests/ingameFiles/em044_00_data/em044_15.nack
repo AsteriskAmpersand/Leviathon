@@ -1,7 +1,7 @@
 importactions Barroth as barroth
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	function#52() 
 	>> node_001 
 	>> node_002 
@@ -10,7 +10,7 @@ def node_000 : 1
 	reset 
 endf 
 
-def node_001 : 2
+def node_001
 	>> Global.node_015 
 	self.targetArea(target_area.nearest_entrance) 
 	if function#57(1) 
@@ -33,7 +33,7 @@ def node_001 : 2
 	reset 
 endf 
 
-def node_002 : 3
+def node_002
 	if function#57(1) 
 		>> node_009 
 		function#56(4) 
@@ -56,64 +56,64 @@ def node_002 : 3
 	return 
 endf 
 
-def node_003 : 5
+def node_003
 	self.targetArea(target_area.nearest_entrance) 
 	-> barroth.walk(2,1,5,1500,500) 
 	return 
 endf 
 
-def node_004 : 8
+def node_004
 	self.targetArea(target_area.nearest_entrance) 
 	-> barroth.walk(2,1,5,1500,500) 
 	return 
 endf 
 
-def node_005 : 10
+def node_005
 	self.targetArea(target_area.nearest_entrance) 
 	-> barroth.walk(2,1,5,1500,500) 
 	return 
 endf 
 
-def node_006 : 11
+def node_006
 	self.targetArea(target_area.nearest_entrance) 
 	-> barroth.walk(2,1,5,1500,500) 
 	return 
 endf 
 
-def node_007 : 22
+def node_007
 	self.targetArea(target_area.nearest_entrance) 
 	-> barroth.walk(2,1,0,1500,300) 
 	return 
 endf 
 
-def node_008 : 27
+def node_008
 	function#54() 
 	self.targetEnemy(17) 
 	>> Global.node_001 
 	return 
 endf 
 
-def node_009 : 21
+def node_009
 	function#54() 
 	>> Global.node_027 
 	return 
 endf 
 
-def node_010 : 15
+def node_010
 	function#54() 
 	self.targetEnemy(17) 
 	>> Global.node_007 
 	return 
 endf 
 
-def node_011 : 16
+def node_011
 	function#54() 
 	self.targetEnemy(17) 
 	>> Global.node_008 
 	return 
 endf 
 
-def node_012 : 23
+def node_012
 	function#54() 
 	self.targetEnemy(17) 
 	>> Global.node_049 

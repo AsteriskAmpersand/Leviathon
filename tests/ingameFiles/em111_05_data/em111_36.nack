@@ -1,7 +1,7 @@
 importactions Shrieking_Legiana as shrieking_legiana
 importlibrary Global as Global
 
-def node_000 : 8
+def node_000
 	>> node_001 
 	>> Global.node_375 
 	>> Global.node_376 
@@ -10,7 +10,7 @@ def node_000 : 8
 	reset 
 endf 
 
-def node_001 : 49
+def node_001
 	if self.target_on_part(0) 
 		>> node_002 
 	elif self.target_on_part(1) 
@@ -20,20 +20,20 @@ def node_001 : 49
 	return 
 endf 
 
-def node_002 : 50
+def node_002
 	>> Global.node_002 
 	>> node_004 
 	reset 
 endf 
 
-def node_003 : 45
+def node_003
 	random (50) >> Global.node_346 
 	elser (50) 
 	endr 
 	return 
 endf 
 
-def node_004 : 46
+def node_004
 	if self.mounted() 
 		>> node_005 
 	else 
@@ -42,7 +42,7 @@ def node_004 : 46
 	return 
 endf 
 
-def node_005 : 47
+def node_005
 	>> Global.node_334 
 	if self.target_on_part(0) 
 		>> Global.node_335 
@@ -52,7 +52,7 @@ def node_005 : 47
 	return 
 endf 
 
-def node_006 : 48
+def node_006
 	>> Global.node_334 
 	if self.target_on_part(0) 
 		>> Global.node_336 
@@ -62,7 +62,7 @@ def node_006 : 48
 	return 
 endf 
 
-def node_007 : 16
+def node_007
 	if self.fatigued() 
 		if self.flying() 
 			>> Global.node_001 
@@ -73,7 +73,7 @@ def node_007 : 16
 	return 
 endf 
 
-def node_008 : 51
+def node_008
 	random (50) >> Global.node_107 
 	elser (35) >> Global.node_108 
 	elser (15) >> Global.node_001 

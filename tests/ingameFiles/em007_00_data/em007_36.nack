@@ -1,7 +1,7 @@
 importactions Diablos as diablos
 importlibrary Global as Global
 
-def node_000 : 38
+def node_000
 	if self.current_quest().is_rank(rank.MR) 
 		>> node_001 
 	else 
@@ -10,7 +10,7 @@ def node_000 : 38
 	reset 
 endf 
 
-def node_001 : 37
+def node_001
 	>> Global.node_007 
 	self.targetArea(21) @ parameter2:700 
 	if self.target_on_part(0) >> node_007 
@@ -25,7 +25,7 @@ def node_001 : 37
 	reset 
 endf 
 
-def node_002 : 8
+def node_002
 	>> Global.node_007 
 	self.targetArea(21) @ parameter2:700 
 	if self.target_on_part(0) >> node_007 
@@ -40,14 +40,14 @@ def node_002 : 8
 	reset 
 endf 
 
-def node_003 : 9
+def node_003
 	random (25) >> Global.node_070 
 	elser (75) >> Global.node_030 
 	endr 
 	return 
 endf 
 
-def node_004 : 10
+def node_004
 	random (25) >> Global.node_070 
 	elser (25) >> Global.node_071 
 	elser (25) >> Global.node_073 
@@ -56,7 +56,7 @@ def node_004 : 10
 	return 
 endf 
 
-def node_005 : 11
+def node_005
 	random (50) >> Global.node_029 
 	elser (15) >> Global.node_070 
 	elser (35) >> Global.node_030 
@@ -64,7 +64,7 @@ def node_005 : 11
 	return 
 endf 
 
-def node_006 : 36
+def node_006
 	random (40) >> Global.node_030 
 	elser (15) >> Global.node_070 
 	elser (10) >> Global.node_071 
@@ -72,34 +72,34 @@ def node_006 : 36
 	elser (25) >> Global.node_032 
 	endr 
 	return 
-	*& // [Illegal Context] endr 
+	// -Illegal Context was commented out 'endr '
 	return 
 endf 
 
-def node_007 : 12
+def node_007
 	>> Global.node_007 
-	function#A8() 
+	[$U |-] 
 	self.targetEnemy(target_em.random_player_or_cat) 
-	if function#A9(0,1) 
+	if [$U += 1] 
 		self.target_on_part(0) >> node_008 => repeat 
 		self.target_on_part(1) >> node_011 => repeat 
 		self.target_on_part(2) >> node_014 => repeat 
-	elif function#A9(0,2) 
+	elif [$U += 2] 
 		self.target_on_part(0) >> node_008 => repeat 
 		self.target_on_part(1) >> node_011 => repeat 
 		self.target_on_part(2) >> node_014 => repeat 
-	elif function#A9(0,3) 
+	elif [$U += 3] 
 		self.target_on_part(0) >> node_020 => repeat 
 		self.target_on_part(1) >> node_020 => repeat 
 		self.target_on_part(2) >> node_020 => repeat 
 	else 
-		function#A8(1) 
+		[$U ++] 
 		return 
 	endif 
 	return 
 endf 
 
-def node_008 : 15
+def node_008
 	if self.mounted() 
 		>> node_009 
 	else 
@@ -108,17 +108,17 @@ def node_008 : 15
 	return 
 endf 
 
-def node_009 : 16
+def node_009
 	-> diablos.corner_swing_attack() 
 	return 
 endf 
 
-def node_010 : 17
+def node_010
 	-> diablos.ride_rage_head() 
 	return 
 endf 
 
-def node_011 : 18
+def node_011
 	if self.mounted() 
 		>> node_012 
 	else 
@@ -127,17 +127,17 @@ def node_011 : 18
 	return 
 endf 
 
-def node_012 : 19
+def node_012
 	-> diablos.ride_rage_body() 
 	return 
 endf 
 
-def node_013 : 20
+def node_013
 	-> diablos.ride_rage_body_lv2() 
 	return 
 endf 
 
-def node_014 : 21
+def node_014
 	if self.mounted() 
 		>> node_015 
 	else 
@@ -146,23 +146,23 @@ def node_014 : 21
 	return 
 endf 
 
-def node_015 : 22
+def node_015
 	-> diablos.tail_strike() 
 	return 
 endf 
 
-def node_016 : 23
+def node_016
 	-> diablos.ride_rage_tail() 
 	return 
 endf 
 
-def node_017 : 24
+def node_017
 	>> node_022 
 	-> diablos.rush_headbutt() 
 	return 
 endf 
 
-def node_018 : 25
+def node_018
 	if function#3B() 
 		if self.mount_staggered_twice() 
 			>> node_019 
@@ -195,12 +195,12 @@ def node_018 : 25
 	return 
 endf 
 
-def node_019 : 26
+def node_019
 	-> diablos.ride_tired() 
 	return 
 endf 
 
-def node_020 : 27
+def node_020
 	if self.mounted() 
 		>> node_021 
 	else 
@@ -208,12 +208,12 @@ def node_020 : 27
 	return 
 endf 
 
-def node_021 : 28
+def node_021
 	-> diablos.wait() 
 	return 
 endf 
 
-def node_022 : 29
+def node_022
 	random (20) >> node_023 
 	elser (80) >> node_024 
 	endr 
@@ -221,34 +221,34 @@ def node_022 : 29
 	return 
 endf 
 
-def node_023 : 30
+def node_023
 	self.targetEnemy(21) @ parameter2:1000 
 	return 
 endf 
 
-def node_024 : 31
+def node_024
 	self.targetEnemy(22) @ parameter2:1000 
 	return 
 endf 
 
-def node_025 : 32
+def node_025
 	random (48) >> node_026 
 	elser (52) >> node_027 
 	endr 
 	return 
 endf 
 
-def node_026 : 33
+def node_026
 	self.targetEnemy(12) @ parameter2:1000 
 	return 
 endf 
 
-def node_027 : 34
+def node_027
 	self.targetEnemy(11) @ parameter2:1000 
 	return 
 endf 
 
-def node_028 : 35
+def node_028
 	if self.angular_17(300,60) 
 		-> diablos.quick_turn() 
 	else 
@@ -256,7 +256,7 @@ def node_028 : 35
 	return 
 endf 
 
-def node_029 : 39
+def node_029
 	random (25) >> Global.node_070 
 	elser (25) >> Global.node_071 
 	elser (25) >> Global.node_073 
@@ -265,7 +265,7 @@ def node_029 : 39
 	return 
 endf 
 
-def node_030 : 40
+def node_030
 	random (10) >> Global.node_029 
 	elser (50) >> Global.node_070 
 	elser (30) >> Global.node_071 
@@ -274,7 +274,7 @@ def node_030 : 40
 	return 
 endf 
 
-def node_031 : 41
+def node_031
 	random (45) >> Global.node_070 
 	elser (30) >> Global.node_071 
 	elser (20) >> Global.node_073 
@@ -283,7 +283,7 @@ def node_031 : 41
 	return 
 endf 
 
-def node_032 : 42
+def node_032
 	random (25) >> Global.node_030 
 	elser (20) >> Global.node_070 
 	elser (15) >> Global.node_071 
@@ -291,7 +291,7 @@ def node_032 : 42
 	elser (25) >> Global.node_032 
 	endr 
 	return 
-	*& // [Illegal Context] endr 
+	// -Illegal Context was commented out 'endr '
 	return 
 endf 
 

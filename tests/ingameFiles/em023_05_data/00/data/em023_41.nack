@@ -1,7 +1,7 @@
 importactions Rajang as rajang
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	>> Global.node_104 
 	>> node_002 
 	self.targetArea(20) 
@@ -12,7 +12,7 @@ def node_000 : 1
 	conclude 
 endf 
 
-def node_001 : 8
+def node_001
 	if self.distance_3d_to_target().leq(800) 
 		return 
 	else 
@@ -21,8 +21,8 @@ def node_001 : 8
 	repeat 
 endf 
 
-def node_002 : 9
-	[RegisterVar8 ++] 
+def node_002
+	[RegisterVar8 |-] 
 	return 
 endf 
 

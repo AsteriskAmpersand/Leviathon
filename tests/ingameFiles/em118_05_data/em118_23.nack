@@ -1,19 +1,19 @@
 importactions Seething_Bazelgeuse as seething_bazelgeuse
 
-def node_000 : 12
+def node_000
 	self.targetEnemy(target_em.closest_entity) 
 	>> node_001 
 	conclude 
 endf 
 
-def node_001 : 13
+def node_001
 	if self.target_is(em.Savage_Deviljho) 
 		>> node_002 
 	endif 
 	return 
 endf 
 
-def node_002 : 14
+def node_002
 	if self.flying() 
 		-> seething_bazelgeuse.grapple_with_em043_05_mediation_threat_fly() 
 	else 

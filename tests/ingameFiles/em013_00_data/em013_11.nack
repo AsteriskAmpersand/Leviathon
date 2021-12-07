@@ -1,7 +1,7 @@
 importactions Fatalis as fatalis
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	>> Global.node_017 
 	if function#101(1) 
 		>> Global.node_016 
@@ -19,59 +19,59 @@ def node_000 : 1
 	reset 
 endf 
 
-def node_001 : 3
+def node_001
 	>> node_015 
-	function#A8() 
+	[$U |-] 
 	self.targetEnemy(target_em.random_player_or_cat) 
 	function#10C() 
-	if function#A9(0,1) 
+	if [$U += 1] 
 		self.target_on_part(0) >> node_003 => repeat 
 		self.target_on_part(1) >> node_004 => repeat 
 		self.target_on_part(2) >> node_005 => repeat 
-	elif function#A9(0,2) 
+	elif [$U += 2] 
 		>> node_013 
-	elif function#A9(0,3) 
+	elif [$U += 3] 
 		self.target_on_part(0) >> node_003 => repeat 
 		self.target_on_part(1) >> node_004 => repeat 
 		self.target_on_part(2) >> node_005 => repeat 
 	else 
-		function#A8(1) 
+		[$U ++] 
 		>> node_013 
 	endif 
 	return 
 endf 
 
-def node_002 : 4
+def node_002
 	>> node_015 
-	function#A8() 
+	[$U |-] 
 	self.targetEnemy(target_em.random_player_or_cat) 
 	function#10C() 
-	if function#A9(0,1) 
+	if [$U += 1] 
 		self.target_on_part(0) >> node_003 => repeat 
 		self.target_on_part(1) >> node_004 => repeat 
 		self.target_on_part(2) >> node_005 => repeat 
-	elif function#A9(0,2) 
+	elif [$U += 2] 
 		self.target_on_part(0) >> node_003 => repeat 
 		self.target_on_part(1) >> node_004 => repeat 
 		self.target_on_part(2) >> node_005 => repeat 
-	elif function#A9(0,3) 
+	elif [$U += 3] 
 		>> node_013 
-	elif function#A9(0,4) 
+	elif [$U += 4] 
 		self.target_on_part(0) >> node_003 => repeat 
 		self.target_on_part(1) >> node_004 => repeat 
 		self.target_on_part(2) >> node_005 => repeat 
-	elif function#A9(0,5) 
+	elif [$U += 5] 
 		self.target_on_part(0) >> node_003 => repeat 
 		self.target_on_part(1) >> node_004 => repeat 
 		self.target_on_part(2) >> node_005 => repeat 
 	else 
-		function#A8(1) 
+		[$U ++] 
 		>> node_013 
 	endif 
 	return 
 endf 
 
-def node_003 : 5
+def node_003
 	if self.mounted() 
 		random (50) >> node_007 
 		elser (50) >> node_008 
@@ -84,7 +84,7 @@ def node_003 : 5
 	return 
 endf 
 
-def node_004 : 6
+def node_004
 	if self.mounted() 
 		random (50) >> node_010 
 		elser (50) >> node_010 
@@ -97,7 +97,7 @@ def node_004 : 6
 	return 
 endf 
 
-def node_005 : 7
+def node_005
 	if self.mounted() 
 		random (50) >> node_011 
 		elser (50) >> node_012 
@@ -110,7 +110,7 @@ def node_005 : 7
 	return 
 endf 
 
-def node_006 : 11
+def node_006
 	if self.mounted() 
 		>> node_014 
 	else 
@@ -118,54 +118,54 @@ def node_006 : 11
 	return 
 endf 
 
-def node_007 : 12
+def node_007
 	-> fatalis.l2_line_fire_shoot() 
 	>> node_017 
 	return 
 endf 
 
-def node_008 : 13
+def node_008
 	-> fatalis.l2_ride_rage_head() 
 	>> node_017 
 	return 
 endf 
 
-def node_009 : 14
+def node_009
 	-> fatalis.l2_ride_rage_body() 
 	>> node_017 
 	return 
 endf 
 
-def node_010 : 15
+def node_010
 	-> fatalis.l2_ride_rage_body() 
 	>> node_017 
 	return 
 endf 
 
-def node_011 : 16
+def node_011
 	-> fatalis.l2_tail_swing() 
 	>> node_017 
 	return 
 endf 
 
-def node_012 : 17
+def node_012
 	-> fatalis.l2_ride_rage_tail() 
 	>> node_017 
 	return 
 endf 
 
-def node_013 : 18
+def node_013
 	-> fatalis.l2_rush_start() 
 	>> node_017 
 	return 
 endf 
 
-def node_014 : 22
+def node_014
 	>> Global.node_013 
 	return 
 endf 
 
-def node_015 : 31
+def node_015
 	if self.mount_stabbed() 
 		if self.mounted() 
 			random (35) >> node_016 
@@ -181,16 +181,16 @@ def node_015 : 31
 	return 
 endf 
 
-def node_016 : 32
+def node_016
 	-> fatalis.l2_ride_tired() 
 	-> fatalis.l2_ride_finish_bind_voice() 
 	return 
 endf 
 
-def node_017 : 33
-	[RegisterVar12 ++] 
-	if [RegisterVar12 <= 12] 
-		[RegisterVar12 |-] 
+def node_017
+	[RegisterVar12 |-] 
+	if [RegisterVar12 -= 12] 
+		[RegisterVar12 ++] 
 		-> fatalis.l2_ride_finish_bind_voice() 
 	else 
 	endif 

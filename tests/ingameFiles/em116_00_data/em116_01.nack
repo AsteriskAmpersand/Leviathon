@@ -1,14 +1,14 @@
 importactions Dodogama as dodogama
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	>> Global.node_003 
 	self.targetEnemy(target_em.random_player_or_cat) 
 	>> node_001 
 	reset 
 endf 
 
-def node_001 : 26
+def node_001
 	if self.distance_3d_to_target().leq(700) 
 		self.enraged() >> node_005 => reset 
 		self.fatigued() >> node_008 => reset 
@@ -31,7 +31,7 @@ def node_001 : 26
 	return 
 endf 
 
-def node_002 : 27
+def node_002
 	if self.target(7) 
 		>> Global.node_032 
 		>> Global.node_155 
@@ -41,19 +41,19 @@ def node_002 : 27
 	return 
 endf 
 
-def node_003 : 28
+def node_003
 	>> Global.node_153 
 	>> Global.node_151 
 	return 
 endf 
 
-def node_004 : 29
+def node_004
 	>> Global.node_154 
 	>> Global.node_152 
 	return 
 endf 
 
-def node_005 : 30
+def node_005
 	if self.target(7) 
 		>> Global.node_032 
 		>> Global.node_155 
@@ -63,19 +63,19 @@ def node_005 : 30
 	return 
 endf 
 
-def node_006 : 31
+def node_006
 	>> Global.node_153 
 	>> Global.node_151 
 	return 
 endf 
 
-def node_007 : 32
+def node_007
 	>> Global.node_154 
 	>> Global.node_152 
 	return 
 endf 
 
-def node_008 : 33
+def node_008
 	if self.target(7) 
 		>> Global.node_032 
 		>> Global.node_155 
@@ -85,7 +85,7 @@ def node_008 : 33
 	return 
 endf 
 
-def node_009 : 34
+def node_009
 	random (70) 
 				>> Global.node_153 
 				>> Global.node_151 
@@ -95,7 +95,7 @@ def node_009 : 34
 	return 
 endf 
 
-def node_010 : 35
+def node_010
 	random (70) 
 				>> Global.node_154 
 				>> Global.node_152 

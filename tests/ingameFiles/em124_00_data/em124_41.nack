@@ -1,12 +1,12 @@
 importactions Velkhana as velkhana
 importlibrary Global as Global
 
-def node_000 : 3
+def node_000
 	>> node_001 
 	conclude 
 endf 
 
-def node_001 : 16
+def node_001
 	self.targetArea(20) 
 	if function#AD() 
 		>> node_002 
@@ -17,7 +17,7 @@ def node_001 : 16
 	return 
 endf 
 
-def node_002 : 17
+def node_002
 	if self.flying() 
 		self.targetArea(40) 
 		>> Global.node_253 
@@ -27,13 +27,13 @@ def node_002 : 17
 	return 
 endf 
 
-def node_003 : 18
+def node_003
 	>> node_004 
 	>> node_005 
 	return 
 endf 
 
-def node_004 : 19
+def node_004
 	if self.flying() 
 		self.targetArea(target_area.area_aerial_center) 
 		>> Global.node_254 
@@ -44,7 +44,7 @@ def node_004 : 19
 	return 
 endf 
 
-def node_005 : 20
+def node_005
 	self.targetArea(20) 
 	if self.flying() 
 		self.targetArea(40) 
@@ -55,7 +55,7 @@ def node_005 : 20
 	return 
 endf 
 
-def node_006 : 23
+def node_006
 	self.targetArea(target_area.area_center) 
 	if self.flying() 
 		>> Global.node_263 
@@ -64,7 +64,7 @@ def node_006 : 23
 	return 
 endf 
 
-def node_007 : 21
+def node_007
 	if self.flying() 
 		self.targetArea(target_area.area_center) 
 		>> Global.node_046 
@@ -73,7 +73,7 @@ def node_007 : 21
 	return 
 endf 
 
-def node_008 : 22
+def node_008
 	if self.flying() 
 		>> Global.node_257 
 	else 

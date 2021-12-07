@@ -1,7 +1,7 @@
 importactions KestodonM as kestodonm
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	>> Global.node_024 
 	>> node_001 
 	>> node_002 
@@ -10,7 +10,7 @@ def node_000 : 1
 	conclude 
 endf 
 
-def node_001 : 2
+def node_001
 	function#54() 
 	if function#B6() 
 		self.targetArea(47) 
@@ -21,7 +21,7 @@ def node_001 : 2
 	return 
 endf 
 
-def node_002 : 3
+def node_002
 	if self.distance_2d_to_target().leq(700) 
 		>> node_003 
 	else 
@@ -31,7 +31,7 @@ def node_002 : 3
 	return 
 endf 
 
-def node_003 : 5
+def node_003
 	random (34) -> action#1D() 
 	elser (33) -> action#1E() 
 	elser (33) -> action#1F() 
@@ -39,7 +39,7 @@ def node_003 : 5
 	return 
 endf 
 
-def node_004 : 6
+def node_004
 	if function#BD() 
 		function#BE() 
 	endif 

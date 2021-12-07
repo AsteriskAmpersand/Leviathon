@@ -1,10 +1,10 @@
 importactions Bazelgeuse as bazelgeuse
 
-def node_000 : 1
+def node_000
 	conclude 
 endf 
 
-def node_001 : 164
+def node_001
 	if self.flying() 
 		if function#AF(5000) 
 			-> bazelgeuse.landing() 
@@ -16,7 +16,7 @@ def node_001 : 164
 	return 
 endf 
 
-def node_002 : 165
+def node_002
 	if self.flying() 
 	else 
 		if self.in_combat() 
@@ -28,7 +28,7 @@ def node_002 : 165
 	return 
 endf 
 
-def node_003 : 166
+def node_003
 	self.targetArea(target_area.area_aerial_center) 
 	>> node_106 
 	self.targetArea(target_area.area_center) 
@@ -36,17 +36,17 @@ def node_003 : 166
 	return 
 endf 
 
-def node_004 : 303
+def node_004
 	-> bazelgeuse.take_off() 
 	return 
 endf 
 
-def node_005 : 304
+def node_005
 	-> bazelgeuse.battle_take_off() 
 	return 
 endf 
 
-def node_006 : 316
+def node_006
 	if self.above_target() 
 	else 
 		if self.vertical_distance_to_target().gt(5000) 
@@ -64,7 +64,7 @@ def node_006 : 316
 	return 
 endf 
 
-def node_007 : 345
+def node_007
 	if function#102() 
 		if function#103() 
 			>> node_001 
@@ -75,21 +75,21 @@ def node_007 : 345
 	return 
 endf 
 
-def node_008 : 346
+def node_008
 	>> node_001 
 	-> bazelgeuse.take_off_switch_pattern_by_dist() 
 	>> node_101 
 	return 
 endf 
 
-def node_009 : 292
+def node_009
 	>> node_001 
 	>> node_085 
 	-> bazelgeuse.body_press_start() 
 	return 
 endf 
 
-def node_010 : 293
+def node_010
 	>> node_001 
 	>> node_086 
 	>> node_011 
@@ -97,7 +97,7 @@ def node_010 : 293
 	return 
 endf 
 
-def node_011 : 301
+def node_011
 	if self.angle_2d_cw_between(60,300) 
 		-> bazelgeuse.head_scale_scatter() 
 	else 
@@ -105,7 +105,7 @@ def node_011 : 301
 	return 
 endf 
 
-def node_012 : 296
+def node_012
 	>> node_001 
 	>> node_085 
 	if self.angle_2d_cw_between(30,60) 
@@ -128,7 +128,7 @@ def node_012 : 296
 	return 
 endf 
 
-def node_013 : 344
+def node_013
 	>> node_001 
 	>> node_085 
 	if self.angle_2d_cw_between(30,60) 
@@ -151,19 +151,19 @@ def node_013 : 344
 	return 
 endf 
 
-def node_014 : 269
+def node_014
 	>> node_001 
 	-> bazelgeuse.head_scale_scatter() 
 	return 
 endf 
 
-def node_015 : 268
+def node_015
 	>> node_001 
 	-> bazelgeuse.tackle() 
 	return 
 endf 
 
-def node_016 : 143
+def node_016
 	>> node_001 
 	if self.angle_2d_cw_between(0,180) 
 		-> bazelgeuse.tail_scale_scatter_l() 
@@ -173,20 +173,20 @@ def node_016 : 143
 	return 
 endf 
 
-def node_017 : 267
+def node_017
 	>> node_001 
 	-> bazelgeuse.tail_stomp() 
 	return 
 endf 
 
-def node_018 : 300
+def node_018
 	>> node_002 
 	>> node_023 
 	>> node_001 
 	return 
 endf 
 
-def node_019 : 270
+def node_019
 	>> node_001 
 	if self.angle_2d_cw_between(90,270) 
 		-> bazelgeuse.back_step_breath() 
@@ -197,27 +197,27 @@ def node_019 : 270
 	return 
 endf 
 
-def node_020 : 260
+def node_020
 	>> node_001 
 	>> node_035 
 	-> bazelgeuse.gliding_dash_not_fly_start() 
 	return 
 endf 
 
-def node_021 : 261
+def node_021
 	>> node_001 
 	>> node_035 
 	-> bazelgeuse.gliding_dash_fly_start() 
 	return 
 endf 
 
-def node_022 : 305
+def node_022
 	>> node_001 
 	-> bazelgeuse.bind_voice() 
 	return 
 endf 
 
-def node_023 : 294
+def node_023
 	>> node_002 
 	if function#AF(5000) 
 		-> bazelgeuse.fall_press() 
@@ -227,17 +227,17 @@ def node_023 : 294
 	return 
 endf 
 
-def node_024 : 295
+def node_024
 	>> node_002 
 	>> node_103 
 	-> bazelgeuse.glide_bite_start() 
 	return 
 endf 
 
-def node_025 : 263
+def node_025
 	>> node_002 
-	if [RegisterVar5 <= 1] 
-		[RegisterVar5 |-] 
+	if [RegisterVar5 -= 1] 
+		[RegisterVar5 ++] 
 		if self.enraged() 
 			-> bazelgeuse.bomb_glide_turn_start() 
 		else 
@@ -254,7 +254,7 @@ def node_025 : 263
 	return 
 endf 
 
-def node_026 : 262
+def node_026
 	>> node_002 
 	if function#AF(5000) 
 		if function#2D() 
@@ -276,14 +276,14 @@ def node_026 : 262
 	return 
 endf 
 
-def node_027 : 258
+def node_027
 	>> node_002 
 	>> node_035 
 	-> bazelgeuse.dash_bite_fly() 
 	return 
 endf 
 
-def node_028 : 266
+def node_028
 	if self.target.helpless_0() 
 		>> node_010 
 	else 
@@ -291,27 +291,27 @@ def node_028 : 266
 	return 
 endf 
 
-def node_029 : 297
+def node_029
 	if self.flying() 
 	else 
-		if [RegisterVar2 <= 7] 
+		if [RegisterVar2 -= 7] 
 			random (60) 
-						[RegisterVar2 ++] 
-			elser (40) 
 						[RegisterVar2 |-] 
+			elser (40) 
+						[RegisterVar2 ++] 
 						>> node_030 
 			endr 
-		elif [RegisterVar2 <= 12] 
-			[RegisterVar2 |-] 
+		elif [RegisterVar2 -= 12] 
+			[RegisterVar2 ++] 
 			>> node_030 
 		else 
-			[RegisterVar2 ++] 
+			[RegisterVar2 |-] 
 		endif 
 	endif 
 	return 
 endf 
 
-def node_030 : 298
+def node_030
 	if function#102() 
 		if function#103() 
 			return 
@@ -328,7 +328,7 @@ def node_030 : 298
 		endr 
 	else 
 	endif 
-	[RegisterVar5 ++] 
+	[RegisterVar5 |-] 
 	if self.distance_3d_to_target().leq(1200) 
 		random (70) >> node_006 
 					>> node_024 
@@ -340,19 +340,19 @@ def node_030 : 298
 	return 
 endf 
 
-def node_031 : 355
+def node_031
 	>> node_001 
 	-> bazelgeuse.body_press_start() 
 	return 
 endf 
 
-def node_032 : 356
+def node_032
 	>> node_001 
 	-> bazelgeuse.blast_tackle_start() 
 	return 
 endf 
 
-def node_033 : 9
+def node_033
 	if self.flying() 
 		-> bazelgeuse.quick_turn_fly() 
 	else 
@@ -361,7 +361,7 @@ def node_033 : 9
 	return 
 endf 
 
-def node_034 : 34
+def node_034
 	if self.angle_2d_cw_between(30,330) 
 		if self.flying() 
 			-> bazelgeuse.quick_turn_fly() 
@@ -373,7 +373,7 @@ def node_034 : 34
 	return 
 endf 
 
-def node_035 : 35
+def node_035
 	if self.angle_2d_cw_between(60,300) 
 		if self.flying() 
 			-> bazelgeuse.quick_turn_fly() 
@@ -385,7 +385,7 @@ def node_035 : 35
 	return 
 endf 
 
-def node_036 : 86
+def node_036
 	if self.angle_2d_cw_between(90,270) 
 		if self.flying() 
 			-> bazelgeuse.quick_turn_fly() 
@@ -397,7 +397,7 @@ def node_036 : 86
 	return 
 endf 
 
-def node_037 : 230
+def node_037
 	>> node_002 
 	if self.angle_2d_cw_between(0,180) 
 		-> bazelgeuse.snake_turn_step_fly_r() 
@@ -407,7 +407,7 @@ def node_037 : 230
 	return 
 endf 
 
-def node_038 : 231
+def node_038
 	>> node_002 
 	if self.angle_2d_cw_between(0,180) 
 		-> bazelgeuse.snake_turn_step_fly_l() 
@@ -417,19 +417,19 @@ def node_038 : 231
 	return 
 endf 
 
-def node_039 : 40
+def node_039
 	random (50) 
 	elser (50) >> node_068 
 	endr 
 	return 
 endf 
 
-def node_040 : 68
+def node_040
 	>> node_068 
 	return 
 endf 
 
-def node_041 : 41
+def node_041
 	if function#5A() 
 		>> node_001 
 		>> node_068 
@@ -494,7 +494,7 @@ def node_041 : 41
 	return 
 endf 
 
-def node_042 : 43
+def node_042
 	if function#5A(99) 
 		>> node_048 
 	else 
@@ -505,7 +505,7 @@ def node_042 : 43
 	return 
 endf 
 
-def node_043 : 44
+def node_043
 	if function#5A(99) 
 		>> node_047 
 	else 
@@ -516,7 +516,7 @@ def node_043 : 44
 	return 
 endf 
 
-def node_044 : 42
+def node_044
 	if function#5A(99) 
 		>> node_049 
 	else 
@@ -527,7 +527,7 @@ def node_044 : 42
 	return 
 endf 
 
-def node_045 : 47
+def node_045
 	if function#5A(99) 
 		>> node_050 
 	else 
@@ -542,11 +542,11 @@ def node_045 : 47
 	return 
 endf 
 
-def node_046 : 220
+def node_046
 	return 
 endf 
 
-def node_047 : 312
+def node_047
 	if self.flying() 
 		-> bazelgeuse.refresh_fly2() 
 	else 
@@ -555,7 +555,7 @@ def node_047 : 312
 	return 
 endf 
 
-def node_048 : 313
+def node_048
 	if self.flying() 
 		-> bazelgeuse.refresh_fly3() 
 	else 
@@ -564,7 +564,7 @@ def node_048 : 313
 	return 
 endf 
 
-def node_049 : 314
+def node_049
 	if self.flying() 
 		-> bazelgeuse.refresh_fly4() 
 	else 
@@ -573,7 +573,7 @@ def node_049 : 314
 	return 
 endf 
 
-def node_050 : 315
+def node_050
 	if self.flying() 
 		-> bazelgeuse.refresh_fly5() 
 	else 
@@ -582,7 +582,7 @@ def node_050 : 315
 	return 
 endf 
 
-def node_051 : 33
+def node_051
 	if self.flying() 
 		-> bazelgeuse.quick_turn_fly() 
 	else 
@@ -591,7 +591,7 @@ def node_051 : 33
 	return 
 endf 
 
-def node_052 : 31
+def node_052
 	if self.angle_2d_cw_between(30,330) 
 		if self.flying() 
 			-> bazelgeuse.quick_turn_fly() 
@@ -603,7 +603,7 @@ def node_052 : 31
 	return 
 endf 
 
-def node_053 : 32
+def node_053
 	if self.angle_2d_cw_between(80,280) 
 		if self.flying() 
 			-> bazelgeuse.quick_turn_fly() 
@@ -615,7 +615,7 @@ def node_053 : 32
 	return 
 endf 
 
-def node_054 : 275
+def node_054
 	if self.flying() 
 		-> bazelgeuse.sniff_s_fly() 
 	else 
@@ -624,7 +624,7 @@ def node_054 : 275
 	return 
 endf 
 
-def node_055 : 66
+def node_055
 	if self.distance_3d_to_target().leq(1500) 
 		>> node_056 
 	elif self.angle_2d_cw_between(30,330) 
@@ -634,7 +634,7 @@ def node_055 : 66
 	return 
 endf 
 
-def node_056 : 45
+def node_056
 	if self.flying() 
 		-> bazelgeuse.back_turn_fly() 
 	else 
@@ -643,7 +643,7 @@ def node_056 : 45
 	return 
 endf 
 
-def node_057 : 10
+def node_057
 	if self.targetEnemy(target_em.any_monster) 
 		if self.target(13) 
 		else 
@@ -664,8 +664,8 @@ def node_057 : 10
 	return 
 endf 
 
-def node_058 : 272
-	if [RegisterVar4 <= 15] 
+def node_058
+	if [RegisterVar4 -= 15] 
 		>> node_063 
 	else 
 		if self.target.in_combat() 
@@ -683,8 +683,8 @@ def node_058 : 272
 	return 
 endf 
 
-def node_059 : 273
-	if [RegisterVar4 <= 15] 
+def node_059
+	if [RegisterVar4 -= 15] 
 		>> node_063 
 	else 
 		if self.target.in_combat() 
@@ -702,33 +702,33 @@ def node_059 : 273
 	return 
 endf 
 
-def node_060 : 274
-	[RegisterVar4 ++] 
+def node_060
+	[RegisterVar4 |-] 
 	return 
 endf 
 
-def node_061 : 80
-	[RegisterVar4 ++] 
+def node_061
+	[RegisterVar4 |-] 
 	>> node_033 
 	>> node_074 
 	return 
 endf 
 
-def node_062 : 83
-	[RegisterVar4 ++] 
+def node_062
+	[RegisterVar4 |-] 
 	if function#102() 
 		if function#103() 
 			>> node_001 
 		else 
 			random (35) 
-						[RegisterVar5 ++] 
+						[RegisterVar5 |-] 
 						>> node_002 
 			elser (65) 
 			endr 
 		endif 
 	else 
 		random (35) 
-					[RegisterVar5 ++] 
+					[RegisterVar5 |-] 
 					>> node_002 
 		elser (65) 
 		endr 
@@ -754,15 +754,15 @@ def node_062 : 83
 	return 
 endf 
 
-def node_063 : 82
-	[RegisterVar3 |-] 
+def node_063
 	[RegisterVar3 ++] 
-	[RegisterVar4 |-] 
+	[RegisterVar3 |-] 
+	[RegisterVar4 ++] 
 	self.force_area_change2() 
 	return 
 endf 
 
-def node_064 : 333
+def node_064
 	if self.targetEnemy(target_em.any_monster) 
 		if self.target(13) 
 		elif self.target.in_combat() 
@@ -770,7 +770,7 @@ def node_064 : 333
 			elif self.in_map(st.Challenge_Arena).in_area(-1) 
 			elif self.target_is(em.Deviljho) 
 				if self.target(39) 
-					if [RegisterVar4 <= 8] 
+					if [RegisterVar4 -= 8] 
 						>> node_063 
 						return 
 					else 
@@ -778,7 +778,7 @@ def node_064 : 333
 				else 
 				endif 
 			else 
-				if [RegisterVar4 <= 8] 
+				if [RegisterVar4 -= 8] 
 					>> node_063 
 					return 
 				else 
@@ -787,9 +787,9 @@ def node_064 : 333
 			random (60) 
 						>> node_065 
 			elser (40) 
-						[RegisterVar4 ++] 
+						[RegisterVar4 |-] 
 			endr 
-			*& // [Illegal Context] endr 
+			// -Illegal Context was commented out 'endr '
 		else 
 		endif 
 	else 
@@ -797,7 +797,7 @@ def node_064 : 333
 	return 
 endf 
 
-def node_065 : 340
+def node_065
 	if self.defense_downed() 
 		random (50) 
 					if function#31(49,3000) 
@@ -824,7 +824,7 @@ def node_065 : 340
 	return 
 endf 
 
-def node_066 : 337
+def node_066
 	if self.target.in_combat() 
 		random (10) >> node_061 
 					reset 
@@ -841,7 +841,7 @@ def node_066 : 337
 	return 
 endf 
 
-def node_067 : 338
+def node_067
 	if self.target.in_combat() 
 		random (10) >> node_061 
 					reset 
@@ -858,12 +858,12 @@ def node_067 : 338
 	return 
 endf 
 
-def node_068 : 54
+def node_068
 	>> node_069 
 	return 
 endf 
 
-def node_069 : 239
+def node_069
 	random (25) 
 				if function#3C() 
 					if self.flying() -> bazelgeuse.life_search_fly2() 
@@ -885,7 +885,7 @@ def node_069 : 239
 	return 
 endf 
 
-def node_070 : 55
+def node_070
 	if self.flying() 
 		if self.enraged() 
 			-> bazelgeuse.half_lost_search_front_fly() 
@@ -902,7 +902,7 @@ def node_070 : 55
 	return 
 endf 
 
-def node_071 : 56
+def node_071
 	if self.flying() 
 		-> bazelgeuse.life_search_fly() 
 	else 
@@ -911,7 +911,7 @@ def node_071 : 56
 	return 
 endf 
 
-def node_072 : 53
+def node_072
 	if self.flying() 
 		-> bazelgeuse.refresh_fly() 
 	else 
@@ -920,13 +920,13 @@ def node_072 : 53
 	return 
 endf 
 
-def node_073 : 52
+def node_073
 	>> node_001 
 	-> bazelgeuse.idle_tired_life() 
 	return 
 endf 
 
-def node_074 : 23
+def node_074
 	if self.flying() 
 		-> bazelgeuse.intimidation_fly() 
 	else 
@@ -935,7 +935,7 @@ def node_074 : 23
 	return 
 endf 
 
-def node_075 : 50
+def node_075
 	if self.flying() 
 		-> bazelgeuse.threat_short_fly() 
 	else 
@@ -944,7 +944,7 @@ def node_075 : 50
 	return 
 endf 
 
-def node_076 : 20
+def node_076
 	if self.flying() 
 		-> bazelgeuse.threat_fly() 
 	else 
@@ -953,7 +953,7 @@ def node_076 : 20
 	return 
 endf 
 
-def node_077 : 308
+def node_077
 	if self.flying() 
 		-> bazelgeuse.threat_fly() 
 	else 
@@ -962,7 +962,7 @@ def node_077 : 308
 	return 
 endf 
 
-def node_078 : 306
+def node_078
 	if self.flying() 
 		-> bazelgeuse.full__reload_fly() 
 	else 
@@ -971,7 +971,7 @@ def node_078 : 306
 	return 
 endf 
 
-def node_079 : 85
+def node_079
 	if self.distance_3d_to_target().leq(500) 
 		return 
 	else 
@@ -990,7 +990,7 @@ def node_079 : 85
 	return 
 endf 
 
-def node_080 : 88
+def node_080
 	if self.fatigued() 
 		-> bazelgeuse.tired_walk(2,1,5,1500,400) 
 	else 
@@ -999,7 +999,7 @@ def node_080 : 88
 	return 
 endf 
 
-def node_081 : 186
+def node_081
 	if self.distance_3d_to_target().leq(500) 
 		return 
 	else 
@@ -1012,7 +1012,7 @@ def node_081 : 186
 	repeat 
 endf 
 
-def node_082 : 46
+def node_082
 	if self.distance_3d_to_target().leq(600) 
 		return 
 	else 
@@ -1031,7 +1031,7 @@ def node_082 : 46
 	return 
 endf 
 
-def node_083 : 87
+def node_083
 	if self.fatigued() 
 		-> bazelgeuse.dash(2,1,0,1500,500) 
 	else 
@@ -1040,7 +1040,7 @@ def node_083 : 87
 	return 
 endf 
 
-def node_084 : 36
+def node_084
 	if self.distance_3d_to_target().leq(500) 
 		return 
 	else 
@@ -1059,7 +1059,7 @@ def node_084 : 36
 	return 
 endf 
 
-def node_085 : 98
+def node_085
 	if self.distance_3d_to_target().leq(1000) 
 		return 
 	else 
@@ -1078,7 +1078,7 @@ def node_085 : 98
 	return 
 endf 
 
-def node_086 : 259
+def node_086
 	if self.distance_2d_to_target().leq(3000) 
 		return 
 	else 
@@ -1097,7 +1097,7 @@ def node_086 : 259
 	return 
 endf 
 
-def node_087 : 94
+def node_087
 	if self.distance_3d_to_target().leq(500) 
 		return 
 	else 
@@ -1106,7 +1106,7 @@ def node_087 : 94
 	repeat 
 endf 
 
-def node_088 : 342
+def node_088
 	if self.distance_2d_to_target().leq(500) 
 		return 
 	else 
@@ -1115,7 +1115,7 @@ def node_088 : 342
 	return 
 endf 
 
-def node_089 : 343
+def node_089
 	if self.distance_2d_to_target().leq(500) 
 		return 
 	else 
@@ -1124,7 +1124,7 @@ def node_089 : 343
 	return 
 endf 
 
-def node_090 : 364
+def node_090
 	if self.distance_2d_to_target().leq(1000) 
 		return 
 	else 
@@ -1143,7 +1143,7 @@ def node_090 : 364
 	return 
 endf 
 
-def node_091 : 365
+def node_091
 	if self.distance_3d_to_target().leq(500) 
 		return 
 	else 
@@ -1162,7 +1162,7 @@ def node_091 : 365
 	return 
 endf 
 
-def node_092 : 145
+def node_092
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		if function#7D() 
@@ -1175,7 +1175,7 @@ def node_092 : 145
 	return 
 endf 
 
-def node_093 : 148
+def node_093
 	if self.distance_2d_to_target().leq(600) 
 	else 
 		if function#7D() 
@@ -1188,7 +1188,7 @@ def node_093 : 148
 	return 
 endf 
 
-def node_094 : 149
+def node_094
 	if self.distance_2d_to_target().leq(1000) 
 	else 
 		if function#7D() 
@@ -1201,7 +1201,7 @@ def node_094 : 149
 	return 
 endf 
 
-def node_095 : 146
+def node_095
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		if function#7D() 
@@ -1214,7 +1214,7 @@ def node_095 : 146
 	return 
 endf 
 
-def node_096 : 147
+def node_096
 	if self.distance_3d_to_target().leq(1000) 
 	else 
 		if function#7D() 
@@ -1227,7 +1227,7 @@ def node_096 : 147
 	return 
 endf 
 
-def node_097 : 150
+def node_097
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> bazelgeuse.glide(2,1,0,3000,500) 
@@ -1237,7 +1237,7 @@ def node_097 : 150
 	return 
 endf 
 
-def node_098 : 153
+def node_098
 	if self.distance_2d_to_target().leq(600) 
 	else 
 		-> bazelgeuse.glide_combat(2,1,0,3000,500) 
@@ -1247,7 +1247,7 @@ def node_098 : 153
 	return 
 endf 
 
-def node_099 : 154
+def node_099
 	if self.distance_2d_to_target().leq(1000) 
 	else 
 		-> bazelgeuse.glide_combat(2,1,0,3000,900) 
@@ -1257,7 +1257,7 @@ def node_099 : 154
 	return 
 endf 
 
-def node_100 : 151
+def node_100
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> bazelgeuse.glide_direct_move(2,1,0,3000,500) 
@@ -1267,7 +1267,7 @@ def node_100 : 151
 	return 
 endf 
 
-def node_101 : 152
+def node_101
 	if self.distance_3d_to_target().leq(1000) 
 	else 
 		-> bazelgeuse.glide_direct_move(2,1,0,3000,900) 
@@ -1277,7 +1277,7 @@ def node_101 : 152
 	return 
 endf 
 
-def node_102 : 155
+def node_102
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> bazelgeuse.glide(2,1,0,3000,500) 
@@ -1286,7 +1286,7 @@ def node_102 : 155
 	return 
 endf 
 
-def node_103 : 158
+def node_103
 	if self.distance_2d_to_target().leq(600) 
 	else 
 		-> bazelgeuse.glide_combat(2,1,0,3000,500) 
@@ -1295,7 +1295,7 @@ def node_103 : 158
 	return 
 endf 
 
-def node_104 : 159
+def node_104
 	if self.distance_2d_to_target().leq(1000) 
 	else 
 		-> bazelgeuse.glide_combat(2,1,0,3000,900) 
@@ -1304,7 +1304,7 @@ def node_104 : 159
 	return 
 endf 
 
-def node_105 : 326
+def node_105
 	if self.distance_2d_to_target().leq(3000) 
 	else 
 		-> bazelgeuse.glide_combat(2,1,0,3000,2900) 
@@ -1313,7 +1313,7 @@ def node_105 : 326
 	return 
 endf 
 
-def node_106 : 156
+def node_106
 	if self.distance_3d_to_target().leq(600) 
 		return 
 	else 
@@ -1332,7 +1332,7 @@ def node_106 : 156
 	return 
 endf 
 
-def node_107 : 157
+def node_107
 	if self.distance_3d_to_target().leq(1000) 
 		return 
 	else 
@@ -1351,7 +1351,7 @@ def node_107 : 157
 	return 
 endf 
 
-def node_108 : 349
+def node_108
 	if self.distance_3d_to_target().leq(1500) 
 		return 
 	else 
@@ -1370,7 +1370,7 @@ def node_108 : 349
 	return 
 endf 
 
-def node_109 : 352
+def node_109
 	if self.distance_3d_recalc_to_target().leq(1500) 
 		return 
 	else 
@@ -1389,7 +1389,7 @@ def node_109 : 352
 	return 
 endf 
 
-def node_110 : 302
+def node_110
 	if self.distance_3d_to_target().leq(2500) 
 		return 
 	else 
@@ -1408,7 +1408,7 @@ def node_110 : 302
 	return 
 endf 
 
-def node_111 : 307
+def node_111
 	if self.distance_3d_to_target().leq(4500) 
 		return 
 	else 
@@ -1439,7 +1439,7 @@ def node_111 : 307
 	return 
 endf 
 
-def node_112 : 160
+def node_112
 	if self.vertical_distance_to_target().leq(1200) 
 		return 
 	else 
@@ -1468,7 +1468,7 @@ def node_112 : 160
 	return 
 endf 
 
-def node_113 : 161
+def node_113
 	if self.distance_2d_to_target().leq(1000) 
 		return 
 	else 
@@ -1497,7 +1497,7 @@ def node_113 : 161
 	return 
 endf 
 
-def node_114 : 162
+def node_114
 	if self.flying() 
 	else 
 		-> bazelgeuse.sudden_rise() 
@@ -1505,7 +1505,7 @@ def node_114 : 162
 	return 
 endf 
 
-def node_115 : 163
+def node_115
 	>> node_002 
 	if self.flying() 
 		-> bazelgeuse.sudden_drop() 
@@ -1514,13 +1514,13 @@ def node_115 : 163
 	return 
 endf 
 
-def node_116 : 198
+def node_116
 	self.targetArea(target_area.nearest_entrance) 
 	>> node_117 
 	return 
 endf 
 
-def node_117 : 197
+def node_117
 	if function#5A(20) 
 		>> node_118 
 	elif function#5A(21) 
@@ -1551,7 +1551,7 @@ def node_117 : 197
 	return 
 endf 
 
-def node_118 : 196
+def node_118
 	if self.distance_3d_to_target().leq(15000) 
 		>> node_001 
 		>> node_121 
@@ -1561,7 +1561,7 @@ def node_118 : 196
 	return 
 endf 
 
-def node_119 : 195
+def node_119
 	if self.distance_3d_to_target().leq(15000) 
 		>> node_002 
 		>> node_121 
@@ -1571,7 +1571,7 @@ def node_119 : 195
 	return 
 endf 
 
-def node_120 : 194
+def node_120
 	if function#AD() 
 		>> node_121 
 	else 
@@ -1580,7 +1580,7 @@ def node_120 : 194
 	return 
 endf 
 
-def node_121 : 193
+def node_121
 	if function#5A(10) 
 		>> node_002 
 	elif function#5A(11) 
@@ -1616,7 +1616,7 @@ def node_121 : 193
 	return 
 endf 
 
-def node_122 : 192
+def node_122
 	>> node_123 
 	>> node_125 
 	>> node_126 
@@ -1624,7 +1624,7 @@ def node_122 : 192
 	return 
 endf 
 
-def node_123 : 191
+def node_123
 	self.targetArea(target_area.area_aerial_center) 
 	if self.flying() 
 		>> node_101 
@@ -1634,7 +1634,7 @@ def node_123 : 191
 	return 
 endf 
 
-def node_124 : 347
+def node_124
 	self.targetArea(target_area.area_center) 
 	>> node_079 
 	self.targetArea(target_area.area_aerial_center) 
@@ -1642,7 +1642,7 @@ def node_124 : 347
 	return 
 endf 
 
-def node_125 : 190
+def node_125
 	self.targetArea(target_area.nearest_entrance) 
 	if self.flying() 
 		self.targetArea(40) 
@@ -1654,7 +1654,7 @@ def node_125 : 190
 	return 
 endf 
 
-def node_126 : 189
+def node_126
 	if function#5A(10) 
 	elif function#5A(11) 
 	elif function#5A(12) 
@@ -1677,7 +1677,7 @@ def node_126 : 189
 	return 
 endf 
 
-def node_127 : 188
+def node_127
 	self.targetArea(target_area.nearest_entrance) 
 	if self.flying() 
 		>> node_100 
@@ -1687,12 +1687,12 @@ def node_127 : 188
 	return 
 endf 
 
-def node_128 : 341
+def node_128
 	>> node_125 
 	return 
 endf 
 
-def node_129 : 205
+def node_129
 	self.targetArea(14) 
 	if function#AD() 
 		>> node_130 
@@ -1703,7 +1703,7 @@ def node_129 : 205
 	return 
 endf 
 
-def node_130 : 204
+def node_130
 	if self.flying() 
 		self.targetArea(40) 
 		>> node_107 
@@ -1713,13 +1713,13 @@ def node_130 : 204
 	return 
 endf 
 
-def node_131 : 203
+def node_131
 	>> node_132 
 	>> node_134 
 	return 
 endf 
 
-def node_132 : 202
+def node_132
 	self.targetArea(target_area.area_aerial_center) 
 	if self.flying() 
 		>> node_101 
@@ -1729,7 +1729,7 @@ def node_132 : 202
 	return 
 endf 
 
-def node_133 : 348
+def node_133
 	self.targetArea(target_area.area_center) 
 	>> node_087 
 	self.targetArea(target_area.area_aerial_center) 
@@ -1737,7 +1737,7 @@ def node_133 : 348
 	return 
 endf 
 
-def node_134 : 201
+def node_134
 	self.targetArea(14) 
 	if self.flying() 
 		self.targetArea(40) 
@@ -1748,7 +1748,7 @@ def node_134 : 201
 	return 
 endf 
 
-def node_135 : 200
+def node_135
 	if self.flying() 
 		self.targetArea(target_area.area_center) 
 		>> node_001 
@@ -1757,7 +1757,7 @@ def node_135 : 200
 	return 
 endf 
 
-def node_136 : 199
+def node_136
 	if self.vertical_distance_to_target().leq(1000) 
 	else 
 		-> bazelgeuse.short_down_step_fly() 
@@ -1766,7 +1766,7 @@ def node_136 : 199
 	return 
 endf 
 
-def node_137 : 212
+def node_137
 	self.targetArea(24) 
 	if function#AD() 
 		>> node_138 
@@ -1776,7 +1776,7 @@ def node_137 : 212
 	return 
 endf 
 
-def node_138 : 211
+def node_138
 	if function#5A(10) 
 		>> node_002 
 	elif function#5A(11) 
@@ -1799,7 +1799,7 @@ def node_138 : 211
 	return 
 endf 
 
-def node_139 : 210
+def node_139
 	>> node_140 
 	>> node_141 
 	>> node_142 
@@ -1807,7 +1807,7 @@ def node_139 : 210
 	return 
 endf 
 
-def node_140 : 209
+def node_140
 	if self.flying() 
 		self.targetArea(target_area.area_aerial_center) 
 		>> node_095 
@@ -1820,7 +1820,7 @@ def node_140 : 209
 	return 
 endf 
 
-def node_141 : 208
+def node_141
 	self.targetArea(24) 
 	if self.flying() 
 		if function#5A(10) 
@@ -1838,7 +1838,7 @@ def node_141 : 208
 	return 
 endf 
 
-def node_142 : 207
+def node_142
 	if function#5A(10) 
 	elif function#5A(11) 
 	elif function#5A(12) 
@@ -1854,7 +1854,7 @@ def node_142 : 207
 	return 
 endf 
 
-def node_143 : 206
+def node_143
 	if self.flying() 
 		>> node_001 
 	else 
@@ -1864,7 +1864,7 @@ def node_143 : 206
 	return 
 endf 
 
-def node_144 : 219
+def node_144
 	if function#AD() 
 		>> node_145 
 	else 
@@ -1873,7 +1873,7 @@ def node_144 : 219
 	return 
 endf 
 
-def node_145 : 218
+def node_145
 	if self.flying() 
 		>> node_104 
 	else 
@@ -1886,14 +1886,14 @@ def node_145 : 218
 	return 
 endf 
 
-def node_146 : 217
+def node_146
 	>> node_148 
 	>> node_150 
 	>> node_151 
 	return 
 endf 
 
-def node_147 : 213
+def node_147
 	if self.flying() 
 		>> node_104 
 	else 
@@ -1906,7 +1906,7 @@ def node_147 : 213
 	return 
 endf 
 
-def node_148 : 216
+def node_148
 	self.targetArea(target_area.area_aerial_center) 
 	if self.flying() 
 		>> node_101 
@@ -1916,7 +1916,7 @@ def node_148 : 216
 	return 
 endf 
 
-def node_149 : 351
+def node_149
 	self.targetArea(target_area.area_center) 
 	>> node_087 
 	self.targetArea(target_area.area_aerial_center) 
@@ -1924,7 +1924,7 @@ def node_149 : 351
 	return 
 endf 
 
-def node_150 : 215
+def node_150
 	if self.flying() 
 		self.targetArea(40) 
 		>> node_102 
@@ -1939,7 +1939,7 @@ def node_150 : 215
 	return 
 endf 
 
-def node_151 : 214
+def node_151
 	if self.flying() 
 		self.targetArea(target_area.area_center) 
 		>> node_001 
@@ -1948,7 +1948,7 @@ def node_151 : 214
 	return 
 endf 
 
-def node_152 : 24
+def node_152
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.target.mudded() 
 		>> node_001 
@@ -1967,7 +1967,7 @@ def node_152 : 24
 	return 
 endf 
 
-def node_153 : 25
+def node_153
 	if self.angle_2d_cw_between(90,270) 
 		>> node_155 
 	elif self.distance_3d_to_target().gt(3000) 
@@ -1978,7 +1978,7 @@ def node_153 : 25
 	return 
 endf 
 
-def node_154 : 26
+def node_154
 	if self.flying() 
 		-> bazelgeuse.half_lost_search_front_fly() 
 	else 
@@ -1987,7 +1987,7 @@ def node_154 : 26
 	return 
 endf 
 
-def node_155 : 27
+def node_155
 	if self.flying() 
 		-> bazelgeuse.half_lost_search_back_fly() 
 	else 
@@ -1996,7 +1996,7 @@ def node_155 : 27
 	return 
 endf 
 
-def node_156 : 30
+def node_156
 	self.targetArea(19) 
 	if self.distance_2d_to_target().gt(1500) 
 		if self.flying() 
@@ -2012,14 +2012,14 @@ def node_156 : 30
 	return 
 endf 
 
-def node_157 : 29
+def node_157
 	self.targetEnemy(target_em.random_player_or_cat) 
 	>> node_052 
 	>> node_195 
 	return 
 endf 
 
-def node_158 : 255
+def node_158
 	if self.flying() 
 		>> node_104 
 		>> node_024 
@@ -2030,7 +2030,7 @@ def node_158 : 255
 	return 
 endf 
 
-def node_159 : 256
+def node_159
 	if self.flying() 
 		>> node_108 
 		>> node_163 
@@ -2049,7 +2049,7 @@ def node_159 : 256
 	return 
 endf 
 
-def node_160 : 361
+def node_160
 	if self.flying() 
 		if self.distance_2d_to_target().leq(1500) 
 			if self.above_target() 
@@ -2080,7 +2080,7 @@ def node_160 : 361
 	return 
 endf 
 
-def node_161 : 362
+def node_161
 	if self.flying() 
 		if self.distance_2d_to_target().leq(1500) 
 			if self.above_target() 
@@ -2114,7 +2114,7 @@ def node_161 : 362
 	return 
 endf 
 
-def node_162 : 363
+def node_162
 	if self.target.helpless_0() 
 	else 
 		if self.flying() 
@@ -2132,7 +2132,7 @@ def node_162 : 363
 	return 
 endf 
 
-def node_163 : 350
+def node_163
 	if self.vertical_distance_to_target().leq(500) 
 	else 
 		if self.distance_3d_to_target().leq(600) 
@@ -2143,7 +2143,7 @@ def node_163 : 350
 	return 
 endf 
 
-def node_164 : 257
+def node_164
 	if self.flying() 
 		>> node_104 
 		>> node_024 
@@ -2154,7 +2154,7 @@ def node_164 : 257
 	return 
 endf 
 
-def node_165 : 354
+def node_165
 	if self.flying() 
 		random (50) >> node_027 
 		elser (50) >> node_023 
@@ -2168,7 +2168,7 @@ def node_165 : 354
 	return 
 endf 
 
-def node_166 : 279
+def node_166
 	if function#6B(10000) 
 		self.targetEnemy(26) 
 		>> node_054 
@@ -2180,7 +2180,7 @@ def node_166 : 279
 	return 
 endf 
 
-def node_167 : 278
+def node_167
 	if function#6B(10000) 
 		self.targetEnemy(26) 
 		>> node_054 
@@ -2192,19 +2192,19 @@ def node_167 : 278
 	return 
 endf 
 
-def node_168 : 277
+def node_168
 	>> node_001 
 	>> node_087 
 	return 
 endf 
 
-def node_169 : 276
+def node_169
 	>> node_052 
 	-> bazelgeuse.meat_eat() 
 	return 
 endf 
 
-def node_170 : 289
+def node_170
 	if self.distance_3d_to_target().leq(5000) 
 		>> node_171 
 	else 
@@ -2213,19 +2213,19 @@ def node_170 : 289
 	return 
 endf 
 
-def node_171 : 288
+def node_171
 	>> node_001 
 	-> bazelgeuse.walk(2,1,0,2000,4000) 
 	return 
 endf 
 
-def node_172 : 286
+def node_172
 	>> node_001 
 	-> bazelgeuse.dash(2,1,0,6000,4000) 
 	return 
 endf 
 
-def node_173 : 285
+def node_173
 	if self.distance_3d_to_target().leq(1500) 
 	elif self.distance_3d_to_target().leq(3500) 
 		random (50) >> node_054 
@@ -2237,7 +2237,7 @@ def node_173 : 285
 	return 
 endf 
 
-def node_174 : 284
+def node_174
 	random (50) >> node_054 
 	elser (50) >> node_071 
 	elser (0) 
@@ -2245,7 +2245,7 @@ def node_174 : 284
 	return 
 endf 
 
-def node_175 : 290
+def node_175
 	>> node_006 
 	>> node_176 
 	>> node_177 
@@ -2253,7 +2253,7 @@ def node_175 : 290
 	return 
 endf 
 
-def node_176 : 311
+def node_176
 	if self.distance_2d_to_target().leq(1000) 
 		>> node_056 
 	else 
@@ -2261,7 +2261,7 @@ def node_176 : 311
 	return 
 endf 
 
-def node_177 : 310
+def node_177
 	if self.above_target() 
 		-> bazelgeuse.short_up_step_fly() 
 	else 
@@ -2289,7 +2289,7 @@ def node_177 : 310
 	return 
 endf 
 
-def node_178 : 291
+def node_178
 	if self.flying() 
 		-> bazelgeuse.predator_give_up_action_fly() 
 	else 
@@ -2298,7 +2298,7 @@ def node_178 : 291
 	return 
 endf 
 
-def node_179 : 281
+def node_179
 	>> node_002 
 	>> node_103 
 	>> node_001 
@@ -2306,72 +2306,72 @@ def node_179 : 281
 	return 
 endf 
 
-def node_180 : 280
+def node_180
 	>> node_001 
 	-> bazelgeuse.predator_eat() 
 	return 
 endf 
 
-def node_181 : 317
+def node_181
 	if self.in_combat() 
 	else 
-		if [RegisterVar3 == 0] 
+		if [RegisterVar3 += 0] 
 			if self.targetEnemy(63) 
-				[RegisterVar3 ++] 
+				[RegisterVar3 |-] 
 				>> node_183 
 			else 
 			endif 
-		elif [RegisterVar3 <= 12] 
-			[RegisterVar3 |-] 
+		elif [RegisterVar3 -= 12] 
+			[RegisterVar3 ++] 
 			repeat 
 		else 
-			[RegisterVar3 ++] 
+			[RegisterVar3 |-] 
 		endif 
 		>> node_184 
 	endif 
 	return 
 endf 
 
-def node_182 : 339
+def node_182
 	if self.in_map(st.Ancient_Forest).in_area(-1) 
 		if self.distance_3d_to_target().leq(99999) 
-			[RegisterVar3 ++] 
+			[RegisterVar3 |-] 
 			>> node_183 
 		else 
 		endif 
 	elif self.in_map(st.Wildspire_Waste).in_area(-1) 
 		if self.distance_3d_to_target().leq(99999) 
-			[RegisterVar3 ++] 
+			[RegisterVar3 |-] 
 			>> node_183 
 		else 
 		endif 
 	elif self.in_map(st.Coral_Highlands).in_area(-1) 
 		if self.distance_3d_to_target().leq(99999) 
-			[RegisterVar3 ++] 
+			[RegisterVar3 |-] 
 			>> node_183 
 		else 
 		endif 
 	elif self.in_map(st.Coral_Highlands).in_area(-1) 
 		if self.distance_3d_to_target().leq(99999) 
-			[RegisterVar3 ++] 
+			[RegisterVar3 |-] 
 			>> node_183 
 		else 
 		endif 
 	elif self.in_map(st.Rotten_Vale).in_area(-1) 
 		if self.distance_3d_to_target().leq(99999) 
-			[RegisterVar3 ++] 
+			[RegisterVar3 |-] 
 			>> node_183 
 		else 
 		endif 
 	elif self.in_map(st.Elder_Recess).in_area(-1) 
 		if self.distance_3d_to_target().leq(99999) 
-			[RegisterVar3 ++] 
+			[RegisterVar3 |-] 
 			>> node_183 
 		else 
 		endif 
 	else 
 		if self.distance_3d_to_target().leq(99999) 
-			[RegisterVar3 ++] 
+			[RegisterVar3 |-] 
 			>> node_183 
 		else 
 		endif 
@@ -2379,19 +2379,19 @@ def node_182 : 339
 	return 
 endf 
 
-def node_183 : 335
-	[RegisterVar1 ++] 
+def node_183
+	[RegisterVar1 |-] 
 	function#56(4) 
 	return 
 endf 
 
-def node_184 : 334
-	if [RegisterVar1 <= 3] 
+def node_184
+	if [RegisterVar1 -= 3] 
 		>> node_185 
-	elif [RegisterVar1 == 0] 
+	elif [RegisterVar1 += 0] 
 	else 
-		[RegisterVar1 ++] 
-		[RegisterVar5 ++] 
+		[RegisterVar1 |-] 
+		[RegisterVar5 |-] 
 		>> node_186 
 		>> node_192 
 		reset 
@@ -2399,12 +2399,12 @@ def node_184 : 334
 	return 
 endf 
 
-def node_185 : 336
-	[RegisterVar1 |-] 
+def node_185
+	[RegisterVar1 ++] 
 	return 
 endf 
 
-def node_186 : 318
+def node_186
 	if self.targetEnemy(63) 
 		if function#101() 
 			>> node_187 
@@ -2420,7 +2420,7 @@ def node_186 : 318
 	return 
 endf 
 
-def node_187 : 319
+def node_187
 	if self.flying() 
 		>> node_111 
 	else 
@@ -2429,14 +2429,14 @@ def node_187 : 319
 	return 
 endf 
 
-def node_188 : 320
+def node_188
 	>> node_189 
 	>> node_190 
 	>> node_191 
 	return 
 endf 
 
-def node_189 : 322
+def node_189
 	if self.flying() 
 		self.targetArea(target_area.area_aerial_center) 
 		>> node_101 
@@ -2449,7 +2449,7 @@ def node_189 : 322
 	return 
 endf 
 
-def node_190 : 323
+def node_190
 	if self.targetEnemy(63) 
 		if self.flying() 
 			self.targetArea(target_area.unknown_aerial) 
@@ -2465,7 +2465,7 @@ def node_190 : 323
 	return 
 endf 
 
-def node_191 : 321
+def node_191
 	if self.targetEnemy(63) 
 		if self.flying() 
 			>> node_110 
@@ -2481,9 +2481,9 @@ def node_191 : 321
 	return 
 endf 
 
-def node_192 : 325
+def node_192
 	if self.targetEnemy(63) 
-		[RegisterVar4 ++] 
+		[RegisterVar4 |-] 
 		random (40) >> node_006 
 		elser (60) 
 		endr 
@@ -2513,7 +2513,7 @@ def node_192 : 325
 	return 
 endf 
 
-def node_193 : 327
+def node_193
 	self.targetArea(19) 
 	if self.distance_3d_recalc_to_target().gt(1000) 
 		if self.flying() 
@@ -2527,7 +2527,7 @@ def node_193 : 327
 	return 
 endf 
 
-def node_194 : 332
+def node_194
 	if self.flying() 
 		random (15) -> bazelgeuse.wait_fly() 
 		elser (5) -> bazelgeuse.sniff_s_fly() 
@@ -2548,7 +2548,7 @@ def node_194 : 332
 	return 
 endf 
 
-def node_195 : 329
+def node_195
 	if self.flying() 
 		random (37) -> bazelgeuse.wait_fly() 
 		elser (23) -> bazelgeuse.life_search_fly() 
@@ -2563,7 +2563,7 @@ def node_195 : 329
 	return 
 endf 
 
-def node_196 : 330
+def node_196
 	if self.flying() 
 		-> bazelgeuse.intimidation_fly() 
 	else 
@@ -2572,7 +2572,7 @@ def node_196 : 330
 	return 
 endf 
 
-def node_197 : 331
+def node_197
 	if self.flying() 
 		>> node_037 
 	else 
@@ -2585,7 +2585,7 @@ def node_197 : 331
 	return 
 endf 
 
-def node_198 : 360
+def node_198
 	if self.defense_downed() 
 		random (25) 
 					if function#31(49,3000) 
@@ -2600,7 +2600,7 @@ def node_198 : 360
 	return 
 endf 
 
-def node_199 : 353
+def node_199
 	if self.flying() 
 		if self.target(52) 
 			>> node_106 

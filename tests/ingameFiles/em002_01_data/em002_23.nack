@@ -1,13 +1,13 @@
 importactions Azure_Rathalos as azure_rathalos
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	self.targetEnemy(target_em.closest_entity) 
 	>> node_002 
 	conclude 
 endf 
 
-def node_001 : 0
+def node_001
 	if self.target_is(em.Anjanath) 
 		>> node_003 
 	elif self.target_is(em.Odogaron) 
@@ -20,7 +20,7 @@ def node_001 : 0
 	return 
 endf 
 
-def node_002 : 35
+def node_002
 	if self.target_is(em.Anjanath) 
 		>> node_006 
 	elif self.target_is(em.Odogaron) 
@@ -49,7 +49,7 @@ def node_002 : 35
 	return 
 endf 
 
-def node_003 : 24
+def node_003
 	>> Global.node_089 
 	>> Global.node_037 
 	>> Global.node_091 
@@ -57,7 +57,7 @@ def node_003 : 24
 	return 
 endf 
 
-def node_004 : 34
+def node_004
 	if self.flying() 
 		-> azure_rathalos.breath_fly() 
 	else 
@@ -66,7 +66,7 @@ def node_004 : 34
 	return 
 endf 
 
-def node_005 : 33
+def node_005
 	>> Global.node_002 
 	>> Global.node_089 
 	>> Global.node_037 
@@ -78,46 +78,46 @@ def node_005 : 33
 	>> Global.node_203 
 	>> Global.node_122 
 	>> Global.node_037 
-	[RegisterVar2 |-] 
+	[RegisterVar2 ++] 
 	return 
 endf 
 
-def node_006 : 36
+def node_006
 	>> Global.node_002 
 	>> Global.node_089 
 	-> azure_rathalos.grapple_mediation_threat() 
 	return 
 endf 
 
-def node_007 : 37
+def node_007
 	>> Global.node_002 
 	>> Global.node_089 
 	-> azure_rathalos.grapple_with_em113_mediation() 
 	return 
 endf 
 
-def node_008 : 38
+def node_008
 	>> Global.node_002 
 	>> Global.node_089 
 	-> azure_rathalos.grapple_with_em037_mediation() 
 	return 
 endf 
 
-def node_009 : 39
+def node_009
 	>> Global.node_002 
 	>> Global.node_089 
 	-> azure_rathalos.grapple_with_em032_mediation() 
 	return 
 endf 
 
-def node_010 : 40
+def node_010
 	>> Global.node_002 
 	>> Global.node_089 
 	-> azure_rathalos.grapple_with_em080_ver1_mediation() 
 	return 
 endf 
 
-def node_011 : 41
+def node_011
 	>> Global.node_089 
 	if self.flying() -> azure_rathalos.grapple_with_em057_mediation_fly() 
 	else -> azure_rathalos.grapple_with_em057_mediation() 
@@ -125,7 +125,7 @@ def node_011 : 41
 	return 
 endf 
 
-def node_012 : 42
+def node_012
 	>> Global.node_002 
 	>> Global.node_089 
 	if self.flying() -> azure_rathalos.grapple_with_em063_adjust_turn_fly() 

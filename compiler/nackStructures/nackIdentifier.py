@@ -18,7 +18,7 @@ class IdClass():
         if self.raw_id is None:
             self.errorHandler.unresolvedIdentifier(self.id)
         return self.raw_id
-    
+
     def resolveLocal(self, symbolsTable, typing):
         if typing != "node":
             if self.raw_id is not None:
@@ -36,24 +36,26 @@ class IdClass():
 
     def resolveTerminal(self, symbolsTable, typing):
         return self
-    
+
     def __str__(self):
-        if self.raw_id is not None: return str(self.raw_id)
+        if self.raw_id is not None:
+            return str(self.raw_id)
         return str(self.id)
-    
+
     def __repr__(self):
         status = "<ID> " + str(self.id)
         if self.raw_id is not None:
             status = "<R-ID> " + str(self.id) + " [" + str(self.raw_id) + "]"
         if self.node_target is not None:
-            status += " {-> %s}"%(self.node_target.names()[0])
+            status += " {-> %s}" % (self.node_target.names()[0])
         return status
-    
+
     def literal(self):
         if self.raw_id:
             return str(self.raw_id)
         else:
             return self.id
+
 
 class Identifier(IdClass, ErrorManaged):
     subfields = ["id"]
@@ -103,7 +105,7 @@ class IdentifierScoped(IdClass, ErrorManaged):
         self.module = None
         self.node_target = None
 
-    def sequelize(self,omit = False):
+    def sequelize(self, omit=False):
         nid = Identifier((self.scope+"::" if not omit else "")+self.target)
         nid.raw_id = self.raw_id
         nid.node_target = self.node_target
@@ -112,7 +114,7 @@ class IdentifierScoped(IdClass, ErrorManaged):
 
     def resolveLocal(self, symbolsTable, typing):
         if self.scope not in ["Caller", "Terminal"]:
-            result= symbolsTable.resolveScope(self.scope)
+            result = symbolsTable.resolveScope(self.scope)
             if typing == "node" and result:
                 self.module = result
                 return self.resolveCall()
@@ -120,7 +122,7 @@ class IdentifierScoped(IdClass, ErrorManaged):
 
     def resolveCaller(self, namespaces, variables, typing):
         if typing != "node":
-            if self.raw_id is not None: 
+            if self.raw_id is not None:
                 return self.raw_id
             if self.scope in namespaces:
                 if self.target in variables:
@@ -134,10 +136,12 @@ class IdentifierScoped(IdClass, ErrorManaged):
                     return self.node_target
 
     def resolveTerminal(self, symbolsTable, typing):
-        if self.raw_id is not None: return self.raw_id
-        if self.node_target is not None: return self.node_target
+        if self.raw_id is not None:
+            return self.raw_id
+        if self.node_target is not None:
+            return self.node_target
         if self.scope == "Terminal":
-            resolution = symbolsTable.resolve(self.target,typing)
+            resolution = symbolsTable.resolve(self.target, typing)
             if typing == "node":
                 self.node_target = resolution
                 self.module = symbolsTable.parent
@@ -145,10 +149,8 @@ class IdentifierScoped(IdClass, ErrorManaged):
             else:
                 self.raw_id = resolution
                 return self.raw_id
-                #TODO
-        #super().resolveTerminal(self,symbolsTable,typing)
-        return 
-    
+        return
+
     def resolveCall(self):
         return self.module.resolveFunction(self.target)
 
@@ -164,16 +166,15 @@ class IdentifierScoped(IdClass, ErrorManaged):
 
     def accessEnum(self, enumManager):
         return enumManager[str(self.target)].getId()
-    
+
     def __repr__(self):
         sol = self.scope + "." + self.target
         status = "<SID> " + sol
         if self.raw_id is not None:
             status = "<R-SID> " + sol + " [" + str(self.raw_id) + "]"
         if self.node_target is not None:
-            status += " {-> %s}"%self.node_target.names()[0]
+            status += " {-> %s}" % self.node_target.names()[0]
         return status
-
 
     def __str__(self):
         if self.raw_id:
@@ -181,12 +182,13 @@ class IdentifierScoped(IdClass, ErrorManaged):
         else:
             return self.scope + "." + self.target
 
+
 class TextID(str, IdClass, ErrorManaged):
     tag = "Text ID"
     subfields = []
 
     def copy(self):
         return TextID(self)
-    
+
     def __str__(self):
         return self

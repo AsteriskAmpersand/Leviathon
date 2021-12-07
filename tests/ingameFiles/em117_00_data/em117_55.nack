@@ -1,10 +1,10 @@
 importactions Kulve_Taroth as kulve_taroth
 
-def node_000 : 1
+def node_000
 	conclude 
 endf 
 
-def node_001 : 644
+def node_001
 	if function#111(1) 
 		>> node_002 
 	elif function#111(2) 
@@ -18,13 +18,13 @@ def node_001 : 644
 	return 
 endf 
 
-def node_002 : 647
+def node_002
 	function#108() 
 	>> node_074 
 	return 
 endf 
 
-def node_003 : 645
+def node_003
 	if self.hp_percent().gt(70) 
 		function#108() 
 	else 
@@ -32,7 +32,7 @@ def node_003 : 645
 	return 
 endf 
 
-def node_004 : 646
+def node_004
 	if self.hp_percent().gt(40) 
 		if function#101() 
 		else 
@@ -44,7 +44,7 @@ def node_004 : 646
 	return 
 endf 
 
-def node_005 : 659
+def node_005
 	if function#101() 
 		if self.distance_2d_to_target().leq(500) 
 			random (20) >> node_134 
@@ -71,7 +71,7 @@ def node_005 : 659
 	return 
 endf 
 
-def node_006 : 692
+def node_006
 	>> node_100 
 	if self.in_map(st.Caverns_Of_El_Dorado).in_area(1) 
 		self.targetEnemy(target_em.random_player_or_cat) 
@@ -82,20 +82,7 @@ def node_006 : 692
 	return 
 endf 
 
-def node_007 : 666
-	>> node_100 
-	>> node_100 
-	if self.in_map(st.Caverns_Of_El_Dorado).in_area(1) 
-		self.targetEnemy(target_em.random_player_or_cat) 
-	elif self.in_map(st.Caverns_Of_El_Dorado).in_area(2) 
-		self.targetEnemy(target_em.random_player_or_cat) 
-	else 
-	endif 
-	return 
-endf 
-
-def node_008 : 660
-	>> node_100 
+def node_007
 	>> node_100 
 	>> node_100 
 	if self.in_map(st.Caverns_Of_El_Dorado).in_area(1) 
@@ -107,7 +94,20 @@ def node_008 : 660
 	return 
 endf 
 
-def node_009 : 675
+def node_008
+	>> node_100 
+	>> node_100 
+	>> node_100 
+	if self.in_map(st.Caverns_Of_El_Dorado).in_area(1) 
+		self.targetEnemy(target_em.random_player_or_cat) 
+	elif self.in_map(st.Caverns_Of_El_Dorado).in_area(2) 
+		self.targetEnemy(target_em.random_player_or_cat) 
+	else 
+	endif 
+	return 
+endf 
+
+def node_009
 	if function#101() 
 		if self.distance_2d_to_target().leq(750) 
 		elif self.distance_2d_to_target().leq(1500) 
@@ -125,17 +125,17 @@ def node_009 : 675
 	return 
 endf 
 
-def node_010 : 658
+def node_010
 	if function#10F() 
 		if self.in_map(st.Caverns_Of_El_Dorado).in_area(4) 
-			[RegisterVar9 ++] 
-			if [RegisterVar9 <= 11] 
-				[RegisterVar9 |-] 
+			[RegisterVar9 |-] 
+			if [RegisterVar9 -= 11] 
+				[RegisterVar9 ++] 
 				>> node_039 
 				reset 
-			elif [RegisterVar9 <= 8] 
+			elif [RegisterVar9 -= 8] 
 				random (25) 
-							[RegisterVar9 |-] 
+							[RegisterVar9 ++] 
 							>> node_039 
 							reset 
 				elser (75) 
@@ -143,15 +143,15 @@ def node_010 : 658
 			else 
 			endif 
 		else 
-			[RegisterVar9 |-] 
+			[RegisterVar9 ++] 
 		endif 
 	else 
-		[RegisterVar9 |-] 
+		[RegisterVar9 ++] 
 	endif 
 	return 
 endf 
 
-def node_011 : 661
+def node_011
 	if self.distance_2d_to_target().leq(500) 
 		>> node_031 
 	elif self.distance_2d_to_target().leq(1000) 
@@ -165,7 +165,7 @@ def node_011 : 661
 	return 
 endf 
 
-def node_012 : 667
+def node_012
 	if self.distance_2d_to_target().leq(500) 
 		>> node_013 
 	elif self.distance_2d_to_target().leq(1000) 
@@ -183,7 +183,7 @@ def node_012 : 667
 	return 
 endf 
 
-def node_013 : 662
+def node_013
 	if function#10F() 
 		random (0) >> node_195 
 		elser (40) >> node_031 
@@ -200,7 +200,7 @@ def node_013 : 662
 	return 
 endf 
 
-def node_014 : 663
+def node_014
 	if function#10F() 
 		if self.angle_2d_cw_between(315,45) 
 			random (60) >> node_198 
@@ -244,7 +244,7 @@ def node_014 : 663
 	return 
 endf 
 
-def node_015 : 664
+def node_015
 	if function#10F() 
 		if self.angle_2d_cw_between(270,90) 
 			random (30) >> node_193 
@@ -277,7 +277,7 @@ def node_015 : 664
 	return 
 endf 
 
-def node_016 : 665
+def node_016
 	if function#10F() 
 		if self.angle_2d_cw_between(270,90) 
 			random (40) >> node_193 
@@ -304,7 +304,7 @@ def node_016 : 665
 	return 
 endf 
 
-def node_017 : 668
+def node_017
 	if self.distance_2d_to_target().leq(500) 
 		>> node_018 
 	elif self.distance_2d_to_target().leq(1000) 
@@ -319,7 +319,7 @@ def node_017 : 668
 	return 
 endf 
 
-def node_018 : 669
+def node_018
 	if function#10F() 
 		random (35) >> node_035 
 		elser (45) >> node_038 
@@ -334,7 +334,7 @@ def node_018 : 669
 	return 
 endf 
 
-def node_019 : 670
+def node_019
 	if function#10F() 
 		if self.angle_2d_cw_between(225,135) 
 			random (35) >> node_035 
@@ -361,7 +361,7 @@ def node_019 : 670
 	return 
 endf 
 
-def node_020 : 671
+def node_020
 	if function#10F() 
 		if self.angle_2d_cw_between(270,90) 
 			random (25) >> node_035 
@@ -392,7 +392,7 @@ def node_020 : 671
 	return 
 endf 
 
-def node_021 : 672
+def node_021
 	if function#10F() 
 		if self.angle_2d_cw_between(270,90) 
 			random (10) >> node_035 
@@ -423,7 +423,7 @@ def node_021 : 672
 	return 
 endf 
 
-def node_022 : 673
+def node_022
 	if function#10F() 
 		random (30) 
 					>> node_008 
@@ -444,32 +444,32 @@ def node_022 : 673
 	return 
 endf 
 
-def node_023 : 697
+def node_023
 	>> node_011 
 	>> node_012 
 	return 
 endf 
 
-def node_024 : 698
+def node_024
 	>> node_011 
 	>> node_012 
 	>> node_017 
 	return 
 endf 
 
-def node_025 : 699
+def node_025
 	>> node_011 
 	>> node_017 
 	return 
 endf 
 
-def node_026 : 700
+def node_026
 	>> node_012 
 	>> node_017 
 	return 
 endf 
 
-def node_027 : 711
+def node_027
 	if function#10F() 
 		if self.distance_2d_to_target().leq(400) 
 			random (50) >> node_011 
@@ -526,7 +526,7 @@ def node_027 : 711
 	return 
 endf 
 
-def node_028 : 706
+def node_028
 	if self.target(44) 
 	else 
 		if self.target.helpless_0() 
@@ -543,7 +543,7 @@ def node_028 : 706
 	return 
 endf 
 
-def node_029 : 677
+def node_029
 	if function#10F() 
 		if self.distance_2d_to_target().leq(1500) 
 			random (35) >> node_206 
@@ -582,7 +582,7 @@ def node_029 : 677
 	return 
 endf 
 
-def node_030 : 678
+def node_030
 	if function#10F() 
 		if self.distance_2d_to_target().leq(1500) 
 			random (40) >> node_035 
@@ -620,12 +620,12 @@ def node_030 : 678
 	return 
 endf 
 
-def node_031 : 652
+def node_031
 	-> kulve_taroth.mr_under_headbutt() 
 	return 
 endf 
 
-def node_032 : 709
+def node_032
 	if self.angle_2d_cw_between(330,30) 
 		>> node_189 
 	elif self.angle_2d_cw_between(270,90) 
@@ -638,17 +638,17 @@ def node_032 : 709
 	return 
 endf 
 
-def node_033 : 712
+def node_033
 	-> kulve_taroth.mr_quick_bite() 
 	return 
 endf 
 
-def node_034 : 654
+def node_034
 	-> kulve_taroth.mr_horn_attack() 
 	return 
 endf 
 
-def node_035 : 676
+def node_035
 	if self.distance_2d_to_target().leq(1250) 
 		>> node_034 
 	else 
@@ -657,12 +657,12 @@ def node_035 : 676
 	return 
 endf 
 
-def node_036 : 653
+def node_036
 	-> kulve_taroth.mr_straight_breath() 
 	return 
 endf 
 
-def node_037 : 708
+def node_037
 	if self.distance_2d_to_target().leq(1500) 
 		-> kulve_taroth.back_turn() @ comboSetting:1 
 		-> kulve_taroth.mr_sweep_breath() 
@@ -678,17 +678,17 @@ def node_037 : 708
 	return 
 endf 
 
-def node_038 : 655
+def node_038
 	-> kulve_taroth.mr_super_jump_press_new() 
 	return 
 endf 
 
-def node_039 : 656
+def node_039
 	-> kulve_taroth.mr_meteor_shower_start() 
 	return 
 endf 
 
-def node_040 : 674
+def node_040
 	if self.distance_2d_to_target().leq(500) 
 		>> node_060 
 	elif self.distance_2d_to_target().leq(1300) 
@@ -712,7 +712,7 @@ def node_040 : 674
 	return 
 endf 
 
-def node_041 : 679
+def node_041
 	if self.distance_2d_to_target().leq(500) 
 		>> node_042 
 	elif self.distance_2d_to_target().leq(1000) 
@@ -728,7 +728,7 @@ def node_041 : 679
 	return 
 endf 
 
-def node_042 : 680
+def node_042
 	random (15) >> node_064 
 	elser (60) >> node_060 
 	elser (25) >> node_252 
@@ -736,7 +736,7 @@ def node_042 : 680
 	return 
 endf 
 
-def node_043 : 681
+def node_043
 	if self.angle_2d_cw_between(240,120) 
 		random (30) >> node_063 
 		elser (25) >> node_064 
@@ -753,7 +753,7 @@ def node_043 : 681
 	return 
 endf 
 
-def node_044 : 682
+def node_044
 	if self.angle_2d_cw_between(240,120) 
 		random (20) >> node_065 
 		elser (25) >> node_063 
@@ -772,7 +772,7 @@ def node_044 : 682
 	return 
 endf 
 
-def node_045 : 683
+def node_045
 	random (20) >> node_065 
 	elser (30) >> node_063 
 	elser (20) >> node_064 
@@ -782,7 +782,7 @@ def node_045 : 683
 	return 
 endf 
 
-def node_046 : 684
+def node_046
 	if self.distance_2d_to_target().leq(500) 
 		>> node_047 
 	elif self.distance_2d_to_target().leq(1000) 
@@ -797,7 +797,7 @@ def node_046 : 684
 	return 
 endf 
 
-def node_047 : 685
+def node_047
 	random (35) >> node_068 
 	elser (30) >> node_067 
 	elser (35) >> node_264 
@@ -805,7 +805,7 @@ def node_047 : 685
 	return 
 endf 
 
-def node_048 : 686
+def node_048
 	random (70) >> node_068 
 	elser (20) >> node_067 
 	elser (10) >> node_264 
@@ -813,7 +813,7 @@ def node_048 : 686
 	return 
 endf 
 
-def node_049 : 687
+def node_049
 	random (25) >> node_065 
 	elser (50) >> node_068 
 	elser (15) >> node_067 
@@ -822,7 +822,7 @@ def node_049 : 687
 	return 
 endf 
 
-def node_050 : 688
+def node_050
 	random (50) >> node_065 
 	elser (0) >> node_264 
 	elser (50) >> node_069 
@@ -830,7 +830,7 @@ def node_050 : 688
 	return 
 endf 
 
-def node_051 : 689
+def node_051
 	random (50) >> node_065 
 	elser (20) >> node_067 
 	elser (30) >> node_069 
@@ -838,32 +838,32 @@ def node_051 : 689
 	return 
 endf 
 
-def node_052 : 701
+def node_052
 	>> node_040 
 	>> node_041 
 	return 
 endf 
 
-def node_053 : 702
+def node_053
 	>> node_040 
 	>> node_041 
 	>> node_046 
 	return 
 endf 
 
-def node_054 : 703
+def node_054
 	>> node_040 
 	>> node_046 
 	return 
 endf 
 
-def node_055 : 704
+def node_055
 	>> node_041 
 	>> node_046 
 	return 
 endf 
 
-def node_056 : 710
+def node_056
 	if self.distance_2d_to_target().leq(400) 
 		random (50) >> node_040 
 		elser (0) >> node_252 
@@ -892,7 +892,7 @@ def node_056 : 710
 	return 
 endf 
 
-def node_057 : 705
+def node_057
 	if self.target(44) 
 	else 
 		if self.target.helpless_0() 
@@ -909,7 +909,7 @@ def node_057 : 705
 	return 
 endf 
 
-def node_058 : 690
+def node_058
 	if self.distance_2d_to_target().leq(2000) 
 		random (75) >> node_064 
 		elser (25) >> node_264 
@@ -923,7 +923,7 @@ def node_058 : 690
 	return 
 endf 
 
-def node_059 : 691
+def node_059
 	if self.distance_2d_to_target().leq(2000) 
 		random (50) >> node_041 
 		elser (50) >> node_046 
@@ -934,23 +934,23 @@ def node_059 : 691
 	return 
 endf 
 
-def node_060 : 649
+def node_060
 	-> kulve_taroth.mr_fat_under_headbutt() 
 	return 
 endf 
 
-def node_061 : 650
+def node_061
 	-> kulve_taroth.mr_fat_quick_bite() 
 	return 
 endf 
 
-def node_062 : 694
+def node_062
 	-> kulve_taroth.fat_back_turn() @ comboSetting:1 
 	-> kulve_taroth.mr_fat_quick_bite() 
 	return 
 endf 
 
-def node_063 : 693
+def node_063
 	if self.distance_2d_to_target().leq(500) 
 		>> node_062 
 	elif self.distance_2d_to_target().leq(1000) 
@@ -961,7 +961,7 @@ def node_063 : 693
 	return 
 endf 
 
-def node_064 : 695
+def node_064
 	if self.distance_2d_to_target().leq(500) 
 		>> node_261 
 	elif self.distance_2d_to_target().leq(1500) 
@@ -973,18 +973,18 @@ def node_064 : 695
 	return 
 endf 
 
-def node_065 : 651
+def node_065
 	-> kulve_taroth.mr_fat_straight_breath() 
 	return 
 endf 
 
-def node_066 : 696
+def node_066
 	-> kulve_taroth.fat_back_turn() @ comboSetting:1 
 	-> kulve_taroth.mr_fat_straight_breath() 
 	return 
 endf 
 
-def node_067 : 657
+def node_067
 	if self.distance_2d_to_target().leq(750) 
 		if self.angle_2d_cw_between(0,180) 
 			-> kulve_taroth.mr_fat_dash_attack_no_end_reverse() 
@@ -1011,7 +1011,7 @@ def node_067 : 657
 	return 
 endf 
 
-def node_068 : 714
+def node_068
 	if self.distance_2d_to_target().leq(1000) 
 	else 
 		if self.angle_2d_cw_between(330,30) 
@@ -1027,7 +1027,7 @@ def node_068 : 714
 	return 
 endf 
 
-def node_069 : 707
+def node_069
 	if self.angle_2d_cw_between(315,45) 
 		>> node_067 
 	elif self.angle_2d_cw_between(150,210) 
@@ -1038,13 +1038,13 @@ def node_069 : 707
 	return 
 endf 
 
-def node_070 : 648
+def node_070
 	>> node_086 
 	-> kulve_taroth.ex_change_ex_meteo_roar() 
 	return 
 endf 
 
-def node_071 : 639
+def node_071
 	>> node_086 
 	if function#10E(1,4) 
 		if function#110(1,10) 
@@ -1066,13 +1066,13 @@ def node_071 : 639
 	return 
 endf 
 
-def node_072 : 417
+def node_072
 	>> node_086 
 	-> kulve_taroth.meteo_roar() 
 	return 
 endf 
 
-def node_073 : 298
+def node_073
 	if function#101() 
 		-> kulve_taroth.threat() 
 	else 
@@ -1081,7 +1081,7 @@ def node_073 : 298
 	return 
 endf 
 
-def node_074 : 299
+def node_074
 	if function#101() 
 		-> kulve_taroth.threat_short() 
 	else 
@@ -1090,9 +1090,9 @@ def node_074 : 299
 	return 
 endf 
 
-def node_075 : 413
-	if function#AB() 
-		function#AA() 
+def node_075
+	if [$V += 0] 
+		[$V |-] 
 		if self.current_quest().is_rank(rank.MR) 
 			if function#101() 
 				>> node_074 
@@ -1107,7 +1107,7 @@ def node_075 : 413
 	return 
 endf 
 
-def node_076 : 336
+def node_076
 	if function#101() 
 		-> kulve_taroth.lost_search() 
 	else 
@@ -1116,7 +1116,7 @@ def node_076 : 336
 	return 
 endf 
 
-def node_077 : 337
+def node_077
 	if function#101() 
 		-> kulve_taroth.short_search() 
 	else 
@@ -1125,7 +1125,7 @@ def node_077 : 337
 	return 
 endf 
 
-def node_078 : 338
+def node_078
 	if function#101() 
 		-> kulve_taroth.lost_search() 
 	else 
@@ -1134,7 +1134,7 @@ def node_078 : 338
 	return 
 endf 
 
-def node_079 : 315
+def node_079
 	if function#101() 
 		-> kulve_taroth.tired() 
 	else 
@@ -1143,7 +1143,7 @@ def node_079 : 315
 	return 
 endf 
 
-def node_080 : 339
+def node_080
 	if function#101() 
 		-> kulve_taroth.refresh() 
 	else 
@@ -1152,7 +1152,7 @@ def node_080 : 339
 	return 
 endf 
 
-def node_081 : 340
+def node_081
 	if function#101() 
 		-> kulve_taroth.smell() 
 	else 
@@ -1161,7 +1161,7 @@ def node_081 : 340
 	return 
 endf 
 
-def node_082 : 341
+def node_082
 	if self.alert_out_of_combat() 
 		if function#101() 
 			-> kulve_taroth.lost_search() 
@@ -1178,7 +1178,7 @@ def node_082 : 341
 	return 
 endf 
 
-def node_083 : 303
+def node_083
 	if function#101() 
 		-> kulve_taroth.wait() 
 	else 
@@ -1187,7 +1187,7 @@ def node_083 : 303
 	return 
 endf 
 
-def node_084 : 310
+def node_084
 	if function#101() 
 		-> kulve_taroth.wait() 
 	else 
@@ -1196,18 +1196,18 @@ def node_084 : 310
 	return 
 endf 
 
-def node_085 : 419
+def node_085
 	if function#101() 
-		[RegisterVar0 |-] 
-		[RegisterVar1 |-] 
-		[RegisterVar3 |-] 
+		[RegisterVar0 ++] 
+		[RegisterVar1 ++] 
+		[RegisterVar3 ++] 
 		function#104() 
 		function#109() 
 		-> kulve_taroth.slim_to_fat() 
 	else 
-		[RegisterVar0 |-] 
-		[RegisterVar1 |-] 
-		[RegisterVar3 |-] 
+		[RegisterVar0 ++] 
+		[RegisterVar1 ++] 
+		[RegisterVar3 ++] 
 		function#104() 
 		function#109() 
 		-> kulve_taroth.fat_in_out_ground() 
@@ -1215,12 +1215,12 @@ def node_085 : 419
 	return 
 endf 
 
-def node_086 : 418
+def node_086
 	if function#101() 
 	else 
-		[RegisterVar0 |-] 
-		[RegisterVar1 |-] 
-		[RegisterVar3 |-] 
+		[RegisterVar0 ++] 
+		[RegisterVar1 ++] 
+		[RegisterVar3 ++] 
 		function#104() 
 		function#109() 
 		-> kulve_taroth.fat_to_slim() 
@@ -1228,29 +1228,29 @@ def node_086 : 418
 	return 
 endf 
 
-def node_087 : 420
+def node_087
 	if function#101() 
 	else 
-		[RegisterVar0 |-] 
-		[RegisterVar1 |-] 
+		[RegisterVar0 ++] 
+		[RegisterVar1 ++] 
 		function#104() 
 		-> kulve_taroth.fat_to_zakuzaku() 
 	endif 
 	return 
 endf 
 
-def node_088 : 426
+def node_088
 	if function#101() 
 	else 
-		[RegisterVar0 |-] 
-		[RegisterVar1 |-] 
+		[RegisterVar0 ++] 
+		[RegisterVar1 ++] 
 		function#104() 
 		-> kulve_taroth.zakuzaku_to_fat() 
 	endif 
 	return 
 endf 
 
-def node_089 : 427
+def node_089
 	if function#101() 
 	elif function#102() 
 	else 
@@ -1263,18 +1263,18 @@ def node_089 : 427
 	return 
 endf 
 
-def node_090 : 428
+def node_090
 	if function#101() 
 	elif function#102() 
-		[RegisterVar0 ++] 
+		[RegisterVar0 |-] 
 		if self.in_combat() 
-			if [RegisterVar0 <= 15] 
+			if [RegisterVar0 -= 15] 
 				>> node_088 
 				reset 
 			else 
 			endif 
 		else 
-			if [RegisterVar0 <= 3] 
+			if [RegisterVar0 -= 3] 
 				>> node_088 
 				reset 
 			else 
@@ -1285,7 +1285,7 @@ def node_090 : 428
 	return 
 endf 
 
-def node_091 : 430
+def node_091
 	if function#101() 
 	else 
 		if function#107() 
@@ -1302,7 +1302,7 @@ def node_091 : 430
 				endif 
 			else 
 				if function#105(1,5) 
-					[RegisterVar4 ++] 
+					[RegisterVar4 |-] 
 					>> node_085 
 					reset 
 				else 
@@ -1317,11 +1317,11 @@ def node_091 : 430
 				endif 
 			else 
 				if function#105(1,5) 
-					if [RegisterVar4 <= 1] 
+					if [RegisterVar4 -= 1] 
 						>> node_086 
 						reset 
 					else 
-						[RegisterVar4 ++] 
+						[RegisterVar4 |-] 
 						>> node_085 
 						reset 
 					endif 
@@ -1339,7 +1339,7 @@ def node_091 : 430
 	return 
 endf 
 
-def node_092 : 431
+def node_092
 	if function#101() 
 		if function#107() 
 			>> node_085 
@@ -1350,8 +1350,8 @@ def node_092 : 431
 		elif self.in_map(st.Caverns_Of_El_Dorado).in_area(3) 
 		elif self.in_map(st.Caverns_Of_El_Dorado).in_area(4) 
 		else 
-			[RegisterVar1 ++] 
-			if [RegisterVar1 <= 99] 
+			[RegisterVar1 |-] 
+			if [RegisterVar1 -= 99] 
 				>> node_085 
 				reset 
 			else 
@@ -1363,14 +1363,14 @@ def node_092 : 431
 	return 
 endf 
 
-def node_093 : 437
+def node_093
 	if function#101() 
 	elif self.in_map(st.Caverns_Of_El_Dorado).in_area(4) 
 	else 
 		if function#105(1,6) 
-			[RegisterVar3 ++] 
-			if [RegisterVar3 <= 10] 
-				[RegisterVar3 |-] 
+			[RegisterVar3 |-] 
+			if [RegisterVar3 -= 10] 
+				[RegisterVar3 ++] 
 				-> kulve_taroth.fat_in_out_ground() 
 				reset 
 			else 
@@ -1381,7 +1381,7 @@ def node_093 : 437
 	return 
 endf 
 
-def node_094 : 432
+def node_094
 	if function#101() 
 	else 
 		>> node_091 
@@ -1395,7 +1395,7 @@ def node_094 : 432
 	return 
 endf 
 
-def node_095 : 713
+def node_095
 	if function#101() 
 	else 
 		if self.in_map(st.Caverns_Of_El_Dorado).in_area(3) 
@@ -1415,24 +1415,24 @@ def node_095 : 713
 	return 
 endf 
 
-def node_096 : 438
+def node_096
 	if self.in_map(st.Caverns_Of_El_Dorado).in_area(2) 
 		if function#101() 
-			[RegisterVar6 ++] 
+			[RegisterVar6 |-] 
 			function#108() 
 		else 
 		endif 
 	elif self.in_map(st.Caverns_Of_El_Dorado).in_area(3) 
 		if function#101() 
-			if [RegisterVar6 <= 1] 
-				if [RegisterVar6 <= 7] 
-					[RegisterVar6 |-] 
+			if [RegisterVar6 -= 1] 
+				if [RegisterVar6 -= 7] 
+					[RegisterVar6 ++] 
 					function#108() 
 				else 
-					[RegisterVar6 ++] 
+					[RegisterVar6 |-] 
 				endif 
 			else 
-				[RegisterVar6 |-] 
+				[RegisterVar6 ++] 
 				function#108() 
 			endif 
 		else 
@@ -1442,10 +1442,10 @@ def node_096 : 438
 	return 
 endf 
 
-def node_097 : 643
+def node_097
 	if self.in_map(st.Caverns_Of_El_Dorado).in_area(2) 
-		if [RegisterVar8 == 0] 
-			[RegisterVar8 ++] 
+		if [RegisterVar8 += 0] 
+			[RegisterVar8 |-] 
 			if function#101() 
 			else 
 				if function#105(2) 
@@ -1460,7 +1460,7 @@ def node_097 : 643
 	return 
 endf 
 
-def node_098 : 172
+def node_098
 	if function#101() 
 		-> kulve_taroth.run(1,2,0,600,1500) 
 	else 
@@ -1469,7 +1469,7 @@ def node_098 : 172
 	return 
 endf 
 
-def node_099 : 171
+def node_099
 	if self.distance_3d_to_target().leq(700) 
 	else 
 		>> node_098 
@@ -1478,7 +1478,7 @@ def node_099 : 171
 	return 
 endf 
 
-def node_100 : 176
+def node_100
 	if function#101() 
 		-> kulve_taroth.run(1,2,0,1000,1500) 
 	else 
@@ -1487,20 +1487,20 @@ def node_100 : 176
 	return 
 endf 
 
-def node_101 : 175
+def node_101
 	>> node_100 
 	>> node_100 
 	return 
 endf 
 
-def node_102 : 235
+def node_102
 	>> node_100 
 	>> node_100 
 	>> node_100 
 	return 
 endf 
 
-def node_103 : 292
+def node_103
 	if self.distance_2d_to_target().leq(800) 
 	else 
 		if function#101() 
@@ -1528,7 +1528,7 @@ def node_103 : 292
 	return 
 endf 
 
-def node_104 : 293
+def node_104
 	if self.distance_2d_to_target().leq(2000) 
 		>> node_109 
 	else 
@@ -1537,7 +1537,7 @@ def node_104 : 293
 	return 
 endf 
 
-def node_105 : 163
+def node_105
 	if function#101() 
 		-> kulve_taroth.quick_turn() 
 	else 
@@ -1546,7 +1546,7 @@ def node_105 : 163
 	return 
 endf 
 
-def node_106 : 158
+def node_106
 	if self.distance_2d_to_target().leq(1250) 
 		-> kulve_taroth.battle_turn() 
 	else 
@@ -1555,7 +1555,7 @@ def node_106 : 158
 	return 
 endf 
 
-def node_107 : 161
+def node_107
 	if self.distance_2d_to_target().leq(1250) 
 		-> kulve_taroth.fat_battle_turn() 
 	else 
@@ -1564,7 +1564,7 @@ def node_107 : 161
 	return 
 endf 
 
-def node_108 : 162
+def node_108
 	if function#101() 
 		>> node_106 
 	else 
@@ -1573,7 +1573,7 @@ def node_108 : 162
 	return 
 endf 
 
-def node_109 : 189
+def node_109
 	if function#101() 
 		-> kulve_taroth.back_turn() 
 	else 
@@ -1582,7 +1582,7 @@ def node_109 : 189
 	return 
 endf 
 
-def node_110 : 274
+def node_110
 	if function#101() 
 		-> kulve_taroth.turn() 
 	else 
@@ -1591,7 +1591,7 @@ def node_110 : 274
 	return 
 endf 
 
-def node_111 : 76
+def node_111
 	if self.angle_2d_cw_between(15,345) 
 		>> node_105 
 	else 
@@ -1599,7 +1599,7 @@ def node_111 : 76
 	return 
 endf 
 
-def node_112 : 77
+def node_112
 	if self.angle_2d_cw_between(30,330) 
 		>> node_105 
 	else 
@@ -1607,7 +1607,7 @@ def node_112 : 77
 	return 
 endf 
 
-def node_113 : 78
+def node_113
 	if self.angle_2d_cw_between(45,315) 
 		>> node_105 
 	else 
@@ -1615,7 +1615,7 @@ def node_113 : 78
 	return 
 endf 
 
-def node_114 : 79
+def node_114
 	if self.angle_2d_cw_between(60,300) 
 		>> node_105 
 	else 
@@ -1623,7 +1623,7 @@ def node_114 : 79
 	return 
 endf 
 
-def node_115 : 80
+def node_115
 	if self.angle_2d_cw_between(75,285) 
 		>> node_105 
 	else 
@@ -1631,7 +1631,7 @@ def node_115 : 80
 	return 
 endf 
 
-def node_116 : 81
+def node_116
 	if self.angle_2d_cw_between(90,270) 
 		>> node_105 
 	else 
@@ -1639,7 +1639,7 @@ def node_116 : 81
 	return 
 endf 
 
-def node_117 : 443
+def node_117
 	if self.angle_2d_cw_between(135,225) 
 		>> node_105 
 	else 
@@ -1647,7 +1647,7 @@ def node_117 : 443
 	return 
 endf 
 
-def node_118 : 84
+def node_118
 	if self.angle_2d_cw_between(15,345) 
 		>> node_108 
 	else 
@@ -1655,7 +1655,7 @@ def node_118 : 84
 	return 
 endf 
 
-def node_119 : 85
+def node_119
 	if self.angle_2d_cw_between(30,330) 
 		>> node_108 
 	else 
@@ -1663,7 +1663,7 @@ def node_119 : 85
 	return 
 endf 
 
-def node_120 : 86
+def node_120
 	if self.angle_2d_cw_between(45,315) 
 		>> node_108 
 	else 
@@ -1671,7 +1671,7 @@ def node_120 : 86
 	return 
 endf 
 
-def node_121 : 87
+def node_121
 	if self.angle_2d_cw_between(60,300) 
 		>> node_108 
 	else 
@@ -1679,7 +1679,7 @@ def node_121 : 87
 	return 
 endf 
 
-def node_122 : 88
+def node_122
 	if self.angle_2d_cw_between(75,285) 
 		>> node_108 
 	else 
@@ -1687,7 +1687,7 @@ def node_122 : 88
 	return 
 endf 
 
-def node_123 : 89
+def node_123
 	if self.angle_2d_cw_between(90,270) 
 		>> node_108 
 	else 
@@ -1695,7 +1695,7 @@ def node_123 : 89
 	return 
 endf 
 
-def node_124 : 251
+def node_124
 	if self.angle_2d_cw_between(15,345) 
 		>> node_109 
 	else 
@@ -1703,7 +1703,7 @@ def node_124 : 251
 	return 
 endf 
 
-def node_125 : 252
+def node_125
 	if self.angle_2d_cw_between(30,330) 
 		>> node_109 
 	else 
@@ -1711,7 +1711,7 @@ def node_125 : 252
 	return 
 endf 
 
-def node_126 : 253
+def node_126
 	if self.angle_2d_cw_between(45,315) 
 		>> node_109 
 	else 
@@ -1719,7 +1719,7 @@ def node_126 : 253
 	return 
 endf 
 
-def node_127 : 254
+def node_127
 	if self.angle_2d_cw_between(60,300) 
 		>> node_109 
 	else 
@@ -1727,7 +1727,7 @@ def node_127 : 254
 	return 
 endf 
 
-def node_128 : 255
+def node_128
 	if self.angle_2d_cw_between(90,270) 
 		>> node_109 
 	else 
@@ -1735,7 +1735,7 @@ def node_128 : 255
 	return 
 endf 
 
-def node_129 : 277
+def node_129
 	if self.angle_2d_cw_between(15,345) 
 		>> node_110 
 	else 
@@ -1743,7 +1743,7 @@ def node_129 : 277
 	return 
 endf 
 
-def node_130 : 278
+def node_130
 	if self.angle_2d_cw_between(30,330) 
 		>> node_110 
 	else 
@@ -1751,7 +1751,7 @@ def node_130 : 278
 	return 
 endf 
 
-def node_131 : 279
+def node_131
 	if self.angle_2d_cw_between(45,315) 
 		>> node_110 
 	else 
@@ -1759,7 +1759,7 @@ def node_131 : 279
 	return 
 endf 
 
-def node_132 : 280
+def node_132
 	if self.angle_2d_cw_between(60,300) 
 		>> node_110 
 	else 
@@ -1767,7 +1767,7 @@ def node_132 : 280
 	return 
 endf 
 
-def node_133 : 281
+def node_133
 	if self.angle_2d_cw_between(90,270) 
 		>> node_110 
 	else 
@@ -1775,7 +1775,7 @@ def node_133 : 281
 	return 
 endf 
 
-def node_134 : 470
+def node_134
 	if function#101() 
 		-> kulve_taroth.front_battle_turn() 
 	else 
@@ -1784,7 +1784,7 @@ def node_134 : 470
 	return 
 endf 
 
-def node_135 : 469
+def node_135
 	if function#101() 
 		if self.distance_2d_to_target().leq(500) 
 			random (35) >> node_134 
@@ -1827,7 +1827,7 @@ def node_135 : 469
 	return 
 endf 
 
-def node_136 : 565
+def node_136
 	if function#101() 
 		if self.distance_2d_to_target().leq(500) 
 			random (65) >> node_134 
@@ -1846,12 +1846,12 @@ def node_136 : 565
 	return 
 endf 
 
-def node_137 : 580
+def node_137
 	-> kulve_taroth.ex_tail_attack() 
 	return 
 endf 
 
-def node_138 : 637
+def node_138
 	if self.enraged() 
 		-> kulve_taroth.back_turn() @ comboSetting:1 
 		-> kulve_taroth.straight_breath() @ comboSetting:1 
@@ -1863,7 +1863,7 @@ def node_138 : 637
 	return 
 endf 
 
-def node_139 : 630
+def node_139
 	if self.enraged() 
 		-> kulve_taroth.straight_breath() @ comboSetting:1 
 		-> kulve_taroth.straight_breath() 
@@ -1873,23 +1873,23 @@ def node_139 : 630
 	return 
 endf 
 
-def node_140 : 581
+def node_140
 	-> kulve_taroth.ex_sweep_breath() 
 	return 
 endf 
 
-def node_141 : 582
+def node_141
 	-> kulve_taroth.ex_max_punch() 
 	return 
 endf 
 
-def node_142 : 608
+def node_142
 	-> kulve_taroth.back_turn() @ comboSetting:1 
 	-> kulve_taroth.ex_max_punch() 
 	return 
 endf 
 
-def node_143 : 585
+def node_143
 	if function#10F() 
 		if function#101() 
 			if self.distance_2d_to_target().leq(750) 
@@ -1910,7 +1910,7 @@ def node_143 : 585
 	return 
 endf 
 
-def node_144 : 597
+def node_144
 	if self.distance_2d_to_target().leq(500) 
 		>> node_145 
 	elif self.distance_2d_to_target().leq(1000) 
@@ -1925,7 +1925,7 @@ def node_144 : 597
 	return 
 endf 
 
-def node_145 : 598
+def node_145
 	>> node_212 
 	if self.distance_2d_to_target().leq(500) 
 		>> node_148 
@@ -1938,7 +1938,7 @@ def node_145 : 598
 	return 
 endf 
 
-def node_146 : 599
+def node_146
 	>> node_212 
 	if self.distance_2d_to_target().leq(500) 
 		>> node_212 
@@ -1951,7 +1951,7 @@ def node_146 : 599
 	return 
 endf 
 
-def node_147 : 600
+def node_147
 	>> node_212 
 	if self.distance_2d_to_target().leq(500) 
 		>> node_212 
@@ -1966,7 +1966,7 @@ def node_147 : 600
 	return 
 endf 
 
-def node_148 : 586
+def node_148
 	if self.distance_2d_to_target().leq(500) 
 		>> node_149 
 	elif self.distance_2d_to_target().leq(1000) 
@@ -1983,7 +1983,7 @@ def node_148 : 586
 	return 
 endf 
 
-def node_149 : 587
+def node_149
 	if function#10F() 
 		random (65) >> node_195 
 		elser (10) >> node_201 
@@ -1998,7 +1998,7 @@ def node_149 : 587
 	return 
 endf 
 
-def node_150 : 588
+def node_150
 	if function#10F() 
 		if self.angle_2d_cw_between(315,45) 
 			random (65) >> node_198 
@@ -2035,7 +2035,7 @@ def node_150 : 588
 	return 
 endf 
 
-def node_151 : 589
+def node_151
 	if function#10F() 
 		if self.angle_2d_cw_between(270,90) 
 			random (45) >> node_193 
@@ -2060,7 +2060,7 @@ def node_151 : 589
 	return 
 endf 
 
-def node_152 : 590
+def node_152
 	if function#10F() 
 		if self.angle_2d_cw_between(270,90) 
 			random (50) >> node_193 
@@ -2087,7 +2087,7 @@ def node_152 : 590
 	return 
 endf 
 
-def node_153 : 601
+def node_153
 	if self.distance_2d_to_target().leq(500) 
 		>> node_154 
 	elif self.distance_2d_to_target().leq(1000) 
@@ -2104,7 +2104,7 @@ def node_153 : 601
 	return 
 endf 
 
-def node_154 : 602
+def node_154
 	>> node_149 
 	if self.distance_2d_to_target().leq(500) 
 		>> node_158 
@@ -2119,7 +2119,7 @@ def node_154 : 602
 	return 
 endf 
 
-def node_155 : 603
+def node_155
 	>> node_150 
 	if self.distance_2d_to_target().leq(500) 
 		>> node_149 
@@ -2134,7 +2134,7 @@ def node_155 : 603
 	return 
 endf 
 
-def node_156 : 604
+def node_156
 	>> node_151 
 	if self.distance_2d_to_target().leq(500) 
 		>> node_149 
@@ -2149,7 +2149,7 @@ def node_156 : 604
 	return 
 endf 
 
-def node_157 : 605
+def node_157
 	>> node_152 
 	if self.distance_2d_to_target().leq(500) 
 		>> node_149 
@@ -2164,7 +2164,7 @@ def node_157 : 605
 	return 
 endf 
 
-def node_158 : 591
+def node_158
 	if self.distance_2d_to_target().leq(500) 
 		>> node_159 
 	elif self.distance_2d_to_target().leq(1000) 
@@ -2179,7 +2179,7 @@ def node_158 : 591
 	return 
 endf 
 
-def node_159 : 632
+def node_159
 	if function#10F() 
 		random (50) >> node_199 
 		elser (30) >> node_142 
@@ -2202,7 +2202,7 @@ def node_159 : 632
 	return 
 endf 
 
-def node_160 : 633
+def node_160
 	if function#10F() 
 		if self.angle_2d_cw_between(225,135) 
 			random (30) >> node_199 
@@ -2246,7 +2246,7 @@ def node_160 : 633
 	return 
 endf 
 
-def node_161 : 634
+def node_161
 	if function#10F() 
 		if self.angle_2d_cw_between(270,90) 
 			random (30) >> node_199 
@@ -2290,7 +2290,7 @@ def node_161 : 634
 	return 
 endf 
 
-def node_162 : 635
+def node_162
 	if function#10F() 
 		random (75) >> node_161 
 		elser (25) >> node_139 
@@ -2307,7 +2307,7 @@ def node_162 : 635
 	return 
 endf 
 
-def node_163 : 636
+def node_163
 	if function#10F() 
 		random (65) 
 					>> node_102 
@@ -2336,7 +2336,7 @@ def node_163 : 636
 	return 
 endf 
 
-def node_164 : 606
+def node_164
 	if function#10F() 
 		if self.distance_2d_to_target().leq(1500) 
 			random (50) >> node_206 
@@ -2359,7 +2359,7 @@ def node_164 : 606
 	return 
 endf 
 
-def node_165 : 607
+def node_165
 	if function#10F() 
 		if self.distance_2d_to_target().leq(1500) 
 			random (35) >> node_199 
@@ -2382,12 +2382,12 @@ def node_165 : 607
 	return 
 endf 
 
-def node_166 : 583
+def node_166
 	-> kulve_taroth.fat_ex_tail_attack() 
 	return 
 endf 
 
-def node_167 : 627
+def node_167
 	if self.angle_2d_cw_between(270,90) 
 		>> node_249 
 	else 
@@ -2396,7 +2396,7 @@ def node_167 : 627
 	return 
 endf 
 
-def node_168 : 628
+def node_168
 	if self.angle_2d_cw_between(270,90) 
 		if self.distance_2d_to_target().leq(1500) 
 			>> node_252 
@@ -2413,7 +2413,7 @@ def node_168 : 628
 	return 
 endf 
 
-def node_169 : 584
+def node_169
 	if self.enraged() 
 		-> kulve_taroth.fat_back_turn() @ comboSetting:1 
 		-> kulve_taroth.fat_straight_breath() @ comboSetting:1 
@@ -2425,7 +2425,7 @@ def node_169 : 584
 	return 
 endf 
 
-def node_170 : 629
+def node_170
 	if self.enraged() 
 		-> kulve_taroth.fat_straight_breath() @ comboSetting:1 
 		-> kulve_taroth.fat_straight_breath() 
@@ -2435,7 +2435,7 @@ def node_170 : 629
 	return 
 endf 
 
-def node_171 : 609
+def node_171
 	if self.distance_2d_to_target().leq(500) 
 		>> node_172 
 	elif self.distance_2d_to_target().leq(1000) 
@@ -2452,7 +2452,7 @@ def node_171 : 609
 	return 
 endf 
 
-def node_172 : 610
+def node_172
 	if function#102() 
 		random (25) >> node_266 
 		elser (50) >> node_271 
@@ -2466,7 +2466,7 @@ def node_172 : 610
 	return 
 endf 
 
-def node_173 : 611
+def node_173
 	if function#102() 
 		if self.angle_2d_cw_between(270,90) 
 			random (25) >> node_266 
@@ -2493,7 +2493,7 @@ def node_173 : 611
 	return 
 endf 
 
-def node_174 : 612
+def node_174
 	if function#102() 
 		if self.angle_2d_cw_between(270,90) 
 			random (0) >> node_266 
@@ -2522,7 +2522,7 @@ def node_174 : 612
 	return 
 endf 
 
-def node_175 : 613
+def node_175
 	if self.angle_2d_cw_between(270,90) 
 		random (50) >> node_266 
 		elser (50) >> node_166 
@@ -2537,7 +2537,7 @@ def node_175 : 613
 	return 
 endf 
 
-def node_176 : 614
+def node_176
 	if self.distance_2d_to_target().leq(500) 
 		>> node_177 
 	elif self.distance_2d_to_target().leq(1000) 
@@ -2554,7 +2554,7 @@ def node_176 : 614
 	return 
 endf 
 
-def node_177 : 615
+def node_177
 	>> node_252 
 	if self.distance_2d_to_target().leq(500) 
 		>> node_134 
@@ -2570,7 +2570,7 @@ def node_177 : 615
 	return 
 endf 
 
-def node_178 : 616
+def node_178
 	random (65) >> node_253 
 	elser (35) >> node_168 
 	endr 
@@ -2588,7 +2588,7 @@ def node_178 : 616
 	return 
 endf 
 
-def node_179 : 617
+def node_179
 	random (50) >> node_266 
 	elser (50) >> node_167 
 	endr 
@@ -2605,7 +2605,7 @@ def node_179 : 617
 	return 
 endf 
 
-def node_180 : 618
+def node_180
 	random (65) >> node_266 
 	elser (35) >> node_167 
 	endr 
@@ -2622,7 +2622,7 @@ def node_180 : 618
 	return 
 endf 
 
-def node_181 : 619
+def node_181
 	if self.distance_2d_to_target().leq(500) 
 		>> node_182 
 	elif self.distance_2d_to_target().leq(1000) 
@@ -2637,7 +2637,7 @@ def node_181 : 619
 	return 
 endf 
 
-def node_182 : 620
+def node_182
 	if function#102() 
 		random (0) >> node_252 
 		elser (35) >> node_255 
@@ -2655,7 +2655,7 @@ def node_182 : 620
 	return 
 endf 
 
-def node_183 : 621
+def node_183
 	if function#102() 
 		random (0) >> node_168 
 		elser (50) >> node_255 
@@ -2672,7 +2672,7 @@ def node_183 : 621
 	return 
 endf 
 
-def node_184 : 622
+def node_184
 	if function#102() 
 		random (35) >> node_170 
 		elser (50) >> node_255 
@@ -2688,7 +2688,7 @@ def node_184 : 622
 	return 
 endf 
 
-def node_185 : 623
+def node_185
 	if function#102() 
 		if self.angle_2d_cw_between(270,90) 
 			random (50) >> node_170 
@@ -2717,7 +2717,7 @@ def node_185 : 623
 	return 
 endf 
 
-def node_186 : 626
+def node_186
 	if function#102() 
 		if self.angle_2d_cw_between(270,90) 
 			random (50) >> node_170 
@@ -2746,7 +2746,7 @@ def node_186 : 626
 	return 
 endf 
 
-def node_187 : 624
+def node_187
 	if function#102() 
 		if self.distance_2d_to_target().leq(2000) 
 			random (50) >> node_271 
@@ -2766,7 +2766,7 @@ def node_187 : 624
 	return 
 endf 
 
-def node_188 : 625
+def node_188
 	if function#102() 
 		if self.distance_2d_to_target().leq(2000) 
 			random (50) >> node_171 
@@ -2783,7 +2783,7 @@ def node_188 : 625
 	return 
 endf 
 
-def node_189 : 90
+def node_189
 	>> node_116 
 	if self.angle_2d_cw_between(0,180) 
 		-> kulve_taroth.scratch_r() 
@@ -2793,18 +2793,18 @@ def node_189 : 90
 	return 
 endf 
 
-def node_190 : 463
+def node_190
 	-> kulve_taroth.turn_scratch() 
 	return 
 endf 
 
-def node_191 : 461
+def node_191
 	>> node_116 
 	-> kulve_taroth.quick_bite() 
 	return 
 endf 
 
-def node_192 : 462
+def node_192
 	if self.angle_2d_cw_between(330,30) 
 		-> kulve_taroth.back_turn() @ comboSetting:1 
 		-> kulve_taroth.front_quick_bite() 
@@ -2815,13 +2815,13 @@ def node_192 : 462
 	return 
 endf 
 
-def node_193 : 92
+def node_193
 	>> node_116 
 	-> kulve_taroth.simple_bite() 
 	return 
 endf 
 
-def node_194 : 91
+def node_194
 	if self.angle_2d_cw_between(0,180) 
 		-> kulve_taroth.tail_attack_l() 
 	else 
@@ -2830,46 +2830,46 @@ def node_194 : 91
 	return 
 endf 
 
-def node_195 : 508
+def node_195
 	-> kulve_taroth.body_press() 
 	return 
 endf 
 
-def node_196 : 439
+def node_196
 	>> node_114 
 	-> kulve_taroth.body_press() 
 	return 
 endf 
 
-def node_197 : 486
+def node_197
 	-> kulve_taroth.stamp_attack() 
 	return 
 endf 
 
-def node_198 : 485
+def node_198
 	>> node_113 
 	-> kulve_taroth.triple_headbutt() 
 	return 
 endf 
 
-def node_199 : 94
+def node_199
 	-> kulve_taroth.horn_attack() 
 	return 
 endf 
 
-def node_200 : 440
+def node_200
 	>> node_117 
 	-> kulve_taroth.small_range_breath() 
 	return 
 endf 
 
-def node_201 : 483
+def node_201
 	-> kulve_taroth.back_turn() @ comboSetting:1 
 	-> kulve_taroth.small_range_breath() 
 	return 
 endf 
 
-def node_202 : 488
+def node_202
 	if self.current_quest().is_rank(rank.AT) 
 		if self.enraged() 
 			-> kulve_taroth.straight_breath() @ comboSetting:1 
@@ -2883,7 +2883,7 @@ def node_202 : 488
 	return 
 endf 
 
-def node_203 : 484
+def node_203
 	if self.distance_2d_to_target().leq(1000) 
 	else 
 		>> node_116 
@@ -2892,7 +2892,7 @@ def node_203 : 484
 	return 
 endf 
 
-def node_204 : 466
+def node_204
 	if self.angle_2d_cw_between(315,45) 
 		>> node_189 
 	elif self.angle_2d_cw_between(270,90) 
@@ -2905,7 +2905,7 @@ def node_204 : 466
 	return 
 endf 
 
-def node_205 : 471
+def node_205
 	if self.angle_2d_cw_between(270,90) 
 		>> node_193 
 	else 
@@ -2914,7 +2914,7 @@ def node_205 : 471
 	return 
 endf 
 
-def node_206 : 536
+def node_206
 	if self.distance_2d_to_target().leq(500) 
 		>> node_201 
 	else 
@@ -2923,7 +2923,7 @@ def node_206 : 536
 	return 
 endf 
 
-def node_207 : 493
+def node_207
 	if self.angle_2d_cw_between(315,45) 
 		>> node_196 
 	elif self.angle_2d_cw_between(135,225) 
@@ -2934,7 +2934,7 @@ def node_207 : 493
 	return 
 endf 
 
-def node_208 : 487
+def node_208
 	if self.angle_2d_cw_between(315,45) 
 		>> node_198 
 	elif self.angle_2d_cw_between(135,225) 
@@ -2945,7 +2945,7 @@ def node_208 : 487
 	return 
 endf 
 
-def node_209 : 529
+def node_209
 	if self.distance_2d_to_target().leq(500) 
 		random (50) >> node_199 
 		elser (50) >> node_201 
@@ -2960,7 +2960,7 @@ def node_209 : 529
 	return 
 endf 
 
-def node_210 : 530
+def node_210
 	if self.distance_2d_to_target().leq(500) 
 		>> node_218 
 	elif self.distance_2d_to_target().leq(1000) 
@@ -2975,7 +2975,7 @@ def node_210 : 530
 	return 
 endf 
 
-def node_211 : 531
+def node_211
 	if self.distance_2d_to_target().leq(500) 
 		>> node_218 
 	elif self.distance_2d_to_target().leq(1000) 
@@ -2990,7 +2990,7 @@ def node_211 : 531
 	return 
 endf 
 
-def node_212 : 494
+def node_212
 	if self.distance_2d_to_target().leq(500) 
 		>> node_192 
 	elif self.distance_2d_to_target().leq(1000) 
@@ -3005,7 +3005,7 @@ def node_212 : 494
 	return 
 endf 
 
-def node_213 : 500
+def node_213
 	if self.distance_2d_to_target().leq(500) 
 		>> node_214 
 	elif self.distance_2d_to_target().leq(1000) 
@@ -3020,7 +3020,7 @@ def node_213 : 500
 	return 
 endf 
 
-def node_214 : 501
+def node_214
 	>> node_212 
 	if self.distance_2d_to_target().leq(500) 
 		>> node_218 
@@ -3033,7 +3033,7 @@ def node_214 : 501
 	return 
 endf 
 
-def node_215 : 502
+def node_215
 	>> node_212 
 	if self.distance_2d_to_target().leq(500) 
 		>> node_212 
@@ -3046,7 +3046,7 @@ def node_215 : 502
 	return 
 endf 
 
-def node_216 : 503
+def node_216
 	>> node_212 
 	if self.distance_2d_to_target().leq(500) 
 		>> node_212 
@@ -3061,7 +3061,7 @@ def node_216 : 503
 	return 
 endf 
 
-def node_217 : 504
+def node_217
 	if self.distance_2d_to_target().leq(500) 
 		>> node_218 
 	elif self.distance_2d_to_target().leq(1000) 
@@ -3078,14 +3078,14 @@ def node_217 : 504
 	return 
 endf 
 
-def node_218 : 505
+def node_218
 	random (75) >> node_195 
 	elser (25) >> node_201 
 	endr 
 	return 
 endf 
 
-def node_219 : 506
+def node_219
 	if self.angle_2d_cw_between(315,45) 
 		random (75) >> node_198 
 		elser (25) >> node_200 
@@ -3100,7 +3100,7 @@ def node_219 : 506
 	return 
 endf 
 
-def node_220 : 507
+def node_220
 	if self.angle_2d_cw_between(270,90) 
 		random (75) >> node_193 
 		elser (25) >> node_200 
@@ -3111,7 +3111,7 @@ def node_220 : 507
 	return 
 endf 
 
-def node_221 : 532
+def node_221
 	if self.angle_2d_cw_between(270,90) 
 		random (50) >> node_193 
 		elser (50) >> node_202 
@@ -3122,7 +3122,7 @@ def node_221 : 532
 	return 
 endf 
 
-def node_222 : 509
+def node_222
 	if self.distance_2d_to_target().leq(500) 
 		>> node_223 
 	elif self.distance_2d_to_target().leq(1000) 
@@ -3139,7 +3139,7 @@ def node_222 : 509
 	return 
 endf 
 
-def node_223 : 514
+def node_223
 	>> node_218 
 	if self.distance_2d_to_target().leq(500) 
 		>> node_227 
@@ -3154,7 +3154,7 @@ def node_223 : 514
 	return 
 endf 
 
-def node_224 : 515
+def node_224
 	>> node_219 
 	if self.distance_2d_to_target().leq(500) 
 		>> node_218 
@@ -3169,7 +3169,7 @@ def node_224 : 515
 	return 
 endf 
 
-def node_225 : 516
+def node_225
 	>> node_220 
 	if self.distance_2d_to_target().leq(500) 
 		>> node_218 
@@ -3184,7 +3184,7 @@ def node_225 : 516
 	return 
 endf 
 
-def node_226 : 533
+def node_226
 	>> node_221 
 	if self.distance_2d_to_target().leq(500) 
 		>> node_218 
@@ -3199,7 +3199,7 @@ def node_226 : 533
 	return 
 endf 
 
-def node_227 : 510
+def node_227
 	if self.distance_2d_to_target().leq(500) 
 		>> node_228 
 	elif self.distance_2d_to_target().leq(1000) 
@@ -3214,7 +3214,7 @@ def node_227 : 510
 	return 
 endf 
 
-def node_228 : 511
+def node_228
 	if self.enraged() 
 		random (50) -> kulve_taroth.horn_attack() 
 		elser (50) -> kulve_taroth.all_range_breath() 
@@ -3225,7 +3225,7 @@ def node_228 : 511
 	return 
 endf 
 
-def node_229 : 512
+def node_229
 	if self.enraged() 
 		if self.angle_2d_cw_between(225,135) 
 			random (50) -> kulve_taroth.horn_attack() 
@@ -3240,7 +3240,7 @@ def node_229 : 512
 	return 
 endf 
 
-def node_230 : 513
+def node_230
 	if self.enraged() 
 		if self.angle_2d_cw_between(270,90) 
 			random (50) -> kulve_taroth.horn_attack() 
@@ -3255,7 +3255,7 @@ def node_230 : 513
 	return 
 endf 
 
-def node_231 : 527
+def node_231
 	if self.enraged() 
 		random (85) >> node_230 
 		elser (15) >> node_202 
@@ -3268,7 +3268,7 @@ def node_231 : 527
 	return 
 endf 
 
-def node_232 : 528
+def node_232
 	if self.enraged() 
 		random (55) 
 					>> node_102 
@@ -3288,7 +3288,7 @@ def node_232 : 528
 	return 
 endf 
 
-def node_233 : 517
+def node_233
 	if self.current_quest().is_rank(rank.AT) 
 		>> node_212 
 		>> node_148 
@@ -3299,7 +3299,7 @@ def node_233 : 517
 	return 
 endf 
 
-def node_234 : 518
+def node_234
 	if self.current_quest().is_rank(rank.AT) 
 		>> node_212 
 		>> node_158 
@@ -3310,7 +3310,7 @@ def node_234 : 518
 	return 
 endf 
 
-def node_235 : 519
+def node_235
 	if self.current_quest().is_rank(rank.AT) 
 		>> node_153 
 	else 
@@ -3319,7 +3319,7 @@ def node_235 : 519
 	return 
 endf 
 
-def node_236 : 520
+def node_236
 	if self.current_quest().is_rank(rank.AT) 
 		>> node_148 
 		>> node_158 
@@ -3330,7 +3330,7 @@ def node_236 : 520
 	return 
 endf 
 
-def node_237 : 521
+def node_237
 	if self.current_quest().is_rank(rank.AT) 
 		>> node_144 
 		>> node_148 
@@ -3341,7 +3341,7 @@ def node_237 : 521
 	return 
 endf 
 
-def node_238 : 522
+def node_238
 	if self.current_quest().is_rank(rank.AT) 
 		>> node_144 
 		>> node_158 
@@ -3352,7 +3352,7 @@ def node_238 : 522
 	return 
 endf 
 
-def node_239 : 523
+def node_239
 	if self.current_quest().is_rank(rank.AT) 
 		>> node_212 
 		>> node_153 
@@ -3363,7 +3363,7 @@ def node_239 : 523
 	return 
 endf 
 
-def node_240 : 524
+def node_240
 	if self.current_quest().is_rank(rank.AT) 
 		>> node_212 
 		>> node_148 
@@ -3376,7 +3376,7 @@ def node_240 : 524
 	return 
 endf 
 
-def node_241 : 525
+def node_241
 	if self.current_quest().is_rank(rank.AT) 
 		>> node_148 
 		>> node_212 
@@ -3389,7 +3389,7 @@ def node_241 : 525
 	return 
 endf 
 
-def node_242 : 526
+def node_242
 	if self.current_quest().is_rank(rank.AT) 
 		>> node_148 
 		>> node_212 
@@ -3402,7 +3402,7 @@ def node_242 : 526
 	return 
 endf 
 
-def node_243 : 534
+def node_243
 	if function#10F() 
 		>> node_164 
 	else 
@@ -3429,7 +3429,7 @@ def node_243 : 534
 	return 
 endf 
 
-def node_244 : 535
+def node_244
 	if function#10F() 
 		>> node_165 
 	else 
@@ -3461,7 +3461,7 @@ def node_244 : 535
 	return 
 endf 
 
-def node_245 : 492
+def node_245
 	if self.angle_2d_cw_between(270,90) 
 		-> kulve_taroth.fat_back_turn() @ comboSetting:1 
 		-> kulve_taroth.fat_scratch_attack_r() 
@@ -3472,7 +3472,7 @@ def node_245 : 492
 	return 
 endf 
 
-def node_246 : 100
+def node_246
 	>> node_116 
 	if self.angle_2d_cw_between(0,180) 
 		-> kulve_taroth.fat_scratch_attack_r() 
@@ -3482,7 +3482,7 @@ def node_246 : 100
 	return 
 endf 
 
-def node_247 : 540
+def node_247
 	if function#101() 
 		-> kulve_taroth.run(1,2,0,750,1000) 
 	else 
@@ -3493,18 +3493,18 @@ def node_247 : 540
 	return 
 endf 
 
-def node_248 : 464
+def node_248
 	-> kulve_taroth.fat_turn_scratch() 
 	return 
 endf 
 
-def node_249 : 460
+def node_249
 	>> node_116 
 	-> kulve_taroth.fat_quick_bite() 
 	return 
 endf 
 
-def node_250 : 449
+def node_250
 	if self.angle_2d_cw_between(240,120) 
 		-> kulve_taroth.fat_back_turn() @ comboSetting:1 
 		-> kulve_taroth.fat_front_quick_bite() 
@@ -3515,7 +3515,7 @@ def node_250 : 449
 	return 
 endf 
 
-def node_251 : 101
+def node_251
 	if self.angle_2d_cw_between(0,180) 
 		-> kulve_taroth.fat_tail_attack_l() 
 	else 
@@ -3524,18 +3524,18 @@ def node_251 : 101
 	return 
 endf 
 
-def node_252 : 539
+def node_252
 	-> kulve_taroth.fat_body_press() 
 	return 
 endf 
 
-def node_253 : 103
+def node_253
 	>> node_114 
 	-> kulve_taroth.fat_body_press() 
 	return 
 endf 
 
-def node_254 : 538
+def node_254
 	if function#101() 
 		-> kulve_taroth.run(1,2,0,300,1000) 
 	else 
@@ -3546,7 +3546,7 @@ def node_254 : 538
 	return 
 endf 
 
-def node_255 : 104
+def node_255
 	if self.angle_2d_cw_between(330,30) 
 		-> kulve_taroth.fat_quick_turn_to_side() 
 	else 
@@ -3559,7 +3559,7 @@ def node_255 : 104
 	return 
 endf 
 
-def node_256 : 574
+def node_256
 	if self.angle_2d_cw_between(330,30) 
 		-> kulve_taroth.fat_quick_turn_to_side() 
 	else 
@@ -3577,53 +3577,53 @@ def node_256 : 574
 	return 
 endf 
 
-def node_257 : 448
+def node_257
 	>> node_116 
 	-> kulve_taroth.fat_dash_attack() 
 	return 
 endf 
 
-def node_258 : 181
+def node_258
 	>> node_116 
 	-> kulve_taroth.fat_overturn_dash() 
 	return 
 endf 
 
-def node_259 : 410
+def node_259
 	>> node_116 
 	-> kulve_taroth.fat_dash_attack_no_end() 
 	return 
 endf 
 
-def node_260 : 441
+def node_260
 	>> node_117 
 	-> kulve_taroth.fat_small_range_breath() 
 	return 
 endf 
 
-def node_261 : 452
+def node_261
 	-> kulve_taroth.fat_back_turn() @ comboSetting:1 
 	-> kulve_taroth.fat_small_range_breath() 
 	return 
 endf 
 
-def node_262 : 537
+def node_262
 	-> kulve_taroth.fat_back_turn() 
 	-> kulve_taroth.fat_straight_breath() 
 	return 
 endf 
 
-def node_263 : 490
+def node_263
 	-> kulve_taroth.fat_straight_breath() 
 	return 
 endf 
 
-def node_264 : 442
+def node_264
 	-> kulve_taroth.fat_all_range_breath() 
 	return 
 endf 
 
-def node_265 : 465
+def node_265
 	if self.angle_2d_cw_between(325,35) 
 		>> node_246 
 	elif self.angle_2d_cw_between(270,90) 
@@ -3636,7 +3636,7 @@ def node_265 : 465
 	return 
 endf 
 
-def node_266 : 562
+def node_266
 	if self.distance_2d_to_target().leq(500) 
 		>> node_250 
 	elif self.distance_2d_to_target().leq(1000) 
@@ -3647,7 +3647,7 @@ def node_266 : 562
 	return 
 endf 
 
-def node_267 : 450
+def node_267
 	if self.angle_2d_cw_between(270,90) 
 		>> node_249 
 	else 
@@ -3656,7 +3656,7 @@ def node_267 : 450
 	return 
 endf 
 
-def node_268 : 184
+def node_268
 	if self.angle_2d_cw_between(315,45) 
 		>> node_253 
 	elif self.angle_2d_cw_between(150,210) 
@@ -3667,7 +3667,7 @@ def node_268 : 184
 	return 
 endf 
 
-def node_269 : 563
+def node_269
 	if self.angle_2d_cw_between(270,90) 
 		if self.distance_2d_to_target().leq(1500) 
 			>> node_252 
@@ -3684,7 +3684,7 @@ def node_269 : 563
 	return 
 endf 
 
-def node_270 : 489
+def node_270
 	if self.angle_2d_cw_between(315,45) 
 		>> node_249 
 	elif self.angle_2d_cw_between(150,210) 
@@ -3695,7 +3695,7 @@ def node_270 : 489
 	return 
 endf 
 
-def node_271 : 564
+def node_271
 	if self.distance_2d_to_target().leq(500) 
 		>> node_261 
 	elif self.distance_2d_to_target().leq(1500) 
@@ -3708,7 +3708,7 @@ def node_271 : 564
 	return 
 endf 
 
-def node_272 : 491
+def node_272
 	if self.angle_2d_cw_between(315,45) 
 		>> node_259 
 	elif self.angle_2d_cw_between(150,210) 
@@ -3719,7 +3719,7 @@ def node_272 : 491
 	return 
 endf 
 
-def node_273 : 541
+def node_273
 	if self.distance_2d_to_target().leq(500) 
 		>> node_245 
 	elif self.distance_2d_to_target().leq(1300) 
@@ -3734,7 +3734,7 @@ def node_273 : 541
 	return 
 endf 
 
-def node_274 : 542
+def node_274
 	if self.distance_2d_to_target().leq(500) 
 		>> node_275 
 	elif self.distance_2d_to_target().leq(1000) 
@@ -3751,7 +3751,7 @@ def node_274 : 542
 	return 
 endf 
 
-def node_275 : 543
+def node_275
 	if function#102() 
 		random (25) >> node_266 
 		elser (50) >> node_271 
@@ -3765,7 +3765,7 @@ def node_275 : 543
 	return 
 endf 
 
-def node_276 : 544
+def node_276
 	if function#102() 
 		if self.angle_2d_cw_between(270,90) 
 			random (25) >> node_266 
@@ -3792,7 +3792,7 @@ def node_276 : 544
 	return 
 endf 
 
-def node_277 : 545
+def node_277
 	if function#102() 
 		if self.angle_2d_cw_between(270,90) 
 			random (25) >> node_266 
@@ -3819,7 +3819,7 @@ def node_277 : 545
 	return 
 endf 
 
-def node_278 : 546
+def node_278
 	if self.angle_2d_cw_between(270,90) 
 		random (100) >> node_266 
 		elser (0) >> node_254 
@@ -3833,7 +3833,7 @@ def node_278 : 546
 	return 
 endf 
 
-def node_279 : 547
+def node_279
 	if self.distance_2d_to_target().leq(500) 
 		>> node_280 
 	elif self.distance_2d_to_target().leq(1000) 
@@ -3850,7 +3850,7 @@ def node_279 : 547
 	return 
 endf 
 
-def node_280 : 548
+def node_280
 	>> node_252 
 	if self.distance_2d_to_target().leq(500) 
 		>> node_134 
@@ -3866,7 +3866,7 @@ def node_280 : 548
 	return 
 endf 
 
-def node_281 : 549
+def node_281
 	random (65) >> node_253 
 	elser (35) >> node_269 
 	endr 
@@ -3884,7 +3884,7 @@ def node_281 : 549
 	return 
 endf 
 
-def node_282 : 550
+def node_282
 	random (65) >> node_266 
 	elser (35) >> node_267 
 	endr 
@@ -3901,7 +3901,7 @@ def node_282 : 550
 	return 
 endf 
 
-def node_283 : 551
+def node_283
 	random (65) >> node_266 
 	elser (35) >> node_267 
 	endr 
@@ -3918,7 +3918,7 @@ def node_283 : 551
 	return 
 endf 
 
-def node_284 : 552
+def node_284
 	if self.distance_2d_to_target().leq(500) 
 		>> node_285 
 	elif self.distance_2d_to_target().leq(1000) 
@@ -3933,7 +3933,7 @@ def node_284 : 552
 	return 
 endf 
 
-def node_285 : 553
+def node_285
 	if function#102() 
 		random (20) >> node_252 
 		elser (50) >> node_271 
@@ -3950,7 +3950,7 @@ def node_285 : 553
 	return 
 endf 
 
-def node_286 : 554
+def node_286
 	if function#102() 
 		random (20) >> node_269 
 		elser (50) >> node_255 
@@ -3967,7 +3967,7 @@ def node_286 : 554
 	return 
 endf 
 
-def node_287 : 555
+def node_287
 	if function#102() 
 		random (15) >> node_263 
 		elser (70) >> node_255 
@@ -3983,7 +3983,7 @@ def node_287 : 555
 	return 
 endf 
 
-def node_288 : 556
+def node_288
 	if function#102() 
 		if self.angle_2d_cw_between(270,90) 
 			random (50) >> node_263 
@@ -4010,7 +4010,7 @@ def node_288 : 556
 	return 
 endf 
 
-def node_289 : 575
+def node_289
 	if function#102() 
 		if self.angle_2d_cw_between(270,90) 
 			random (50) >> node_263 
@@ -4031,7 +4031,7 @@ def node_289 : 575
 	return 
 endf 
 
-def node_290 : 557
+def node_290
 	if self.current_quest().is_rank(rank.AT) 
 		>> node_273 
 		>> node_135 
@@ -4044,7 +4044,7 @@ def node_290 : 557
 	return 
 endf 
 
-def node_291 : 558
+def node_291
 	if self.current_quest().is_rank(rank.AT) 
 		>> node_273 
 		>> node_135 
@@ -4057,7 +4057,7 @@ def node_291 : 558
 	return 
 endf 
 
-def node_292 : 559
+def node_292
 	if self.current_quest().is_rank(rank.AT) 
 		>> node_176 
 	else 
@@ -4066,7 +4066,7 @@ def node_292 : 559
 	return 
 endf 
 
-def node_293 : 560
+def node_293
 	if self.current_quest().is_rank(rank.AT) 
 		if function#102() 
 			random (50) >> node_266 
@@ -4091,7 +4091,7 @@ def node_293 : 560
 	return 
 endf 
 
-def node_294 : 561
+def node_294
 	if self.current_quest().is_rank(rank.AT) 
 		>> node_181 
 		>> node_136 
@@ -4104,7 +4104,7 @@ def node_294 : 561
 	return 
 endf 
 
-def node_295 : 566
+def node_295
 	if function#102() 
 		if self.distance_2d_to_target().leq(2000) 
 			random (50) >> node_271 
@@ -4124,7 +4124,7 @@ def node_295 : 566
 	return 
 endf 
 
-def node_296 : 567
+def node_296
 	if function#102() 
 		if self.distance_2d_to_target().leq(2000) 
 			random (50) >> node_274 
@@ -4141,7 +4141,7 @@ def node_296 : 567
 	return 
 endf 
 
-def node_297 : 717
+def node_297
 	if function#101() 
 	else 
 		if function#102() 
@@ -4152,7 +4152,7 @@ def node_297 : 717
 	return 
 endf 
 
-def node_298 : 445
+def node_298
 	if function#101() 
 	else 
 		if function#102() 
@@ -4163,7 +4163,7 @@ def node_298 : 445
 	return 
 endf 
 
-def node_299 : 446
+def node_299
 	if function#101() 
 	else 
 		>> node_091 
@@ -4175,14 +4175,14 @@ def node_299 : 446
 	return 
 endf 
 
-def node_300 : 366
+def node_300
 	self.targetArea(22) @ parameter2:300 
 	>> node_105 
 	self.targetEnemy(target_em.random_player_or_cat) 
 	return 
 endf 
 
-def node_301 : 369
+def node_301
 	if function#101() 
 		>> node_253 
 	else 
@@ -4191,7 +4191,7 @@ def node_301 : 369
 	return 
 endf 
 
-def node_302 : 370
+def node_302
 	if function#101() 
 		-> kulve_taroth.ride_rage_head() 
 	else 
@@ -4200,7 +4200,7 @@ def node_302 : 370
 	return 
 endf 
 
-def node_303 : 371
+def node_303
 	if function#101() 
 		-> kulve_taroth.ride_rage_body() 
 	else 
@@ -4209,7 +4209,7 @@ def node_303 : 371
 	return 
 endf 
 
-def node_304 : 372
+def node_304
 	if function#101() 
 		-> kulve_taroth.ride_rage_body_lv2() 
 	else 
@@ -4218,7 +4218,7 @@ def node_304 : 372
 	return 
 endf 
 
-def node_305 : 367
+def node_305
 	if self.distance_3d_to_target().leq(750) 
 		>> node_109 
 	else 
@@ -4227,7 +4227,7 @@ def node_305 : 367
 	return 
 endf 
 
-def node_306 : 368
+def node_306
 	if self.distance_3d_to_target().leq(1000) 
 	else 
 		if function#101() 
@@ -4240,7 +4240,7 @@ def node_306 : 368
 	return 
 endf 
 
-def node_307 : 447
+def node_307
 	if self.distance_3d_to_target().leq(1800) 
 		>> node_109 
 	else 
@@ -4248,7 +4248,7 @@ def node_307 : 447
 	return 
 endf 
 
-def node_308 : 373
+def node_308
 	if function#101() 
 		-> kulve_taroth.ride_rage_crash_head() 
 	else 
@@ -4257,7 +4257,7 @@ def node_308 : 373
 	return 
 endf 
 
-def node_309 : 374
+def node_309
 	if function#101() 
 		-> kulve_taroth.ride_rage_crash_head_lv2() 
 	else 
@@ -4266,7 +4266,7 @@ def node_309 : 374
 	return 
 endf 
 
-def node_310 : 375
+def node_310
 	if function#101() 
 		-> kulve_taroth.ride_rage_crash_body() 
 	else 
@@ -4275,7 +4275,7 @@ def node_310 : 375
 	return 
 endf 
 
-def node_311 : 376
+def node_311
 	if function#101() 
 		-> kulve_taroth.ride_rage_crash_body_lv2() 
 	else 
@@ -4284,7 +4284,7 @@ def node_311 : 376
 	return 
 endf 
 
-def node_312 : 377
+def node_312
 	if function#101() 
 		-> kulve_taroth.wait() 
 	else 
@@ -4293,7 +4293,7 @@ def node_312 : 377
 	return 
 endf 
 
-def node_313 : 378
+def node_313
 	if function#101() 
 		-> kulve_taroth.ride_tired() 
 	else 
@@ -4302,31 +4302,31 @@ def node_313 : 378
 	return 
 endf 
 
-def node_314 : 577
+def node_314
 	>> node_316 
 	self.targetEnemy(48) 
 	if self.target(3) 
 	else 
-		[RegisterVar7 |-] 
+		[RegisterVar7 ++] 
 		>> node_315 
 		>> node_316 
 	endif 
 	return 
 endf 
 
-def node_315 : 578
+def node_315
 	self.targetEnemy(48) 
 	if self.distance_2d_to_target().leq(2500) 
 	else 
 		if self.target(3) 
 		else 
-			[RegisterVar7 ++] 
+			[RegisterVar7 |-] 
 			if function#101() 
 				-> kulve_taroth.run(1,2,0,1500,1500) 
 			else 
 				-> kulve_taroth.fat_run(1,2,0,1500,1500) 
 			endif 
-			if [RegisterVar7 <= 4] 
+			if [RegisterVar7 -= 4] 
 			else 
 				repeat 
 			endif 
@@ -4335,7 +4335,7 @@ def node_315 : 578
 	return 
 endf 
 
-def node_316 : 579
+def node_316
 	if self.alert_out_of_combat() 
 		>> node_317 
 	else 
@@ -4344,7 +4344,7 @@ def node_316 : 579
 	return 
 endf 
 
-def node_317 : 361
+def node_317
 	if function#101() 
 		>> node_112 
 		if self.fatigued() 
@@ -4363,7 +4363,7 @@ def node_317 : 361
 	return 
 endf 
 
-def node_318 : 362
+def node_318
 	if function#101() 
 		if self.targetEnemy(target_em.any_monster) 
 			random (20) >> node_112 
@@ -4394,7 +4394,7 @@ def node_318 : 362
 	return 
 endf 
 
-def node_319 : 363
+def node_319
 	if function#101() 
 		>> node_112 
 		random (15) -> kulve_taroth.anger_search() 
@@ -4411,7 +4411,7 @@ def node_319 : 363
 	return 
 endf 
 
-def node_320 : 322
+def node_320
 	if function#101() 
 		-> kulve_taroth.walk(1,2,0,600,1500) 
 	else 
@@ -4420,7 +4420,7 @@ def node_320 : 322
 	return 
 endf 
 
-def node_321 : 359
+def node_321
 	if function#101() 
 		>> node_112 
 		-> kulve_taroth.smell() 
@@ -4431,7 +4431,7 @@ def node_321 : 359
 	return 
 endf 
 
-def node_322 : 360
+def node_322
 	if function#101() 
 		self.targetEnemy(58) 
 		random (10) >> node_320 
@@ -4460,7 +4460,7 @@ def node_322 : 360
 	return 
 endf 
 
-def node_323 : 351
+def node_323
 	if function#101() 
 		if self.distance_3d_to_target().leq(800) 
 			>> node_109 
@@ -4479,7 +4479,7 @@ def node_323 : 351
 	return 
 endf 
 
-def node_324 : 352
+def node_324
 	if function#101() 
 		if self.distance_2d_to_target().leq(1000) 
 		else 
@@ -4510,7 +4510,7 @@ def node_324 : 352
 	return 
 endf 
 
-def node_325 : 353
+def node_325
 	if function#101() 
 		-> kulve_taroth.lost_search() 
 	else 
@@ -4519,7 +4519,7 @@ def node_325 : 353
 	return 
 endf 
 
-def node_326 : 342
+def node_326
 	if function#101() 
 		-> kulve_taroth.lost_search() 
 	else 
@@ -4528,7 +4528,7 @@ def node_326 : 342
 	return 
 endf 
 
-def node_327 : 343
+def node_327
 	if function#101() 
 		-> kulve_taroth.lost_search() 
 	else 
@@ -4537,7 +4537,7 @@ def node_327 : 343
 	return 
 endf 
 
-def node_328 : 344
+def node_328
 	if function#101() 
 		-> kulve_taroth.smell() 
 	else 
@@ -4546,7 +4546,7 @@ def node_328 : 344
 	return 
 endf 
 
-def node_329 : 345
+def node_329
 	if function#101() 
 		-> kulve_taroth.smell_max() 
 	else 
@@ -4555,7 +4555,7 @@ def node_329 : 345
 	return 
 endf 
 
-def node_330 : 346
+def node_330
 	if function#101() 
 		if self.enraged() 
 			-> kulve_taroth.run(1,2,0,600,500) 
@@ -4572,7 +4572,7 @@ def node_330 : 346
 	return 
 endf 
 
-def node_331 : 347
+def node_331
 	if function#101() 
 		if self.enraged() 
 			-> kulve_taroth.run(1,2,0,600,1000) 
@@ -4589,7 +4589,7 @@ def node_331 : 347
 	return 
 endf 
 
-def node_332 : 568
+def node_332
 	if function#101() 
 		-> kulve_taroth.run(1,2,0,1000,3000) 
 	else 
@@ -4598,7 +4598,7 @@ def node_332 : 568
 	return 
 endf 
 
-def node_333 : 348
+def node_333
 	if function#101() 
 		if self.distance_2d_to_target().leq(500) 
 			-> kulve_taroth.back_turn() @ comboSetting:1 
@@ -4625,7 +4625,7 @@ def node_333 : 348
 	return 
 endf 
 
-def node_334 : 349
+def node_334
 	if self.target(10) 
 		if function#101() 
 			-> kulve_taroth.run(2,0,0,1000) 
@@ -4644,7 +4644,7 @@ def node_334 : 349
 	return 
 endf 
 
-def node_335 : 569
+def node_335
 	if function#101() 
 		>> node_202 
 	else 
@@ -4653,7 +4653,7 @@ def node_335 : 569
 	return 
 endf 
 
-def node_336 : 350
+def node_336
 	if function#101() 
 		-> kulve_taroth.tired() 
 	else 
@@ -4662,7 +4662,7 @@ def node_336 : 350
 	return 
 endf 
 
-def node_337 : 354
+def node_337
 	if function#101() 
 		-> kulve_taroth.threat_short() 
 	else 
@@ -4671,7 +4671,7 @@ def node_337 : 354
 	return 
 endf 
 
-def node_338 : 355
+def node_338
 	if function#101() 
 		-> kulve_taroth.threat_short() 
 	else -> kulve_taroth.fat_threat() 
@@ -4680,28 +4680,28 @@ def node_338 : 355
 	return 
 endf 
 
-def node_339 : 640
+def node_339
 	if self.hp_percent().gt(70) 
-		if [RegisterVar2 <= 1] 
-			[RegisterVar2 |-] 
+		if [RegisterVar2 -= 1] 
+			[RegisterVar2 ++] 
 			function#108() 
 		else 
 		endif 
 	elif function#10E(1,2) 
-		if [RegisterVar2 <= 2] 
-			[RegisterVar2 |-] 
+		if [RegisterVar2 -= 2] 
+			[RegisterVar2 ++] 
 			function#108() 
 		else 
 		endif 
 	elif self.hp_percent().gt(80) 
-		if [RegisterVar2 <= 2] 
-			[RegisterVar2 |-] 
+		if [RegisterVar2 -= 2] 
+			[RegisterVar2 ++] 
 			function#108() 
 		else 
 		endif 
 	else 
-		if [RegisterVar2 <= 3] 
-			[RegisterVar2 |-] 
+		if [RegisterVar2 -= 3] 
+			[RegisterVar2 ++] 
 			function#108() 
 		else 
 		endif 
@@ -4709,12 +4709,12 @@ def node_339 : 640
 	return 
 endf 
 
-def node_340 : 641
+def node_340
 	>> node_344 
 	>> node_341 
 	if self.distance_3d_to_target().leq(1000) 
 		function#54() 
-		[RegisterVar2 ++] 
+		[RegisterVar2 |-] 
 		>> node_347 
 		reset 
 	else 
@@ -4732,7 +4732,7 @@ def node_340 : 641
 	repeat 
 endf 
 
-def node_341 : 642
+def node_341
 	if function#101() 
 		if self.hp_percent().gt(70) 
 			-> kulve_taroth.run(1,2,0,500,4500) 
@@ -4753,46 +4753,46 @@ def node_341 : 642
 	return 
 endf 
 
-def node_342 : 433
+def node_342
 	if self.hp_percent().gt(70) 
-		if [RegisterVar2 <= 1] 
-			[RegisterVar2 |-] 
+		if [RegisterVar2 -= 1] 
+			[RegisterVar2 ++] 
 			function#108() 
 		else 
 		endif 
 	elif function#10E(1,4) 
-		if [RegisterVar2 <= 1] 
-			[RegisterVar2 |-] 
+		if [RegisterVar2 -= 1] 
+			[RegisterVar2 ++] 
 			function#108() 
 		else 
 		endif 
 	elif self.hp_percent().gt(80) 
-		if [RegisterVar2 <= 2] 
-			[RegisterVar2 |-] 
+		if [RegisterVar2 -= 2] 
+			[RegisterVar2 ++] 
 			function#108() 
 		else 
 		endif 
 	elif function#10E(1,3) 
-		if [RegisterVar2 <= 2] 
-			[RegisterVar2 |-] 
+		if [RegisterVar2 -= 2] 
+			[RegisterVar2 ++] 
 			function#108() 
 		else 
 		endif 
 	elif self.hp_percent().gt(90) 
-		if [RegisterVar2 <= 3] 
-			[RegisterVar2 |-] 
+		if [RegisterVar2 -= 3] 
+			[RegisterVar2 ++] 
 			function#108() 
 		else 
 		endif 
 	elif function#10E(1,2) 
-		if [RegisterVar2 <= 3] 
-			[RegisterVar2 |-] 
+		if [RegisterVar2 -= 3] 
+			[RegisterVar2 ++] 
 			function#108() 
 		else 
 		endif 
 	else 
-		if [RegisterVar2 <= 4] 
-			[RegisterVar2 |-] 
+		if [RegisterVar2 -= 4] 
+			[RegisterVar2 ++] 
 			function#108() 
 		else 
 		endif 
@@ -4800,12 +4800,12 @@ def node_342 : 433
 	return 
 endf 
 
-def node_343 : 387
+def node_343
 	>> node_344 
 	>> node_345 
 	if self.distance_3d_to_target().leq(1000) 
 		function#54() 
-		[RegisterVar2 ++] 
+		[RegisterVar2 |-] 
 		>> node_347 
 		reset 
 	else 
@@ -4825,7 +4825,7 @@ def node_343 : 387
 	repeat 
 endf 
 
-def node_344 : 435
+def node_344
 	function#52(18,4) 
 	self.targetEnemy(16) 
 	if function#5A() 
@@ -4849,7 +4849,7 @@ def node_344 : 435
 	return 
 endf 
 
-def node_345 : 421
+def node_345
 	if function#101() 
 		if self.hp_percent().gt(75) 
 			-> kulve_taroth.run(1,2,0,500,3000) 
@@ -4870,7 +4870,7 @@ def node_345 : 421
 	return 
 endf 
 
-def node_346 : 422
+def node_346
 	self.targetEnemy(48) 
 	if self.distance_2d_to_target().leq(1500) 
 		if self.vertical_distance_to_target().leq(500) 
@@ -4892,7 +4892,7 @@ def node_346 : 422
 	return 
 endf 
 
-def node_347 : 423
+def node_347
 	if function#101() 
 		-> kulve_taroth.search() 
 	else 
@@ -4901,7 +4901,7 @@ def node_347 : 423
 	return 
 endf 
 
-def node_348 : 436
+def node_348
 	>> node_357 
 	self.targetEnemy(48) 
 	if self.target(7) 
@@ -4915,7 +4915,7 @@ def node_348 : 436
 	return 
 endf 
 
-def node_349 : 715
+def node_349
 	>> node_357 
 	self.targetEnemy(48) 
 	if self.target(7) 
@@ -4937,7 +4937,7 @@ def node_349 : 715
 			self.targetEnemy(48) 
 			if self.target(3) 
 			else 
-				[RegisterVar7 |-] 
+				[RegisterVar7 ++] 
 				>> node_315 
 				>> node_316 
 			endif 
@@ -4946,7 +4946,7 @@ def node_349 : 715
 	return 
 endf 
 
-def node_350 : 263
+def node_350
 	random (35) 
 				self.targetArea(21) @ parameter2:250 
 	elser (35) 
@@ -4959,7 +4959,7 @@ def node_350 : 263
 	return 
 endf 
 
-def node_351 : 379
+def node_351
 	random (50) 
 				if function#101() 
 					-> kulve_taroth.wait() 
@@ -4971,7 +4971,7 @@ def node_351 : 379
 	return 
 endf 
 
-def node_352 : 380
+def node_352
 	if function#101() 
 		-> kulve_taroth.wait() 
 	else 
@@ -4980,7 +4980,7 @@ def node_352 : 380
 	return 
 endf 
 
-def node_353 : 323
+def node_353
 	if function#101() 
 		-> kulve_taroth.in_ground() 
 	else 
@@ -4989,7 +4989,7 @@ def node_353 : 323
 	return 
 endf 
 
-def node_354 : 395
+def node_354
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if function#5D() 
 		>> node_355 
@@ -5025,7 +5025,7 @@ def node_354 : 395
 	return 
 endf 
 
-def node_355 : 397
+def node_355
 	if self.distance_2d_to_target().leq(1500) 
 		if self.angle_2d_cw_between(300,60) 
 		else 
@@ -5044,13 +5044,13 @@ def node_355 : 397
 	return 
 endf 
 
-def node_356 : 398
+def node_356
 	>> node_357 
 	>> node_358 
 	reset 
 endf 
 
-def node_357 : 399
+def node_357
 	self.targetArea(19) 
 	if self.distance_3d_to_target().leq(1000) 
 	else 
@@ -5059,14 +5059,14 @@ def node_357 : 399
 	return 
 endf 
 
-def node_358 : 400
+def node_358
 	self.targetEnemy(target_em.random_player_or_cat) 
 	>> node_112 
 	>> node_077 
 	return 
 endf 
 
-def node_359 : 716
+def node_359
 	if self.current_quest().is_rank(rank.MR) 
 		if function#101() 
 			random (65) >> node_197 
@@ -5084,7 +5084,7 @@ def node_359 : 716
 	return 
 endf 
 
-def node_360 : 401
+def node_360
 	if function#11(400) 
 		if self.above_area() 
 		else 
@@ -5116,7 +5116,7 @@ def node_360 : 401
 	return 
 endf 
 
-def node_361 : 402
+def node_361
 	if self.distance_2d_to_target().leq(3000) 
 		>> node_109 
 	elif self.distance_2d_to_target().leq(4000) 
@@ -5131,7 +5131,7 @@ def node_361 : 402
 	return 
 endf 
 
-def node_362 : 403
+def node_362
 	if self.distance_2d_to_target().leq(3000) 
 		>> node_109 
 	elif self.distance_2d_to_target().leq(4000) 
@@ -5146,7 +5146,7 @@ def node_362 : 403
 	return 
 endf 
 
-def node_363 : 404
+def node_363
 	if self.distance_2d_to_target().leq(3000) 
 		>> node_109 
 	elif self.distance_2d_to_target().leq(4000) 
@@ -5161,7 +5161,7 @@ def node_363 : 404
 	return 
 endf 
 
-def node_364 : 572
+def node_364
 	if self.distance_2d_to_target().leq(3000) 
 		>> node_109 
 	elif self.distance_2d_to_target().leq(4000) 
@@ -5176,7 +5176,7 @@ def node_364 : 572
 	return 
 endf 
 
-def node_365 : 570
+def node_365
 	if function#101() 
 		-> kulve_taroth.run(6,2,0,3500,3000) 
 	else 
@@ -5185,7 +5185,7 @@ def node_365 : 570
 	return 
 endf 
 
-def node_366 : 571
+def node_366
 	if self.current_quest().is_rank(rank.MR) 
 		if function#101() 
 			>> node_036 
@@ -5210,7 +5210,7 @@ def node_366 : 571
 	return 
 endf 
 
-def node_367 : 405
+def node_367
 	if self.distance_2d_to_target().leq(600) 
 		if self.vertical_distance_to_target().leq(1500) 
 		else 
@@ -5238,7 +5238,7 @@ def node_367 : 405
 	return 
 endf 
 
-def node_368 : 407
+def node_368
 	if function#101() 
 		-> kulve_taroth.run(1,2,0,500,1500) 
 	else 
@@ -5247,7 +5247,7 @@ def node_368 : 407
 	return 
 endf 
 
-def node_369 : 406
+def node_369
 	if self.distance_3d_to_target().leq(400) 
 	else 
 		if function#101() 
@@ -5275,7 +5275,7 @@ def node_369 : 406
 	return 
 endf 
 
-def node_370 : 573
+def node_370
 	if 
 	else 
 	endif 

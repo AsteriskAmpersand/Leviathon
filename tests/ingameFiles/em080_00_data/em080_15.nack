@@ -1,14 +1,14 @@
 importactions Glavenus as glavenus
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	function#52() 
 	>> node_001 
 	>> node_002 
 	reset 
 endf 
 
-def node_001 : 11
+def node_001
 	>> Global.node_001 
 	self.targetArea(target_area.nearest_entrance) 
 	if function#57(1) 
@@ -32,7 +32,7 @@ def node_001 : 11
 	reset 
 endf 
 
-def node_002 : 12
+def node_002
 	if function#57(1) 
 		>> node_016 
 		>> node_012 
@@ -51,7 +51,7 @@ def node_002 : 12
 	return 
 endf 
 
-def node_003 : 13
+def node_003
 	random (70) >> node_004 
 	elser (20) >> node_005 
 	elser (10) >> node_006 
@@ -60,7 +60,7 @@ def node_003 : 13
 	return 
 endf 
 
-def node_004 : 14
+def node_004
 	if function#59(2) 
 		>> node_021 
 	else 
@@ -69,7 +69,7 @@ def node_004 : 14
 	return 
 endf 
 
-def node_005 : 15
+def node_005
 	if function#59(2) 
 		>> node_022 
 	else 
@@ -78,7 +78,7 @@ def node_005 : 15
 	return 
 endf 
 
-def node_006 : 16
+def node_006
 	if function#59(2) 
 		>> node_020 
 	else 
@@ -87,27 +87,27 @@ def node_006 : 16
 	return 
 endf 
 
-def node_007 : 17
+def node_007
 	>> node_023 
 	return 
 endf 
 
-def node_008 : 18
+def node_008
 	>> node_021 
 	return 
 endf 
 
-def node_009 : 19
+def node_009
 	>> node_021 
 	return 
 endf 
 
-def node_010 : 20
+def node_010
 	>> node_025 
 	return 
 endf 
 
-def node_011 : 21
+def node_011
 	self.targetEnemy(17) 
 	>> node_019 
 	if function#5A(6) 
@@ -115,13 +115,13 @@ def node_011 : 21
 		function#54() 
 		return 
 	elif function#101(2) 
-		if [RegisterVar3 <= 5] 
+		if [RegisterVar3 -= 5] 
 			-> glavenus.marking() 
-			[RegisterVar3 |-] 
-		else 
 			[RegisterVar3 ++] 
+		else 
+			[RegisterVar3 |-] 
 			random (50) 
-						[RegisterVar3 ++] 
+						[RegisterVar3 |-] 
 			elser (50) 
 			endr 
 			-> glavenus.search() 
@@ -135,13 +135,13 @@ def node_011 : 21
 		function#54() 
 		return 
 	else 
-		if [RegisterVar4 <= 3] 
+		if [RegisterVar4 -= 3] 
 			-> glavenus.marking() 
-			[RegisterVar4 |-] 
-		else 
 			[RegisterVar4 ++] 
+		else 
+			[RegisterVar4 |-] 
 			random (50) 
-						[RegisterVar4 ++] 
+						[RegisterVar4 |-] 
 			elser (50) 
 			endr 
 			-> glavenus.search() 
@@ -162,13 +162,13 @@ def node_011 : 21
 	return 
 endf 
 
-def node_012 : 22
+def node_012
 	function#54() 
 	-> glavenus.combat_search() 
 	return 
 endf 
 
-def node_013 : 23
+def node_013
 	function#54() 
 	>> node_019 
 	if self.angle_2d_cw_between(30,330) 
@@ -179,14 +179,14 @@ def node_013 : 23
 	return 
 endf 
 
-def node_014 : 24
+def node_014
 	function#54() 
 	>> node_019 
 	-> glavenus.sleep() 
 	return 
 endf 
 
-def node_015 : 25
+def node_015
 	function#54() 
 	self.targetEnemy(17) 
 	>> node_019 
@@ -198,7 +198,7 @@ def node_015 : 25
 	return 
 endf 
 
-def node_016 : 26
+def node_016
 	if function#6B(20000) 
 		-> glavenus.sniff_l() 
 		>> node_017 
@@ -208,7 +208,7 @@ def node_016 : 26
 	return 
 endf 
 
-def node_017 : 27
+def node_017
 	self.targetEnemy(26) 
 	if self.distance_3d_to_target().leq(700) 
 		>> node_018 
@@ -222,7 +222,7 @@ def node_017 : 27
 	return 
 endf 
 
-def node_018 : 28
+def node_018
 	if self.distance_3d_to_target().leq(400) 
 		-> glavenus.back_turn() @ unkn6:65536 
 	elif self.angle_2d_cw_between(30,330) 
@@ -233,7 +233,7 @@ def node_018 : 28
 	reset 
 endf 
 
-def node_019 : 29
+def node_019
 	if self.in_map(st.Special_Arena).in_area(-1) 
 	elif self.in_map(st.Challenge_Arena).in_area(-1) 
 	else 
@@ -244,7 +244,7 @@ def node_019 : 29
 	return 
 endf 
 
-def node_020 : 30
+def node_020
 	if self.fatigued() 
 		-> glavenus.tired_walk(2,1,5,1500,700) 
 	else 
@@ -253,7 +253,7 @@ def node_020 : 30
 	return 
 endf 
 
-def node_021 : 31
+def node_021
 	if self.fatigued() 
 		-> glavenus.tired_walk(2,1,5,3000,700) 
 	else 
@@ -262,7 +262,7 @@ def node_021 : 31
 	return 
 endf 
 
-def node_022 : 32
+def node_022
 	if self.fatigued() 
 		-> glavenus.tired_walk(2,1,5,4000,700) 
 	else 
@@ -271,12 +271,12 @@ def node_022 : 32
 	return 
 endf 
 
-def node_023 : 33
+def node_023
 	-> glavenus.tired_dash(2,1,5,3000,700) @ unkn6:65536 
 	return 
 endf 
 
-def node_024 : 34
+def node_024
 	if self.fatigued() 
 		-> glavenus.tired_dash(2,1,5,1500,700) 
 	else 
@@ -285,7 +285,7 @@ def node_024 : 34
 	return 
 endf 
 
-def node_025 : 35
+def node_025
 	if self.fatigued() 
 		-> glavenus.tired_dash(2,1,5,3000,700) 
 	else 

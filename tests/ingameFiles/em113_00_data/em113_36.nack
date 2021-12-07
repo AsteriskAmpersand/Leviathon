@@ -1,7 +1,7 @@
 importactions Odogaron as odogaron
 importlibrary Global as Global
 
-def node_000 : 145
+def node_000
 	if self.current_quest().is_rank(rank.MR) 
 		>> node_001 
 	else 
@@ -10,7 +10,7 @@ def node_000 : 145
 	reset 
 endf 
 
-def node_001 : 144
+def node_001
 	>> node_003 
 	>> Global.node_015 
 	>> Global.node_236 
@@ -23,7 +23,7 @@ def node_001 : 144
 	reset 
 endf 
 
-def node_002 : 135
+def node_002
 	>> node_003 
 	>> Global.node_015 
 	>> Global.node_236 
@@ -37,7 +37,7 @@ def node_002 : 135
 	reset 
 endf 
 
-def node_003 : 138
+def node_003
 	if self.target_on_part(0) 
 		>> node_004 
 	elif self.target_on_part(1) 
@@ -49,19 +49,19 @@ def node_003 : 138
 	return 
 endf 
 
-def node_004 : 142
+def node_004
 	>> node_006 
 	reset 
 endf 
 
-def node_005 : 143
+def node_005
 	random (50) >> Global.node_206 
 	elser (50) 
 	endr 
 	return 
 endf 
 
-def node_006 : 139
+def node_006
 	if self.mounted() 
 		>> node_007 
 	else 
@@ -70,7 +70,7 @@ def node_006 : 139
 	return 
 endf 
 
-def node_007 : 140
+def node_007
 	>> Global.node_189 
 	if self.target_on_part(0) 
 		>> Global.node_190 
@@ -82,7 +82,7 @@ def node_007 : 140
 	return 
 endf 
 
-def node_008 : 141
+def node_008
 	>> Global.node_189 
 	if self.target_on_part(0) 
 		>> Global.node_191 
@@ -94,7 +94,7 @@ def node_008 : 141
 	return 
 endf 
 
-def node_009 : 136
+def node_009
 	random (30) >> Global.node_075 
 	elser (20) >> Global.node_083 
 	elser (20) >> Global.node_091 
@@ -105,7 +105,7 @@ def node_009 : 136
 	return 
 endf 
 
-def node_010 : 137
+def node_010
 	random (35) >> Global.node_119 
 	elser (25) >> Global.node_137 
 	elser (20) >> Global.node_111 
@@ -115,27 +115,27 @@ def node_010 : 137
 	return 
 endf 
 
-def node_011 : 1
+def node_011
 	>> Global.call#228 // -THK_55 is missing NodeID 228. 
 	self.targetEnemy(target_em.random_player_or_cat) 
 	>> node_012 
 	if self.fatigued() 
 		>> node_015 
 	else 
-		if [RegisterVar0 <= 2] 
+		if [RegisterVar0 -= 2] 
 			>> node_031 
-		elif [RegisterVar0 <= 1] 
+		elif [RegisterVar0 -= 1] 
 			random (50) >> node_015 
 			elser (50) >> node_031 
 			endr 
-		elif [RegisterVar0 <= 0] 
+		elif [RegisterVar0 -= 0] 
 			>> node_015 
 		endif 
 	endif 
 	reset 
 endf 
 
-def node_012 : 59
+def node_012
 	if self.target(4) 
 		>> node_013 
 		reset 
@@ -155,7 +155,7 @@ def node_012 : 59
 	return 
 endf 
 
-def node_013 : 102
+def node_013
 	self.targetArea(19) 
 	if self.distance_3d_to_target().leq(1000) 
 		self.targetEnemy(target_em.random_player_or_cat) 
@@ -167,7 +167,7 @@ def node_013 : 102
 	return 
 endf 
 
-def node_014 : 62
+def node_014
 	if self.angle_2d_cw_between(60,300) 
 		>> Global.node_221 
 	elif self.distance_3d_to_target().gt(1500) 
@@ -177,8 +177,8 @@ def node_014 : 62
 	return 
 endf 
 
-def node_015 : 108
-	[RegisterVar0 ++] 
+def node_015
+	[RegisterVar0 |-] 
 	if self.distance_2d_to_target().leq(750) 
 		if self.enraged() >> node_017 
 		elif self.fatigued() >> node_018 
@@ -208,7 +208,7 @@ def node_015 : 108
 	return 
 endf 
 
-def node_016 : 110
+def node_016
 	random (40) >> Global.call#338 // -THK_55 is missing NodeID 338. 
 	elser (20) >> Global.call#370 // -THK_55 is missing NodeID 370. 
 	elser (20) >> Global.call#371 // -THK_55 is missing NodeID 371. 
@@ -219,14 +219,14 @@ def node_016 : 110
 	return 
 endf 
 
-def node_017 : 120
+def node_017
 	random (50) >> Global.call#341 // -THK_55 is missing NodeID 341. 
 	elser (50) >> Global.call#368 // -THK_55 is missing NodeID 368. 
 	endr 
 	return 
 endf 
 
-def node_018 : 121
+def node_018
 	random (40) >> Global.call#362 // -THK_55 is missing NodeID 362. 
 	elser (25) >> Global.call#363 // -THK_55 is missing NodeID 363. 
 	elser (25) >> Global.call#364 // -THK_55 is missing NodeID 364. 
@@ -235,7 +235,7 @@ def node_018 : 121
 	return 
 endf 
 
-def node_019 : 111
+def node_019
 	random (40) >> Global.call#338 // -THK_55 is missing NodeID 338. 
 	elser (20) >> Global.call#370 // -THK_55 is missing NodeID 370. 
 	elser (20) >> Global.call#371 // -THK_55 is missing NodeID 371. 
@@ -246,14 +246,14 @@ def node_019 : 111
 	return 
 endf 
 
-def node_020 : 122
+def node_020
 	random (50) >> Global.call#341 // -THK_55 is missing NodeID 341. 
 	elser (50) >> Global.call#368 // -THK_55 is missing NodeID 368. 
 	endr 
 	return 
 endf 
 
-def node_021 : 123
+def node_021
 	random (40) >> Global.call#362 // -THK_55 is missing NodeID 362. 
 	elser (25) >> Global.call#363 // -THK_55 is missing NodeID 363. 
 	elser (25) >> Global.call#364 // -THK_55 is missing NodeID 364. 
@@ -262,7 +262,7 @@ def node_021 : 123
 	return 
 endf 
 
-def node_022 : 112
+def node_022
 	random (40) >> Global.call#338 // -THK_55 is missing NodeID 338. 
 	elser (20) >> Global.call#370 // -THK_55 is missing NodeID 370. 
 	elser (20) >> Global.call#371 // -THK_55 is missing NodeID 371. 
@@ -273,14 +273,14 @@ def node_022 : 112
 	return 
 endf 
 
-def node_023 : 124
+def node_023
 	random (50) >> Global.call#341 // -THK_55 is missing NodeID 341. 
 	elser (50) >> Global.call#368 // -THK_55 is missing NodeID 368. 
 	endr 
 	return 
 endf 
 
-def node_024 : 125
+def node_024
 	random (40) >> Global.call#362 // -THK_55 is missing NodeID 362. 
 	elser (25) >> Global.call#363 // -THK_55 is missing NodeID 363. 
 	elser (25) >> Global.call#364 // -THK_55 is missing NodeID 364. 
@@ -289,37 +289,7 @@ def node_024 : 125
 	return 
 endf 
 
-def node_025 : 113
-	>> Global.node_018 
-	random (40) >> Global.call#338 // -THK_55 is missing NodeID 338. 
-	elser (20) >> Global.call#370 // -THK_55 is missing NodeID 370. 
-	elser (20) >> Global.call#371 // -THK_55 is missing NodeID 371. 
-	elser (20) >> Global.call#341 // -THK_55 is missing NodeID 341. 
-	elser (0) >> Global.call#334 // -THK_55 is missing NodeID 334. 
-	elser (0) >> Global.call#335 // -THK_55 is missing NodeID 335. 
-	endr 
-	return 
-endf 
-
-def node_026 : 126
-	>> Global.node_018 
-	random (50) >> Global.call#341 // -THK_55 is missing NodeID 341. 
-	elser (50) >> Global.call#368 // -THK_55 is missing NodeID 368. 
-	endr 
-	return 
-endf 
-
-def node_027 : 127
-	>> Global.node_018 
-	random (40) >> Global.call#362 // -THK_55 is missing NodeID 362. 
-	elser (25) >> Global.call#363 // -THK_55 is missing NodeID 363. 
-	elser (25) >> Global.call#364 // -THK_55 is missing NodeID 364. 
-	elser (10) >> Global.node_009 
-	endr 
-	return 
-endf 
-
-def node_028 : 114
+def node_025
 	>> Global.node_018 
 	random (40) >> Global.call#338 // -THK_55 is missing NodeID 338. 
 	elser (20) >> Global.call#370 // -THK_55 is missing NodeID 370. 
@@ -331,7 +301,7 @@ def node_028 : 114
 	return 
 endf 
 
-def node_029 : 128
+def node_026
 	>> Global.node_018 
 	random (50) >> Global.call#341 // -THK_55 is missing NodeID 341. 
 	elser (50) >> Global.call#368 // -THK_55 is missing NodeID 368. 
@@ -339,7 +309,7 @@ def node_029 : 128
 	return 
 endf 
 
-def node_030 : 129
+def node_027
 	>> Global.node_018 
 	random (40) >> Global.call#362 // -THK_55 is missing NodeID 362. 
 	elser (25) >> Global.call#363 // -THK_55 is missing NodeID 363. 
@@ -349,8 +319,38 @@ def node_030 : 129
 	return 
 endf 
 
-def node_031 : 109
-	[RegisterVar0 |-] 
+def node_028
+	>> Global.node_018 
+	random (40) >> Global.call#338 // -THK_55 is missing NodeID 338. 
+	elser (20) >> Global.call#370 // -THK_55 is missing NodeID 370. 
+	elser (20) >> Global.call#371 // -THK_55 is missing NodeID 371. 
+	elser (20) >> Global.call#341 // -THK_55 is missing NodeID 341. 
+	elser (0) >> Global.call#334 // -THK_55 is missing NodeID 334. 
+	elser (0) >> Global.call#335 // -THK_55 is missing NodeID 335. 
+	endr 
+	return 
+endf 
+
+def node_029
+	>> Global.node_018 
+	random (50) >> Global.call#341 // -THK_55 is missing NodeID 341. 
+	elser (50) >> Global.call#368 // -THK_55 is missing NodeID 368. 
+	endr 
+	return 
+endf 
+
+def node_030
+	>> Global.node_018 
+	random (40) >> Global.call#362 // -THK_55 is missing NodeID 362. 
+	elser (25) >> Global.call#363 // -THK_55 is missing NodeID 363. 
+	elser (25) >> Global.call#364 // -THK_55 is missing NodeID 364. 
+	elser (10) >> Global.node_009 
+	endr 
+	return 
+endf 
+
+def node_031
+	[RegisterVar0 ++] 
 	if self.distance_2d_to_target().leq(750) 
 		if self.enraged() >> node_033 
 		else >> node_032 
@@ -375,7 +375,7 @@ def node_031 : 109
 	return 
 endf 
 
-def node_032 : 115
+def node_032
 	random (0) >> Global.call#338 // -THK_55 is missing NodeID 338. 
 	elser (0) >> Global.call#339 // -THK_55 is missing NodeID 339. 
 	elser (0) >> Global.call#340 // -THK_55 is missing NodeID 340. 
@@ -386,7 +386,7 @@ def node_032 : 115
 	return 
 endf 
 
-def node_033 : 130
+def node_033
 	random (30) >> Global.call#365 // -THK_55 is missing NodeID 365. 
 	elser (30) >> Global.call#366 // -THK_55 is missing NodeID 366. 
 	elser (40) >> Global.call#367 // -THK_55 is missing NodeID 367. 
@@ -394,7 +394,7 @@ def node_033 : 130
 	return 
 endf 
 
-def node_034 : 116
+def node_034
 	random (0) >> Global.call#338 // -THK_55 is missing NodeID 338. 
 	elser (0) >> Global.call#339 // -THK_55 is missing NodeID 339. 
 	elser (0) >> Global.call#340 // -THK_55 is missing NodeID 340. 
@@ -405,7 +405,7 @@ def node_034 : 116
 	return 
 endf 
 
-def node_035 : 131
+def node_035
 	random (30) >> Global.call#365 // -THK_55 is missing NodeID 365. 
 	elser (30) >> Global.call#366 // -THK_55 is missing NodeID 366. 
 	elser (40) >> Global.call#367 // -THK_55 is missing NodeID 367. 
@@ -413,7 +413,7 @@ def node_035 : 131
 	return 
 endf 
 
-def node_036 : 117
+def node_036
 	random (0) >> Global.call#338 // -THK_55 is missing NodeID 338. 
 	elser (0) >> Global.call#339 // -THK_55 is missing NodeID 339. 
 	elser (0) >> Global.call#340 // -THK_55 is missing NodeID 340. 
@@ -424,7 +424,7 @@ def node_036 : 117
 	return 
 endf 
 
-def node_037 : 132
+def node_037
 	random (30) >> Global.call#365 // -THK_55 is missing NodeID 365. 
 	elser (30) >> Global.call#366 // -THK_55 is missing NodeID 366. 
 	elser (40) >> Global.call#367 // -THK_55 is missing NodeID 367. 
@@ -432,7 +432,7 @@ def node_037 : 132
 	return 
 endf 
 
-def node_038 : 118
+def node_038
 	random (0) >> Global.call#338 // -THK_55 is missing NodeID 338. 
 	elser (0) >> Global.call#339 // -THK_55 is missing NodeID 339. 
 	elser (0) >> Global.call#340 // -THK_55 is missing NodeID 340. 
@@ -443,7 +443,7 @@ def node_038 : 118
 	return 
 endf 
 
-def node_039 : 133
+def node_039
 	>> Global.node_018 
 	random (30) >> Global.call#365 // -THK_55 is missing NodeID 365. 
 	elser (30) >> Global.call#366 // -THK_55 is missing NodeID 366. 
@@ -452,7 +452,7 @@ def node_039 : 133
 	return 
 endf 
 
-def node_040 : 119
+def node_040
 	random (0) >> Global.call#338 // -THK_55 is missing NodeID 338. 
 	elser (0) >> Global.call#339 // -THK_55 is missing NodeID 339. 
 	elser (0) >> Global.call#340 // -THK_55 is missing NodeID 340. 
@@ -463,7 +463,7 @@ def node_040 : 119
 	return 
 endf 
 
-def node_041 : 134
+def node_041
 	>> Global.node_018 
 	random (30) >> Global.call#365 // -THK_55 is missing NodeID 365. 
 	elser (30) >> Global.call#366 // -THK_55 is missing NodeID 366. 
@@ -472,7 +472,7 @@ def node_041 : 134
 	return 
 endf 
 
-def node_042 : 2
+def node_042
 	if self.distance_2d_to_target().leq(750) 
 		if self.enraged() >> node_043 
 		elif self.fatigued() >> node_043 
@@ -502,7 +502,7 @@ def node_042 : 2
 	return 
 endf 
 
-def node_043 : 3
+def node_043
 	random (0) >> Global.call#338 // -THK_55 is missing NodeID 338. 
 	elser (15) >> Global.call#339 // -THK_55 is missing NodeID 339. 
 	elser (15) >> Global.call#340 // -THK_55 is missing NodeID 340. 
@@ -513,7 +513,7 @@ def node_043 : 3
 	return 
 endf 
 
-def node_044 : 4
+def node_044
 	random (0) >> Global.call#338 // -THK_55 is missing NodeID 338. 
 	elser (15) >> Global.call#339 // -THK_55 is missing NodeID 339. 
 	elser (15) >> Global.call#340 // -THK_55 is missing NodeID 340. 
@@ -524,7 +524,7 @@ def node_044 : 4
 	return 
 endf 
 
-def node_045 : 5
+def node_045
 	random (0) >> Global.call#338 // -THK_55 is missing NodeID 338. 
 	elser (15) >> Global.call#339 // -THK_55 is missing NodeID 339. 
 	elser (15) >> Global.call#340 // -THK_55 is missing NodeID 340. 
@@ -535,7 +535,7 @@ def node_045 : 5
 	return 
 endf 
 
-def node_046 : 6
+def node_046
 	>> Global.node_018 
 	random (0) >> Global.call#338 // -THK_55 is missing NodeID 338. 
 	elser (15) >> Global.call#339 // -THK_55 is missing NodeID 339. 
@@ -547,7 +547,7 @@ def node_046 : 6
 	return 
 endf 
 
-def node_047 : 7
+def node_047
 	>> Global.node_018 
 	random (0) >> Global.call#338 // -THK_55 is missing NodeID 338. 
 	elser (15) >> Global.call#339 // -THK_55 is missing NodeID 339. 
@@ -559,47 +559,47 @@ def node_047 : 7
 	return 
 endf 
 
-def node_048 : 75
+def node_048
 	return 
 endf 
 
-def node_049 : 76
+def node_049
 	return 
 endf 
 
-def node_050 : 77
+def node_050
 	return 
 endf 
 
-def node_051 : 78
+def node_051
 	return 
 endf 
 
-def node_052 : 79
+def node_052
 	return 
 endf 
 
-def node_053 : 80
+def node_053
 	return 
 endf 
 
-def node_054 : 81
+def node_054
 	return 
 endf 
 
-def node_055 : 82
+def node_055
 	return 
 endf 
 
-def node_056 : 83
+def node_056
 	return 
 endf 
 
-def node_057 : 84
+def node_057
 	return 
 endf 
 
-def node_058 : 146
+def node_058
 	random (30) >> Global.node_283 
 	elser (20) >> Global.node_284 
 	elser (20) >> Global.node_285 
@@ -610,7 +610,7 @@ def node_058 : 146
 	return 
 endf 
 
-def node_059 : 147
+def node_059
 	random (35) >> Global.node_289 
 	elser (25) >> Global.node_292 
 	elser (20) >> Global.node_288 

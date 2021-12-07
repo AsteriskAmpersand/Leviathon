@@ -1,7 +1,7 @@
 importactions Fulgur_Anjanath as fulgur_anjanath
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	self.targetEnemy(21) @ parameter2:700 
 	function#41() >> Global.node_039 => reset 
 	self.enraged() >> node_002 => reset 
@@ -9,7 +9,7 @@ def node_000 : 1
 	>> node_001 => reset 
 endf 
 
-def node_001 : 2
+def node_001
 	if self.target_on_part(0) 
 		random (42) >> node_011 
 		elser (33) >> node_012 
@@ -35,7 +35,7 @@ def node_001 : 2
 	return 
 endf 
 
-def node_002 : 3
+def node_002
 	if self.target_on_part(0) 
 		random (47) >> node_011 
 		elser (38) >> node_012 
@@ -62,7 +62,7 @@ def node_002 : 3
 	return 
 endf 
 
-def node_003 : 4
+def node_003
 	if self.target_on_part(0) 
 		random (37) >> node_011 
 		elser (28) >> node_012 
@@ -89,78 +89,78 @@ def node_003 : 4
 	return 
 endf 
 
-def node_004 : 11
+def node_004
 endf 
 
-def node_005 : 5
+def node_005
 	-> fulgur_anjanath.asyu_bite() 
 	return 
 endf 
 
-def node_006 : 6
+def node_006
 	-> fulgur_anjanath.ride_rage_tail() 
 	return 
 endf 
 
-def node_007 : 7
+def node_007
 	-> fulgur_anjanath.combat_search() 
 	return 
 endf 
 
-def node_008 : 8
+def node_008
 	-> fulgur_anjanath.tail_wind() 
 	return 
 endf 
 
-def node_009 : 9
+def node_009
 	-> fulgur_anjanath.turn() 
 	-> fulgur_anjanath.jump_attack() 
 	return 
 endf 
 
-def node_010 : 10
+def node_010
 	-> fulgur_anjanath.tired() 
 	return 
 endf 
 
-def node_011 : 12
+def node_011
 	-> fulgur_anjanath.charged_side_bite() 
 	return 
 endf 
 
-def node_012 : 13
+def node_012
 	>> node_018 
 	-> fulgur_anjanath.ride_rage_head() 
 	return 
 endf 
 
-def node_013 : 14
+def node_013
 	>> node_018 
 	-> fulgur_anjanath.side_tackle() 
 	return 
 endf 
 
-def node_014 : 19
+def node_014
 	-> fulgur_anjanath.ride_rage_body() 
 	return 
 endf 
 
-def node_015 : 20
+def node_015
 	-> fulgur_anjanath.ride_rage_tail() 
 	return 
 endf 
 
-def node_016 : 21
+def node_016
 	-> fulgur_anjanath.ride_rage_tail_lv2() 
 	return 
 endf 
 
-def node_017 : 18
+def node_017
 	-> fulgur_anjanath.wait() 
 	return 
 endf 
 
-def node_018 : 15
+def node_018
 	random (55) >> node_019 
 	elser (45) >> node_020 
 	endr 
@@ -171,12 +171,12 @@ def node_018 : 15
 	return 
 endf 
 
-def node_019 : 16
+def node_019
 	self.targetEnemy(21) @ parameter2:1000 
 	return 
 endf 
 
-def node_020 : 17
+def node_020
 	self.targetEnemy(22) @ parameter2:1000 
 	return 
 endf 

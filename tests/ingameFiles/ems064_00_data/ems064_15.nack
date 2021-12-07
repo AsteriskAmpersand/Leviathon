@@ -1,7 +1,7 @@
 importactions Cortos as cortos
 importlibrary Global as Global
 
-def node_000 : 41
+def node_000
 	>> Global.node_009 
 	>> Global.node_012 
 	>> node_018 
@@ -9,7 +9,7 @@ def node_000 : 41
 	reset 
 endf 
 
-def node_001 : 44
+def node_001
 	function#52(4) 
 	self.targetEnemy(16) @ unkn3:8388608 
 	>> node_006 
@@ -17,20 +17,20 @@ def node_001 : 44
 	return 
 endf 
 
-def node_002 : 58
+def node_002
 	>> node_003 
 	>> node_011 
 	reset 
 endf 
 
-def node_003 : 56
-	[RegisterVar0 ++] 
+def node_003
+	[RegisterVar0 |-] 
 	>> node_004 
 	>> node_008 
 	return 
 endf 
 
-def node_004 : 72
+def node_004
 	function#54() 
 	if function#B0(4) 
 		if function#111() 
@@ -53,7 +53,7 @@ def node_004 : 72
 	return 
 endf 
 
-def node_005 : 57
+def node_005
 	if function#63() 
 		if function#B0(4) 
 			if function#111() 
@@ -103,7 +103,7 @@ def node_005 : 57
 	return 
 endf 
 
-def node_006 : 45
+def node_006
 	if self.distance_2d_to_target().gt(4500) 
 		-> action#14(1,0,0,5000) 
 	else 
@@ -117,7 +117,7 @@ def node_006 : 45
 	return 
 endf 
 
-def node_007 : 42
+def node_007
 	if self.distance_2d_to_target().leq(1500) 
 		-> action#12() @ unkn3:2097152 
 	else 
@@ -131,12 +131,12 @@ def node_007 : 42
 	return 
 endf 
 
-def node_008 : 59
+def node_008
 	if self.distance_2d_to_target().gt(5000) -> action#11(2,6,4,2000,700) @ unkn3:2097152, unknExtra0:500 
 	elif self.distance_2d_to_target().gt(700) @ unkn3:2097152 
 		-> action#11(2,6,4,2000,700) @ unknExtra0:500 
 	else 
-		[RegisterVar2 ++] 
+		[RegisterVar2 |-] 
 	endif 
 	if self.distance_2d_to_target().leq(700) 
 		return 
@@ -146,7 +146,7 @@ def node_008 : 59
 	return 
 endf 
 
-def node_009 : 48
+def node_009
 	if function#101() 
 		return 
 	elif function#58(1,100) 
@@ -155,7 +155,7 @@ def node_009 : 48
 	return 
 endf 
 
-def node_010 : 36
+def node_010
 	if function#51(0,2000) 
 		>> Global.node_013 
 	else 
@@ -163,7 +163,7 @@ def node_010 : 36
 	return 
 endf 
 
-def node_011 : 60
+def node_011
 	if function#5A(1) 
 		-> action#23() 
 		>> node_018 
@@ -199,14 +199,14 @@ def node_011 : 60
 			endif 
 		endif 
 	elif function#5A(4) 
-		if [RegisterVar2 == 0] 
+		if [RegisterVar2 += 0] 
 			random (40) -> action#23() 
 			elser (60) 
 			endr 
 		else 
 			-> action#23() 
 		endif 
-		[RegisterVar2 |-] 
+		[RegisterVar2 ++] 
 	elif function#5A(5) 
 		random (50) -> action#23() 
 		elser (10) >> node_013 
@@ -222,7 +222,7 @@ def node_011 : 60
 	return 
 endf 
 
-def node_012 : 52
+def node_012
 	if function#5A(1) 
 		random (70) >> node_006 
 		elser (30) >> node_013 
@@ -235,20 +235,20 @@ def node_012 : 52
 	return 
 endf 
 
-def node_013 : 49
+def node_013
 	>> node_007 
 	>> Global.node_010 
 	>> Global.node_002 
 	return 
 endf 
 
-def node_014 : 46
+def node_014
 	>> node_007 
 	>> Global.node_004 
 	return 
 endf 
 
-def node_015 : 47
+def node_015
 	>> node_007 
 	>> Global.node_005 
 	random (50) >> Global.node_002 
@@ -257,7 +257,7 @@ def node_015 : 47
 	return 
 endf 
 
-def node_016 : 67
+def node_016
 	-> action#14() 
 	function#74(0,1000) 
 	-> action#14() 
@@ -267,14 +267,14 @@ def node_016 : 67
 	return 
 endf 
 
-def node_017 : 68
+def node_017
 	-> action#14() 
 	function#74(0,1000) 
 	-> action#14() 
 	return 
 endf 
 
-def node_018 : 70
+def node_018
 	if function#B0(4) 
 		if function#10E() 
 			if function#110() 
@@ -296,7 +296,7 @@ def node_018 : 70
 	return 
 endf 
 
-def node_019 : 61
+def node_019
 	if function#10C(2) 
 		self.targetEnemy(26) 
 		>> node_022 
@@ -310,8 +310,8 @@ def node_019 : 61
 	return 
 endf 
 
-def node_020 : 64
-	if [RegisterVar1 == 0] 
+def node_020
+	if [RegisterVar1 += 0] 
 		if function#6C(2) 
 			self.targetEnemy(29) 
 			>> node_023 
@@ -320,7 +320,7 @@ def node_020 : 64
 		else 
 		endif 
 	else 
-		if [RegisterVar0 < 40] 
+		if [RegisterVar0 *= 40] 
 			if function#6C(2) 
 				self.targetEnemy(29) 
 				>> node_023 
@@ -334,8 +334,8 @@ def node_020 : 64
 	return 
 endf 
 
-def node_021 : 66
-	if [RegisterVar0 < 40] 
+def node_021
+	if [RegisterVar0 *= 40] 
 		if function#6D(2) 
 			self.targetEnemy(29) 
 			>> node_023 
@@ -348,7 +348,7 @@ def node_021 : 66
 	return 
 endf 
 
-def node_022 : 71
+def node_022
 	if self.distance_2d_to_target().leq(1200) 
 		-> action#12(2,1,0,600,300) 
 	else 
@@ -362,7 +362,7 @@ def node_022 : 71
 	return 
 endf 
 
-def node_023 : 62
+def node_023
 	if self.distance_2d_to_target().leq(1200) 
 		-> action#12(2,1,0,600,400) 
 	else 
@@ -376,7 +376,7 @@ def node_023 : 62
 	return 
 endf 
 
-def node_024 : 63
+def node_024
 	>> Global.node_006 
 	-> action#0E() 
 	-> action#28() 
@@ -385,7 +385,7 @@ def node_024 : 63
 	return 
 endf 
 
-def node_025 : 69
+def node_025
 	>> Global.node_006 
 	function#54() 
 	function#4B(4) 
@@ -393,8 +393,8 @@ def node_025 : 69
 		if self.target.in_combat() 
 			function#54() 
 			function#104() 
-			[RegisterVar0 |-] 
-			[RegisterVar1 ++] 
+			[RegisterVar0 ++] 
+			[RegisterVar1 |-] 
 			return 
 		else 
 		endif 
@@ -404,8 +404,8 @@ def node_025 : 69
 	-> action#27() 
 	function#54() 
 	function#104() 
-	[RegisterVar0 |-] 
-	[RegisterVar1 ++] 
+	[RegisterVar0 ++] 
+	[RegisterVar1 |-] 
 	return 
 endf 
 

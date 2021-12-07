@@ -1,14 +1,14 @@
 importactions Wulg as wulg
 
-def node_000 : 1
+def node_000
 	>> node_002 @ unknExtra2:16 
 	reset 
 endf 
 
-def node_001 : 151
+def node_001
 endf 
 
-def node_002 : 12
+def node_002
 	if function#D6() 
 		>> node_004 
 		>> node_014 
@@ -18,16 +18,16 @@ def node_002 : 12
 	return 
 endf 
 
-def node_003 : 152
+def node_003
 endf 
 
-def node_004 : 54
+def node_004
 	>> node_005 
 	return 
 endf 
 
-def node_005 : 57
-	if [RegisterVar2 < 3] 
+def node_005
+	if [RegisterVar2 *= 3] 
 		>> node_006 
 		return 
 	else 
@@ -39,7 +39,7 @@ def node_005 : 57
 	reset 
 endf 
 
-def node_006 : 37
+def node_006
 	function#DD(500) 
 	function#E2() 
 	if function#D2(3) 
@@ -49,7 +49,7 @@ def node_006 : 37
 	return 
 endf 
 
-def node_007 : 49
+def node_007
 	function#DD(500) 
 	function#EB(300) 
 	function#DE(3500) 
@@ -61,7 +61,7 @@ def node_007 : 49
 	return 
 endf 
 
-def node_008 : 36
+def node_008
 	if function#E8(7) 
 		>> node_009 
 	else 
@@ -82,7 +82,7 @@ def node_008 : 36
 	return 
 endf 
 
-def node_009 : 84
+def node_009
 	function#DD(500) 
 	function#E6() 
 	random (60) 
@@ -100,7 +100,7 @@ def node_009 : 84
 	return 
 endf 
 
-def node_010 : 52
+def node_010
 	function#DD(500) 
 	function#DE(3000) 
 	function#E2() 
@@ -112,7 +112,7 @@ def node_010 : 52
 	return 
 endf 
 
-def node_011 : 133
+def node_011
 	function#E2() 
 	function#F1() 
 	if function#D2(2) 
@@ -122,7 +122,7 @@ def node_011 : 133
 	return 
 endf 
 
-def node_012 : 130
+def node_012
 	function#DD(500) 
 	function#EB(300) 
 	function#E2() 
@@ -139,13 +139,13 @@ def node_012 : 130
 	return 
 endf 
 
-def node_013 : 153
+def node_013
 endf 
 
-def node_014 : 20
+def node_014
 	if function#D4(7) 
 		>> node_019 
-	elif [RegisterVar6 < 0] 
+	elif [RegisterVar6 *= 0] 
 		>> node_019 
 	else 
 		>> node_040 
@@ -171,7 +171,7 @@ def node_014 : 20
 	reset 
 endf 
 
-def node_015 : 21
+def node_015
 	>> node_054 
 	if function#F7() 
 		>> node_030 
@@ -183,7 +183,7 @@ def node_015 : 21
 	reset 
 endf 
 
-def node_016 : 22
+def node_016
 	>> node_055 
 	if function#F7() 
 		>> node_030 
@@ -195,7 +195,7 @@ def node_016 : 22
 	reset 
 endf 
 
-def node_017 : 23
+def node_017
 	>> node_057 
 	if function#F7() 
 		>> node_030 
@@ -207,7 +207,7 @@ def node_017 : 23
 	reset 
 endf 
 
-def node_018 : 24
+def node_018
 	>> node_056 
 	if function#F7() 
 		>> node_030 
@@ -219,11 +219,11 @@ def node_018 : 24
 	reset 
 endf 
 
-def node_019 : 58
+def node_019
 	if function#DB(7) 
 		if function#D4(8) 
 			>> node_046 
-		elif [RegisterVar6 < 0] 
+		elif [RegisterVar6 *= 0] 
 			>> node_046 
 		elif function#D4(5) 
 			>> node_044 
@@ -245,7 +245,7 @@ def node_019 : 58
 	reset 
 endf 
 
-def node_020 : 132
+def node_020
 	if function#DB(7) 
 		if function#FC() 
 			return 
@@ -265,7 +265,7 @@ def node_020 : 132
 	reset 
 endf 
 
-def node_021 : 59
+def node_021
 	>> node_027 
 	>> node_067 
 	>> node_069 
@@ -276,7 +276,7 @@ def node_021 : 59
 	reset 
 endf 
 
-def node_022 : 150
+def node_022
 	>> node_027 
 	>> node_067 
 	>> node_069 
@@ -286,7 +286,7 @@ def node_022 : 150
 	reset 
 endf 
 
-def node_023 : 144
+def node_023
 	>> node_027 
 	>> node_067 
 	>> node_069 
@@ -297,7 +297,7 @@ def node_023 : 144
 	reset 
 endf 
 
-def node_024 : 96
+def node_024
 	>> node_027 
 	>> node_067 
 	>> node_069 
@@ -307,27 +307,27 @@ def node_024 : 96
 	reset 
 endf 
 
-def node_025 : 103
+def node_025
 	>> node_081 
 	function#D3() 
 	reset 
 endf 
 
-def node_026 : 109
+def node_026
 	>> node_095 
 	function#D3() 
 	reset 
 endf 
 
-def node_027 : 97
+def node_027
 	if function#45() 
 		>> node_093 
 	endif 
 	return 
 endf 
 
-def node_028 : 79
-	if [RegisterVar4 <= 10] 
+def node_028
+	if [RegisterVar4 -= 10] 
 		function#F3() 
 		>> node_077 
 	else 
@@ -337,31 +337,31 @@ def node_028 : 79
 	reset 
 endf 
 
-def node_029 : 111
+def node_029
 	>> node_048 
 	>> node_077 
 	reset 
 endf 
 
-def node_030 : 115
+def node_030
 	>> node_048 
 	>> node_052 
 	>> node_079 
 	reset 
 endf 
 
-def node_031 : 121
+def node_031
 	>> node_077 
 	return 
 endf 
 
-def node_032 : 122
+def node_032
 	>> node_052 
 	>> node_079 
 	return 
 endf 
 
-def node_033 : 116
+def node_033
 	if function#D8() 
 		if self.distance_3d_recalc_to_target().leq(250) 
 			>> node_094 
@@ -375,7 +375,7 @@ def node_033 : 116
 	return 
 endf 
 
-def node_034 : 107
+def node_034
 	if self.distance_3d_recalc_to_target().leq(600) 
 		>> node_087 
 	else 
@@ -384,27 +384,27 @@ def node_034 : 107
 	reset 
 endf 
 
-def node_035 : 112
+def node_035
 	>> node_048 
 	function#D3() 
 	>> node_077 
 	reset 
 endf 
 
-def node_036 : 123
+def node_036
 	function#D3() 
 	>> node_077 
 	reset 
 endf 
 
-def node_037 : 110
+def node_037
 	>> node_048 
 	>> node_079 
 	function#D3() 
 	reset 
 endf 
 
-def node_038 : 119
+def node_038
 	if self.distance_2d_recalc_to_target().leq(500) 
 		>> node_024 
 	elif function#F7() 
@@ -415,11 +415,11 @@ def node_038 : 119
 	reset 
 endf 
 
-def node_039 : 154
+def node_039
 endf 
 
-def node_040 : 70
-	if [RegisterVar5 <= 1] 
+def node_040
+	if [RegisterVar5 -= 1] 
 		return 
 	endif 
 	function#DF(30) 
@@ -452,10 +452,10 @@ def node_040 : 70
 	reset 
 endf 
 
-def node_041 : 155
+def node_041
 endf 
 
-def node_042 : 102
+def node_042
 	>> node_059 
 	if self.distance_3d_recalc_to_target().leq(300) 
 		>> node_025 
@@ -467,7 +467,7 @@ def node_042 : 102
 	reset 
 endf 
 
-def node_043 : 118
+def node_043
 	if self.distance_3d_to_target().leq(1500) 
 		>> node_038 
 	elif function#F7() 
@@ -478,7 +478,7 @@ def node_043 : 118
 	reset 
 endf 
 
-def node_044 : 108
+def node_044
 	if self.distance_3d_recalc_to_target().leq(450) 
 		>> node_026 
 	elif self.distance_3d_recalc_to_target().leq(1000) 
@@ -491,10 +491,10 @@ def node_044 : 108
 	reset 
 endf 
 
-def node_045 : 156
+def node_045
 endf 
 
-def node_046 : 129
+def node_046
 	if function#FC() 
 		function#E7(2) 
 		>> node_071 
@@ -507,13 +507,13 @@ def node_046 : 129
 	reset 
 endf 
 
-def node_047 : 131
+def node_047
 	function#DA() 
 	>> node_086 
 	return 
 endf 
 
-def node_048 : 81
+def node_048
 	function#DE(1500) 
 	function#E2() 
 	if function#D2(8) 
@@ -522,7 +522,7 @@ def node_048 : 81
 	return 
 endf 
 
-def node_049 : 161
+def node_049
 	if function#D6() 
 		>> node_027 
 		>> node_081 
@@ -534,7 +534,7 @@ def node_049 : 161
 	return 
 endf 
 
-def node_050 : 162
+def node_050
 	>> node_027 
 	>> node_081 
 	>> node_067 
@@ -543,7 +543,7 @@ def node_050 : 162
 	reset 
 endf 
 
-def node_051 : 30
+def node_051
 	if function#46() @ unknExtra2:1 
 		>> node_086 
 		function#DA() 
@@ -553,7 +553,7 @@ def node_051 : 30
 	reset 
 endf 
 
-def node_052 : 113
+def node_052
 	>> node_053 
 	function#DF(25) 
 	function#EB(800) 
@@ -569,7 +569,7 @@ def node_052 : 113
 	reset 
 endf 
 
-def node_053 : 127
+def node_053
 	function#DF(25) 
 	function#EB(800) 
 	function#DD(300) 
@@ -584,8 +584,8 @@ def node_053 : 127
 	reset 
 endf 
 
-def node_054 : 124
-	if [RegisterVar7 <= 5] 
+def node_054
+	if [RegisterVar7 -= 5] 
 		>> node_021 
 	endif 
 	if self.distance_3d_recalc_to_target().leq(500) 
@@ -597,7 +597,7 @@ def node_054 : 124
 	return 
 endf 
 
-def node_055 : 149
+def node_055
 	if self.distance_3d_recalc_to_target().leq(500) 
 		if self.distance_2d_recalc_to_target().leq(300) 
 			>> node_022 
@@ -606,9 +606,9 @@ def node_055 : 149
 	return 
 endf 
 
-def node_056 : 145
-	if [RegisterVar7 <= 5] 
-		if [RegisterVar8 <= 3] 
+def node_056
+	if [RegisterVar7 -= 5] 
+		if [RegisterVar8 -= 3] 
 			>> node_023 
 		else 
 			>> node_074 
@@ -618,7 +618,7 @@ def node_056 : 145
 	if self.distance_3d_recalc_to_target().leq(500) 
 		>> node_072 
 		if self.distance_2d_recalc_to_target().leq(400) 
-			if [RegisterVar8 <= 3] 
+			if [RegisterVar8 -= 3] 
 				>> node_023 
 			else 
 				>> node_074 
@@ -629,7 +629,7 @@ def node_056 : 145
 	return 
 endf 
 
-def node_057 : 125
+def node_057
 	if self.distance_3d_recalc_to_target().leq(500) 
 		if self.distance_2d_recalc_to_target().leq(200) 
 			>> node_021 
@@ -638,7 +638,7 @@ def node_057 : 125
 	return 
 endf 
 
-def node_058 : 126
+def node_058
 	if self.distance_3d_recalc_to_target().leq(500) 
 		if self.distance_2d_recalc_to_target().leq(250) 
 			>> node_024 
@@ -647,7 +647,7 @@ def node_058 : 126
 	return 
 endf 
 
-def node_059 : 105
+def node_059
 	function#DE(1300) 
 	function#DF(30) 
 	function#E2() 
@@ -657,7 +657,7 @@ def node_059 : 105
 	return 
 endf 
 
-def node_060 : 101
+def node_060
 	if function#D8() 
 		function#F2() 
 		function#E5() 
@@ -668,7 +668,7 @@ def node_060 : 101
 	return 
 endf 
 
-def node_061 : 106
+def node_061
 	if function#D8() 
 		function#F2() 
 		function#E5() 
@@ -679,7 +679,7 @@ def node_061 : 106
 	return 
 endf 
 
-def node_062 : 148
+def node_062
 	if function#D4(8) 
 		if function#D4(7) 
 		else 
@@ -690,128 +690,128 @@ def node_062 : 148
 	return 
 endf 
 
-def node_063 : 157
+def node_063
 endf 
 
-def node_064 : 138
-	[RegisterVar2 ++] 
-	return 
-endf 
-
-def node_065 : 139
+def node_064
 	[RegisterVar2 |-] 
 	return 
 endf 
 
-def node_066 : 140
-	[RegisterVar4 == 0] 
+def node_065
+	[RegisterVar2 ++] 
 	return 
 endf 
 
-def node_067 : 141
-	[RegisterVar4 |-] 
+def node_066
+	[RegisterVar4 += 0] 
 	return 
 endf 
 
-def node_068 : 136
-	[RegisterVar5 ++] 
+def node_067
+	[RegisterVar4 ++] 
 	return 
 endf 
 
-def node_069 : 137
+def node_068
 	[RegisterVar5 |-] 
 	return 
 endf 
 
-def node_070 : 134
-	[RegisterVar6 ++] 
+def node_069
+	[RegisterVar5 ++] 
 	return 
 endf 
 
-def node_071 : 135
+def node_070
 	[RegisterVar6 |-] 
 	return 
 endf 
 
-def node_072 : 163
-	[RegisterVar7 ++] 
+def node_071
+	[RegisterVar6 ++] 
 	return 
 endf 
 
-def node_073 : 164
+def node_072
 	[RegisterVar7 |-] 
 	return 
 endf 
 
-def node_074 : 146
-	[RegisterVar8 ++] 
+def node_073
+	[RegisterVar7 ++] 
 	return 
 endf 
 
-def node_075 : 147
+def node_074
 	[RegisterVar8 |-] 
 	return 
 endf 
 
-def node_076 : 158
+def node_075
+	[RegisterVar8 ++] 
+	return 
 endf 
 
-def node_077 : 33
+def node_076
+endf 
+
+def node_077
 	-> wulg.quick_turn(2,1,0,300,150) 
 	>> node_049 
 	>> node_051 
 	return 
 endf 
 
-def node_078 : 80
+def node_078
 	-> wulg.tired_walk(2,8,0,200,2) 
 	>> node_049 
 	>> node_051 
 	return 
 endf 
 
-def node_079 : 32
+def node_079
 	-> wulg.back_step_l_hand_reload(2,0,0,400) 
 	>> node_049 
 	>> node_051 
 	return 
 endf 
 
-def node_080 : 128
+def node_080
 	-> wulg.normal_turn(2,1,0,200,150) 
 	>> node_049 
 	>> node_051 
 	return 
 endf 
 
-def node_081 : 66
+def node_081
 	-> wulg.jump_head_atk_long_direct() 
 	return 
 endf 
 
-def node_082 : 143
+def node_082
 	-> wulg.jump_head_atk_long_direct(8,0,0,6) 
 	return 
 endf 
 
-def node_083 : 159
+def node_083
 	-> wulg.jump_head_atk_long_direct() 
 	return 
 endf 
 
-def node_084 : 95
+def node_084
 	-> wulg.head_atk(8,0,0,3) 
 	return 
 endf 
 
-def node_085 : 85
+def node_085
 	if self.angle_2d_cw_between(120,210) 
 		-> wulg.in_ground() 
 	endif 
 	return 
 endf 
 
-def node_086 : 69
+def node_086
 	if function#D4(8) 
 		-> wulg.stamp_turn_long_l(8,0,0,5) 
 	else 
@@ -820,33 +820,33 @@ def node_086 : 69
 	return 
 endf 
 
-def node_087 : 72
+def node_087
 	-> wulg.short_head_atk() 
 	return 
 endf 
 
-def node_088 : 73
+def node_088
 	function#D3() 
 	-> wulg.stamp_turn_long_r() 
 	return 
 endf 
 
-def node_089 : 75
+def node_089
 	-> wulg.dash_punch_step_turn_l() 
 	return 
 endf 
 
-def node_090 : 76
+def node_090
 	-> wulg.wall_wait() 
 	return 
 endf 
 
-def node_091 : 77
+def node_091
 	-> wulg.jump() 
 	return 
 endf 
 
-def node_092 : 86
+def node_092
 	if self.angle_2d_cw_between(20,180) 
 		>> node_091 
 	elif self.angle_2d_cw_between(180,340) 
@@ -857,17 +857,17 @@ def node_092 : 86
 	return 
 endf 
 
-def node_093 : 117
+def node_093
 	-> wulg.countinuos_attack_end() 
 	return 
 endf 
 
-def node_094 : 160
+def node_094
 	-> wulg.countinuos_attack_end(8,0,0,7) 
 	return 
 endf 
 
-def node_095 : 120
+def node_095
 	-> wulg.stamp_turn_l(3,0,0,2) 
 	return 
 endf 

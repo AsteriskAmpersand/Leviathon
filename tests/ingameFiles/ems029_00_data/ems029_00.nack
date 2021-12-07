@@ -1,7 +1,7 @@
 importactions Gajau as gajau
 importlibrary Global as Global
 
-def node_000 : 13
+def node_000
 	>> Global.node_013 
 	>> Global.node_010 
 	>> Global.node_011 
@@ -12,7 +12,7 @@ def node_000 : 13
 	reset 
 endf 
 
-def node_001 : 59
+def node_001
 	if self.target(2) 
 		>> node_002 
 	else 
@@ -21,7 +21,7 @@ def node_001 : 59
 	return 
 endf 
 
-def node_002 : 60
+def node_002
 	if function#67(2) 
 		>> node_004 
 	else 
@@ -30,7 +30,7 @@ def node_002 : 60
 	return 
 endf 
 
-def node_003 : 61
+def node_003
 	if self.distance_2d_to_target().leq(1000) 
 		>> node_022 
 	else 
@@ -39,7 +39,7 @@ def node_003 : 61
 	return 
 endf 
 
-def node_004 : 83
+def node_004
 	if self.distance_2d_to_target().leq(1000) 
 		>> node_006 
 	else 
@@ -48,7 +48,7 @@ def node_004 : 83
 	return 
 endf 
 
-def node_005 : 62
+def node_005
 	random (70) >> Global.node_002 
 				-> action#0E() 
 	elser (30) >> Global.node_002 
@@ -57,34 +57,34 @@ def node_005 : 62
 	return 
 endf 
 
-def node_006 : 63
+def node_006
 	if function#2D(1) 
 		>> node_008 
 	else 
 		if function#32() 
-			if [RegisterVar0 == 0] 
+			if [RegisterVar0 += 0] 
 				random (100) >> node_008 
-							[RegisterVar0 |-] 
-				elser (0) 
 							[RegisterVar0 ++] 
+				elser (0) 
+							[RegisterVar0 |-] 
 				endr 
-			elif [RegisterVar0 == 1] 
+			elif [RegisterVar0 += 1] 
 				random (100) >> node_008 
-							[RegisterVar0 |-] 
-				elser (0) 
 							[RegisterVar0 ++] 
+				elser (0) 
+							[RegisterVar0 |-] 
 				endr 
-			elif [RegisterVar0 == 2] 
+			elif [RegisterVar0 += 2] 
 				random (100) >> node_008 
-							[RegisterVar0 |-] 
-				elser (0) 
 							[RegisterVar0 ++] 
+				elser (0) 
+							[RegisterVar0 |-] 
 				endr 
-			elif [RegisterVar0 == 3] 
+			elif [RegisterVar0 += 3] 
 				random (100) >> node_008 
-							[RegisterVar0 |-] 
-				elser (0) 
 							[RegisterVar0 ++] 
+				elser (0) 
+							[RegisterVar0 |-] 
 				endr 
 			endif 
 			if function#2D(1) 
@@ -98,12 +98,12 @@ def node_006 : 63
 	return 
 endf 
 
-def node_007 : 64
+def node_007
 	-> action#08(2,1,0,400,300) 
 	return 
 endf 
 
-def node_008 : 4
+def node_008
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if function#2D(1) 
 		>> node_025 
@@ -118,7 +118,7 @@ def node_008 : 4
 	return 
 endf 
 
-def node_009 : 67
+def node_009
 	if function#B0() 
 		>> node_010 
 	elif function#B0(1) 
@@ -139,7 +139,7 @@ def node_009 : 67
 	return 
 endf 
 
-def node_010 : 68
+def node_010
 	function#102() 
 	function#104() 
 	function#105(0,800) 
@@ -169,7 +169,7 @@ def node_010 : 68
 	return 
 endf 
 
-def node_011 : 74
+def node_011
 	function#102() 
 	function#104() 
 	function#105(180,800) 
@@ -199,7 +199,7 @@ def node_011 : 74
 	return 
 endf 
 
-def node_012 : 69
+def node_012
 	function#102() 
 	function#104() 
 	function#105(90,800) 
@@ -229,7 +229,7 @@ def node_012 : 69
 	return 
 endf 
 
-def node_013 : 75
+def node_013
 	function#102() 
 	function#104() 
 	function#105(270,800) 
@@ -259,7 +259,7 @@ def node_013 : 75
 	return 
 endf 
 
-def node_014 : 73
+def node_014
 	if function#103(750) 
 	else 
 		reset 
@@ -267,7 +267,7 @@ def node_014 : 73
 	return 
 endf 
 
-def node_015 : 84
+def node_015
 	if function#32() 
 		if self.distance_2d_to_target().leq(500) 
 			>> node_016 
@@ -289,7 +289,7 @@ def node_015 : 84
 	return 
 endf 
 
-def node_016 : 77
+def node_016
 	random (70) >> node_025 
 	elser (30) >> node_027 
 	endr 
@@ -297,7 +297,7 @@ def node_016 : 77
 	return 
 endf 
 
-def node_017 : 78
+def node_017
 	random (70) >> node_027 
 	elser (30) >> node_025 
 	endr 
@@ -305,7 +305,7 @@ def node_017 : 78
 	return 
 endf 
 
-def node_018 : 79
+def node_018
 	>> Global.node_019 
 	random (50) >> node_025 
 	elser (50) >> node_027 
@@ -314,7 +314,7 @@ def node_018 : 79
 	return 
 endf 
 
-def node_019 : 80
+def node_019
 	random (50) -> action#0E() 
 				>> Global.node_008 
 	elser (30) >> Global.node_002 
@@ -325,7 +325,7 @@ def node_019 : 80
 	return 
 endf 
 
-def node_020 : 81
+def node_020
 	random (20) -> action#0E() 
 				>> Global.node_008 
 	elser (50) >> Global.node_002 
@@ -336,7 +336,7 @@ def node_020 : 81
 	return 
 endf 
 
-def node_021 : 82
+def node_021
 	-> action#08(2,1,0,1000,1000) 
 	if self.distance_2d_to_target().leq(1000) 
 		>> Global.node_002 
@@ -346,7 +346,7 @@ def node_021 : 82
 	return 
 endf 
 
-def node_022 : 65
+def node_022
 	>> Global.node_002 
 	random (70) >> Global.node_008 
 	elser (30) >> Global.node_007 
@@ -359,7 +359,7 @@ def node_022 : 65
 	return 
 endf 
 
-def node_023 : 66
+def node_023
 	>> Global.node_002 
 	random (70) >> Global.node_008 
 	elser (30) >> Global.node_007 
@@ -373,7 +373,7 @@ def node_023 : 66
 	return 
 endf 
 
-def node_024 : 76
+def node_024
 	if self.distance_2d_to_target().leq(1000) 
 		return 
 	else 
@@ -392,7 +392,7 @@ def node_024 : 76
 	return 
 endf 
 
-def node_025 : 41
+def node_025
 	if self.distance_2d_to_target().leq(400) 
 		>> Global.node_002 
 		-> action#16() 
@@ -405,7 +405,7 @@ def node_025 : 41
 	return 
 endf 
 
-def node_026 : 42
+def node_026
 	>> Global.node_002 
 	-> action#15() 
 	-> action#09(2,0,0,300) 
@@ -418,7 +418,7 @@ def node_026 : 42
 	return 
 endf 
 
-def node_027 : 72
+def node_027
 	-> action#0E() 
 	-> action#15() 
 	-> action#09(2,1,0,1200,500) 
@@ -426,7 +426,7 @@ def node_027 : 72
 	return 
 endf 
 
-def node_028 : 43
+def node_028
 	if self.distance_2d_to_target().leq(600) 
 		-> action#17() 
 		>> node_029 
@@ -436,7 +436,7 @@ def node_028 : 43
 	return 
 endf 
 
-def node_029 : 47
+def node_029
 	random (40) >> Global.node_002 
 				>> Global.node_008 
 	elser (60) 
@@ -444,7 +444,7 @@ def node_029 : 47
 	return 
 endf 
 
-def node_030 : 32
+def node_030
 	>> Global.node_002 
 	-> action#11() 
 	-> action#12() 
@@ -455,10 +455,10 @@ def node_030 : 32
 	return 
 endf 
 
-def node_031 : 85
+def node_031
 endf 
 
-def node_032 : 27
+def node_032
 	>> node_033 
 	if self.distance_2d_to_target().leq(1000) 
 		random (60) >> Global.node_008 
@@ -471,13 +471,13 @@ def node_032 : 27
 	return 
 endf 
 
-def node_033 : 26
+def node_033
 	function#52(0,2) 
 	self.targetEnemy(16) 
 	return 
 endf 
 
-def node_034 : 56
+def node_034
 	if function#B0() 
 		>> node_035 
 	elif function#B0(1) 
@@ -490,7 +490,7 @@ def node_034 : 56
 	return 
 endf 
 
-def node_035 : 48
+def node_035
 	function#74(0,400) 
 	>> node_037 
 	function#74(45,400) 
@@ -510,7 +510,7 @@ def node_035 : 48
 	return 
 endf 
 
-def node_036 : 57
+def node_036
 	function#74(0,500) 
 	>> node_037 
 	function#74(315,500) 
@@ -530,12 +530,12 @@ def node_036 : 57
 	return 
 endf 
 
-def node_037 : 52
+def node_037
 	-> action#08(2,1,3,700,300) @ unknExtra0:3 
 	return 
 endf 
 
-def node_038 : 51
+def node_038
 	if self.vertical_distance_to_target().gt(400) 
 		>> node_032 
 		reset 
@@ -544,7 +544,7 @@ def node_038 : 51
 	return 
 endf 
 
-def node_039 : 71
+def node_039
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.distance_2d_to_target().leq(1000) 
 	else 

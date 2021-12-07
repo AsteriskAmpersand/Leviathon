@@ -426,11 +426,6 @@ class THKProject(RawParser):
             return self.path
     def output(self,location,functions,count):
         outputStr = ""
-        #TODO relative path to chunk as path
-        #Done actually also deal with un-renamed functions as .nack if they CAN be decompiled
-        #Iterate over all files to get consensus of relative path
-        #Iterate over all files to get consensus of monster entity
-        
         outputStr += thklStr.location_str%location + "\n"
         for function in functions:
             path = '"%s"'%function.path

@@ -1,18 +1,18 @@
 importactions Acidic_Glavenus as acidic_glavenus
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	>> Global.node_096 
 	>> node_001 
 	>> node_002 
 	conclude 
 endf 
 
-def node_001 : 33
+def node_001
 	if function#41() 
 	else 
-		if function#AB() 
-			function#AA() 
+		if [$V += 0] 
+			[$V |-] 
 			-> acidic_glavenus.threat() 
 		else 
 		endif 
@@ -20,7 +20,7 @@ def node_001 : 33
 	return 
 endf 
 
-def node_002 : 34
+def node_002
 	self.targetArea(14) 
 	if self.distance_3d_to_target().gt(800) 
 		>> node_004 
@@ -30,7 +30,7 @@ def node_002 : 34
 	return 
 endf 
 
-def node_003 : 35
+def node_003
 	self.targetEnemy(target_em.random_player_or_cat) 
 	-> acidic_glavenus.idle() 
 	if self.distance_3d_to_target().leq(800) 
@@ -42,7 +42,7 @@ def node_003 : 35
 	return 
 endf 
 
-def node_004 : 36
+def node_004
 	if self.fatigued() 
 		-> acidic_glavenus.tired_dash(2,5,0,3000) 
 	else 

@@ -1,10 +1,10 @@
 importactions Fatalis as fatalis
 
-def node_000 : 1
+def node_000
 	conclude 
 endf 
 
-def node_001 : 162
+def node_001
 	self.targetArea(14) 
 	if self.distance_3d_to_target().gt(600) 
 		repeat 
@@ -13,7 +13,7 @@ def node_001 : 162
 	return 
 endf 
 
-def node_002 : 163
+def node_002
 	self.targetArea(14) 
 	if self.distance_3d_to_target().gt(600) 
 		repeat 
@@ -22,7 +22,7 @@ def node_002 : 163
 	return 
 endf 
 
-def node_003 : 164
+def node_003
 	self.targetArea(19) 
 	if self.distance_3d_to_target().gt(500) 
 		if function#101() 
@@ -38,10 +38,10 @@ def node_003 : 164
 	return 
 endf 
 
-def node_004 : 165
+def node_004
 	if self.flying() 
 		random (35) 
-					[RegisterVar4 |-] 
+					[RegisterVar4 ++] 
 					-> fatalis.fly_switch_l2_assault_start() 
 		elser (15) -> fatalis.fly_vertical_breath() 
 		elser (15) -> fatalis.fly_under_breath() 
@@ -69,7 +69,7 @@ def node_004 : 165
 	return 
 endf 
 
-def node_005 : 300
+def node_005
 	random (25) -> fatalis.l2_switch_l4_body_press() 
 	elser (15) >> node_082 
 	elser (30) -> fatalis.l2_line_fire_shoot() 
@@ -79,7 +79,7 @@ def node_005 : 300
 	return 
 endf 
 
-def node_006 : 301
+def node_006
 	random (25) -> fatalis.l2_switch_l4_body_press() 
 	elser (15) >> node_082 
 	elser (30) -> fatalis.l2_line_fire_shoot() 
@@ -89,7 +89,7 @@ def node_006 : 301
 	return 
 endf 
 
-def node_007 : 302
+def node_007
 	random (40) -> fatalis.l2_switch_l4_body_press() 
 	elser (20) -> fatalis.l2_line_fire_shoot() 
 	elser (20) -> fatalis.l2_vertical_escape_dust_explosion_start() 
@@ -99,7 +99,7 @@ def node_007 : 302
 	return 
 endf 
 
-def node_008 : 303
+def node_008
 	if function#106() 
 		random (15) >> node_101 
 		elser (40) >> node_104 
@@ -118,7 +118,7 @@ def node_008 : 303
 	return 
 endf 
 
-def node_009 : 304
+def node_009
 	if function#106() 
 		random (20) -> fatalis.l4_far_fire_bite() 
 		elser (40) >> node_104 
@@ -139,7 +139,7 @@ def node_009 : 304
 	return 
 endf 
 
-def node_010 : 305
+def node_010
 	if function#106() 
 		random (40) >> node_104 
 		elser (25) -> fatalis.l4_short_bite() 
@@ -158,7 +158,7 @@ def node_010 : 305
 	return 
 endf 
 
-def node_011 : 166
+def node_011
 	if function#101() 
 		-> fatalis.l2_search() 
 	elif function#101(1) 
@@ -169,7 +169,7 @@ def node_011 : 166
 	return 
 endf 
 
-def node_012 : 230
+def node_012
 	if function#101() 
 		-> fatalis.l2_bind_voice() 
 	elif function#101(1) 
@@ -180,7 +180,7 @@ def node_012 : 230
 	return 
 endf 
 
-def node_013 : 231
+def node_013
 	if function#101() 
 		-> fatalis.l2_threat() 
 	elif function#101(1) 
@@ -191,22 +191,22 @@ def node_013 : 231
 	return 
 endf 
 
-def node_014 : 232
+def node_014
 	-> fatalis.l2_switch_l4() 
 	return 
 endf 
 
-def node_015 : 233
+def node_015
 	-> fatalis.l4_switch_l2() 
 	return 
 endf 
 
-def node_016 : 234
+def node_016
 	-> fatalis.l4_switch_l2_short() 
 	return 
 endf 
 
-def node_017 : 253
+def node_017
 	if self.flying() 
 		>> node_018 
 	else 
@@ -214,19 +214,19 @@ def node_017 : 253
 	return 
 endf 
 
-def node_018 : 251
-	[RegisterVar4 |-] 
+def node_018
+	[RegisterVar4 ++] 
 	-> fatalis.l2_landing() 
 	return 
 endf 
 
-def node_019 : 252
-	[RegisterVar4 |-] 
+def node_019
+	[RegisterVar4 ++] 
 	-> fatalis.l4_landing() 
 	return 
 endf 
 
-def node_020 : 254
+def node_020
 	if self.flying() 
 	else 
 		if function#101() 
@@ -238,8 +238,8 @@ def node_020 : 254
 	return 
 endf 
 
-def node_021 : 255
-	[RegisterVar3 |-] 
+def node_021
+	[RegisterVar3 ++] 
 	if self.distance_2d_to_target().leq(1500) 
 		-> fatalis.l2_back_jump_breath_start() 
 	else 
@@ -248,13 +248,13 @@ def node_021 : 255
 	return 
 endf 
 
-def node_022 : 256
-	[RegisterVar3 |-] 
+def node_022
+	[RegisterVar3 ++] 
 	-> fatalis.l4_switch_fly_take_off() 
 	return 
 endf 
 
-def node_023 : 229
+def node_023
 	if self.flying() 
 		>> node_017 
 	elif function#101() 
@@ -265,7 +265,7 @@ def node_023 : 229
 	return 
 endf 
 
-def node_024 : 235
+def node_024
 	if self.flying() 
 		>> node_017 
 	elif function#101() 
@@ -276,7 +276,7 @@ def node_024 : 235
 	return 
 endf 
 
-def node_025 : 283
+def node_025
 	if function#2D(1) 
 		self.targetEnemy(50) 
 	else 
@@ -289,37 +289,37 @@ def node_025 : 283
 	return 
 endf 
 
-def node_026 : 195
+def node_026
 	-> fatalis.l2_walk(2,6,0,1000,500) 
 	return 
 endf 
 
-def node_027 : 224
+def node_027
 	-> fatalis.l2_walk(2,6,0,1000,700) 
 	return 
 endf 
 
-def node_028 : 196
+def node_028
 	-> fatalis.l2_walk(2,6,0,1000,1000) 
 	return 
 endf 
 
-def node_029 : 227
+def node_029
 	-> fatalis.l2_walk(2,6,0,500,1000) 
 	return 
 endf 
 
-def node_030 : 228
+def node_030
 	-> fatalis.l2_walk(2,6,0,500,1500) 
 	return 
 endf 
 
-def node_031 : 204
+def node_031
 	-> fatalis.l2_walk(2,6,0,1000,4000) 
 	return 
 endf 
 
-def node_032 : 198
+def node_032
 	-> fatalis.l2_walk(2,6,0,1000,500) 
 	if self.distance_2d_to_target().leq(500) 
 	else 
@@ -340,7 +340,7 @@ def node_032 : 198
 	return 
 endf 
 
-def node_033 : 199
+def node_033
 	-> fatalis.l2_walk(2,6,0,1000,1000) 
 	if self.distance_2d_to_target().leq(1000) 
 	else 
@@ -361,7 +361,7 @@ def node_033 : 199
 	return 
 endf 
 
-def node_034 : 273
+def node_034
 	-> fatalis.l2_walk(2,6,0,1000,2000) 
 	if self.distance_2d_to_target().leq(2000) 
 	else 
@@ -374,7 +374,7 @@ def node_034 : 273
 	return 
 endf 
 
-def node_035 : 205
+def node_035
 	-> fatalis.l2_walk(2,6,0,1000,4000) 
 	if self.distance_2d_to_target().leq(4000) 
 	else 
@@ -395,22 +395,22 @@ def node_035 : 205
 	return 
 endf 
 
-def node_036 : 201
+def node_036
 	-> fatalis.l4_walk(2,6,0,1000,1500) 
 	return 
 endf 
 
-def node_037 : 222
+def node_037
 	-> fatalis.l4_walk(2,6,0,1000,3000) 
 	return 
 endf 
 
-def node_038 : 206
+def node_038
 	-> fatalis.l4_walk(2,6,0,1000,4000) 
 	return 
 endf 
 
-def node_039 : 202
+def node_039
 	-> fatalis.l4_walk(2,6,0,1000,1500) 
 	if self.distance_2d_to_target().leq(1500) 
 	else 
@@ -431,7 +431,7 @@ def node_039 : 202
 	return 
 endf 
 
-def node_040 : 272
+def node_040
 	-> fatalis.l4_walk(2,6,0,1000,2000) 
 	if self.distance_2d_to_target().leq(2000) 
 	else 
@@ -452,7 +452,7 @@ def node_040 : 272
 	return 
 endf 
 
-def node_041 : 223
+def node_041
 	-> fatalis.l4_walk(2,6,0,1000,3000) 
 	if self.distance_2d_to_target().leq(3000) 
 	else 
@@ -473,7 +473,7 @@ def node_041 : 223
 	return 
 endf 
 
-def node_042 : 207
+def node_042
 	-> fatalis.l4_walk(2,6,0,1000,4000) 
 	if self.distance_2d_to_target().leq(4000) 
 	else 
@@ -494,7 +494,7 @@ def node_042 : 207
 	return 
 endf 
 
-def node_043 : 203
+def node_043
 	if function#101() 
 		>> node_032 
 	elif function#101(1) 
@@ -503,7 +503,7 @@ def node_043 : 203
 	return 
 endf 
 
-def node_044 : 262
+def node_044
 	if function#101() 
 		-> fatalis.l2_walk(2,6,0,1500,1000) 
 	else 
@@ -512,7 +512,7 @@ def node_044 : 262
 	return 
 endf 
 
-def node_045 : 263
+def node_045
 	if function#101() 
 		-> fatalis.l2_walk(2,6,0,1500,1000) 
 	else 
@@ -521,12 +521,12 @@ def node_045 : 263
 	return 
 endf 
 
-def node_046 : 257
+def node_046
 	-> fatalis.glide_combat(2,6,0,1000,1000) 
 	return 
 endf 
 
-def node_047 : 258
+def node_047
 	-> fatalis.glide_combat(2,6,0,1000,1000) 
 	if self.distance_2d_to_target().leq(1000) 
 	else 
@@ -547,12 +547,12 @@ def node_047 : 258
 	return 
 endf 
 
-def node_048 : 259
+def node_048
 	-> fatalis.glide_combat(2,6,0,1000,4000) 
 	return 
 endf 
 
-def node_049 : 260
+def node_049
 	-> fatalis.glide_combat(2,6,0,1000,4000) 
 	if self.distance_2d_to_target().leq(4000) 
 	else 
@@ -573,7 +573,7 @@ def node_049 : 260
 	return 
 endf 
 
-def node_050 : 167
+def node_050
 	if self.angle_2d_cw_between(30,330) 
 		if function#101() 
 			-> fatalis.l2_turn() 
@@ -587,7 +587,7 @@ def node_050 : 167
 	return 
 endf 
 
-def node_051 : 208
+def node_051
 	if self.angle_2d_cw_between(45,315) 
 		if function#101() 
 			-> fatalis.l2_turn() 
@@ -601,7 +601,7 @@ def node_051 : 208
 	return 
 endf 
 
-def node_052 : 169
+def node_052
 	if self.angle_2d_cw_between(90,270) 
 		if function#101() 
 			-> fatalis.l2_turn() 
@@ -615,7 +615,7 @@ def node_052 : 169
 	return 
 endf 
 
-def node_053 : 289
+def node_053
 	if self.angle_2d_cw_between(30,330) 
 		if function#101() 
 			if self.distance_2d_to_target().leq(300) 
@@ -637,7 +637,7 @@ def node_053 : 289
 	return 
 endf 
 
-def node_054 : 290
+def node_054
 	if self.angle_2d_cw_between(45,315) 
 		if function#101() 
 			if self.distance_2d_to_target().leq(300) 
@@ -659,7 +659,7 @@ def node_054 : 290
 	return 
 endf 
 
-def node_055 : 291
+def node_055
 	if self.angle_2d_cw_between(90,270) 
 		if function#101() 
 			if self.distance_2d_to_target().leq(300) 
@@ -681,7 +681,7 @@ def node_055 : 291
 	return 
 endf 
 
-def node_056 : 210
+def node_056
 	if self.angle_2d_cw_between(90,270) 
 		if function#101() 
 			-> fatalis.l2_turn() 
@@ -701,7 +701,7 @@ def node_056 : 210
 	return 
 endf 
 
-def node_057 : 168
+def node_057
 	if self.angle_2d_cw_between(30,330) 
 		if function#101() 
 			if self.distance_2d_to_target().leq(300) 
@@ -721,7 +721,7 @@ def node_057 : 168
 	return 
 endf 
 
-def node_058 : 170
+def node_058
 	if self.angle_2d_cw_between(90,270) 
 		if function#101() 
 			if self.distance_2d_to_target().leq(300) 
@@ -741,7 +741,7 @@ def node_058 : 170
 	return 
 endf 
 
-def node_059 : 171
+def node_059
 	if self.flying() 
 		-> fatalis.fly_turn() 
 	elif function#101() 
@@ -752,7 +752,7 @@ def node_059 : 171
 	return 
 endf 
 
-def node_060 : 249
+def node_060
 	if self.flying() 
 		-> fatalis.fly_turn() 
 	elif function#101() 
@@ -763,7 +763,7 @@ def node_060 : 249
 	return 
 endf 
 
-def node_061 : 295
+def node_061
 	if function#101() 
 		if self.distance_2d_to_target().leq(1000) 
 			-> fatalis.l2_back_walk() 
@@ -788,20 +788,20 @@ def node_061 : 295
 	return 
 endf 
 
-def node_062 : 286
-	[RegisterVar10 ++] 
+def node_062
+	[RegisterVar10 |-] 
 	-> fatalis.l2_quick_breath() 
 	return 
 endf 
 
-def node_063 : 299
-	[RegisterVar10 ++] 
+def node_063
+	[RegisterVar10 |-] 
 	-> fatalis.l2_quick_breath() 
 	if self.angle_2d_cw_between(270,90) 
 		if self.distance_2d_to_target().leq(800) 
 		else 
 			random (35) 
-						[RegisterVar10 |-] 
+						[RegisterVar10 ++] 
 						>> node_064 
 			elser (65) 
 			endr 
@@ -811,7 +811,7 @@ def node_063 : 299
 	return 
 endf 
 
-def node_064 : 307
+def node_064
 	if function#10E() 
 		random (25) >> node_070 
 		elser (15) >> node_071 
@@ -825,7 +825,7 @@ def node_064 : 307
 	return 
 endf 
 
-def node_065 : 172
+def node_065
 	>> node_056 
 	if self.distance_2d_to_target().leq(500) 
 		-> fatalis.l2_near_scratch() 
@@ -835,7 +835,7 @@ def node_065 : 172
 	return 
 endf 
 
-def node_066 : 173
+def node_066
 	if self.distance_2d_to_target().leq(600) 
 		-> fatalis.l2_near_side_scratch() 
 	else 
@@ -844,7 +844,7 @@ def node_066 : 173
 	return 
 endf 
 
-def node_067 : 298
+def node_067
 	if self.distance_2d_to_target().leq(600) 
 		-> fatalis.l2_near_side_scratch() 
 	else 
@@ -862,7 +862,7 @@ def node_067 : 298
 	return 
 endf 
 
-def node_068 : 308
+def node_068
 	if function#10E() 
 		random (25) >> node_070 
 		elser (15) >> node_071 
@@ -876,17 +876,17 @@ def node_068 : 308
 	return 
 endf 
 
-def node_069 : 175
+def node_069
 	-> fatalis.l2_tail_swing() 
 	return 
 endf 
 
-def node_070 : 179
+def node_070
 	-> fatalis.l2_breath_single() 
 	return 
 endf 
 
-def node_071 : 220
+def node_071
 	if function#106(1) 
 		if self.enraged() 
 			>> node_074 
@@ -903,22 +903,22 @@ def node_071 : 220
 	return 
 endf 
 
-def node_072 : 218
+def node_072
 	-> fatalis.l2_breath_multi_start_02() 
 	return 
 endf 
 
-def node_073 : 181
+def node_073
 	-> fatalis.l2_breath_multi_start_01() 
 	return 
 endf 
 
-def node_074 : 288
+def node_074
 	-> fatalis.l2_high_power_three_breath_multi_start() 
 	return 
 endf 
 
-def node_075 : 184
+def node_075
 	if self.distance_2d_to_target().leq(900) 
 		>> node_059 
 	else 
@@ -928,12 +928,12 @@ def node_075 : 184
 	return 
 endf 
 
-def node_076 : 185
+def node_076
 	-> fatalis.l2_line_fire_shoot() 
 	return 
 endf 
 
-def node_077 : 186
+def node_077
 	>> node_052 
 	if function#103() 
 		-> fatalis.l2_under_breath() 
@@ -943,7 +943,7 @@ def node_077 : 186
 	return 
 endf 
 
-def node_078 : 297
+def node_078
 	>> node_052 
 	if function#103() 
 		-> fatalis.l2_under_breath() 
@@ -962,7 +962,7 @@ def node_078 : 297
 	return 
 endf 
 
-def node_079 : 309
+def node_079
 	if function#10E() 
 		random (25) >> node_070 
 		elser (15) >> node_071 
@@ -976,12 +976,12 @@ def node_079 : 309
 	return 
 endf 
 
-def node_080 : 188
+def node_080
 	-> fatalis.l2_far_dust_explosion_start() 
 	return 
 endf 
 
-def node_081 : 193
+def node_081
 	if function#10E() 
 		random (25) >> node_070 
 		elser (15) >> node_071 
@@ -1000,7 +1000,7 @@ def node_081 : 193
 	return 
 endf 
 
-def node_082 : 215
+def node_082
 	if function#103() 
 		>> node_083 
 	else 
@@ -1009,7 +1009,7 @@ def node_082 : 215
 	return 
 endf 
 
-def node_083 : 211
+def node_083
 	if function#103() 
 		-> fatalis.l2_rush_start() 
 	else 
@@ -1018,7 +1018,7 @@ def node_083 : 211
 	return 
 endf 
 
-def node_084 : 212
+def node_084
 	if function#103() 
 		-> fatalis.l2_rush_turn_start() 
 	else 
@@ -1027,17 +1027,17 @@ def node_084 : 212
 	return 
 endf 
 
-def node_085 : 274
+def node_085
 	-> fatalis.l2_snake_fire_shoot() 
 	return 
 endf 
 
-def node_086 : 275
+def node_086
 	-> fatalis.l2_multi_swing_dust_explosion() 
 	return 
 endf 
 
-def node_087 : 282
+def node_087
 	if self.distance_2d_to_target().leq(900) 
 		>> node_059 
 	else 
@@ -1054,7 +1054,7 @@ def node_087 : 282
 	return 
 endf 
 
-def node_088 : 310
+def node_088
 	if function#10E() 
 		random (35) >> node_070 
 		elser (20) >> node_071 
@@ -1068,25 +1068,25 @@ def node_088 : 310
 	return 
 endf 
 
-def node_089 : 209
+def node_089
 	-> fatalis.l2_breath_single() @ comboSetting:1 
 	-> fatalis.l2_special_wide_range_fire_shoot() 
 	return 
 endf 
 
-def node_090 : 242
+def node_090
 	>> node_052 
-	[RegisterVar3 |-] 
+	[RegisterVar3 ++] 
 	-> fatalis.l2_back_jump_breath_start() 
 	return 
 endf 
 
-def node_091 : 174
+def node_091
 	-> fatalis.l2_switch_l4_body_press() 
 	return 
 endf 
 
-def node_092 : 287
+def node_092
 	if self.angle_2d_cw_between(0,180) 
 		-> fatalis.l4_quick_breath() 
 	else 
@@ -1095,7 +1095,7 @@ def node_092 : 287
 	return 
 endf 
 
-def node_093 : 177
+def node_093
 	if self.distance_2d_to_target().leq(500) 
 		>> node_059 
 	else 
@@ -1104,7 +1104,7 @@ def node_093 : 177
 	return 
 endf 
 
-def node_094 : 178
+def node_094
 	if self.distance_2d_to_target().leq(500) 
 		>> node_059 
 	else 
@@ -1118,17 +1118,17 @@ def node_094 : 178
 	return 
 endf 
 
-def node_095 : 176
+def node_095
 	-> fatalis.l4_tail_slam() 
 	return 
 endf 
 
-def node_096 : 180
+def node_096
 	-> fatalis.l4_breath_single() 
 	return 
 endf 
 
-def node_097 : 221
+def node_097
 	if self.enraged() 
 		>> node_099 
 	else 
@@ -1137,22 +1137,22 @@ def node_097 : 221
 	return 
 endf 
 
-def node_098 : 219
+def node_098
 	-> fatalis.l4_breath_multi_start_02() 
 	return 
 endf 
 
-def node_099 : 182
+def node_099
 	-> fatalis.l4_breath_multi_start_01() 
 	return 
 endf 
 
-def node_100 : 189
+def node_100
 	-> fatalis.l4_far_dust_explosion_start() 
 	return 
 endf 
 
-def node_101 : 192
+def node_101
 	if self.distance_2d_to_target().leq(1000) 
 		>> node_060 
 	elif self.distance_2d_to_target().leq(1500) 
@@ -1172,18 +1172,18 @@ def node_101 : 192
 	return 
 endf 
 
-def node_102 : 190
+def node_102
 	-> fatalis.l4_front_swing_breath() 
 	return 
 endf 
 
-def node_103 : 191
+def node_103
 	-> fatalis.l4_back_swing_breath() 
 	return 
 endf 
 
-def node_104 : 216
-	[RegisterVar11 ++] 
+def node_104
+	[RegisterVar11 |-] 
 	if function#103() 
 		>> node_105 
 	else 
@@ -1192,7 +1192,7 @@ def node_104 : 216
 	return 
 endf 
 
-def node_105 : 213
+def node_105
 	if function#103() 
 		-> fatalis.l4_rush_start() 
 	else 
@@ -1201,7 +1201,7 @@ def node_105 : 213
 	return 
 endf 
 
-def node_106 : 214
+def node_106
 	if function#103() 
 		-> fatalis.l4_rush_turn_start() 
 	else 
@@ -1210,7 +1210,7 @@ def node_106 : 214
 	return 
 endf 
 
-def node_107 : 217
+def node_107
 	if function#106(1) 
 		if self.enraged() 
 			>> node_113 
@@ -1247,7 +1247,7 @@ def node_107 : 217
 	return 
 endf 
 
-def node_108 : 284
+def node_108
 	if function#106(1) 
 		if self.enraged() 
 			>> node_113 
@@ -1284,7 +1284,7 @@ def node_108 : 284
 	return 
 endf 
 
-def node_109 : 250
+def node_109
 	if self.distance_2d_to_target().leq(500) 
 		>> node_059 
 	else 
@@ -1298,7 +1298,7 @@ def node_109 : 250
 	return 
 endf 
 
-def node_110 : 247
+def node_110
 	if self.distance_2d_to_target().leq(500) 
 		>> node_059 
 	else 
@@ -1312,7 +1312,7 @@ def node_110 : 247
 	return 
 endf 
 
-def node_111 : 183
+def node_111
 	if self.distance_2d_to_target().leq(500) 
 		>> node_059 
 	else 
@@ -1322,7 +1322,7 @@ def node_111 : 183
 	return 
 endf 
 
-def node_112 : 285
+def node_112
 	if self.distance_2d_to_target().leq(500) 
 		>> node_059 
 	else 
@@ -1332,7 +1332,7 @@ def node_112 : 285
 	return 
 endf 
 
-def node_113 : 237
+def node_113
 	if self.distance_2d_to_target().leq(500) 
 		>> node_059 
 	else 
@@ -1342,7 +1342,7 @@ def node_113 : 237
 	return 
 endf 
 
-def node_114 : 276
+def node_114
 	if self.angle_2d_cw_between(0,180) 
 		-> fatalis.l4_all_angle_breath_l() 
 	else 
@@ -1351,7 +1351,7 @@ def node_114 : 276
 	return 
 endf 
 
-def node_115 : 277
+def node_115
 	if function#103() 
 		-> fatalis.l4_range_reset_dust_explosion_start() 
 	else 
@@ -1360,12 +1360,12 @@ def node_115 : 277
 	return 
 endf 
 
-def node_116 : 238
+def node_116
 	-> fatalis.fly_breath_single() 
 	return 
 endf 
 
-def node_117 : 241
+def node_117
 	if self.enraged() 
 		>> node_119 
 	else 
@@ -1374,62 +1374,62 @@ def node_117 : 241
 	return 
 endf 
 
-def node_118 : 239
+def node_118
 	-> fatalis.fly_breath_multi_start_02() 
 	return 
 endf 
 
-def node_119 : 240
+def node_119
 	-> fatalis.fly_breath_multi_start_01() 
 	return 
 endf 
 
-def node_120 : 243
+def node_120
 	-> fatalis.fly_zigzag_breath() 
 	return 
 endf 
 
-def node_121 : 244
+def node_121
 	-> fatalis.fly_vertical_breath() 
 	return 
 endf 
 
-def node_122 : 248
+def node_122
 	-> fatalis.fly_under_breath() 
 	return 
 endf 
 
-def node_123 : 245
-	[RegisterVar4 |-] 
+def node_123
+	[RegisterVar4 ++] 
 	-> fatalis.fly_assault_start() 
 	return 
 endf 
 
-def node_124 : 296
-	[RegisterVar4 |-] 
+def node_124
+	[RegisterVar4 ++] 
 	-> fatalis.fly_switch_l2_assault_start() 
 	return 
 endf 
 
-def node_125 : 194
+def node_125
 	>> node_052 
 	-> fatalis.l2_high_ground_breath() 
 	return 
 endf 
 
-def node_126 : 225
+def node_126
 	>> node_052 
 	-> fatalis.l2_high_ground_zero_range_breath() 
 	return 
 endf 
 
-def node_127 : 226
+def node_127
 	>> node_052 
 	-> fatalis.l2_high_ground_wide_breath() 
 	return 
 endf 
 
-def node_128 : 281
+def node_128
 	if self.distance_2d_to_target().leq(2000) 
 	else 
 		-> fatalis.l2_walk(2,6,0,500,2000) 
@@ -1443,7 +1443,7 @@ def node_128 : 281
 	return 
 endf 
 
-def node_129 : 261
+def node_129
 	if self.distance_2d_to_target().leq(2000) 
 	else 
 		-> fatalis.l2_walk(2,6,0,500,2000) 
@@ -1457,31 +1457,31 @@ def node_129 : 261
 	return 
 endf 
 
-def node_130 : 278
+def node_130
 	>> node_052 
 	-> fatalis.l2_high_ground_breath_for_dragon_lance_wall() 
 	return 
 endf 
 
-def node_131 : 279
+def node_131
 	>> node_052 
 	-> fatalis.l2_high_ground_zero_range_breath_for_dragon_lance_wall() 
 	return 
 endf 
 
-def node_132 : 280
+def node_132
 	>> node_052 
 	-> fatalis.l2_high_ground_wide_breath_for_dragon_lance_wall() 
 	return 
 endf 
 
-def node_133 : 270
+def node_133
 	>> node_135 
 	>> node_134 
 	return 
 endf 
 
-def node_134 : 271
+def node_134
 	if self.target.pinned() 
 		function#114() 
 		if self.target.helpless_1() 
@@ -1497,27 +1497,27 @@ def node_134 : 271
 	return 
 endf 
 
-def node_135 : 264
+def node_135
 	-> fatalis.l2_new_catch_attack_start() 
 	return 
 endf 
 
-def node_136 : 266
+def node_136
 	-> fatalis.l2_new_catch_success() 
 	return 
 endf 
 
-def node_137 : 268
+def node_137
 	-> fatalis.l2_new_catch_const() 
 	return 
 endf 
 
-def node_138 : 267
+def node_138
 	-> fatalis.l2_new_catch_miss() 
 	return 
 endf 
 
-def node_139 : 292
+def node_139
 	function#109() 
 	if self.flying() 
 		>> node_017 
@@ -1533,7 +1533,7 @@ def node_139 : 292
 	return 
 endf 
 
-def node_140 : 293
+def node_140
 	random (25) >> node_065 
 	elser (25) >> node_066 
 	elser (25) >> node_076 
@@ -1543,7 +1543,7 @@ def node_140 : 293
 	return 
 endf 
 
-def node_141 : 294
+def node_141
 	random (20) >> node_070 
 	elser (20) >> node_071 
 	elser (30) >> node_075 
@@ -1553,8 +1553,8 @@ def node_141 : 294
 	return 
 endf 
 
-def node_142 : 306
-	[RegisterVar12 |-] 
+def node_142
+	[RegisterVar12 ++] 
 	return 
 endf 
 

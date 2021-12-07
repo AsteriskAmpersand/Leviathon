@@ -1,6 +1,6 @@
 importactions Dodogama as dodogama
 
-def node_000 : 1
+def node_000
 	if self.fatigued() 
 		random (30) >> node_018 
 		elser (70) 
@@ -19,46 +19,46 @@ def node_000 : 1
 	reset 
 endf 
 
-def node_001 : 33
+def node_001
 	>> node_026 
-	function#A8() 
+	[$U |-] 
 	self.targetEnemy(target_em.random_player_or_cat) 
-	if function#A9(0,1) 
+	if [$U += 1] 
 		self.target_on_part(0) >> node_008 => repeat 
 		self.target_on_part(1) >> node_008 => repeat 
-	elif function#A9(0,2) 
+	elif [$U += 2] 
 		self.target_on_part(0) >> node_003 => repeat 
 		self.target_on_part(1) >> node_004 => repeat 
-	elif function#A9(0,3) 
+	elif [$U += 3] 
 		self.target_on_part(0) >> node_003 => repeat 
 		self.target_on_part(1) >> node_004 => repeat 
 	else 
-		function#A8(1) 
+		[$U ++] 
 		>> node_005 
 	endif 
 	return 
 endf 
 
-def node_002 : 36
+def node_002
 	>> node_026 
-	function#A8() 
+	[$U |-] 
 	self.targetEnemy(target_em.random_player_or_cat) 
-	if function#A9(0,1) 
+	if [$U += 1] 
 		self.target_on_part(0) >> node_008 => repeat 
 		self.target_on_part(1) >> node_008 => repeat 
-	elif function#A9(0,2) 
+	elif [$U += 2] 
 		>> node_005 => repeat 
-	elif function#A9(0,3) 
+	elif [$U += 3] 
 		self.target_on_part(0) >> node_003 => repeat 
 		self.target_on_part(1) >> node_004 => repeat 
 	else 
-		function#A8(1) 
+		[$U ++] 
 		>> node_005 
 	endif 
 	return 
 endf 
 
-def node_003 : 2
+def node_003
 	if self.mounted() 
 		>> node_009 
 	else 
@@ -67,7 +67,7 @@ def node_003 : 2
 	return 
 endf 
 
-def node_004 : 3
+def node_004
 	if self.mounted() 
 		>> node_011 
 	else 
@@ -76,7 +76,7 @@ def node_004 : 3
 	return 
 endf 
 
-def node_005 : 38
+def node_005
 	if self.mounted() 
 		>> node_006 
 	else 
@@ -85,7 +85,7 @@ def node_005 : 38
 	return 
 endf 
 
-def node_006 : 11
+def node_006
 	if function#29() 
 		self.targetArea(7) 
 		>> node_016 
@@ -99,7 +99,7 @@ def node_006 : 11
 	return 
 endf 
 
-def node_007 : 12
+def node_007
 	if function#29() 
 		self.targetArea(7) 
 		>> node_016 
@@ -112,7 +112,7 @@ def node_007 : 12
 	return 
 endf 
 
-def node_008 : 41
+def node_008
 	if self.mounted() 
 		>> node_017 
 	else 
@@ -120,36 +120,36 @@ def node_008 : 41
 	return 
 endf 
 
-def node_009 : 24
+def node_009
 	-> dodogama.ride_rage_head() 
 	return 
 endf 
 
-def node_010 : 25
+def node_010
 	random (50) -> dodogama.overturn_l() 
 	elser (50) -> dodogama.overturn_r() 
 	endr 
 	return 
 endf 
 
-def node_011 : 26
+def node_011
 	-> dodogama.ride_rage_body() 
 	return 
 endf 
 
-def node_012 : 27
+def node_012
 	-> dodogama.ride_rage_body_lv2() 
 	return 
 endf 
 
-def node_013 : 30
+def node_013
 	random (50) -> dodogama.overturn_l() 
 	elser (50) -> dodogama.overturn_r() 
 	endr 
 	return 
 endf 
 
-def node_014 : 45
+def node_014
 	if self.angular_17(330,30) 
 		-> dodogama.turn() 
 	else 
@@ -158,7 +158,7 @@ def node_014 : 45
 	return 
 endf 
 
-def node_015 : 46
+def node_015
 	if self.fatigued() 
 		-> dodogama.run(2,1,0,1500,500) 
 	else 
@@ -167,7 +167,7 @@ def node_015 : 46
 	return 
 endf 
 
-def node_016 : 23
+def node_016
 	if self.distance_3d_to_target().leq(500) 
 		-> dodogama.back_turn() 
 	elif self.distance_3d_to_target().gt(3500) 
@@ -183,17 +183,17 @@ def node_016 : 23
 	return 
 endf 
 
-def node_017 : 37
+def node_017
 	-> dodogama.wait() 
 	return 
 endf 
 
-def node_018 : 31
+def node_018
 	-> dodogama.tired() 
 	return 
 endf 
 
-def node_019 : 42
+def node_019
 	random (20) >> node_020 
 	elser (80) >> node_021 
 	endr 
@@ -201,34 +201,34 @@ def node_019 : 42
 	return 
 endf 
 
-def node_020 : 43
+def node_020
 	self.targetEnemy(21) @ parameter2:1000 
 	return 
 endf 
 
-def node_021 : 44
+def node_021
 	self.targetEnemy(22) @ parameter2:1000 
 	return 
 endf 
 
-def node_022 : 17
+def node_022
 	random (48) >> node_023 
 	elser (52) >> node_024 
 	endr 
 	return 
 endf 
 
-def node_023 : 18
+def node_023
 	self.targetEnemy(12) @ parameter2:1000 
 	return 
 endf 
 
-def node_024 : 19
+def node_024
 	self.targetEnemy(11) @ parameter2:1000 
 	return 
 endf 
 
-def node_025 : 32
+def node_025
 	if self.angular_17(300,60) 
 		-> dodogama.turn() 
 	else 
@@ -236,7 +236,7 @@ def node_025 : 32
 	return 
 endf 
 
-def node_026 : 21
+def node_026
 	if function#3B() 
 		if self.mount_staggered_twice() 
 			>> node_027 
@@ -267,7 +267,7 @@ def node_026 : 21
 	return 
 endf 
 
-def node_027 : 22
+def node_027
 	-> dodogama.ride_tired() 
 	return 
 endf 

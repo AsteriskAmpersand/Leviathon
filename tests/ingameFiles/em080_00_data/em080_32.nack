@@ -1,6 +1,6 @@
 importactions Glavenus as glavenus
 
-def node_000 : 1
+def node_000
 	*&
 	self.targetEnemy(target_em.closest_entity) 
 	>> node_001 
@@ -8,7 +8,7 @@ def node_000 : 1
 	conclude 
 endf 
 
-def node_001 : 2
+def node_001
 	if self.angle_2d_cw_between(60,300) 
 		-> glavenus.back_turn() @ unkn6:65536 
 	else 
@@ -16,7 +16,7 @@ def node_001 : 2
 	return 
 endf 
 
-def node_002 : 3
+def node_002
 	-> glavenus.threat() 
 	return 
 endf 

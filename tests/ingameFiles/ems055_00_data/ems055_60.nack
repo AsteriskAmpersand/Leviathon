@@ -1,7 +1,7 @@
 importactions Barnos as barnos
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	>> Global.node_014 
 	if self.hp_percent().gt(30) >> node_001 
 	elif self.hookable() >> node_002 
@@ -9,7 +9,7 @@ def node_000 : 1
 	conclude 
 endf 
 
-def node_001 : 33
+def node_001
 	function#54() 
 	function#52(4,4) 
 	self.targetEnemy(16) 
@@ -25,7 +25,7 @@ def node_001 : 33
 	return 
 endf 
 
-def node_002 : 34
+def node_002
 	function#54() 
 	function#52(1,1) 
 	self.targetEnemy(16) 

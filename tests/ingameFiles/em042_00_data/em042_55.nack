@@ -1,13 +1,13 @@
 importactions Barioth as barioth
 
-def node_000 : 455
+def node_000
 	self.targetEnemy(50) 
 	>> node_075 
 	>> node_003 
 	conclude 
 endf 
 
-def node_001 : 250
+def node_001
 	if function#101() 
 		-> barioth.idle_wall_no_interrupt_s() 
 	elif self.flying() 
@@ -20,7 +20,7 @@ def node_001 : 250
 	return 
 endf 
 
-def node_002 : 263
+def node_002
 	if function#101() 
 		-> barioth.idle_wall_no_interrupt_l() 
 	elif self.flying() 
@@ -33,7 +33,7 @@ def node_002 : 263
 	return 
 endf 
 
-def node_003 : 231
+def node_003
 	if function#101() 
 		>> node_103 
 	elif self.flying() 
@@ -47,7 +47,7 @@ def node_003 : 231
 	return 
 endf 
 
-def node_004 : 232
+def node_004
 	if function#101() 
 		>> node_103 
 	else 
@@ -59,7 +59,7 @@ def node_004 : 232
 	return 
 endf 
 
-def node_005 : 225
+def node_005
 	if self.flying() 
 	elif self.in_combat() 
 	else 
@@ -68,7 +68,7 @@ def node_005 : 225
 	return 
 endf 
 
-def node_006 : 226
+def node_006
 	if self.flying() 
 	elif self.in_combat() 
 		-> barioth.trans_normal() 
@@ -77,7 +77,7 @@ def node_006 : 226
 	return 
 endf 
 
-def node_007 : 219
+def node_007
 	if self.flying() 
 		if self.in_combat() 
 			-> barioth.turn_fly_quick() 
@@ -94,7 +94,7 @@ def node_007 : 219
 	return 
 endf 
 
-def node_008 : 220
+def node_008
 	if self.angle_2d_cw_between(30,330) 
 		>> node_007 
 	else 
@@ -102,7 +102,7 @@ def node_008 : 220
 	return 
 endf 
 
-def node_009 : 221
+def node_009
 	if self.angle_2d_cw_between(60,300) 
 		>> node_007 
 	else 
@@ -110,7 +110,7 @@ def node_009 : 221
 	return 
 endf 
 
-def node_010 : 223
+def node_010
 	if self.angle_2d_cw_between(90,270) 
 		>> node_007 
 	else 
@@ -118,7 +118,7 @@ def node_010 : 223
 	return 
 endf 
 
-def node_011 : 224
+def node_011
 	if self.angle_2d_cw_between(120,240) 
 		>> node_007 
 	else 
@@ -126,7 +126,7 @@ def node_011 : 224
 	return 
 endf 
 
-def node_012 : 227
+def node_012
 	>> node_003 
 	if self.distance_2d_to_target().gt(500) 
 		if self.in_combat() 
@@ -139,7 +139,7 @@ def node_012 : 227
 	return 
 endf 
 
-def node_013 : 233
+def node_013
 	>> node_003 
 	if self.distance_2d_to_target().gt(1000) 
 		if self.in_combat() 
@@ -152,7 +152,7 @@ def node_013 : 233
 	return 
 endf 
 
-def node_014 : 234
+def node_014
 	>> node_003 
 	if self.distance_2d_to_target().gt(1500) 
 		if self.in_combat() 
@@ -165,7 +165,7 @@ def node_014 : 234
 	return 
 endf 
 
-def node_015 : 228
+def node_015
 	>> node_003 
 	if self.in_combat() 
 		-> barioth.dash_combat(1,2,0,800,1500) 
@@ -175,7 +175,7 @@ def node_015 : 228
 	return 
 endf 
 
-def node_016 : 235
+def node_016
 	>> node_003 
 	if self.in_combat() 
 		-> barioth.dash_combat(1,2,0,800,3000) 
@@ -185,7 +185,7 @@ def node_016 : 235
 	return 
 endf 
 
-def node_017 : 27
+def node_017
 	>> node_003 
 	if self.distance_2d_to_target().leq(500) 
 	else 
@@ -199,7 +199,7 @@ def node_017 : 27
 	return 
 endf 
 
-def node_018 : 236
+def node_018
 	>> node_003 
 	if self.distance_2d_to_target().leq(800) 
 	else 
@@ -213,7 +213,7 @@ def node_018 : 236
 	return 
 endf 
 
-def node_019 : 361
+def node_019
 	>> node_003 
 	if self.fatigued() 
 		-> barioth.walk_tired(1,2,5,800,1500) 
@@ -225,7 +225,7 @@ def node_019 : 361
 	return 
 endf 
 
-def node_020 : 328
+def node_020
 	>> node_003 
 	if self.distance_2d_to_target().leq(500) 
 	else 
@@ -241,7 +241,7 @@ def node_020 : 328
 	return 
 endf 
 
-def node_021 : 452
+def node_021
 	>> node_003 
 	if self.fatigued() 
 		-> barioth.walk_tired(6,0,0,500) 
@@ -253,7 +253,7 @@ def node_021 : 452
 	return 
 endf 
 
-def node_022 : 456
+def node_022
 	>> node_003 
 	if self.distance_2d_to_target().gt(2000) 
 		if self.in_combat() 
@@ -278,7 +278,7 @@ def node_022 : 456
 	return 
 endf 
 
-def node_023 : 230
+def node_023
 	self.targetArea(target_area.area_aerial_center) 
 	>> node_210 
 	self.targetArea(target_area.area_center) 
@@ -286,7 +286,7 @@ def node_023 : 230
 	return 
 endf 
 
-def node_024 : 229
+def node_024
 	if self.distance_2d_to_target().leq(600) 
 	else 
 		-> barioth.glide_combat(6,2,0,500,3000) 
@@ -295,16 +295,16 @@ def node_024 : 229
 	return 
 endf 
 
-def node_025 : 238
+def node_025
 	>> node_003 
-	[RegisterVar2 |-] 
+	[RegisterVar2 ++] 
 	-> barioth.threat() 
 	return 
 endf 
 
-def node_026 : 239
+def node_026
 	>> node_003 
-	[RegisterVar2 |-] 
+	[RegisterVar2 ++] 
 	if self.angle_2d_cw_between(0,180) 
 		-> barioth.short_threat() 
 	else 
@@ -313,7 +313,7 @@ def node_026 : 239
 	return 
 endf 
 
-def node_027 : 240
+def node_027
 	>> node_003 
 	>> node_005 
 	if self.fatigued() 
@@ -324,7 +324,7 @@ def node_027 : 240
 	return 
 endf 
 
-def node_028 : 319
+def node_028
 	random (50) >> node_027 
 	elser (50) 
 	elser (0) 
@@ -332,7 +332,7 @@ def node_028 : 319
 	return 
 endf 
 
-def node_029 : 342
+def node_029
 	if self.enraged() 
 	else 
 		>> node_027 
@@ -340,7 +340,7 @@ def node_029 : 342
 	return 
 endf 
 
-def node_030 : 320
+def node_030
 	if self.part(1).is_broken(0) 
 		if self.part(2).is_broken(0) 
 			>> node_027 
@@ -351,20 +351,20 @@ def node_030 : 320
 	return 
 endf 
 
-def node_031 : 241
+def node_031
 	>> node_003 
 	-> barioth.refresh() 
 	return 
 endf 
 
-def node_032 : 314
+def node_032
 	>> node_003 
 	>> node_005 
 	-> barioth.turn_back_step() 
 	return 
 endf 
 
-def node_033 : 247
+def node_033
 	>> node_003 
 	if self.distance_2d_to_target().leq(600) 
 		>> node_005 
@@ -374,7 +374,7 @@ def node_033 : 247
 	return 
 endf 
 
-def node_034 : 248
+def node_034
 	>> node_003 
 	if self.distance_2d_to_target().leq(1000) 
 		>> node_005 
@@ -384,19 +384,19 @@ def node_034 : 248
 	return 
 endf 
 
-def node_035 : 407
+def node_035
 	>> node_032 
 	>> node_152 
 	return 
 endf 
 
-def node_036 : 275
+def node_036
 	>> node_032 
 	>> node_127 
 	return 
 endf 
 
-def node_037 : 336
+def node_037
 	>> node_003 
 	>> node_005 
 	>> node_010 
@@ -404,19 +404,19 @@ def node_037 : 336
 	return 
 endf 
 
-def node_038 : 408
+def node_038
 	>> node_037 
 	>> node_152 
 	return 
 endf 
 
-def node_039 : 337
+def node_039
 	>> node_037 
 	>> node_139 
 	return 
 endf 
 
-def node_040 : 242
+def node_040
 	>> node_003 
 	>> node_005 
 	>> node_010 
@@ -424,33 +424,33 @@ def node_040 : 242
 	return 
 endf 
 
-def node_041 : 409
+def node_041
 	>> node_040 
 	>> node_152 
 	return 
 endf 
 
-def node_042 : 348
+def node_042
 	>> node_040 
 	>> node_127 
 	return 
 endf 
 
-def node_043 : 323
+def node_043
 	>> node_003 
 	>> node_005 
 	-> barioth.bite_slammed() 
 	return 
 endf 
 
-def node_044 : 243
+def node_044
 	>> node_003 
 	>> node_005 
 	-> barioth.tackle() 
 	return 
 endf 
 
-def node_045 : 244
+def node_045
 	>> node_003 
 	>> node_005 
 	if self.angle_2d_cw_between(0,180) 
@@ -461,7 +461,7 @@ def node_045 : 244
 	return 
 endf 
 
-def node_046 : 406
+def node_046
 	>> node_003 
 	>> node_005 
 	>> node_008 
@@ -473,7 +473,7 @@ def node_046 : 406
 	return 
 endf 
 
-def node_047 : 410
+def node_047
 	>> node_003 
 	>> node_005 
 	self.targetEnemy(67) @ parameter2:1 
@@ -508,7 +508,7 @@ def node_047 : 410
 	return 
 endf 
 
-def node_048 : 322
+def node_048
 	>> node_003 
 	>> node_005 
 	self.targetEnemy(67) @ parameter2:1 
@@ -543,23 +543,23 @@ def node_048 : 322
 	return 
 endf 
 
-def node_049 : 246
-	if [RegisterVar3 == 0] 
-		[RegisterVar3 ++] 
-		[RegisterVar4 |-] 
+def node_049
+	if [RegisterVar3 += 0] 
+		[RegisterVar3 |-] 
+		[RegisterVar4 ++] 
 		>> node_050 
-	elif [RegisterVar4 <= 2] 
-		[RegisterVar3 ++] 
-		[RegisterVar4 |-] 
+	elif [RegisterVar4 -= 2] 
+		[RegisterVar3 |-] 
+		[RegisterVar4 ++] 
 		>> node_050 
 	else 
-		[RegisterVar3 |-] 
+		[RegisterVar3 ++] 
 		>> node_052 
 	endif 
 	return 
 endf 
 
-def node_050 : 451
+def node_050
 	>> node_003 
 	>> node_005 
 	if self.target.helpless_0() 
@@ -570,12 +570,12 @@ def node_050 : 451
 	-> barioth.breath_normal() 
 	if self.fatigued() 
 	else 
-		[RegisterVar3 ++] 
+		[RegisterVar3 |-] 
 	endif 
 	return 
 endf 
 
-def node_051 : 264
+def node_051
 	>> node_003 
 	>> node_005 
 	if function#104() 
@@ -590,14 +590,14 @@ def node_051 : 264
 	return 
 endf 
 
-def node_052 : 249
+def node_052
 	>> node_003 
 	>> node_005 
 	-> barioth.jump_turn_attack() 
 	return 
 endf 
 
-def node_053 : 326
+def node_053
 	>> node_003 
 	>> node_005 
 	self.targetEnemy(67) @ parameter2:1 
@@ -621,7 +621,7 @@ def node_053 : 326
 	return 
 endf 
 
-def node_054 : 411
+def node_054
 	>> node_056 
 	if function#101() 
 	else 
@@ -630,7 +630,7 @@ def node_054 : 411
 	return 
 endf 
 
-def node_055 : 405
+def node_055
 	>> node_056 
 	if function#101() 
 	else 
@@ -639,14 +639,14 @@ def node_055 : 405
 	return 
 endf 
 
-def node_056 : 257
+def node_056
 	>> node_003 
 	>> node_005 
 	-> barioth.wrap() 
 	return 
 endf 
 
-def node_057 : 412
+def node_057
 	if self.angle_2d_cw_between(0,90) 
 		>> node_058 
 	elif self.angle_2d_cw_between(270,360) 
@@ -657,7 +657,7 @@ def node_057 : 412
 	return 
 endf 
 
-def node_058 : 309
+def node_058
 	>> node_003 
 	>> node_005 
 	if function#102() 
@@ -669,7 +669,7 @@ def node_058 : 309
 	return 
 endf 
 
-def node_059 : 310
+def node_059
 	>> node_003 
 	>> node_005 
 	if function#102(1) 
@@ -681,7 +681,7 @@ def node_059 : 310
 	return 
 endf 
 
-def node_060 : 440
+def node_060
 	>> node_061 
 	if function#101() 
 	else 
@@ -690,7 +690,7 @@ def node_060 : 440
 	return 
 endf 
 
-def node_061 : 349
+def node_061
 	>> node_003 
 	>> node_005 
 	if self.angle_2d_cw_between(0,180) 
@@ -701,7 +701,7 @@ def node_061 : 349
 	return 
 endf 
 
-def node_062 : 344
+def node_062
 	if self.angle_2d_cw_between(0,90) 
 		>> node_063 
 	elif self.angle_2d_cw_between(270,360) 
@@ -712,7 +712,7 @@ def node_062 : 344
 	return 
 endf 
 
-def node_063 : 442
+def node_063
 	>> node_003 
 	>> node_005 
 	if function#102() 
@@ -724,7 +724,7 @@ def node_063 : 442
 	return 
 endf 
 
-def node_064 : 443
+def node_064
 	>> node_003 
 	>> node_005 
 	if function#102(1) 
@@ -736,7 +736,7 @@ def node_064 : 443
 	return 
 endf 
 
-def node_065 : 271
+def node_065
 	>> node_061 
 	if function#101() 
 	else 
@@ -745,7 +745,7 @@ def node_065 : 271
 	return 
 endf 
 
-def node_066 : 413
+def node_066
 	if self.angle_2d_cw_between(0,90) 
 		>> node_067 
 	elif self.angle_2d_cw_between(270,360) 
@@ -756,7 +756,7 @@ def node_066 : 413
 	return 
 endf 
 
-def node_067 : 366
+def node_067
 	>> node_003 
 	>> node_005 
 	if function#102() 
@@ -768,7 +768,7 @@ def node_067 : 366
 	return 
 endf 
 
-def node_068 : 368
+def node_068
 	>> node_003 
 	>> node_005 
 	if function#102(1) 
@@ -780,7 +780,7 @@ def node_068 : 368
 	return 
 endf 
 
-def node_069 : 441
+def node_069
 	>> node_003 
 	>> node_005 
 	if self.angle_2d_cw_between(0,180) 
@@ -797,7 +797,7 @@ def node_069 : 441
 	return 
 endf 
 
-def node_070 : 365
+def node_070
 	if self.angle_2d_cw_between(0,90) 
 		>> node_071 
 	elif self.angle_2d_cw_between(270,360) 
@@ -808,7 +808,7 @@ def node_070 : 365
 	return 
 endf 
 
-def node_071 : 444
+def node_071
 	>> node_003 
 	>> node_005 
 	if function#102() 
@@ -820,7 +820,7 @@ def node_071 : 444
 	return 
 endf 
 
-def node_072 : 445
+def node_072
 	>> node_003 
 	>> node_005 
 	if function#102(1) 
@@ -832,7 +832,7 @@ def node_072 : 445
 	return 
 endf 
 
-def node_073 : 367
+def node_073
 	>> node_003 
 	>> node_005 
 	if self.angle_2d_cw_between(0,180) 
@@ -849,7 +849,7 @@ def node_073 : 367
 	return 
 endf 
 
-def node_074 : 283
+def node_074
 	>> node_061 
 	if function#101() 
 	else 
@@ -858,14 +858,14 @@ def node_074 : 283
 	return 
 endf 
 
-def node_075 : 262
+def node_075
 	>> node_003 
 	>> node_005 
 	-> barioth.back_jump_take_off() 
 	return 
 endf 
 
-def node_076 : 260
+def node_076
 	>> node_003 
 	>> node_005 
 	if self.angle_2d_cw_between(0,180) 
@@ -876,7 +876,7 @@ def node_076 : 260
 	return 
 endf 
 
-def node_077 : 259
+def node_077
 	>> node_003 
 	>> node_005 
 	if self.angle_2d_cw_between(0,180) 
@@ -887,14 +887,14 @@ def node_077 : 259
 	return 
 endf 
 
-def node_078 : 317
+def node_078
 	>> node_003 
 	>> node_005 
 	-> barioth.take_off_switch_pattern_adjust_combat() 
 	return 
 endf 
 
-def node_079 : 324
+def node_079
 	>> node_003 
 	>> node_005 
 	if self.angle_2d_cw_between(0,180) 
@@ -905,20 +905,20 @@ def node_079 : 324
 	return 
 endf 
 
-def node_080 : 374
+def node_080
 	>> node_079 
 	>> node_088 
 	return 
 endf 
 
-def node_081 : 261
+def node_081
 	>> node_003 
 	>> node_005 
 	-> barioth.back_jump() 
 	return 
 endf 
 
-def node_082 : 284
+def node_082
 	>> node_081 
 	if function#101() 
 	else 
@@ -927,7 +927,7 @@ def node_082 : 284
 	return 
 endf 
 
-def node_083 : 414
+def node_083
 	>> node_003 
 	>> node_005 
 	if function#102(2) 
@@ -940,7 +940,7 @@ def node_083 : 414
 	return 
 endf 
 
-def node_084 : 280
+def node_084
 	>> node_081 
 	if function#101() 
 	else 
@@ -949,7 +949,7 @@ def node_084 : 280
 	return 
 endf 
 
-def node_085 : 308
+def node_085
 	>> node_003 
 	>> node_005 
 	if function#102(2) 
@@ -962,7 +962,7 @@ def node_085 : 308
 	return 
 endf 
 
-def node_086 : 446
+def node_086
 	>> node_081 
 	if function#101() 
 	else 
@@ -971,7 +971,7 @@ def node_086 : 446
 	return 
 endf 
 
-def node_087 : 279
+def node_087
 	if function#101() 
 		-> barioth.flying_triangle() 
 	elif self.flying() 
@@ -986,19 +986,19 @@ def node_087 : 279
 	return 
 endf 
 
-def node_088 : 256
+def node_088
 	>> node_004 
 	-> barioth.breath_fly() 
 	return 
 endf 
 
-def node_089 : 287
+def node_089
 	>> node_088 
 	>> node_098 
 	return 
 endf 
 
-def node_090 : 345
+def node_090
 	>> node_088 
 	>> node_098 
 	if self.flying() 
@@ -1008,64 +1008,64 @@ def node_090 : 345
 	return 
 endf 
 
-def node_091 : 296
+def node_091
 	>> node_088 
 	>> node_093 
 	return 
 endf 
 
-def node_092 : 447
+def node_092
 	>> node_004 
 	-> barioth.rush_fly() 
 	return 
 endf 
 
-def node_093 : 253
+def node_093
 	>> node_092 
 	>> node_094 
 	return 
 endf 
 
-def node_094 : 448
+def node_094
 	if function#B9() 
 		if self.enraged() 
-			if [RegisterVar2 <= 2] 
-				[RegisterVar2 |-] 
+			if [RegisterVar2 -= 2] 
+				[RegisterVar2 ++] 
 				>> node_027 
 			else 
-				[RegisterVar2 ++] 
+				[RegisterVar2 |-] 
 			endif 
 		else 
-			if [RegisterVar2 <= 1] 
-				[RegisterVar2 |-] 
+			if [RegisterVar2 -= 1] 
+				[RegisterVar2 ++] 
 				>> node_027 
 			else 
-				[RegisterVar2 ++] 
+				[RegisterVar2 |-] 
 			endif 
 		endif 
 	else 
 		if self.enraged() 
-			if [RegisterVar2 <= 1] 
-				[RegisterVar2 |-] 
+			if [RegisterVar2 -= 1] 
+				[RegisterVar2 ++] 
 				>> node_027 
 			else 
-				[RegisterVar2 ++] 
+				[RegisterVar2 |-] 
 			endif 
 		else 
-			[RegisterVar2 |-] 
+			[RegisterVar2 ++] 
 			>> node_027 
 		endif 
 	endif 
 	return 
 endf 
 
-def node_095 : 254
+def node_095
 	>> node_004 
 	-> barioth.turn_attack_fly() 
 	return 
 endf 
 
-def node_096 : 356
+def node_096
 	>> node_004 
 	if self.angle_2d_cw_between(0,180) 
 		if self.part(1).is_broken(0) 
@@ -1087,7 +1087,7 @@ def node_096 : 356
 	return 
 endf 
 
-def node_097 : 331
+def node_097
 	>> node_004 
 	self.targetEnemy(67) @ parameter2:1 
 	function#103() 
@@ -1110,7 +1110,7 @@ def node_097 : 331
 	return 
 endf 
 
-def node_098 : 325
+def node_098
 	>> node_004 
 	if self.angle_2d_cw_between(0,180) 
 		-> barioth.wrap_landing_r() 
@@ -1120,7 +1120,7 @@ def node_098 : 325
 	return 
 endf 
 
-def node_099 : 335
+def node_099
 	>> node_098 
 	if self.flying() 
 	else 
@@ -1129,7 +1129,7 @@ def node_099 : 335
 	return 
 endf 
 
-def node_100 : 252
+def node_100
 	if function#101() 
 		-> barioth.breath_wall() 
 	else 
@@ -1138,19 +1138,19 @@ def node_100 : 252
 	return 
 endf 
 
-def node_101 : 304
+def node_101
 	>> node_100 
 	>> node_104 
 	return 
 endf 
 
-def node_102 : 305
+def node_102
 	>> node_100 
 	>> node_105 
 	return 
 endf 
 
-def node_103 : 251
+def node_103
 	if function#101() 
 		-> barioth.flying_triangle() 
 	else 
@@ -1159,7 +1159,7 @@ def node_103 : 251
 	return 
 endf 
 
-def node_104 : 277
+def node_104
 	>> node_103 
 	if function#101() 
 	else 
@@ -1168,7 +1168,7 @@ def node_104 : 277
 	return 
 endf 
 
-def node_105 : 255
+def node_105
 	if function#101() 
 		-> barioth.turn_attack_wall() 
 	else 
@@ -1177,7 +1177,7 @@ def node_105 : 255
 	return 
 endf 
 
-def node_106 : 359
+def node_106
 	if function#101() 
 		if self.angle_2d_cw_between(0,180) 
 			if self.part(1).is_broken(0) 
@@ -1200,7 +1200,7 @@ def node_106 : 359
 	return 
 endf 
 
-def node_107 : 360
+def node_107
 	if function#101() 
 		-> barioth.turn_attack_wall() 
 	elif self.flying() 
@@ -1212,7 +1212,7 @@ def node_107 : 360
 	return 
 endf 
 
-def node_108 : 212
+def node_108
 	>> node_003 
 	self.targetArea(14) 
 	if self.distance_3d_to_target().gt(800) 
@@ -1224,7 +1224,7 @@ def node_108 : 212
 	return 
 endf 
 
-def node_109 : 213
+def node_109
 	>> node_003 
 	self.targetArea(19) 
 	if self.distance_3d_to_target().gt(800) 
@@ -1236,7 +1236,7 @@ def node_109 : 213
 	return 
 endf 
 
-def node_110 : 364
+def node_110
 	if self.distance_2d_to_target().leq(500) 
 		self.enraged() >> node_121 => reset 
 		self.fatigued() >> node_116 => reset 
@@ -1261,7 +1261,7 @@ def node_110 : 364
 	return 
 endf 
 
-def node_111 : 274
+def node_111
 	random (0) 
 	elser (0) >> node_027 
 	elser (25) >> node_036 
@@ -1293,7 +1293,7 @@ def node_111 : 274
 	return 
 endf 
 
-def node_112 : 292
+def node_112
 	random (0) 
 	elser (0) >> node_027 
 	elser (10) >> node_036 
@@ -1325,7 +1325,7 @@ def node_112 : 292
 	return 
 endf 
 
-def node_113 : 293
+def node_113
 	random (0) 
 	elser (0) >> node_027 
 	elser (0) >> node_036 
@@ -1357,7 +1357,7 @@ def node_113 : 293
 	return 
 endf 
 
-def node_114 : 294
+def node_114
 	random (0) 
 	elser (0) >> node_027 
 	elser (0) >> node_036 
@@ -1389,7 +1389,7 @@ def node_114 : 294
 	return 
 endf 
 
-def node_115 : 295
+def node_115
 	random (0) 
 	elser (0) >> node_027 
 	elser (0) >> node_036 
@@ -1421,7 +1421,7 @@ def node_115 : 295
 	return 
 endf 
 
-def node_116 : 375
+def node_116
 	random (0) 
 	elser (0) >> node_027 
 	elser (20) >> node_036 
@@ -1453,7 +1453,7 @@ def node_116 : 375
 	return 
 endf 
 
-def node_117 : 377
+def node_117
 	random (0) 
 	elser (0) >> node_027 
 	elser (20) >> node_036 
@@ -1485,7 +1485,7 @@ def node_117 : 377
 	return 
 endf 
 
-def node_118 : 379
+def node_118
 	random (0) 
 	elser (0) >> node_027 
 	elser (5) >> node_036 
@@ -1517,7 +1517,7 @@ def node_118 : 379
 	return 
 endf 
 
-def node_119 : 381
+def node_119
 	random (0) 
 	elser (0) >> node_027 
 	elser (0) >> node_036 
@@ -1549,7 +1549,7 @@ def node_119 : 381
 	return 
 endf 
 
-def node_120 : 383
+def node_120
 	random (0) 
 	elser (0) >> node_027 
 	elser (0) >> node_036 
@@ -1581,7 +1581,7 @@ def node_120 : 383
 	return 
 endf 
 
-def node_121 : 376
+def node_121
 	random (0) 
 	elser (0) >> node_027 
 	elser (15) >> node_036 
@@ -1613,7 +1613,7 @@ def node_121 : 376
 	return 
 endf 
 
-def node_122 : 378
+def node_122
 	random (0) 
 	elser (0) >> node_027 
 	elser (12) >> node_036 
@@ -1645,7 +1645,7 @@ def node_122 : 378
 	return 
 endf 
 
-def node_123 : 380
+def node_123
 	random (0) 
 	elser (0) >> node_027 
 	elser (0) >> node_036 
@@ -1677,7 +1677,7 @@ def node_123 : 380
 	return 
 endf 
 
-def node_124 : 382
+def node_124
 	random (0) 
 	elser (0) >> node_027 
 	elser (0) >> node_036 
@@ -1709,7 +1709,7 @@ def node_124 : 382
 	return 
 endf 
 
-def node_125 : 384
+def node_125
 	random (0) 
 	elser (0) >> node_027 
 	elser (0) >> node_036 
@@ -1741,43 +1741,43 @@ def node_125 : 384
 	return 
 endf 
 
-def node_126 : 417
-	[RegisterVar0 |-] 
+def node_126
+	[RegisterVar0 ++] 
 	if self.part(0).is_broken(0) 
-		[RegisterVar0 ++] 
+		[RegisterVar0 |-] 
 	else 
 	endif 
 	if self.part(1).is_broken(0) 
-		[RegisterVar0 ++] 
+		[RegisterVar0 |-] 
 	else 
 	endif 
 	if self.part(2).is_broken(0) 
-		[RegisterVar0 ++] 
+		[RegisterVar0 |-] 
 	else 
 	endif 
 	if self.part(3).is_broken(0) 
-		[RegisterVar0 ++] 
+		[RegisterVar0 |-] 
 	else 
 	endif 
 	return 
 endf 
 
-def node_127 : 415
+def node_127
 	if self.fatigued() 
 		>> node_152 
 	else 
 		>> node_126 
-		if [RegisterVar0 == 0] 
+		if [RegisterVar0 += 0] 
 			random (60) >> node_128 
 			elser (40) >> node_152 
 			elser (0) 
 			endr 
-		elif [RegisterVar0 == 1] 
+		elif [RegisterVar0 += 1] 
 			random (40) >> node_128 
 			elser (60) >> node_152 
 			elser (0) 
 			endr 
-		elif [RegisterVar0 == 2] 
+		elif [RegisterVar0 += 2] 
 			random (20) >> node_128 
 			elser (80) >> node_152 
 			elser (0) 
@@ -1789,7 +1789,7 @@ def node_127 : 415
 	return 
 endf 
 
-def node_128 : 416
+def node_128
 	if self.distance_2d_to_target().leq(600) 
 		if self.enraged() 
 			>> node_134 
@@ -1824,7 +1824,7 @@ def node_128 : 416
 	return 
 endf 
 
-def node_129 : 418
+def node_129
 	random (0) 
 	elser (0) >> node_038 
 	elser (30) >> node_054 
@@ -1840,7 +1840,7 @@ def node_129 : 418
 	return 
 endf 
 
-def node_130 : 419
+def node_130
 	random (0) 
 	elser (10) >> node_038 
 	elser (20) >> node_054 
@@ -1856,7 +1856,7 @@ def node_130 : 419
 	return 
 endf 
 
-def node_131 : 420
+def node_131
 	random (0) 
 	elser (10) >> node_038 
 	elser (20) >> node_054 
@@ -1872,7 +1872,7 @@ def node_131 : 420
 	return 
 endf 
 
-def node_132 : 421
+def node_132
 	random (0) 
 	elser (0) >> node_038 
 	elser (0) >> node_054 
@@ -1888,7 +1888,7 @@ def node_132 : 421
 	return 
 endf 
 
-def node_133 : 422
+def node_133
 	random (0) 
 	elser (0) >> node_038 
 	elser (0) >> node_054 
@@ -1904,7 +1904,7 @@ def node_133 : 422
 	return 
 endf 
 
-def node_134 : 423
+def node_134
 	random (0) 
 	elser (0) >> node_038 
 	elser (35) >> node_054 
@@ -1920,7 +1920,7 @@ def node_134 : 423
 	return 
 endf 
 
-def node_135 : 424
+def node_135
 	random (0) 
 	elser (0) >> node_038 
 	elser (20) >> node_054 
@@ -1936,7 +1936,7 @@ def node_135 : 424
 	return 
 endf 
 
-def node_136 : 425
+def node_136
 	random (0) 
 	elser (0) >> node_038 
 	elser (20) >> node_054 
@@ -1952,7 +1952,7 @@ def node_136 : 425
 	return 
 endf 
 
-def node_137 : 426
+def node_137
 	random (0) 
 	elser (0) >> node_038 
 	elser (0) >> node_054 
@@ -1968,7 +1968,7 @@ def node_137 : 426
 	return 
 endf 
 
-def node_138 : 427
+def node_138
 	random (0) 
 	elser (0) >> node_038 
 	elser (0) >> node_054 
@@ -1984,22 +1984,22 @@ def node_138 : 427
 	return 
 endf 
 
-def node_139 : 439
+def node_139
 	if self.fatigued() 
 		>> node_152 
 	else 
 		>> node_126 
-		if [RegisterVar0 == 0] 
+		if [RegisterVar0 += 0] 
 			random (60) >> node_140 
 			elser (40) >> node_152 
 			elser (0) 
 			endr 
-		elif [RegisterVar0 == 1] 
+		elif [RegisterVar0 += 1] 
 			random (40) >> node_140 
 			elser (60) >> node_152 
 			elser (0) 
 			endr 
-		elif [RegisterVar0 == 2] 
+		elif [RegisterVar0 += 2] 
 			random (20) >> node_140 
 			elser (80) >> node_152 
 			elser (0) 
@@ -2011,7 +2011,7 @@ def node_139 : 439
 	return 
 endf 
 
-def node_140 : 438
+def node_140
 	if self.distance_2d_to_target().leq(600) 
 		if self.enraged() 
 			>> node_146 
@@ -2046,7 +2046,7 @@ def node_140 : 438
 	return 
 endf 
 
-def node_141 : 428
+def node_141
 	random (0) 
 	elser (0) >> node_027 
 	elser (50) >> node_035 
@@ -2064,7 +2064,7 @@ def node_141 : 428
 	return 
 endf 
 
-def node_142 : 429
+def node_142
 	random (0) 
 	elser (0) >> node_027 
 	elser (10) >> node_035 
@@ -2082,7 +2082,7 @@ def node_142 : 429
 	return 
 endf 
 
-def node_143 : 430
+def node_143
 	random (0) 
 	elser (0) >> node_027 
 	elser (0) >> node_035 
@@ -2100,7 +2100,7 @@ def node_143 : 430
 	return 
 endf 
 
-def node_144 : 431
+def node_144
 	random (0) 
 	elser (0) >> node_027 
 	elser (0) >> node_035 
@@ -2118,7 +2118,7 @@ def node_144 : 431
 	return 
 endf 
 
-def node_145 : 432
+def node_145
 	random (0) 
 	elser (0) >> node_027 
 	elser (0) >> node_035 
@@ -2136,7 +2136,7 @@ def node_145 : 432
 	return 
 endf 
 
-def node_146 : 433
+def node_146
 	random (0) 
 	elser (0) >> node_027 
 	elser (40) >> node_035 
@@ -2154,7 +2154,7 @@ def node_146 : 433
 	return 
 endf 
 
-def node_147 : 434
+def node_147
 	random (0) 
 	elser (0) >> node_027 
 	elser (0) >> node_035 
@@ -2172,7 +2172,7 @@ def node_147 : 434
 	return 
 endf 
 
-def node_148 : 435
+def node_148
 	random (0) 
 	elser (0) >> node_027 
 	elser (0) >> node_035 
@@ -2190,7 +2190,7 @@ def node_148 : 435
 	return 
 endf 
 
-def node_149 : 436
+def node_149
 	random (0) 
 	elser (0) >> node_027 
 	elser (0) >> node_035 
@@ -2208,7 +2208,7 @@ def node_149 : 436
 	return 
 endf 
 
-def node_150 : 437
+def node_150
 	random (0) 
 	elser (0) >> node_027 
 	elser (0) >> node_035 
@@ -2226,13 +2226,13 @@ def node_150 : 437
 	return 
 endf 
 
-def node_151 : 265
+def node_151
 	self.targetEnemy(target_em.random_player_or_cat) 
 	>> node_152 
 	return 
 endf 
 
-def node_152 : 329
+def node_152
 	if self.distance_2d_to_target().leq(600) 
 		if self.enraged() 
 			>> node_163 
@@ -2277,7 +2277,7 @@ def node_152 : 329
 	return 
 endf 
 
-def node_153 : 266
+def node_153
 	random (0) 
 	elser (0) >> node_001 
 	elser (25) >> node_043 
@@ -2291,7 +2291,7 @@ def node_153 : 266
 	return 
 endf 
 
-def node_154 : 267
+def node_154
 	random (0) 
 	elser (0) >> node_001 
 	elser (20) >> node_043 
@@ -2305,7 +2305,7 @@ def node_154 : 267
 	return 
 endf 
 
-def node_155 : 268
+def node_155
 	random (0) 
 	elser (0) >> node_001 
 	elser (0) >> node_043 
@@ -2319,7 +2319,7 @@ def node_155 : 268
 	return 
 endf 
 
-def node_156 : 269
+def node_156
 	random (0) 
 	elser (0) >> node_001 
 	elser (0) >> node_043 
@@ -2333,7 +2333,7 @@ def node_156 : 269
 	return 
 endf 
 
-def node_157 : 270
+def node_157
 	random (0) 
 	elser (0) >> node_001 
 	elser (0) >> node_043 
@@ -2347,7 +2347,7 @@ def node_157 : 270
 	return 
 endf 
 
-def node_158 : 385
+def node_158
 	random (0) 
 	elser (10) >> node_001 
 	elser (0) >> node_043 
@@ -2361,7 +2361,7 @@ def node_158 : 385
 	return 
 endf 
 
-def node_159 : 387
+def node_159
 	random (0) 
 	elser (20) >> node_001 
 	elser (0) >> node_043 
@@ -2375,7 +2375,7 @@ def node_159 : 387
 	return 
 endf 
 
-def node_160 : 389
+def node_160
 	random (0) 
 	elser (30) >> node_001 
 	elser (0) >> node_043 
@@ -2389,7 +2389,7 @@ def node_160 : 389
 	return 
 endf 
 
-def node_161 : 391
+def node_161
 	random (0) 
 	elser (30) >> node_001 
 	elser (0) >> node_043 
@@ -2403,7 +2403,7 @@ def node_161 : 391
 	return 
 endf 
 
-def node_162 : 393
+def node_162
 	random (0) 
 	elser (30) >> node_001 
 	elser (0) >> node_043 
@@ -2417,7 +2417,7 @@ def node_162 : 393
 	return 
 endf 
 
-def node_163 : 386
+def node_163
 	random (0) 
 	elser (0) >> node_001 
 	elser (50) >> node_043 
@@ -2431,7 +2431,7 @@ def node_163 : 386
 	return 
 endf 
 
-def node_164 : 388
+def node_164
 	random (0) 
 	elser (0) >> node_001 
 	elser (40) >> node_043 
@@ -2445,7 +2445,7 @@ def node_164 : 388
 	return 
 endf 
 
-def node_165 : 390
+def node_165
 	random (0) 
 	elser (0) >> node_001 
 	elser (0) >> node_043 
@@ -2459,7 +2459,7 @@ def node_165 : 390
 	return 
 endf 
 
-def node_166 : 392
+def node_166
 	random (0) 
 	elser (0) >> node_001 
 	elser (0) >> node_043 
@@ -2473,7 +2473,7 @@ def node_166 : 392
 	return 
 endf 
 
-def node_167 : 394
+def node_167
 	random (0) 
 	elser (0) >> node_001 
 	elser (0) >> node_043 
@@ -2487,7 +2487,7 @@ def node_167 : 394
 	return 
 endf 
 
-def node_168 : 362
+def node_168
 	if self.distance_2d_to_target().leq(1000) 
 		self.enraged() >> node_174 => reset 
 		self.fatigued() >> node_179 => reset 
@@ -2512,7 +2512,7 @@ def node_168 : 362
 	return 
 endf 
 
-def node_169 : 298
+def node_169
 	random (0) 
 	elser (0) >> node_087 
 	elser (0) >> node_088 
@@ -2527,7 +2527,7 @@ def node_169 : 298
 	return 
 endf 
 
-def node_170 : 285
+def node_170
 	random (0) 
 	elser (0) >> node_087 
 	elser (0) >> node_088 
@@ -2542,7 +2542,7 @@ def node_170 : 285
 	return 
 endf 
 
-def node_171 : 297
+def node_171
 	random (0) 
 	elser (0) >> node_087 
 	elser (0) >> node_088 
@@ -2557,7 +2557,7 @@ def node_171 : 297
 	return 
 endf 
 
-def node_172 : 299
+def node_172
 	random (0) 
 	elser (0) >> node_087 
 	elser (0) >> node_088 
@@ -2572,7 +2572,7 @@ def node_172 : 299
 	return 
 endf 
 
-def node_173 : 300
+def node_173
 	random (0) 
 	elser (0) >> node_087 
 	elser (0) >> node_088 
@@ -2587,7 +2587,7 @@ def node_173 : 300
 	return 
 endf 
 
-def node_174 : 395
+def node_174
 	random (0) 
 	elser (0) >> node_087 
 	elser (0) >> node_088 
@@ -2602,7 +2602,7 @@ def node_174 : 395
 	return 
 endf 
 
-def node_175 : 396
+def node_175
 	random (0) 
 	elser (0) >> node_087 
 	elser (0) >> node_088 
@@ -2617,7 +2617,7 @@ def node_175 : 396
 	return 
 endf 
 
-def node_176 : 397
+def node_176
 	random (0) 
 	elser (0) >> node_087 
 	elser (0) >> node_088 
@@ -2632,7 +2632,7 @@ def node_176 : 397
 	return 
 endf 
 
-def node_177 : 398
+def node_177
 	random (0) 
 	elser (0) >> node_087 
 	elser (0) >> node_088 
@@ -2647,7 +2647,7 @@ def node_177 : 398
 	return 
 endf 
 
-def node_178 : 399
+def node_178
 	random (0) 
 	elser (0) >> node_087 
 	elser (0) >> node_088 
@@ -2662,7 +2662,7 @@ def node_178 : 399
 	return 
 endf 
 
-def node_179 : 400
+def node_179
 	random (0) 
 	elser (100) >> node_087 
 	elser (0) >> node_088 
@@ -2677,7 +2677,7 @@ def node_179 : 400
 	return 
 endf 
 
-def node_180 : 355
+def node_180
 	if self.distance_2d_to_target().leq(1000) 
 		self.enraged() >> node_181 => return 
 		self.fatigued() >> node_181 => return 
@@ -2702,7 +2702,7 @@ def node_180 : 355
 	return 
 endf 
 
-def node_181 : 350
+def node_181
 	random (0) 
 	elser (10) >> node_089 
 	elser (30) >> node_090 
@@ -2714,7 +2714,7 @@ def node_181 : 350
 	return 
 endf 
 
-def node_182 : 351
+def node_182
 	random (0) 
 	elser (10) >> node_089 
 	elser (35) >> node_090 
@@ -2726,7 +2726,7 @@ def node_182 : 351
 	return 
 endf 
 
-def node_183 : 352
+def node_183
 	random (0) 
 	elser (10) >> node_089 
 	elser (15) >> node_090 
@@ -2738,7 +2738,7 @@ def node_183 : 352
 	return 
 endf 
 
-def node_184 : 353
+def node_184
 	random (0) 
 	elser (0) >> node_089 
 	elser (20) >> node_090 
@@ -2750,7 +2750,7 @@ def node_184 : 353
 	return 
 endf 
 
-def node_185 : 354
+def node_185
 	random (0) 
 	elser (0) >> node_089 
 	elser (0) >> node_090 
@@ -2762,7 +2762,7 @@ def node_185 : 354
 	return 
 endf 
 
-def node_186 : 363
+def node_186
 	if self.distance_2d_to_target().leq(600) 
 		self.enraged() >> node_190 => reset 
 		self.fatigued() >> node_193 => reset 
@@ -2779,7 +2779,7 @@ def node_186 : 363
 	return 
 endf 
 
-def node_187 : 286
+def node_187
 	random (0) 
 	elser (0) >> node_101 
 	elser (0) >> node_102 
@@ -2792,7 +2792,7 @@ def node_187 : 286
 	return 
 endf 
 
-def node_188 : 306
+def node_188
 	random (0) 
 	elser (25) >> node_101 
 	elser (25) >> node_102 
@@ -2805,7 +2805,7 @@ def node_188 : 306
 	return 
 endf 
 
-def node_189 : 302
+def node_189
 	random (0) 
 	elser (0) >> node_101 
 	elser (0) >> node_102 
@@ -2818,7 +2818,7 @@ def node_189 : 302
 	return 
 endf 
 
-def node_190 : 401
+def node_190
 	random (0) 
 	elser (0) >> node_101 
 	elser (0) >> node_102 
@@ -2831,7 +2831,7 @@ def node_190 : 401
 	return 
 endf 
 
-def node_191 : 402
+def node_191
 	random (0) 
 	elser (50) >> node_101 
 	elser (0) >> node_102 
@@ -2844,7 +2844,7 @@ def node_191 : 402
 	return 
 endf 
 
-def node_192 : 403
+def node_192
 	random (0) 
 	elser (0) >> node_101 
 	elser (0) >> node_102 
@@ -2857,7 +2857,7 @@ def node_192 : 403
 	return 
 endf 
 
-def node_193 : 404
+def node_193
 	random (0) 
 	elser (0) >> node_101 
 	elser (0) >> node_102 
@@ -2870,7 +2870,7 @@ def node_193 : 404
 	return 
 endf 
 
-def node_194 : 9
+def node_194
 	>> node_199 
 	if self.targetEnemy(target_em.any_monster) 
 		if self.target(13) 
@@ -2906,7 +2906,7 @@ def node_194 : 9
 	return 
 endf 
 
-def node_195 : 135
+def node_195
 	if self.target.in_combat() 
 		random (35) >> node_201 
 		elser (0) >> node_202 
@@ -2925,7 +2925,7 @@ def node_195 : 135
 	return 
 endf 
 
-def node_196 : 454
+def node_196
 	if self.target.in_combat() 
 		random (35) >> node_201 
 		elser (10) >> node_202 
@@ -2944,7 +2944,7 @@ def node_196 : 454
 	return 
 endf 
 
-def node_197 : 134
+def node_197
 	if self.target.in_combat() 
 		random (35) >> node_201 
 		elser (0) >> node_202 
@@ -2963,7 +2963,7 @@ def node_197 : 134
 	return 
 endf 
 
-def node_198 : 136
+def node_198
 	if self.target(39) 
 		>> node_195 
 	else 
@@ -3000,7 +3000,7 @@ def node_198 : 136
 	return 
 endf 
 
-def node_199 : 449
+def node_199
 	if function#38(0,10003) 
 		>> node_200 
 	elif self.quest_id(1102) 
@@ -3010,7 +3010,7 @@ def node_199 : 449
 	return 
 endf 
 
-def node_200 : 450
+def node_200
 	if function#CE(1,1) 
 		function#CF() 
 	else 
@@ -3018,18 +3018,18 @@ def node_200 : 450
 	return 
 endf 
 
-def node_201 : 138
+def node_201
 	return 
 endf 
 
-def node_202 : 16
+def node_202
 	>> node_003 
 	>> node_008 
 	>> node_026 
 	return 
 endf 
 
-def node_203 : 19
+def node_203
 	>> node_003 
 	if self.vertical_distance_to_target().gt(500) 
 		>> node_078 
@@ -3051,33 +3051,33 @@ def node_203 : 19
 	return 
 endf 
 
-def node_204 : 18
+def node_204
 	>> node_003 
-	if [RegisterVar1 == 0] 
-		[RegisterVar1 ++] 
-	else 
+	if [RegisterVar1 += 0] 
 		[RegisterVar1 |-] 
+	else 
+		[RegisterVar1 ++] 
 		self.force_area_change2() 
 	endif 
 	>> node_205 
 	return 
 endf 
 
-def node_205 : 17
+def node_205
 	>> node_003 
 	>> node_032 
 	>> node_027 
 	return 
 endf 
 
-def node_206 : 453
+def node_206
 	>> node_203 
-	[RegisterVar1 |-] 
+	[RegisterVar1 ++] 
 	self.force_area_change2() 
 	return 
 endf 
 
-def node_207 : 369
+def node_207
 	self.targetArea(target_area.nearest_entrance) 
 	if self.flying() 
 		self.targetArea(40) 
@@ -3089,7 +3089,7 @@ def node_207 : 369
 	return 
 endf 
 
-def node_208 : 370
+def node_208
 	if self.distance_3d_to_target().leq(1000) 
 	else 
 		-> barioth.glide(6,2,5,900,3000) 
@@ -3098,7 +3098,7 @@ def node_208 : 370
 	return 
 endf 
 
-def node_209 : 371
+def node_209
 	>> node_194 
 	self.targetArea(39) 
 	if self.distance_3d_to_target().leq(600) 
@@ -3113,7 +3113,7 @@ def node_209 : 371
 	return 
 endf 
 
-def node_210 : 372
+def node_210
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> barioth.glide(2,1,0,3000,500) 
@@ -3122,7 +3122,7 @@ def node_210 : 372
 	return 
 endf 
 
-def node_211 : 373
+def node_211
 	if self.distance_3d_to_target().leq(1000) 
 	else 
 		-> barioth.glide(2,1,0,3000,900) 
@@ -3131,6 +3131,6 @@ def node_211 : 373
 	return 
 endf 
 
-def node_212 : 237
+def node_212
 endf 
 

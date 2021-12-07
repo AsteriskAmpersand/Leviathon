@@ -1,7 +1,7 @@
 importactions Behemoth as behemoth
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	self.targetEnemy(13) 
 	if self.target(4) 
 		>> Global.node_004 
@@ -11,7 +11,7 @@ def node_000 : 1
 	conclude 
 endf 
 
-def node_001 : 2
+def node_001
 	if self.angle_2d_cw_between(90,270) 
 		>> Global.node_022 
 	else 
@@ -21,7 +21,7 @@ def node_001 : 2
 	return 
 endf 
 
-def node_002 : 4
+def node_002
 	self.targetEnemy(13) 
 	if self.distance_2d_to_target().leq(1000) 
 		return 
@@ -41,7 +41,7 @@ def node_002 : 4
 	return 
 endf 
 
-def node_003 : 5
+def node_003
 	self.targetEnemy(48) 
 	if self.target(7) 
 		>> node_004 
@@ -57,12 +57,12 @@ def node_003 : 5
 	return 
 endf 
 
-def node_004 : 9
+def node_004
 	>> Global.node_031 
 	return 
 endf 
 
-def node_005 : 10
+def node_005
 	if function#5F() 
 		>> Global.node_031 
 	else 
@@ -71,7 +71,7 @@ def node_005 : 10
 	return 
 endf 
 
-def node_006 : 11
+def node_006
 	>> Global.node_063 
 	return 
 endf 

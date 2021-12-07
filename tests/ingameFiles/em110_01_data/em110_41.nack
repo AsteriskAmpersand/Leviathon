@@ -1,7 +1,7 @@
 importactions Nightshade_Paolumu as nightshade_paolumu
 importlibrary Global as Global
 
-def node_000 : 16
+def node_000
 	self.targetArea(20) 
 	if self.flying() 
 		>> node_002 
@@ -16,7 +16,7 @@ def node_000 : 16
 	conclude 
 endf 
 
-def node_001 : 17
+def node_001
 	if self.distance_3d_to_target().leq(800) 
 		return 
 	else 
@@ -25,7 +25,7 @@ def node_001 : 17
 	repeat 
 endf 
 
-def node_002 : 9
+def node_002
 	if function#AD() 
 		>> node_003 
 	else 
@@ -35,7 +35,7 @@ def node_002 : 9
 	return 
 endf 
 
-def node_003 : 10
+def node_003
 	if self.flying() 
 		>> Global.node_163 
 	else 
@@ -48,13 +48,13 @@ def node_003 : 10
 	return 
 endf 
 
-def node_004 : 11
+def node_004
 	>> node_005 
 	>> node_006 
 	return 
 endf 
 
-def node_005 : 12
+def node_005
 	if self.flying() 
 		self.targetArea(target_area.area_aerial_center) 
 		>> Global.node_151 
@@ -71,7 +71,7 @@ def node_005 : 12
 	return 
 endf 
 
-def node_006 : 13
+def node_006
 	self.targetArea(20) 
 	if self.flying() 
 		self.targetArea(40) 
@@ -87,7 +87,7 @@ def node_006 : 13
 	return 
 endf 
 
-def node_007 : 14
+def node_007
 	self.targetArea(target_area.area_center) 
 	if self.flying() 
 		if self.fatigued() 
@@ -100,7 +100,7 @@ def node_007 : 14
 	return 
 endf 
 
-def node_008 : 15
+def node_008
 	if self.flying() 
 		>> Global.node_155 
 	else 

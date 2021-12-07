@@ -1,12 +1,12 @@
 importactions Raging_Brachydios as raging_brachydios
 
-def node_000 : 1
+def node_000
 	self.targetEnemy(target_em.any_monster) 
 	>> node_001 
 	conclude 
 endf 
 
-def node_001 : 2
+def node_001
 	if self.target_is(em.Zinogre) 
 		-> raging_brachydios.grapple_with_em057_mediation() 
 	elif self.target_is(em.Odogaron) 

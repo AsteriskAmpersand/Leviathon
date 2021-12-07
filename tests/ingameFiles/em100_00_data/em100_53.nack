@@ -1,13 +1,13 @@
 importactions Anjanath as anjanath
 
-def node_000 : 1
+def node_000
 	self.targetArea(51) 
 	>> node_001 
 	-> anjanath.in_ground() 
 	conclude 
 endf 
 
-def node_001 : 2
+def node_001
 	if self.fatigued() 
 		-> anjanath.tired_dash() 
 	else 

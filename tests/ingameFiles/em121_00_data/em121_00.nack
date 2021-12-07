@@ -1,7 +1,7 @@
 importactions Behemoth as behemoth
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	self.targetEnemy(66) 
 	>> Global.node_051 
 	>> Global.node_049 
@@ -35,7 +35,7 @@ def node_000 : 1
 	reset 
 endf 
 
-def node_001 : 42
+def node_001
 	if function#5D() 
 		function#5E() 
 		self.targetEnemy(target_em.random_player_or_cat) 
@@ -51,10 +51,10 @@ def node_001 : 42
 	return 
 endf 
 
-def node_002 : 97
+def node_002
 endf 
 
-def node_003 : 96
+def node_003
 	random (10) -> behemoth.long_range_attack() 
 	elser (5) -> behemoth.rarm_nagi_attack() 
 	elser (5) -> behemoth.horn_attack() 
@@ -82,7 +82,7 @@ def node_003 : 96
 	return 
 endf 
 
-def node_004 : 103
+def node_004
 	if self.distance_3d_to_target().leq(650) 
 		self.enraged() >> node_014 => reset 
 		self.fatigued() >> node_015 => reset 
@@ -107,7 +107,7 @@ def node_004 : 103
 	return 
 endf 
 
-def node_005 : 98
+def node_005
 	if function#103() 
 		function#10C() 
 		>> Global.node_037 
@@ -126,7 +126,7 @@ def node_005 : 98
 	return 
 endf 
 
-def node_006 : 99
+def node_006
 	if self.distance_3d_to_target().gt(5000) 
 		>> Global.node_007 
 	else 
@@ -135,17 +135,17 @@ def node_006 : 99
 	return 
 endf 
 
-def node_007 : 100
+def node_007
 	>> Global.node_065 
 	return 
 endf 
 
-def node_008 : 120
+def node_008
 	>> Global.node_007 
 	return 
 endf 
 
-def node_009 : 101
+def node_009
 	if self.distance_2d_to_target().gt(3000) 
 		>> Global.node_007 => repeat 
 	else 
@@ -154,7 +154,7 @@ def node_009 : 101
 	return 
 endf 
 
-def node_010 : 102
+def node_010
 	if self.angle_2d_cw_between(270,90) 
 	else 
 		>> Global.node_033 
@@ -162,7 +162,7 @@ def node_010 : 102
 	return 
 endf 
 
-def node_011 : 104
+def node_011
 	if self.in_map(st.Elder_Recess).in_area(4) 
 		>> node_004 => reset 
 	elif self.in_map(st.Elder_Recess).in_area(13) 
@@ -185,23 +185,23 @@ def node_011 : 104
 	return 
 endf 
 
-def node_012 : 123
+def node_012
 	>> Global.node_007 
 	return 
 endf 
 
-def node_013 : 105
-	if [RegisterVar1 == 1] 
+def node_013
+	if [RegisterVar1 += 1] 
 		random (25) >> Global.node_061 
 		elser (23) >> Global.node_060 
 		elser (52) >> Global.node_022 
 		endr 
-	elif [RegisterVar1 == 2] 
+	elif [RegisterVar1 += 2] 
 		random (30) >> Global.node_061 
 		elser (43) >> Global.node_060 
 		elser (27) >> Global.node_022 
 		endr 
-	elif [RegisterVar1 == 3] 
+	elif [RegisterVar1 += 3] 
 		if function#103() 
 			random (35) >> Global.node_061 
 			elser (49) >> Global.node_060 
@@ -222,12 +222,12 @@ def node_013 : 105
 	return 
 endf 
 
-def node_014 : 106
+def node_014
 	>> node_013 
 	return 
 endf 
 
-def node_015 : 107
+def node_015
 	>> node_013 
 	if self.current_quest().is_rank(rank.AT) 
 	else 
@@ -238,15 +238,15 @@ def node_015 : 107
 	return 
 endf 
 
-def node_016 : 108
-	if [RegisterVar1 == 1] 
+def node_016
+	if [RegisterVar1 += 1] 
 		random (44) >> Global.node_056 
 		elser (20) >> Global.node_058 
 		elser (21) >> Global.node_068 
 		elser (3) >> Global.node_062 
 		elser (12) >> Global.node_061 
 		endr 
-	elif [RegisterVar1 == 2] 
+	elif [RegisterVar1 += 2] 
 		random (36) >> Global.node_056 
 		elser (18) >> Global.node_058 
 		elser (21) >> Global.node_066 
@@ -254,7 +254,7 @@ def node_016 : 108
 		elser (9) >> Global.node_061 
 		elser (9) >> Global.node_062 
 		endr 
-	elif [RegisterVar1 == 3] 
+	elif [RegisterVar1 += 3] 
 		if function#103() 
 			random (25) >> Global.node_055 
 			elser (24) >> Global.node_057 
@@ -299,12 +299,12 @@ def node_016 : 108
 	return 
 endf 
 
-def node_017 : 109
+def node_017
 	>> node_016 
 	return 
 endf 
 
-def node_018 : 110
+def node_018
 	>> node_016 
 	if self.current_quest().is_rank(rank.AT) 
 	else 
@@ -315,19 +315,19 @@ def node_018 : 110
 	return 
 endf 
 
-def node_019 : 111
-	if [RegisterVar1 == 1] 
+def node_019
+	if [RegisterVar1 += 1] 
 		random (43) >> Global.node_068 
 		elser (18) >> Global.node_062 
 		elser (39) >> Global.node_015 
 		endr 
-	elif [RegisterVar1 == 2] 
+	elif [RegisterVar1 += 2] 
 		random (31) >> Global.node_066 
 		elser (36) >> Global.node_067 
 		elser (22) >> Global.node_062 
 		elser (11) >> Global.node_015 
 		endr 
-	elif [RegisterVar1 == 3] 
+	elif [RegisterVar1 += 3] 
 		if function#103() 
 			random (18) >> Global.node_065 
 			elser (25) >> Global.node_064 
@@ -362,12 +362,12 @@ def node_019 : 111
 	return 
 endf 
 
-def node_020 : 112
+def node_020
 	>> node_019 
 	return 
 endf 
 
-def node_021 : 113
+def node_021
 	>> node_019 
 	if self.current_quest().is_rank(rank.AT) 
 	else 
@@ -378,18 +378,18 @@ def node_021 : 113
 	return 
 endf 
 
-def node_022 : 114
-	if [RegisterVar1 == 1] 
+def node_022
+	if [RegisterVar1 += 1] 
 		random (44) >> Global.node_068 
 		elser (21) >> Global.node_063 
 		elser (35) >> Global.node_009 
 		endr 
-	elif [RegisterVar1 == 2] 
+	elif [RegisterVar1 += 2] 
 		random (44) >> Global.node_066 
 		elser (21) >> Global.node_063 
 		elser (35) >> Global.node_009 
 		endr 
-	elif [RegisterVar1 == 3] 
+	elif [RegisterVar1 += 3] 
 		if function#103() 
 			random (13) >> Global.node_065 
 			elser (10) >> Global.node_064 
@@ -413,12 +413,12 @@ def node_022 : 114
 	return 
 endf 
 
-def node_023 : 115
+def node_023
 	>> node_022 
 	return 
 endf 
 
-def node_024 : 116
+def node_024
 	>> node_022 
 	if self.current_quest().is_rank(rank.AT) 
 	else 
@@ -429,16 +429,16 @@ def node_024 : 116
 	return 
 endf 
 
-def node_025 : 117
-	if [RegisterVar1 == 1] 
+def node_025
+	if [RegisterVar1 += 1] 
 		random (15) >> Global.node_065 
 		elser (85) >> Global.node_009 
 		endr 
-	elif [RegisterVar1 == 2] 
+	elif [RegisterVar1 += 2] 
 		random (15) >> Global.node_066 
 		elser (85) >> Global.node_009 
 		endr 
-	elif [RegisterVar1 == 3] 
+	elif [RegisterVar1 += 3] 
 		if function#103() 
 			random (5) >> Global.node_065 
 			elser (95) >> Global.node_009 
@@ -456,12 +456,12 @@ def node_025 : 117
 	return 
 endf 
 
-def node_026 : 118
+def node_026
 	>> node_025 
 	return 
 endf 
 
-def node_027 : 119
+def node_027
 	>> node_025 
 	if self.current_quest().is_rank(rank.AT) 
 	else 
@@ -472,9 +472,9 @@ def node_027 : 119
 	return 
 endf 
 
-def node_028 : 121
+def node_028
 endf 
 
-def node_029 : 122
+def node_029
 endf 
 

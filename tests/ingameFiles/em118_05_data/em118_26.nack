@@ -1,7 +1,7 @@
 importactions Seething_Bazelgeuse as seething_bazelgeuse
 importlibrary Global as Global
 
-def node_000 : 20
+def node_000
 	>> Global.node_107 
 	>> Global.node_204 
 	self.targetEnemy(34) 
@@ -12,7 +12,7 @@ def node_000 : 20
 	conclude 
 endf 
 
-def node_001 : 21
+def node_001
 	if function#AD() 
 		>> node_002 
 	else 
@@ -21,7 +21,7 @@ def node_001 : 21
 	return 
 endf 
 
-def node_002 : 22
+def node_002
 	if self.flying() 
 		>> Global.node_148 
 	else 
@@ -34,14 +34,14 @@ def node_002 : 22
 	return 
 endf 
 
-def node_003 : 23
+def node_003
 	>> node_004 
 	>> node_005 
 	>> node_006 
 	return 
 endf 
 
-def node_004 : 24
+def node_004
 	self.targetArea(target_area.area_aerial_center) 
 	if self.flying() 
 		>> Global.node_142 
@@ -51,7 +51,7 @@ def node_004 : 24
 	return 
 endf 
 
-def node_005 : 25
+def node_005
 	self.targetEnemy(34) 
 	if self.flying() 
 		self.targetArea(40) 
@@ -67,7 +67,7 @@ def node_005 : 25
 	return 
 endf 
 
-def node_006 : 26
+def node_006
 	if self.flying() 
 		self.targetArea(target_area.area_center) 
 		>> Global.node_018 
@@ -76,7 +76,7 @@ def node_006 : 26
 	return 
 endf 
 
-def node_007 : 27
+def node_007
 	if self.flying() 
 		>> Global.node_145 
 	else 
@@ -89,7 +89,7 @@ def node_007 : 27
 	return 
 endf 
 
-def node_008 : 28
+def node_008
 	if function#C4(15000) 
 		self.targetArea(60) 
 		>> Global.node_018 

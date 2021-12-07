@@ -1,7 +1,7 @@
 importactions Gastodon as gastodon
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	>> Global.node_005 
 	>> node_003 
 	>> node_001 
@@ -10,17 +10,17 @@ def node_000 : 1
 	reset 
 endf 
 
-def node_001 : 2
+def node_001
 	self.targetArea(21) @ parameter2:400 
 	return 
 endf 
 
-def node_002 : 3
+def node_002
 	-> action#04(2,0,0,300) 
 	return 
 endf 
 
-def node_003 : 6
+def node_003
 	random (50) -> action#1D() 
 	elser (50) -> action#20() 
 	endr 

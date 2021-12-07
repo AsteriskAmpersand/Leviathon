@@ -1,7 +1,7 @@
 importactions Gold_Rathian as gold_rathian
 importlibrary Global as Global
 
-def node_000 : 51
+def node_000
 	>> Global.node_332 
 	>> Global.node_001 
 	self.targetEnemy(target_em.random_player_or_cat) 
@@ -9,7 +9,7 @@ def node_000 : 51
 	reset 
 endf 
 
-def node_001 : 61
+def node_001
 	if self.distance_2d_to_target().leq(700) 
 		if self.vertical_distance_to_target().leq(750) 
 			if self.enraged() >> node_005 
@@ -43,7 +43,7 @@ def node_001 : 61
 	return 
 endf 
 
-def node_002 : 52
+def node_002
 	if self.target(7) 
 		>> Global.node_165 
 		>> Global.node_099 
@@ -53,19 +53,19 @@ def node_002 : 52
 	return 
 endf 
 
-def node_003 : 53
+def node_003
 	>> Global.node_097 
 	>> Global.node_095 
 	return 
 endf 
 
-def node_004 : 54
+def node_004
 	>> Global.node_098 
 	>> Global.node_096 
 	return 
 endf 
 
-def node_005 : 55
+def node_005
 	if self.target(7) 
 		>> Global.node_165 
 		>> Global.node_099 
@@ -75,19 +75,19 @@ def node_005 : 55
 	return 
 endf 
 
-def node_006 : 56
+def node_006
 	>> Global.node_097 
 	>> Global.node_095 
 	return 
 endf 
 
-def node_007 : 57
+def node_007
 	>> Global.node_098 
 	>> Global.node_096 
 	return 
 endf 
 
-def node_008 : 58
+def node_008
 	if self.target(7) 
 		>> Global.node_165 
 		>> Global.node_099 
@@ -97,7 +97,7 @@ def node_008 : 58
 	return 
 endf 
 
-def node_009 : 59
+def node_009
 	random (70) 
 				>> Global.node_097 
 				>> Global.node_095 
@@ -107,7 +107,7 @@ def node_009 : 59
 	return 
 endf 
 
-def node_010 : 60
+def node_010
 	random (70) 
 				>> Global.node_098 
 				>> Global.node_096 

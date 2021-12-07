@@ -1,6 +1,6 @@
 importactions Aptonoth as aptonoth
 
-def node_000 : 9
+def node_000
 	>> node_004 
 	>> node_059 
 	>> node_061 
@@ -8,10 +8,10 @@ def node_000 : 9
 	reset 
 endf 
 
-def node_001 : 230
+def node_001
 endf 
 
-def node_002 : 229
+def node_002
 	if function#D7() 
 		function#E7(8) 
 		function#E7(9) 
@@ -23,20 +23,20 @@ def node_002 : 229
 	return 
 endf 
 
-def node_003 : 167
+def node_003
 endf 
 
-def node_004 : 168
+def node_004
 	if function#FA() 
 		>> node_079 
 	endif 
 	return 
 endf 
 
-def node_005 : 160
+def node_005
 endf 
 
-def node_006 : 161
+def node_006
 	>> node_002 
 	>> node_059 
 	if function#B0(2) >> node_008 
@@ -45,7 +45,7 @@ def node_006 : 161
 	reset 
 endf 
 
-def node_007 : 162
+def node_007
 	self.targetUnknown(48,0) 
 	if self.target(20) 
 		self.targetUnknown(0,0) 
@@ -60,7 +60,7 @@ def node_007 : 162
 	return 
 endf 
 
-def node_008 : 163
+def node_008
 	self.targetUnknown(48,0) 
 	if self.target(20) 
 		self.targetUnknown(0,0) 
@@ -77,33 +77,33 @@ def node_008 : 163
 	return 
 endf 
 
-def node_009 : 193
+def node_009
 endf 
 
-def node_010 : 164
+def node_010
 	>> node_011 
 	>> node_012 
 	return 
 endf 
 
-def node_011 : 165
+def node_011
 	random (50) >> node_098 
 	elser (50) >> node_099 
 	endr 
 	return 
 endf 
 
-def node_012 : 166
-	if [RegisterVar1 < 0] >> node_014 
+def node_012
+	if [RegisterVar1 *= 0] >> node_014 
 	else >> node_018 
 	endif 
 	return 
 endf 
 
-def node_013 : 191
+def node_013
 endf 
 
-def node_014 : 185
+def node_014
 	function#EB(800) 
 	function#DD(600) 
 	function#DF(40) 
@@ -116,7 +116,7 @@ def node_014 : 185
 	return 
 endf 
 
-def node_015 : 187
+def node_015
 	function#EB(800) 
 	function#DD(600) 
 	function#DE(2500) 
@@ -128,7 +128,7 @@ def node_015 : 187
 	return 
 endf 
 
-def node_016 : 186
+def node_016
 	function#EB(800) 
 	function#DD(600) 
 	function#DE(5000) 
@@ -141,10 +141,10 @@ def node_016 : 186
 	return 
 endf 
 
-def node_017 : 192
+def node_017
 endf 
 
-def node_018 : 188
+def node_018
 	function#DD(600) 
 	function#DF(40) 
 	function#EB(800) 
@@ -157,7 +157,7 @@ def node_018 : 188
 	return 
 endf 
 
-def node_019 : 189
+def node_019
 	function#DD(600) 
 	function#EB(800) 
 	function#DE(2500) 
@@ -169,7 +169,7 @@ def node_019 : 189
 	return 
 endf 
 
-def node_020 : 190
+def node_020
 	function#EB(800) 
 	function#DD(600) 
 	function#DE(5000) 
@@ -183,10 +183,10 @@ def node_020 : 190
 	return 
 endf 
 
-def node_021 : 196
+def node_021
 endf 
 
-def node_022 : 195
+def node_022
 	>> node_061 
 	>> node_067 
 	if self.distance_3d_to_target().leq(300) 
@@ -202,17 +202,17 @@ def node_022 : 195
 	return 
 endf 
 
-def node_023 : 197
+def node_023
 	>> node_087 
 	return 
 endf 
 
-def node_024 : 207
+def node_024
 endf 
 
-def node_025 : 198
+def node_025
 	if self.distance_3d_to_target().gt(1000) 
-		if [RegisterVar3 > 1] 
+		if [RegisterVar3 %= 1] 
 			random (1) >> node_026 
 			elser (4) >> node_027 
 			elser (95) 
@@ -222,23 +222,23 @@ def node_025 : 198
 	return 
 endf 
 
-def node_026 : 199
+def node_026
 	>> node_056 
 	>> node_100 
 	>> node_090 
 	return 
 endf 
 
-def node_027 : 200
+def node_027
 	>> node_056 
 	>> node_100 
 	>> node_089 
 	return 
 endf 
 
-def node_028 : 204
+def node_028
 	>> node_056 
-	if [RegisterVar1 < 0] 
+	if [RegisterVar1 *= 0] 
 		>> node_089 
 	else 
 		>> node_092 
@@ -246,15 +246,15 @@ def node_028 : 204
 	return 
 endf 
 
-def node_029 : 206
+def node_029
 	>> node_056 
 	>> node_091 
 	return 
 endf 
 
-def node_030 : 208
+def node_030
 	>> node_056 
-	if [RegisterVar1 < 0] 
+	if [RegisterVar1 *= 0] 
 		>> node_093 
 	else 
 		>> node_089 
@@ -262,11 +262,11 @@ def node_030 : 208
 	return 
 endf 
 
-def node_031 : 209
+def node_031
 endf 
 
-def node_032 : 201
-	if [RegisterVar3 < 0] 
+def node_032
+	if [RegisterVar3 *= 0] 
 		>> node_035 
 	elif function#3C(1) 
 		>> node_033 
@@ -276,7 +276,7 @@ def node_032 : 201
 	return 
 endf 
 
-def node_033 : 202
+def node_033
 	random (5) >> node_027 
 	elser (20) >> node_028 
 	elser (5) >> node_026 
@@ -285,7 +285,7 @@ def node_033 : 202
 	return 
 endf 
 
-def node_034 : 203
+def node_034
 	random (5) >> node_027 
 	elser (10) >> node_026 
 	elser (85) >> node_035 
@@ -293,8 +293,8 @@ def node_034 : 203
 	return 
 endf 
 
-def node_035 : 205
-	if [RegisterVar1 < 0] 
+def node_035
+	if [RegisterVar1 *= 0] 
 		random (75) >> node_030 
 		elser (25) >> node_029 
 		endr 
@@ -307,10 +307,10 @@ def node_035 : 205
 	return 
 endf 
 
-def node_036 : 184
+def node_036
 endf 
 
-def node_037 : 180
+def node_037
 	function#E2() 
 	function#EC(3) 
 	if function#D2(11) 
@@ -320,7 +320,7 @@ def node_037 : 180
 	return 
 endf 
 
-def node_038 : 181
+def node_038
 	>> node_004 
 	>> node_072 
 	if self.distance_3d_to_target().leq(300) 
@@ -334,21 +334,21 @@ def node_038 : 181
 	return 
 endf 
 
-def node_039 : 182
+def node_039
 	>> node_057 
 	>> node_089 
 	return 
 endf 
 
-def node_040 : 183
+def node_040
 	>> node_086 
 	return 
 endf 
 
-def node_041 : 238
+def node_041
 endf 
 
-def node_042 : 232
+def node_042
 	>> node_061 
 	>> node_072 
 	if self.distance_3d_to_target().leq(300) 
@@ -364,34 +364,34 @@ def node_042 : 232
 	return 
 endf 
 
-def node_043 : 233
+def node_043
 	>> node_086 
 	return 
 endf 
 
-def node_044 : 235
+def node_044
 	>> node_057 
 	>> node_100 
 	>> node_090 
 	return 
 endf 
 
-def node_045 : 236
+def node_045
 	>> node_057 
 	>> node_100 
 	>> node_089 
 	return 
 endf 
 
-def node_046 : 240
+def node_046
 	>> node_057 
 	>> node_091 
 	return 
 endf 
 
-def node_047 : 241
+def node_047
 	>> node_057 
-	if [RegisterVar1 < 0] 
+	if [RegisterVar1 *= 0] 
 		>> node_093 
 	else 
 		>> node_089 
@@ -399,9 +399,9 @@ def node_047 : 241
 	return 
 endf 
 
-def node_048 : 244
+def node_048
 	>> node_057 
-	if [RegisterVar1 < 0] 
+	if [RegisterVar1 *= 0] 
 		>> node_089 
 	else 
 		>> node_092 
@@ -409,9 +409,9 @@ def node_048 : 244
 	return 
 endf 
 
-def node_049 : 234
+def node_049
 	if self.distance_3d_to_target().gt(1000) 
-		if [RegisterVar3 > 1] 
+		if [RegisterVar3 %= 1] 
 			random (1) >> node_044 
 			elser (4) >> node_045 
 			elser (95) 
@@ -421,8 +421,8 @@ def node_049 : 234
 	return 
 endf 
 
-def node_050 : 237
-	if [RegisterVar3 < 0] 
+def node_050
+	if [RegisterVar3 *= 0] 
 		>> node_051 
 	elif function#3C(1) 
 		>> node_053 
@@ -432,8 +432,8 @@ def node_050 : 237
 	return 
 endf 
 
-def node_051 : 239
-	if [RegisterVar1 < 0] 
+def node_051
+	if [RegisterVar1 *= 0] 
 		random (75) >> node_047 
 		elser (25) >> node_046 
 		endr 
@@ -446,7 +446,7 @@ def node_051 : 239
 	return 
 endf 
 
-def node_052 : 242
+def node_052
 	random (5) >> node_045 
 	elser (10) >> node_044 
 	elser (85) >> node_051 
@@ -454,7 +454,7 @@ def node_052 : 242
 	return 
 endf 
 
-def node_053 : 243
+def node_053
 	random (5) >> node_045 
 	elser (20) >> node_048 
 	elser (5) >> node_044 
@@ -463,10 +463,10 @@ def node_053 : 243
 	return 
 endf 
 
-def node_054 : 172
+def node_054
 endf 
 
-def node_055 : 173
+def node_055
 	if function#46() @ unknExtra2:1 
 		>> node_080 
 		function#DA() 
@@ -476,30 +476,30 @@ def node_055 : 173
 	reset 
 endf 
 
-def node_056 : 174
+def node_056
 	if function#45() 
 		>> node_083 
 	endif 
 	return 
 endf 
 
-def node_057 : 175
+def node_057
 	if function#45() 
 		>> node_084 
 	endif 
 	return 
 endf 
 
-def node_058 : 176
+def node_058
 	if function#45() 
 		>> node_085 
 	endif 
 	return 
 endf 
 
-def node_059 : 215
+def node_059
 	if function#100() 
-		if [RegisterVar0 < 0] 
+		if [RegisterVar0 *= 0] 
 			function#D3() 
 			>> node_065 
 		endif 
@@ -507,10 +507,10 @@ def node_059 : 215
 	return 
 endf 
 
-def node_060 : 210
+def node_060
 endf 
 
-def node_061 : 211
+def node_061
 	function#EB(1500) 
 	function#DE(4500) 
 	function#ED() 
@@ -525,7 +525,7 @@ def node_061 : 211
 	return 
 endf 
 
-def node_062 : 212
+def node_062
 	function#EB(2000) 
 	function#E2() 
 	function#D2(8) 
@@ -543,7 +543,7 @@ def node_062 : 212
 	reset 
 endf 
 
-def node_063 : 213
+def node_063
 	function#E2(1) 
 	function#EC(5) 
 	if function#D2(11) >> node_096 
@@ -553,7 +553,7 @@ def node_063 : 213
 	return 
 endf 
 
-def node_064 : 214
+def node_064
 	*&
 	if self.distance_3d_recalc_to_target().leq(800) 
 		>> node_058 
@@ -568,7 +568,7 @@ def node_064 : 214
 	return 
 endf 
 
-def node_065 : 216
+def node_065
 	>> node_072 
 	if self.distance_3d_recalc_to_target().leq(800) 
 		>> node_058 
@@ -582,16 +582,16 @@ def node_065 : 216
 	return 
 endf 
 
-def node_066 : 217
+def node_066
 endf 
 
-def node_067 : 218
+def node_067
 	>> node_077 
 	>> node_068 
 	return 
 endf 
 
-def node_068 : 219
+def node_068
 	function#DE(3500) 
 	function#EB(2000) 
 	function#DF(80) 
@@ -602,14 +602,14 @@ def node_068 : 219
 	return 
 endf 
 
-def node_069 : 220
+def node_069
 	if function#D8() 
 		>> node_070 
 	endif 
 	return 
 endf 
 
-def node_070 : 221
+def node_070
 	>> node_056 
 	if self.angle_2d_ccw_between(90,0) 
 		>> node_094 
@@ -625,7 +625,7 @@ def node_070 : 221
 	reset 
 endf 
 
-def node_071 : 222
+def node_071
 	if self.distance_3d_to_target().leq(1500) 
 		function#E5() 
 		>> node_081 
@@ -636,13 +636,13 @@ def node_071 : 222
 	reset 
 endf 
 
-def node_072 : 223
+def node_072
 	>> node_077 
 	>> node_073 
 	return 
 endf 
 
-def node_073 : 224
+def node_073
 	function#DE(3500) 
 	function#EB(2000) 
 	function#DF(80) 
@@ -653,14 +653,14 @@ def node_073 : 224
 	return 
 endf 
 
-def node_074 : 225
+def node_074
 	if function#D8() 
 		>> node_075 
 	endif 
 	return 
 endf 
 
-def node_075 : 226
+def node_075
 	>> node_057 
 	if self.angle_2d_ccw_between(90,0) 
 		>> node_082 
@@ -672,7 +672,7 @@ def node_075 : 226
 	reset 
 endf 
 
-def node_076 : 227
+def node_076
 	if self.distance_3d_to_target().leq(1500) 
 		function#E5() 
 		>> node_081 
@@ -684,7 +684,7 @@ def node_076 : 227
 	reset 
 endf 
 
-def node_077 : 228
+def node_077
 	function#DE(1500) 
 	function#EB(2000) 
 	if function#D2(8) 
@@ -694,125 +694,125 @@ def node_077 : 228
 	return 
 endf 
 
-def node_078 : 170
+def node_078
 endf 
 
-def node_079 : 169
+def node_079
 	>> node_081 
 	return 
 endf 
 
-def node_080 : 171
+def node_080
 	>> node_082 
 	return 
 endf 
 
-def node_081 : 81
+def node_081
 	-> aptonoth.glide_end() 
 	return 
 endf 
 
-def node_082 : 82
+def node_082
 	-> aptonoth.glide_direct_move() 
 	return 
 endf 
 
-def node_083 : 177
+def node_083
 	-> aptonoth.step_front_fly_short() 
 	return 
 endf 
 
-def node_084 : 178
+def node_084
 	-> aptonoth.glide_use_ground_navimesh() 
 	return 
 endf 
 
-def node_085 : 179
+def node_085
 	-> aptonoth.snake_turn_step_fly_r() 
 	return 
 endf 
 
-def node_086 : 39
+def node_086
 	-> aptonoth.idle_fly(2,6,0,300,300) 
 	>> node_055 
 	return 
 endf 
 
-def node_087 : 37
+def node_087
 	-> aptonoth.idle_r(2,6,0,300,300) 
 	>> node_055 
 	return 
 endf 
 
-def node_088 : 231
+def node_088
 	-> aptonoth.idle_tired(2,6,0,300,300) 
 	>> node_055 
 	return 
 endf 
 
-def node_089 : 56
+def node_089
 	-> aptonoth.double_floor_down() 
 	return 
 endf 
 
-def node_090 : 55
+def node_090
 	-> aptonoth.jump_attack_wall_up() 
 	return 
 endf 
 
-def node_091 : 77
+def node_091
 	-> aptonoth.glide_combat_only_groundnavi() 
 	return 
 endf 
 
-def node_092 : 76
+def node_092
 	if function#B0(2) >> node_090 
 	else -> aptonoth.glide_wall_up() 
 	endif 
 	return 
 endf 
 
-def node_093 : 45
+def node_093
 	-> aptonoth.sudden_rise() 
 	-> aptonoth.sudden_rise_from_fly() 
 	return 
 endf 
 
-def node_094 : 57
+def node_094
 	-> aptonoth.walk_tired() 
 	return 
 endf 
 
-def node_095 : 194
+def node_095
 endf 
 
-def node_096 : 135
-	[RegisterVar0 ++] 
-	return 
-endf 
-
-def node_097 : 119
+def node_096
 	[RegisterVar0 |-] 
 	return 
 endf 
 
-def node_098 : 137
-	[RegisterVar1 ++] 
+def node_097
+	[RegisterVar0 ++] 
 	return 
 endf 
 
-def node_099 : 121
+def node_098
 	[RegisterVar1 |-] 
 	return 
 endf 
 
-def node_100 : 141
-	[RegisterVar3 ++] 
+def node_099
+	[RegisterVar1 ++] 
 	return 
 endf 
 
-def node_101 : 125
+def node_100
 	[RegisterVar3 |-] 
+	return 
+endf 
+
+def node_101
+	[RegisterVar3 ++] 
 	return 
 endf 
 

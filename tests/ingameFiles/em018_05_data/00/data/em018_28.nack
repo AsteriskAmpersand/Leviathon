@@ -1,19 +1,19 @@
 importactions Yian_Garuga as yian_garuga
 importlibrary Global as Global
 
-def node_000 : 14
-	if [RegisterVar0 <= 15] 
-		[RegisterVar0 |-] 
+def node_000
+	if [RegisterVar0 -= 15] 
+		[RegisterVar0 ++] 
 		conclude 
 	else 
 	endif 
-	[RegisterVar0 ++] 
+	[RegisterVar0 |-] 
 	>> node_001 
 	repeat 
 	conclude 
 endf 
 
-def node_001 : 15
+def node_001
 	>> Global.node_163 
 	self.targetEnemy(48) 
 	if self.distance_3d_to_target().leq(3500) 
@@ -24,13 +24,13 @@ def node_001 : 15
 	return 
 endf 
 
-def node_002 : 16
+def node_002
 	>> Global.node_157 
 	>> Global.node_186 
 	return 
 endf 
 
-def node_003 : 17
+def node_003
 	self.targetEnemy(58) 
 	random (10) >> Global.node_295 
 	elser (90) 

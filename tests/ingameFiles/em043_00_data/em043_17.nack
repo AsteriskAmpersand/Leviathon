@@ -1,7 +1,7 @@
 importactions Deviljho as deviljho
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	>> Global.node_120 
 	>> Global.node_121 
 	>> node_001 
@@ -9,12 +9,12 @@ def node_000 : 1
 	conclude 
 endf 
 
-def node_001 : 2
+def node_001
 	if function#41() 
 	elif function#101() 
 	else 
-		if function#AB() 
-			function#AA() 
+		if [$V += 0] 
+			[$V |-] 
 			-> deviljho.threat_short() 
 		else 
 		endif 
@@ -22,7 +22,7 @@ def node_001 : 2
 	return 
 endf 
 
-def node_002 : 3
+def node_002
 	self.targetArea(14) 
 	if function#101() 
 		if self.distance_3d_to_target().gt(800) 
@@ -40,7 +40,7 @@ def node_002 : 3
 	return 
 endf 
 
-def node_003 : 4
+def node_003
 	self.targetEnemy(target_em.random_player_or_cat) 
 	-> deviljho.wait() 
 	if self.distance_3d_to_target().leq(800) 
@@ -52,7 +52,7 @@ def node_003 : 4
 	return 
 endf 
 
-def node_004 : 8
+def node_004
 	if self.fatigued() 
 		-> deviljho.tired_dash(5,2,0,0,3000) 
 	else 
@@ -61,7 +61,7 @@ def node_004 : 8
 	return 
 endf 
 
-def node_005 : 9
+def node_005
 	-> deviljho.hold_em_dash(5,2,0,0,3000) 
 	return 
 endf 

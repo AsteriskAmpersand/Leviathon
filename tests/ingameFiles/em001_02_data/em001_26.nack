@@ -1,7 +1,7 @@
 importactions Gold_Rathian as gold_rathian
 importlibrary Global as Global
 
-def node_000 : 23
+def node_000
 	>> Global.node_046 
 	self.targetEnemy(34) 
 	>> node_001 
@@ -11,7 +11,7 @@ def node_000 : 23
 	conclude 
 endf 
 
-def node_001 : 24
+def node_001
 	if function#AD() 
 	else 
 		>> node_003 
@@ -19,7 +19,7 @@ def node_001 : 24
 	return 
 endf 
 
-def node_002 : 25
+def node_002
 	if self.flying() 
 		>> Global.node_030 
 	else 
@@ -28,13 +28,13 @@ def node_002 : 25
 	return 
 endf 
 
-def node_003 : 26
+def node_003
 	>> node_004 
 	>> node_005 
 	return 
 endf 
 
-def node_004 : 27
+def node_004
 	if self.flying() 
 		self.targetArea(target_area.area_aerial_center) 
 		>> Global.node_027 
@@ -47,7 +47,7 @@ def node_004 : 27
 	return 
 endf 
 
-def node_005 : 28
+def node_005
 	self.targetEnemy(34) 
 	if self.flying() 
 		self.targetArea(40) 
@@ -59,7 +59,7 @@ def node_005 : 28
 	return 
 endf 
 
-def node_006 : 29
+def node_006
 	if self.flying() 
 		self.targetArea(target_area.area_center) 
 		>> Global.node_001 
@@ -68,7 +68,7 @@ def node_006 : 29
 	return 
 endf 
 
-def node_007 : 30
+def node_007
 	if self.flying() 
 		>> Global.node_030 
 	else 

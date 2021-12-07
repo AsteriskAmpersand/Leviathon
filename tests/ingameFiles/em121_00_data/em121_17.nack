@@ -1,7 +1,7 @@
 importactions Behemoth as behemoth
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	function#10B() 
 	function#109() 
 	>> node_001 
@@ -9,12 +9,12 @@ def node_000 : 1
 	conclude 
 endf 
 
-def node_001 : 98
+def node_001
 	if function#10E() 
 		return 
 	endif 
-	if function#AB() 
-		if [RegisterVar1 == 1] 
+	if [$V += 0] 
+		if [RegisterVar1 += 1] 
 			if self.current_quest().is_rank(rank.AT) 
 				if self.in_map(st.Elder_Recess).in_area(11) 
 				elif self.in_map(st.Elder_Recess).in_area(13) 
@@ -23,7 +23,7 @@ def node_001 : 98
 				endif 
 			else 
 			endif 
-		elif [RegisterVar1 == 2] 
+		elif [RegisterVar1 += 2] 
 			if self.current_quest().is_rank(rank.AT) 
 				if self.in_map(st.Elder_Recess).in_area(11) 
 				elif self.in_map(st.Elder_Recess).in_area(13) 
@@ -33,7 +33,7 @@ def node_001 : 98
 			else 
 				>> Global.node_073 
 			endif 
-		elif [RegisterVar1 == 3] 
+		elif [RegisterVar1 += 3] 
 			if self.current_quest().is_rank(rank.AT) 
 			else 
 				>> Global.node_073 
@@ -43,11 +43,11 @@ def node_001 : 98
 	else 
 	endif 
 	function#109() 
-	function#AA() 
+	[$V |-] 
 	return 
 endf 
 
-def node_002 : 99
+def node_002
 	if function#10E() 
 		self.targetArea(19) 
 	else 
@@ -61,6 +61,6 @@ def node_002 : 99
 	return 
 endf 
 
-def node_003 : 100
+def node_003
 endf 
 

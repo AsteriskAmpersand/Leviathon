@@ -1,7 +1,7 @@
 importactions Blackveil_Vaal_Hazak as blackveil_vaal_hazak
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	if function#45() 
 	else 
 		>> Global.node_044 
@@ -27,7 +27,7 @@ def node_000 : 1
 		>> node_006 => reset 
 	elif self.target(52) 
 		>> node_011 => reset 
-	elif [RegisterVar6 <= 1] 
+	elif [RegisterVar6 -= 1] 
 		>> node_010 => reset 
 	elif self.flying() 
 		>> Global.node_001 => reset 
@@ -37,8 +37,8 @@ def node_000 : 1
 	reset 
 endf 
 
-def node_001 : 42
-	[RegisterVar6 |-] 
+def node_001
+	[RegisterVar6 ++] 
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if function#5D() 
 		function#5E() 
@@ -50,21 +50,21 @@ def node_001 : 42
 	endif 
 	if self.in_map(st.Ancient_Forest).in_area(8) 
 		if self.vertical_distance_to_target().gt(600) 
-			[RegisterVar6 ++] 
-		else 
 			[RegisterVar6 |-] 
+		else 
+			[RegisterVar6 ++] 
 		endif 
 	elif self.in_map(st.Rotten_Vale).in_area(7) 
-		[RegisterVar6 |-] 
-	elif self.vertical_distance_to_target().gt(450) 
 		[RegisterVar6 ++] 
-	else 
+	elif self.vertical_distance_to_target().gt(450) 
 		[RegisterVar6 |-] 
+	else 
+		[RegisterVar6 ++] 
 	endif 
 	return 
 endf 
 
-def node_002 : 43
+def node_002
 	self.targetArea(19) 
 	if self.distance_3d_to_target().gt(1000) 
 		>> Global.node_008 
@@ -91,7 +91,7 @@ def node_002 : 43
 	return 
 endf 
 
-def node_003 : 48
+def node_003
 	if self.flying() 
 		>> Global.node_001 
 	else 
@@ -100,7 +100,7 @@ def node_003 : 48
 	return 
 endf 
 
-def node_004 : 44
+def node_004
 	>> Global.node_001 
 	if self.distance_2d_to_target().gt(1500) 
 		>> Global.node_011 
@@ -121,7 +121,7 @@ def node_004 : 44
 	return 
 endf 
 
-def node_005 : 47
+def node_005
 	if self.flying() 
 		>> Global.node_001 
 	else 
@@ -134,7 +134,7 @@ def node_005 : 47
 	return 
 endf 
 
-def node_006 : 45
+def node_006
 	>> Global.node_001 
 	if self.distance_2d_to_target().gt(1000) 
 		>> Global.node_010 
@@ -159,17 +159,17 @@ def node_006 : 45
 	return 
 endf 
 
-def node_007 : 106
+def node_007
 	self.targetArea(10) @ parameter2:1000 
 	>> Global.node_005 
 	>> Global.node_017 
 	return 
 endf 
 
-def node_008 : 46
+def node_008
 	>> Global.node_094 
-	[RegisterVar5 ++] 
-	[RegisterVar9 ++] 
+	[RegisterVar5 |-] 
+	[RegisterVar9 |-] 
 	if self.distance_2d_to_target().leq(500) 
 		self.enraged() >> Global.node_102 => reset 
 		>> Global.node_101 => reset 
@@ -189,7 +189,7 @@ def node_008 : 46
 	return 
 endf 
 
-def node_009 : 80
+def node_009
 	if self.angle_2d_cw_between(270,90) 
 		>> Global.node_053 
 	else 
@@ -198,7 +198,7 @@ def node_009 : 80
 	return 
 endf 
 
-def node_010 : 105
+def node_010
 	if self.current_quest().is_rank(rank.AT) 
 		random (30) >> Global.node_036 
 		elser (70) 
@@ -224,7 +224,7 @@ def node_010 : 105
 	return 
 endf 
 
-def node_011 : 107
+def node_011
 	>> Global.node_013 
 	return 
 endf 

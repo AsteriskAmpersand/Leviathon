@@ -1,7 +1,7 @@
 importactions Gajalaka as gajalaka
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if function#B0(8) 
 	elif function#B0(9) 
@@ -14,7 +14,7 @@ def node_000 : 1
 	reset 
 endf 
 
-def node_001 : 24
+def node_001
 	if function#B0() 
 		>> node_003 
 	elif function#B0(1) 
@@ -49,7 +49,7 @@ def node_001 : 24
 	return 
 endf 
 
-def node_002 : 36
+def node_002
 	if self.targetEnemy(target_em.any_monster) 
 		if self.distance_2d_to_target().leq(6000) 
 			if function#B0(12) 
@@ -74,7 +74,7 @@ def node_002 : 36
 	return 
 endf 
 
-def node_003 : 15
+def node_003
 	>> Global.node_001 
 	>> Global.node_018 
 	random (0) >> Global.node_030 
@@ -85,22 +85,22 @@ def node_003 : 15
 	return 
 endf 
 
-def node_004 : 16
+def node_004
 	>> node_003 
 	return 
 endf 
 
-def node_005 : 17
+def node_005
 	>> node_003 
 	return 
 endf 
 
-def node_006 : 18
+def node_006
 	>> node_003 
 	return 
 endf 
 
-def node_007 : 19
+def node_007
 	>> Global.node_001 
 	>> Global.node_018 
 	random (0) >> Global.node_030 
@@ -111,22 +111,22 @@ def node_007 : 19
 	return 
 endf 
 
-def node_008 : 20
+def node_008
 	>> node_007 
 	return 
 endf 
 
-def node_009 : 21
+def node_009
 	>> node_007 
 	return 
 endf 
 
-def node_010 : 22
+def node_010
 	>> node_007 
 	return 
 endf 
 
-def node_011 : 23
+def node_011
 	if function#3C(1) 
 		>> Global.node_038 
 		random (35) >> node_020 
@@ -145,7 +145,7 @@ def node_011 : 23
 	return 
 endf 
 
-def node_012 : 31
+def node_012
 	*&
 	if function#3C(1) 
 		>> Global.node_038 
@@ -165,7 +165,7 @@ def node_012 : 31
 	return 
 endf 
 
-def node_013 : 35
+def node_013
 	>> Global.node_001 
 	>> Global.node_018 
 	random (20) >> Global.node_030 
@@ -183,7 +183,7 @@ def node_013 : 35
 	return 
 endf 
 
-def node_014 : 37
+def node_014
 	>> Global.node_001 
 	>> Global.node_018 
 	random (10) >> Global.node_030 
@@ -201,7 +201,7 @@ def node_014 : 37
 	return 
 endf 
 
-def node_015 : 30
+def node_015
 	>> Global.node_001 
 	>> Global.node_018 
 	random (20) >> Global.node_030 
@@ -219,7 +219,7 @@ def node_015 : 30
 	return 
 endf 
 
-def node_016 : 38
+def node_016
 	>> Global.node_001 
 	>> Global.node_018 
 	random (10) >> Global.node_030 
@@ -237,7 +237,7 @@ def node_016 : 38
 	return 
 endf 
 
-def node_017 : 39
+def node_017
 	random (50) >> Global.node_030 
 	elser (0) >> node_022 
 	elser (0) >> node_023 
@@ -246,7 +246,7 @@ def node_017 : 39
 	return 
 endf 
 
-def node_018 : 40
+def node_018
 	>> Global.node_001 
 	>> Global.node_018 
 	random (30) >> Global.node_030 
@@ -257,48 +257,48 @@ def node_018 : 40
 	return 
 endf 
 
-def node_019 : 29
+def node_019
 endf 
 
-def node_020 : 25
+def node_020
 	self.targetEnemy(48) 
 	>> Global.node_018 
 	>> Global.node_030 
 	return 
 endf 
 
-def node_021 : 26
+def node_021
 	>> Global.node_001 
 	>> Global.node_018 
 	>> Global.node_030 
 	return 
 endf 
 
-def node_022 : 27
+def node_022
 	>> Global.node_039 
 	return 
 endf 
 
-def node_023 : 28
+def node_023
 	>> Global.node_040 
 	return 
 endf 
 
-def node_024 : 32
+def node_024
 	>> Global.node_001 
 	>> Global.node_018 
 	-> action#1E() 
 	return 
 endf 
 
-def node_025 : 33
+def node_025
 	>> Global.node_001 
 	>> Global.node_018 
 	-> action#20() 
 	return 
 endf 
 
-def node_026 : 41
+def node_026
 	-> action#15() 
 	return 
 endf 

@@ -1,7 +1,7 @@
 importactions Stygian_Zinogre as stygian_zinogre
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	function#103() 
 	self.targetEnemy(target_em.closest_entity) 
 	>> node_001 
@@ -9,7 +9,7 @@ def node_000 : 1
 	reset 
 endf 
 
-def node_001 : 3
+def node_001
 	if self.target_is(em.Aptonoth) 
 	elif self.target_is(em.Popo) 
 	elif self.target_is(em.Anteka) 
@@ -40,7 +40,7 @@ def node_001 : 3
 	return 
 endf 
 
-def node_002 : 7
+def node_002
 	if self.distance_2d_to_target().leq(2000) 
 		>> node_004 
 	elif self.distance_2d_to_target().leq(4000) 
@@ -51,7 +51,7 @@ def node_002 : 7
 	return 
 endf 
 
-def node_003 : 8
+def node_003
 	self.targetEnemy(target_em.closest_entity) 
 	if self.target(11) 
 		function#54() 
@@ -65,24 +65,24 @@ def node_003 : 8
 	return 
 endf 
 
-def node_004 : 4
+def node_004
 	>> node_003 
 	return 
 endf 
 
-def node_005 : 5
+def node_005
 	random (50) -> stygian_zinogre.dash(2,1,0,1500,600) 
 	elser (50) >> Global.node_221 
 	endr 
 	return 
 endf 
 
-def node_006 : 6
+def node_006
 	-> stygian_zinogre.dash(2,1,0,1500,600) 
 	return 
 endf 
 
-def node_007 : 9
+def node_007
 	-> stygian_zinogre.dash(2,1,0,1000,600) 
 	if self.distance_3d_to_target().leq(600) 
 	else 

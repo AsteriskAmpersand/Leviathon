@@ -1,7 +1,7 @@
 importactions Barroth as barroth
 importlibrary Global as Global
 
-def node_000 : 37
+def node_000
 	if self.current_quest().is_rank(rank.MR) 
 		>> node_001 
 	else 
@@ -10,7 +10,7 @@ def node_000 : 37
 	reset 
 endf 
 
-def node_001 : 36
+def node_001
 	self.targetArea(21) @ parameter2:700 
 	if self.target_on_part(0) >> node_007 
 	elif self.target_on_part(1) >> node_007 
@@ -24,7 +24,7 @@ def node_001 : 36
 	reset 
 endf 
 
-def node_002 : 8
+def node_002
 	self.targetArea(21) @ parameter2:700 
 	if self.target_on_part(0) >> node_007 
 	elif self.target_on_part(1) >> node_007 
@@ -38,7 +38,7 @@ def node_002 : 8
 	reset 
 endf 
 
-def node_003 : 9
+def node_003
 	random (20) >> Global.node_030 
 	elser (25) >> Global.node_067 
 	elser (35) >> Global.node_066 
@@ -47,7 +47,7 @@ def node_003 : 9
 	return 
 endf 
 
-def node_004 : 10
+def node_004
 	random (10) >> Global.node_030 
 	elser (20) >> Global.node_067 
 	elser (35) >> Global.node_066 
@@ -56,7 +56,7 @@ def node_004 : 10
 	return 
 endf 
 
-def node_005 : 11
+def node_005
 	random (50) >> Global.node_029 
 	elser (15) >> Global.node_067 
 	elser (20) >> Global.node_066 
@@ -65,7 +65,7 @@ def node_005 : 11
 	return 
 endf 
 
-def node_006 : 35
+def node_006
 	random (40) >> Global.node_030 
 	elser (20) >> Global.node_067 
 	elser (20) >> Global.node_066 
@@ -74,29 +74,29 @@ def node_006 : 35
 	return 
 endf 
 
-def node_007 : 34
-	function#A8() 
+def node_007
+	[$U |-] 
 	self.targetEnemy(target_em.random_player_or_cat) 
-	if function#A9(0,1) 
+	if [$U += 1] 
 		self.target_on_part(0) >> node_008 => repeat 
 		self.target_on_part(1) >> node_011 => repeat 
 		self.target_on_part(2) >> node_014 => repeat 
-	elif function#A9(0,2) 
+	elif [$U += 2] 
 		self.target_on_part(0) >> node_008 => repeat 
 		self.target_on_part(1) >> node_011 => repeat 
 		self.target_on_part(2) >> node_014 => repeat 
-	elif function#A9(0,3) 
+	elif [$U += 3] 
 		self.target_on_part(0) >> node_020 => repeat 
 		self.target_on_part(1) >> node_020 => repeat 
 		self.target_on_part(2) >> node_020 => repeat 
 	else 
-		function#A8(1) 
+		[$U ++] 
 		return 
 	endif 
 	return 
 endf 
 
-def node_008 : 32
+def node_008
 	if self.mounted() 
 		>> node_009 
 	else 
@@ -105,17 +105,17 @@ def node_008 : 32
 	return 
 endf 
 
-def node_009 : 31
+def node_009
 	-> barroth.side_bite() 
 	return 
 endf 
 
-def node_010 : 30
+def node_010
 	-> barroth.ride_rage_head() 
 	return 
 endf 
 
-def node_011 : 29
+def node_011
 	if self.mounted() 
 		>> node_012 
 	else 
@@ -124,17 +124,17 @@ def node_011 : 29
 	return 
 endf 
 
-def node_012 : 28
+def node_012
 	-> barroth.side_tackle() 
 	return 
 endf 
 
-def node_013 : 27
+def node_013
 	-> barroth.ride_rage_body() 
 	return 
 endf 
 
-def node_014 : 26
+def node_014
 	if self.mounted() 
 		>> node_015 
 	else 
@@ -143,23 +143,23 @@ def node_014 : 26
 	return 
 endf 
 
-def node_015 : 25
+def node_015
 	-> barroth.tail_wind_short() 
 	return 
 endf 
 
-def node_016 : 24
+def node_016
 	-> barroth.ride_rage_tail() 
 	return 
 endf 
 
-def node_017 : 23
+def node_017
 	>> node_022 
 	-> barroth.mud_splash() 
 	return 
 endf 
 
-def node_018 : 22
+def node_018
 	if function#3B() 
 		if self.mount_staggered_twice() 
 			>> node_019 
@@ -192,12 +192,12 @@ def node_018 : 22
 	return 
 endf 
 
-def node_019 : 21
+def node_019
 	-> barroth.ride_tired() 
 	return 
 endf 
 
-def node_020 : 20
+def node_020
 	if self.mounted() 
 		>> node_021 
 	else 
@@ -205,12 +205,12 @@ def node_020 : 20
 	return 
 endf 
 
-def node_021 : 19
+def node_021
 	-> barroth.wait() 
 	return 
 endf 
 
-def node_022 : 18
+def node_022
 	random (20) >> node_023 
 	elser (80) >> node_024 
 	endr 
@@ -218,34 +218,34 @@ def node_022 : 18
 	return 
 endf 
 
-def node_023 : 17
+def node_023
 	self.targetEnemy(21) @ parameter2:1000 
 	return 
 endf 
 
-def node_024 : 16
+def node_024
 	self.targetEnemy(22) @ parameter2:1000 
 	return 
 endf 
 
-def node_025 : 15
+def node_025
 	random (48) >> node_026 
 	elser (52) >> node_027 
 	endr 
 	return 
 endf 
 
-def node_026 : 14
+def node_026
 	self.targetEnemy(12) @ parameter2:1000 
 	return 
 endf 
 
-def node_027 : 13
+def node_027
 	self.targetEnemy(11) @ parameter2:1000 
 	return 
 endf 
 
-def node_028 : 12
+def node_028
 	if self.angular_17(300,60) 
 		-> barroth.quick_turn() 
 	else 
@@ -253,7 +253,7 @@ def node_028 : 12
 	return 
 endf 
 
-def node_029 : 38
+def node_029
 	random (12) >> Global.node_030 
 	elser (28) >> Global.node_067 
 	elser (38) >> Global.node_066 
@@ -262,7 +262,7 @@ def node_029 : 38
 	return 
 endf 
 
-def node_030 : 39
+def node_030
 	random (4) >> Global.node_032 
 	elser (22) >> Global.node_067 
 	elser (37) >> Global.node_066 
@@ -271,7 +271,7 @@ def node_030 : 39
 	return 
 endf 
 
-def node_031 : 40
+def node_031
 	random (15) >> Global.node_029 
 	elser (25) >> Global.node_067 
 	elser (35) >> Global.node_066 
@@ -280,7 +280,7 @@ def node_031 : 40
 	return 
 endf 
 
-def node_032 : 41
+def node_032
 	random (10) >> Global.node_032 
 	elser (30) >> Global.node_067 
 	elser (30) >> Global.node_066 

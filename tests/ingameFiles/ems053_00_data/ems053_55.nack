@@ -1,10 +1,10 @@
 importactions Raphinos as raphinos
 
-def node_000 : 1
+def node_000
 	conclude 
 endf 
 
-def node_001 : 32
+def node_001
 	if self.flying() 
 		-> action#20() 
 	else 
@@ -13,7 +13,7 @@ def node_001 : 32
 	return 
 endf 
 
-def node_002 : 33
+def node_002
 	if self.flying() 
 		-> action#22() 
 	else 
@@ -22,7 +22,7 @@ def node_002 : 33
 	return 
 endf 
 
-def node_003 : 41
+def node_003
 	if self.flying() 
 		-> action#25() 
 	else 
@@ -31,19 +31,19 @@ def node_003 : 41
 	return 
 endf 
 
-def node_004 : 34
+def node_004
 	>> node_010 
 	-> action#28() 
 	return 
 endf 
 
-def node_005 : 35
+def node_005
 	>> node_010 
 	-> action#26() 
 	return 
 endf 
 
-def node_006 : 37
+def node_006
 	if self.flying() 
 		-> action#07() 
 	else 
@@ -52,7 +52,7 @@ def node_006 : 37
 	return 
 endf 
 
-def node_007 : 74
+def node_007
 	if self.angular_15(30,0) 
 		if self.flying() -> action#07() 
 		else -> action#05() 
@@ -61,14 +61,14 @@ def node_007 : 74
 	return 
 endf 
 
-def node_008 : 75
+def node_008
 	if self.vertical_distance_to_target().gt(400) -> action#1D() 
 	else 
 	endif 
 	return 
 endf 
 
-def node_009 : 39
+def node_009
 	if self.flying() 
 	elif function#40() 
 		-> action#09() 
@@ -78,14 +78,14 @@ def node_009 : 39
 	return 
 endf 
 
-def node_010 : 40
+def node_010
 	if self.flying() 
 		-> action#0D() 
 	endif 
 	return 
 endf 
 
-def node_011 : 43
+def node_011
 	if self.flying() 
 		-> action#2D() 
 	else 
@@ -94,7 +94,7 @@ def node_011 : 43
 	return 
 endf 
 
-def node_012 : 69
+def node_012
 	if function#51(0,2000) 
 		>> node_013 
 	else 
@@ -102,13 +102,13 @@ def node_012 : 69
 	return 
 endf 
 
-def node_013 : 42
+def node_013
 	>> node_006 
 	>> node_001 
 	return 
 endf 
 
-def node_014 : 46
+def node_014
 	if self.hookable() 
 		-> action#14(2,0,0,2000) 
 	else 
@@ -123,7 +123,7 @@ def node_014 : 46
 	return 
 endf 
 
-def node_015 : 48
+def node_015
 	function#54() 
 	function#52(128,2) 
 	self.targetEnemy(16) 
@@ -135,7 +135,7 @@ def node_015 : 48
 	return 
 endf 
 
-def node_016 : 63
+def node_016
 	if function#58(1,100) 
 	else 
 		>> node_003 
@@ -143,14 +143,14 @@ def node_016 : 63
 	return 
 endf 
 
-def node_017 : 71
+def node_017
 	if self.hookable() 
 	else -> action#04() 
 	endif 
 	return 
 endf 
 
-def node_018 : 51
+def node_018
 	if function#72() 
 		self.targetEnemy(13) 
 		if function#69() >> node_019 
@@ -162,17 +162,17 @@ def node_018 : 51
 	return 
 endf 
 
-def node_019 : 55
+def node_019
 	function#52(132) 
 	return 
 endf 
 
-def node_020 : 56
+def node_020
 	function#52(161) 
 	return 
 endf 
 
-def node_021 : 57
+def node_021
 	if function#77() 
 		function#52(194) 
 	else 
@@ -181,25 +181,25 @@ def node_021 : 57
 	return 
 endf 
 
-def node_022 : 54
+def node_022
 	>> node_002 
 	return 
 endf 
 
-def node_023 : 67
+def node_023
 	self.targetEnemy(33) 
 	>> node_006 
 	>> node_001 
 	return 
 endf 
 
-def node_024 : 68
+def node_024
 	>> node_006 
 	>> node_001 
 	return 
 endf 
 
-def node_025 : 79
+def node_025
 	function#54() 
 	function#52(0,1) 
 	self.targetEnemy(16) @ unkn3:2097152 
@@ -212,7 +212,7 @@ def node_025 : 79
 	return 
 endf 
 
-def node_026 : 80
+def node_026
 	function#52(0,1) 
 	self.targetEnemy(16) @ unkn3:2097152 
 	function#74(0,500) 
@@ -229,7 +229,7 @@ def node_026 : 80
 	return 
 endf 
 
-def node_027 : 81
+def node_027
 	function#52(0,1) 
 	self.targetEnemy(16) @ unkn3:2097152 
 	function#74(0,500) 
@@ -246,7 +246,7 @@ def node_027 : 81
 	return 
 endf 
 
-def node_028 : 59
+def node_028
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.target(20) 
 		if self.target(7) 
@@ -260,14 +260,14 @@ def node_028 : 59
 	return 
 endf 
 
-def node_029 : 60
+def node_029
 	random (50) >> node_031 
 	elser (50) >> node_035 
 	endr 
 	return 
 endf 
 
-def node_030 : 78
+def node_030
 	-> action#13(2,6,0,1000,1000) 
 	if self.distance_2d_to_target().leq(1100) 
 		return 
@@ -277,7 +277,7 @@ def node_030 : 78
 	return 
 endf 
 
-def node_031 : 61
+def node_031
 	>> node_030 
 	-> action#17(6,0,0,500) 
 	if self.distance_2d_to_target().leq(600) 
@@ -291,7 +291,7 @@ def node_031 : 61
 	return 
 endf 
 
-def node_032 : 47
+def node_032
 	>> node_009 
 	-> action#15(1,0,0,500) 
 	-> action#1C() 
@@ -301,13 +301,13 @@ def node_032 : 47
 	return 
 endf 
 
-def node_033 : 76
+def node_033
 	>> node_007 
 	-> action#42() 
 	return 
 endf 
 
-def node_034 : 77
+def node_034
 	>> node_033 
 	>> node_007 
 	-> action#41() 
@@ -315,7 +315,7 @@ def node_034 : 77
 	return 
 endf 
 
-def node_035 : 62
+def node_035
 	function#52(16,4) 
 	self.targetEnemy(16) 
 	-> action#13(1,0,0,500) 
@@ -327,7 +327,7 @@ def node_035 : 62
 	return 
 endf 
 
-def node_036 : 72
+def node_036
 	-> action#13() 
 	function#74(0,1000) 
 	-> action#13() 
@@ -345,7 +345,7 @@ def node_036 : 72
 	return 
 endf 
 
-def node_037 : 73
+def node_037
 	-> action#13() 
 	function#74(0,1000) 
 	-> action#13() 

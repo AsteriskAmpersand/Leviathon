@@ -1,7 +1,7 @@
 importactions Shrieking_Legiana as shrieking_legiana
 importlibrary Global as Global
 
-def node_000 : 45
+def node_000
 	>> Global.node_387 
 	>> node_001 
 	>> Global.node_407 
@@ -36,7 +36,7 @@ def node_000 : 45
 	reset 
 endf 
 
-def node_001 : 16
+def node_001
 	if self.fatigued() 
 		if self.flying() >> Global.node_001 
 		endif 
@@ -44,7 +44,7 @@ def node_001 : 16
 	return 
 endf 
 
-def node_002 : 59
+def node_002
 	if self.distance_2d_to_target().gt(2000) 
 	elif self.poisoned() 
 		if function#B9() 
@@ -76,7 +76,7 @@ def node_002 : 59
 	return 
 endf 
 
-def node_003 : 58
+def node_003
 	if self.fatigued() 
 	else 
 		if self.target.helpless_0() 
@@ -88,7 +88,7 @@ def node_003 : 58
 	return 
 endf 
 
-def node_004 : 48
+def node_004
 	random (15) >> Global.node_110 
 	elser (2) >> Global.node_119 
 	elser (3) >> Global.node_125 
@@ -102,7 +102,7 @@ def node_004 : 48
 	return 
 endf 
 
-def node_005 : 49
+def node_005
 	random (10) >> Global.node_110 
 	elser (2) >> Global.node_119 
 	elser (3) >> Global.node_125 
@@ -117,7 +117,7 @@ def node_005 : 49
 	return 
 endf 
 
-def node_006 : 50
+def node_006
 	random (0) >> Global.node_110 
 	elser (5) >> Global.node_119 
 	elser (5) >> Global.node_125 
@@ -130,7 +130,7 @@ def node_006 : 50
 	return 
 endf 
 
-def node_007 : 51
+def node_007
 	random (55) >> Global.node_112 
 	elser (45) 
 				>> Global.node_014 
@@ -139,13 +139,13 @@ def node_007 : 51
 	return 
 endf 
 
-def node_008 : 52
+def node_008
 	>> Global.node_014 
 	>> Global.node_116 
 	return 
 endf 
 
-def node_009 : 61
+def node_009
 	random (10) >> Global.node_110 
 	elser (2) >> Global.node_122 
 	elser (3) >> Global.node_126 
@@ -159,7 +159,7 @@ def node_009 : 61
 	return 
 endf 
 
-def node_010 : 62
+def node_010
 	random (10) >> Global.node_110 
 	elser (5) >> Global.node_122 
 	elser (5) >> Global.node_126 
@@ -173,7 +173,7 @@ def node_010 : 62
 	return 
 endf 
 
-def node_011 : 63
+def node_011
 	random (0) >> Global.node_110 
 	elser (5) >> Global.node_122 
 	elser (10) >> Global.node_126 
@@ -186,7 +186,7 @@ def node_011 : 63
 	return 
 endf 
 
-def node_012 : 64
+def node_012
 	random (50) >> Global.node_112 
 	elser (50) 
 				>> Global.node_014 
@@ -195,13 +195,13 @@ def node_012 : 64
 	return 
 endf 
 
-def node_013 : 65
+def node_013
 	>> Global.node_014 
 	>> Global.node_116 
 	return 
 endf 
 
-def node_014 : 66
+def node_014
 	random (15) >> Global.node_110 
 	elser (10) >> Global.node_118 
 	elser (30) >> Global.node_115 
@@ -214,7 +214,7 @@ def node_014 : 66
 	return 
 endf 
 
-def node_015 : 67
+def node_015
 	random (10) >> Global.node_110 
 	elser (10) >> Global.node_118 
 	elser (20) >> Global.node_115 
@@ -227,7 +227,7 @@ def node_015 : 67
 	return 
 endf 
 
-def node_016 : 68
+def node_016
 	random (0) >> Global.node_110 
 	elser (15) >> Global.node_118 
 	elser (0) >> Global.node_116 
@@ -240,12 +240,12 @@ def node_016 : 68
 	return 
 endf 
 
-def node_017 : 69
+def node_017
 	>> Global.node_112 
 	return 
 endf 
 
-def node_018 : 70
+def node_018
 	>> Global.node_014 
 	>> Global.node_116 
 	return 

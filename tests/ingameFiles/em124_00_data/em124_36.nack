@@ -1,7 +1,7 @@
 importactions Velkhana as velkhana
 importlibrary Global as Global
 
-def node_000 : 7
+def node_000
 	>> node_001 
 	>> Global.node_381 
 	if self.flying() 
@@ -14,7 +14,7 @@ def node_000 : 7
 	reset 
 endf 
 
-def node_001 : 86
+def node_001
 	if self.target_on_part(0) 
 		>> node_002 
 	elif self.target_on_part(1) 
@@ -24,20 +24,20 @@ def node_001 : 86
 	return 
 endf 
 
-def node_002 : 87
+def node_002
 	>> Global.node_047 
 	>> node_004 
 	reset 
 endf 
 
-def node_003 : 82
+def node_003
 	random (50) >> Global.node_363 
 	elser (50) 
 	endr 
 	return 
 endf 
 
-def node_004 : 83
+def node_004
 	if self.mounted() 
 		>> node_005 
 	else 
@@ -46,7 +46,7 @@ def node_004 : 83
 	return 
 endf 
 
-def node_005 : 84
+def node_005
 	>> Global.node_351 
 	if self.target_on_part(0) 
 		>> Global.node_352 
@@ -56,7 +56,7 @@ def node_005 : 84
 	return 
 endf 
 
-def node_006 : 85
+def node_006
 	>> Global.node_351 
 	if self.target_on_part(0) 
 		>> Global.node_353 
@@ -66,7 +66,7 @@ def node_006 : 85
 	return 
 endf 
 
-def node_007 : 90
+def node_007
 	if self.current_quest().is_rank(rank.AT) 
 	else 
 		random (20) >> Global.node_051 
@@ -78,7 +78,7 @@ def node_007 : 90
 	return 
 endf 
 
-def node_008 : 91
+def node_008
 	if self.current_quest().is_rank(rank.AT) 
 		if self.flying() 
 			>> Global.node_096 

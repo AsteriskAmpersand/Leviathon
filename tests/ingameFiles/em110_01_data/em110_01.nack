@@ -1,7 +1,7 @@
 importactions Nightshade_Paolumu as nightshade_paolumu
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	>> Global.node_101 
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.target(10) 
@@ -27,7 +27,7 @@ def node_000 : 1
 	reset 
 endf 
 
-def node_001 : 14
+def node_001
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.target(7) 
 		>> node_003 
@@ -39,7 +39,7 @@ def node_001 : 14
 	return 
 endf 
 
-def node_002 : 15
+def node_002
 	if self.angle_2d_cw_between(60,300) 
 		>> Global.node_215 
 	else 
@@ -54,7 +54,7 @@ def node_002 : 15
 	return 
 endf 
 
-def node_003 : 16
+def node_003
 	if self.distance_3d_to_target().leq(100) 
 		>> Global.node_100 @ comboSetting:2, unkn6:65536 
 	else 
@@ -67,7 +67,7 @@ def node_003 : 16
 	return 
 endf 
 
-def node_004 : 17
+def node_004
 	if self.distance_3d_to_target().leq(550) 
 		>> Global.node_100 @ comboSetting:2, unkn6:65536 
 	else 
@@ -80,53 +80,53 @@ def node_004 : 17
 	return 
 endf 
 
-def node_005 : 2
+def node_005
 	>> node_001 
 	return 
 endf 
 
-def node_006 : 3
+def node_006
 	>> node_014 
 	return 
 endf 
 
-def node_007 : 4
+def node_007
 	random (70) >> node_014 
 	elser (30) >> node_015 
 	endr 
 	return 
 endf 
 
-def node_008 : 5
+def node_008
 	>> node_001 
 	return 
 endf 
 
-def node_009 : 6
+def node_009
 	>> node_014 
 	return 
 endf 
 
-def node_010 : 7
+def node_010
 	random (30) >> node_014 
 	elser (70) >> node_015 
 	endr 
 	return 
 endf 
 
-def node_011 : 8
+def node_011
 	>> node_001 
 	return 
 endf 
 
-def node_012 : 9
+def node_012
 	random (80) >> node_014 
 	elser (20) >> Global.node_123 
 	endr 
 	return 
 endf 
 
-def node_013 : 10
+def node_013
 	random (70) >> node_014 
 	elser (10) >> node_016 
 	elser (20) >> Global.node_123 
@@ -134,7 +134,7 @@ def node_013 : 10
 	return 
 endf 
 
-def node_014 : 11
+def node_014
 	if function#101(1) 
 		>> Global.node_119 
 		self.targetArea(4) 
@@ -148,7 +148,7 @@ def node_014 : 11
 	return 
 endf 
 
-def node_015 : 12
+def node_015
 	if function#101(1) 
 		>> Global.node_119 
 		self.targetArea(6) 
@@ -162,14 +162,14 @@ def node_015 : 12
 	return 
 endf 
 
-def node_016 : 13
+def node_016
 	self.targetArea(21) @ parameter2:1000 
 	>> Global.node_096 @ unkn6:65536 
 	>> node_018 
 	return 
 endf 
 
-def node_017 : 18
+def node_017
 	if self.enraged() 
 		-> nightshade_paolumu.walk(1,5,0,600) @ comboSetting:2, unkn6:65536 
 	else 
@@ -188,7 +188,7 @@ def node_017 : 18
 	return 
 endf 
 
-def node_018 : 20
+def node_018
 	>> Global.node_006 
 	if self.enraged() 
 		-> nightshade_paolumu.half_lost_search_front() @ unkn6:65536 
@@ -198,7 +198,7 @@ def node_018 : 20
 	return 
 endf 
 
-def node_019 : 21
+def node_019
 	>> Global.node_006 
 	if self.enraged() 
 		-> nightshade_paolumu.sniff_s() @ unkn6:65536 
@@ -208,7 +208,7 @@ def node_019 : 21
 	return 
 endf 
 
-def node_020 : 22
+def node_020
 	>> Global.node_006 
 	if self.enraged() 
 		-> nightshade_paolumu.sniff_l() @ unkn6:65536 

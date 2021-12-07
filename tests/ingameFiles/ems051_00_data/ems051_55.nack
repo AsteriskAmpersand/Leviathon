@@ -1,10 +1,10 @@
 importactions KestodonM as kestodonm
 
-def node_000 : 7
+def node_000
 	conclude 
 endf 
 
-def node_001 : 30
+def node_001
 	if self.angle_2d_cw_between(30,330) 
 		-> action#02() 
 	else 
@@ -12,7 +12,7 @@ def node_001 : 30
 	return 
 endf 
 
-def node_002 : 35
+def node_002
 	if self.angle_2d_cw_between(30,330) 
 		-> action#03() 
 	else 
@@ -20,7 +20,7 @@ def node_002 : 35
 	return 
 endf 
 
-def node_003 : 56
+def node_003
 	if self.angle_2d_cw_between(15,345) 
 		-> action#03() 
 	else 
@@ -28,12 +28,12 @@ def node_003 : 56
 	return 
 endf 
 
-def node_004 : 36
+def node_004
 	-> action#22() 
 	return 
 endf 
 
-def node_005 : 28
+def node_005
 	if function#51(0,2000) 
 		if self.distance_3d_recalc_to_target().leq(500) 
 			>> node_002 
@@ -52,7 +52,7 @@ def node_005 : 28
 	return 
 endf 
 
-def node_006 : 32
+def node_006
 	self.targetUnknown(1,0) 
 	if self.target(3) 
 		>> node_002 
@@ -65,7 +65,7 @@ def node_006 : 32
 	return 
 endf 
 
-def node_007 : 33
+def node_007
 	self.targetUnknown(1,0) 
 	if self.target(10) 
 		>> node_002 
@@ -79,7 +79,7 @@ def node_007 : 33
 	return 
 endf 
 
-def node_008 : 37
+def node_008
 	if self.targetEnemy(33) 
 		if self.distance_2d_to_target().leq(3000) 
 			>> node_002 
@@ -96,7 +96,7 @@ def node_008 : 37
 	return 
 endf 
 
-def node_009 : 47
+def node_009
 	if function#31(40,1500) 
 		self.targetEnemy(target_em.closest_entity) 
 		>> node_002 
@@ -107,7 +107,7 @@ def node_009 : 47
 	return 
 endf 
 
-def node_010 : 49
+def node_010
 	if function#31(46,5000) 
 		self.targetEnemy(target_em.closest_entity) 
 		if self.target(13) 
@@ -128,7 +128,7 @@ def node_010 : 49
 	return 
 endf 
 
-def node_011 : 57
+def node_011
 	self.targetUnknown(1,0) 
 	if self.target(46) 
 		>> node_002 
@@ -142,7 +142,7 @@ def node_011 : 57
 	return 
 endf 
 
-def node_012 : 58
+def node_012
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.target(0) 
 		if self.distance_2d_to_target().leq(1000) 
@@ -156,7 +156,7 @@ def node_012 : 58
 	return 
 endf 
 
-def node_013 : 60
+def node_013
 	if self.target(0) 
 		if self.distance_2d_to_target().leq(1000) 
 		else 
@@ -174,7 +174,7 @@ def node_013 : 60
 	return 
 endf 
 
-def node_014 : 62
+def node_014
 	if self.target(48) 
 		>> node_024 
 		reset 
@@ -183,7 +183,7 @@ def node_014 : 62
 	return 
 endf 
 
-def node_015 : 38
+def node_015
 	if function#3A() 
 		self.targetEnemy(target_em.random_player_or_cat) 
 		>> node_002 
@@ -197,12 +197,12 @@ def node_015 : 38
 	return 
 endf 
 
-def node_016 : 39
+def node_016
 	-> action#09(6,0,0,500) 
 	return 
 endf 
 
-def node_017 : 53
+def node_017
 	-> action#09(2,6,0,500,500) 
 	if self.distance_2d_to_target().leq(500) 
 	else 
@@ -211,7 +211,7 @@ def node_017 : 53
 	return 
 endf 
 
-def node_018 : 54
+def node_018
 	-> action#09(2,1,0,500,500) 
 	if self.distance_3d_to_target().leq(500) 
 	else 
@@ -220,17 +220,17 @@ def node_018 : 54
 	return 
 endf 
 
-def node_019 : 40
+def node_019
 	-> action#09(2,6,0,500,500) 
 	return 
 endf 
 
-def node_020 : 46
+def node_020
 	-> action#09(2,1,0,500,500) 
 	return 
 endf 
 
-def node_021 : 61
+def node_021
 	if self.distance_2d_to_target().leq(600) 
 	else 
 		-> action#09(2,6,0,500,500) 
@@ -294,19 +294,19 @@ def node_021 : 61
 	return 
 endf 
 
-def node_022 : 41
+def node_022
 	>> node_003 
 	-> action#16() 
 	return 
 endf 
 
-def node_023 : 43
+def node_023
 	>> node_003 
 	-> action#14() 
 	return 
 endf 
 
-def node_024 : 48
+def node_024
 	>> node_002 
 	random (40) -> action#19() 
 	elser (30) -> action#1B() 
@@ -315,7 +315,7 @@ def node_024 : 48
 	return 
 endf 
 
-def node_025 : 50
+def node_025
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.distance_2d_to_target().leq(1500) 
 		>> node_002 
@@ -326,7 +326,7 @@ def node_025 : 50
 	return 
 endf 
 
-def node_026 : 51
+def node_026
 	>> node_002 
 	random (40) -> action#19() 
 	elser (10) -> action#0A() 
@@ -336,12 +336,12 @@ def node_026 : 51
 	return 
 endf 
 
-def node_027 : 52
+def node_027
 	-> action#12() 
 	return 
 endf 
 
-def node_028 : 55
+def node_028
 	random (34) -> action#1D() 
 	elser (33) -> action#1E() 
 	elser (33) -> action#1F() 

@@ -1,14 +1,14 @@
 importactions Acidic_Glavenus as acidic_glavenus
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	>> Global.node_022 
 	-> acidic_glavenus.search() 
 	>> node_001 
 	conclude 
 endf 
 
-def node_001 : 54
+def node_001
 	>> node_003 
 	self.targetEnemy(34) 
 	if self.distance_3d_to_target().leq(1000) 
@@ -27,7 +27,7 @@ def node_001 : 54
 	return 
 endf 
 
-def node_002 : 55
+def node_002
 	if self.target_is(em.Aptonoth) 
 		-> acidic_glavenus.fox_walk(1,0,0,700) @ unkn6:65536 
 	else 
@@ -36,7 +36,7 @@ def node_002 : 55
 	return 
 endf 
 
-def node_003 : 56
+def node_003
 	if function#6B(20000) 
 		-> acidic_glavenus.search() 
 		>> node_004 
@@ -46,7 +46,7 @@ def node_003 : 56
 	return 
 endf 
 
-def node_004 : 57
+def node_004
 	self.targetEnemy(26) 
 	if self.distance_3d_to_target().leq(600) 
 	else 
@@ -56,7 +56,7 @@ def node_004 : 57
 	return 
 endf 
 
-def node_005 : 58
+def node_005
 	if self.distance_3d_to_target().leq(300) 
 		-> acidic_glavenus.back_turn() @ unkn6:65536 
 	elif self.angle_2d_cw_between(30,330) 

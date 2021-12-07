@@ -1,7 +1,7 @@
 importactions KuluYaKu as kuluyaku
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	if self.fatigued() 
 		random (50) >> node_017 
 		elser (50) 
@@ -20,44 +20,44 @@ def node_000 : 1
 	reset 
 endf 
 
-def node_001 : 33
+def node_001
 	>> node_025 
-	function#A8() 
+	[$U |-] 
 	self.targetEnemy(target_em.random_player_or_cat) 
-	if function#A9(0,1) 
+	if [$U += 1] 
 		>> node_008 => repeat 
-	elif function#A9(0,2) 
+	elif [$U += 2] 
 		self.target_on_part(0) >> node_003 => repeat 
 		self.target_on_part(1) >> node_004 => repeat 
-	elif function#A9(0,3) 
+	elif [$U += 3] 
 		>> node_005 => repeat 
 	else 
-		function#A8(1) 
+		[$U ++] 
 		self.target_on_part(0) >> node_003 => return 
 		self.target_on_part(1) >> node_004 => return 
 	endif 
 	return 
 endf 
 
-def node_002 : 36
+def node_002
 	>> node_025 
-	function#A8() 
+	[$U |-] 
 	self.targetEnemy(target_em.random_player_or_cat) 
-	if function#A9(0,1) 
+	if [$U += 1] 
 		>> node_008 => repeat 
-	elif function#A9(0,2) 
+	elif [$U += 2] 
 		self.target_on_part(0) >> node_003 => repeat 
 		self.target_on_part(1) >> node_004 => repeat 
-	elif function#A9(0,3) 
+	elif [$U += 3] 
 		>> node_005 => repeat 
 	else 
-		function#A8(1) 
+		[$U ++] 
 		>> node_005 
 	endif 
 	return 
 endf 
 
-def node_003 : 2
+def node_003
 	if self.mounted() 
 		>> node_009 
 	else 
@@ -66,7 +66,7 @@ def node_003 : 2
 	return 
 endf 
 
-def node_004 : 3
+def node_004
 	if self.mounted() 
 		>> node_011 
 	else 
@@ -75,7 +75,7 @@ def node_004 : 3
 	return 
 endf 
 
-def node_005 : 38
+def node_005
 	if self.mounted() 
 		>> node_006 
 	else 
@@ -84,7 +84,7 @@ def node_005 : 38
 	return 
 endf 
 
-def node_006 : 11
+def node_006
 	if function#29() 
 		self.targetArea(7) 
 		>> node_015 
@@ -99,7 +99,7 @@ def node_006 : 11
 	return 
 endf 
 
-def node_007 : 12
+def node_007
 	if function#29() 
 		self.targetArea(7) 
 		>> node_015 
@@ -113,7 +113,7 @@ def node_007 : 12
 	return 
 endf 
 
-def node_008 : 41
+def node_008
 	if self.mounted() 
 		>> node_016 
 	else 
@@ -121,35 +121,35 @@ def node_008 : 41
 	return 
 endf 
 
-def node_009 : 24
+def node_009
 	-> kuluyaku.ride_rage_head() 
 	return 
 endf 
 
-def node_010 : 25
+def node_010
 	>> node_018 
 	-> kuluyaku.ride_rage_crash_head() 
 	return 
 endf 
 
-def node_011 : 26
+def node_011
 	>> node_018 
 	>> Global.node_083 
 	return 
 endf 
 
-def node_012 : 27
+def node_012
 	-> kuluyaku.ride_rage_body() 
 	return 
 endf 
 
-def node_013 : 30
+def node_013
 	>> node_018 
 	-> kuluyaku.ride_rage_crash_body_lv2() 
 	return 
 endf 
 
-def node_014 : 45
+def node_014
 	if self.angular_17(330,30) 
 		>> Global.node_071 
 	else 
@@ -158,7 +158,7 @@ def node_014 : 45
 	return 
 endf 
 
-def node_015 : 23
+def node_015
 	if function#101(3) 
 		if self.fatigued() 
 			-> kuluyaku.carry_tired_dash(1,2,0,600,3000) 
@@ -175,7 +175,7 @@ def node_015 : 23
 	return 
 endf 
 
-def node_016 : 37
+def node_016
 	if function#101(3) 
 		-> kuluyaku.carry_wait() 
 	else 
@@ -184,7 +184,7 @@ def node_016 : 37
 	return 
 endf 
 
-def node_017 : 31
+def node_017
 	if function#101(3) 
 		-> kuluyaku.carry_tired() 
 	else 
@@ -193,7 +193,7 @@ def node_017 : 31
 	return 
 endf 
 
-def node_018 : 42
+def node_018
 	random (20) >> node_019 
 	elser (80) >> node_020 
 	endr 
@@ -201,34 +201,34 @@ def node_018 : 42
 	return 
 endf 
 
-def node_019 : 43
+def node_019
 	self.targetEnemy(21) @ parameter2:1000 
 	return 
 endf 
 
-def node_020 : 44
+def node_020
 	self.targetEnemy(22) @ parameter2:1000 
 	return 
 endf 
 
-def node_021 : 17
+def node_021
 	random (48) >> node_022 
 	elser (52) >> node_023 
 	endr 
 	return 
 endf 
 
-def node_022 : 18
+def node_022
 	self.targetEnemy(12) @ parameter2:1000 
 	return 
 endf 
 
-def node_023 : 19
+def node_023
 	self.targetEnemy(11) @ parameter2:1000 
 	return 
 endf 
 
-def node_024 : 32
+def node_024
 	if self.angular_17(300,60) 
 		>> Global.node_070 
 	else 
@@ -236,7 +236,7 @@ def node_024 : 32
 	return 
 endf 
 
-def node_025 : 21
+def node_025
 	if function#3B() 
 		if self.mount_staggered_twice() 
 			>> node_026 
@@ -268,7 +268,7 @@ def node_025 : 21
 	return 
 endf 
 
-def node_026 : 22
+def node_026
 	-> kuluyaku.ride_tired() 
 	return 
 endf 

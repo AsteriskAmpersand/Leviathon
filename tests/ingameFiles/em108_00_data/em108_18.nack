@@ -1,14 +1,14 @@
 importactions Jyuratodus as jyuratodus
 importlibrary Global as Global
 
-def node_000 : 73
+def node_000
 	>> node_001 
 	>> node_004 
 	>> node_007 
 	conclude 
 endf 
 
-def node_001 : 82
+def node_001
 	self.targetEnemy(13) 
 	if function#108() 
 		>> node_003 
@@ -17,7 +17,7 @@ def node_001 : 82
 	return 
 endf 
 
-def node_002 : 79
+def node_002
 	self.targetEnemy(13) 
 	if self.in_combat() 
 	else 
@@ -32,7 +32,7 @@ def node_002 : 79
 	return 
 endf 
 
-def node_003 : 74
+def node_003
 	if function#101() 
 	else 
 		-> jyuratodus.swim_damage_surprise_to_stand() 
@@ -40,7 +40,7 @@ def node_003 : 74
 	conclude 
 endf 
 
-def node_004 : 80
+def node_004
 	self.targetEnemy(13) 
 	if self.target(4) >> node_006 
 	else 
@@ -52,7 +52,7 @@ def node_004 : 80
 	return 
 endf 
 
-def node_005 : 81
+def node_005
 	if self.distance_2d_to_target().leq(1000) 
 		return 
 	else 
@@ -62,14 +62,14 @@ def node_005 : 81
 	return 
 endf 
 
-def node_006 : 83
+def node_006
 	self.targetEnemy(target_em.last_attacker) 
 	>> Global.node_062 
 	>> Global.node_060 
 	return 
 endf 
 
-def node_007 : 78
+def node_007
 	self.targetEnemy(48) 
 	if function#5F() 
 		>> node_008 
@@ -87,19 +87,19 @@ def node_007 : 78
 	return 
 endf 
 
-def node_008 : 76
+def node_008
 	>> Global.node_068 
 	return 
 endf 
 
-def node_009 : 77
+def node_009
 	if function#5F() >> Global.node_068 
 	else >> Global.node_053 
 	endif 
 	return 
 endf 
 
-def node_010 : 84
+def node_010
 	self.targetEnemy(9) @ parameter2:1000 
 	if function#101() >> Global.node_023 
 	else >> Global.node_035 

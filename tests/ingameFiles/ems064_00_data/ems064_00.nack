@@ -1,7 +1,7 @@
 importactions Cortos as cortos
 importlibrary Global as Global
 
-def node_000 : 56
+def node_000
 	function#104() 
 	>> Global.node_009 
 	self.targetEnemy(target_em.random_player_or_cat) 
@@ -16,7 +16,7 @@ def node_000 : 56
 	reset 
 endf 
 
-def node_001 : 57
+def node_001
 	if function#3A() >> Global.node_036 
 	elif self.target(7) >> Global.node_037 
 	elif self.target(20) 
@@ -48,7 +48,7 @@ def node_001 : 57
 	return 
 endf 
 
-def node_002 : 58
+def node_002
 	-> action#1B() 
 	if self.distance_2d_to_target().gt(800) 
 		self.targetEnemy(target_em.random_player_or_cat) 

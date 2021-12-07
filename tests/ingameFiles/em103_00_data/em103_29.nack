@@ -1,7 +1,7 @@
 importactions Nergigante as nergigante
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	if self.in_map(st.Everstream).in_area(-1) 
 		>> node_005 
 	elif self.in_map(st.Great_Ravine).in_area(-1) 
@@ -14,7 +14,7 @@ def node_000 : 1
 	reset 
 endf 
 
-def node_001 : 2
+def node_001
 	self.targetEnemy(48) 
 	if self.in_map(st.Challenge_Arena).in_area(0) 
 		>> node_004 
@@ -32,13 +32,13 @@ def node_001 : 2
 	return 
 endf 
 
-def node_002 : 3
+def node_002
 	>> Global.node_017 
 	>> Global.node_057 
 	return 
 endf 
 
-def node_003 : 4
+def node_003
 	if self.targetEnemy(target_em.any_monster) 
 		random (20) >> Global.node_023 
 		elser (80) 
@@ -52,7 +52,7 @@ def node_003 : 4
 	return 
 endf 
 
-def node_004 : 23
+def node_004
 	>> Global.node_023 
 	random (40) >> Global.node_057 
 	elser (30) >> Global.node_051 
@@ -62,7 +62,7 @@ def node_004 : 23
 	return 
 endf 
 
-def node_005 : 24
+def node_005
 	>> Global.node_062 
 	random (40) >> Global.node_055 
 	elser (25) >> Global.node_029 

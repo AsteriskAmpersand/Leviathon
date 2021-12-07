@@ -1,7 +1,7 @@
 importactions Barroth as barroth
 importlibrary Global as Global
 
-def node_000 : 31
+def node_000
 	if self.current_quest().is_rank(rank.MR) 
 		>> node_001 
 	else 
@@ -10,19 +10,19 @@ def node_000 : 31
 	reset 
 endf 
 
-def node_001 : 27
+def node_001
 	>> node_004 
 	>> node_018 
 	reset 
 endf 
 
-def node_002 : 30
+def node_002
 	>> node_004 
 	>> node_005 
 	reset 
 endf 
 
-def node_003 : 29
+def node_003
 	self.targetEnemy(target_em.random_player_or_cat) 
 	>> Global.node_064 
 	>> Global.node_064 
@@ -31,7 +31,7 @@ def node_003 : 29
 	reset 
 endf 
 
-def node_004 : 28
+def node_004
 	if function#45() 
 	else 
 		>> Global.node_015 
@@ -41,7 +41,7 @@ def node_004 : 28
 	return 
 endf 
 
-def node_005 : 1
+def node_005
 	if self.target(4) 
 		>> Global.node_087 => reset 
 	elif self.target(3) 
@@ -83,7 +83,7 @@ def node_005 : 1
 	reset 
 endf 
 
-def node_006 : 14
+def node_006
 	>> Global.node_055 
 	random (40) >> Global.node_081 
 	elser (25) >> Global.node_079 
@@ -94,7 +94,7 @@ def node_006 : 14
 	return 
 endf 
 
-def node_007 : 15
+def node_007
 	>> Global.node_055 
 	random (25) >> Global.node_079 
 	elser (13) >> Global.node_068 
@@ -106,7 +106,7 @@ def node_007 : 15
 	return 
 endf 
 
-def node_008 : 16
+def node_008
 	>> Global.node_055 
 	random (30) >> Global.node_061 
 	elser (40) >> Global.node_043 
@@ -116,13 +116,13 @@ def node_008 : 16
 	return 
 endf 
 
-def node_009 : 17
+def node_009
 	>> Global.node_055 
 	>> Global.node_044 
 	return 
 endf 
 
-def node_010 : 18
+def node_010
 	>> Global.node_055 
 	random (35) >> Global.node_081 
 	elser (25) >> Global.node_079 
@@ -134,7 +134,7 @@ def node_010 : 18
 	return 
 endf 
 
-def node_011 : 19
+def node_011
 	>> Global.node_055 
 	random (25) >> Global.node_079 
 	elser (13) >> Global.node_068 
@@ -147,17 +147,17 @@ def node_011 : 19
 	return 
 endf 
 
-def node_012 : 20
+def node_012
 	>> node_008 
 	return 
 endf 
 
-def node_013 : 21
+def node_013
 	>> node_009 
 	return 
 endf 
 
-def node_014 : 22
+def node_014
 	>> Global.node_055 
 	random (35) >> Global.node_081 
 	elser (20) >> Global.node_079 
@@ -169,7 +169,7 @@ def node_014 : 22
 	return 
 endf 
 
-def node_015 : 23
+def node_015
 	>> Global.node_055 
 	random (20) >> Global.node_079 
 	elser (10) >> Global.node_068 
@@ -182,17 +182,17 @@ def node_015 : 23
 	return 
 endf 
 
-def node_016 : 24
+def node_016
 	>> node_008 
 	return 
 endf 
 
-def node_017 : 25
+def node_017
 	>> node_009 
 	return 
 endf 
 
-def node_018 : 32
+def node_018
 	if self.target(4) 
 		>> Global.node_087 => reset 
 	elif self.target(3) 
@@ -234,7 +234,7 @@ def node_018 : 32
 	reset 
 endf 
 
-def node_019 : 33
+def node_019
 	>> Global.node_055 
 	random (40) >> Global.node_081 
 	elser (25) >> Global.node_079 
@@ -245,7 +245,7 @@ def node_019 : 33
 	return 
 endf 
 
-def node_020 : 34
+def node_020
 	>> Global.node_055 
 	random (25) >> Global.node_079 
 	elser (13) >> Global.node_068 
@@ -257,7 +257,7 @@ def node_020 : 34
 	return 
 endf 
 
-def node_021 : 35
+def node_021
 	>> Global.node_055 
 	random (30) >> Global.node_061 
 	elser (40) >> Global.node_043 
@@ -267,13 +267,13 @@ def node_021 : 35
 	return 
 endf 
 
-def node_022 : 36
+def node_022
 	>> Global.node_055 
 	>> Global.node_044 
 	return 
 endf 
 
-def node_023 : 37
+def node_023
 	>> Global.node_055 
 	random (35) >> Global.node_081 
 	elser (25) >> Global.node_079 
@@ -285,7 +285,7 @@ def node_023 : 37
 	return 
 endf 
 
-def node_024 : 38
+def node_024
 	>> Global.node_055 
 	random (25) >> Global.node_079 
 	elser (13) >> Global.node_068 
@@ -298,17 +298,17 @@ def node_024 : 38
 	return 
 endf 
 
-def node_025 : 39
+def node_025
 	>> node_021 
 	return 
 endf 
 
-def node_026 : 40
+def node_026
 	>> node_022 
 	return 
 endf 
 
-def node_027 : 41
+def node_027
 	>> Global.node_055 
 	random (35) >> Global.node_081 
 	elser (22) >> Global.node_079 
@@ -320,7 +320,7 @@ def node_027 : 41
 	return 
 endf 
 
-def node_028 : 42
+def node_028
 	>> Global.node_055 
 	random (21) >> Global.node_079 
 	elser (11) >> Global.node_068 
@@ -333,12 +333,12 @@ def node_028 : 42
 	return 
 endf 
 
-def node_029 : 43
+def node_029
 	>> node_021 
 	return 
 endf 
 
-def node_030 : 44
+def node_030
 	>> node_022 
 	return 
 endf 

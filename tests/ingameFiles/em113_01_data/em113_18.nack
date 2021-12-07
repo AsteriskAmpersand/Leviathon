@@ -1,7 +1,7 @@
 importactions Ebony_Odogaron as ebony_odogaron
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	self.targetEnemy(13) 
 	if self.target(4) 
 		>> Global.node_259 
@@ -14,7 +14,7 @@ def node_000 : 1
 	conclude @ comboSetting:256 
 endf 
 
-def node_001 : 11
+def node_001
 	if self.target(10) 
 		>> node_002 
 	else 
@@ -41,7 +41,7 @@ def node_001 : 11
 	return 
 endf 
 
-def node_002 : 13
+def node_002
 	>> Global.node_023 
 	-> ebony_odogaron.killer_bite() 
 	-> ebony_odogaron.to_front_idle() 

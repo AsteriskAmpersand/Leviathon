@@ -1,7 +1,7 @@
 importactions Gastodon as gastodon
 importlibrary Global as Global
 
-def node_000 : 2
+def node_000
 	>> Global.node_005 
 	>> node_003 
 	>> node_001 
@@ -9,7 +9,7 @@ def node_000 : 2
 	reset 
 endf 
 
-def node_001 : 4
+def node_001
 	self.targetEnemy(33) 
 	if self.target(20) 
 	else 
@@ -18,7 +18,7 @@ def node_001 : 4
 	return 
 endf 
 
-def node_002 : 5
+def node_002
 	>> Global.node_002 
 	random (34) -> action#19() 
 	elser (33) -> action#1A() 
@@ -27,7 +27,7 @@ def node_002 : 5
 	return 
 endf 
 
-def node_003 : 6
+def node_003
 	>> node_004 
 	if self.distance_2d_to_target().gt(1000) 
 		>> Global.node_002 
@@ -39,13 +39,13 @@ def node_003 : 6
 	return 
 endf 
 
-def node_004 : 7
+def node_004
 	function#52(34,6) 
 	self.targetArea(target_area.nearest_entrance) 
 	return 
 endf 
 
-def node_005 : 0
+def node_005
 	*&
 	*&
 	*&

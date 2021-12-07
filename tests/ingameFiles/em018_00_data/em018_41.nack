@@ -1,7 +1,7 @@
 importactions Yian_Garuga as yian_garuga
 importlibrary Global as Global
 
-def node_000 : 16
+def node_000
 	self.targetArea(20) 
 	>> node_001 
 	self.targetArea(20) 
@@ -9,7 +9,7 @@ def node_000 : 16
 	conclude 
 endf 
 
-def node_001 : 9
+def node_001
 	if function#AD() 
 		>> node_002 
 	else 
@@ -18,7 +18,7 @@ def node_001 : 9
 	return 
 endf 
 
-def node_002 : 10
+def node_002
 	if self.flying() 
 		>> Global.node_230 
 	else 
@@ -31,14 +31,14 @@ def node_002 : 10
 	return 
 endf 
 
-def node_003 : 11
+def node_003
 	>> node_004 
 	>> node_005 
 	>> node_006 
 	return 
 endf 
 
-def node_004 : 12
+def node_004
 	self.targetArea(target_area.area_aerial_center) 
 	if self.flying() 
 		>> Global.node_221 
@@ -48,7 +48,7 @@ def node_004 : 12
 	return 
 endf 
 
-def node_005 : 13
+def node_005
 	self.targetArea(20) 
 	if self.flying() 
 		self.targetArea(40) 
@@ -64,7 +64,7 @@ def node_005 : 13
 	return 
 endf 
 
-def node_006 : 14
+def node_006
 	if self.flying() 
 		self.targetArea(target_area.area_center) 
 		>> Global.node_001 
@@ -73,7 +73,7 @@ def node_006 : 14
 	return 
 endf 
 
-def node_007 : 15
+def node_007
 	if self.flying() 
 		>> Global.node_224 
 	else 

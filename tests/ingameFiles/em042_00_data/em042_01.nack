@@ -1,7 +1,7 @@
 importactions Barioth as barioth
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	>> Global.node_003 
 	>> Global.node_194 
 	>> node_022 
@@ -24,53 +24,53 @@ def node_000 : 1
 	reset 
 endf 
 
-def node_001 : 2
+def node_001
 	>> node_013 
 	return 
 endf 
 
-def node_002 : 3
+def node_002
 	>> node_010 
 	return 
 endf 
 
-def node_003 : 4
+def node_003
 	random (70) >> node_010 
 	elser (30) >> node_011 
 	endr 
 	return 
 endf 
 
-def node_004 : 5
+def node_004
 	>> node_013 
 	return 
 endf 
 
-def node_005 : 6
+def node_005
 	>> node_010 
 	return 
 endf 
 
-def node_006 : 7
+def node_006
 	random (30) >> node_010 
 	elser (70) >> node_011 
 	endr 
 	return 
 endf 
 
-def node_007 : 8
+def node_007
 	>> node_013 
 	return 
 endf 
 
-def node_008 : 9
+def node_008
 	random (80) >> node_010 
 	elser (20) >> node_018 
 	endr 
 	return 
 endf 
 
-def node_009 : 10
+def node_009
 	random (70) >> node_010 
 	elser (10) >> node_012 
 	elser (20) >> node_018 
@@ -78,28 +78,28 @@ def node_009 : 10
 	return 
 endf 
 
-def node_010 : 11
+def node_010
 	self.targetArea(4) 
 	>> node_020 
 	>> node_017 
 	return 
 endf 
 
-def node_011 : 12
+def node_011
 	self.targetArea(6) 
 	>> node_021 
 	>> node_017 
 	return 
 endf 
 
-def node_012 : 13
+def node_012
 	self.targetArea(21) @ parameter2:1000 
 	-> barioth.walk(2,0,0,1000) 
 	>> node_019 
 	return 
 endf 
 
-def node_013 : 14
+def node_013
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.target(7) 
 		>> node_015 
@@ -111,25 +111,25 @@ def node_013 : 14
 	return 
 endf 
 
-def node_014 : 15
+def node_014
 	>> Global.node_008 
 	>> Global.node_049 
 	return 
 endf 
 
-def node_015 : 16
+def node_015
 	>> Global.node_008 
 	>> Global.node_049 
 	return 
 endf 
 
-def node_016 : 17
+def node_016
 	>> Global.node_008 
 	>> Global.node_107 
 	return 
 endf 
 
-def node_017 : 18
+def node_017
 	if self.enraged() 
 		-> barioth.walk_search(2,1,0,2000,500) 
 	else 
@@ -142,12 +142,12 @@ def node_017 : 18
 	return 
 endf 
 
-def node_018 : 19
+def node_018
 	>> Global.node_027 
 	return 
 endf 
 
-def node_019 : 20
+def node_019
 	if self.enraged() 
 		-> barioth.battle_search() 
 	else 
@@ -156,7 +156,7 @@ def node_019 : 20
 	return 
 endf 
 
-def node_020 : 21
+def node_020
 	if self.enraged() 
 		-> barioth.sniff_s() 
 	else 
@@ -165,7 +165,7 @@ def node_020 : 21
 	return 
 endf 
 
-def node_021 : 22
+def node_021
 	if self.enraged() 
 		-> barioth.sniff_combat_s() 
 	else 
@@ -174,7 +174,7 @@ def node_021 : 22
 	return 
 endf 
 
-def node_022 : 23
+def node_022
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.target(10) 
 		if self.distance_3d_to_target().leq(1500) 

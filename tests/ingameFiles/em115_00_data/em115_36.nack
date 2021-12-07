@@ -1,7 +1,7 @@
 importactions Vaal_Hazak as vaal_hazak
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	>> Global.node_037 
 	>> node_003 
 	self.enraged() >> node_001 => reset 
@@ -10,7 +10,7 @@ def node_000 : 1
 	reset 
 endf 
 
-def node_001 : 2
+def node_001
 	if self.current_quest().is_rank(rank.AT) 
 		random (25) >> Global.node_016 
 		elser (10) >> Global.node_018 
@@ -30,7 +30,7 @@ def node_001 : 2
 	return 
 endf 
 
-def node_002 : 3
+def node_002
 	if self.current_quest().is_rank(rank.AT) 
 		random (25) >> Global.node_016 
 		elser (15) >> Global.node_018 
@@ -50,7 +50,7 @@ def node_002 : 3
 	return 
 endf 
 
-def node_003 : 5
+def node_003
 	if self.target_on_part(0) -> vaal_hazak.ride_tired() 
 		-> vaal_hazak.ride_rage_head() => reset 
 	elif self.target_on_part(1) -> vaal_hazak.ride_tired() 

@@ -1,7 +1,7 @@
 importactions Aptonoth as aptonoth
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	>> node_005 
 	self.targetUnknown(1,0) 
 	if function#3A() 
@@ -18,7 +18,7 @@ def node_000 : 1
 	reset 
 endf 
 
-def node_001 : 5
+def node_001
 	if self.distance_2d_to_target().leq(600) 
 		random (70) -> aptonoth.dash() 
 		elser (20) >> Global.node_007 
@@ -39,7 +39,7 @@ def node_001 : 5
 	return 
 endf 
 
-def node_002 : 9
+def node_002
 	random (25) 
 				-> aptonoth.walk_tired() 
 	elser (20) 
@@ -54,7 +54,7 @@ def node_002 : 9
 	return 
 endf 
 
-def node_003 : 6
+def node_003
 	if self.target(20) 
 		if self.target(10) 
 			>> Global.node_000 
@@ -76,7 +76,7 @@ def node_003 : 6
 	return 
 endf 
 
-def node_004 : 7
+def node_004
 	function#52(50,4) 
 	self.targetArea(target_area.nearest_entrance) 
 	function#54() 
@@ -87,7 +87,7 @@ def node_004 : 7
 	reset 
 endf 
 
-def node_005 : 10
+def node_005
 	if function#51(0,2000) 
 		>> Global.node_006 => reset 
 	else 

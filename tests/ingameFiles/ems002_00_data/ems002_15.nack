@@ -1,7 +1,7 @@
 importactions Apceros as apceros
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	function#54() 
 	>> node_015 
 	>> Global.node_023 
@@ -10,13 +10,13 @@ def node_000 : 1
 	reset 
 endf 
 
-def node_001 : 2
+def node_001
 	>> node_003 
 	>> node_016 
 	return 
 endf 
 
-def node_002 : 3
+def node_002
 	if function#5A() 
 		>> node_004 
 	elif function#5A(1) 
@@ -33,13 +33,13 @@ def node_002 : 3
 	return 
 endf 
 
-def node_003 : 18
+def node_003
 	function#52() 
 	self.targetArea(target_area.nearest_entrance) @ unkn3:2097152, unkn12:4, unknExtra1:700 
 	return 
 endf 
 
-def node_004 : 6
+def node_004
 	if function#3C() 
 		>> node_009 
 	else 
@@ -48,7 +48,7 @@ def node_004 : 6
 	return 
 endf 
 
-def node_005 : 7
+def node_005
 	if function#3C() 
 		>> node_009 
 	else 
@@ -57,7 +57,7 @@ def node_005 : 7
 	return 
 endf 
 
-def node_006 : 5
+def node_006
 	if function#3C() 
 		>> node_010 
 	else 
@@ -66,7 +66,7 @@ def node_006 : 5
 	return 
 endf 
 
-def node_007 : 15
+def node_007
 	if function#3C() 
 		>> node_009 
 	else 
@@ -75,18 +75,18 @@ def node_007 : 15
 	return 
 endf 
 
-def node_008 : 20
+def node_008
 	>> node_013 
 	return 
 endf 
 
-def node_009 : 11
+def node_009
 	-> apceros.glide_combat_no_directmove() 
 	-> apceros.glide_combat_only_groundnavi() 
 	return 
 endf 
 
-def node_010 : 12
+def node_010
 	self.targetEnemy(17) 
 	>> Global.node_003 
 	-> apceros.glide_end() 
@@ -94,24 +94,24 @@ def node_010 : 12
 	return 
 endf 
 
-def node_011 : 13
+def node_011
 	-> apceros.glide() 
 	return 
 endf 
 
-def node_012 : 14
+def node_012
 	-> apceros.sudden_rise_from_fly() 
 	return 
 endf 
 
-def node_013 : 19
+def node_013
 	random (50) -> apceros.glide_wall_up() 
 	elser (50) -> apceros.double_floor_up() 
 	endr 
 	return 
 endf 
 
-def node_014 : 16
+def node_014
 	if self.targetEnemy(43) 
 		if self.target(7) 
 		elif self.target(10) 
@@ -124,12 +124,12 @@ def node_014 : 16
 	return 
 endf 
 
-def node_015 : 17
+def node_015
 	>> Global.node_016 
 	return 
 endf 
 
-def node_016 : 21
+def node_016
 	-> apceros.idle_r(2,1,0,700,600) 
 	if self.distance_3d_to_target().gt(700) 
 		repeat 
@@ -138,7 +138,7 @@ def node_016 : 21
 	return 
 endf 
 
-def node_017 : 22
+def node_017
 	-> apceros.idle_fly(2,1,0,700,600) 
 	if self.distance_3d_to_target().gt(700) 
 		repeat 

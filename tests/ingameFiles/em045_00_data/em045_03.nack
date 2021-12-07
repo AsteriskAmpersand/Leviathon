@@ -1,7 +1,7 @@
 importactions Uragaan as uragaan
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	>> Global.node_009 
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.target(7) 
@@ -14,17 +14,17 @@ def node_000 : 1
 	conclude 
 endf 
 
-def node_001 : 2
+def node_001
 	-> uragaan.threat_short() 
 	return 
 endf 
 
-def node_002 : 3
+def node_002
 	-> uragaan.threat_short() 
 	return 
 endf 
 
-def node_003 : 4
+def node_003
 	if self.angle_2d_cw_between(30,330) 
 		-> uragaan.quick_turn() 
 	else 

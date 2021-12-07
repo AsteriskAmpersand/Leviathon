@@ -1,7 +1,7 @@
 importactions Wulg as wulg
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	if function#B0() 
 		if function#110() 
 			>> node_001 
@@ -30,7 +30,7 @@ def node_000 : 1
 	conclude 
 endf 
 
-def node_001 : 10
+def node_001
 	if function#102() 
 		>> node_004 
 		>> node_005 
@@ -45,7 +45,7 @@ def node_001 : 10
 	return 
 endf 
 
-def node_002 : 9
+def node_002
 	if function#3F() 
 		-> wulg.damage_clawgrab_turn_r() 
 	else 
@@ -57,12 +57,12 @@ def node_002 : 9
 	return 
 endf 
 
-def node_003 : 11
+def node_003
 	>> Global.node_072 
 	return 
 endf 
 
-def node_004 : 13
+def node_004
 	if self.target(20) 
 		if self.target(10) 
 			>> node_002 
@@ -80,7 +80,7 @@ def node_004 : 13
 	return 
 endf 
 
-def node_005 : 17
+def node_005
 	if self.distance_2d_to_target().leq(200) 
 		>> node_007 
 		>> node_007 
@@ -98,7 +98,7 @@ def node_005 : 17
 	return 
 endf 
 
-def node_006 : 18
+def node_006
 	if self.distance_3d_to_target().leq(700) 
 	else 
 		-> wulg.die_water_slide(2,6,0,300,600) 
@@ -107,13 +107,13 @@ def node_006 : 18
 	return 
 endf 
 
-def node_007 : 19
+def node_007
 	>> node_008 
 	-> wulg.die_hole_fall() 
 	return 
 endf 
 
-def node_008 : 20
+def node_008
 	if self.angle_2d_cw_between(90,270) 
 		-> wulg.die_down() 
 	else 

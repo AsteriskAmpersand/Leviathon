@@ -1,21 +1,21 @@
 importactions Anteka as anteka
 
-def node_000 : 1
+def node_000
 	>> node_002 
 	>> node_005 
 	conclude 
 endf 
 
-def node_001 : 20
+def node_001
 endf 
 
-def node_002 : 21
+def node_002
 	function#54() 
 	>> node_003 
 	return 
 endf 
 
-def node_003 : 22
+def node_003
 	function#E4(4) 
 	function#E4(1) 
 	function#E4(2) 
@@ -29,11 +29,11 @@ def node_003 : 22
 	return 
 endf 
 
-def node_004 : 19
+def node_004
 endf 
 
-def node_005 : 18
-	if [RegisterVar2 <= 1] 
+def node_005
+	if [RegisterVar2 -= 1] 
 		>> node_007 
 	else 
 		>> node_008 
@@ -41,29 +41,29 @@ def node_005 : 18
 	return 
 endf 
 
-def node_006 : 16
+def node_006
 endf 
 
-def node_007 : 5
+def node_007
 	self.targetEnemy(48) 
 	>> node_010 
 	return 
 endf 
 
-def node_008 : 15
+def node_008
 	>> node_011 
 	return 
 endf 
 
-def node_009 : 17
+def node_009
 endf 
 
-def node_010 : 7
+def node_010
 	-> action#16() 
 	return 
 endf 
 
-def node_011 : 14
+def node_011
 	-> action#04() 
 	return 
 endf 

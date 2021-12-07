@@ -1,7 +1,7 @@
 importactions Bazelgeuse as bazelgeuse
 importlibrary Global as Global
 
-def node_000 : 43
+def node_000
 	self.targetEnemy(target_em.closest_entity) 
 	>> node_001 
 	if self.target_is(em.Aptonoth) @ parameter2:1 
@@ -18,7 +18,7 @@ def node_000 : 43
 	conclude 
 endf 
 
-def node_001 : 44
+def node_001
 	if self.target_is(em.Aptonoth) @ parameter2:1 
 		>> Global.node_167 
 	elif self.target_is(em.Apceros) @ parameter2:1 
@@ -39,7 +39,7 @@ def node_001 : 44
 	return 
 endf 
 
-def node_002 : 45
+def node_002
 	if self.target_is(em.Aptonoth) 
 		>> node_003 
 	elif self.target_is(em.Apceros) 
@@ -54,7 +54,7 @@ def node_002 : 45
 	return 
 endf 
 
-def node_003 : 46
+def node_003
 	if self.target(22) 
 		if self.target(11) 
 			>> Global.node_052 
@@ -70,7 +70,7 @@ def node_003 : 46
 	return 
 endf 
 
-def node_004 : 47
+def node_004
 	if self.target(21) 
 		>> Global.node_174 
 	else 

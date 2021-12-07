@@ -1,7 +1,7 @@
 importactions Rajang as rajang
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	>> Global.node_104 
 	self.targetEnemy(13) 
 	if self.target(4) 
@@ -14,7 +14,7 @@ def node_000 : 1
 	conclude 
 endf 
 
-def node_001 : 4
+def node_001
 	if self.target(10) 
 		if self.distance_2d_to_target().leq(1000) 
 			return 
@@ -31,7 +31,7 @@ def node_001 : 4
 	return 
 endf 
 
-def node_002 : 5
+def node_002
 	self.targetEnemy(48) 
 	if self.target(10) 
 		>> node_005 
@@ -49,13 +49,13 @@ def node_002 : 5
 	return 
 endf 
 
-def node_003 : 9
+def node_003
 	>> Global.node_172 
 	>> Global.node_170 
 	return 
 endf 
 
-def node_004 : 10
+def node_004
 	if function#5F() 
 		>> Global.node_171 
 	else 
@@ -64,7 +64,7 @@ def node_004 : 10
 	return 
 endf 
 
-def node_005 : 11
+def node_005
 	self.targetEnemy(9) @ parameter2:1000 
 	>> Global.node_112 
 	return 

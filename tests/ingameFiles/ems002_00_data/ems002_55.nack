@@ -1,15 +1,15 @@
 importactions Apceros as apceros
 
-def node_000 : 10
+def node_000
 	conclude 
 endf 
 
-def node_001 : 35
+def node_001
 	-> apceros.landing() 
 	return 
 endf 
 
-def node_002 : 32
+def node_002
 	if self.angle_2d_cw_between(15,345) 
 		-> apceros.landing() 
 	else 
@@ -17,7 +17,7 @@ def node_002 : 32
 	return 
 endf 
 
-def node_003 : 8
+def node_003
 	if self.angle_2d_cw_between(30,330) 
 		-> apceros.landing() 
 	else 
@@ -25,7 +25,7 @@ def node_003 : 8
 	return 
 endf 
 
-def node_004 : 17
+def node_004
 	if self.angle_2d_cw_between(60,300) 
 		-> apceros.landing() 
 	else 
@@ -33,7 +33,7 @@ def node_004 : 17
 	return 
 endf 
 
-def node_005 : 19
+def node_005
 	if self.angle_2d_cw_between(90,270) 
 		-> apceros.landing() 
 	else 
@@ -41,12 +41,12 @@ def node_005 : 19
 	return 
 endf 
 
-def node_006 : 36
+def node_006
 	-> apceros.walk() 
 	return 
 endf 
 
-def node_007 : 37
+def node_007
 	if self.angle_2d_cw_between(10,350) 
 		-> apceros.walk() 
 	else 
@@ -54,7 +54,7 @@ def node_007 : 37
 	return 
 endf 
 
-def node_008 : 39
+def node_008
 	if self.angle_2d_cw_between(30,330) 
 		-> apceros.walk() 
 	else 
@@ -62,7 +62,7 @@ def node_008 : 39
 	return 
 endf 
 
-def node_009 : 5
+def node_009
 	if function#B0() 
 		-> apceros.fox_walk() 
 	elif function#B0(1) 
@@ -75,7 +75,7 @@ def node_009 : 5
 	return 
 endf 
 
-def node_010 : 6
+def node_010
 	if function#B0() 
 		if self.distance_3d_to_target().leq(700) 
 			-> apceros.fox_walk() 
@@ -94,7 +94,7 @@ def node_010 : 6
 	return 
 endf 
 
-def node_011 : 7
+def node_011
 	>> node_003 
 	random (50) -> apceros.glide_wall_up() 
 	elser (50) -> apceros.double_floor_up() 
@@ -102,12 +102,12 @@ def node_011 : 7
 	return 
 endf 
 
-def node_012 : 11
+def node_012
 	-> apceros.dash_no_hit() 
 	return 
 endf 
 
-def node_013 : 14
+def node_013
 	if function#B0() 
 		-> apceros.fox_walk() 
 	elif function#B0(1) 
@@ -120,7 +120,7 @@ def node_013 : 14
 	return 
 endf 
 
-def node_014 : 18
+def node_014
 	if self.targetEnemy(43) 
 		if self.distance_2d_to_target().leq(4000) 
 			>> node_026 
@@ -132,7 +132,7 @@ def node_014 : 18
 	return 
 endf 
 
-def node_015 : 24
+def node_015
 	random (40) >> node_026 
 	elser (30) >> node_027 
 	elser (30) >> node_028 
@@ -140,7 +140,7 @@ def node_015 : 24
 	return 
 endf 
 
-def node_016 : 27
+def node_016
 	if self.targetEnemy(target_em.any_monster) 
 		if self.target_is(em.KuluYaKu) 
 			if self.target(40) 
@@ -155,7 +155,7 @@ def node_016 : 27
 	return 
 endf 
 
-def node_017 : 25
+def node_017
 	if self.distance_2d_to_target().leq(2000) 
 		random (34) >> node_026 
 		elser (33) >> node_003 
@@ -172,7 +172,7 @@ def node_017 : 25
 	return 
 endf 
 
-def node_018 : 29
+def node_018
 	if self.distance_2d_to_target().leq(2000) 
 		random (34) >> node_026 
 		elser (33) >> node_003 
@@ -186,21 +186,21 @@ def node_018 : 29
 	return 
 endf 
 
-def node_019 : 38
+def node_019
 	random (60) >> node_031 
 	elser (40) >> node_032 
 	endr 
 	return 
 endf 
 
-def node_020 : 42
+def node_020
 	random (60) -> apceros.jump_attack_wall_up() 
 	elser (40) -> apceros.short_down_step_fly() 
 	endr 
 	return 
 endf 
 
-def node_021 : 44
+def node_021
 	random (34) >> node_026 
 	elser (33) >> node_027 
 	elser (33) >> node_028 
@@ -208,7 +208,7 @@ def node_021 : 44
 	return 
 endf 
 
-def node_022 : 45
+def node_022
 	random (34) >> node_026 
 	elser (33) >> node_027 
 	elser (33) >> node_028 
@@ -216,7 +216,7 @@ def node_022 : 45
 	return 
 endf 
 
-def node_023 : 9
+def node_023
 	if function#51(0,2000) 
 		if self.distance_3d_recalc_to_target().leq(300) 
 			-> apceros.gate_break() 
@@ -236,68 +236,68 @@ def node_023 : 9
 	return 
 endf 
 
-def node_024 : 13
+def node_024
 	-> apceros.idle_fly(1,0,0,500) 
 	return 
 endf 
 
-def node_025 : 12
+def node_025
 	-> apceros.idle_fly(2,0,0,500) 
 	return 
 endf 
 
-def node_026 : 16
+def node_026
 	-> apceros.fox_walk() 
 	return 
 endf 
 
-def node_027 : 20
+def node_027
 	>> node_003 
 	-> apceros.jump_no_use_navi() 
 	return 
 endf 
 
-def node_028 : 21
+def node_028
 	>> node_003 
 	-> apceros.jump_attack_wall_down() 
 	return 
 endf 
 
-def node_029 : 22
+def node_029
 	>> node_003 
 	-> apceros.short_up_step_fly() 
 	return 
 endf 
 
-def node_030 : 23
+def node_030
 	>> node_003 
 	-> apceros.glide_wall_down() 
 	return 
 endf 
 
-def node_031 : 40
+def node_031
 	>> node_008 
 	-> apceros.jump_attack_wall_up() 
 	return 
 endf 
 
-def node_032 : 41
+def node_032
 	>> node_008 
 	-> apceros.short_down_step_fly() 
 	return 
 endf 
 
-def node_033 : 15
+def node_033
 	-> apceros.dash_tight() 
 	return 
 endf 
 
-def node_034 : 43
+def node_034
 	-> apceros.dash_tunnel() 
 	return 
 endf 
 
-def node_035 : 30
+def node_035
 	if function#B0() 
 		function#74(45,300) 
 	elif function#B0(1) 
@@ -308,7 +308,7 @@ def node_035 : 30
 	return 
 endf 
 
-def node_036 : 31
+def node_036
 	if function#B0() 
 		function#74(105,315) 
 	elif function#B0(1) 
@@ -319,12 +319,12 @@ def node_036 : 31
 	return 
 endf 
 
-def node_037 : 33
+def node_037
 	-> apceros.idle_wait(2,6,0,1000,300) 
 	return 
 endf 
 
-def node_038 : 34
+def node_038
 	-> apceros.idle_wait(6,3,0,100,3) 
 	return 
 endf 

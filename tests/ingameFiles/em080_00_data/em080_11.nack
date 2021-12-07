@@ -1,7 +1,7 @@
 importactions Glavenus as glavenus
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	if function#41() 
 		>> Global.node_020 
 	else 
@@ -24,51 +24,51 @@ def node_000 : 1
 	reset 
 endf 
 
-def node_001 : 2
+def node_001
 	>> node_030 
-	function#A8() 
+	[$U |-] 
 	self.targetEnemy(target_em.random_player_or_cat) 
-	if function#A9(0,1) 
+	if [$U += 1] 
 		self.target_on_part(0) >> node_009 => repeat 
 		self.target_on_part(1) >> node_009 => repeat 
 		self.target_on_part(2) >> node_009 => repeat 
-	elif function#A9(0,2) 
+	elif [$U += 2] 
 		self.target_on_part(0) >> node_003 => repeat 
 		self.target_on_part(1) >> node_004 => repeat 
 		self.target_on_part(2) >> node_005 => repeat 
-	elif function#A9(0,3) 
+	elif [$U += 3] 
 		self.target_on_part(0) >> node_003 => repeat 
 		self.target_on_part(1) >> node_004 => repeat 
 		self.target_on_part(2) >> node_005 => repeat 
 	else 
-		function#A8(1) 
+		[$U ++] 
 		>> node_006 
 	endif 
 	return 
 endf 
 
-def node_002 : 3
+def node_002
 	>> node_030 
-	function#A8() 
+	[$U |-] 
 	self.targetEnemy(target_em.random_player_or_cat) 
-	if function#A9(0,1) 
+	if [$U += 1] 
 		self.target_on_part(0) >> node_009 => repeat 
 		self.target_on_part(1) >> node_009 => repeat 
 		self.target_on_part(2) >> node_009 => repeat 
-	elif function#A9(0,2) 
+	elif [$U += 2] 
 		>> node_006 => repeat 
-	elif function#A9(0,3) 
+	elif [$U += 3] 
 		self.target_on_part(0) >> node_003 => repeat 
 		self.target_on_part(1) >> node_004 => repeat 
 		self.target_on_part(2) >> node_005 => repeat 
 	else 
-		function#A8(1) 
+		[$U ++] 
 		>> node_006 
 	endif 
 	return 
 endf 
 
-def node_003 : 4
+def node_003
 	if self.mounted() 
 		>> node_010 
 	else 
@@ -77,7 +77,7 @@ def node_003 : 4
 	return 
 endf 
 
-def node_004 : 5
+def node_004
 	if self.mounted() 
 		>> node_012 
 	else 
@@ -86,7 +86,7 @@ def node_004 : 5
 	return 
 endf 
 
-def node_005 : 6
+def node_005
 	if self.mounted() 
 		>> node_014 
 	else 
@@ -95,7 +95,7 @@ def node_005 : 6
 	return 
 endf 
 
-def node_006 : 7
+def node_006
 	if self.mounted() 
 		>> node_007 
 	else 
@@ -104,7 +104,7 @@ def node_006 : 7
 	return 
 endf 
 
-def node_007 : 8
+def node_007
 	if function#29() 
 		self.targetArea(7) 
 		>> node_020 
@@ -120,7 +120,7 @@ def node_007 : 8
 	return 
 endf 
 
-def node_008 : 9
+def node_008
 	if function#29() 
 		self.targetArea(7) 
 		>> node_020 
@@ -134,7 +134,7 @@ def node_008 : 9
 	return 
 endf 
 
-def node_009 : 10
+def node_009
 	if self.mounted() 
 		>> node_021 
 	else 
@@ -142,47 +142,47 @@ def node_009 : 10
 	return 
 endf 
 
-def node_010 : 11
+def node_010
 	-> glavenus.ride_rage_head() 
 	return 
 endf 
 
-def node_011 : 12
+def node_011
 	>> node_023 
 	-> glavenus.ride_rage_head() 
 	return 
 endf 
 
-def node_012 : 13
+def node_012
 	>> node_023 
 	-> glavenus.ride_rage_body() 
 	return 
 endf 
 
-def node_013 : 14
+def node_013
 	-> glavenus.ride_rage_body() 
 	return 
 endf 
 
-def node_014 : 15
+def node_014
 	random (50) -> glavenus.ride_rage_tail() 
 	elser (50) -> glavenus.turn_tail_attack_l() 
 	endr 
 	return 
 endf 
 
-def node_015 : 16
+def node_015
 	-> glavenus.ride_rage_tail_lv2() 
 	return 
 endf 
 
-def node_016 : 17
+def node_016
 	>> node_023 
 	-> glavenus.ride_rage_body() 
 	return 
 endf 
 
-def node_017 : 18
+def node_017
 	if self.angular_17(330,30) 
 		-> glavenus.quick_turn() 
 	else 
@@ -191,7 +191,7 @@ def node_017 : 18
 	return 
 endf 
 
-def node_018 : 32
+def node_018
 	if self.angular_17(330,30) 
 		-> glavenus.quick_turn() 
 	else 
@@ -200,7 +200,7 @@ def node_018 : 32
 	return 
 endf 
 
-def node_019 : 19
+def node_019
 	if self.fatigued() 
 		-> glavenus.tired_dash(2,1,0,3000,700) 
 	else 
@@ -209,7 +209,7 @@ def node_019 : 19
 	return 
 endf 
 
-def node_020 : 20
+def node_020
 	if self.distance_3d_to_target().leq(500) 
 		-> glavenus.back_turn() 
 	elif self.distance_3d_to_target().gt(3500) 
@@ -232,17 +232,17 @@ def node_020 : 20
 	return 
 endf 
 
-def node_021 : 21
+def node_021
 	-> glavenus.idle() 
 	return 
 endf 
 
-def node_022 : 22
+def node_022
 	-> glavenus.tired_wait() 
 	return 
 endf 
 
-def node_023 : 23
+def node_023
 	random (20) >> node_024 
 	elser (80) >> node_025 
 	endr 
@@ -250,34 +250,34 @@ def node_023 : 23
 	return 
 endf 
 
-def node_024 : 24
+def node_024
 	self.targetEnemy(21) @ parameter2:1000 
 	return 
 endf 
 
-def node_025 : 25
+def node_025
 	self.targetEnemy(22) @ parameter2:1000 
 	return 
 endf 
 
-def node_026 : 26
+def node_026
 	random (48) >> node_027 
 	elser (52) >> node_028 
 	endr 
 	return 
 endf 
 
-def node_027 : 27
+def node_027
 	self.targetEnemy(12) @ parameter2:1000 
 	return 
 endf 
 
-def node_028 : 28
+def node_028
 	self.targetEnemy(11) @ parameter2:1000 
 	return 
 endf 
 
-def node_029 : 29
+def node_029
 	if self.angular_17(300,60) 
 		-> glavenus.quick_turn() 
 	else 
@@ -285,7 +285,7 @@ def node_029 : 29
 	return 
 endf 
 
-def node_030 : 30
+def node_030
 	if function#3B() 
 		if self.mount_staggered_twice() 
 			>> node_031 
@@ -315,7 +315,7 @@ def node_030 : 30
 	return 
 endf 
 
-def node_031 : 31
+def node_031
 	-> glavenus.ride_tired() 
 	return 
 endf 

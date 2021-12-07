@@ -1,58 +1,58 @@
 importactions Velkhana as velkhana
 
-def node_000 : 37
+def node_000
 	conclude 
 endf 
 
-def node_001 : 888
-	[RegisterVar10 |-] 
+def node_001
+	[RegisterVar10 ++] 
 	if self.in_map(st.Elder_Recess).in_area(1) 
 		if function#10F(1500) 
 		else 
-			[RegisterVar10 ++] 
+			[RegisterVar10 |-] 
 		endif 
 	elif self.in_map(st.Elder_Recess).in_area(2) 
 		if function#10F(1250) 
 		else 
-			[RegisterVar10 ++] 
+			[RegisterVar10 |-] 
 		endif 
 	elif self.in_map(st.Elder_Recess).in_area(4) 
 		if function#10F(1750) 
 		else 
-			[RegisterVar10 ++] 
+			[RegisterVar10 |-] 
 		endif 
 	elif self.in_map(st.Elder_Recess).in_area(5) 
 		if function#10F(1500) 
 		else 
-			[RegisterVar10 ++] 
+			[RegisterVar10 |-] 
 		endif 
 	elif self.in_map(st.Elder_Recess).in_area(6) 
 		if function#10F(1250) 
 		else 
-			[RegisterVar10 ++] 
+			[RegisterVar10 |-] 
 		endif 
 	elif self.in_map(st.Elder_Recess).in_area(7) 
 		if function#10F(1500) 
 		else 
-			[RegisterVar10 ++] 
+			[RegisterVar10 |-] 
 		endif 
 	elif self.in_map(st.Elder_Recess).in_area(8) 
 		if function#10F(1825) 
 		else 
-			[RegisterVar10 ++] 
+			[RegisterVar10 |-] 
 		endif 
 	else 
 		if function#10F(1500) 
 		else 
-			[RegisterVar10 ++] 
+			[RegisterVar10 |-] 
 		endif 
 	endif 
 	return 
 endf 
 
-def node_002 : 900
+def node_002
 	>> node_001 
-	if [RegisterVar10 == 0] 
+	if [RegisterVar10 += 0] 
 		random (60) >> node_004 
 		elser (40) >> node_025 
 		endr 
@@ -64,12 +64,12 @@ def node_002 : 900
 	return 
 endf 
 
-def node_003 : 836
+def node_003
 	>> node_001 
 	if self.target(44) 
 		>> node_004 
 	else 
-		if [RegisterVar10 == 0] 
+		if [RegisterVar10 += 0] 
 			random (55) >> node_008 
 			elser (45) >> node_025 
 			endr 
@@ -82,9 +82,9 @@ def node_003 : 836
 	return 
 endf 
 
-def node_004 : 881
+def node_004
 	>> node_001 
-	if [RegisterVar10 == 0] 
+	if [RegisterVar10 += 0] 
 		>> node_005 
 	else 
 		>> node_007 
@@ -92,9 +92,9 @@ def node_004 : 881
 	return 
 endf 
 
-def node_005 : 870
+def node_005
 	>> node_001 
-	if [RegisterVar10 == 0] 
+	if [RegisterVar10 += 0] 
 		>> node_046 
 		if self.distance_2d_to_target().leq(800) 
 			-> velkhana.adjust_bite() @ comboSetting:1 
@@ -130,14 +130,14 @@ def node_005 : 870
 	return 
 endf 
 
-def node_006 : 906
+def node_006
 	>> node_046 
 	-> velkhana.adjust_bite() @ comboSetting:1 
 	-> velkhana.ex_rotate_ice_wall_breath() 
 	return 
 endf 
 
-def node_007 : 831
+def node_007
 	>> node_046 
 	if function#101(2) 
 		if self.distance_2d_to_target().leq(800) 
@@ -155,9 +155,9 @@ def node_007 : 831
 	return 
 endf 
 
-def node_008 : 871
+def node_008
 	>> node_001 
-	if [RegisterVar10 == 0] 
+	if [RegisterVar10 += 0] 
 		>> node_012 
 	else 
 		>> node_009 
@@ -165,12 +165,12 @@ def node_008 : 871
 	return 
 endf 
 
-def node_009 : 869
-	if [RegisterVar9 == 0] 
+def node_009
+	if [RegisterVar9 += 0] 
 		>> node_010 
-	elif [RegisterVar9 == 1] 
+	elif [RegisterVar9 += 1] 
 		>> node_010 
-	elif [RegisterVar9 == 2] 
+	elif [RegisterVar9 += 2] 
 		>> node_011 
 	else 
 		>> node_011 
@@ -198,7 +198,7 @@ def node_009 : 869
 	return 
 endf 
 
-def node_010 : 902
+def node_010
 	>> node_044 
 	>> node_046 
 	if self.distance_2d_to_target().leq(1300) 
@@ -212,7 +212,7 @@ def node_010 : 902
 	return 
 endf 
 
-def node_011 : 903
+def node_011
 	>> node_045 
 	>> node_046 
 	if self.distance_2d_to_target().leq(1300) 
@@ -226,12 +226,12 @@ def node_011 : 903
 	return 
 endf 
 
-def node_012 : 849
-	if [RegisterVar9 == 0] 
+def node_012
+	if [RegisterVar9 += 0] 
 		>> node_013 
-	elif [RegisterVar9 == 1] 
+	elif [RegisterVar9 += 1] 
 		>> node_013 
-	elif [RegisterVar9 == 2] 
+	elif [RegisterVar9 += 2] 
 		>> node_014 
 	else 
 		>> node_014 
@@ -253,7 +253,7 @@ def node_012 : 849
 	return 
 endf 
 
-def node_013 : 904
+def node_013
 	>> node_044 
 	>> node_046 
 	-> velkhana.rush5() @ comboSetting:1 
@@ -262,7 +262,7 @@ def node_013 : 904
 	return 
 endf 
 
-def node_014 : 905
+def node_014
 	>> node_045 
 	>> node_046 
 	if self.distance_2d_to_target().leq(1300) 
@@ -275,7 +275,7 @@ def node_014 : 905
 	return 
 endf 
 
-def node_015 : 901
+def node_015
 	>> node_046 
 	-> velkhana.rush3() @ comboSetting:1 
 	-> velkhana.adjust_bite() @ comboSetting:1 
@@ -283,7 +283,7 @@ def node_015 : 901
 	return 
 endf 
 
-def node_016 : 840
+def node_016
 	if function#10F(750) 
 		random (50) >> node_021 
 		elser (50) >> node_023 
@@ -302,7 +302,7 @@ def node_016 : 840
 	return 
 endf 
 
-def node_017 : 855
+def node_017
 	if self.angle_2d_cw_between(315,45) 
 		>> node_021 
 	elif self.angle_2d_cw_between(135,225) 
@@ -319,7 +319,7 @@ def node_017 : 855
 	return 
 endf 
 
-def node_018 : 856
+def node_018
 	if self.angle_2d_cw_between(315,45) 
 		>> node_023 
 	elif self.angle_2d_cw_between(135,225) 
@@ -336,7 +336,7 @@ def node_018 : 856
 	return 
 endf 
 
-def node_019 : 857
+def node_019
 	if self.angle_2d_cw_between(315,45) 
 		random (50) >> node_021 
 		elser (50) >> node_023 
@@ -353,7 +353,7 @@ def node_019 : 857
 	return 
 endf 
 
-def node_020 : 858
+def node_020
 	if self.angle_2d_cw_between(315,45) 
 		random (50) >> node_021 
 		elser (50) >> node_023 
@@ -370,21 +370,21 @@ def node_020 : 858
 	return 
 endf 
 
-def node_021 : 838
+def node_021
 	>> node_046 
 	-> velkhana.rush4() @ comboSetting:1 
 	-> velkhana.adjust_bite() 
 	return 
 endf 
 
-def node_022 : 897
+def node_022
 	>> node_046 
 	-> velkhana.rush3() @ comboSetting:1 
 	-> velkhana.adjust_bite() 
 	return 
 endf 
 
-def node_023 : 886
+def node_023
 	>> node_046 
 	if self.distance_2d_to_target().leq(1300) 
 	else 
@@ -395,7 +395,7 @@ def node_023 : 886
 	return 
 endf 
 
-def node_024 : 854
+def node_024
 	>> node_046 
 	if self.distance_2d_to_target().leq(1300) 
 	else 
@@ -405,12 +405,12 @@ def node_024 : 854
 	return 
 endf 
 
-def node_025 : 837
+def node_025
 	>> node_001 
-	if [RegisterVar10 == 0] 
+	if [RegisterVar10 += 0] 
 		>> node_029 
 	else 
-		if [RegisterVar7 == 1] 
+		if [RegisterVar7 += 1] 
 			>> node_029 
 		else 
 			>> node_026 
@@ -419,7 +419,7 @@ def node_025 : 837
 	return 
 endf 
 
-def node_026 : 850
+def node_026
 	>> node_046 
 	if function#111() 
 		function#111() 
@@ -433,7 +433,7 @@ def node_026 : 850
 	return 
 endf 
 
-def node_027 : 898
+def node_027
 	>> node_046 
 	if function#111() 
 		function#111() 
@@ -447,7 +447,7 @@ def node_027 : 898
 	return 
 endf 
 
-def node_028 : 899
+def node_028
 	>> node_046 
 	if function#111() 
 		function#111() 
@@ -462,7 +462,7 @@ def node_028 : 899
 	return 
 endf 
 
-def node_029 : 795
+def node_029
 	>> node_046 
 	if self.distance_2d_to_target().leq(1300) 
 	else 
@@ -477,13 +477,13 @@ def node_029 : 795
 	return 
 endf 
 
-def node_030 : 832
+def node_030
 	>> node_046 
 	>> node_069 
 	return 
 endf 
 
-def node_031 : 833
+def node_031
 	>> node_046 
 	if self.target(44) 
 		random (50) >> node_080 
@@ -494,16 +494,16 @@ def node_031 : 833
 		else 
 			>> node_233 
 		endif 
+		[RegisterVar7 ++] 
 		[RegisterVar7 |-] 
-		[RegisterVar7 ++] 
-		[RegisterVar7 ++] 
+		[RegisterVar7 |-] 
 		>> node_085 
 		>> node_142 
 	endif 
 	return 
 endf 
 
-def node_032 : 887
+def node_032
 	>> node_046 
 	if self.distance_2d_to_target().leq(2200) 
 	else 
@@ -513,9 +513,9 @@ def node_032 : 887
 	return 
 endf 
 
-def node_033 : 809
-	if [RegisterVar7 == 1] 
-		[RegisterVar7 |-] 
+def node_033
+	if [RegisterVar7 += 1] 
+		[RegisterVar7 ++] 
 		if self.distance_2d_to_target().leq(1300) 
 			>> node_035 
 		else 
@@ -527,9 +527,9 @@ def node_033 : 809
 	return 
 endf 
 
-def node_034 : 811
-	if [RegisterVar7 == 1] 
-		[RegisterVar7 |-] 
+def node_034
+	if [RegisterVar7 += 1] 
+		[RegisterVar7 ++] 
 		if self.distance_2d_to_target().leq(1600) 
 			>> node_035 
 		else 
@@ -541,7 +541,7 @@ def node_034 : 811
 	return 
 endf 
 
-def node_035 : 812
+def node_035
 	if function#101() 
 		if self.distance_2d_to_target().leq(1000) 
 			random (35) >> node_058 
@@ -584,12 +584,12 @@ def node_035 : 812
 	return 
 endf 
 
-def node_036 : 851
-	if [RegisterVar9 == 0] 
+def node_036
+	if [RegisterVar9 += 0] 
 		>> node_037 
-	elif [RegisterVar9 == 1] 
+	elif [RegisterVar9 += 1] 
 		>> node_038 
-	elif [RegisterVar9 == 2] 
+	elif [RegisterVar9 += 2] 
 		>> node_037 
 	else 
 		>> node_038 
@@ -597,7 +597,7 @@ def node_036 : 851
 	return 
 endf 
 
-def node_037 : 794
+def node_037
 	>> node_046 
 	if self.distance_2d_to_target().leq(1000) 
 	else 
@@ -609,7 +609,7 @@ def node_037 : 794
 	return 
 endf 
 
-def node_038 : 796
+def node_038
 	>> node_046 
 	if self.target(44) 
 		random (50) >> node_080 
@@ -623,9 +623,9 @@ def node_038 : 796
 		>> node_043 
 		-> velkhana.ex_tail_swing_halt() 
 		if self.distance_2d_to_target().leq(850) 
+			[RegisterVar7 ++] 
 			[RegisterVar7 |-] 
-			[RegisterVar7 ++] 
-			[RegisterVar7 ++] 
+			[RegisterVar7 |-] 
 			-> velkhana.freeze_breath() 
 			>> node_086 
 			>> node_142 
@@ -637,15 +637,15 @@ def node_038 : 796
 	return 
 endf 
 
-def node_039 : 802
+def node_039
 	if self.target(44) 
 		>> node_036 
 	else 
-		if [RegisterVar9 == 0] 
+		if [RegisterVar9 += 0] 
 			>> node_040 
-		elif [RegisterVar9 == 1] 
+		elif [RegisterVar9 += 1] 
 			>> node_041 
-		elif [RegisterVar9 == 2] 
+		elif [RegisterVar9 += 2] 
 			>> node_040 
 		else 
 			>> node_041 
@@ -654,7 +654,7 @@ def node_039 : 802
 	return 
 endf 
 
-def node_040 : 798
+def node_040
 	>> node_046 
 	if self.distance_2d_to_target().leq(250) 
 	elif self.distance_2d_to_target().leq(800) 
@@ -668,7 +668,7 @@ def node_040 : 798
 	return 
 endf 
 
-def node_041 : 797
+def node_041
 	>> node_046 
 	if self.target(44) 
 		random (100) >> node_080 
@@ -684,9 +684,9 @@ def node_041 : 797
 		-> velkhana.tail_sting() @ comboSetting:1 
 		-> velkhana.ex_combo_tail_swing_halt() 
 		if self.distance_2d_to_target().leq(850) 
+			[RegisterVar7 ++] 
 			[RegisterVar7 |-] 
-			[RegisterVar7 ++] 
-			[RegisterVar7 ++] 
+			[RegisterVar7 |-] 
 			-> velkhana.freeze_breath() 
 			>> node_086 
 			>> node_142 
@@ -698,64 +698,64 @@ def node_041 : 797
 	return 
 endf 
 
-def node_042 : 846
-	if [RegisterVar9 == 0] 
-		[RegisterVar9 ++] 
-	elif [RegisterVar9 == 1] 
-	elif [RegisterVar9 == 2] 
-		[RegisterVar9 ++] 
-	elif [RegisterVar9 == 3] 
-	else 
+def node_042
+	if [RegisterVar9 += 0] 
 		[RegisterVar9 |-] 
+	elif [RegisterVar9 += 1] 
+	elif [RegisterVar9 += 2] 
+		[RegisterVar9 |-] 
+	elif [RegisterVar9 += 3] 
+	else 
+		[RegisterVar9 ++] 
 	endif 
 	return 
 endf 
 
-def node_043 : 845
-	if [RegisterVar9 == 0] 
-	elif [RegisterVar9 == 1] 
-		[RegisterVar9 |-] 
-	elif [RegisterVar9 == 2] 
-	elif [RegisterVar9 == 3] 
-		[RegisterVar9 |-] 
+def node_043
+	if [RegisterVar9 += 0] 
+	elif [RegisterVar9 += 1] 
 		[RegisterVar9 ++] 
+	elif [RegisterVar9 += 2] 
+	elif [RegisterVar9 += 3] 
 		[RegisterVar9 ++] 
+		[RegisterVar9 |-] 
+		[RegisterVar9 |-] 
 	else 
-		[RegisterVar9 |-] 
+		[RegisterVar9 ++] 
 	endif 
 	return 
 endf 
 
-def node_044 : 848
-	if [RegisterVar9 == 0] 
-		[RegisterVar9 ++] 
-		[RegisterVar9 ++] 
-	elif [RegisterVar9 == 1] 
-		[RegisterVar9 ++] 
-		[RegisterVar9 ++] 
-	elif [RegisterVar9 == 2] 
-	elif [RegisterVar9 == 3] 
-	else 
+def node_044
+	if [RegisterVar9 += 0] 
 		[RegisterVar9 |-] 
+		[RegisterVar9 |-] 
+	elif [RegisterVar9 += 1] 
+		[RegisterVar9 |-] 
+		[RegisterVar9 |-] 
+	elif [RegisterVar9 += 2] 
+	elif [RegisterVar9 += 3] 
+	else 
+		[RegisterVar9 ++] 
 	endif 
 	return 
 endf 
 
-def node_045 : 847
-	if [RegisterVar9 == 0] 
-	elif [RegisterVar9 == 1] 
-	elif [RegisterVar9 == 2] 
-		[RegisterVar9 |-] 
-	elif [RegisterVar9 == 3] 
-		[RegisterVar9 |-] 
+def node_045
+	if [RegisterVar9 += 0] 
+	elif [RegisterVar9 += 1] 
+	elif [RegisterVar9 += 2] 
 		[RegisterVar9 ++] 
-	else 
+	elif [RegisterVar9 += 3] 
+		[RegisterVar9 ++] 
 		[RegisterVar9 |-] 
+	else 
+		[RegisterVar9 ++] 
 	endif 
 	return 
 endf 
 
-def node_046 : 222
+def node_046
 	if self.flying() 
 		if function#AF(5000) 
 			-> velkhana.landing() 
@@ -767,7 +767,7 @@ def node_046 : 222
 	return 
 endf 
 
-def node_047 : 223
+def node_047
 	if self.flying() 
 	else 
 		-> velkhana.take_off() 
@@ -775,7 +775,7 @@ def node_047 : 223
 	return 
 endf 
 
-def node_048 : 411
+def node_048
 	self.targetArea(target_area.area_aerial_center) 
 	>> node_253 
 	self.targetArea(target_area.area_center) 
@@ -783,25 +783,25 @@ def node_048 : 411
 	return 
 endf 
 
-def node_049 : 558
+def node_049
 	>> node_046 
 	-> velkhana.adjust_bite() 
 	return 
 endf 
 
-def node_050 : 586
+def node_050
 	>> node_046 
 	-> velkhana.rush() 
 	return 
 endf 
 
-def node_051 : 632
+def node_051
 	>> node_046 
 	-> velkhana.rush_2() 
 	return 
 endf 
 
-def node_052 : 613
+def node_052
 	if self.distance_2d_to_target().leq(1500) 
 		>> node_050 
 	elif self.distance_2d_to_target().leq(2000) 
@@ -811,19 +811,19 @@ def node_052 : 613
 	return 
 endf 
 
-def node_053 : 590
+def node_053
 	>> node_046 
 	-> velkhana.back_step_pierce() 
 	return 
 endf 
 
-def node_054 : 633
+def node_054
 	>> node_046 
 	-> velkhana.back_step_pierce_2() 
 	return 
 endf 
 
-def node_055 : 614
+def node_055
 	if self.distance_2d_to_target().leq(1300) 
 		>> node_053 
 	elif self.distance_2d_to_target().leq(2000) 
@@ -833,7 +833,7 @@ def node_055 : 614
 	return 
 endf 
 
-def node_056 : 559
+def node_056
 	>> node_046 
 	if self.distance_2d_to_target().leq(250) 
 	elif self.distance_2d_to_target().leq(800) 
@@ -844,7 +844,7 @@ def node_056 : 559
 	return 
 endf 
 
-def node_057 : 698
+def node_057
 	>> node_046 
 	if self.distance_2d_to_target().leq(900) 
 	else 
@@ -854,7 +854,7 @@ def node_057 : 698
 	return 
 endf 
 
-def node_058 : 562
+def node_058
 	>> node_046 
 	if self.distance_2d_to_target().leq(1300) 
 	else 
@@ -864,7 +864,7 @@ def node_058 : 562
 	return 
 endf 
 
-def node_059 : 560
+def node_059
 	>> node_046 
 	if self.distance_2d_to_target().leq(250) 
 	elif self.distance_2d_to_target().leq(800) 
@@ -876,7 +876,7 @@ def node_059 : 560
 	return 
 endf 
 
-def node_060 : 699
+def node_060
 	>> node_046 
 	if self.distance_2d_to_target().leq(250) 
 	elif self.distance_2d_to_target().leq(800) 
@@ -888,7 +888,7 @@ def node_060 : 699
 	return 
 endf 
 
-def node_061 : 561
+def node_061
 	>> node_046 
 	if self.distance_2d_to_target().leq(250) 
 	elif self.distance_2d_to_target().leq(800) 
@@ -900,7 +900,7 @@ def node_061 : 561
 	return 
 endf 
 
-def node_062 : 563
+def node_062
 	>> node_046 
 	if self.distance_2d_to_target().leq(250) 
 	elif self.distance_2d_to_target().leq(800) 
@@ -913,7 +913,7 @@ def node_062 : 563
 	return 
 endf 
 
-def node_063 : 700
+def node_063
 	>> node_046 
 	if self.distance_2d_to_target().leq(250) 
 	elif self.distance_2d_to_target().leq(800) 
@@ -926,7 +926,7 @@ def node_063 : 700
 	return 
 endf 
 
-def node_064 : 564
+def node_064
 	>> node_046 
 	if self.distance_2d_to_target().leq(250) 
 	elif self.distance_2d_to_target().leq(800) 
@@ -939,7 +939,7 @@ def node_064 : 564
 	return 
 endf 
 
-def node_065 : 659
+def node_065
 	if self.distance_2d_to_target().leq(900) 
 	else 
 		>> node_233 
@@ -963,7 +963,7 @@ def node_065 : 659
 	return 
 endf 
 
-def node_066 : 701
+def node_066
 	>> node_046 
 	if self.current_quest().is_rank(rank.AT) 
 		-> velkhana.ex_ice_block_breath_to_ground() 
@@ -973,7 +973,7 @@ def node_066 : 701
 	return 
 endf 
 
-def node_067 : 702
+def node_067
 	>> node_046 
 	if self.current_quest().is_rank(rank.AT) 
 		if function#101(2) 
@@ -987,7 +987,7 @@ def node_067 : 702
 	return 
 endf 
 
-def node_068 : 587
+def node_068
 	>> node_046 
 	if self.current_quest().is_rank(rank.AT) 
 		-> velkhana.ex_area_breath() @ comboSetting:1 
@@ -999,7 +999,7 @@ def node_068 : 587
 	return 
 endf 
 
-def node_069 : 600
+def node_069
 	>> node_046 
 	if self.current_quest().is_rank(rank.AT) 
 		-> velkhana.ex_ice_wave_start() 
@@ -1009,7 +1009,7 @@ def node_069 : 600
 	return 
 endf 
 
-def node_070 : 639
+def node_070
 	>> node_046 
 	if self.current_quest().is_rank(rank.AT) 
 		-> velkhana.ex_ice_drop() 
@@ -1019,34 +1019,34 @@ def node_070 : 639
 	return 
 endf 
 
-def node_071 : 565
+def node_071
 	>> node_046 
 	-> velkhana.straight_breath() 
 	return 
 endf 
 
-def node_072 : 634
+def node_072
 	>> node_046 
 	-> velkhana.straight_breath() @ comboSetting:1 
 	-> velkhana.combo_straight_breath() 
 	return 
 endf 
 
-def node_073 : 566
+def node_073
 	>> node_046 
 	-> velkhana.sweep_90_breath() 
-	[RegisterVar4 ++] 
+	[RegisterVar4 |-] 
 	return 
 endf 
 
-def node_074 : 635
+def node_074
 	>> node_046 
 	-> velkhana.sweep_180_breath_turn() 
-	[RegisterVar4 ++] 
+	[RegisterVar4 |-] 
 	return 
 endf 
 
-def node_075 : 567
+def node_075
 	>> node_046 
 	if self.angle_2d_cw_between(315,45) 
 		-> velkhana.sweep_180_breath() 
@@ -1059,11 +1059,11 @@ def node_075 : 567
 	else 
 		-> velkhana.sweep_180_breath_rf() 
 	endif 
-	[RegisterVar4 ++] 
+	[RegisterVar4 |-] 
 	return 
 endf 
 
-def node_076 : 575
+def node_076
 	if self.current_quest().is_rank(rank.AT) 
 		>> node_046 
 		if self.angle_2d_cw_between(0,180) 
@@ -1080,7 +1080,7 @@ def node_076 : 575
 	return 
 endf 
 
-def node_077 : 667
+def node_077
 	if self.current_quest().is_rank(rank.AT) 
 		>> node_046 
 		if self.angle_2d_cw_between(0,180) 
@@ -1099,21 +1099,21 @@ def node_077 : 667
 	return 
 endf 
 
-def node_078 : 576
+def node_078
 	>> node_046 
 	>> node_113 
 	>> node_073 
 	return 
 endf 
 
-def node_079 : 577
+def node_079
 	>> node_046 
 	>> node_113 
 	>> node_074 
 	return 
 endf 
 
-def node_080 : 644
+def node_080
 	if self.target(44) 
 		if self.enraged() 
 			>> node_077 
@@ -1144,7 +1144,7 @@ def node_080 : 644
 	return 
 endf 
 
-def node_081 : 645
+def node_081
 	if self.distance_2d_to_target().leq(1600) 
 		>> node_078 
 	else 
@@ -1153,7 +1153,7 @@ def node_081 : 645
 	return 
 endf 
 
-def node_082 : 646
+def node_082
 	if self.distance_2d_to_target().leq(1600) 
 		>> node_079 
 	else 
@@ -1162,7 +1162,7 @@ def node_082 : 646
 	return 
 endf 
 
-def node_083 : 647
+def node_083
 	if function#101(2) 
 		if self.enraged() 
 			random (20) >> node_082 
@@ -1189,7 +1189,7 @@ def node_083 : 647
 	return 
 endf 
 
-def node_084 : 689
+def node_084
 	if self.current_quest().is_rank(rank.AT) 
 		if function#101(2) 
 			>> node_082 
@@ -1210,7 +1210,7 @@ def node_084 : 689
 	reset 
 endf 
 
-def node_085 : 703
+def node_085
 	>> node_046 
 	if self.target(44) 
 		random (50) >> node_080 
@@ -1228,7 +1228,7 @@ def node_085 : 703
 	return 
 endf 
 
-def node_086 : 704
+def node_086
 	if self.target(57) 
 		-> velkhana.freeze_breath_to_attack() 
 		reset 
@@ -1239,7 +1239,7 @@ def node_086 : 704
 	return 
 endf 
 
-def node_087 : 603
+def node_087
 	>> node_046 
 	if self.distance_2d_to_target().leq(1300) 
 	else 
@@ -1249,7 +1249,7 @@ def node_087 : 603
 	return 
 endf 
 
-def node_088 : 616
+def node_088
 	>> node_046 
 	if self.distance_2d_to_target().leq(900) 
 	else 
@@ -1260,7 +1260,7 @@ def node_088 : 616
 	return 
 endf 
 
-def node_089 : 617
+def node_089
 	>> node_046 
 	if self.distance_2d_to_target().leq(900) 
 	else 
@@ -1272,7 +1272,7 @@ def node_089 : 617
 	return 
 endf 
 
-def node_090 : 660
+def node_090
 	if self.distance_2d_to_target().leq(900) 
 		if self.enraged() 
 			random (100) >> node_087 
@@ -1291,7 +1291,7 @@ def node_090 : 660
 	return 
 endf 
 
-def node_091 : 607
+def node_091
 	>> node_047 
 	if self.angle_2d_cw_between(0,180) 
 		-> velkhana.turn_step_r_fly() 
@@ -1301,37 +1301,37 @@ def node_091 : 607
 	return 
 endf 
 
-def node_092 : 601
+def node_092
 	>> node_047 
 	-> velkhana.fly_tail_sting_fly_start() 
 	return 
 endf 
 
-def node_093 : 602
+def node_093
 	>> node_047 
 	-> velkhana.tail_swing_fly() 
 	return 
 endf 
 
-def node_094 : 568
+def node_094
 	>> node_047 
 	-> velkhana.rush_fly() 
 	return 
 endf 
 
-def node_095 : 569
+def node_095
 	>> node_047 
 	-> velkhana.vertical_breath_fly() 
 	return 
 endf 
 
-def node_096 : 570
+def node_096
 	>> node_047 
 	-> velkhana.vertical_breath_fly_to_ground() 
 	return 
 endf 
 
-def node_097 : 604
+def node_097
 	>> node_047 
 	if self.current_quest().is_rank(rank.AT) 
 		-> velkhana.ex_ice_wave_start_fly() 
@@ -1341,7 +1341,7 @@ def node_097 : 604
 	return 
 endf 
 
-def node_098 : 608
+def node_098
 	if self.distance_2d_to_target().leq(300) 
 		random (50) >> node_092 
 		elser (50) >> node_093 
@@ -1358,7 +1358,7 @@ def node_098 : 608
 	return 
 endf 
 
-def node_099 : 609
+def node_099
 	if self.distance_2d_to_target().leq(400) 
 		>> node_091 
 	else 
@@ -1367,7 +1367,7 @@ def node_099 : 609
 	return 
 endf 
 
-def node_100 : 664
+def node_100
 	if function#101() 
 		>> node_103 
 	else 
@@ -1376,7 +1376,7 @@ def node_100 : 664
 	return 
 endf 
 
-def node_101 : 665
+def node_101
 	if function#101() 
 		>> node_104 
 	else 
@@ -1385,7 +1385,7 @@ def node_101 : 665
 	return 
 endf 
 
-def node_102 : 666
+def node_102
 	if function#101() 
 		>> node_105 
 	else 
@@ -1394,26 +1394,15 @@ def node_102 : 666
 	return 
 endf 
 
-def node_103 : 630
+def node_103
 	>> node_090 
 	>> node_405 
 	>> node_096 
 	return 
 endf 
 
-def node_104 : 605
+def node_104
 	>> node_090 
-	>> node_405 
-	>> node_098 
-	>> node_405 
-	>> node_096 
-	return 
-endf 
-
-def node_105 : 606
-	>> node_090 
-	>> node_405 
-	>> node_098 
 	>> node_405 
 	>> node_098 
 	>> node_405 
@@ -1421,7 +1410,18 @@ def node_105 : 606
 	return 
 endf 
 
-def node_106 : 631
+def node_105
+	>> node_090 
+	>> node_405 
+	>> node_098 
+	>> node_405 
+	>> node_098 
+	>> node_405 
+	>> node_096 
+	return 
+endf 
+
+def node_106
 	>> node_090 
 	>> node_405 
 	random (50) 
@@ -1432,7 +1432,7 @@ def node_106 : 631
 	return 
 endf 
 
-def node_107 : 611
+def node_107
 	>> node_090 
 	>> node_405 
 	random (50) 
@@ -1447,7 +1447,7 @@ def node_107 : 611
 	return 
 endf 
 
-def node_108 : 612
+def node_108
 	>> node_090 
 	>> node_405 
 	random (30) 
@@ -1472,7 +1472,7 @@ def node_108 : 612
 	return 
 endf 
 
-def node_109 : 578
+def node_109
 	>> node_046 
 	if self.current_quest().is_rank(rank.AT) 
 		if self.target(44) 
@@ -1482,10 +1482,10 @@ def node_109 : 578
 			else 
 				>> node_238 
 			endif 
-			[RegisterVar2 |-] 
+			[RegisterVar2 ++] 
+			[RegisterVar7 ++] 
 			[RegisterVar7 |-] 
-			[RegisterVar7 ++] 
-			[RegisterVar7 ++] 
+			[RegisterVar7 |-] 
 			-> velkhana.ex_special_breath_attack_start() @ comboSetting:1 
 			-> velkhana.chance() 
 			>> node_142 
@@ -1504,7 +1504,7 @@ def node_109 : 578
 	return 
 endf 
 
-def node_110 : 571
+def node_110
 	>> node_046 
 	if self.angle_2d_cw_between(0,180) 
 		-> velkhana.turn_step_side_r() 
@@ -1514,7 +1514,7 @@ def node_110 : 571
 	return 
 endf 
 
-def node_111 : 572
+def node_111
 	>> node_046 
 	if self.angle_2d_cw_between(0,180) 
 		-> velkhana.turn_step_front_r() 
@@ -1524,7 +1524,7 @@ def node_111 : 572
 	return 
 endf 
 
-def node_112 : 573
+def node_112
 	>> node_046 
 	if self.angle_2d_cw_between(0,180) 
 		-> velkhana.turn_step_back_r() 
@@ -1534,7 +1534,7 @@ def node_112 : 573
 	return 
 endf 
 
-def node_113 : 615
+def node_113
 	if self.angle_2d_cw_between(270,90) 
 		>> node_112 
 	else 
@@ -1543,7 +1543,7 @@ def node_113 : 615
 	return 
 endf 
 
-def node_114 : 574
+def node_114
 	>> node_046 
 	if self.angle_2d_cw_between(0,180) 
 		-> velkhana.turn_step_front_far_r() 
@@ -1553,55 +1553,55 @@ def node_114 : 574
 	return 
 endf 
 
-def node_115 : 786
+def node_115
 	if function#101() 
-		[RegisterVar1 |-] 
-		[RegisterVar0 ++] 
+		[RegisterVar1 ++] 
+		[RegisterVar0 |-] 
 		>> node_116 
 	elif function#101(1) 
-		[RegisterVar0 |-] 
-		[RegisterVar1 ++] 
+		[RegisterVar0 ++] 
+		[RegisterVar1 |-] 
 		>> node_117 
 	else 
-		[RegisterVar0 |-] 
-		[RegisterVar1 |-] 
-		[RegisterVar2 ++] 
+		[RegisterVar0 ++] 
+		[RegisterVar1 ++] 
+		[RegisterVar2 |-] 
 		>> node_118 
 	endif 
 	return 
 endf 
 
-def node_116 : 787
+def node_116
 	if self.hp_percent().gt(20) 
-		if [RegisterVar0 <= 4] 
-			[RegisterVar0 |-] 
+		if [RegisterVar0 -= 4] 
+			[RegisterVar0 ++] 
 			>> node_279 
 		else 
 		endif 
 	elif self.hp_percent().gt(40) 
-		if [RegisterVar0 <= 5] 
-			[RegisterVar0 |-] 
+		if [RegisterVar0 -= 5] 
+			[RegisterVar0 ++] 
 			>> node_279 
 		else 
 		endif 
 	elif self.hp_percent().gt(60) 
-		if [RegisterVar0 <= 6] 
-			[RegisterVar0 |-] 
-			[RegisterVar2 |-] 
+		if [RegisterVar0 -= 6] 
+			[RegisterVar0 ++] 
+			[RegisterVar2 ++] 
 			>> node_279 
 		else 
 		endif 
 	elif self.hp_percent().gt(80) 
-		if [RegisterVar0 <= 7] 
-			[RegisterVar0 |-] 
-			[RegisterVar2 |-] 
+		if [RegisterVar0 -= 7] 
+			[RegisterVar0 ++] 
+			[RegisterVar2 ++] 
 			>> node_279 
 		else 
 		endif 
 	else 
-		if [RegisterVar0 <= 8] 
-			[RegisterVar0 |-] 
-			[RegisterVar2 |-] 
+		if [RegisterVar0 -= 8] 
+			[RegisterVar0 ++] 
+			[RegisterVar2 ++] 
 			>> node_279 
 		else 
 		endif 
@@ -1609,34 +1609,34 @@ def node_116 : 787
 	return 
 endf 
 
-def node_117 : 788
+def node_117
 	if self.hp_percent().gt(20) 
-		if [RegisterVar1 <= 4] 
-			[RegisterVar1 |-] 
+		if [RegisterVar1 -= 4] 
+			[RegisterVar1 ++] 
 			>> node_279 
 		else 
 		endif 
 	elif self.hp_percent().gt(40) 
-		if [RegisterVar1 <= 5] 
-			[RegisterVar1 |-] 
+		if [RegisterVar1 -= 5] 
+			[RegisterVar1 ++] 
 			>> node_279 
 		else 
 		endif 
 	elif self.hp_percent().gt(60) 
-		if [RegisterVar1 <= 6] 
-			[RegisterVar1 |-] 
+		if [RegisterVar1 -= 6] 
+			[RegisterVar1 ++] 
 			>> node_279 
 		else 
 		endif 
 	elif self.hp_percent().gt(80) 
-		if [RegisterVar1 <= 8] 
-			[RegisterVar1 |-] 
+		if [RegisterVar1 -= 8] 
+			[RegisterVar1 ++] 
 			>> node_279 
 		else 
 		endif 
 	else 
-		if [RegisterVar1 <= 11] 
-			[RegisterVar1 |-] 
+		if [RegisterVar1 -= 11] 
+			[RegisterVar1 ++] 
 			>> node_279 
 		else 
 		endif 
@@ -1644,28 +1644,28 @@ def node_117 : 788
 	return 
 endf 
 
-def node_118 : 790
+def node_118
 	if self.flying() 
 		return 
 	else 
 	endif 
 	if self.hp_percent().gt(30) 
-		if [RegisterVar2 <= 9] 
+		if [RegisterVar2 -= 9] 
 			>> node_109 
 		else 
 		endif 
 	elif self.hp_percent().gt(50) 
-		if [RegisterVar2 <= 10] 
+		if [RegisterVar2 -= 10] 
 			>> node_109 
 		else 
 		endif 
 	elif self.hp_percent().gt(75) 
-		if [RegisterVar2 <= 11] 
+		if [RegisterVar2 -= 11] 
 			>> node_109 
 		else 
 		endif 
 	else 
-		if [RegisterVar2 <= 12] 
+		if [RegisterVar2 -= 12] 
 			>> node_109 
 		else 
 		endif 
@@ -1673,15 +1673,15 @@ def node_118 : 790
 	return 
 endf 
 
-def node_119 : 789
-	[RegisterVar3 ++] 
+def node_119
+	[RegisterVar3 |-] 
 	if self.target(44) 
 	else 
 		if function#101() 
-			[RegisterVar3 |-] 
+			[RegisterVar3 ++] 
 		elif function#101(1) 
-			if [RegisterVar3 <= 5] 
-				[RegisterVar3 |-] 
+			if [RegisterVar3 -= 5] 
+				[RegisterVar3 ++] 
 				>> node_405 
 				>> node_129 
 				>> node_125 
@@ -1689,30 +1689,30 @@ def node_119 : 789
 				>> node_126 
 			endif 
 		else 
-			[RegisterVar3 |-] 
+			[RegisterVar3 ++] 
 			>> node_126 
 		endif 
 	endif 
 	return 
 endf 
 
-def node_120 : 496
+def node_120
 	if function#B0(1) 
 	else 
 		if function#101() 
-			[RegisterVar1 |-] 
-			[RegisterVar0 ++] 
+			[RegisterVar1 ++] 
+			[RegisterVar0 |-] 
 			>> node_121 
 		elif function#101(1) 
-			[RegisterVar0 |-] 
-			[RegisterVar1 ++] 
+			[RegisterVar0 ++] 
+			[RegisterVar1 |-] 
 			>> node_122 
 		else 
 			if self.quest_id(1404) 
 			else 
-				[RegisterVar0 |-] 
-				[RegisterVar1 |-] 
-				[RegisterVar2 ++] 
+				[RegisterVar0 ++] 
+				[RegisterVar1 ++] 
+				[RegisterVar2 |-] 
 				>> node_123 
 			endif 
 		endif 
@@ -1720,32 +1720,32 @@ def node_120 : 496
 	return 
 endf 
 
-def node_121 : 588
+def node_121
 	if self.hp_percent().gt(30) 
-		if [RegisterVar0 <= 6] 
-			[RegisterVar0 |-] 
-			[RegisterVar2 |-] 
+		if [RegisterVar0 -= 6] 
+			[RegisterVar0 ++] 
+			[RegisterVar2 ++] 
 			>> node_279 
 		else 
 		endif 
 	elif self.hp_percent().gt(50) 
-		if [RegisterVar0 <= 9] 
-			[RegisterVar0 |-] 
-			[RegisterVar2 |-] 
+		if [RegisterVar0 -= 9] 
+			[RegisterVar0 ++] 
+			[RegisterVar2 ++] 
 			>> node_279 
 		else 
 		endif 
 	elif self.hp_percent().gt(75) 
-		if [RegisterVar0 <= 12] 
-			[RegisterVar0 |-] 
-			[RegisterVar2 |-] 
+		if [RegisterVar0 -= 12] 
+			[RegisterVar0 ++] 
+			[RegisterVar2 ++] 
 			>> node_279 
 		else 
 		endif 
 	else 
-		if [RegisterVar0 <= 15] 
-			[RegisterVar0 |-] 
-			[RegisterVar2 |-] 
+		if [RegisterVar0 -= 15] 
+			[RegisterVar0 ++] 
+			[RegisterVar2 ++] 
 			>> node_279 
 		else 
 		endif 
@@ -1753,28 +1753,28 @@ def node_121 : 588
 	return 
 endf 
 
-def node_122 : 583
+def node_122
 	if self.hp_percent().gt(30) 
-		if [RegisterVar1 <= 6] 
-			[RegisterVar1 |-] 
+		if [RegisterVar1 -= 6] 
+			[RegisterVar1 ++] 
 			>> node_279 
 		else 
 		endif 
 	elif self.hp_percent().gt(50) 
-		if [RegisterVar1 <= 9] 
-			[RegisterVar1 |-] 
+		if [RegisterVar1 -= 9] 
+			[RegisterVar1 ++] 
 			>> node_279 
 		else 
 		endif 
 	elif self.hp_percent().gt(75) 
-		if [RegisterVar1 <= 12] 
-			[RegisterVar1 |-] 
+		if [RegisterVar1 -= 12] 
+			[RegisterVar1 ++] 
 			>> node_279 
 		else 
 		endif 
 	else 
-		if [RegisterVar1 <= 15] 
-			[RegisterVar1 |-] 
+		if [RegisterVar1 -= 15] 
+			[RegisterVar1 ++] 
 			>> node_279 
 		else 
 		endif 
@@ -1782,56 +1782,56 @@ def node_122 : 583
 	return 
 endf 
 
-def node_123 : 589
+def node_123
 	if self.flying() 
 		return 
 	else 
 	endif 
 	if self.hp_percent().gt(30) 
-		if [RegisterVar2 <= 6] 
+		if [RegisterVar2 -= 6] 
 			random (30) 
-						[RegisterVar2 |-] 
+						[RegisterVar2 ++] 
 						>> node_109 
 			elser (70) 
 			endr 
-		elif [RegisterVar2 <= 12] 
-			[RegisterVar2 |-] 
+		elif [RegisterVar2 -= 12] 
+			[RegisterVar2 ++] 
 			>> node_109 
 		else 
 		endif 
 	elif self.hp_percent().gt(50) 
-		if [RegisterVar2 <= 6] 
+		if [RegisterVar2 -= 6] 
 			random (20) 
-						[RegisterVar2 |-] 
+						[RegisterVar2 ++] 
 						>> node_109 
 			elser (80) 
 			endr 
-		elif [RegisterVar2 <= 12] 
-			[RegisterVar2 |-] 
+		elif [RegisterVar2 -= 12] 
+			[RegisterVar2 ++] 
 			>> node_109 
 		else 
 		endif 
 	elif self.hp_percent().gt(75) 
-		if [RegisterVar2 <= 10] 
+		if [RegisterVar2 -= 10] 
 			random (30) 
-						[RegisterVar2 |-] 
+						[RegisterVar2 ++] 
 						>> node_109 
 			elser (70) 
 			endr 
-		elif [RegisterVar2 <= 15] 
-			[RegisterVar2 |-] 
+		elif [RegisterVar2 -= 15] 
+			[RegisterVar2 ++] 
 			>> node_109 
 		else 
 		endif 
 	else 
-		if [RegisterVar2 <= 10] 
+		if [RegisterVar2 -= 10] 
 			random (20) 
-						[RegisterVar2 |-] 
+						[RegisterVar2 ++] 
 						>> node_109 
 			elser (80) 
 			endr 
-		elif [RegisterVar2 <= 15] 
-			[RegisterVar2 |-] 
+		elif [RegisterVar2 -= 15] 
+			[RegisterVar2 ++] 
 			>> node_109 
 		else 
 		endif 
@@ -1839,16 +1839,16 @@ def node_123 : 589
 	return 
 endf 
 
-def node_124 : 579
-	[RegisterVar3 ++] 
+def node_124
+	[RegisterVar3 |-] 
 	if self.target(44) 
 	else 
 		if function#101() 
-			[RegisterVar3 |-] 
+			[RegisterVar3 ++] 
 		elif function#101(1) 
-			if [RegisterVar3 <= 4] 
+			if [RegisterVar3 -= 4] 
 				random (75) 
-							[RegisterVar3 |-] 
+							[RegisterVar3 ++] 
 							>> node_128 
 							self.targetArea(1) 
 							>> node_125 
@@ -1859,9 +1859,9 @@ def node_124 : 579
 				>> node_126 
 			endif 
 		else 
-			if [RegisterVar3 <= 3] 
+			if [RegisterVar3 -= 3] 
 				random (75) 
-							[RegisterVar3 |-] 
+							[RegisterVar3 ++] 
 							>> node_128 
 							self.targetArea(1) 
 							>> node_125 
@@ -1876,8 +1876,8 @@ def node_124 : 579
 	return 
 endf 
 
-def node_125 : 580
-	[RegisterVar3 |-] 
+def node_125
+	[RegisterVar3 ++] 
 	if self.current_quest().is_rank(rank.AT) 
 		if function#101(2) 
 			>> node_074 
@@ -1899,7 +1899,7 @@ def node_125 : 580
 	reset 
 endf 
 
-def node_126 : 697
+def node_126
 	if self.current_quest().is_rank(rank.AT) 
 		if self.target(44) 
 		else 
@@ -1909,10 +1909,10 @@ def node_126 : 697
 				else 
 					return 
 				endif 
-				if [RegisterVar2 <= 7] 
+				if [RegisterVar2 -= 7] 
 					random (0) 
 								>> node_405 
-								[RegisterVar2 |-] 
+								[RegisterVar2 ++] 
 								>> node_109 
 					elser (100) 
 					endr 
@@ -1920,22 +1920,22 @@ def node_126 : 697
 					if self.enraged() 
 						random (0) 
 									>> node_405 
-									[RegisterVar3 |-] 
+									[RegisterVar3 ++] 
 									>> node_008 
 						elser (0) 
 									>> node_405 
-									[RegisterVar3 |-] 
+									[RegisterVar3 ++] 
 									>> node_025 
 						elser (100) 
 						endr 
 					else 
 						random (0) 
 									>> node_405 
-									[RegisterVar3 |-] 
+									[RegisterVar3 ++] 
 									>> node_004 
 						elser (0) 
 									>> node_405 
-									[RegisterVar3 |-] 
+									[RegisterVar3 ++] 
 									>> node_025 
 						elser (100) 
 						endr 
@@ -1949,7 +1949,7 @@ def node_126 : 697
 				endif 
 				random (25) 
 							>> node_405 
-							[RegisterVar3 |-] 
+							[RegisterVar3 ++] 
 							>> node_129 
 							>> node_125 
 				elser (75) 
@@ -1962,7 +1962,7 @@ def node_126 : 697
 	return 
 endf 
 
-def node_127 : 599
+def node_127
 	self.targetEnemy(50) 
 	random (70) >> node_055 
 	elser (30) >> node_052 
@@ -1970,7 +1970,7 @@ def node_127 : 599
 	return 
 endf 
 
-def node_128 : 598
+def node_128
 	if self.distance_2d_to_target().leq(1300) 
 	else 
 		random (50) >> node_233 
@@ -2003,7 +2003,7 @@ def node_128 : 598
 	return 
 endf 
 
-def node_129 : 853
+def node_129
 	if self.distance_2d_to_target().leq(1300) 
 	else 
 		random (50) >> node_233 
@@ -2028,7 +2028,7 @@ def node_129 : 853
 	return 
 endf 
 
-def node_130 : 863
+def node_130
 	if self.angle_2d_cw_between(315,45) 
 		>> node_052 
 	elif self.angle_2d_cw_between(135,225) 
@@ -2045,7 +2045,7 @@ def node_130 : 863
 	return 
 endf 
 
-def node_131 : 864
+def node_131
 	if self.angle_2d_cw_between(315,45) 
 		>> node_055 
 	elif self.angle_2d_cw_between(135,225) 
@@ -2062,7 +2062,7 @@ def node_131 : 864
 	return 
 endf 
 
-def node_132 : 865
+def node_132
 	if self.angle_2d_cw_between(315,45) 
 		random (50) >> node_052 
 		elser (50) >> node_055 
@@ -2079,7 +2079,7 @@ def node_132 : 865
 	return 
 endf 
 
-def node_133 : 866
+def node_133
 	if self.angle_2d_cw_between(315,45) 
 		random (50) >> node_052 
 		elser (50) >> node_055 
@@ -2096,7 +2096,7 @@ def node_133 : 866
 	return 
 endf 
 
-def node_134 : 636
+def node_134
 	self.targetArea(target_area.area_center) 
 	if self.distance_2d_to_target().leq(500) 
 		self.targetEnemy(50) 
@@ -2123,7 +2123,7 @@ def node_134 : 636
 	return 
 endf 
 
-def node_135 : 637
+def node_135
 	if self.distance_2d_to_target().leq(600) 
 		random (25) >> node_056 
 		elser (25) >> node_058 
@@ -2137,7 +2137,7 @@ def node_135 : 637
 	return 
 endf 
 
-def node_136 : 640
+def node_136
 	self.targetArea(target_area.area_center) 
 	if self.angle_2d_cw_between(270,90) 
 		self.targetEnemy(50) 
@@ -2162,8 +2162,8 @@ def node_136 : 640
 	return 
 endf 
 
-def node_137 : 641
-	if [RegisterVar3 <= 0] 
+def node_137
+	if [RegisterVar3 -= 0] 
 		self.targetArea(target_area.area_center) 
 		if self.distance_2d_to_target().leq(1000) 
 			self.targetEnemy(50) 
@@ -2200,8 +2200,8 @@ def node_137 : 641
 	return 
 endf 
 
-def node_138 : 642
-	if [RegisterVar3 <= 0] 
+def node_138
+	if [RegisterVar3 -= 0] 
 		self.targetArea(target_area.area_center) 
 		if self.distance_2d_to_target().leq(1000) 
 			self.targetEnemy(50) 
@@ -2238,11 +2238,11 @@ def node_138 : 642
 	return 
 endf 
 
-def node_139 : 679
+def node_139
 	if self.target(3) 
 	else 
-		if [RegisterVar4 <= 1] 
-			[RegisterVar4 |-] 
+		if [RegisterVar4 -= 1] 
+			[RegisterVar4 ++] 
 		else 
 			if self.distance_2d_to_target().leq(250) 
 			elif self.distance_2d_to_target().leq(1300) 
@@ -2274,7 +2274,7 @@ def node_139 : 679
 	return 
 endf 
 
-def node_140 : 694
+def node_140
 	if self.distance_2d_to_target().leq(1300) 
 	elif self.distance_2d_to_target().leq(3000) 
 		if function#101() 
@@ -2282,9 +2282,9 @@ def node_140 : 694
 			elser (25) 
 			endr 
 		else 
-			if [RegisterVar3 <= 4] 
+			if [RegisterVar3 -= 4] 
 				>> node_233 
-			elif [RegisterVar3 <= 2] 
+			elif [RegisterVar3 -= 2] 
 				random (70) >> node_233 
 				elser (30) 
 				endr 
@@ -2300,21 +2300,21 @@ def node_140 : 694
 	return 
 endf 
 
-def node_141 : 815
+def node_141
 	if self.flying() 
-		[RegisterVar7 |-] 
+		[RegisterVar7 ++] 
 	elif self.target(3) 
-		[RegisterVar7 |-] 
+		[RegisterVar7 ++] 
 	elif function#101() 
-		[RegisterVar7 |-] 
+		[RegisterVar7 ++] 
 	else 
-		if [RegisterVar7 == 3] 
-			[RegisterVar7 |-] 
-		elif [RegisterVar7 == 2] 
-			[RegisterVar7 |-] 
+		if [RegisterVar7 += 3] 
+			[RegisterVar7 ++] 
+		elif [RegisterVar7 += 2] 
+			[RegisterVar7 ++] 
 			>> node_070 
 		else 
-			[RegisterVar7 |-] 
+			[RegisterVar7 ++] 
 			if function#101(2) 
 				if self.distance_2d_to_target().leq(2200) 
 					random (0) 
@@ -2347,50 +2347,50 @@ def node_141 : 815
 	return 
 endf 
 
-def node_142 : 896
+def node_142
 	if self.flying() 
-		[RegisterVar7 |-] 
+		[RegisterVar7 ++] 
 	elif self.target(3) 
-		[RegisterVar7 |-] 
+		[RegisterVar7 ++] 
 	elif function#101() 
-		[RegisterVar7 |-] 
+		[RegisterVar7 ++] 
 	else 
-		[RegisterVar7 |-] 
+		[RegisterVar7 ++] 
 		>> node_070 
-		[RegisterVar7 ++] 
-		[RegisterVar7 ++] 
-		[RegisterVar7 ++] 
+		[RegisterVar7 |-] 
+		[RegisterVar7 |-] 
+		[RegisterVar7 |-] 
 	endif 
 	return 
 endf 
 
-def node_143 : 810
-	[RegisterVar7 |-] 
+def node_143
+	[RegisterVar7 ++] 
 	if self.distance_2d_to_target().leq(1300) 
 	elif self.distance_2d_to_target().leq(3300) 
 		if function#101() 
 			random (75) >> node_233 
-						[RegisterVar7 ++] 
+						[RegisterVar7 |-] 
 			elser (0) >> node_239 
-						[RegisterVar7 ++] 
+						[RegisterVar7 |-] 
 			elser (25) 
 			endr 
 		else 
-			if [RegisterVar3 <= 4] 
+			if [RegisterVar3 -= 4] 
 				>> node_233 
-				[RegisterVar7 ++] 
-			elif [RegisterVar3 <= 2] 
+				[RegisterVar7 |-] 
+			elif [RegisterVar3 -= 2] 
 				random (50) >> node_233 
-							[RegisterVar7 ++] 
+							[RegisterVar7 |-] 
 				elser (0) >> node_239 
-							[RegisterVar7 ++] 
+							[RegisterVar7 |-] 
 				elser (50) 
 				endr 
 			else 
 				random (25) >> node_233 
-							[RegisterVar7 ++] 
+							[RegisterVar7 |-] 
 				elser (0) >> node_239 
-							[RegisterVar7 ++] 
+							[RegisterVar7 |-] 
 				elser (75) 
 				endr 
 			endif 
@@ -2398,12 +2398,12 @@ def node_143 : 810
 	else 
 		if function#101() 
 			>> node_233 
-			[RegisterVar7 ++] 
+			[RegisterVar7 |-] 
 		else 
 			random (40) >> node_233 
-						[RegisterVar7 ++] 
+						[RegisterVar7 |-] 
 			elser (60) >> node_239 
-						[RegisterVar7 ++] 
+						[RegisterVar7 |-] 
 			elser (0) 
 			endr 
 		endif 
@@ -2411,7 +2411,7 @@ def node_143 : 810
 	return 
 endf 
 
-def node_144 : 661
+def node_144
 	if self.current_quest().is_rank(rank.AT) 
 		if function#101(2) 
 			>> node_168 
@@ -2432,7 +2432,7 @@ def node_144 : 661
 	return 
 endf 
 
-def node_145 : 693
+def node_145
 	if self.distance_2d_to_target().leq(300) 
 		random (20) >> node_049 
 					>> node_148 
@@ -2462,7 +2462,7 @@ def node_145 : 693
 	return 
 endf 
 
-def node_146 : 690
+def node_146
 	>> node_126 
 	if self.distance_2d_to_target().leq(300) 
 		random (65) >> node_049 
@@ -2487,7 +2487,7 @@ def node_146 : 690
 	return 
 endf 
 
-def node_147 : 691
+def node_147
 	>> node_126 
 	if self.distance_2d_to_target().leq(300) 
 		random (65) >> node_049 
@@ -2512,7 +2512,7 @@ def node_147 : 691
 	return 
 endf 
 
-def node_148 : 692
+def node_148
 	>> node_126 
 	if self.distance_2d_to_target().leq(300) 
 		random (50) >> node_049 
@@ -2537,7 +2537,7 @@ def node_148 : 692
 	return 
 endf 
 
-def node_149 : 662
+def node_149
 	if self.current_quest().is_rank(rank.AT) 
 		if function#101(2) 
 			>> node_169 
@@ -2558,7 +2558,7 @@ def node_149 : 662
 	return 
 endf 
 
-def node_150 : 663
+def node_150
 	if self.current_quest().is_rank(rank.AT) 
 		if function#101(2) 
 			>> node_170 
@@ -2579,7 +2579,7 @@ def node_150 : 663
 	return 
 endf 
 
-def node_151 : 669
+def node_151
 	if self.distance_2d_to_target().leq(1600) 
 	else 
 		>> node_233 
@@ -2610,7 +2610,7 @@ def node_151 : 669
 	return 
 endf 
 
-def node_152 : 680
+def node_152
 	if self.distance_2d_to_target().leq(200) 
 		random (0) >> node_049 
 		elser (40) >> node_058 
@@ -2645,7 +2645,7 @@ def node_152 : 680
 	return 
 endf 
 
-def node_153 : 671
+def node_153
 	if self.distance_2d_to_target().leq(300) 
 		random (0) >> node_065 
 		elser (0) >> node_057 
@@ -2673,7 +2673,7 @@ def node_153 : 671
 	return 
 endf 
 
-def node_154 : 672
+def node_154
 	if self.distance_2d_to_target().leq(1600) 
 	else 
 		>> node_233 
@@ -2704,7 +2704,7 @@ def node_154 : 672
 	return 
 endf 
 
-def node_155 : 673
+def node_155
 	if self.distance_2d_to_target().leq(200) 
 		random (0) >> node_049 
 		elser (40) >> node_058 
@@ -2751,7 +2751,7 @@ def node_155 : 673
 	return 
 endf 
 
-def node_156 : 674
+def node_156
 	if self.distance_2d_to_target().leq(350) 
 		random (10) >> node_080 
 		elser (10) >> node_084 
@@ -2796,7 +2796,7 @@ def node_156 : 674
 	return 
 endf 
 
-def node_157 : 675
+def node_157
 	if self.distance_2d_to_target().leq(1600) 
 	else 
 		>> node_233 
@@ -2827,7 +2827,7 @@ def node_157 : 675
 	return 
 endf 
 
-def node_158 : 676
+def node_158
 	if self.distance_2d_to_target().leq(200) 
 		random (0) >> node_049 
 		elser (40) >> node_058 
@@ -2874,7 +2874,7 @@ def node_158 : 676
 	return 
 endf 
 
-def node_159 : 677
+def node_159
 	if self.distance_2d_to_target().leq(300) 
 		random (10) >> node_080 
 		elser (10) >> node_084 
@@ -2927,7 +2927,7 @@ def node_159 : 677
 	return 
 endf 
 
-def node_160 : 806
+def node_160
 	if self.distance_2d_to_target().leq(1600) 
 	else 
 		>> node_233 
@@ -2964,7 +2964,7 @@ def node_160 : 806
 	return 
 endf 
 
-def node_161 : 807
+def node_161
 	if self.distance_2d_to_target().leq(200) 
 		random (0) >> node_065 
 		elser (35) >> node_058 
@@ -2987,7 +2987,7 @@ def node_161 : 807
 	return 
 endf 
 
-def node_162 : 808
+def node_162
 	if self.distance_2d_to_target().leq(200) 
 		random (0) >> node_065 
 		elser (35) >> node_058 
@@ -3010,7 +3010,7 @@ def node_162 : 808
 	return 
 endf 
 
-def node_163 : 803
+def node_163
 	if function#7F(-999) 
 	else 
 		if self.distance_2d_to_target().leq(1600) 
@@ -3050,7 +3050,7 @@ def node_163 : 803
 	return 
 endf 
 
-def node_164 : 804
+def node_164
 	if self.distance_2d_to_target().leq(200) 
 	elif self.distance_2d_to_target().leq(800) 
 		random (0) >> node_033 
@@ -3065,7 +3065,7 @@ def node_164 : 804
 		elser (0) >> node_025 
 		elser (0) 
 		endr 
-		[RegisterVar7 |-] 
+		[RegisterVar7 ++] 
 		>> node_405 
 		>> node_126 
 	elif self.distance_2d_to_target().leq(1500) 
@@ -3082,7 +3082,7 @@ def node_164 : 804
 		elser (0) >> node_025 
 		elser (0) 
 		endr 
-		[RegisterVar7 |-] 
+		[RegisterVar7 ++] 
 		>> node_405 
 		>> node_126 
 	else 
@@ -3090,7 +3090,7 @@ def node_164 : 804
 	return 
 endf 
 
-def node_165 : 805
+def node_165
 	if self.enraged() 
 		>> node_167 
 	else 
@@ -3099,7 +3099,7 @@ def node_165 : 805
 	return 
 endf 
 
-def node_166 : 843
+def node_166
 	if self.distance_2d_to_target().leq(200) 
 		random (10) >> node_033 
 		elser (10) >> node_034 
@@ -3158,7 +3158,7 @@ def node_166 : 843
 	return 
 endf 
 
-def node_167 : 844
+def node_167
 	if self.distance_2d_to_target().leq(200) 
 		random (10) >> node_033 
 		elser (10) >> node_034 
@@ -3223,7 +3223,7 @@ def node_167 : 844
 	return 
 endf 
 
-def node_168 : 799
+def node_168
 	if function#7F(-999) 
 	else 
 		if self.distance_2d_to_target().leq(1600) 
@@ -3263,7 +3263,7 @@ def node_168 : 799
 	return 
 endf 
 
-def node_169 : 800
+def node_169
 	if self.distance_2d_to_target().leq(200) 
 	elif self.distance_2d_to_target().leq(800) 
 		random (0) >> node_033 
@@ -3276,7 +3276,7 @@ def node_169 : 800
 		elser (0) >> node_036 
 		elser (0) 
 		endr 
-		[RegisterVar7 |-] 
+		[RegisterVar7 ++] 
 		>> node_405 
 		>> node_126 
 	elif self.distance_2d_to_target().leq(1500) 
@@ -3292,7 +3292,7 @@ def node_169 : 800
 		elser (0) >> node_025 
 		elser (0) 
 		endr 
-		[RegisterVar7 |-] 
+		[RegisterVar7 ++] 
 		>> node_405 
 		>> node_126 
 	else 
@@ -3300,7 +3300,7 @@ def node_169 : 800
 	return 
 endf 
 
-def node_170 : 801
+def node_170
 	if self.enraged() 
 		>> node_172 
 	else 
@@ -3309,7 +3309,7 @@ def node_170 : 801
 	return 
 endf 
 
-def node_171 : 841
+def node_171
 	if self.distance_2d_to_target().leq(200) 
 		random (5) >> node_033 
 		elser (10) >> node_031 
@@ -3362,7 +3362,7 @@ def node_171 : 841
 	return 
 endf 
 
-def node_172 : 842
+def node_172
 	if self.distance_2d_to_target().leq(200) 
 		random (10) >> node_033 
 		elser (0) >> node_031 
@@ -3431,29 +3431,29 @@ def node_172 : 842
 	return 
 endf 
 
-def node_173 : 681
+def node_173
 	>> node_144 
-	[RegisterVar7 |-] 
+	[RegisterVar7 ++] 
 	>> node_405 
 	>> node_126 
 	>> node_149 
 	return 
 endf 
 
-def node_174 : 682
+def node_174
 	>> node_144 
-	[RegisterVar7 |-] 
+	[RegisterVar7 ++] 
 	>> node_405 
 	>> node_126 
 	>> node_150 
 	return 
 endf 
 
-def node_175 : 688
+def node_175
 	>> node_149 
 	if self.current_quest().is_rank(rank.AT) 
 	else 
-		[RegisterVar7 |-] 
+		[RegisterVar7 ++] 
 		>> node_405 
 		>> node_126 
 	endif 
@@ -3461,33 +3461,33 @@ def node_175 : 688
 	return 
 endf 
 
-def node_176 : 683
+def node_176
 	>> node_145 
-	[RegisterVar7 |-] 
+	[RegisterVar7 ++] 
 	>> node_405 
 	>> node_126 
 	>> node_149 
 	return 
 endf 
 
-def node_177 : 684
+def node_177
 	>> node_145 
-	[RegisterVar7 |-] 
+	[RegisterVar7 ++] 
 	>> node_405 
 	>> node_126 
 	>> node_150 
 	return 
 endf 
 
-def node_178 : 685
+def node_178
 	>> node_144 
-	[RegisterVar7 |-] 
+	[RegisterVar7 ++] 
 	>> node_405 
 	>> node_126 
 	>> node_149 
 	if self.current_quest().is_rank(rank.AT) 
 	else 
-		[RegisterVar7 |-] 
+		[RegisterVar7 ++] 
 		>> node_405 
 		>> node_126 
 	endif 
@@ -3495,15 +3495,15 @@ def node_178 : 685
 	return 
 endf 
 
-def node_179 : 686
+def node_179
 	>> node_145 
-	[RegisterVar7 |-] 
+	[RegisterVar7 ++] 
 	>> node_405 
 	>> node_126 
 	>> node_149 
 	if self.current_quest().is_rank(rank.AT) 
 	else 
-		[RegisterVar7 |-] 
+		[RegisterVar7 ++] 
 		>> node_405 
 		>> node_126 
 	endif 
@@ -3511,27 +3511,27 @@ def node_179 : 686
 	return 
 endf 
 
-def node_180 : 687
+def node_180
 	>> node_144 
-	[RegisterVar7 |-] 
+	[RegisterVar7 ++] 
 	>> node_405 
 	>> node_126 
 	>> node_149 
 	if self.current_quest().is_rank(rank.AT) 
 	else 
-		[RegisterVar7 |-] 
+		[RegisterVar7 ++] 
 		>> node_405 
 		>> node_126 
 	endif 
 	>> node_150 
-	[RegisterVar7 |-] 
+	[RegisterVar7 ++] 
 	>> node_405 
 	>> node_126 
 	>> node_150 
 	return 
 endf 
 
-def node_181 : 705
+def node_181
 	if self.in_combat() 
 		>> node_183 
 	elif self.alert_out_of_combat() 
@@ -3542,7 +3542,7 @@ def node_181 : 705
 	return 
 endf 
 
-def node_182 : 706
+def node_182
 	if function#102() 
 		if function#103() 
 			>> node_047 
@@ -3571,7 +3571,7 @@ def node_182 : 706
 	return 
 endf 
 
-def node_183 : 707
+def node_183
 	if function#104() 
 		if function#102(1) 
 			if function#103(1) 
@@ -3602,7 +3602,7 @@ def node_183 : 707
 	return 
 endf 
 
-def node_184 : 780
+def node_184
 	if function#103() 
 		if function#11(500) 
 		else 
@@ -3639,7 +3639,7 @@ def node_184 : 780
 	return 
 endf 
 
-def node_185 : 753
+def node_185
 	if self.quest_id(1404) 
 		>> node_046 
 		if function#101() 
@@ -3654,7 +3654,7 @@ def node_185 : 753
 	return 
 endf 
 
-def node_186 : 711
+def node_186
 	if self.quest_id(1404) 
 		>> node_187 
 		>> node_192 
@@ -3663,7 +3663,7 @@ def node_186 : 711
 	return 
 endf 
 
-def node_187 : 733
+def node_187
 	if function#105() 
 		>> node_188 
 	elif function#105(0,1) 
@@ -3676,11 +3676,11 @@ def node_187 : 733
 	return 
 endf 
 
-def node_188 : 734
+def node_188
 	if function#107(0,8) 
 	elif function#107(0,7) 
-		if [RegisterVar5 <= 1] 
-			[RegisterVar5 |-] 
+		if [RegisterVar5 -= 1] 
+			[RegisterVar5 ++] 
 			function#108(0,8) 
 		else 
 		endif 
@@ -3694,8 +3694,8 @@ def node_188 : 734
 		else 
 		endif 
 	elif function#107(0,3) 
-		if [RegisterVar5 <= 1] 
-			[RegisterVar5 |-] 
+		if [RegisterVar5 -= 1] 
+			[RegisterVar5 ++] 
 			function#108(0,4) 
 		else 
 		endif 
@@ -3704,7 +3704,7 @@ def node_188 : 734
 	return 
 endf 
 
-def node_189 : 735
+def node_189
 	if function#107() 
 		if function#109(0,5) 
 			function#10B() 
@@ -3712,8 +3712,8 @@ def node_189 : 735
 		else 
 		endif 
 	elif function#107(0,1) 
-		if [RegisterVar5 <= 1] 
-			[RegisterVar5 |-] 
+		if [RegisterVar5 -= 1] 
+			[RegisterVar5 ++] 
 			function#108(0,2) 
 		else 
 		endif 
@@ -3732,8 +3732,8 @@ def node_189 : 735
 		else 
 		endif 
 	elif function#107(0,7) 
-		if [RegisterVar5 <= 1] 
-			[RegisterVar5 |-] 
+		if [RegisterVar5 -= 1] 
+			[RegisterVar5 ++] 
 		else 
 		endif 
 		if function#109(0,9) 
@@ -3744,7 +3744,7 @@ def node_189 : 735
 	return 
 endf 
 
-def node_190 : 736
+def node_190
 	if function#107() 
 		if function#109(0,8) 
 			self.targetEnemy(73) 
@@ -3762,8 +3762,8 @@ def node_190 : 736
 		else 
 		endif 
 	elif function#107(0,1) 
-		if [RegisterVar5 <= 1] 
-			[RegisterVar5 |-] 
+		if [RegisterVar5 -= 1] 
+			[RegisterVar5 ++] 
 			function#108(0,2) 
 		else 
 		endif 
@@ -3772,10 +3772,10 @@ def node_190 : 736
 	return 
 endf 
 
-def node_191 : 737
+def node_191
 endf 
 
-def node_192 : 713
+def node_192
 	if function#105() 
 		>> node_193 
 	elif function#105(0,1) 
@@ -3789,7 +3789,7 @@ def node_192 : 713
 	return 
 endf 
 
-def node_193 : 714
+def node_193
 	if function#107() 
 	elif function#107(0,1) 
 	elif function#107(0,2) 
@@ -3812,24 +3812,24 @@ def node_193 : 714
 	return 
 endf 
 
-def node_194 : 718
+def node_194
 	self.targetEnemy(72) 
-	[RegisterVar5 |-] 
+	[RegisterVar5 ++] 
 	if self.distance_3d_to_target().leq(1600) 
 		>> node_212 
-		[RegisterVar5 ++] 
+		[RegisterVar5 |-] 
 	else 
 		return 
 	endif 
 	reset 
 endf 
 
-def node_195 : 760
+def node_195
 	>> node_212 
 	reset 
 endf 
 
-def node_196 : 740
+def node_196
 	self.targetEnemy(72) 
 	if self.distance_3d_to_target().leq(600) 
 	else 
@@ -3838,12 +3838,12 @@ def node_196 : 740
 		repeat 
 	endif 
 	>> node_319 
-	[RegisterVar5 |-] 
 	[RegisterVar5 ++] 
+	[RegisterVar5 |-] 
 	reset 
 endf 
 
-def node_197 : 744
+def node_197
 	function#10A() 
 	>> node_221 
 	if self.flying() 
@@ -3856,7 +3856,7 @@ def node_197 : 744
 	reset 
 endf 
 
-def node_198 : 720
+def node_198
 	if function#107() 
 		>> node_211 
 	elif function#107(0,1) 
@@ -3879,7 +3879,7 @@ def node_198 : 720
 	return 
 endf 
 
-def node_199 : 722
+def node_199
 	self.targetEnemy(72) 
 	if self.distance_3d_to_target().leq(600) 
 	else 
@@ -3889,22 +3889,22 @@ def node_199 : 722
 	endif 
 	self.targetEnemy(target_em.random_player_or_cat) 
 	>> node_319 
-	[RegisterVar5 |-] 
 	[RegisterVar5 ++] 
+	[RegisterVar5 |-] 
 	reset 
 endf 
 
-def node_200 : 742
+def node_200
 	>> node_212 
 	reset 
 endf 
 
-def node_201 : 724
+def node_201
 	-> velkhana.damage_low() 
 	reset 
 endf 
 
-def node_202 : 751
+def node_202
 	self.targetEnemy(48) 
 	if function#109(0,11) 
 		>> node_215 
@@ -3914,7 +3914,7 @@ def node_202 : 751
 	reset 
 endf 
 
-def node_203 : 725
+def node_203
 	self.targetEnemy(72) 
 	if self.distance_3d_to_target().leq(600) 
 	else 
@@ -3927,12 +3927,12 @@ def node_203 : 725
 		self.targetEnemy(target_em.random_player_or_cat) 
 	endif 
 	>> node_219 
-	[RegisterVar5 |-] 
 	[RegisterVar5 ++] 
+	[RegisterVar5 |-] 
 	reset 
 endf 
 
-def node_204 : 743
+def node_204
 	if function#109(0,10) 
 		function#10B(0,1) 
 		-> velkhana.threat_short() 
@@ -3951,7 +3951,7 @@ def node_204 : 743
 	reset 
 endf 
 
-def node_205 : 726
+def node_205
 	if function#107() 
 		>> node_206 
 	elif function#107(0,1) 
@@ -3964,7 +3964,7 @@ def node_205 : 726
 	return 
 endf 
 
-def node_206 : 727
+def node_206
 	self.targetEnemy(50) 
 	if self.target(54) 
 		>> node_214 
@@ -3974,7 +3974,7 @@ def node_206 : 727
 	reset 
 endf 
 
-def node_207 : 728
+def node_207
 	self.targetEnemy(73) 
 	if self.distance_3d_to_target().leq(600) 
 	else 
@@ -3984,18 +3984,18 @@ def node_207 : 728
 	endif 
 	self.targetEnemy(target_em.random_player_or_cat) 
 	>> node_319 
-	[RegisterVar5 |-] 
 	[RegisterVar5 ++] 
+	[RegisterVar5 |-] 
 	reset 
 endf 
 
-def node_208 : 729
+def node_208
 	function#10B() 
 	>> node_216 
 	reset 
 endf 
 
-def node_209 : 731
+def node_209
 	if function#107() 
 		>> node_210 
 	else 
@@ -4003,7 +4003,7 @@ def node_209 : 731
 	return 
 endf 
 
-def node_210 : 732
+def node_210
 	self.targetEnemy(48) 
 	if function#109(0,8) 
 		>> node_213 
@@ -4015,7 +4015,7 @@ def node_210 : 732
 	reset 
 endf 
 
-def node_211 : 756
+def node_211
 	self.targetEnemy(50) 
 	if self.target(4) 
 		>> node_215 
@@ -4049,7 +4049,7 @@ def node_211 : 756
 	return 
 endf 
 
-def node_212 : 745
+def node_212
 	>> node_046 
 	self.targetEnemy(72) 
 	if self.vertical_distance_to_target().leq(400) 
@@ -4069,7 +4069,7 @@ def node_212 : 745
 	return 
 endf 
 
-def node_213 : 749
+def node_213
 	>> node_046 
 	self.targetEnemy(73) 
 	if self.vertical_distance_to_target().leq(400) 
@@ -4093,7 +4093,7 @@ def node_213 : 749
 	return 
 endf 
 
-def node_214 : 757
+def node_214
 	>> node_046 
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if function#101() 
@@ -4108,7 +4108,7 @@ def node_214 : 757
 	return 
 endf 
 
-def node_215 : 746
+def node_215
 	>> node_046 
 	if function#10A() 
 	else 
@@ -4134,7 +4134,7 @@ def node_215 : 746
 	return 
 endf 
 
-def node_216 : 759
+def node_216
 	>> node_046 
 	self.targetEnemy(73) 
 	if self.vertical_distance_to_target().leq(400) 
@@ -4158,7 +4158,7 @@ def node_216 : 759
 	return 
 endf 
 
-def node_217 : 752
+def node_217
 	if self.distance_2d_to_target().leq(600) 
 		random (35) >> node_059 
 		elser (25) >> node_071 
@@ -4189,7 +4189,7 @@ def node_217 : 752
 	return 
 endf 
 
-def node_218 : 747
+def node_218
 	if function#101(2) 
 		if self.distance_2d_to_target().leq(600) 
 			random (25) >> node_065 
@@ -4248,7 +4248,7 @@ def node_218 : 747
 	return 
 endf 
 
-def node_219 : 748
+def node_219
 	if function#101(2) 
 		if self.distance_2d_to_target().leq(600) 
 			random (40) >> node_056 
@@ -4312,7 +4312,7 @@ def node_219 : 748
 	return 
 endf 
 
-def node_220 : 754
+def node_220
 	>> node_046 
 	if self.distance_3d_to_target().leq(1200) 
 	else 
@@ -4337,7 +4337,7 @@ def node_220 : 754
 	return 
 endf 
 
-def node_221 : 755
+def node_221
 	>> node_046 
 	if self.distance_3d_to_target().leq(1600) 
 	else 
@@ -4362,7 +4362,7 @@ def node_221 : 755
 	return 
 endf 
 
-def node_222 : 758
+def node_222
 	self.targetEnemy(73) 
 	>> node_046 
 	if self.distance_3d_to_target().leq(600) 
@@ -4373,7 +4373,7 @@ def node_222 : 758
 	return 
 endf 
 
-def node_223 : 777
+def node_223
 	if function#105(3,1) 
 		function#10A() 
 		if self.distance_3d_to_target().leq(1500) 
@@ -4387,11 +4387,11 @@ def node_223 : 777
 	reset 
 endf 
 
-def node_224 : 778
+def node_224
 	if function#105() 
 		if function#107(0,7) 
-			if [RegisterVar5 <= 1] 
-				[RegisterVar5 |-] 
+			if [RegisterVar5 -= 1] 
+				[RegisterVar5 ++] 
 				function#108(0,8) 
 			else 
 			endif 
@@ -4410,7 +4410,7 @@ def node_224 : 778
 	return 
 endf 
 
-def node_225 : 779
+def node_225
 	if function#105(0,1) 
 		if function#107(0,6) 
 			if function#109(0,2) 
@@ -4422,8 +4422,8 @@ def node_225 : 779
 			else 
 			endif 
 		elif function#107(0,7) 
-			if [RegisterVar5 <= 1] 
-				[RegisterVar5 |-] 
+			if [RegisterVar5 -= 1] 
+				[RegisterVar5 ++] 
 			else 
 			endif 
 			if function#109(0,9) 
@@ -4442,7 +4442,7 @@ def node_225 : 779
 	return 
 endf 
 
-def node_226 : 198
+def node_226
 	if self.distance_3d_to_target().leq(700) 
 	else 
 		-> velkhana.walk(1,2,5,600,1500) 
@@ -4451,7 +4451,7 @@ def node_226 : 198
 	return 
 endf 
 
-def node_227 : 444
+def node_227
 	>> node_376 
 	self.targetArea(target_area.nearest_entrance) 
 	if self.distance_3d_to_target().leq(700) 
@@ -4462,7 +4462,7 @@ def node_227 : 444
 	return 
 endf 
 
-def node_228 : 445
+def node_228
 	>> node_376 
 	self.targetArea(target_area.area_center) 
 	if self.distance_3d_to_target().leq(700) 
@@ -4473,7 +4473,7 @@ def node_228 : 445
 	return 
 endf 
 
-def node_229 : 446
+def node_229
 	>> node_376 
 	self.targetArea(39) 
 	if self.distance_3d_to_target().leq(700) 
@@ -4484,7 +4484,7 @@ def node_229 : 446
 	return 
 endf 
 
-def node_230 : 356
+def node_230
 	if self.distance_3d_to_target().leq(700) 
 	else 
 		-> velkhana.dying_walk(1,2,0,600,1500) 
@@ -4493,7 +4493,7 @@ def node_230 : 356
 	return 
 endf 
 
-def node_231 : 194
+def node_231
 	if self.distance_3d_to_target().leq(700) 
 	else 
 		-> velkhana.dash(1,2,0,600,1500) 
@@ -4502,7 +4502,7 @@ def node_231 : 194
 	return 
 endf 
 
-def node_232 : 272
+def node_232
 	if self.distance_3d_to_target().leq(700) 
 	else 
 		-> velkhana.dash(1,2,0,600,1500) 
@@ -4518,7 +4518,7 @@ def node_232 : 272
 	return 
 endf 
 
-def node_233 : 529
+def node_233
 	if self.distance_3d_to_target().leq(700) 
 	else 
 		-> velkhana.dash(1,2,0,600,1500) 
@@ -4542,7 +4542,7 @@ def node_233 : 529
 	return 
 endf 
 
-def node_234 : 530
+def node_234
 	if self.distance_2d_to_target().leq(700) 
 	else 
 		-> velkhana.dash(1,2,0,600,1500) 
@@ -4558,7 +4558,7 @@ def node_234 : 530
 	return 
 endf 
 
-def node_235 : 531
+def node_235
 	if self.distance_2d_to_target().leq(700) 
 	else 
 		-> velkhana.dash(1,2,0,600,1500) 
@@ -4582,7 +4582,7 @@ def node_235 : 531
 	return 
 endf 
 
-def node_236 : 709
+def node_236
 	if self.distance_3d_to_target().leq(1600) 
 	else 
 		-> velkhana.dash(1,2,0,1500,1500) 
@@ -4606,7 +4606,7 @@ def node_236 : 709
 	return 
 endf 
 
-def node_237 : 816
+def node_237
 	if self.distance_2d_to_target().leq(1500) 
 	else 
 		-> velkhana.dash(6,2,0,1400,1500) 
@@ -4630,7 +4630,7 @@ def node_237 : 816
 	return 
 endf 
 
-def node_238 : 813
+def node_238
 	if self.distance_2d_to_target().leq(1750) 
 	else 
 		-> velkhana.dash(6,2,0,1650,1500) 
@@ -4654,7 +4654,7 @@ def node_238 : 813
 	return 
 endf 
 
-def node_239 : 852
+def node_239
 	if self.distance_2d_to_target().leq(1900) 
 	else 
 		-> velkhana.dash(6,2,0,1800,1500) 
@@ -4678,7 +4678,7 @@ def node_239 : 852
 	return 
 endf 
 
-def node_240 : 343
+def node_240
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> velkhana.dying_walk_fly(2,1,5,3000,500) 
@@ -4687,7 +4687,7 @@ def node_240 : 343
 	return 
 endf 
 
-def node_241 : 344
+def node_241
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> velkhana.dying_glide_direct_move(2,1,5,3000,500) 
@@ -4696,7 +4696,7 @@ def node_241 : 344
 	return 
 endf 
 
-def node_242 : 345
+def node_242
 	if self.distance_3d_to_target().leq(1000) 
 	else 
 		-> velkhana.dying_glide_direct_move(2,1,5,3000,900) 
@@ -4705,7 +4705,7 @@ def node_242 : 345
 	return 
 endf 
 
-def node_243 : 346
+def node_243
 	if self.distance_2d_to_target().leq(600) 
 	else 
 		-> velkhana.glide_combat(2,1,5,3000,500) 
@@ -4714,7 +4714,7 @@ def node_243 : 346
 	return 
 endf 
 
-def node_244 : 347
+def node_244
 	if self.distance_2d_to_target().leq(1000) 
 	else 
 		-> velkhana.glide_combat(2,1,5,3000,900) 
@@ -4723,7 +4723,7 @@ def node_244 : 347
 	return 
 endf 
 
-def node_245 : 401
+def node_245
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> velkhana.glide(2,1,5,3000,500) 
@@ -4732,7 +4732,7 @@ def node_245 : 401
 	return 
 endf 
 
-def node_246 : 402
+def node_246
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> velkhana.glide_direct_move(2,1,5,3000,500) 
@@ -4741,7 +4741,7 @@ def node_246 : 402
 	return 
 endf 
 
-def node_247 : 403
+def node_247
 	if self.distance_3d_to_target().leq(1000) 
 	else 
 		-> velkhana.glide_direct_move(2,1,5,3000,900) 
@@ -4750,7 +4750,7 @@ def node_247 : 403
 	return 
 endf 
 
-def node_248 : 708
+def node_248
 	if self.distance_3d_to_target().leq(1000) 
 	else 
 		-> velkhana.glide_direct_move(2,1,0,1500,900) 
@@ -4766,7 +4766,7 @@ def node_248 : 708
 	return 
 endf 
 
-def node_249 : 710
+def node_249
 	if self.distance_3d_to_target().leq(2000) 
 	else 
 		-> velkhana.glide_direct_move(2,1,0,1500,1900) 
@@ -4790,7 +4790,7 @@ def node_249 : 710
 	return 
 endf 
 
-def node_250 : 404
+def node_250
 	if self.distance_2d_to_target().leq(600) 
 	else 
 		-> velkhana.glide_combat(2,1,5,3000,500) 
@@ -4799,7 +4799,7 @@ def node_250 : 404
 	return 
 endf 
 
-def node_251 : 405
+def node_251
 	if self.distance_2d_to_target().leq(1000) 
 	else 
 		-> velkhana.glide_combat(2,1,5,3000,900) 
@@ -4808,7 +4808,7 @@ def node_251 : 405
 	return 
 endf 
 
-def node_252 : 196
+def node_252
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> velkhana.glide(2,1,0,3000,500) 
@@ -4817,7 +4817,7 @@ def node_252 : 196
 	return 
 endf 
 
-def node_253 : 195
+def node_253
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> velkhana.glide_direct_move(2,1,0,3000,500) 
@@ -4826,7 +4826,7 @@ def node_253 : 195
 	return 
 endf 
 
-def node_254 : 279
+def node_254
 	if self.distance_3d_to_target().leq(1000) 
 	else 
 		-> velkhana.glide_direct_move(2,1,0,3000,900) 
@@ -4835,7 +4835,7 @@ def node_254 : 279
 	return 
 endf 
 
-def node_255 : 532
+def node_255
 	if self.distance_3d_to_target().leq(600) 
 	else 
 		-> velkhana.glide_direct_move(2,1,0,1500,500) 
@@ -4851,7 +4851,7 @@ def node_255 : 532
 	return 
 endf 
 
-def node_256 : 197
+def node_256
 	if self.distance_2d_to_target().leq(600) 
 	else 
 		-> velkhana.glide_combat(2,1,0,3000,500) 
@@ -4860,7 +4860,7 @@ def node_256 : 197
 	return 
 endf 
 
-def node_257 : 280
+def node_257
 	if self.distance_2d_to_target().leq(1000) 
 	else 
 		-> velkhana.glide_combat(2,1,0,3000,900) 
@@ -4869,7 +4869,7 @@ def node_257 : 280
 	return 
 endf 
 
-def node_258 : 533
+def node_258
 	if self.distance_2d_to_target().leq(600) 
 	else 
 		-> velkhana.glide_combat(2,1,0,1500,500) 
@@ -4885,7 +4885,7 @@ def node_258 : 533
 	return 
 endf 
 
-def node_259 : 257
+def node_259
 	if self.distance_3d_to_target().leq(1000) 
 	else 
 		-> velkhana.glide_direct_move(2,1,0,1500,700) 
@@ -4909,7 +4909,7 @@ def node_259 : 257
 	return 
 endf 
 
-def node_260 : 256
+def node_260
 	if self.distance_2d_to_target().leq(1000) 
 	else 
 		-> velkhana.glide_combat(2,0,0,1500) 
@@ -4933,26 +4933,26 @@ def node_260 : 256
 	return 
 endf 
 
-def node_261 : 552
+def node_261
 	>> node_046 
 	-> velkhana.take_off_switch_pattern_by_dist() 
 	>> node_254 
 	return 
 endf 
 
-def node_262 : 398
+def node_262
 	>> node_046 
 	-> velkhana.sudden_rise() 
 	return 
 endf 
 
-def node_263 : 400
+def node_263
 	>> node_047 
 	-> velkhana.sudden_drop() 
 	return 
 endf 
 
-def node_264 : 585
+def node_264
 	if self.current_quest().is_rank(rank.AT) 
 		if function#101(4) 
 			if self.flying() 
@@ -4988,7 +4988,7 @@ def node_264 : 585
 	return 
 endf 
 
-def node_265 : 324
+def node_265
 	if self.flying() 
 		-> velkhana.discover_fly() 
 	else 
@@ -4997,7 +4997,7 @@ def node_265 : 324
 	return 
 endf 
 
-def node_266 : 526
+def node_266
 	if self.flying() 
 		-> velkhana.threat_short_fly() 
 	else 
@@ -5006,7 +5006,7 @@ def node_266 : 526
 	return 
 endf 
 
-def node_267 : 325
+def node_267
 	if self.flying() 
 		-> velkhana.threat_short_fly() 
 	else 
@@ -5015,16 +5015,16 @@ def node_267 : 325
 	return 
 endf 
 
-def node_268 : 556
-	if function#AB() 
-		function#AA() 
+def node_268
+	if [$V += 0] 
+		[$V |-] 
 		>> node_267 
 	else 
 	endif 
 	return 
 endf 
 
-def node_269 : 328
+def node_269
 	if self.flying() 
 		-> velkhana.search_fly() 
 	else 
@@ -5033,7 +5033,7 @@ def node_269 : 328
 	return 
 endf 
 
-def node_270 : 330
+def node_270
 	if self.flying() 
 		-> velkhana.search_fly() 
 	else 
@@ -5042,7 +5042,7 @@ def node_270 : 330
 	return 
 endf 
 
-def node_271 : 329
+def node_271
 	if self.flying() 
 		-> velkhana.search_fly() 
 	else 
@@ -5051,7 +5051,7 @@ def node_271 : 329
 	return 
 endf 
 
-def node_272 : 584
+def node_272
 	if self.flying() 
 		-> velkhana.discover_fly() 
 	else 
@@ -5060,19 +5060,19 @@ def node_272 : 584
 	return 
 endf 
 
-def node_273 : 336
+def node_273
 	>> node_046 
 	-> velkhana.tired() 
 	return 
 endf 
 
-def node_274 : 337
+def node_274
 	>> node_046 
 	-> velkhana.refresh() 
 	return 
 endf 
 
-def node_275 : 369
+def node_275
 	>> node_046 
 	if self.in_combat() 
 		-> velkhana.lost_search() 
@@ -5082,13 +5082,13 @@ def node_275 : 369
 	return 
 endf 
 
-def node_276 : 370
+def node_276
 	>> node_046 
 	-> velkhana.lost_search() 
 	return 
 endf 
 
-def node_277 : 457
+def node_277
 	if self.flying() 
 		-> velkhana.chance_fly() 
 	else 
@@ -5097,7 +5097,7 @@ def node_277 : 457
 	return 
 endf 
 
-def node_278 : 695
+def node_278
 	if self.flying() 
 		-> velkhana.chance_fly() 
 	else 
@@ -5106,7 +5106,7 @@ def node_278 : 695
 	return 
 endf 
 
-def node_279 : 485
+def node_279
 	if self.current_quest().is_rank(rank.AT) 
 		>> node_280 
 	else 
@@ -5135,7 +5135,7 @@ def node_279 : 485
 	return 
 endf 
 
-def node_280 : 791
+def node_280
 	if function#7D() 
 		if self.flying() 
 			-> velkhana.barrier_max_fly() 
@@ -5166,13 +5166,13 @@ def node_280 : 791
 	return 
 endf 
 
-def node_281 : 206
+def node_281
 	self.targetArea(target_area.nearest_entrance) 
 	>> node_282 
 	return 
 endf 
 
-def node_282 : 424
+def node_282
 	if function#5A(20) 
 		>> node_283 
 	elif function#5A(21) 
@@ -5203,7 +5203,7 @@ def node_282 : 424
 	return 
 endf 
 
-def node_283 : 425
+def node_283
 	if self.distance_3d_to_target().leq(20000) 
 		>> node_046 
 		>> node_286 
@@ -5213,7 +5213,7 @@ def node_283 : 425
 	return 
 endf 
 
-def node_284 : 426
+def node_284
 	if self.distance_3d_to_target().leq(20000) 
 		>> node_047 
 		>> node_286 
@@ -5223,7 +5223,7 @@ def node_284 : 426
 	return 
 endf 
 
-def node_285 : 427
+def node_285
 	if function#AD() 
 		>> node_286 
 	else 
@@ -5232,7 +5232,7 @@ def node_285 : 427
 	return 
 endf 
 
-def node_286 : 207
+def node_286
 	if function#5A(10) 
 		>> node_047 
 	elif function#5A(11) 
@@ -5268,7 +5268,7 @@ def node_286 : 207
 	return 
 endf 
 
-def node_287 : 208
+def node_287
 	>> node_288 
 	>> node_289 
 	>> node_290 
@@ -5276,7 +5276,7 @@ def node_287 : 208
 	return 
 endf 
 
-def node_288 : 209
+def node_288
 	if self.flying() 
 		self.targetArea(target_area.area_aerial_center) 
 		>> node_247 
@@ -5289,7 +5289,7 @@ def node_288 : 209
 	return 
 endf 
 
-def node_289 : 210
+def node_289
 	self.targetArea(target_area.nearest_entrance) 
 	if self.flying() 
 		self.targetArea(40) 
@@ -5301,7 +5301,7 @@ def node_289 : 210
 	return 
 endf 
 
-def node_290 : 205
+def node_290
 	if function#5A(10) 
 	elif function#5A(11) 
 	elif function#5A(12) 
@@ -5324,7 +5324,7 @@ def node_290 : 205
 	return 
 endf 
 
-def node_291 : 278
+def node_291
 	self.targetArea(target_area.nearest_entrance) 
 	if self.flying() 
 		>> node_246 
@@ -5334,7 +5334,7 @@ def node_291 : 278
 	return 
 endf 
 
-def node_292 : 199
+def node_292
 	self.targetArea(14) 
 	if function#AD() 
 		>> node_293 
@@ -5345,7 +5345,7 @@ def node_292 : 199
 	return 
 endf 
 
-def node_293 : 200
+def node_293
 	if self.flying() 
 		self.targetArea(40) 
 		>> node_253 
@@ -5355,13 +5355,13 @@ def node_293 : 200
 	return 
 endf 
 
-def node_294 : 201
+def node_294
 	>> node_295 
 	>> node_297 
 	return 
 endf 
 
-def node_295 : 553
+def node_295
 	if self.flying() 
 		self.targetArea(target_area.area_aerial_center) 
 		>> node_254 
@@ -5372,7 +5372,7 @@ def node_295 : 553
 	return 
 endf 
 
-def node_296 : 554
+def node_296
 	self.targetArea(target_area.area_center) 
 	>> node_231 
 	self.targetArea(target_area.area_aerial_center) 
@@ -5380,7 +5380,7 @@ def node_296 : 554
 	return 
 endf 
 
-def node_297 : 203
+def node_297
 	self.targetArea(14) 
 	if self.flying() 
 		self.targetArea(40) 
@@ -5391,7 +5391,7 @@ def node_297 : 203
 	return 
 endf 
 
-def node_298 : 204
+def node_298
 	self.targetArea(14) 
 	if self.flying() 
 		if self.fatigued() 
@@ -5405,7 +5405,7 @@ def node_298 : 204
 	return 
 endf 
 
-def node_299 : 349
+def node_299
 	self.targetArea(24) 
 	if function#AD() 
 		>> node_300 
@@ -5415,14 +5415,14 @@ def node_299 : 349
 	return 
 endf 
 
-def node_300 : 350
+def node_300
 	>> node_046 
 	self.targetArea(24) 
 	>> node_230 
 	return 
 endf 
 
-def node_301 : 351
+def node_301
 	>> node_302 
 	>> node_303 
 	>> node_304 
@@ -5430,7 +5430,7 @@ def node_301 : 351
 	return 
 endf 
 
-def node_302 : 352
+def node_302
 	if self.flying() 
 		self.targetArea(target_area.area_aerial_center) 
 		>> node_242 
@@ -5443,7 +5443,7 @@ def node_302 : 352
 	return 
 endf 
 
-def node_303 : 353
+def node_303
 	self.targetArea(24) 
 	if self.flying() 
 		self.targetArea(40) 
@@ -5455,7 +5455,7 @@ def node_303 : 353
 	return 
 endf 
 
-def node_304 : 354
+def node_304
 	if self.flying() 
 		self.targetArea(target_area.area_center) 
 		>> node_046 
@@ -5464,7 +5464,7 @@ def node_304 : 354
 	return 
 endf 
 
-def node_305 : 355
+def node_305
 	if self.flying() 
 	else 
 		self.targetArea(24) 
@@ -5473,7 +5473,7 @@ def node_305 : 355
 	return 
 endf 
 
-def node_306 : 362
+def node_306
 	if function#AD() 
 		>> node_307 
 	else 
@@ -5482,7 +5482,7 @@ def node_306 : 362
 	return 
 endf 
 
-def node_307 : 363
+def node_307
 	if self.flying() 
 		>> node_257 
 	else 
@@ -5495,14 +5495,14 @@ def node_307 : 363
 	return 
 endf 
 
-def node_308 : 364
+def node_308
 	>> node_309 
 	>> node_310 
 	>> node_311 
 	return 
 endf 
 
-def node_309 : 365
+def node_309
 	if self.flying() 
 		self.targetArea(target_area.area_aerial_center) 
 		>> node_253 
@@ -5519,7 +5519,7 @@ def node_309 : 365
 	return 
 endf 
 
-def node_310 : 366
+def node_310
 	if self.flying() 
 		self.targetArea(40) 
 		>> node_252 
@@ -5534,7 +5534,7 @@ def node_310 : 366
 	return 
 endf 
 
-def node_311 : 367
+def node_311
 	if self.flying() 
 		self.targetArea(target_area.area_center) 
 		>> node_046 
@@ -5543,7 +5543,7 @@ def node_311 : 367
 	return 
 endf 
 
-def node_312 : 557
+def node_312
 	self.targetArea(target_area.area_center) 
 	if self.flying() 
 		if self.fatigued() 
@@ -5556,7 +5556,7 @@ def node_312 : 557
 	return 
 endf 
 
-def node_313 : 368
+def node_313
 	if self.flying() 
 		>> node_257 
 	else 
@@ -5569,7 +5569,7 @@ def node_313 : 368
 	return 
 endf 
 
-def node_314 : 309
+def node_314
 	if self.flying() 
 		-> velkhana.turn_fly() 
 	else 
@@ -5578,7 +5578,7 @@ def node_314 : 309
 	return 
 endf 
 
-def node_315 : 310
+def node_315
 	if self.angle_2d_cw_between(15,345) 
 		>> node_314 
 	else 
@@ -5586,7 +5586,7 @@ def node_315 : 310
 	return 
 endf 
 
-def node_316 : 311
+def node_316
 	if self.angle_2d_cw_between(30,330) 
 		>> node_314 
 	else 
@@ -5594,7 +5594,7 @@ def node_316 : 311
 	return 
 endf 
 
-def node_317 : 312
+def node_317
 	if self.angle_2d_cw_between(60,300) 
 		>> node_314 
 	else 
@@ -5602,7 +5602,7 @@ def node_317 : 312
 	return 
 endf 
 
-def node_318 : 313
+def node_318
 	if self.angle_2d_cw_between(90,270) 
 		>> node_314 
 	else 
@@ -5610,7 +5610,7 @@ def node_318 : 313
 	return 
 endf 
 
-def node_319 : 357
+def node_319
 	if self.flying() 
 		-> velkhana.quick_turn_fly() 
 	else 
@@ -5619,7 +5619,7 @@ def node_319 : 357
 	return 
 endf 
 
-def node_320 : 358
+def node_320
 	if self.angle_2d_cw_between(15,345) 
 		>> node_319 
 	else 
@@ -5627,7 +5627,7 @@ def node_320 : 358
 	return 
 endf 
 
-def node_321 : 359
+def node_321
 	if self.angle_2d_cw_between(30,330) 
 		>> node_319 
 	else 
@@ -5635,7 +5635,7 @@ def node_321 : 359
 	return 
 endf 
 
-def node_322 : 360
+def node_322
 	if self.angle_2d_cw_between(60,300) 
 		>> node_319 
 	else 
@@ -5643,7 +5643,7 @@ def node_322 : 360
 	return 
 endf 
 
-def node_323 : 361
+def node_323
 	if self.angle_2d_cw_between(90,270) 
 		>> node_319 
 	else 
@@ -5651,19 +5651,19 @@ def node_323 : 361
 	return 
 endf 
 
-def node_324 : 226
+def node_324
 	>> node_046 
 	-> velkhana.lost_search() 
 	return 
 endf 
 
-def node_325 : 227
+def node_325
 	>> node_046 
 	-> velkhana.lost_search() 
 	return 
 endf 
 
-def node_326 : 228
+def node_326
 	>> node_046 
 	random (50) -> velkhana.combat_search() 
 	elser (50) -> velkhana.lost_search() 
@@ -5671,7 +5671,7 @@ def node_326 : 228
 	return 
 endf 
 
-def node_327 : 229
+def node_327
 	>> node_046 
 	random (50) -> velkhana.combat_search() 
 	elser (50) -> velkhana.lost_search() 
@@ -5679,25 +5679,25 @@ def node_327 : 229
 	return 
 endf 
 
-def node_328 : 230
+def node_328
 	>> node_046 
 	-> velkhana.dash(2,1,0,1000,750) 
 	return 
 endf 
 
-def node_329 : 231
+def node_329
 	>> node_046 
 	-> velkhana.dash(2,1,0,2000,750) 
 	return 
 endf 
 
-def node_330 : 232
+def node_330
 	>> node_046 
 	>> node_333 
 	return 
 endf 
 
-def node_331 : 233
+def node_331
 	>> node_046 
 	if self.target(10) 
 		-> velkhana.dash(2,0,0,1000) 
@@ -5711,19 +5711,19 @@ def node_331 : 233
 	return 
 endf 
 
-def node_332 : 242
+def node_332
 	>> node_046 
 	-> velkhana.tired() 
 	return 
 endf 
 
-def node_333 : 776
+def node_333
 	>> node_046 
 	-> velkhana.lost_tail_swing() 
 	return 
 endf 
 
-def node_334 : 282
+def node_334
 	if self.distance_3d_to_target().leq(900) 
 		>> node_364 
 	elif self.distance_3d_to_target().leq(1350) 
@@ -5733,7 +5733,7 @@ def node_334 : 282
 	return 
 endf 
 
-def node_335 : 289
+def node_335
 	if self.distance_2d_to_target().leq(900) 
 	else 
 		-> velkhana.dash(2,0,0,1500) 
@@ -5749,13 +5749,13 @@ def node_335 : 289
 	return 
 endf 
 
-def node_336 : 292
+def node_336
 	>> node_046 
 	-> velkhana.lost_search() 
 	return 
 endf 
 
-def node_337 : 295
+def node_337
 	>> node_046 
 	>> node_316 
 	-> velkhana.life_search() 
@@ -5772,7 +5772,7 @@ def node_337 : 295
 	return 
 endf 
 
-def node_338 : 300
+def node_338
 	>> node_046 
 	self.targetArea(17) 
 	>> node_316 
@@ -5780,7 +5780,7 @@ def node_338 : 300
 	return 
 endf 
 
-def node_339 : 307
+def node_339
 	>> node_046 
 	self.targetArea(17) 
 	random (75) >> node_337 
@@ -5790,7 +5790,7 @@ def node_339 : 307
 	return 
 endf 
 
-def node_340 : 303
+def node_340
 	>> node_046 
 	self.targetArea(17) 
 	>> node_316 
@@ -5798,14 +5798,14 @@ def node_340 : 303
 	return 
 endf 
 
-def node_341 : 305
+def node_341
 	>> node_046 
 	>> node_315 
 	-> velkhana.life_search() 
 	return 
 endf 
 
-def node_342 : 306
+def node_342
 	>> node_046 
 	self.targetArea(17) 
 	>> node_316 
@@ -5813,49 +5813,49 @@ def node_342 : 306
 	return 
 endf 
 
-def node_343 : 296
+def node_343
 	>> node_047 
 	>> node_316 
 	-> velkhana.search_fly() 
 	return 
 endf 
 
-def node_344 : 301
+def node_344
 	>> node_047 
 	>> node_316 
 	-> velkhana.chance_fly() 
 	return 
 endf 
 
-def node_345 : 308
+def node_345
 	>> node_047 
 	>> node_316 
 	-> velkhana.search_fly() 
 	return 
 endf 
 
-def node_346 : 299
+def node_346
 	>> node_047 
 	>> node_315 
 	-> velkhana.search_fly() 
 	return 
 endf 
 
-def node_347 : 297
+def node_347
 	>> node_047 
 	>> node_316 
 	-> velkhana.search_fly() 
 	return 
 endf 
 
-def node_348 : 534
+def node_348
 	>> node_047 
 	self.targetEnemy(17) 
 	-> velkhana.sudden_drop() 
 	return 
 endf 
 
-def node_349 : 348
+def node_349
 	>> node_046 
 	>> node_316 
 	if function#C9() 
@@ -5866,7 +5866,7 @@ def node_349 : 348
 	return 
 endf 
 
-def node_350 : 422
+def node_350
 	if self.distance_2d_to_target().leq(500) 
 	else 
 		-> velkhana.glide_direct_move(1,2,0,400,1500) 
@@ -5875,38 +5875,38 @@ def node_350 : 422
 	return 
 endf 
 
-def node_351 : 385
+def node_351
 	>> node_047 
 	self.targetArea(22) @ parameter2:500 
 	-> velkhana.quick_turn_fly() 
 	return 
 endf 
 
-def node_352 : 527
+def node_352
 	>> node_047 
 	-> velkhana.ride_rage_head() 
 	return 
 endf 
 
-def node_353 : 386
+def node_353
 	>> node_047 
 	-> velkhana.ride_rage_head_lv2() 
 	return 
 endf 
 
-def node_354 : 528
+def node_354
 	>> node_047 
 	-> velkhana.ride_rage_body() 
 	return 
 endf 
 
-def node_355 : 387
+def node_355
 	>> node_047 
 	-> velkhana.ride_rage_body_lv2() 
 	return 
 endf 
 
-def node_356 : 394
+def node_356
 	>> node_047 
 	if self.distance_2d_to_target().leq(600) 
 		>> node_384 
@@ -5917,7 +5917,7 @@ def node_356 : 394
 	return 
 endf 
 
-def node_357 : 551
+def node_357
 	if function#11(1000) 
 	else 
 		if self.above_area() 
@@ -5929,49 +5929,49 @@ def node_357 : 551
 	return 
 endf 
 
-def node_358 : 388
+def node_358
 	>> node_047 
 	-> velkhana.ride_rage_crash_head() 
 	return 
 endf 
 
-def node_359 : 389
+def node_359
 	>> node_047 
 	-> velkhana.ride_rage_crash_head_lv2() 
 	return 
 endf 
 
-def node_360 : 390
+def node_360
 	>> node_047 
 	-> velkhana.ride_rage_crash_body() 
 	return 
 endf 
 
-def node_361 : 391
+def node_361
 	>> node_047 
 	-> velkhana.ride_rage_crash_body_lv2() 
 	return 
 endf 
 
-def node_362 : 393
+def node_362
 	>> node_047 
 	-> velkhana.chance_fly() 
 	return 
 endf 
 
-def node_363 : 392
+def node_363
 	>> node_047 
 	-> velkhana.ride_tired() 
 	return 
 endf 
 
-def node_364 : 275
+def node_364
 	>> node_046 
 	-> velkhana.back_turn() 
 	return 
 endf 
 
-def node_365 : 284
+def node_365
 	if self.angle_2d_cw_between(15,345) 
 		>> node_364 
 	else 
@@ -5979,7 +5979,7 @@ def node_365 : 284
 	return 
 endf 
 
-def node_366 : 285
+def node_366
 	if self.angle_2d_cw_between(30,330) 
 		>> node_364 
 	else 
@@ -5987,7 +5987,7 @@ def node_366 : 285
 	return 
 endf 
 
-def node_367 : 286
+def node_367
 	if self.angle_2d_cw_between(45,315) 
 		>> node_364 
 	else 
@@ -5995,7 +5995,7 @@ def node_367 : 286
 	return 
 endf 
 
-def node_368 : 287
+def node_368
 	if self.angle_2d_cw_between(60,300) 
 		>> node_364 
 	else 
@@ -6003,7 +6003,7 @@ def node_368 : 287
 	return 
 endf 
 
-def node_369 : 288
+def node_369
 	if self.angle_2d_cw_between(90,270) 
 		>> node_364 
 	else 
@@ -6011,13 +6011,13 @@ def node_369 : 288
 	return 
 endf 
 
-def node_370 : 271
+def node_370
 	>> node_046 
 	-> velkhana.quick_turn() 
 	return 
 endf 
 
-def node_371 : 212
+def node_371
 	if self.angle_2d_cw_between(15,345) 
 		>> node_370 
 	else 
@@ -6025,7 +6025,7 @@ def node_371 : 212
 	return 
 endf 
 
-def node_372 : 213
+def node_372
 	if self.angle_2d_cw_between(30,330) 
 		>> node_370 
 	else 
@@ -6033,7 +6033,7 @@ def node_372 : 213
 	return 
 endf 
 
-def node_373 : 214
+def node_373
 	if self.angle_2d_cw_between(45,315) 
 		>> node_370 
 	else 
@@ -6041,7 +6041,7 @@ def node_373 : 214
 	return 
 endf 
 
-def node_374 : 216
+def node_374
 	if self.angle_2d_cw_between(60,300) 
 		>> node_370 
 	else 
@@ -6049,7 +6049,7 @@ def node_374 : 216
 	return 
 endf 
 
-def node_375 : 215
+def node_375
 	if self.angle_2d_cw_between(90,270) 
 		>> node_370 
 	else 
@@ -6057,7 +6057,7 @@ def node_375 : 215
 	return 
 endf 
 
-def node_376 : 458
+def node_376
 	if self.targetEnemy(target_em.any_monster) 
 		if self.target(13) 
 		else 
@@ -6102,17 +6102,17 @@ def node_376 : 458
 	return 
 endf 
 
-def node_377 : 459
+def node_377
 	return 
 endf 
 
-def node_378 : 460
+def node_378
 	>> node_321 
 	>> node_277 
 	return 
 endf 
 
-def node_379 : 461
+def node_379
 	>> node_378 
 	if self.flying() 
 		if self.distance_2d_to_target().leq(750) 
@@ -6126,12 +6126,12 @@ def node_379 : 461
 	return 
 endf 
 
-def node_380 : 462
+def node_380
 	self.force_area_change2() 
 	return 
 endf 
 
-def node_381 : 397
+def node_381
 	random (15) 
 				self.targetArea(21) @ parameter2:700 
 	elser (35) 
@@ -6144,7 +6144,7 @@ def node_381 : 397
 	return 
 endf 
 
-def node_382 : 535
+def node_382
 	random (35) 
 				if self.flying() 
 					-> velkhana.chance_fly() 
@@ -6156,7 +6156,7 @@ def node_382 : 535
 	return 
 endf 
 
-def node_383 : 536
+def node_383
 	if self.flying() 
 		-> velkhana.chance_fly() 
 	else 
@@ -6165,13 +6165,13 @@ def node_383 : 536
 	return 
 endf 
 
-def node_384 : 464
+def node_384
 	>> node_047 
 	-> velkhana.step_back_fly() 
 	return 
 endf 
 
-def node_385 : 465
+def node_385
 	if self.angle_2d_cw_between(15,345) 
 		>> node_384 
 	else 
@@ -6179,7 +6179,7 @@ def node_385 : 465
 	return 
 endf 
 
-def node_386 : 466
+def node_386
 	if self.angle_2d_cw_between(30,330) 
 		>> node_384 
 	else 
@@ -6187,7 +6187,7 @@ def node_386 : 466
 	return 
 endf 
 
-def node_387 : 467
+def node_387
 	if self.angle_2d_cw_between(45,315) 
 		>> node_384 
 	else 
@@ -6195,7 +6195,7 @@ def node_387 : 467
 	return 
 endf 
 
-def node_388 : 468
+def node_388
 	if self.angle_2d_cw_between(90,270) 
 		>> node_384 
 	else 
@@ -6203,7 +6203,7 @@ def node_388 : 468
 	return 
 endf 
 
-def node_389 : 469
+def node_389
 	if self.angle_2d_cw_between(0,180) 
 		-> velkhana.quick_turn_fly() 
 	else 
@@ -6212,7 +6212,7 @@ def node_389 : 469
 	return 
 endf 
 
-def node_390 : 470
+def node_390
 	if self.angle_2d_cw_between(15,345) 
 		>> node_389 
 	else 
@@ -6220,7 +6220,7 @@ def node_390 : 470
 	return 
 endf 
 
-def node_391 : 471
+def node_391
 	if self.angle_2d_cw_between(30,330) 
 		>> node_389 
 	else 
@@ -6228,7 +6228,7 @@ def node_391 : 471
 	return 
 endf 
 
-def node_392 : 472
+def node_392
 	if self.angle_2d_cw_between(45,315) 
 		>> node_389 
 	else 
@@ -6236,7 +6236,7 @@ def node_392 : 472
 	return 
 endf 
 
-def node_393 : 473
+def node_393
 	if self.angle_2d_cw_between(90,270) 
 		>> node_389 
 	else 
@@ -6244,7 +6244,7 @@ def node_393 : 473
 	return 
 endf 
 
-def node_394 : 518
+def node_394
 	>> node_046 
 	>> node_321 
 	if self.flying() 
@@ -6255,7 +6255,7 @@ def node_394 : 518
 	return 
 endf 
 
-def node_395 : 519
+def node_395
 	>> node_046 
 	if self.targetEnemy(target_em.any_monster) 
 		random (20) >> node_321 
@@ -6275,7 +6275,7 @@ def node_395 : 519
 	return 
 endf 
 
-def node_396 : 520
+def node_396
 	>> node_046 
 	>> node_321 
 	random (40) -> velkhana.chance() 
@@ -6286,14 +6286,14 @@ def node_396 : 520
 	return 
 endf 
 
-def node_397 : 521
+def node_397
 	>> node_046 
 	>> node_316 
 	-> velkhana.life_search() 
 	return 
 endf 
 
-def node_398 : 522
+def node_398
 	>> node_046 
 	self.targetEnemy(58) 
 	random (0) >> node_399 
@@ -6309,17 +6309,17 @@ def node_398 : 522
 	return 
 endf 
 
-def node_399 : 523
+def node_399
 	-> velkhana.walk(1,2,0,600,1500) 
 	return 
 endf 
 
-def node_400 : 524
+def node_400
 	-> velkhana.glide_combat(1,2,0,600,2000) 
 	return 
 endf 
 
-def node_401 : 525
+def node_401
 	if self.fatigued() 
 		>> node_046 
 	else 
@@ -6327,7 +6327,7 @@ def node_401 : 525
 	return 
 endf 
 
-def node_402 : 537
+def node_402
 	if self.current_quest().is_rank(rank.AT) 
 		>> node_404 
 	else 
@@ -6336,7 +6336,7 @@ def node_402 : 537
 	return 
 endf 
 
-def node_403 : 894
+def node_403
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if function#5D() 
 		>> node_410 
@@ -6377,7 +6377,7 @@ def node_403 : 894
 	return 
 endf 
 
-def node_404 : 892
+def node_404
 	if function#5D() 
 		>> node_410 
 	elif self.target(3) 
@@ -6418,7 +6418,7 @@ def node_404 : 892
 	return 
 endf 
 
-def node_405 : 610
+def node_405
 	if self.current_quest().is_rank(rank.AT) 
 		>> node_407 
 	else 
@@ -6427,7 +6427,7 @@ def node_405 : 610
 	return 
 endf 
 
-def node_406 : 895
+def node_406
 	if function#5D() 
 		>> node_410 
 	elif self.target(3) 
@@ -6458,7 +6458,7 @@ def node_406 : 895
 	reset 
 endf 
 
-def node_407 : 893
+def node_407
 	if function#5D() 
 		>> node_410 
 	elif self.target(3) 
@@ -6491,7 +6491,7 @@ def node_407 : 893
 	reset 
 endf 
 
-def node_408 : 773
+def node_408
 	if self.in_map(st.Ancient_Forest).in_area(2) 
 		if self.vertical_distance_to_target().leq(300) 
 		else 
@@ -6524,17 +6524,17 @@ def node_408 : 773
 	return 
 endf 
 
-def node_409 : 538
-	if [RegisterVar4 <= 10] 
-		[RegisterVar4 |-] 
-	elif [RegisterVar4 <= 1] 
+def node_409
+	if [RegisterVar4 -= 10] 
 		[RegisterVar4 ++] 
+	elif [RegisterVar4 -= 1] 
+		[RegisterVar4 |-] 
 	else 
 	endif 
 	return 
 endf 
 
-def node_410 : 539
+def node_410
 	if self.distance_2d_to_target().leq(1500) 
 		if self.angle_2d_cw_between(300,60) 
 		else 
@@ -6553,13 +6553,13 @@ def node_410 : 539
 	return 
 endf 
 
-def node_411 : 540
+def node_411
 	>> node_412 
 	>> node_413 
 	reset 
 endf 
 
-def node_412 : 331
+def node_412
 	self.targetArea(19) 
 	if self.distance_2d_to_target().leq(900) 
 	else 
@@ -6572,14 +6572,14 @@ def node_412 : 331
 	return 
 endf 
 
-def node_413 : 335
+def node_413
 	self.targetEnemy(target_em.random_player_or_cat) 
 	>> node_046 
 	-> velkhana.lost_search() 
 	return 
 endf 
 
-def node_414 : 541
+def node_414
 	if self.flying() 
 		>> node_420 
 		>> node_425 
@@ -6601,7 +6601,7 @@ def node_414 : 541
 	return 
 endf 
 
-def node_415 : 542
+def node_415
 	if self.flying() 
 		>> node_420 
 		>> node_425 
@@ -6625,7 +6625,7 @@ def node_415 : 542
 	return 
 endf 
 
-def node_416 : 543
+def node_416
 	if self.flying() 
 		>> node_420 
 		>> node_425 
@@ -6647,7 +6647,7 @@ def node_416 : 543
 	return 
 endf 
 
-def node_417 : 544
+def node_417
 	if self.flying() 
 		>> node_424 
 	else 
@@ -6656,7 +6656,7 @@ def node_417 : 544
 	return 
 endf 
 
-def node_418 : 545
+def node_418
 	if self.distance_2d_to_target().leq(600) 
 		if function#11(1500) 
 		else 
@@ -6684,7 +6684,7 @@ def node_418 : 545
 	return 
 endf 
 
-def node_419 : 546
+def node_419
 	if self.distance_3d_to_target().leq(400) 
 	else 
 		-> velkhana.dash(1,2,0,300,1500) 
@@ -6700,7 +6700,7 @@ def node_419 : 546
 	return 
 endf 
 
-def node_420 : 547
+def node_420
 	if self.distance_2d_to_target().leq(300) 
 		if function#11(1000) 
 		else 
@@ -6729,7 +6729,7 @@ def node_420 : 547
 	return 
 endf 
 
-def node_421 : 548
+def node_421
 	if function#11(500) 
 	else 
 		if self.above_area() 
@@ -6741,19 +6741,19 @@ def node_421 : 548
 	return 
 endf 
 
-def node_422 : 549
+def node_422
 	>> node_047 
 	-> velkhana.short_up_step_fly() 
 	return 
 endf 
 
-def node_423 : 762
+def node_423
 	>> node_047 
 	-> velkhana.short_down_step_fly() 
 	return 
 endf 
 
-def node_424 : 550
+def node_424
 	if self.distance_3d_to_target().leq(300) 
 	else 
 		-> velkhana.glide_direct_move(1,2,0,200,1500) 
@@ -6769,7 +6769,7 @@ def node_424 : 550
 	return 
 endf 
 
-def node_425 : 761
+def node_425
 	if self.flying() 
 		random (60) >> node_092 
 		elser (40) 
@@ -6814,7 +6814,7 @@ def node_425 : 761
 	return 
 endf 
 
-def node_426 : 763
+def node_426
 	if self.flying() 
 		>> node_096 
 	else 
@@ -6830,7 +6830,7 @@ def node_426 : 763
 	reset 
 endf 
 
-def node_427 : 765
+def node_427
 	if self.distance_3d_to_target().leq(2000) 
 	else 
 		-> velkhana.dash(1,2,0,1500,1500) 
@@ -6854,7 +6854,7 @@ def node_427 : 765
 	return 
 endf 
 
-def node_428 : 764
+def node_428
 	if self.flying() 
 		>> node_096 
 	else 
@@ -6912,21 +6912,21 @@ def node_428 : 764
 	return 
 endf 
 
-def node_429 : 826
+def node_429
 	if self.current_quest().is_rank(rank.AT) 
 		if function#101(2) 
 			if self.flying() 
 			else 
 				if self.enraged() 
-					[RegisterVar7 |-] 
 					[RegisterVar7 ++] 
+					[RegisterVar7 |-] 
 					random (40) >> node_027 
 					elser (40) >> node_015 
 					elser (20) 
 					endr 
 				else 
-					[RegisterVar7 |-] 
 					[RegisterVar7 ++] 
+					[RegisterVar7 |-] 
 					random (20) >> node_006 
 					elser (20) >> node_022 
 					elser (40) >> node_027 
@@ -6938,15 +6938,15 @@ def node_429 : 826
 			if self.flying() 
 			else 
 				if self.enraged() 
-					[RegisterVar7 |-] 
 					[RegisterVar7 ++] 
+					[RegisterVar7 |-] 
 					random (40) >> node_049 
 					elser (40) >> node_022 
 					elser (20) 
 					endr 
 				else 
-					[RegisterVar7 |-] 
 					[RegisterVar7 ++] 
+					[RegisterVar7 |-] 
 					random (40) >> node_049 
 					elser (40) >> node_022 
 					elser (20) 
@@ -6959,7 +6959,7 @@ def node_429 : 826
 	return 
 endf 
 
-def node_430 : 827
+def node_430
 	if self.current_quest().is_rank(rank.AT) 
 		if function#101(2) 
 			if self.flying() 
@@ -7000,7 +7000,7 @@ def node_430 : 827
 	return 
 endf 
 
-def node_431 : 772
+def node_431
 	if self.targetEnemy(target_em.any_monster) 
 		if self.target(13) 
 		else 
@@ -7064,7 +7064,7 @@ def node_431 : 772
 	return 
 endf 
 
-def node_432 : 771
+def node_432
 	if self.targetEnemy(target_em.any_monster) 
 		if self.target(13) 
 		else 
@@ -7128,11 +7128,11 @@ def node_432 : 771
 	return 
 endf 
 
-def node_433 : 770
+def node_433
 	return 
 endf 
 
-def node_434 : 766
+def node_434
 	self.targetEnemy(target_em.closest_entity) 
 	>> node_321 
 	if self.in_combat() 
@@ -7147,7 +7147,7 @@ def node_434 : 766
 	return 
 endf 
 
-def node_435 : 767
+def node_435
 	self.targetEnemy(target_em.closest_entity) 
 	if self.flying() 
 		>> node_096 
@@ -7209,7 +7209,7 @@ def node_435 : 767
 	return 
 endf 
 
-def node_436 : 768
+def node_436
 	>> node_435 
 	>> node_435 
 	random (70) 
@@ -7225,29 +7225,29 @@ def node_436 : 768
 	return 
 endf 
 
-def node_437 : 769
+def node_437
 	if self.in_map(st.Special_Arena).in_area(-1) 
 		>> node_435 
 	elif self.in_map(st.Challenge_Arena).in_area(-1) 
 		>> node_435 
 	else 
-		if [RegisterVar6 <= 8] 
-			[RegisterVar6 |-] 
+		if [RegisterVar6 -= 8] 
+			[RegisterVar6 ++] 
 			self.force_area_change2() 
-		elif [RegisterVar6 <= 5] 
+		elif [RegisterVar6 -= 5] 
 			random (30) 
-						[RegisterVar6 |-] 
+						[RegisterVar6 ++] 
 						self.force_area_change2() 
 			elser (70) 
 			endr 
 		else 
 		endif 
-		[RegisterVar6 ++] 
+		[RegisterVar6 |-] 
 		if self.target.in_combat() 
 			>> node_435 
-			[RegisterVar6 ++] 
+			[RegisterVar6 |-] 
 		else 
-			[RegisterVar6 ++] 
+			[RegisterVar6 |-] 
 			>> node_434 
 		endif 
 		self.targetEnemy(target_em.closest_entity) 
@@ -7267,7 +7267,7 @@ def node_437 : 769
 	return 
 endf 
 
-def node_438 : 774
+def node_438
 	if self.defense_downed() 
 		if function#31(49,3000) 
 			self.targetEnemy(target_em.closest_entity) 
@@ -7282,7 +7282,7 @@ def node_438 : 774
 	return 
 endf 
 
-def node_439 : 775
+def node_439
 	self.targetEnemy(target_em.closest_entity) 
 	if self.distance_3d_to_target().leq(1000) 
 		random (50) >> node_364 

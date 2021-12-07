@@ -1,7 +1,7 @@
 importactions TzitziYaKu as tzitziyaku
 importlibrary Global as Global
 
-def node_000 : 134
+def node_000
 	if function#45() 
 	else 
 		>> Global.node_025 
@@ -32,7 +32,7 @@ def node_000 : 134
 	reset 
 endf 
 
-def node_001 : 141
+def node_001
 	>> node_002 
 	if self.target(4) 
 		>> node_027 => reset 
@@ -55,7 +55,7 @@ def node_001 : 141
 	return 
 endf 
 
-def node_002 : 156
+def node_002
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if function#5D() 
 		function#5E() 
@@ -66,7 +66,7 @@ def node_002 : 156
 	return 
 endf 
 
-def node_003 : 159
+def node_003
 	if self.target.helpless_1() 
 		random (40) >> Global.node_072 
 					>> Global.node_060 
@@ -74,8 +74,8 @@ def node_003 : 159
 		endr 
 	else 
 	endif 
-	if [RegisterVar1 < 5] 
-		[RegisterVar1 |-] 
+	if [RegisterVar1 *= 5] 
+		[RegisterVar1 ++] 
 		>> Global.node_073 
 		>> Global.node_073 
 		return 
@@ -95,7 +95,7 @@ def node_003 : 159
 	return 
 endf 
 
-def node_004 : 89
+def node_004
 	if self.target.helpless_1() 
 		random (40) >> Global.node_072 
 					>> Global.node_060 
@@ -104,8 +104,8 @@ def node_004 : 89
 		endr 
 	else 
 	endif 
-	if [RegisterVar1 < 4] 
-		[RegisterVar1 |-] 
+	if [RegisterVar1 *= 4] 
+		[RegisterVar1 ++] 
 		>> Global.node_073 
 		return 
 	else 
@@ -125,7 +125,7 @@ def node_004 : 89
 	return 
 endf 
 
-def node_005 : 90
+def node_005
 	if self.target.helpless_1() 
 		random (40) >> Global.node_074 
 					>> Global.node_060 
@@ -148,7 +148,7 @@ def node_005 : 90
 	return 
 endf 
 
-def node_006 : 91
+def node_006
 	random (15) >> Global.node_062 
 	elser (30) >> Global.node_074 
 	elser (15) >> Global.node_071 
@@ -158,7 +158,7 @@ def node_006 : 91
 	return 
 endf 
 
-def node_007 : 92
+def node_007
 	random (55) >> Global.node_075 
 	elser (40) >> Global.node_077 
 	elser (5) >> Global.node_039 
@@ -166,15 +166,15 @@ def node_007 : 92
 	return 
 endf 
 
-def node_008 : 160
+def node_008
 	if self.target.helpless_1() 
 		random (80) >> Global.node_060 
 		elser (20) >> Global.node_063 
 		endr 
 	else 
 	endif 
-	if [RegisterVar1 < 5] 
-		[RegisterVar1 |-] 
+	if [RegisterVar1 *= 5] 
+		[RegisterVar1 ++] 
 		>> Global.node_073 
 		>> Global.node_073 
 		return 
@@ -195,7 +195,7 @@ def node_008 : 160
 	return 
 endf 
 
-def node_009 : 84
+def node_009
 	if self.target.helpless_1() 
 		random (60) >> Global.node_071 
 					>> Global.node_060 
@@ -204,8 +204,8 @@ def node_009 : 84
 		endr 
 	else 
 	endif 
-	if [RegisterVar1 < 4] 
-		[RegisterVar1 |-] 
+	if [RegisterVar1 *= 4] 
+		[RegisterVar1 ++] 
 		>> Global.node_073 
 		return 
 	else 
@@ -226,7 +226,7 @@ def node_009 : 84
 	return 
 endf 
 
-def node_010 : 85
+def node_010
 	if self.target(0) 
 		random (60) >> Global.node_074 
 					>> Global.node_060 
@@ -247,7 +247,7 @@ def node_010 : 85
 	return 
 endf 
 
-def node_011 : 86
+def node_011
 	random (15) >> Global.node_072 
 	elser (20) >> Global.node_062 
 	elser (62) >> Global.node_074 
@@ -256,14 +256,14 @@ def node_011 : 86
 	return 
 endf 
 
-def node_012 : 87
+def node_012
 	random (55) >> Global.node_075 
 	elser (45) >> Global.node_077 
 	endr 
 	return 
 endf 
 
-def node_013 : 161
+def node_013
 	random (25) >> Global.node_063 
 	elser (25) >> Global.node_064 
 	elser (25) >> Global.node_059 
@@ -274,7 +274,7 @@ def node_013 : 161
 	return 
 endf 
 
-def node_014 : 94
+def node_014
 	random (30) >> Global.node_062 
 	elser (5) >> Global.node_056 
 	elser (10) >> Global.node_059 
@@ -288,7 +288,7 @@ def node_014 : 94
 	return 
 endf 
 
-def node_015 : 95
+def node_015
 	random (25) >> Global.node_062 
 	elser (15) >> Global.node_056 
 	elser (10) >> Global.node_058 
@@ -299,7 +299,7 @@ def node_015 : 95
 	return 
 endf 
 
-def node_016 : 96
+def node_016
 	random (15) >> Global.node_072 
 	elser (10) >> Global.node_062 
 	elser (60) >> Global.node_074 
@@ -308,7 +308,7 @@ def node_016 : 96
 	return 
 endf 
 
-def node_017 : 97
+def node_017
 	random (45) >> Global.node_075 
 	elser (40) >> Global.node_077 
 	elser (15) >> Global.node_050 
@@ -316,7 +316,7 @@ def node_017 : 97
 	return 
 endf 
 
-def node_018 : 166
+def node_018
 	if self.vertical_distance_to_target().leq(400) 
 		if self.distance_2d_to_target().leq(700) 
 			random (20) >> Global.node_073 
@@ -361,7 +361,7 @@ def node_018 : 166
 	return 
 endf 
 
-def node_019 : 132
+def node_019
 	if self.vertical_distance_to_target().leq(400) 
 		if self.distance_2d_to_target().leq(700) 
 			random (30) >> Global.node_073 
@@ -406,7 +406,7 @@ def node_019 : 132
 	return 
 endf 
 
-def node_020 : 118
+def node_020
 	if self.vertical_distance_to_target().leq(400) 
 		if self.distance_2d_to_target().leq(700) 
 			random (20) >> Global.node_063 
@@ -458,7 +458,7 @@ def node_020 : 118
 	return 
 endf 
 
-def node_021 : 79
+def node_021
 	if self.angle_2d_cw_between(90,270) 
 		>> Global.node_041 
 	elif self.distance_3d_to_target().gt(3000) 
@@ -469,7 +469,7 @@ def node_021 : 79
 	return 
 endf 
 
-def node_022 : 121
+def node_022
 	if function#11(1200) 
 		if self.distance_2d_to_target().leq(1500) 
 		else 
@@ -504,10 +504,10 @@ def node_022 : 121
 	return 
 endf 
 
-def node_023 : 125
+def node_023
 endf 
 
-def node_024 : 123
+def node_024
 	if self.distance_2d_to_target().gt(1500) 
 		>> Global.node_075 
 	else 
@@ -523,13 +523,13 @@ def node_024 : 123
 	return 
 endf 
 
-def node_025 : 120
+def node_025
 	>> Global.node_077 
 	>> Global.node_060 
 	return 
 endf 
 
-def node_026 : 169
+def node_026
 	if self.distance_2d_to_target().leq(700) 
 		random (30) >> Global.node_059 
 		elser (30) >> Global.node_068 
@@ -549,7 +549,7 @@ def node_026 : 169
 	return 
 endf 
 
-def node_027 : 76
+def node_027
 	self.targetArea(19) 
 	if self.distance_3d_to_target().gt(1000) 
 		>> Global.node_075 
@@ -565,12 +565,12 @@ def node_027 : 76
 	return 
 endf 
 
-def node_028 : 165
+def node_028
 	*&
 	return 
 endf 
 
-def node_029 : 170
+def node_029
 	if self.fatigued() 
 		-> tzitziyaku.tired_dash(2,6,0,1000,350) 
 	else 
@@ -583,7 +583,7 @@ def node_029 : 170
 	return 
 endf 
 
-def node_030 : 171
+def node_030
 	-> tzitziyaku.jump_attack_wall_down() 
 	return 
 endf 

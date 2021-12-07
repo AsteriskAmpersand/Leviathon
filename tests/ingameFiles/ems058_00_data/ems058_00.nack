@@ -1,7 +1,7 @@
 importactions Gastodon as gastodon
 importlibrary Global as Global
 
-def node_000 : 7
+def node_000
 	>> Global.node_037 
 	>> Global.node_012 
 	>> Global.node_006 
@@ -17,12 +17,12 @@ def node_000 : 7
 	reset 
 endf 
 
-def node_001 : 35
+def node_001
 	self.targetEnemy(target_em.random_player_or_cat) 
 	return 
 endf 
 
-def node_002 : 15
+def node_002
 	if function#7B() 
 		>> node_006 
 		repeat 
@@ -31,7 +31,7 @@ def node_002 : 15
 	return 
 endf 
 
-def node_003 : 44
+def node_003
 	>> node_001 
 	if function#32() 
 		>> node_004 
@@ -41,7 +41,7 @@ def node_003 : 44
 	return 
 endf 
 
-def node_004 : 8
+def node_004
 	if self.vertical_distance_to_target().leq(300) 
 		if self.distance_2d_to_target().leq(500) 
 			>> node_010 
@@ -57,7 +57,7 @@ def node_004 : 8
 	return 
 endf 
 
-def node_005 : 6
+def node_005
 	if self.distance_2d_to_target().leq(400) 
 		>> node_014 
 	elif self.distance_2d_to_target().leq(1000) 
@@ -68,7 +68,7 @@ def node_005 : 6
 	return 
 endf 
 
-def node_006 : 16
+def node_006
 	if self.distance_2d_to_target().leq(400) 
 		>> node_007 
 	elif self.distance_2d_to_target().leq(1200) 
@@ -79,25 +79,25 @@ def node_006 : 16
 	return 
 endf 
 
-def node_007 : 17
+def node_007
 	>> Global.node_002 
 	>> Global.node_039 
 	>> Global.node_035 
 	return 
 endf 
 
-def node_008 : 18
+def node_008
 	>> Global.node_035 
 	return 
 endf 
 
-def node_009 : 19
+def node_009
 	>> Global.node_002 
 	>> node_017 
 	return 
 endf 
 
-def node_010 : 32
+def node_010
 	random (75) >> Global.node_033 
 	elser (25) >> Global.node_039 
 				>> Global.node_034 
@@ -105,7 +105,7 @@ def node_010 : 32
 	return 
 endf 
 
-def node_011 : 2
+def node_011
 	random (70) >> Global.node_034 
 	elser (30) >> Global.node_029 
 				>> Global.node_033 
@@ -113,7 +113,7 @@ def node_011 : 2
 	return 
 endf 
 
-def node_012 : 3
+def node_012
 	random (70) >> Global.node_030 
 				>> Global.node_034 
 	elser (30) >> Global.node_029 
@@ -122,31 +122,31 @@ def node_012 : 3
 	return 
 endf 
 
-def node_013 : 45
+def node_013
 	>> Global.node_029 
 	>> Global.node_033 
 	return 
 endf 
 
-def node_014 : 13
+def node_014
 	>> Global.node_002 
 	>> Global.node_039 
 	>> Global.node_035 
 	return 
 endf 
 
-def node_015 : 10
+def node_015
 	>> Global.node_038 
 	return 
 endf 
 
-def node_016 : 36
+def node_016
 	>> Global.node_028 
 	>> Global.node_038 
 	return 
 endf 
 
-def node_017 : 22
+def node_017
 	-> action#09(2,6,0,700,650) 
 	if self.distance_2d_to_target().leq(700) 
 	else 
@@ -155,22 +155,22 @@ def node_017 : 22
 	return 
 endf 
 
-def node_018 : 37
+def node_018
 	>> node_020 
 	>> node_021 
 	return 
 endf 
 
-def node_019 : 43
-	if [RegisterVar0 == 0] 
+def node_019
+	if [RegisterVar0 += 0] 
 		-> action#59() 
-		[RegisterVar0 ++] 
+		[RegisterVar0 |-] 
 	else 
 	endif 
 	return 
 endf 
 
-def node_020 : 38
+def node_020
 	self.targetEnemy(target_em.any_monster) 
 	if self.target(20) 
 		if self.target(13) 
@@ -189,7 +189,7 @@ def node_020 : 38
 	return 
 endf 
 
-def node_021 : 42
+def node_021
 	if self.vertical_distance_to_target().leq(300) 
 		if self.distance_2d_to_target().leq(500) 
 			>> node_010 
@@ -204,7 +204,7 @@ def node_021 : 42
 	return 
 endf 
 
-def node_022 : 39
+def node_022
 	random (30) >> Global.node_033 
 	elser (70) >> Global.node_039 
 				>> Global.node_034 
@@ -212,7 +212,7 @@ def node_022 : 39
 	return 
 endf 
 
-def node_023 : 40
+def node_023
 	random (70) >> Global.node_034 
 	elser (30) >> Global.node_029 
 				>> Global.node_033 
@@ -220,7 +220,7 @@ def node_023 : 40
 	return 
 endf 
 
-def node_024 : 41
+def node_024
 	random (70) >> Global.node_030 
 				>> Global.node_034 
 	elser (30) >> Global.node_029 
@@ -229,7 +229,7 @@ def node_024 : 41
 	return 
 endf 
 
-def node_025 : 46
+def node_025
 	>> Global.node_029 
 	>> Global.node_033 
 	return 

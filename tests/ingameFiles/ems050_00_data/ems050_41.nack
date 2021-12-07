@@ -1,7 +1,7 @@
 importactions Mernos as mernos
 importlibrary Global as Global
 
-def node_000 : 43
+def node_000
 	>> Global.node_018 
 	>> Global.node_021 
 	>> node_001 
@@ -11,7 +11,7 @@ def node_000 : 43
 	conclude 
 endf 
 
-def node_001 : 44
+def node_001
 	self.targetEnemy(16) 
 	if self.hookable() -> mernos.glide_combat(1,0,0,2000) 
 	else -> mernos.glide(1,0,0,2000) 
@@ -19,7 +19,7 @@ def node_001 : 44
 	return 
 endf 
 
-def node_002 : 45
+def node_002
 	if self.in_map(st.Guiding_Lands).in_area(-1) 
 		if self.hookable() -> mernos.glide_combat() 
 		else -> mernos.glide() 

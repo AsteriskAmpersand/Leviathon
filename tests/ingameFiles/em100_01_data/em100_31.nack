@@ -1,7 +1,7 @@
 importactions Fulgur_Anjanath as fulgur_anjanath
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	>> Global.node_044 
 	self.targetEnemy(target_em.closest_entity) 
 	>> node_006 
@@ -9,7 +9,7 @@ def node_000 : 1
 	reset 
 endf 
 
-def node_001 : 2
+def node_001
 	>> node_003 
 	if self.distance_3d_to_target().leq(1000) 
 		>> node_008 
@@ -19,7 +19,7 @@ def node_001 : 2
 	return 
 endf 
 
-def node_002 : 3
+def node_002
 	>> node_003 
 	self.targetEnemy(target_em.closest_entity) 
 	if self.target(11) 
@@ -39,7 +39,7 @@ def node_002 : 3
 	return 
 endf 
 
-def node_003 : 5
+def node_003
 	if function#6B(20000) 
 		-> fulgur_anjanath.sniff_l() 
 		>> node_004 
@@ -49,7 +49,7 @@ def node_003 : 5
 	return 
 endf 
 
-def node_004 : 6
+def node_004
 	self.targetEnemy(26) 
 	if self.distance_3d_to_target().leq(600) 
 	else 
@@ -59,7 +59,7 @@ def node_004 : 6
 	return 
 endf 
 
-def node_005 : 7
+def node_005
 	if self.distance_3d_to_target().leq(300) 
 		-> fulgur_anjanath.back_turn() @ unkn6:65536 
 	elif self.angle_2d_cw_between(30,330) 
@@ -69,7 +69,7 @@ def node_005 : 7
 	conclude 
 endf 
 
-def node_006 : 8
+def node_006
 	if self.target_is(em.Aptonoth) 
 	elif self.target_is(em.Apceros) 
 	elif self.target_is(em.Popo) 
@@ -89,7 +89,7 @@ def node_006 : 8
 	return 
 endf 
 
-def node_007 : 4
+def node_007
 	if self.angle_2d_cw_between(40,320) 
 		-> fulgur_anjanath.turn() @ unkn6:65536 
 	else 
@@ -97,12 +97,12 @@ def node_007 : 4
 	return 
 endf 
 
-def node_008 : 17
+def node_008
 	-> fulgur_anjanath.back_turn() 
 	return 
 endf 
 
-def node_009 : 16
+def node_009
 	>> node_007 
 	random (45) -> fulgur_anjanath.predator_walk_l() @ unkn6:65536 
 	elser (55) -> fulgur_anjanath.predator_walk_r() @ unkn6:65536 
@@ -110,17 +110,17 @@ def node_009 : 16
 	return 
 endf 
 
-def node_010 : 13
+def node_010
 	-> fulgur_anjanath.fox_walk(2,5,0,2000) @ unkn6:65536 
 	return 
 endf 
 
-def node_011 : 15
+def node_011
 	-> fulgur_anjanath.tired_dash(2,5,0,1500) @ unkn6:65536 
 	return 
 endf 
 
-def node_012 : 14
+def node_012
 	>> node_007 
 	-> fulgur_anjanath.sniff_s() 
 	return 

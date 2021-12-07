@@ -1,7 +1,7 @@
 importactions Nargacuga as nargacuga
 importlibrary Global as Global
 
-def node_000 : 49
+def node_000
 	>> Global.node_120 
 	if self.fatigued() 
 		random (30) >> Global.node_154 
@@ -21,55 +21,55 @@ def node_000 : 49
 	reset 
 endf 
 
-def node_001 : 68
+def node_001
 	>> node_018 
-	function#A8() 
+	[$U |-] 
 	self.targetEnemy(target_em.random_player_or_cat) 
-	if function#A9(0,1) 
+	if [$U += 1] 
 		self.target_on_part(0) >> node_003 => repeat 
 		self.target_on_part(1) >> node_006 => repeat 
 		self.target_on_part(2) >> node_009 => repeat 
-	elif function#A9(0,2) 
+	elif [$U += 2] 
 		self.target_on_part(0) >> node_003 => repeat 
 		self.target_on_part(1) >> node_006 => repeat 
 		self.target_on_part(2) >> node_009 => repeat 
-	elif function#A9(0,3) 
+	elif [$U += 3] 
 		>> node_012 => repeat 
-	elif function#A9(0,4) 
+	elif [$U += 4] 
 		self.target_on_part(0) >> node_020 => repeat 
 		self.target_on_part(1) >> node_020 => repeat 
 		self.target_on_part(2) >> node_020 => repeat 
 	else 
-		function#A8(1) 
+		[$U ++] 
 		return 
 	endif 
 	return 
 endf 
 
-def node_002 : 79
+def node_002
 	>> node_018 
-	function#A8() 
+	[$U |-] 
 	self.targetEnemy(target_em.random_player_or_cat) 
-	if function#A9(0,1) 
+	if [$U += 1] 
 		>> node_012 => repeat 
-	elif function#A9(0,2) 
+	elif [$U += 2] 
 		self.target_on_part(0) >> node_003 => repeat 
 		self.target_on_part(1) >> node_006 => repeat 
 		self.target_on_part(2) >> node_009 => repeat 
-	elif function#A9(0,3) 
+	elif [$U += 3] 
 		>> node_012 => repeat 
-	elif function#A9(0,4) 
+	elif [$U += 4] 
 		self.target_on_part(0) >> node_020 => repeat 
 		self.target_on_part(1) >> node_020 => repeat 
 		self.target_on_part(2) >> node_020 => repeat 
 	else 
-		function#A8(1) 
+		[$U ++] 
 		return 
 	endif 
 	return 
 endf 
 
-def node_003 : 69
+def node_003
 	if self.mounted() 
 		>> node_004 
 	else 
@@ -78,17 +78,17 @@ def node_003 : 69
 	return 
 endf 
 
-def node_004 : 24
+def node_004
 	>> Global.node_012 
 	return 
 endf 
 
-def node_005 : 25
+def node_005
 	-> nargacuga.ride_rage_head() 
 	return 
 endf 
 
-def node_006 : 70
+def node_006
 	if self.mounted() 
 		>> node_007 
 	else 
@@ -97,17 +97,17 @@ def node_006 : 70
 	return 
 endf 
 
-def node_007 : 26
+def node_007
 	>> Global.node_014 
 	return 
 endf 
 
-def node_008 : 27
+def node_008
 	-> nargacuga.ride_rage_back() 
 	return 
 endf 
 
-def node_009 : 82
+def node_009
 	if self.mounted() 
 		>> node_010 
 	else 
@@ -116,17 +116,17 @@ def node_009 : 82
 	return 
 endf 
 
-def node_010 : 81
+def node_010
 	>> Global.node_015 
 	return 
 endf 
 
-def node_011 : 80
+def node_011
 	-> nargacuga.ride_rage_tail() 
 	return 
 endf 
 
-def node_012 : 72
+def node_012
 	if self.mounted() 
 		>> node_013 
 	else 
@@ -135,7 +135,7 @@ def node_012 : 72
 	return 
 endf 
 
-def node_013 : 73
+def node_013
 	if function#29() 
 		self.targetArea(7) 
 		>> node_016 
@@ -151,7 +151,7 @@ def node_013 : 73
 	return 
 endf 
 
-def node_014 : 74
+def node_014
 	if function#29() 
 		self.targetArea(7) 
 		>> node_016 
@@ -165,13 +165,13 @@ def node_014 : 74
 	return 
 endf 
 
-def node_015 : 56
+def node_015
 	>> node_022 
 	>> Global.node_043 
 	return 
 endf 
 
-def node_016 : 75
+def node_016
 	if self.distance_2d_to_target().leq(500) 
 		>> Global.node_007 
 	elif self.distance_2d_to_target().gt(4000) 
@@ -191,13 +191,13 @@ def node_016 : 75
 	return 
 endf 
 
-def node_017 : 76
+def node_017
 	>> Global.node_002 
 	>> Global.node_057 
 	return 
 endf 
 
-def node_018 : 21
+def node_018
 	if function#3B() 
 		if self.mount_staggered_twice() 
 			>> node_019 
@@ -230,12 +230,12 @@ def node_018 : 21
 	return 
 endf 
 
-def node_019 : 22
+def node_019
 	-> nargacuga.ride_tired() 
 	return 
 endf 
 
-def node_020 : 77
+def node_020
 	if self.mounted() 
 		>> node_021 
 	else 
@@ -243,12 +243,12 @@ def node_020 : 77
 	return 
 endf 
 
-def node_021 : 78
+def node_021
 	-> nargacuga.wait() 
 	return 
 endf 
 
-def node_022 : 58
+def node_022
 	random (20) >> node_023 
 	elser (80) >> node_024 
 	endr 
@@ -256,34 +256,34 @@ def node_022 : 58
 	return 
 endf 
 
-def node_023 : 59
+def node_023
 	self.targetEnemy(21) @ parameter2:1000 
 	return 
 endf 
 
-def node_024 : 60
+def node_024
 	self.targetEnemy(22) @ parameter2:1000 
 	return 
 endf 
 
-def node_025 : 61
+def node_025
 	random (48) >> node_026 
 	elser (52) >> node_027 
 	endr 
 	return 
 endf 
 
-def node_026 : 62
+def node_026
 	self.targetEnemy(12) @ parameter2:1000 
 	return 
 endf 
 
-def node_027 : 63
+def node_027
 	self.targetEnemy(11) @ parameter2:1000 
 	return 
 endf 
 
-def node_028 : 64
+def node_028
 	if self.angular_17(300,60) 
 		-> nargacuga.turn_quick() 
 	else 

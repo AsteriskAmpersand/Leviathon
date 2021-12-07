@@ -117,9 +117,14 @@ class SegmentFinalResolution():
         if self._function and self._function.typing != "register":
             self._function.resolveFunctions(functionResolver)
 
+    def defaultValues(self,field):
+        if field in {"extRefThkID", "extRefNodeID", "localRefNodeID"}:
+            return -1
+        else:
+            return 0
+
     def compileProperties(self):
         dataSegment = {}
-
         def testAdd(propertyName, propertyValue):
             if type(propertyValue) is not int:
                 self.errorHandler.resolutionError(propertyName)
@@ -140,13 +145,13 @@ class SegmentFinalResolution():
                 val.erroHandler.unresolvedIdentifier()
         if "nodeEndingData" in dataSegment:
             dataSegment["nodeEndingData"] += self.parent.getId()
-        if "functionID" not in dataSegment:
+        if "functionType" not in dataSegment:
             default = 0 if "endChance" in dataSegment else 2
-            dataSegment["functionID"] = default
+            dataSegment["functionType"] = default
         for field in thk.Segment.subcons:
             name = field.name
             if name not in dataSegment:
-                dataSegment[name] = 0
+                dataSegment[name] = self.defaultValues(name)
             if name == "padding":
                 dataSegment["padding"] = [0]*12
         return dataSegment

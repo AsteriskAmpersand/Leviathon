@@ -1,7 +1,7 @@
 importactions Lavasioth as lavasioth
 importlibrary Global as Global
 
-def node_000 : 73
+def node_000
 	>> Global.node_080 
 	>> Global.node_002 
 	self.targetEnemy(target_em.random_player_or_cat) 
@@ -15,7 +15,7 @@ def node_000 : 73
 	reset 
 endf 
 
-def node_001 : 74
+def node_001
 	if self.distance_3d_to_target().leq(700) 
 		self.enraged() >> node_005 => reset 
 		self.fatigued() >> node_008 => reset 
@@ -32,62 +32,62 @@ def node_001 : 74
 	return 
 endf 
 
-def node_002 : 76
+def node_002
 	>> node_011 
 	return 
 endf 
 
-def node_003 : 77
+def node_003
 	>> node_015 
 	return 
 endf 
 
-def node_004 : 78
+def node_004
 	random (70) >> node_015 
 	elser (30) >> node_016 
 	endr 
 	return 
 endf 
 
-def node_005 : 79
+def node_005
 	>> node_011 
 	return 
 endf 
 
-def node_006 : 80
+def node_006
 	>> node_015 
 	return 
 endf 
 
-def node_007 : 81
+def node_007
 	random (70) >> node_015 
 	elser (30) >> node_016 
 	endr 
 	return 
 endf 
 
-def node_008 : 82
+def node_008
 	random (90) >> node_011 
 	elser (10) >> Global.node_069 
 	endr 
 	return 
 endf 
 
-def node_009 : 83
+def node_009
 	random (80) >> node_015 
 	elser (20) >> Global.node_069 
 	endr 
 	return 
 endf 
 
-def node_010 : 84
+def node_010
 	random (70) >> node_015 
 	elser (30) >> Global.node_069 
 	endr 
 	return 
 endf 
 
-def node_011 : 97
+def node_011
 	self.targetEnemy(48) 
 	if self.target(7) >> node_012 
 	else >> node_014 
@@ -95,40 +95,40 @@ def node_011 : 97
 	return 
 endf 
 
-def node_012 : 98
+def node_012
 	if function#101() >> Global.node_034 
 	else >> Global.node_061 
 	endif 
 	return 
 endf 
 
-def node_013 : 99
+def node_013
 	if function#101() >> Global.node_033 
 	else >> Global.node_059 
 	endif 
 	return 
 endf 
 
-def node_014 : 100
+def node_014
 	if function#101() >> Global.node_034 
 	else >> Global.node_061 
 	endif 
 	return 
 endf 
 
-def node_015 : 94
+def node_015
 	self.targetArea(4) 
 	>> node_017 
 	return 
 endf 
 
-def node_016 : 95
+def node_016
 	self.targetArea(6) 
 	>> node_017 
 	return 
 endf 
 
-def node_017 : 96
+def node_017
 	>> Global.node_082 
 	random (50) >> Global.node_102 
 	elser (50) 

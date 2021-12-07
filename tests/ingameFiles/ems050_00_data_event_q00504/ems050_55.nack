@@ -1,10 +1,10 @@
 importactions Mernos as mernos
 
-def node_000 : 1
+def node_000
 	conclude 
 endf 
 
-def node_001 : 32
+def node_001
 	if self.flying() 
 		-> mernos.turn_step_front_far_l() 
 	else 
@@ -13,7 +13,7 @@ def node_001 : 32
 	return 
 endf 
 
-def node_002 : 33
+def node_002
 	if self.flying() 
 		-> mernos.turn_step_l_fly() 
 	else 
@@ -22,7 +22,7 @@ def node_002 : 33
 	return 
 endf 
 
-def node_003 : 58
+def node_003
 	if self.flying() 
 		-> mernos.take_off() 
 	else 
@@ -31,7 +31,7 @@ def node_003 : 58
 	return 
 endf 
 
-def node_004 : 41
+def node_004
 	if self.flying() 
 		-> mernos.threat_short_fly() 
 	else 
@@ -40,7 +40,7 @@ def node_004 : 41
 	return 
 endf 
 
-def node_005 : 60
+def node_005
 	if self.flying() 
 		-> mernos.turn_reversal_combat() 
 	else 
@@ -49,7 +49,7 @@ def node_005 : 60
 	return 
 endf 
 
-def node_006 : 34
+def node_006
 	if self.flying() 
 		-> mernos.take_off() 
 	else 
@@ -58,7 +58,7 @@ def node_006 : 34
 	return 
 endf 
 
-def node_007 : 35
+def node_007
 	if self.flying() 
 		-> mernos.turn_reversal_combat() 
 	endif 
@@ -66,7 +66,7 @@ def node_007 : 35
 	return 
 endf 
 
-def node_008 : 37
+def node_008
 	if self.flying() 
 		-> mernos.dash_no_interrupt() 
 	else 
@@ -75,7 +75,7 @@ def node_008 : 37
 	return 
 endf 
 
-def node_009 : 56
+def node_009
 	>> node_008 
 	random (50) >> node_001 
 	elser (50) >> node_002 
@@ -83,7 +83,7 @@ def node_009 : 56
 	return 
 endf 
 
-def node_010 : 43
+def node_010
 	if self.flying() 
 		-> mernos.refresh() 
 	else 
@@ -92,7 +92,7 @@ def node_010 : 43
 	return 
 endf 
 
-def node_011 : 42
+def node_011
 	if function#51(0,2000) 
 		>> node_008 
 		>> node_001 
@@ -101,7 +101,7 @@ def node_011 : 42
 	return 
 endf 
 
-def node_012 : 46
+def node_012
 	if self.distance_3d_to_target().leq(3000) 
 		return 
 	else 
@@ -115,12 +115,12 @@ def node_012 : 46
 	return 
 endf 
 
-def node_013 : 48
+def node_013
 	-> mernos.glide(1,0,0,1000) 
 	return 
 endf 
 
-def node_014 : 57
+def node_014
 	self.targetArea(17) 
 	-> mernos.turn_step_front_r() 
 	-> mernos.sudden_drop(1,0,0,100) 
@@ -129,14 +129,14 @@ def node_014 : 57
 	return 
 endf 
 
-def node_015 : 59
+def node_015
 	if self.hookable() 
 	else -> mernos.idle_wait_fly() 
 	endif 
 	return 
 endf 
 
-def node_016 : 55
+def node_016
 	if function#58(1,100) 
 	else 
 		>> node_004 
@@ -144,18 +144,18 @@ def node_016 : 55
 	return 
 endf 
 
-def node_017 : 52
-	[RegisterVar0 |-] 
+def node_017
+	[RegisterVar0 ++] 
 	self.targetUnknown(33,0) 
 	if self.target_is(em.Rathalos) 
-		[RegisterVar0 ++] 
-	else 
 		[RegisterVar0 |-] 
+	else 
+		[RegisterVar0 ++] 
 	endif 
 	return 
 endf 
 
-def node_018 : 51
+def node_018
 	if function#72() 
 		self.targetEnemy(13) 
 		if function#2D() >> node_019 
@@ -163,7 +163,7 @@ def node_018 : 51
 		endif 
 	elif function#72(4) 
 		>> node_017 
-		if [RegisterVar0 == 1] >> node_019 
+		if [RegisterVar0 += 1] >> node_019 
 		else >> node_020 
 		endif 
 	elif function#72(8) >> node_020 
@@ -173,17 +173,17 @@ def node_018 : 51
 	return 
 endf 
 
-def node_019 : 53
+def node_019
 	function#52(129) 
 	return 
 endf 
 
-def node_020 : 54
+def node_020
 	function#52(130) 
 	return 
 endf 
 
-def node_021 : 39
+def node_021
 	if self.flying() 
 	elif function#40() 
 		-> mernos.quick_turn() 
@@ -193,14 +193,14 @@ def node_021 : 39
 	return 
 endf 
 
-def node_022 : 40
+def node_022
 	if self.flying() 
 		-> mernos.turn_reversal_combat() 
 	endif 
 	return 
 endf 
 
-def node_023 : 47
+def node_023
 	if self.flying() 
 		-> mernos.turn_step_front_far_l() 
 	else 
@@ -208,7 +208,7 @@ def node_023 : 47
 	return 
 endf 
 
-def node_024 : 69
+def node_024
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.target(20) 
 		if self.target(7) 
@@ -222,14 +222,14 @@ def node_024 : 69
 	return 
 endf 
 
-def node_025 : 70
+def node_025
 	random (50) >> node_027 
 	elser (50) >> node_031 
 	endr 
 	return 
 endf 
 
-def node_026 : 65
+def node_026
 	-> mernos.glide(6,6,0,1000,1000) 
 	if self.distance_2d_to_target().leq(1100) 
 		return 
@@ -239,7 +239,7 @@ def node_026 : 65
 	return 
 endf 
 
-def node_027 : 61
+def node_027
 	>> node_026 
 	-> mernos.step_back(6,0,0,600) 
 	if self.distance_2d_to_target().leq(600) 
@@ -253,7 +253,7 @@ def node_027 : 61
 	return 
 endf 
 
-def node_028 : 62
+def node_028
 	>> node_021 
 	-> mernos.sudden_rise(1,0,0,500) 
 	-> mernos.turn_step_side_l() 
@@ -263,13 +263,13 @@ def node_028 : 62
 	return 
 endf 
 
-def node_029 : 63
+def node_029
 	>> node_008 
 	-> mernos.damage_down() 
 	return 
 endf 
 
-def node_030 : 64
+def node_030
 	>> node_029 
 	>> node_008 
 	-> mernos.damage_high_fly() 
@@ -277,7 +277,7 @@ def node_030 : 64
 	return 
 endf 
 
-def node_031 : 66
+def node_031
 	function#54() 
 	function#52(16,4) 
 	self.targetEnemy(16) 
@@ -286,7 +286,7 @@ def node_031 : 66
 	return 
 endf 
 
-def node_032 : 67
+def node_032
 	-> mernos.glide() 
 	function#74(0,1000) 
 	-> mernos.glide() 
@@ -299,7 +299,7 @@ def node_032 : 67
 	return 
 endf 
 
-def node_033 : 68
+def node_033
 	-> mernos.glide() 
 	function#74(0,1000) 
 	-> mernos.glide() 

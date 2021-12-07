@@ -1,7 +1,7 @@
 importactions Shamos as shamos
 importlibrary Global as Global
 
-def node_000 : 30
+def node_000
 	self.targetUnknown(33,0) 
 	if self.target_is(em.TzitziYaKu) 
 		if self.distance_2d_to_target().leq(2500) 
@@ -20,7 +20,7 @@ def node_000 : 30
 	reset 
 endf 
 
-def node_001 : 33
+def node_001
 	function#52(34,6) 
 	self.targetArea(target_area.nearest_entrance) 
 	if self.distance_3d_to_target().leq(750) 
@@ -32,7 +32,7 @@ def node_001 : 33
 	return 
 endf 
 
-def node_002 : 31
+def node_002
 	self.targetEnemy(33) 
 	if self.target(20) 
 	else 
@@ -41,13 +41,13 @@ def node_002 : 31
 	return 
 endf 
 
-def node_003 : 32
+def node_003
 	>> Global.node_006 
 	>> Global.node_043 
 	return 
 endf 
 
-def node_004 : 34
+def node_004
 	>> Global.node_006 
 	>> Global.node_060 
 	return 

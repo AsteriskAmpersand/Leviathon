@@ -1,7 +1,7 @@
 importactions Anteka as anteka
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	self.targetUnknown(13,0) 
 	if function#2D() 
 		if function#66() >> node_001 
@@ -12,17 +12,17 @@ def node_000 : 1
 	conclude 
 endf 
 
-def node_001 : 10
+def node_001
 	>> node_004 
 	return 
 endf 
 
-def node_002 : 11
+def node_002
 	>> node_003 
 	return 
 endf 
 
-def node_003 : 9
+def node_003
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.distance_3d_to_target().leq(1200) 
 		if self.target(7) 
@@ -41,16 +41,16 @@ def node_003 : 9
 			>> Global.node_006 
 		endif 
 	endif 
-	[RegisterVar0 |-] 
+	[RegisterVar0 ++] 
 	return 
 endf 
 
-def node_004 : 12
+def node_004
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.distance_3d_to_target().leq(1200) 
 		>> Global.node_006 
 	endif 
-	[RegisterVar0 |-] 
+	[RegisterVar0 ++] 
 	return 
 endf 
 

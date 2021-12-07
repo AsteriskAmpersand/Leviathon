@@ -1,19 +1,19 @@
 importactions Savage_Deviljho as savage_deviljho
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	>> Global.node_184 
 	>> Global.node_185 
 	if function#41() 
 		>> Global.node_143 
 	else 
 	endif 
-	if [RegisterVar9 <= 15] 
-		[RegisterVar9 |-] 
+	if [RegisterVar9 -= 15] 
+		[RegisterVar9 ++] 
 		conclude 
 	else 
 	endif 
-	[RegisterVar9 ++] 
+	[RegisterVar9 |-] 
 	if function#101() 
 		>> Global.node_157 
 	else 
@@ -23,7 +23,7 @@ def node_000 : 1
 	conclude 
 endf 
 
-def node_001 : 2
+def node_001
 	>> Global.node_194 
 	self.targetEnemy(target_em.random_player_or_cat) 
 	if self.distance_3d_to_target().leq(3500) 
@@ -34,13 +34,13 @@ def node_001 : 2
 	return 
 endf 
 
-def node_002 : 3
+def node_002
 	>> Global.node_079 
 	-> savage_deviljho.sniff_s() 
 	return 
 endf 
 
-def node_003 : 4
+def node_003
 	self.targetEnemy(58) 
 	random (10) >> Global.node_087 
 	elser (90) 

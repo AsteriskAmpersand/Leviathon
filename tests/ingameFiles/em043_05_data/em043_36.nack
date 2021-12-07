@@ -1,7 +1,7 @@
 importactions Savage_Deviljho as savage_deviljho
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	>> Global.node_184 
 	>> Global.node_185 
 	self.targetEnemy(21) @ parameter2:700 
@@ -11,7 +11,7 @@ def node_000 : 1
 	>> node_001 => reset 
 endf 
 
-def node_001 : 2
+def node_001
 	if self.target_on_part(0) 
 		random (50) >> node_004 
 		elser (50) >> node_005 
@@ -42,7 +42,7 @@ def node_001 : 2
 	return 
 endf 
 
-def node_002 : 3
+def node_002
 	if self.target_on_part(0) 
 		random (47) >> node_004 
 		elser (38) >> node_005 
@@ -69,53 +69,53 @@ def node_002 : 3
 		elser (15) >> Global.node_039 
 		elser (0) >> Global.node_073 
 		endr 
-		*& // [Illegal Context] endr 
+		// -Illegal Context was commented out 'endr '
 	endif 
 	return 
 endf 
 
-def node_003 : 11
+def node_003
 endf 
 
-def node_004 : 12
+def node_004
 	>> node_011 
 	-> savage_deviljho.ride_rage_head() 
 	return 
 endf 
 
-def node_005 : 13
+def node_005
 	>> node_011 
 	-> savage_deviljho.ride_rage_head() 
 	return 
 endf 
 
-def node_006 : 14
+def node_006
 	>> node_011 
 	>> Global.node_125 
 	return 
 endf 
 
-def node_007 : 19
+def node_007
 	-> savage_deviljho.ride_rage_body() 
 	return 
 endf 
 
-def node_008 : 20
+def node_008
 	-> savage_deviljho.ride_rage_tail() 
 	return 
 endf 
 
-def node_009 : 21
+def node_009
 	-> savage_deviljho.ride_rage_tail_lv2() 
 	return 
 endf 
 
-def node_010 : 18
+def node_010
 	-> savage_deviljho.wait() 
 	return 
 endf 
 
-def node_011 : 15
+def node_011
 	random (55) >> node_012 
 	elser (45) >> node_013 
 	endr 
@@ -126,12 +126,12 @@ def node_011 : 15
 	return 
 endf 
 
-def node_012 : 16
+def node_012
 	self.targetEnemy(21) @ parameter2:1000 
 	return 
 endf 
 
-def node_013 : 17
+def node_013
 	self.targetEnemy(22) @ parameter2:1000 
 	return 
 endf 

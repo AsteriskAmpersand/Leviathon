@@ -1,7 +1,7 @@
 importactions Popo as popo
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	function#104() 
 	function#107() 
 	>> node_010 
@@ -13,7 +13,7 @@ def node_000 : 1
 	reset 
 endf 
 
-def node_001 : 2
+def node_001
 	if function#B0(3) 
 		>> node_011 
 	elif function#B0(4) 
@@ -29,7 +29,7 @@ def node_001 : 2
 	return 
 endf 
 
-def node_002 : 3
+def node_002
 	if function#B0(3) 
 		>> node_012 
 	elif function#B0(4) 
@@ -51,7 +51,7 @@ def node_002 : 3
 	return 
 endf 
 
-def node_003 : 6
+def node_003
 	if function#3C() 
 		>> node_006 
 	else 
@@ -60,7 +60,7 @@ def node_003 : 6
 	return 
 endf 
 
-def node_004 : 7
+def node_004
 	if function#3C() 
 		>> node_006 
 	else 
@@ -69,7 +69,7 @@ def node_004 : 7
 	return 
 endf 
 
-def node_005 : 5
+def node_005
 	if function#3C() 
 		>> node_007 
 	else 
@@ -78,7 +78,7 @@ def node_005 : 5
 	return 
 endf 
 
-def node_006 : 11
+def node_006
 	self.targetEnemy(17) 
 	>> Global.node_000 
 	-> action#2F() 
@@ -86,7 +86,7 @@ def node_006 : 11
 	return 
 endf 
 
-def node_007 : 12
+def node_007
 	self.targetEnemy(17) 
 	>> Global.node_000 
 	-> action#31() 
@@ -94,17 +94,17 @@ def node_007 : 12
 	return 
 endf 
 
-def node_008 : 13
+def node_008
 	-> action#2C() 
 	return 
 endf 
 
-def node_009 : 14
+def node_009
 	-> action#2A() 
 	return 
 endf 
 
-def node_010 : 10
+def node_010
 	if function#51(0,2000) 
 		>> Global.node_004 => reset 
 	else 
@@ -112,7 +112,7 @@ def node_010 : 10
 	return 
 endf 
 
-def node_011 : 16
+def node_011
 	function#54() 
 	function#52(0,3) 
 	self.targetEnemy(16) 
@@ -133,7 +133,7 @@ def node_011 : 16
 	return 
 endf 
 
-def node_012 : 15
+def node_012
 	function#54() 
 	function#52(0,3) 
 	self.targetEnemy(16) 
@@ -169,13 +169,13 @@ def node_012 : 15
 	return 
 endf 
 
-def node_013 : 19
+def node_013
 	-> action#2F() 
 	-> action#30() 
 	return 
 endf 
 
-def node_014 : 18
+def node_014
 	random (25) 
 				self.targetArea(21) @ parameter2:1200 
 	elser (25) 
@@ -188,7 +188,7 @@ def node_014 : 18
 	return 
 endf 
 
-def node_015 : 17
+def node_015
 	function#54() 
 	function#52(0,4) 
 	self.targetEnemy(16) 

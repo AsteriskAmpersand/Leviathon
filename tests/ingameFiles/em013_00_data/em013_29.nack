@@ -1,7 +1,7 @@
 importactions Fatalis as fatalis
 importlibrary Global as Global
 
-def node_000 : 1
+def node_000
 	>> Global.node_142 
 	if function#103() 
 		if self.quest_id(51612) 
@@ -40,7 +40,7 @@ def node_000 : 1
 	reset 
 endf 
 
-def node_001 : 3
+def node_001
 	self.targetEnemy(48) 
 	if self.distance_3d_to_target().leq(5000) 
 		>> node_002 
@@ -50,7 +50,7 @@ def node_001 : 3
 	return 
 endf 
 
-def node_002 : 4
+def node_002
 	if self.target(7) 
 	else 
 		>> Global.node_053 
@@ -62,7 +62,7 @@ def node_002 : 4
 	return 
 endf 
 
-def node_003 : 5
+def node_003
 	random (50) >> Global.node_013 
 	elser (50) >> Global.node_011 
 	elser (0) 
