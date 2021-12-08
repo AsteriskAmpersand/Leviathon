@@ -113,36 +113,46 @@ Rule 109   metaparams -> metaparamPair , metaparams
 Rule 110   metaparams -> metaparamPair
 Rule 111   metaparamPair -> id : numericSymbol
 Rule 112   registerType -> [ registerContent ]
-Rule 113   registerContent -> regRef regComp regVal
+Rule 113   registerContent -> regRef regComp regRef
 Rule 114   registerContent -> regRef regOp
-Rule 115   regOp -> RESET
-Rule 116   regOp -> INCREMENT
-Rule 117   regComp -> NEQ
-Rule 118   regComp -> GT
-Rule 119   regComp -> GEQ
-Rule 120   regComp -> LT
-Rule 121   regComp -> LEQ
-Rule 122   regComp -> EQ
-Rule 123   regRef -> REG
-Rule 124   regRef -> id
-Rule 125   regVal -> numericSymbol
-Rule 126   numericSymbol -> numeric
-Rule 127   numericSymbol -> id
-Rule 128   floatNumericSymbol -> float
-Rule 129   floatNumericSymbol -> numeric
-Rule 130   floatNumericSymbol -> id
-Rule 131   float -> FLOAT
-Rule 132   numeric -> HEXNUMBER
-Rule 133   numeric -> NUMBER
-Rule 134   id -> ID
-Rule 135   skip -> LINESKIP skip
-Rule 136   skip -> LINESKIP
-Rule 137   empty -> <empty>
+Rule 115   regOp -> ELAPSED
+Rule 116   regOp -> TIME
+Rule 117   regOp -> DECREMENT
+Rule 118   regOp -> CLEAR
+Rule 119   regOp -> INCREMENT
+Rule 120   regComp -> ELAPLT
+Rule 121   regComp -> ELAPGT
+Rule 122   regComp -> MOD
+Rule 123   regComp -> DIV
+Rule 124   regComp -> MUL
+Rule 125   regComp -> SUB
+Rule 126   regComp -> ADD
+Rule 127   regComp -> NEQ
+Rule 128   regComp -> GT
+Rule 129   regComp -> GEQ
+Rule 130   regComp -> LT
+Rule 131   regComp -> LEQ
+Rule 132   regComp -> EQ
+Rule 133   regRef -> numericSymbol
+Rule 134   regRef -> REG
+Rule 135   numericSymbol -> numeric
+Rule 136   numericSymbol -> id
+Rule 137   floatNumericSymbol -> float
+Rule 138   floatNumericSymbol -> numeric
+Rule 139   floatNumericSymbol -> id
+Rule 140   float -> FLOAT
+Rule 141   numeric -> HEXNUMBER
+Rule 142   numeric -> NUMBER
+Rule 143   id -> ID
+Rule 144   skip -> LINESKIP skip
+Rule 145   skip -> LINESKIP
+Rule 146   empty -> <empty>
 
 Unused terminals:
 
-    LINECONTINUE
     COMMENTS
+    LINECONTINUE
+    DORRAH
 
 Terminals, with rules where they appear:
 
@@ -153,16 +163,24 @@ Terminals, with rules where they appear:
 .                    : 79 80 90 92 100 104 105
 :                    : 24 25 111
 ACTION               : 101
+ADD                  : 126
 AS                   : 8 9 10 11 12 13
 ASSIGN               : 15
 CALL                 : 102 104
+CLEAR                : 118
 COMMENTS             : 
 CONCLUDE             : 34
+DECREMENT            : 117
 DEF                  : 19
+DIV                  : 123
+DORRAH               : 
 DO_ACTION            : 71 72
 DO_CALL              : 73
 DO_DIRECTIVE         : 74
 DO_NOTHING           : 31
+ELAPGT               : 121
+ELAPLT               : 120
+ELAPSED              : 115
 ELIF                 : 54
 ELSE                 : 53
 ELSER                : 48
@@ -176,32 +194,36 @@ ENDRANDOM            : 42
 ENDRANDOMWITH        : 40
 ENDRWITH             : 41
 ENDWITH              : 51
-EQ                   : 122
-FLOAT                : 131
+EQ                   : 132
+FLOAT                : 140
 FUNCTION             : 85
 FUNCTION_START       : 76 77 78
-GEQ                  : 119
-GT                   : 118
-HEXNUMBER            : 132
-ID                   : 8 9 9 10 11 11 12 134
+GEQ                  : 129
+GT                   : 128
+HEXNUMBER            : 141
+ID                   : 8 9 9 10 11 11 12 143
 IF                   : 50
 IMPORTACTIONS        : 11 12
 IMPORTLIBRARY        : 8 9 10
-INCREMENT            : 116
-LEQ                  : 121
+INCREMENT            : 119
+LEQ                  : 131
 LINECONTINUE         : 
-LINESKIP             : 135 136
-LT                   : 120
+LINESKIP             : 144 145
+LT                   : 130
 META                 : 23 24 75
-NEQ                  : 117
-NUMBER               : 133
+MOD                  : 122
+MUL                  : 124
+NEQ                  : 127
+NUMBER               : 142
 PATH                 : 10 12
 RANDOM               : 44 45
-REG                  : 13 123
+REG                  : 13 134
 REGISTER             : 13 14
 REPEAT               : 106
-RESET                : 107 115
+RESET                : 107
 RETURN               : 108
+SUB                  : 125
+TIME                 : 116
 UNSAFE               : 32
 [                    : 112
 ]                    : 112
@@ -229,13 +251,13 @@ directiveName        : 55 74
 directiveType        : 65
 elsechance           : 46 47
 empty                : 7 16 20 22 26 58 60 62 64 66 81 88 93 96 98
-float                : 128
+float                : 137
 floatNumericSymbol   : 89 91
 funcParens           : 83 86
 functionLiteral      : 69
 functionName         : 70
 functionType         : 54 59
-id                   : 13 14 15 19 21 44 46 76 77 78 79 80 90 90 92 92 99 100 100 103 104 105 105 111 124 127 130
+id                   : 13 14 15 19 21 44 46 76 77 78 79 80 90 90 92 92 99 100 100 103 104 105 105 111 136 139
 libraryImport        : 6
 maybeActionParams    : 94
 maybeActionType      : 57
@@ -258,20 +280,19 @@ nodeAlias            : 19 21
 nodeBody             : 18 27 37 37 39 50 53 54
 nodeEnd              : 18
 nodeIndex            : 19
-numeric              : 8 15 23 24 24 25 45 47 95 97 126 129
-numericSymbol        : 111 125
+numeric              : 8 15 23 24 24 25 45 47 95 97 135 138
+numericSymbol        : 111 133
 optionalChance       : 37 39
 optionalTerminator   : 38
 parens               : 77 79 82
 regComp              : 113
 regOp                : 114
-regRef               : 113 114
-regVal               : 113
+regRef               : 113 113 114
 registerContent      : 112
 registerDeclaration  : 4
 registerType         : 68
 segment              : 27
-skip                 : 1 8 9 10 11 12 13 14 15 19 28 29 30 31 32 42 43 52 55 57 135
+skip                 : 1 8 9 10 11 12 13 14 15 19 28 29 30 31 32 42 43 52 55 57 144
 uncontrolledSegment  : 33 34 37 40 41 50 51
 
 
@@ -280,8 +301,8 @@ state 0
     (0) S' -> . nackFile
     (1) nackFile -> . skip nackHeader nackBody
     (2) nackFile -> . nackHeader nackBody
-    (135) skip -> . LINESKIP skip
-    (136) skip -> . LINESKIP
+    (144) skip -> . LINESKIP skip
+    (145) skip -> . LINESKIP
     (3) nackHeader -> . assignment nackHeader
     (4) nackHeader -> . registerDeclaration nackHeader
     (5) nackHeader -> . actionImport nackHeader
@@ -295,14 +316,14 @@ state 0
     (8) libraryImport -> . IMPORTLIBRARY numeric AS ID skip
     (9) libraryImport -> . IMPORTLIBRARY ID AS ID skip
     (10) libraryImport -> . IMPORTLIBRARY PATH AS ID skip
-    (137) empty -> .
-    (134) id -> . ID
+    (146) empty -> .
+    (143) id -> . ID
     LINESKIP        shift and go to state 4
     REGISTER        shift and go to state 11
     IMPORTACTIONS   shift and go to state 12
     IMPORTLIBRARY   shift and go to state 14
-    DEF             reduce using rule 137 (empty -> .)
-    $end            reduce using rule 137 (empty -> .)
+    DEF             reduce using rule 146 (empty -> .)
+    $end            reduce using rule 146 (empty -> .)
     ID              shift and go to state 13
 
     nackFile                       shift and go to state 1
@@ -336,13 +357,13 @@ state 2
     (8) libraryImport -> . IMPORTLIBRARY numeric AS ID skip
     (9) libraryImport -> . IMPORTLIBRARY ID AS ID skip
     (10) libraryImport -> . IMPORTLIBRARY PATH AS ID skip
-    (137) empty -> .
-    (134) id -> . ID
+    (146) empty -> .
+    (143) id -> . ID
     REGISTER        shift and go to state 11
     IMPORTACTIONS   shift and go to state 12
     IMPORTLIBRARY   shift and go to state 14
-    DEF             reduce using rule 137 (empty -> .)
-    $end            reduce using rule 137 (empty -> .)
+    DEF             reduce using rule 146 (empty -> .)
+    $end            reduce using rule 146 (empty -> .)
     ID              shift and go to state 13
 
     nackHeader                     shift and go to state 15
@@ -358,10 +379,10 @@ state 3
     (2) nackFile -> nackHeader . nackBody
     (16) nackBody -> . empty
     (17) nackBody -> . node nackBody
-    (137) empty -> .
+    (146) empty -> .
     (18) node -> . defHeader nodeBody nodeEnd
     (19) defHeader -> . DEF id nodeAlias nodeIndex skip
-    $end            reduce using rule 137 (empty -> .)
+    $end            reduce using rule 146 (empty -> .)
     DEF             shift and go to state 20
 
     nackBody                       shift and go to state 16
@@ -371,45 +392,45 @@ state 3
 
 state 4
 
-    (135) skip -> LINESKIP . skip
-    (136) skip -> LINESKIP .
-    (135) skip -> . LINESKIP skip
-    (136) skip -> . LINESKIP
+    (144) skip -> LINESKIP . skip
+    (145) skip -> LINESKIP .
+    (144) skip -> . LINESKIP skip
+    (145) skip -> . LINESKIP
   ! shift/reduce conflict for LINESKIP resolved as shift
-    REGISTER        reduce using rule 136 (skip -> LINESKIP .)
-    IMPORTACTIONS   reduce using rule 136 (skip -> LINESKIP .)
-    IMPORTLIBRARY   reduce using rule 136 (skip -> LINESKIP .)
-    ID              reduce using rule 136 (skip -> LINESKIP .)
-    DEF             reduce using rule 136 (skip -> LINESKIP .)
-    $end            reduce using rule 136 (skip -> LINESKIP .)
-    DO_NOTHING      reduce using rule 136 (skip -> LINESKIP .)
-    UNSAFE          reduce using rule 136 (skip -> LINESKIP .)
-    CONCLUDE        reduce using rule 136 (skip -> LINESKIP .)
-    IF              reduce using rule 136 (skip -> LINESKIP .)
-    REPEAT          reduce using rule 136 (skip -> LINESKIP .)
-    RESET           reduce using rule 136 (skip -> LINESKIP .)
-    RETURN          reduce using rule 136 (skip -> LINESKIP .)
-    RANDOM          reduce using rule 136 (skip -> LINESKIP .)
-    [               reduce using rule 136 (skip -> LINESKIP .)
-    FUNCTION        reduce using rule 136 (skip -> LINESKIP .)
-    FUNCTION_START  reduce using rule 136 (skip -> LINESKIP .)
-    DO_ACTION       reduce using rule 136 (skip -> LINESKIP .)
-    DO_CALL         reduce using rule 136 (skip -> LINESKIP .)
-    DO_DIRECTIVE    reduce using rule 136 (skip -> LINESKIP .)
-    META            reduce using rule 136 (skip -> LINESKIP .)
-    ENDFUNCTION     reduce using rule 136 (skip -> LINESKIP .)
-    ENDDEF          reduce using rule 136 (skip -> LINESKIP .)
-    ENDF            reduce using rule 136 (skip -> LINESKIP .)
-    ENDWITH         reduce using rule 136 (skip -> LINESKIP .)
-    ENDIF           reduce using rule 136 (skip -> LINESKIP .)
-    ELSE            reduce using rule 136 (skip -> LINESKIP .)
-    ELIF            reduce using rule 136 (skip -> LINESKIP .)
-    ELSER           reduce using rule 136 (skip -> LINESKIP .)
-    ELSERANDOM      reduce using rule 136 (skip -> LINESKIP .)
-    ENDRANDOMWITH   reduce using rule 136 (skip -> LINESKIP .)
-    ENDRWITH        reduce using rule 136 (skip -> LINESKIP .)
-    ENDRANDOM       reduce using rule 136 (skip -> LINESKIP .)
-    ENDR            reduce using rule 136 (skip -> LINESKIP .)
+    REGISTER        reduce using rule 145 (skip -> LINESKIP .)
+    IMPORTACTIONS   reduce using rule 145 (skip -> LINESKIP .)
+    IMPORTLIBRARY   reduce using rule 145 (skip -> LINESKIP .)
+    ID              reduce using rule 145 (skip -> LINESKIP .)
+    DEF             reduce using rule 145 (skip -> LINESKIP .)
+    $end            reduce using rule 145 (skip -> LINESKIP .)
+    DO_NOTHING      reduce using rule 145 (skip -> LINESKIP .)
+    UNSAFE          reduce using rule 145 (skip -> LINESKIP .)
+    CONCLUDE        reduce using rule 145 (skip -> LINESKIP .)
+    IF              reduce using rule 145 (skip -> LINESKIP .)
+    REPEAT          reduce using rule 145 (skip -> LINESKIP .)
+    RESET           reduce using rule 145 (skip -> LINESKIP .)
+    RETURN          reduce using rule 145 (skip -> LINESKIP .)
+    RANDOM          reduce using rule 145 (skip -> LINESKIP .)
+    [               reduce using rule 145 (skip -> LINESKIP .)
+    FUNCTION        reduce using rule 145 (skip -> LINESKIP .)
+    FUNCTION_START  reduce using rule 145 (skip -> LINESKIP .)
+    DO_ACTION       reduce using rule 145 (skip -> LINESKIP .)
+    DO_CALL         reduce using rule 145 (skip -> LINESKIP .)
+    DO_DIRECTIVE    reduce using rule 145 (skip -> LINESKIP .)
+    META            reduce using rule 145 (skip -> LINESKIP .)
+    ENDFUNCTION     reduce using rule 145 (skip -> LINESKIP .)
+    ENDDEF          reduce using rule 145 (skip -> LINESKIP .)
+    ENDF            reduce using rule 145 (skip -> LINESKIP .)
+    ENDWITH         reduce using rule 145 (skip -> LINESKIP .)
+    ENDIF           reduce using rule 145 (skip -> LINESKIP .)
+    ELSE            reduce using rule 145 (skip -> LINESKIP .)
+    ELIF            reduce using rule 145 (skip -> LINESKIP .)
+    ELSER           reduce using rule 145 (skip -> LINESKIP .)
+    ELSERANDOM      reduce using rule 145 (skip -> LINESKIP .)
+    ENDRANDOMWITH   reduce using rule 145 (skip -> LINESKIP .)
+    ENDRWITH        reduce using rule 145 (skip -> LINESKIP .)
+    ENDRANDOM       reduce using rule 145 (skip -> LINESKIP .)
+    ENDR            reduce using rule 145 (skip -> LINESKIP .)
     LINESKIP        shift and go to state 4
 
     skip                           shift and go to state 21
@@ -430,13 +451,13 @@ state 5
     (8) libraryImport -> . IMPORTLIBRARY numeric AS ID skip
     (9) libraryImport -> . IMPORTLIBRARY ID AS ID skip
     (10) libraryImport -> . IMPORTLIBRARY PATH AS ID skip
-    (137) empty -> .
-    (134) id -> . ID
+    (146) empty -> .
+    (143) id -> . ID
     REGISTER        shift and go to state 11
     IMPORTACTIONS   shift and go to state 12
     IMPORTLIBRARY   shift and go to state 14
-    DEF             reduce using rule 137 (empty -> .)
-    $end            reduce using rule 137 (empty -> .)
+    DEF             reduce using rule 146 (empty -> .)
+    $end            reduce using rule 146 (empty -> .)
     ID              shift and go to state 13
 
     assignment                     shift and go to state 5
@@ -463,13 +484,13 @@ state 6
     (8) libraryImport -> . IMPORTLIBRARY numeric AS ID skip
     (9) libraryImport -> . IMPORTLIBRARY ID AS ID skip
     (10) libraryImport -> . IMPORTLIBRARY PATH AS ID skip
-    (137) empty -> .
-    (134) id -> . ID
+    (146) empty -> .
+    (143) id -> . ID
     REGISTER        shift and go to state 11
     IMPORTACTIONS   shift and go to state 12
     IMPORTLIBRARY   shift and go to state 14
-    DEF             reduce using rule 137 (empty -> .)
-    $end            reduce using rule 137 (empty -> .)
+    DEF             reduce using rule 146 (empty -> .)
+    $end            reduce using rule 146 (empty -> .)
     ID              shift and go to state 13
 
     registerDeclaration            shift and go to state 6
@@ -496,13 +517,13 @@ state 7
     (8) libraryImport -> . IMPORTLIBRARY numeric AS ID skip
     (9) libraryImport -> . IMPORTLIBRARY ID AS ID skip
     (10) libraryImport -> . IMPORTLIBRARY PATH AS ID skip
-    (137) empty -> .
-    (134) id -> . ID
+    (146) empty -> .
+    (143) id -> . ID
     REGISTER        shift and go to state 11
     IMPORTACTIONS   shift and go to state 12
     IMPORTLIBRARY   shift and go to state 14
-    DEF             reduce using rule 137 (empty -> .)
-    $end            reduce using rule 137 (empty -> .)
+    DEF             reduce using rule 146 (empty -> .)
+    $end            reduce using rule 146 (empty -> .)
     ID              shift and go to state 13
 
     actionImport                   shift and go to state 7
@@ -529,13 +550,13 @@ state 8
     (8) libraryImport -> . IMPORTLIBRARY numeric AS ID skip
     (9) libraryImport -> . IMPORTLIBRARY ID AS ID skip
     (10) libraryImport -> . IMPORTLIBRARY PATH AS ID skip
-    (137) empty -> .
-    (134) id -> . ID
+    (146) empty -> .
+    (143) id -> . ID
     REGISTER        shift and go to state 11
     IMPORTACTIONS   shift and go to state 12
     IMPORTLIBRARY   shift and go to state 14
-    DEF             reduce using rule 137 (empty -> .)
-    $end            reduce using rule 137 (empty -> .)
+    DEF             reduce using rule 146 (empty -> .)
+    $end            reduce using rule 146 (empty -> .)
     ID              shift and go to state 13
 
     libraryImport                  shift and go to state 8
@@ -563,7 +584,7 @@ state 11
 
     (13) registerDeclaration -> REGISTER . id AS REG skip
     (14) registerDeclaration -> REGISTER . id skip
-    (134) id -> . ID
+    (143) id -> . ID
     ID              shift and go to state 13
 
     id                             shift and go to state 27
@@ -578,29 +599,39 @@ state 12
 
 state 13
 
-    (134) id -> ID .
-    ASSIGN          reduce using rule 134 (id -> ID .)
-    AS              reduce using rule 134 (id -> ID .)
-    LINESKIP        reduce using rule 134 (id -> ID .)
-    &               reduce using rule 134 (id -> ID .)
-    META            reduce using rule 134 (id -> ID .)
-    :               reduce using rule 134 (id -> ID .)
-    NEQ             reduce using rule 134 (id -> ID .)
-    GT              reduce using rule 134 (id -> ID .)
-    GEQ             reduce using rule 134 (id -> ID .)
-    LT              reduce using rule 134 (id -> ID .)
-    LEQ             reduce using rule 134 (id -> ID .)
-    EQ              reduce using rule 134 (id -> ID .)
-    RESET           reduce using rule 134 (id -> ID .)
-    INCREMENT       reduce using rule 134 (id -> ID .)
-    (               reduce using rule 134 (id -> ID .)
-    .               reduce using rule 134 (id -> ID .)
-    DO_ACTION       reduce using rule 134 (id -> ID .)
-    DO_CALL         reduce using rule 134 (id -> ID .)
-    DO_DIRECTIVE    reduce using rule 134 (id -> ID .)
-    )               reduce using rule 134 (id -> ID .)
-    ,               reduce using rule 134 (id -> ID .)
-    ]               reduce using rule 134 (id -> ID .)
+    (143) id -> ID .
+    ASSIGN          reduce using rule 143 (id -> ID .)
+    AS              reduce using rule 143 (id -> ID .)
+    LINESKIP        reduce using rule 143 (id -> ID .)
+    &               reduce using rule 143 (id -> ID .)
+    META            reduce using rule 143 (id -> ID .)
+    :               reduce using rule 143 (id -> ID .)
+    ELAPLT          reduce using rule 143 (id -> ID .)
+    ELAPGT          reduce using rule 143 (id -> ID .)
+    MOD             reduce using rule 143 (id -> ID .)
+    DIV             reduce using rule 143 (id -> ID .)
+    MUL             reduce using rule 143 (id -> ID .)
+    SUB             reduce using rule 143 (id -> ID .)
+    ADD             reduce using rule 143 (id -> ID .)
+    NEQ             reduce using rule 143 (id -> ID .)
+    GT              reduce using rule 143 (id -> ID .)
+    GEQ             reduce using rule 143 (id -> ID .)
+    LT              reduce using rule 143 (id -> ID .)
+    LEQ             reduce using rule 143 (id -> ID .)
+    EQ              reduce using rule 143 (id -> ID .)
+    ELAPSED         reduce using rule 143 (id -> ID .)
+    TIME            reduce using rule 143 (id -> ID .)
+    DECREMENT       reduce using rule 143 (id -> ID .)
+    CLEAR           reduce using rule 143 (id -> ID .)
+    INCREMENT       reduce using rule 143 (id -> ID .)
+    (               reduce using rule 143 (id -> ID .)
+    .               reduce using rule 143 (id -> ID .)
+    DO_ACTION       reduce using rule 143 (id -> ID .)
+    DO_CALL         reduce using rule 143 (id -> ID .)
+    DO_DIRECTIVE    reduce using rule 143 (id -> ID .)
+    )               reduce using rule 143 (id -> ID .)
+    ,               reduce using rule 143 (id -> ID .)
+    ]               reduce using rule 143 (id -> ID .)
 
 
 state 14
@@ -608,8 +639,8 @@ state 14
     (8) libraryImport -> IMPORTLIBRARY . numeric AS ID skip
     (9) libraryImport -> IMPORTLIBRARY . ID AS ID skip
     (10) libraryImport -> IMPORTLIBRARY . PATH AS ID skip
-    (132) numeric -> . HEXNUMBER
-    (133) numeric -> . NUMBER
+    (141) numeric -> . HEXNUMBER
+    (142) numeric -> . NUMBER
     ID              shift and go to state 31
     PATH            shift and go to state 32
     HEXNUMBER       shift and go to state 33
@@ -622,10 +653,10 @@ state 15
     (1) nackFile -> skip nackHeader . nackBody
     (16) nackBody -> . empty
     (17) nackBody -> . node nackBody
-    (137) empty -> .
+    (146) empty -> .
     (18) node -> . defHeader nodeBody nodeEnd
     (19) defHeader -> . DEF id nodeAlias nodeIndex skip
-    $end            reduce using rule 137 (empty -> .)
+    $end            reduce using rule 146 (empty -> .)
     DEF             shift and go to state 20
 
     nackBody                       shift and go to state 35
@@ -650,10 +681,10 @@ state 18
     (17) nackBody -> node . nackBody
     (16) nackBody -> . empty
     (17) nackBody -> . node nackBody
-    (137) empty -> .
+    (146) empty -> .
     (18) node -> . defHeader nodeBody nodeEnd
     (19) defHeader -> . DEF id nodeAlias nodeIndex skip
-    $end            reduce using rule 137 (empty -> .)
+    $end            reduce using rule 146 (empty -> .)
     DEF             shift and go to state 20
 
     node                           shift and go to state 18
@@ -666,7 +697,7 @@ state 19
     (18) node -> defHeader . nodeBody nodeEnd
     (26) nodeBody -> . empty
     (27) nodeBody -> . segment nodeBody
-    (137) empty -> .
+    (146) empty -> .
     (31) segment -> . DO_NOTHING skip
     (32) segment -> . UNSAFE skip
     (33) segment -> . uncontrolledSegment
@@ -692,14 +723,14 @@ state 19
     (76) functionName -> . FUNCTION_START id maybeParens maybeSubFunction
     (77) functionName -> . FUNCTION_START id parens
     (78) functionName -> . FUNCTION_START id
-    ENDFUNCTION     reduce using rule 137 (empty -> .)
-    ENDDEF          reduce using rule 137 (empty -> .)
-    ENDF            reduce using rule 137 (empty -> .)
-    DO_ACTION       reduce using rule 137 (empty -> .)
-    DO_CALL         reduce using rule 137 (empty -> .)
-    DO_DIRECTIVE    reduce using rule 137 (empty -> .)
-    META            reduce using rule 137 (empty -> .)
-    LINESKIP        reduce using rule 137 (empty -> .)
+    ENDFUNCTION     reduce using rule 146 (empty -> .)
+    ENDDEF          reduce using rule 146 (empty -> .)
+    ENDF            reduce using rule 146 (empty -> .)
+    DO_ACTION       reduce using rule 146 (empty -> .)
+    DO_CALL         reduce using rule 146 (empty -> .)
+    DO_DIRECTIVE    reduce using rule 146 (empty -> .)
+    META            reduce using rule 146 (empty -> .)
+    LINESKIP        reduce using rule 146 (empty -> .)
     DO_NOTHING      shift and go to state 40
     UNSAFE          shift and go to state 41
     CONCLUDE        shift and go to state 43
@@ -729,49 +760,49 @@ state 19
 state 20
 
     (19) defHeader -> DEF . id nodeAlias nodeIndex skip
-    (134) id -> . ID
+    (143) id -> . ID
     ID              shift and go to state 13
 
     id                             shift and go to state 61
 
 state 21
 
-    (135) skip -> LINESKIP skip .
-    REGISTER        reduce using rule 135 (skip -> LINESKIP skip .)
-    IMPORTACTIONS   reduce using rule 135 (skip -> LINESKIP skip .)
-    IMPORTLIBRARY   reduce using rule 135 (skip -> LINESKIP skip .)
-    ID              reduce using rule 135 (skip -> LINESKIP skip .)
-    DEF             reduce using rule 135 (skip -> LINESKIP skip .)
-    $end            reduce using rule 135 (skip -> LINESKIP skip .)
-    DO_NOTHING      reduce using rule 135 (skip -> LINESKIP skip .)
-    UNSAFE          reduce using rule 135 (skip -> LINESKIP skip .)
-    CONCLUDE        reduce using rule 135 (skip -> LINESKIP skip .)
-    IF              reduce using rule 135 (skip -> LINESKIP skip .)
-    REPEAT          reduce using rule 135 (skip -> LINESKIP skip .)
-    RESET           reduce using rule 135 (skip -> LINESKIP skip .)
-    RETURN          reduce using rule 135 (skip -> LINESKIP skip .)
-    RANDOM          reduce using rule 135 (skip -> LINESKIP skip .)
-    [               reduce using rule 135 (skip -> LINESKIP skip .)
-    FUNCTION        reduce using rule 135 (skip -> LINESKIP skip .)
-    FUNCTION_START  reduce using rule 135 (skip -> LINESKIP skip .)
-    DO_ACTION       reduce using rule 135 (skip -> LINESKIP skip .)
-    DO_CALL         reduce using rule 135 (skip -> LINESKIP skip .)
-    DO_DIRECTIVE    reduce using rule 135 (skip -> LINESKIP skip .)
-    META            reduce using rule 135 (skip -> LINESKIP skip .)
-    LINESKIP        reduce using rule 135 (skip -> LINESKIP skip .)
-    ENDFUNCTION     reduce using rule 135 (skip -> LINESKIP skip .)
-    ENDDEF          reduce using rule 135 (skip -> LINESKIP skip .)
-    ENDF            reduce using rule 135 (skip -> LINESKIP skip .)
-    ENDWITH         reduce using rule 135 (skip -> LINESKIP skip .)
-    ENDIF           reduce using rule 135 (skip -> LINESKIP skip .)
-    ELSE            reduce using rule 135 (skip -> LINESKIP skip .)
-    ELIF            reduce using rule 135 (skip -> LINESKIP skip .)
-    ELSER           reduce using rule 135 (skip -> LINESKIP skip .)
-    ELSERANDOM      reduce using rule 135 (skip -> LINESKIP skip .)
-    ENDRANDOMWITH   reduce using rule 135 (skip -> LINESKIP skip .)
-    ENDRWITH        reduce using rule 135 (skip -> LINESKIP skip .)
-    ENDRANDOM       reduce using rule 135 (skip -> LINESKIP skip .)
-    ENDR            reduce using rule 135 (skip -> LINESKIP skip .)
+    (144) skip -> LINESKIP skip .
+    REGISTER        reduce using rule 144 (skip -> LINESKIP skip .)
+    IMPORTACTIONS   reduce using rule 144 (skip -> LINESKIP skip .)
+    IMPORTLIBRARY   reduce using rule 144 (skip -> LINESKIP skip .)
+    ID              reduce using rule 144 (skip -> LINESKIP skip .)
+    DEF             reduce using rule 144 (skip -> LINESKIP skip .)
+    $end            reduce using rule 144 (skip -> LINESKIP skip .)
+    DO_NOTHING      reduce using rule 144 (skip -> LINESKIP skip .)
+    UNSAFE          reduce using rule 144 (skip -> LINESKIP skip .)
+    CONCLUDE        reduce using rule 144 (skip -> LINESKIP skip .)
+    IF              reduce using rule 144 (skip -> LINESKIP skip .)
+    REPEAT          reduce using rule 144 (skip -> LINESKIP skip .)
+    RESET           reduce using rule 144 (skip -> LINESKIP skip .)
+    RETURN          reduce using rule 144 (skip -> LINESKIP skip .)
+    RANDOM          reduce using rule 144 (skip -> LINESKIP skip .)
+    [               reduce using rule 144 (skip -> LINESKIP skip .)
+    FUNCTION        reduce using rule 144 (skip -> LINESKIP skip .)
+    FUNCTION_START  reduce using rule 144 (skip -> LINESKIP skip .)
+    DO_ACTION       reduce using rule 144 (skip -> LINESKIP skip .)
+    DO_CALL         reduce using rule 144 (skip -> LINESKIP skip .)
+    DO_DIRECTIVE    reduce using rule 144 (skip -> LINESKIP skip .)
+    META            reduce using rule 144 (skip -> LINESKIP skip .)
+    LINESKIP        reduce using rule 144 (skip -> LINESKIP skip .)
+    ENDFUNCTION     reduce using rule 144 (skip -> LINESKIP skip .)
+    ENDDEF          reduce using rule 144 (skip -> LINESKIP skip .)
+    ENDF            reduce using rule 144 (skip -> LINESKIP skip .)
+    ENDWITH         reduce using rule 144 (skip -> LINESKIP skip .)
+    ENDIF           reduce using rule 144 (skip -> LINESKIP skip .)
+    ELSE            reduce using rule 144 (skip -> LINESKIP skip .)
+    ELIF            reduce using rule 144 (skip -> LINESKIP skip .)
+    ELSER           reduce using rule 144 (skip -> LINESKIP skip .)
+    ELSERANDOM      reduce using rule 144 (skip -> LINESKIP skip .)
+    ENDRANDOMWITH   reduce using rule 144 (skip -> LINESKIP skip .)
+    ENDRWITH        reduce using rule 144 (skip -> LINESKIP skip .)
+    ENDRANDOM       reduce using rule 144 (skip -> LINESKIP skip .)
+    ENDR            reduce using rule 144 (skip -> LINESKIP skip .)
 
 
 state 22
@@ -805,8 +836,8 @@ state 25
 state 26
 
     (15) assignment -> id ASSIGN . numeric skip
-    (132) numeric -> . HEXNUMBER
-    (133) numeric -> . NUMBER
+    (141) numeric -> . HEXNUMBER
+    (142) numeric -> . NUMBER
     HEXNUMBER       shift and go to state 33
     NUMBER          shift and go to state 34
 
@@ -816,8 +847,8 @@ state 27
 
     (13) registerDeclaration -> REGISTER id . AS REG skip
     (14) registerDeclaration -> REGISTER id . skip
-    (135) skip -> . LINESKIP skip
-    (136) skip -> . LINESKIP
+    (144) skip -> . LINESKIP skip
+    (145) skip -> . LINESKIP
     AS              shift and go to state 63
     LINESKIP        shift and go to state 4
 
@@ -855,24 +886,60 @@ state 32
 
 state 33
 
-    (132) numeric -> HEXNUMBER .
-    AS              reduce using rule 132 (numeric -> HEXNUMBER .)
-    LINESKIP        reduce using rule 132 (numeric -> HEXNUMBER .)
-    )               reduce using rule 132 (numeric -> HEXNUMBER .)
-    ,               reduce using rule 132 (numeric -> HEXNUMBER .)
-    ]               reduce using rule 132 (numeric -> HEXNUMBER .)
-    META            reduce using rule 132 (numeric -> HEXNUMBER .)
+    (141) numeric -> HEXNUMBER .
+    AS              reduce using rule 141 (numeric -> HEXNUMBER .)
+    LINESKIP        reduce using rule 141 (numeric -> HEXNUMBER .)
+    ELAPLT          reduce using rule 141 (numeric -> HEXNUMBER .)
+    ELAPGT          reduce using rule 141 (numeric -> HEXNUMBER .)
+    MOD             reduce using rule 141 (numeric -> HEXNUMBER .)
+    DIV             reduce using rule 141 (numeric -> HEXNUMBER .)
+    MUL             reduce using rule 141 (numeric -> HEXNUMBER .)
+    SUB             reduce using rule 141 (numeric -> HEXNUMBER .)
+    ADD             reduce using rule 141 (numeric -> HEXNUMBER .)
+    NEQ             reduce using rule 141 (numeric -> HEXNUMBER .)
+    GT              reduce using rule 141 (numeric -> HEXNUMBER .)
+    GEQ             reduce using rule 141 (numeric -> HEXNUMBER .)
+    LT              reduce using rule 141 (numeric -> HEXNUMBER .)
+    LEQ             reduce using rule 141 (numeric -> HEXNUMBER .)
+    EQ              reduce using rule 141 (numeric -> HEXNUMBER .)
+    ELAPSED         reduce using rule 141 (numeric -> HEXNUMBER .)
+    TIME            reduce using rule 141 (numeric -> HEXNUMBER .)
+    DECREMENT       reduce using rule 141 (numeric -> HEXNUMBER .)
+    CLEAR           reduce using rule 141 (numeric -> HEXNUMBER .)
+    INCREMENT       reduce using rule 141 (numeric -> HEXNUMBER .)
+    )               reduce using rule 141 (numeric -> HEXNUMBER .)
+    ,               reduce using rule 141 (numeric -> HEXNUMBER .)
+    ]               reduce using rule 141 (numeric -> HEXNUMBER .)
+    META            reduce using rule 141 (numeric -> HEXNUMBER .)
 
 
 state 34
 
-    (133) numeric -> NUMBER .
-    AS              reduce using rule 133 (numeric -> NUMBER .)
-    LINESKIP        reduce using rule 133 (numeric -> NUMBER .)
-    )               reduce using rule 133 (numeric -> NUMBER .)
-    ,               reduce using rule 133 (numeric -> NUMBER .)
-    ]               reduce using rule 133 (numeric -> NUMBER .)
-    META            reduce using rule 133 (numeric -> NUMBER .)
+    (142) numeric -> NUMBER .
+    AS              reduce using rule 142 (numeric -> NUMBER .)
+    LINESKIP        reduce using rule 142 (numeric -> NUMBER .)
+    ELAPLT          reduce using rule 142 (numeric -> NUMBER .)
+    ELAPGT          reduce using rule 142 (numeric -> NUMBER .)
+    MOD             reduce using rule 142 (numeric -> NUMBER .)
+    DIV             reduce using rule 142 (numeric -> NUMBER .)
+    MUL             reduce using rule 142 (numeric -> NUMBER .)
+    SUB             reduce using rule 142 (numeric -> NUMBER .)
+    ADD             reduce using rule 142 (numeric -> NUMBER .)
+    NEQ             reduce using rule 142 (numeric -> NUMBER .)
+    GT              reduce using rule 142 (numeric -> NUMBER .)
+    GEQ             reduce using rule 142 (numeric -> NUMBER .)
+    LT              reduce using rule 142 (numeric -> NUMBER .)
+    LEQ             reduce using rule 142 (numeric -> NUMBER .)
+    EQ              reduce using rule 142 (numeric -> NUMBER .)
+    ELAPSED         reduce using rule 142 (numeric -> NUMBER .)
+    TIME            reduce using rule 142 (numeric -> NUMBER .)
+    DECREMENT       reduce using rule 142 (numeric -> NUMBER .)
+    CLEAR           reduce using rule 142 (numeric -> NUMBER .)
+    INCREMENT       reduce using rule 142 (numeric -> NUMBER .)
+    )               reduce using rule 142 (numeric -> NUMBER .)
+    ,               reduce using rule 142 (numeric -> NUMBER .)
+    ]               reduce using rule 142 (numeric -> NUMBER .)
+    META            reduce using rule 142 (numeric -> NUMBER .)
 
 
 state 35
@@ -928,7 +995,7 @@ state 39
     (27) nodeBody -> segment . nodeBody
     (26) nodeBody -> . empty
     (27) nodeBody -> . segment nodeBody
-    (137) empty -> .
+    (146) empty -> .
     (31) segment -> . DO_NOTHING skip
     (32) segment -> . UNSAFE skip
     (33) segment -> . uncontrolledSegment
@@ -954,24 +1021,24 @@ state 39
     (76) functionName -> . FUNCTION_START id maybeParens maybeSubFunction
     (77) functionName -> . FUNCTION_START id parens
     (78) functionName -> . FUNCTION_START id
-    ENDFUNCTION     reduce using rule 137 (empty -> .)
-    ENDDEF          reduce using rule 137 (empty -> .)
-    ENDF            reduce using rule 137 (empty -> .)
-    ENDWITH         reduce using rule 137 (empty -> .)
-    ENDIF           reduce using rule 137 (empty -> .)
-    ELSE            reduce using rule 137 (empty -> .)
-    ELIF            reduce using rule 137 (empty -> .)
-    ELSER           reduce using rule 137 (empty -> .)
-    ELSERANDOM      reduce using rule 137 (empty -> .)
-    ENDRANDOMWITH   reduce using rule 137 (empty -> .)
-    ENDRWITH        reduce using rule 137 (empty -> .)
-    ENDRANDOM       reduce using rule 137 (empty -> .)
-    ENDR            reduce using rule 137 (empty -> .)
-    DO_ACTION       reduce using rule 137 (empty -> .)
-    DO_CALL         reduce using rule 137 (empty -> .)
-    DO_DIRECTIVE    reduce using rule 137 (empty -> .)
-    META            reduce using rule 137 (empty -> .)
-    LINESKIP        reduce using rule 137 (empty -> .)
+    ENDFUNCTION     reduce using rule 146 (empty -> .)
+    ENDDEF          reduce using rule 146 (empty -> .)
+    ENDF            reduce using rule 146 (empty -> .)
+    ENDWITH         reduce using rule 146 (empty -> .)
+    ENDIF           reduce using rule 146 (empty -> .)
+    ELSE            reduce using rule 146 (empty -> .)
+    ELIF            reduce using rule 146 (empty -> .)
+    ELSER           reduce using rule 146 (empty -> .)
+    ELSERANDOM      reduce using rule 146 (empty -> .)
+    ENDRANDOMWITH   reduce using rule 146 (empty -> .)
+    ENDRWITH        reduce using rule 146 (empty -> .)
+    ENDRANDOM       reduce using rule 146 (empty -> .)
+    ENDR            reduce using rule 146 (empty -> .)
+    DO_ACTION       reduce using rule 146 (empty -> .)
+    DO_CALL         reduce using rule 146 (empty -> .)
+    DO_DIRECTIVE    reduce using rule 146 (empty -> .)
+    META            reduce using rule 146 (empty -> .)
+    LINESKIP        reduce using rule 146 (empty -> .)
     DO_NOTHING      shift and go to state 40
     UNSAFE          shift and go to state 41
     CONCLUDE        shift and go to state 43
@@ -1001,8 +1068,8 @@ state 39
 state 40
 
     (31) segment -> DO_NOTHING . skip
-    (135) skip -> . LINESKIP skip
-    (136) skip -> . LINESKIP
+    (144) skip -> . LINESKIP skip
+    (145) skip -> . LINESKIP
     LINESKIP        shift and go to state 4
 
     skip                           shift and go to state 75
@@ -1010,8 +1077,8 @@ state 40
 state 41
 
     (32) segment -> UNSAFE . skip
-    (135) skip -> . LINESKIP skip
-    (136) skip -> . LINESKIP
+    (144) skip -> . LINESKIP skip
+    (145) skip -> . LINESKIP
     LINESKIP        shift and go to state 4
 
     skip                           shift and go to state 76
@@ -1060,7 +1127,7 @@ state 43
     (108) directiveName -> . RETURN
     (58) maybeFunctionType -> . empty
     (59) maybeFunctionType -> . functionType
-    (137) empty -> .
+    (146) empty -> .
     (68) functionType -> . registerType
     (69) functionType -> . functionLiteral
     (70) functionType -> . functionName
@@ -1072,11 +1139,11 @@ state 43
     REPEAT          shift and go to state 50
     RESET           shift and go to state 51
     RETURN          shift and go to state 52
-    DO_ACTION       reduce using rule 137 (empty -> .)
-    DO_CALL         reduce using rule 137 (empty -> .)
-    DO_DIRECTIVE    reduce using rule 137 (empty -> .)
-    META            reduce using rule 137 (empty -> .)
-    LINESKIP        reduce using rule 137 (empty -> .)
+    DO_ACTION       reduce using rule 146 (empty -> .)
+    DO_CALL         reduce using rule 146 (empty -> .)
+    DO_DIRECTIVE    reduce using rule 146 (empty -> .)
+    META            reduce using rule 146 (empty -> .)
+    LINESKIP        reduce using rule 146 (empty -> .)
     [               shift and go to state 58
     FUNCTION        shift and go to state 59
     FUNCTION_START  shift and go to state 60
@@ -1163,9 +1230,9 @@ state 46
     (55) uncontrolledSegment -> directiveName . maybeMetaType skip
     (66) maybeMetaType -> . empty
     (67) maybeMetaType -> . metaType
-    (137) empty -> .
+    (146) empty -> .
     (75) metaType -> . META metaparams
-    LINESKIP        reduce using rule 137 (empty -> .)
+    LINESKIP        reduce using rule 146 (empty -> .)
     META            shift and go to state 82
 
     maybeMetaType                  shift and go to state 79
@@ -1178,13 +1245,13 @@ state 47
     (57) actionTypeStart -> . maybeActionType maybeCallType maybeDirectiveType maybeMetaType skip
     (60) maybeActionType -> . empty
     (61) maybeActionType -> . actionType
-    (137) empty -> .
+    (146) empty -> .
     (71) actionType -> . DO_ACTION actionLiteral actionParens
     (72) actionType -> . DO_ACTION actionName actionParens
-    DO_CALL         reduce using rule 137 (empty -> .)
-    DO_DIRECTIVE    reduce using rule 137 (empty -> .)
-    META            reduce using rule 137 (empty -> .)
-    LINESKIP        reduce using rule 137 (empty -> .)
+    DO_CALL         reduce using rule 146 (empty -> .)
+    DO_DIRECTIVE    reduce using rule 146 (empty -> .)
+    META            reduce using rule 146 (empty -> .)
+    LINESKIP        reduce using rule 146 (empty -> .)
     DO_ACTION       shift and go to state 87
 
     actionTypeStart                shift and go to state 83
@@ -1202,7 +1269,7 @@ state 48
     (108) directiveName -> . RETURN
     (58) maybeFunctionType -> . empty
     (59) maybeFunctionType -> . functionType
-    (137) empty -> .
+    (146) empty -> .
     (68) functionType -> . registerType
     (69) functionType -> . functionLiteral
     (70) functionType -> . functionName
@@ -1214,11 +1281,11 @@ state 48
     REPEAT          shift and go to state 50
     RESET           shift and go to state 51
     RETURN          shift and go to state 52
-    DO_ACTION       reduce using rule 137 (empty -> .)
-    DO_CALL         reduce using rule 137 (empty -> .)
-    DO_DIRECTIVE    reduce using rule 137 (empty -> .)
-    META            reduce using rule 137 (empty -> .)
-    LINESKIP        reduce using rule 137 (empty -> .)
+    DO_ACTION       reduce using rule 146 (empty -> .)
+    DO_CALL         reduce using rule 146 (empty -> .)
+    DO_DIRECTIVE    reduce using rule 146 (empty -> .)
+    META            reduce using rule 146 (empty -> .)
+    LINESKIP        reduce using rule 146 (empty -> .)
     [               shift and go to state 58
     FUNCTION        shift and go to state 59
     FUNCTION_START  shift and go to state 60
@@ -1238,13 +1305,13 @@ state 49
     (57) actionTypeStart -> . maybeActionType maybeCallType maybeDirectiveType maybeMetaType skip
     (60) maybeActionType -> . empty
     (61) maybeActionType -> . actionType
-    (137) empty -> .
+    (146) empty -> .
     (71) actionType -> . DO_ACTION actionLiteral actionParens
     (72) actionType -> . DO_ACTION actionName actionParens
-    DO_CALL         reduce using rule 137 (empty -> .)
-    DO_DIRECTIVE    reduce using rule 137 (empty -> .)
-    META            reduce using rule 137 (empty -> .)
-    LINESKIP        reduce using rule 137 (empty -> .)
+    DO_CALL         reduce using rule 146 (empty -> .)
+    DO_DIRECTIVE    reduce using rule 146 (empty -> .)
+    META            reduce using rule 146 (empty -> .)
+    LINESKIP        reduce using rule 146 (empty -> .)
     DO_ACTION       shift and go to state 87
 
     actionTypeStart                shift and go to state 89
@@ -1323,17 +1390,25 @@ state 57
 state 58
 
     (112) registerType -> [ . registerContent ]
-    (113) registerContent -> . regRef regComp regVal
+    (113) registerContent -> . regRef regComp regRef
     (114) registerContent -> . regRef regOp
-    (123) regRef -> . REG
-    (124) regRef -> . id
-    (134) id -> . ID
-    REG             shift and go to state 93
+    (133) regRef -> . numericSymbol
+    (134) regRef -> . REG
+    (135) numericSymbol -> . numeric
+    (136) numericSymbol -> . id
+    (141) numeric -> . HEXNUMBER
+    (142) numeric -> . NUMBER
+    (143) id -> . ID
+    REG             shift and go to state 94
+    HEXNUMBER       shift and go to state 33
+    NUMBER          shift and go to state 34
     ID              shift and go to state 13
 
     registerContent                shift and go to state 91
     regRef                         shift and go to state 92
-    id                             shift and go to state 94
+    numericSymbol                  shift and go to state 93
+    numeric                        shift and go to state 95
+    id                             shift and go to state 96
 
 state 59
 
@@ -1343,55 +1418,55 @@ state 59
     (88) maybeFuncLiteralParens -> . empty
     (89) funcParens -> . ( floatNumericSymbol commaPrefacedId )
     (90) funcParens -> . ( id . id commaPrefacedId )
-    (137) empty -> .
-    (               shift and go to state 97
-    DO_ACTION       reduce using rule 137 (empty -> .)
-    DO_CALL         reduce using rule 137 (empty -> .)
-    DO_DIRECTIVE    reduce using rule 137 (empty -> .)
-    META            reduce using rule 137 (empty -> .)
-    LINESKIP        reduce using rule 137 (empty -> .)
+    (146) empty -> .
+    (               shift and go to state 99
+    DO_ACTION       reduce using rule 146 (empty -> .)
+    DO_CALL         reduce using rule 146 (empty -> .)
+    DO_DIRECTIVE    reduce using rule 146 (empty -> .)
+    META            reduce using rule 146 (empty -> .)
+    LINESKIP        reduce using rule 146 (empty -> .)
 
-    maybeFuncLiteralParens         shift and go to state 95
-    funcParens                     shift and go to state 96
-    empty                          shift and go to state 98
+    maybeFuncLiteralParens         shift and go to state 97
+    funcParens                     shift and go to state 98
+    empty                          shift and go to state 100
 
 state 60
 
     (76) functionName -> FUNCTION_START . id maybeParens maybeSubFunction
     (77) functionName -> FUNCTION_START . id parens
     (78) functionName -> FUNCTION_START . id
-    (134) id -> . ID
+    (143) id -> . ID
     ID              shift and go to state 13
 
-    id                             shift and go to state 99
+    id                             shift and go to state 101
 
 state 61
 
     (19) defHeader -> DEF id . nodeAlias nodeIndex skip
     (20) nodeAlias -> . empty
     (21) nodeAlias -> . & id nodeAlias
-    (137) empty -> .
-    &               shift and go to state 102
-    META            reduce using rule 137 (empty -> .)
-    :               reduce using rule 137 (empty -> .)
-    LINESKIP        reduce using rule 137 (empty -> .)
+    (146) empty -> .
+    &               shift and go to state 104
+    META            reduce using rule 146 (empty -> .)
+    :               reduce using rule 146 (empty -> .)
+    LINESKIP        reduce using rule 146 (empty -> .)
 
-    nodeAlias                      shift and go to state 100
-    empty                          shift and go to state 101
+    nodeAlias                      shift and go to state 102
+    empty                          shift and go to state 103
 
 state 62
 
     (15) assignment -> id ASSIGN numeric . skip
-    (135) skip -> . LINESKIP skip
-    (136) skip -> . LINESKIP
+    (144) skip -> . LINESKIP skip
+    (145) skip -> . LINESKIP
     LINESKIP        shift and go to state 4
 
-    skip                           shift and go to state 103
+    skip                           shift and go to state 105
 
 state 63
 
     (13) registerDeclaration -> REGISTER id AS . REG skip
-    REG             shift and go to state 104
+    REG             shift and go to state 106
 
 
 state 64
@@ -1408,31 +1483,31 @@ state 64
 state 65
 
     (11) actionImport -> IMPORTACTIONS ID AS . ID skip
-    ID              shift and go to state 105
+    ID              shift and go to state 107
 
 
 state 66
 
     (12) actionImport -> IMPORTACTIONS PATH AS . ID skip
-    ID              shift and go to state 106
+    ID              shift and go to state 108
 
 
 state 67
 
     (8) libraryImport -> IMPORTLIBRARY numeric AS . ID skip
-    ID              shift and go to state 107
+    ID              shift and go to state 109
 
 
 state 68
 
     (9) libraryImport -> IMPORTLIBRARY ID AS . ID skip
-    ID              shift and go to state 108
+    ID              shift and go to state 110
 
 
 state 69
 
     (10) libraryImport -> IMPORTLIBRARY PATH AS . ID skip
-    ID              shift and go to state 109
+    ID              shift and go to state 111
 
 
 state 70
@@ -1447,12 +1522,12 @@ state 71
     (28) nodeEnd -> ENDFUNCTION . maybeMetaType skip
     (66) maybeMetaType -> . empty
     (67) maybeMetaType -> . metaType
-    (137) empty -> .
+    (146) empty -> .
     (75) metaType -> . META metaparams
-    LINESKIP        reduce using rule 137 (empty -> .)
+    LINESKIP        reduce using rule 146 (empty -> .)
     META            shift and go to state 82
 
-    maybeMetaType                  shift and go to state 110
+    maybeMetaType                  shift and go to state 112
     empty                          shift and go to state 80
     metaType                       shift and go to state 81
 
@@ -1461,12 +1536,12 @@ state 72
     (29) nodeEnd -> ENDDEF . maybeMetaType skip
     (66) maybeMetaType -> . empty
     (67) maybeMetaType -> . metaType
-    (137) empty -> .
+    (146) empty -> .
     (75) metaType -> . META metaparams
-    LINESKIP        reduce using rule 137 (empty -> .)
+    LINESKIP        reduce using rule 146 (empty -> .)
     META            shift and go to state 82
 
-    maybeMetaType                  shift and go to state 111
+    maybeMetaType                  shift and go to state 113
     empty                          shift and go to state 80
     metaType                       shift and go to state 81
 
@@ -1475,12 +1550,12 @@ state 73
     (30) nodeEnd -> ENDF . maybeMetaType skip
     (66) maybeMetaType -> . empty
     (67) maybeMetaType -> . metaType
-    (137) empty -> .
+    (146) empty -> .
     (75) metaType -> . META metaparams
-    LINESKIP        reduce using rule 137 (empty -> .)
+    LINESKIP        reduce using rule 146 (empty -> .)
     META            shift and go to state 82
 
-    maybeMetaType                  shift and go to state 112
+    maybeMetaType                  shift and go to state 114
     empty                          shift and go to state 80
     metaType                       shift and go to state 81
 
@@ -1617,11 +1692,11 @@ state 78
 state 79
 
     (55) uncontrolledSegment -> directiveName maybeMetaType . skip
-    (135) skip -> . LINESKIP skip
-    (136) skip -> . LINESKIP
+    (144) skip -> . LINESKIP skip
+    (145) skip -> . LINESKIP
     LINESKIP        shift and go to state 4
 
-    skip                           shift and go to state 113
+    skip                           shift and go to state 115
 
 state 80
 
@@ -1641,12 +1716,12 @@ state 82
     (109) metaparams -> . metaparamPair , metaparams
     (110) metaparams -> . metaparamPair
     (111) metaparamPair -> . id : numericSymbol
-    (134) id -> . ID
+    (143) id -> . ID
     ID              shift and go to state 13
 
-    metaparams                     shift and go to state 114
-    metaparamPair                  shift and go to state 115
-    id                             shift and go to state 116
+    metaparams                     shift and go to state 116
+    metaparamPair                  shift and go to state 117
+    id                             shift and go to state 118
 
 state 83
 
@@ -1687,16 +1762,16 @@ state 84
     (57) actionTypeStart -> maybeActionType . maybeCallType maybeDirectiveType maybeMetaType skip
     (62) maybeCallType -> . empty
     (63) maybeCallType -> . callType
-    (137) empty -> .
+    (146) empty -> .
     (73) callType -> . DO_CALL callName
-    DO_DIRECTIVE    reduce using rule 137 (empty -> .)
-    META            reduce using rule 137 (empty -> .)
-    LINESKIP        reduce using rule 137 (empty -> .)
-    DO_CALL         shift and go to state 120
+    DO_DIRECTIVE    reduce using rule 146 (empty -> .)
+    META            reduce using rule 146 (empty -> .)
+    LINESKIP        reduce using rule 146 (empty -> .)
+    DO_CALL         shift and go to state 122
 
-    maybeCallType                  shift and go to state 117
-    empty                          shift and go to state 118
-    callType                       shift and go to state 119
+    maybeCallType                  shift and go to state 119
+    empty                          shift and go to state 120
+    callType                       shift and go to state 121
 
 state 85
 
@@ -1723,20 +1798,20 @@ state 87
     (101) actionLiteral -> . ACTION
     (99) actionName -> . id
     (100) actionName -> . id . id
-    (134) id -> . ID
-    ACTION          shift and go to state 123
+    (143) id -> . ID
+    ACTION          shift and go to state 125
     ID              shift and go to state 13
 
-    actionLiteral                  shift and go to state 121
-    actionName                     shift and go to state 122
-    id                             shift and go to state 124
+    actionLiteral                  shift and go to state 123
+    actionName                     shift and go to state 124
+    id                             shift and go to state 126
 
 state 88
 
     (50) conditional -> IF uncontrolledSegment . nodeBody conditionalTerminator
     (26) nodeBody -> . empty
     (27) nodeBody -> . segment nodeBody
-    (137) empty -> .
+    (146) empty -> .
     (31) segment -> . DO_NOTHING skip
     (32) segment -> . UNSAFE skip
     (33) segment -> . uncontrolledSegment
@@ -1762,15 +1837,15 @@ state 88
     (76) functionName -> . FUNCTION_START id maybeParens maybeSubFunction
     (77) functionName -> . FUNCTION_START id parens
     (78) functionName -> . FUNCTION_START id
-    ENDWITH         reduce using rule 137 (empty -> .)
-    ENDIF           reduce using rule 137 (empty -> .)
-    ELSE            reduce using rule 137 (empty -> .)
-    ELIF            reduce using rule 137 (empty -> .)
-    DO_ACTION       reduce using rule 137 (empty -> .)
-    DO_CALL         reduce using rule 137 (empty -> .)
-    DO_DIRECTIVE    reduce using rule 137 (empty -> .)
-    META            reduce using rule 137 (empty -> .)
-    LINESKIP        reduce using rule 137 (empty -> .)
+    ENDWITH         reduce using rule 146 (empty -> .)
+    ENDIF           reduce using rule 146 (empty -> .)
+    ELSE            reduce using rule 146 (empty -> .)
+    ELIF            reduce using rule 146 (empty -> .)
+    DO_ACTION       reduce using rule 146 (empty -> .)
+    DO_CALL         reduce using rule 146 (empty -> .)
+    DO_DIRECTIVE    reduce using rule 146 (empty -> .)
+    META            reduce using rule 146 (empty -> .)
+    LINESKIP        reduce using rule 146 (empty -> .)
     DO_NOTHING      shift and go to state 40
     UNSAFE          shift and go to state 41
     CONCLUDE        shift and go to state 43
@@ -1784,7 +1859,7 @@ state 88
     FUNCTION_START  shift and go to state 60
 
     uncontrolledSegment            shift and go to state 42
-    nodeBody                       shift and go to state 125
+    nodeBody                       shift and go to state 127
     empty                          shift and go to state 38
     segment                        shift and go to state 39
     conditional                    shift and go to state 44
@@ -1802,7 +1877,7 @@ state 89
     (37) chance -> chanceHeader actionTypeStart . nodeBody chanceBody uncontrolledSegment nodeBody optionalChance
     (26) nodeBody -> . empty
     (27) nodeBody -> . segment nodeBody
-    (137) empty -> .
+    (146) empty -> .
     (31) segment -> . DO_NOTHING skip
     (32) segment -> . UNSAFE skip
     (33) segment -> . uncontrolledSegment
@@ -1828,13 +1903,13 @@ state 89
     (76) functionName -> . FUNCTION_START id maybeParens maybeSubFunction
     (77) functionName -> . FUNCTION_START id parens
     (78) functionName -> . FUNCTION_START id
-    ELSER           reduce using rule 137 (empty -> .)
-    ELSERANDOM      reduce using rule 137 (empty -> .)
-    DO_ACTION       reduce using rule 137 (empty -> .)
-    DO_CALL         reduce using rule 137 (empty -> .)
-    DO_DIRECTIVE    reduce using rule 137 (empty -> .)
-    META            reduce using rule 137 (empty -> .)
-    LINESKIP        reduce using rule 137 (empty -> .)
+    ELSER           reduce using rule 146 (empty -> .)
+    ELSERANDOM      reduce using rule 146 (empty -> .)
+    DO_ACTION       reduce using rule 146 (empty -> .)
+    DO_CALL         reduce using rule 146 (empty -> .)
+    DO_DIRECTIVE    reduce using rule 146 (empty -> .)
+    META            reduce using rule 146 (empty -> .)
+    LINESKIP        reduce using rule 146 (empty -> .)
     DO_NOTHING      shift and go to state 40
     UNSAFE          shift and go to state 41
     CONCLUDE        shift and go to state 43
@@ -1848,7 +1923,7 @@ state 89
     FUNCTION_START  shift and go to state 60
 
     chanceHeader                   shift and go to state 49
-    nodeBody                       shift and go to state 126
+    nodeBody                       shift and go to state 128
     uncontrolledSegment            shift and go to state 42
     empty                          shift and go to state 38
     segment                        shift and go to state 39
@@ -1865,73 +1940,167 @@ state 90
 
     (44) chanceHeader -> RANDOM ( . id )
     (45) chanceHeader -> RANDOM ( . numeric )
-    (134) id -> . ID
-    (132) numeric -> . HEXNUMBER
-    (133) numeric -> . NUMBER
+    (143) id -> . ID
+    (141) numeric -> . HEXNUMBER
+    (142) numeric -> . NUMBER
     ID              shift and go to state 13
     HEXNUMBER       shift and go to state 33
     NUMBER          shift and go to state 34
 
-    id                             shift and go to state 127
-    numeric                        shift and go to state 128
+    id                             shift and go to state 129
+    numeric                        shift and go to state 130
 
 state 91
 
     (112) registerType -> [ registerContent . ]
-    ]               shift and go to state 129
+    ]               shift and go to state 131
 
 
 state 92
 
-    (113) registerContent -> regRef . regComp regVal
+    (113) registerContent -> regRef . regComp regRef
     (114) registerContent -> regRef . regOp
-    (117) regComp -> . NEQ
-    (118) regComp -> . GT
-    (119) regComp -> . GEQ
-    (120) regComp -> . LT
-    (121) regComp -> . LEQ
-    (122) regComp -> . EQ
-    (115) regOp -> . RESET
-    (116) regOp -> . INCREMENT
-    NEQ             shift and go to state 132
-    GT              shift and go to state 133
-    GEQ             shift and go to state 134
-    LT              shift and go to state 135
-    LEQ             shift and go to state 136
-    EQ              shift and go to state 137
-    RESET           shift and go to state 138
-    INCREMENT       shift and go to state 139
+    (120) regComp -> . ELAPLT
+    (121) regComp -> . ELAPGT
+    (122) regComp -> . MOD
+    (123) regComp -> . DIV
+    (124) regComp -> . MUL
+    (125) regComp -> . SUB
+    (126) regComp -> . ADD
+    (127) regComp -> . NEQ
+    (128) regComp -> . GT
+    (129) regComp -> . GEQ
+    (130) regComp -> . LT
+    (131) regComp -> . LEQ
+    (132) regComp -> . EQ
+    (115) regOp -> . ELAPSED
+    (116) regOp -> . TIME
+    (117) regOp -> . DECREMENT
+    (118) regOp -> . CLEAR
+    (119) regOp -> . INCREMENT
+    ELAPLT          shift and go to state 134
+    ELAPGT          shift and go to state 135
+    MOD             shift and go to state 136
+    DIV             shift and go to state 137
+    MUL             shift and go to state 138
+    SUB             shift and go to state 139
+    ADD             shift and go to state 140
+    NEQ             shift and go to state 141
+    GT              shift and go to state 142
+    GEQ             shift and go to state 143
+    LT              shift and go to state 144
+    LEQ             shift and go to state 145
+    EQ              shift and go to state 146
+    ELAPSED         shift and go to state 147
+    TIME            shift and go to state 148
+    DECREMENT       shift and go to state 149
+    CLEAR           shift and go to state 150
+    INCREMENT       shift and go to state 151
 
-    regComp                        shift and go to state 130
-    regOp                          shift and go to state 131
+    regComp                        shift and go to state 132
+    regOp                          shift and go to state 133
 
 state 93
 
-    (123) regRef -> REG .
-    NEQ             reduce using rule 123 (regRef -> REG .)
-    GT              reduce using rule 123 (regRef -> REG .)
-    GEQ             reduce using rule 123 (regRef -> REG .)
-    LT              reduce using rule 123 (regRef -> REG .)
-    LEQ             reduce using rule 123 (regRef -> REG .)
-    EQ              reduce using rule 123 (regRef -> REG .)
-    RESET           reduce using rule 123 (regRef -> REG .)
-    INCREMENT       reduce using rule 123 (regRef -> REG .)
+    (133) regRef -> numericSymbol .
+    ELAPLT          reduce using rule 133 (regRef -> numericSymbol .)
+    ELAPGT          reduce using rule 133 (regRef -> numericSymbol .)
+    MOD             reduce using rule 133 (regRef -> numericSymbol .)
+    DIV             reduce using rule 133 (regRef -> numericSymbol .)
+    MUL             reduce using rule 133 (regRef -> numericSymbol .)
+    SUB             reduce using rule 133 (regRef -> numericSymbol .)
+    ADD             reduce using rule 133 (regRef -> numericSymbol .)
+    NEQ             reduce using rule 133 (regRef -> numericSymbol .)
+    GT              reduce using rule 133 (regRef -> numericSymbol .)
+    GEQ             reduce using rule 133 (regRef -> numericSymbol .)
+    LT              reduce using rule 133 (regRef -> numericSymbol .)
+    LEQ             reduce using rule 133 (regRef -> numericSymbol .)
+    EQ              reduce using rule 133 (regRef -> numericSymbol .)
+    ELAPSED         reduce using rule 133 (regRef -> numericSymbol .)
+    TIME            reduce using rule 133 (regRef -> numericSymbol .)
+    DECREMENT       reduce using rule 133 (regRef -> numericSymbol .)
+    CLEAR           reduce using rule 133 (regRef -> numericSymbol .)
+    INCREMENT       reduce using rule 133 (regRef -> numericSymbol .)
+    ]               reduce using rule 133 (regRef -> numericSymbol .)
 
 
 state 94
 
-    (124) regRef -> id .
-    NEQ             reduce using rule 124 (regRef -> id .)
-    GT              reduce using rule 124 (regRef -> id .)
-    GEQ             reduce using rule 124 (regRef -> id .)
-    LT              reduce using rule 124 (regRef -> id .)
-    LEQ             reduce using rule 124 (regRef -> id .)
-    EQ              reduce using rule 124 (regRef -> id .)
-    RESET           reduce using rule 124 (regRef -> id .)
-    INCREMENT       reduce using rule 124 (regRef -> id .)
+    (134) regRef -> REG .
+    ELAPLT          reduce using rule 134 (regRef -> REG .)
+    ELAPGT          reduce using rule 134 (regRef -> REG .)
+    MOD             reduce using rule 134 (regRef -> REG .)
+    DIV             reduce using rule 134 (regRef -> REG .)
+    MUL             reduce using rule 134 (regRef -> REG .)
+    SUB             reduce using rule 134 (regRef -> REG .)
+    ADD             reduce using rule 134 (regRef -> REG .)
+    NEQ             reduce using rule 134 (regRef -> REG .)
+    GT              reduce using rule 134 (regRef -> REG .)
+    GEQ             reduce using rule 134 (regRef -> REG .)
+    LT              reduce using rule 134 (regRef -> REG .)
+    LEQ             reduce using rule 134 (regRef -> REG .)
+    EQ              reduce using rule 134 (regRef -> REG .)
+    ELAPSED         reduce using rule 134 (regRef -> REG .)
+    TIME            reduce using rule 134 (regRef -> REG .)
+    DECREMENT       reduce using rule 134 (regRef -> REG .)
+    CLEAR           reduce using rule 134 (regRef -> REG .)
+    INCREMENT       reduce using rule 134 (regRef -> REG .)
+    ]               reduce using rule 134 (regRef -> REG .)
 
 
 state 95
+
+    (135) numericSymbol -> numeric .
+    ELAPLT          reduce using rule 135 (numericSymbol -> numeric .)
+    ELAPGT          reduce using rule 135 (numericSymbol -> numeric .)
+    MOD             reduce using rule 135 (numericSymbol -> numeric .)
+    DIV             reduce using rule 135 (numericSymbol -> numeric .)
+    MUL             reduce using rule 135 (numericSymbol -> numeric .)
+    SUB             reduce using rule 135 (numericSymbol -> numeric .)
+    ADD             reduce using rule 135 (numericSymbol -> numeric .)
+    NEQ             reduce using rule 135 (numericSymbol -> numeric .)
+    GT              reduce using rule 135 (numericSymbol -> numeric .)
+    GEQ             reduce using rule 135 (numericSymbol -> numeric .)
+    LT              reduce using rule 135 (numericSymbol -> numeric .)
+    LEQ             reduce using rule 135 (numericSymbol -> numeric .)
+    EQ              reduce using rule 135 (numericSymbol -> numeric .)
+    ELAPSED         reduce using rule 135 (numericSymbol -> numeric .)
+    TIME            reduce using rule 135 (numericSymbol -> numeric .)
+    DECREMENT       reduce using rule 135 (numericSymbol -> numeric .)
+    CLEAR           reduce using rule 135 (numericSymbol -> numeric .)
+    INCREMENT       reduce using rule 135 (numericSymbol -> numeric .)
+    ]               reduce using rule 135 (numericSymbol -> numeric .)
+    ,               reduce using rule 135 (numericSymbol -> numeric .)
+    LINESKIP        reduce using rule 135 (numericSymbol -> numeric .)
+
+
+state 96
+
+    (136) numericSymbol -> id .
+    ELAPLT          reduce using rule 136 (numericSymbol -> id .)
+    ELAPGT          reduce using rule 136 (numericSymbol -> id .)
+    MOD             reduce using rule 136 (numericSymbol -> id .)
+    DIV             reduce using rule 136 (numericSymbol -> id .)
+    MUL             reduce using rule 136 (numericSymbol -> id .)
+    SUB             reduce using rule 136 (numericSymbol -> id .)
+    ADD             reduce using rule 136 (numericSymbol -> id .)
+    NEQ             reduce using rule 136 (numericSymbol -> id .)
+    GT              reduce using rule 136 (numericSymbol -> id .)
+    GEQ             reduce using rule 136 (numericSymbol -> id .)
+    LT              reduce using rule 136 (numericSymbol -> id .)
+    LEQ             reduce using rule 136 (numericSymbol -> id .)
+    EQ              reduce using rule 136 (numericSymbol -> id .)
+    ELAPSED         reduce using rule 136 (numericSymbol -> id .)
+    TIME            reduce using rule 136 (numericSymbol -> id .)
+    DECREMENT       reduce using rule 136 (numericSymbol -> id .)
+    CLEAR           reduce using rule 136 (numericSymbol -> id .)
+    INCREMENT       reduce using rule 136 (numericSymbol -> id .)
+    ]               reduce using rule 136 (numericSymbol -> id .)
+    ,               reduce using rule 136 (numericSymbol -> id .)
+    LINESKIP        reduce using rule 136 (numericSymbol -> id .)
+
+
+state 97
 
     (85) functionLiteral -> FUNCTION maybeFuncLiteralParens .
     DO_ACTION       reduce using rule 85 (functionLiteral -> FUNCTION maybeFuncLiteralParens .)
@@ -1941,7 +2110,7 @@ state 95
     LINESKIP        reduce using rule 85 (functionLiteral -> FUNCTION maybeFuncLiteralParens .)
 
 
-state 96
+state 98
 
     (86) maybeFuncLiteralParens -> funcParens .
     DO_ACTION       reduce using rule 86 (maybeFuncLiteralParens -> funcParens .)
@@ -1951,30 +2120,30 @@ state 96
     LINESKIP        reduce using rule 86 (maybeFuncLiteralParens -> funcParens .)
 
 
-state 97
+state 99
 
     (87) maybeFuncLiteralParens -> ( . )
     (89) funcParens -> ( . floatNumericSymbol commaPrefacedId )
     (90) funcParens -> ( . id . id commaPrefacedId )
-    (128) floatNumericSymbol -> . float
-    (129) floatNumericSymbol -> . numeric
-    (130) floatNumericSymbol -> . id
-    (134) id -> . ID
-    (131) float -> . FLOAT
-    (132) numeric -> . HEXNUMBER
-    (133) numeric -> . NUMBER
-    )               shift and go to state 140
+    (137) floatNumericSymbol -> . float
+    (138) floatNumericSymbol -> . numeric
+    (139) floatNumericSymbol -> . id
+    (143) id -> . ID
+    (140) float -> . FLOAT
+    (141) numeric -> . HEXNUMBER
+    (142) numeric -> . NUMBER
+    )               shift and go to state 152
     ID              shift and go to state 13
-    FLOAT           shift and go to state 145
+    FLOAT           shift and go to state 157
     HEXNUMBER       shift and go to state 33
     NUMBER          shift and go to state 34
 
-    floatNumericSymbol             shift and go to state 141
-    id                             shift and go to state 142
-    float                          shift and go to state 143
-    numeric                        shift and go to state 144
+    floatNumericSymbol             shift and go to state 153
+    id                             shift and go to state 154
+    float                          shift and go to state 155
+    numeric                        shift and go to state 156
 
-state 98
+state 100
 
     (88) maybeFuncLiteralParens -> empty .
     DO_ACTION       reduce using rule 88 (maybeFuncLiteralParens -> empty .)
@@ -1984,7 +2153,7 @@ state 98
     LINESKIP        reduce using rule 88 (maybeFuncLiteralParens -> empty .)
 
 
-state 99
+state 101
 
     (76) functionName -> FUNCTION_START id . maybeParens maybeSubFunction
     (77) functionName -> FUNCTION_START id . parens
@@ -1993,7 +2162,7 @@ state 99
     (82) maybeParens -> . parens
     (83) parens -> . funcParens
     (84) parens -> . ( )
-    (137) empty -> .
+    (146) empty -> .
     (89) funcParens -> . ( floatNumericSymbol commaPrefacedId )
     (90) funcParens -> . ( id . id commaPrefacedId )
     DO_ACTION       reduce using rule 78 (functionName -> FUNCTION_START id .)
@@ -2001,30 +2170,30 @@ state 99
     DO_DIRECTIVE    reduce using rule 78 (functionName -> FUNCTION_START id .)
     META            reduce using rule 78 (functionName -> FUNCTION_START id .)
     LINESKIP        reduce using rule 78 (functionName -> FUNCTION_START id .)
-    (               shift and go to state 150
-    .               reduce using rule 137 (empty -> .)
+    (               shift and go to state 162
+    .               reduce using rule 146 (empty -> .)
 
-    maybeParens                    shift and go to state 146
-    parens                         shift and go to state 147
-    empty                          shift and go to state 148
-    funcParens                     shift and go to state 149
+    maybeParens                    shift and go to state 158
+    parens                         shift and go to state 159
+    empty                          shift and go to state 160
+    funcParens                     shift and go to state 161
 
-state 100
+state 102
 
     (19) defHeader -> DEF id nodeAlias . nodeIndex skip
     (22) nodeIndex -> . empty
     (23) nodeIndex -> . META numeric
     (24) nodeIndex -> . : numeric META numeric
     (25) nodeIndex -> . : numeric
-    (137) empty -> .
-    META            shift and go to state 153
-    :               shift and go to state 154
-    LINESKIP        reduce using rule 137 (empty -> .)
+    (146) empty -> .
+    META            shift and go to state 165
+    :               shift and go to state 166
+    LINESKIP        reduce using rule 146 (empty -> .)
 
-    nodeIndex                      shift and go to state 151
-    empty                          shift and go to state 152
+    nodeIndex                      shift and go to state 163
+    empty                          shift and go to state 164
 
-state 101
+state 103
 
     (20) nodeAlias -> empty .
     META            reduce using rule 20 (nodeAlias -> empty .)
@@ -2032,15 +2201,15 @@ state 101
     LINESKIP        reduce using rule 20 (nodeAlias -> empty .)
 
 
-state 102
+state 104
 
     (21) nodeAlias -> & . id nodeAlias
-    (134) id -> . ID
+    (143) id -> . ID
     ID              shift and go to state 13
 
-    id                             shift and go to state 155
+    id                             shift and go to state 167
 
-state 103
+state 105
 
     (15) assignment -> id ASSIGN numeric skip .
     REGISTER        reduce using rule 15 (assignment -> id ASSIGN numeric skip .)
@@ -2051,88 +2220,88 @@ state 103
     $end            reduce using rule 15 (assignment -> id ASSIGN numeric skip .)
 
 
-state 104
-
-    (13) registerDeclaration -> REGISTER id AS REG . skip
-    (135) skip -> . LINESKIP skip
-    (136) skip -> . LINESKIP
-    LINESKIP        shift and go to state 4
-
-    skip                           shift and go to state 156
-
-state 105
-
-    (11) actionImport -> IMPORTACTIONS ID AS ID . skip
-    (135) skip -> . LINESKIP skip
-    (136) skip -> . LINESKIP
-    LINESKIP        shift and go to state 4
-
-    skip                           shift and go to state 157
-
 state 106
 
-    (12) actionImport -> IMPORTACTIONS PATH AS ID . skip
-    (135) skip -> . LINESKIP skip
-    (136) skip -> . LINESKIP
+    (13) registerDeclaration -> REGISTER id AS REG . skip
+    (144) skip -> . LINESKIP skip
+    (145) skip -> . LINESKIP
     LINESKIP        shift and go to state 4
 
-    skip                           shift and go to state 158
+    skip                           shift and go to state 168
 
 state 107
 
-    (8) libraryImport -> IMPORTLIBRARY numeric AS ID . skip
-    (135) skip -> . LINESKIP skip
-    (136) skip -> . LINESKIP
+    (11) actionImport -> IMPORTACTIONS ID AS ID . skip
+    (144) skip -> . LINESKIP skip
+    (145) skip -> . LINESKIP
     LINESKIP        shift and go to state 4
 
-    skip                           shift and go to state 159
+    skip                           shift and go to state 169
 
 state 108
 
-    (9) libraryImport -> IMPORTLIBRARY ID AS ID . skip
-    (135) skip -> . LINESKIP skip
-    (136) skip -> . LINESKIP
+    (12) actionImport -> IMPORTACTIONS PATH AS ID . skip
+    (144) skip -> . LINESKIP skip
+    (145) skip -> . LINESKIP
     LINESKIP        shift and go to state 4
 
-    skip                           shift and go to state 160
+    skip                           shift and go to state 170
 
 state 109
 
-    (10) libraryImport -> IMPORTLIBRARY PATH AS ID . skip
-    (135) skip -> . LINESKIP skip
-    (136) skip -> . LINESKIP
+    (8) libraryImport -> IMPORTLIBRARY numeric AS ID . skip
+    (144) skip -> . LINESKIP skip
+    (145) skip -> . LINESKIP
     LINESKIP        shift and go to state 4
 
-    skip                           shift and go to state 161
+    skip                           shift and go to state 171
 
 state 110
 
-    (28) nodeEnd -> ENDFUNCTION maybeMetaType . skip
-    (135) skip -> . LINESKIP skip
-    (136) skip -> . LINESKIP
+    (9) libraryImport -> IMPORTLIBRARY ID AS ID . skip
+    (144) skip -> . LINESKIP skip
+    (145) skip -> . LINESKIP
     LINESKIP        shift and go to state 4
 
-    skip                           shift and go to state 162
+    skip                           shift and go to state 172
 
 state 111
 
-    (29) nodeEnd -> ENDDEF maybeMetaType . skip
-    (135) skip -> . LINESKIP skip
-    (136) skip -> . LINESKIP
+    (10) libraryImport -> IMPORTLIBRARY PATH AS ID . skip
+    (144) skip -> . LINESKIP skip
+    (145) skip -> . LINESKIP
     LINESKIP        shift and go to state 4
 
-    skip                           shift and go to state 163
+    skip                           shift and go to state 173
 
 state 112
 
-    (30) nodeEnd -> ENDF maybeMetaType . skip
-    (135) skip -> . LINESKIP skip
-    (136) skip -> . LINESKIP
+    (28) nodeEnd -> ENDFUNCTION maybeMetaType . skip
+    (144) skip -> . LINESKIP skip
+    (145) skip -> . LINESKIP
     LINESKIP        shift and go to state 4
 
-    skip                           shift and go to state 164
+    skip                           shift and go to state 174
 
 state 113
+
+    (29) nodeEnd -> ENDDEF maybeMetaType . skip
+    (144) skip -> . LINESKIP skip
+    (145) skip -> . LINESKIP
+    LINESKIP        shift and go to state 4
+
+    skip                           shift and go to state 175
+
+state 114
+
+    (30) nodeEnd -> ENDF maybeMetaType . skip
+    (144) skip -> . LINESKIP skip
+    (145) skip -> . LINESKIP
+    LINESKIP        shift and go to state 4
+
+    skip                           shift and go to state 176
+
+state 115
 
     (55) uncontrolledSegment -> directiveName maybeMetaType skip .
     DO_NOTHING      reduce using rule 55 (uncontrolledSegment -> directiveName maybeMetaType skip .)
@@ -2166,42 +2335,42 @@ state 113
     ENDR            reduce using rule 55 (uncontrolledSegment -> directiveName maybeMetaType skip .)
 
 
-state 114
+state 116
 
     (75) metaType -> META metaparams .
     LINESKIP        reduce using rule 75 (metaType -> META metaparams .)
 
 
-state 115
+state 117
 
     (109) metaparams -> metaparamPair . , metaparams
     (110) metaparams -> metaparamPair .
-    ,               shift and go to state 165
+    ,               shift and go to state 177
     LINESKIP        reduce using rule 110 (metaparams -> metaparamPair .)
 
 
-state 116
+state 118
 
     (111) metaparamPair -> id . : numericSymbol
-    :               shift and go to state 166
+    :               shift and go to state 178
 
 
-state 117
+state 119
 
     (57) actionTypeStart -> maybeActionType maybeCallType . maybeDirectiveType maybeMetaType skip
     (64) maybeDirectiveType -> . empty
     (65) maybeDirectiveType -> . directiveType
-    (137) empty -> .
+    (146) empty -> .
     (74) directiveType -> . DO_DIRECTIVE directiveName
-    META            reduce using rule 137 (empty -> .)
-    LINESKIP        reduce using rule 137 (empty -> .)
-    DO_DIRECTIVE    shift and go to state 170
+    META            reduce using rule 146 (empty -> .)
+    LINESKIP        reduce using rule 146 (empty -> .)
+    DO_DIRECTIVE    shift and go to state 182
 
-    maybeDirectiveType             shift and go to state 167
-    empty                          shift and go to state 168
-    directiveType                  shift and go to state 169
+    maybeDirectiveType             shift and go to state 179
+    empty                          shift and go to state 180
+    directiveType                  shift and go to state 181
 
-state 118
+state 120
 
     (62) maybeCallType -> empty .
     DO_DIRECTIVE    reduce using rule 62 (maybeCallType -> empty .)
@@ -2209,7 +2378,7 @@ state 118
     LINESKIP        reduce using rule 62 (maybeCallType -> empty .)
 
 
-state 119
+state 121
 
     (63) maybeCallType -> callType .
     DO_DIRECTIVE    reduce using rule 63 (maybeCallType -> callType .)
@@ -2217,90 +2386,90 @@ state 119
     LINESKIP        reduce using rule 63 (maybeCallType -> callType .)
 
 
-state 120
+state 122
 
     (73) callType -> DO_CALL . callName
     (102) callName -> . CALL
     (103) callName -> . id
     (104) callName -> . id . CALL
     (105) callName -> . id . id
-    (134) id -> . ID
-    CALL            shift and go to state 172
+    (143) id -> . ID
+    CALL            shift and go to state 184
     ID              shift and go to state 13
 
-    callName                       shift and go to state 171
-    id                             shift and go to state 173
+    callName                       shift and go to state 183
+    id                             shift and go to state 185
 
-state 121
+state 123
 
     (71) actionType -> DO_ACTION actionLiteral . actionParens
     (94) actionParens -> . ( maybeActionParams )
-    (               shift and go to state 175
+    (               shift and go to state 187
 
-    actionParens                   shift and go to state 174
+    actionParens                   shift and go to state 186
 
-state 122
+state 124
 
     (72) actionType -> DO_ACTION actionName . actionParens
     (94) actionParens -> . ( maybeActionParams )
-    (               shift and go to state 175
+    (               shift and go to state 187
 
-    actionParens                   shift and go to state 176
+    actionParens                   shift and go to state 188
 
-state 123
+state 125
 
     (101) actionLiteral -> ACTION .
     (               reduce using rule 101 (actionLiteral -> ACTION .)
 
 
-state 124
+state 126
 
     (99) actionName -> id .
     (100) actionName -> id . . id
     (               reduce using rule 99 (actionName -> id .)
-    .               shift and go to state 177
+    .               shift and go to state 189
 
 
-state 125
+state 127
 
     (50) conditional -> IF uncontrolledSegment nodeBody . conditionalTerminator
     (51) conditionalTerminator -> . ENDWITH uncontrolledSegment
     (52) conditionalTerminator -> . ENDIF skip
     (53) conditionalTerminator -> . ELSE actionTypeStart nodeBody conditionalTerminator
     (54) conditionalTerminator -> . ELIF functionType actionTypeStart nodeBody conditionalTerminator
-    ENDWITH         shift and go to state 179
-    ENDIF           shift and go to state 180
-    ELSE            shift and go to state 181
-    ELIF            shift and go to state 182
+    ENDWITH         shift and go to state 191
+    ENDIF           shift and go to state 192
+    ELSE            shift and go to state 193
+    ELIF            shift and go to state 194
 
-    conditionalTerminator          shift and go to state 178
+    conditionalTerminator          shift and go to state 190
 
-state 126
+state 128
 
     (37) chance -> chanceHeader actionTypeStart nodeBody . chanceBody uncontrolledSegment nodeBody optionalChance
     (46) chanceBody -> . elsechance ( id )
     (47) chanceBody -> . elsechance ( numeric )
     (48) elsechance -> . ELSER
     (49) elsechance -> . ELSERANDOM
-    ELSER           shift and go to state 185
-    ELSERANDOM      shift and go to state 186
+    ELSER           shift and go to state 197
+    ELSERANDOM      shift and go to state 198
 
-    chanceBody                     shift and go to state 183
-    elsechance                     shift and go to state 184
-
-state 127
-
-    (44) chanceHeader -> RANDOM ( id . )
-    )               shift and go to state 187
-
-
-state 128
-
-    (45) chanceHeader -> RANDOM ( numeric . )
-    )               shift and go to state 188
-
+    chanceBody                     shift and go to state 195
+    elsechance                     shift and go to state 196
 
 state 129
+
+    (44) chanceHeader -> RANDOM ( id . )
+    )               shift and go to state 199
+
+
+state 130
+
+    (45) chanceHeader -> RANDOM ( numeric . )
+    )               shift and go to state 200
+
+
+state 131
 
     (112) registerType -> [ registerContent ] .
     DO_ACTION       reduce using rule 112 (registerType -> [ registerContent ] .)
@@ -2310,91 +2479,180 @@ state 129
     LINESKIP        reduce using rule 112 (registerType -> [ registerContent ] .)
 
 
-state 130
+state 132
 
-    (113) registerContent -> regRef regComp . regVal
-    (125) regVal -> . numericSymbol
-    (126) numericSymbol -> . numeric
-    (127) numericSymbol -> . id
-    (132) numeric -> . HEXNUMBER
-    (133) numeric -> . NUMBER
-    (134) id -> . ID
+    (113) registerContent -> regRef regComp . regRef
+    (133) regRef -> . numericSymbol
+    (134) regRef -> . REG
+    (135) numericSymbol -> . numeric
+    (136) numericSymbol -> . id
+    (141) numeric -> . HEXNUMBER
+    (142) numeric -> . NUMBER
+    (143) id -> . ID
+    REG             shift and go to state 94
     HEXNUMBER       shift and go to state 33
     NUMBER          shift and go to state 34
     ID              shift and go to state 13
 
-    regVal                         shift and go to state 189
-    numericSymbol                  shift and go to state 190
-    numeric                        shift and go to state 191
-    id                             shift and go to state 192
+    regRef                         shift and go to state 201
+    numericSymbol                  shift and go to state 93
+    numeric                        shift and go to state 95
+    id                             shift and go to state 96
 
-state 131
+state 133
 
     (114) registerContent -> regRef regOp .
     ]               reduce using rule 114 (registerContent -> regRef regOp .)
 
 
-state 132
-
-    (117) regComp -> NEQ .
-    HEXNUMBER       reduce using rule 117 (regComp -> NEQ .)
-    NUMBER          reduce using rule 117 (regComp -> NEQ .)
-    ID              reduce using rule 117 (regComp -> NEQ .)
-
-
-state 133
-
-    (118) regComp -> GT .
-    HEXNUMBER       reduce using rule 118 (regComp -> GT .)
-    NUMBER          reduce using rule 118 (regComp -> GT .)
-    ID              reduce using rule 118 (regComp -> GT .)
-
-
 state 134
 
-    (119) regComp -> GEQ .
-    HEXNUMBER       reduce using rule 119 (regComp -> GEQ .)
-    NUMBER          reduce using rule 119 (regComp -> GEQ .)
-    ID              reduce using rule 119 (regComp -> GEQ .)
+    (120) regComp -> ELAPLT .
+    REG             reduce using rule 120 (regComp -> ELAPLT .)
+    HEXNUMBER       reduce using rule 120 (regComp -> ELAPLT .)
+    NUMBER          reduce using rule 120 (regComp -> ELAPLT .)
+    ID              reduce using rule 120 (regComp -> ELAPLT .)
 
 
 state 135
 
-    (120) regComp -> LT .
-    HEXNUMBER       reduce using rule 120 (regComp -> LT .)
-    NUMBER          reduce using rule 120 (regComp -> LT .)
-    ID              reduce using rule 120 (regComp -> LT .)
+    (121) regComp -> ELAPGT .
+    REG             reduce using rule 121 (regComp -> ELAPGT .)
+    HEXNUMBER       reduce using rule 121 (regComp -> ELAPGT .)
+    NUMBER          reduce using rule 121 (regComp -> ELAPGT .)
+    ID              reduce using rule 121 (regComp -> ELAPGT .)
 
 
 state 136
 
-    (121) regComp -> LEQ .
-    HEXNUMBER       reduce using rule 121 (regComp -> LEQ .)
-    NUMBER          reduce using rule 121 (regComp -> LEQ .)
-    ID              reduce using rule 121 (regComp -> LEQ .)
+    (122) regComp -> MOD .
+    REG             reduce using rule 122 (regComp -> MOD .)
+    HEXNUMBER       reduce using rule 122 (regComp -> MOD .)
+    NUMBER          reduce using rule 122 (regComp -> MOD .)
+    ID              reduce using rule 122 (regComp -> MOD .)
 
 
 state 137
 
-    (122) regComp -> EQ .
-    HEXNUMBER       reduce using rule 122 (regComp -> EQ .)
-    NUMBER          reduce using rule 122 (regComp -> EQ .)
-    ID              reduce using rule 122 (regComp -> EQ .)
+    (123) regComp -> DIV .
+    REG             reduce using rule 123 (regComp -> DIV .)
+    HEXNUMBER       reduce using rule 123 (regComp -> DIV .)
+    NUMBER          reduce using rule 123 (regComp -> DIV .)
+    ID              reduce using rule 123 (regComp -> DIV .)
 
 
 state 138
 
-    (115) regOp -> RESET .
-    ]               reduce using rule 115 (regOp -> RESET .)
+    (124) regComp -> MUL .
+    REG             reduce using rule 124 (regComp -> MUL .)
+    HEXNUMBER       reduce using rule 124 (regComp -> MUL .)
+    NUMBER          reduce using rule 124 (regComp -> MUL .)
+    ID              reduce using rule 124 (regComp -> MUL .)
 
 
 state 139
 
-    (116) regOp -> INCREMENT .
-    ]               reduce using rule 116 (regOp -> INCREMENT .)
+    (125) regComp -> SUB .
+    REG             reduce using rule 125 (regComp -> SUB .)
+    HEXNUMBER       reduce using rule 125 (regComp -> SUB .)
+    NUMBER          reduce using rule 125 (regComp -> SUB .)
+    ID              reduce using rule 125 (regComp -> SUB .)
 
 
 state 140
+
+    (126) regComp -> ADD .
+    REG             reduce using rule 126 (regComp -> ADD .)
+    HEXNUMBER       reduce using rule 126 (regComp -> ADD .)
+    NUMBER          reduce using rule 126 (regComp -> ADD .)
+    ID              reduce using rule 126 (regComp -> ADD .)
+
+
+state 141
+
+    (127) regComp -> NEQ .
+    REG             reduce using rule 127 (regComp -> NEQ .)
+    HEXNUMBER       reduce using rule 127 (regComp -> NEQ .)
+    NUMBER          reduce using rule 127 (regComp -> NEQ .)
+    ID              reduce using rule 127 (regComp -> NEQ .)
+
+
+state 142
+
+    (128) regComp -> GT .
+    REG             reduce using rule 128 (regComp -> GT .)
+    HEXNUMBER       reduce using rule 128 (regComp -> GT .)
+    NUMBER          reduce using rule 128 (regComp -> GT .)
+    ID              reduce using rule 128 (regComp -> GT .)
+
+
+state 143
+
+    (129) regComp -> GEQ .
+    REG             reduce using rule 129 (regComp -> GEQ .)
+    HEXNUMBER       reduce using rule 129 (regComp -> GEQ .)
+    NUMBER          reduce using rule 129 (regComp -> GEQ .)
+    ID              reduce using rule 129 (regComp -> GEQ .)
+
+
+state 144
+
+    (130) regComp -> LT .
+    REG             reduce using rule 130 (regComp -> LT .)
+    HEXNUMBER       reduce using rule 130 (regComp -> LT .)
+    NUMBER          reduce using rule 130 (regComp -> LT .)
+    ID              reduce using rule 130 (regComp -> LT .)
+
+
+state 145
+
+    (131) regComp -> LEQ .
+    REG             reduce using rule 131 (regComp -> LEQ .)
+    HEXNUMBER       reduce using rule 131 (regComp -> LEQ .)
+    NUMBER          reduce using rule 131 (regComp -> LEQ .)
+    ID              reduce using rule 131 (regComp -> LEQ .)
+
+
+state 146
+
+    (132) regComp -> EQ .
+    REG             reduce using rule 132 (regComp -> EQ .)
+    HEXNUMBER       reduce using rule 132 (regComp -> EQ .)
+    NUMBER          reduce using rule 132 (regComp -> EQ .)
+    ID              reduce using rule 132 (regComp -> EQ .)
+
+
+state 147
+
+    (115) regOp -> ELAPSED .
+    ]               reduce using rule 115 (regOp -> ELAPSED .)
+
+
+state 148
+
+    (116) regOp -> TIME .
+    ]               reduce using rule 116 (regOp -> TIME .)
+
+
+state 149
+
+    (117) regOp -> DECREMENT .
+    ]               reduce using rule 117 (regOp -> DECREMENT .)
+
+
+state 150
+
+    (118) regOp -> CLEAR .
+    ]               reduce using rule 118 (regOp -> CLEAR .)
+
+
+state 151
+
+    (119) regOp -> INCREMENT .
+    ]               reduce using rule 119 (regOp -> INCREMENT .)
+
+
+state 152
 
     (87) maybeFuncLiteralParens -> ( ) .
     DO_ACTION       reduce using rule 87 (maybeFuncLiteralParens -> ( ) .)
@@ -2404,59 +2662,59 @@ state 140
     LINESKIP        reduce using rule 87 (maybeFuncLiteralParens -> ( ) .)
 
 
-state 141
+state 153
 
     (89) funcParens -> ( floatNumericSymbol . commaPrefacedId )
     (91) commaPrefacedId -> . , floatNumericSymbol commaPrefacedId
     (92) commaPrefacedId -> . , id . id commaPrefacedId
     (93) commaPrefacedId -> . empty
-    (137) empty -> .
-    ,               shift and go to state 194
-    )               reduce using rule 137 (empty -> .)
+    (146) empty -> .
+    ,               shift and go to state 203
+    )               reduce using rule 146 (empty -> .)
 
-    commaPrefacedId                shift and go to state 193
-    empty                          shift and go to state 195
+    commaPrefacedId                shift and go to state 202
+    empty                          shift and go to state 204
 
-state 142
+state 154
 
     (90) funcParens -> ( id . . id commaPrefacedId )
-    (130) floatNumericSymbol -> id .
-    .               shift and go to state 196
-    ,               reduce using rule 130 (floatNumericSymbol -> id .)
-    )               reduce using rule 130 (floatNumericSymbol -> id .)
+    (139) floatNumericSymbol -> id .
+    .               shift and go to state 205
+    ,               reduce using rule 139 (floatNumericSymbol -> id .)
+    )               reduce using rule 139 (floatNumericSymbol -> id .)
 
 
-state 143
+state 155
 
-    (128) floatNumericSymbol -> float .
-    ,               reduce using rule 128 (floatNumericSymbol -> float .)
-    )               reduce using rule 128 (floatNumericSymbol -> float .)
-
-
-state 144
-
-    (129) floatNumericSymbol -> numeric .
-    ,               reduce using rule 129 (floatNumericSymbol -> numeric .)
-    )               reduce using rule 129 (floatNumericSymbol -> numeric .)
+    (137) floatNumericSymbol -> float .
+    ,               reduce using rule 137 (floatNumericSymbol -> float .)
+    )               reduce using rule 137 (floatNumericSymbol -> float .)
 
 
-state 145
+state 156
 
-    (131) float -> FLOAT .
-    ,               reduce using rule 131 (float -> FLOAT .)
-    )               reduce using rule 131 (float -> FLOAT .)
+    (138) floatNumericSymbol -> numeric .
+    ,               reduce using rule 138 (floatNumericSymbol -> numeric .)
+    )               reduce using rule 138 (floatNumericSymbol -> numeric .)
 
 
-state 146
+state 157
+
+    (140) float -> FLOAT .
+    ,               reduce using rule 140 (float -> FLOAT .)
+    )               reduce using rule 140 (float -> FLOAT .)
+
+
+state 158
 
     (76) functionName -> FUNCTION_START id maybeParens . maybeSubFunction
     (79) maybeSubFunction -> . . id parens maybeSubFunction
     (80) maybeSubFunction -> . . id maybeParens
-    .               shift and go to state 198
+    .               shift and go to state 207
 
-    maybeSubFunction               shift and go to state 197
+    maybeSubFunction               shift and go to state 206
 
-state 147
+state 159
 
     (77) functionName -> FUNCTION_START id parens .
     (82) maybeParens -> parens .
@@ -2468,7 +2726,7 @@ state 147
     .               reduce using rule 82 (maybeParens -> parens .)
 
 
-state 148
+state 160
 
     (81) maybeParens -> empty .
     .               reduce using rule 81 (maybeParens -> empty .)
@@ -2479,7 +2737,7 @@ state 148
     LINESKIP        reduce using rule 81 (maybeParens -> empty .)
 
 
-state 149
+state 161
 
     (83) parens -> funcParens .
     DO_ACTION       reduce using rule 83 (parens -> funcParens .)
@@ -2490,80 +2748,80 @@ state 149
     .               reduce using rule 83 (parens -> funcParens .)
 
 
-state 150
+state 162
 
     (84) parens -> ( . )
     (89) funcParens -> ( . floatNumericSymbol commaPrefacedId )
     (90) funcParens -> ( . id . id commaPrefacedId )
-    (128) floatNumericSymbol -> . float
-    (129) floatNumericSymbol -> . numeric
-    (130) floatNumericSymbol -> . id
-    (134) id -> . ID
-    (131) float -> . FLOAT
-    (132) numeric -> . HEXNUMBER
-    (133) numeric -> . NUMBER
-    )               shift and go to state 199
+    (137) floatNumericSymbol -> . float
+    (138) floatNumericSymbol -> . numeric
+    (139) floatNumericSymbol -> . id
+    (143) id -> . ID
+    (140) float -> . FLOAT
+    (141) numeric -> . HEXNUMBER
+    (142) numeric -> . NUMBER
+    )               shift and go to state 208
     ID              shift and go to state 13
-    FLOAT           shift and go to state 145
+    FLOAT           shift and go to state 157
     HEXNUMBER       shift and go to state 33
     NUMBER          shift and go to state 34
 
-    floatNumericSymbol             shift and go to state 141
-    id                             shift and go to state 142
-    float                          shift and go to state 143
-    numeric                        shift and go to state 144
+    floatNumericSymbol             shift and go to state 153
+    id                             shift and go to state 154
+    float                          shift and go to state 155
+    numeric                        shift and go to state 156
 
-state 151
+state 163
 
     (19) defHeader -> DEF id nodeAlias nodeIndex . skip
-    (135) skip -> . LINESKIP skip
-    (136) skip -> . LINESKIP
+    (144) skip -> . LINESKIP skip
+    (145) skip -> . LINESKIP
     LINESKIP        shift and go to state 4
 
-    skip                           shift and go to state 200
+    skip                           shift and go to state 209
 
-state 152
+state 164
 
     (22) nodeIndex -> empty .
     LINESKIP        reduce using rule 22 (nodeIndex -> empty .)
 
 
-state 153
+state 165
 
     (23) nodeIndex -> META . numeric
-    (132) numeric -> . HEXNUMBER
-    (133) numeric -> . NUMBER
+    (141) numeric -> . HEXNUMBER
+    (142) numeric -> . NUMBER
     HEXNUMBER       shift and go to state 33
     NUMBER          shift and go to state 34
 
-    numeric                        shift and go to state 201
+    numeric                        shift and go to state 210
 
-state 154
+state 166
 
     (24) nodeIndex -> : . numeric META numeric
     (25) nodeIndex -> : . numeric
-    (132) numeric -> . HEXNUMBER
-    (133) numeric -> . NUMBER
+    (141) numeric -> . HEXNUMBER
+    (142) numeric -> . NUMBER
     HEXNUMBER       shift and go to state 33
     NUMBER          shift and go to state 34
 
-    numeric                        shift and go to state 202
+    numeric                        shift and go to state 211
 
-state 155
+state 167
 
     (21) nodeAlias -> & id . nodeAlias
     (20) nodeAlias -> . empty
     (21) nodeAlias -> . & id nodeAlias
-    (137) empty -> .
-    &               shift and go to state 102
-    META            reduce using rule 137 (empty -> .)
-    :               reduce using rule 137 (empty -> .)
-    LINESKIP        reduce using rule 137 (empty -> .)
+    (146) empty -> .
+    &               shift and go to state 104
+    META            reduce using rule 146 (empty -> .)
+    :               reduce using rule 146 (empty -> .)
+    LINESKIP        reduce using rule 146 (empty -> .)
 
-    nodeAlias                      shift and go to state 203
-    empty                          shift and go to state 101
+    nodeAlias                      shift and go to state 212
+    empty                          shift and go to state 103
 
-state 156
+state 168
 
     (13) registerDeclaration -> REGISTER id AS REG skip .
     REGISTER        reduce using rule 13 (registerDeclaration -> REGISTER id AS REG skip .)
@@ -2574,7 +2832,7 @@ state 156
     $end            reduce using rule 13 (registerDeclaration -> REGISTER id AS REG skip .)
 
 
-state 157
+state 169
 
     (11) actionImport -> IMPORTACTIONS ID AS ID skip .
     REGISTER        reduce using rule 11 (actionImport -> IMPORTACTIONS ID AS ID skip .)
@@ -2585,7 +2843,7 @@ state 157
     $end            reduce using rule 11 (actionImport -> IMPORTACTIONS ID AS ID skip .)
 
 
-state 158
+state 170
 
     (12) actionImport -> IMPORTACTIONS PATH AS ID skip .
     REGISTER        reduce using rule 12 (actionImport -> IMPORTACTIONS PATH AS ID skip .)
@@ -2596,7 +2854,7 @@ state 158
     $end            reduce using rule 12 (actionImport -> IMPORTACTIONS PATH AS ID skip .)
 
 
-state 159
+state 171
 
     (8) libraryImport -> IMPORTLIBRARY numeric AS ID skip .
     REGISTER        reduce using rule 8 (libraryImport -> IMPORTLIBRARY numeric AS ID skip .)
@@ -2607,7 +2865,7 @@ state 159
     $end            reduce using rule 8 (libraryImport -> IMPORTLIBRARY numeric AS ID skip .)
 
 
-state 160
+state 172
 
     (9) libraryImport -> IMPORTLIBRARY ID AS ID skip .
     REGISTER        reduce using rule 9 (libraryImport -> IMPORTLIBRARY ID AS ID skip .)
@@ -2618,7 +2876,7 @@ state 160
     $end            reduce using rule 9 (libraryImport -> IMPORTLIBRARY ID AS ID skip .)
 
 
-state 161
+state 173
 
     (10) libraryImport -> IMPORTLIBRARY PATH AS ID skip .
     REGISTER        reduce using rule 10 (libraryImport -> IMPORTLIBRARY PATH AS ID skip .)
@@ -2629,85 +2887,85 @@ state 161
     $end            reduce using rule 10 (libraryImport -> IMPORTLIBRARY PATH AS ID skip .)
 
 
-state 162
+state 174
 
     (28) nodeEnd -> ENDFUNCTION maybeMetaType skip .
     DEF             reduce using rule 28 (nodeEnd -> ENDFUNCTION maybeMetaType skip .)
     $end            reduce using rule 28 (nodeEnd -> ENDFUNCTION maybeMetaType skip .)
 
 
-state 163
+state 175
 
     (29) nodeEnd -> ENDDEF maybeMetaType skip .
     DEF             reduce using rule 29 (nodeEnd -> ENDDEF maybeMetaType skip .)
     $end            reduce using rule 29 (nodeEnd -> ENDDEF maybeMetaType skip .)
 
 
-state 164
+state 176
 
     (30) nodeEnd -> ENDF maybeMetaType skip .
     DEF             reduce using rule 30 (nodeEnd -> ENDF maybeMetaType skip .)
     $end            reduce using rule 30 (nodeEnd -> ENDF maybeMetaType skip .)
 
 
-state 165
+state 177
 
     (109) metaparams -> metaparamPair , . metaparams
     (109) metaparams -> . metaparamPair , metaparams
     (110) metaparams -> . metaparamPair
     (111) metaparamPair -> . id : numericSymbol
-    (134) id -> . ID
+    (143) id -> . ID
     ID              shift and go to state 13
 
-    metaparamPair                  shift and go to state 115
-    metaparams                     shift and go to state 204
-    id                             shift and go to state 116
+    metaparamPair                  shift and go to state 117
+    metaparams                     shift and go to state 213
+    id                             shift and go to state 118
 
-state 166
+state 178
 
     (111) metaparamPair -> id : . numericSymbol
-    (126) numericSymbol -> . numeric
-    (127) numericSymbol -> . id
-    (132) numeric -> . HEXNUMBER
-    (133) numeric -> . NUMBER
-    (134) id -> . ID
+    (135) numericSymbol -> . numeric
+    (136) numericSymbol -> . id
+    (141) numeric -> . HEXNUMBER
+    (142) numeric -> . NUMBER
+    (143) id -> . ID
     HEXNUMBER       shift and go to state 33
     NUMBER          shift and go to state 34
     ID              shift and go to state 13
 
-    id                             shift and go to state 192
-    numericSymbol                  shift and go to state 205
-    numeric                        shift and go to state 191
+    id                             shift and go to state 96
+    numericSymbol                  shift and go to state 214
+    numeric                        shift and go to state 95
 
-state 167
+state 179
 
     (57) actionTypeStart -> maybeActionType maybeCallType maybeDirectiveType . maybeMetaType skip
     (66) maybeMetaType -> . empty
     (67) maybeMetaType -> . metaType
-    (137) empty -> .
+    (146) empty -> .
     (75) metaType -> . META metaparams
-    LINESKIP        reduce using rule 137 (empty -> .)
+    LINESKIP        reduce using rule 146 (empty -> .)
     META            shift and go to state 82
 
-    maybeMetaType                  shift and go to state 206
+    maybeMetaType                  shift and go to state 215
     empty                          shift and go to state 80
     metaType                       shift and go to state 81
 
-state 168
+state 180
 
     (64) maybeDirectiveType -> empty .
     META            reduce using rule 64 (maybeDirectiveType -> empty .)
     LINESKIP        reduce using rule 64 (maybeDirectiveType -> empty .)
 
 
-state 169
+state 181
 
     (65) maybeDirectiveType -> directiveType .
     META            reduce using rule 65 (maybeDirectiveType -> directiveType .)
     LINESKIP        reduce using rule 65 (maybeDirectiveType -> directiveType .)
 
 
-state 170
+state 182
 
     (74) directiveType -> DO_DIRECTIVE . directiveName
     (106) directiveName -> . REPEAT
@@ -2717,9 +2975,9 @@ state 170
     RESET           shift and go to state 51
     RETURN          shift and go to state 52
 
-    directiveName                  shift and go to state 207
+    directiveName                  shift and go to state 216
 
-state 171
+state 183
 
     (73) callType -> DO_CALL callName .
     DO_DIRECTIVE    reduce using rule 73 (callType -> DO_CALL callName .)
@@ -2727,7 +2985,7 @@ state 171
     LINESKIP        reduce using rule 73 (callType -> DO_CALL callName .)
 
 
-state 172
+state 184
 
     (102) callName -> CALL .
     DO_DIRECTIVE    reduce using rule 102 (callName -> CALL .)
@@ -2735,7 +2993,7 @@ state 172
     LINESKIP        reduce using rule 102 (callName -> CALL .)
 
 
-state 173
+state 185
 
     (103) callName -> id .
     (104) callName -> id . . CALL
@@ -2743,10 +3001,10 @@ state 173
     DO_DIRECTIVE    reduce using rule 103 (callName -> id .)
     META            reduce using rule 103 (callName -> id .)
     LINESKIP        reduce using rule 103 (callName -> id .)
-    .               shift and go to state 208
+    .               shift and go to state 217
 
 
-state 174
+state 186
 
     (71) actionType -> DO_ACTION actionLiteral actionParens .
     DO_CALL         reduce using rule 71 (actionType -> DO_ACTION actionLiteral actionParens .)
@@ -2755,23 +3013,23 @@ state 174
     LINESKIP        reduce using rule 71 (actionType -> DO_ACTION actionLiteral actionParens .)
 
 
-state 175
+state 187
 
     (94) actionParens -> ( . maybeActionParams )
     (95) maybeActionParams -> . numeric maybeMoreActionParams
     (96) maybeActionParams -> . empty
-    (132) numeric -> . HEXNUMBER
-    (133) numeric -> . NUMBER
-    (137) empty -> .
+    (141) numeric -> . HEXNUMBER
+    (142) numeric -> . NUMBER
+    (146) empty -> .
     HEXNUMBER       shift and go to state 33
     NUMBER          shift and go to state 34
-    )               reduce using rule 137 (empty -> .)
+    )               reduce using rule 146 (empty -> .)
 
-    maybeActionParams              shift and go to state 209
-    numeric                        shift and go to state 210
-    empty                          shift and go to state 211
+    maybeActionParams              shift and go to state 218
+    numeric                        shift and go to state 219
+    empty                          shift and go to state 220
 
-state 176
+state 188
 
     (72) actionType -> DO_ACTION actionName actionParens .
     DO_CALL         reduce using rule 72 (actionType -> DO_ACTION actionName actionParens .)
@@ -2780,15 +3038,15 @@ state 176
     LINESKIP        reduce using rule 72 (actionType -> DO_ACTION actionName actionParens .)
 
 
-state 177
+state 189
 
     (100) actionName -> id . . id
-    (134) id -> . ID
+    (143) id -> . ID
     ID              shift and go to state 13
 
-    id                             shift and go to state 212
+    id                             shift and go to state 221
 
-state 178
+state 190
 
     (50) conditional -> IF uncontrolledSegment nodeBody conditionalTerminator .
     DO_NOTHING      reduce using rule 50 (conditional -> IF uncontrolledSegment nodeBody conditionalTerminator .)
@@ -2822,7 +3080,7 @@ state 178
     ENDR            reduce using rule 50 (conditional -> IF uncontrolledSegment nodeBody conditionalTerminator .)
 
 
-state 179
+state 191
 
     (51) conditionalTerminator -> ENDWITH . uncontrolledSegment
     (55) uncontrolledSegment -> . directiveName maybeMetaType skip
@@ -2832,7 +3090,7 @@ state 179
     (108) directiveName -> . RETURN
     (58) maybeFunctionType -> . empty
     (59) maybeFunctionType -> . functionType
-    (137) empty -> .
+    (146) empty -> .
     (68) functionType -> . registerType
     (69) functionType -> . functionLiteral
     (70) functionType -> . functionName
@@ -2844,16 +3102,16 @@ state 179
     REPEAT          shift and go to state 50
     RESET           shift and go to state 51
     RETURN          shift and go to state 52
-    DO_ACTION       reduce using rule 137 (empty -> .)
-    DO_CALL         reduce using rule 137 (empty -> .)
-    DO_DIRECTIVE    reduce using rule 137 (empty -> .)
-    META            reduce using rule 137 (empty -> .)
-    LINESKIP        reduce using rule 137 (empty -> .)
+    DO_ACTION       reduce using rule 146 (empty -> .)
+    DO_CALL         reduce using rule 146 (empty -> .)
+    DO_DIRECTIVE    reduce using rule 146 (empty -> .)
+    META            reduce using rule 146 (empty -> .)
+    LINESKIP        reduce using rule 146 (empty -> .)
     [               shift and go to state 58
     FUNCTION        shift and go to state 59
     FUNCTION_START  shift and go to state 60
 
-    uncontrolledSegment            shift and go to state 213
+    uncontrolledSegment            shift and go to state 222
     directiveName                  shift and go to state 46
     maybeFunctionType              shift and go to state 47
     empty                          shift and go to state 78
@@ -2862,36 +3120,36 @@ state 179
     functionLiteral                shift and go to state 56
     functionName                   shift and go to state 57
 
-state 180
+state 192
 
     (52) conditionalTerminator -> ENDIF . skip
-    (135) skip -> . LINESKIP skip
-    (136) skip -> . LINESKIP
+    (144) skip -> . LINESKIP skip
+    (145) skip -> . LINESKIP
     LINESKIP        shift and go to state 4
 
-    skip                           shift and go to state 214
+    skip                           shift and go to state 223
 
-state 181
+state 193
 
     (53) conditionalTerminator -> ELSE . actionTypeStart nodeBody conditionalTerminator
     (57) actionTypeStart -> . maybeActionType maybeCallType maybeDirectiveType maybeMetaType skip
     (60) maybeActionType -> . empty
     (61) maybeActionType -> . actionType
-    (137) empty -> .
+    (146) empty -> .
     (71) actionType -> . DO_ACTION actionLiteral actionParens
     (72) actionType -> . DO_ACTION actionName actionParens
-    DO_CALL         reduce using rule 137 (empty -> .)
-    DO_DIRECTIVE    reduce using rule 137 (empty -> .)
-    META            reduce using rule 137 (empty -> .)
-    LINESKIP        reduce using rule 137 (empty -> .)
+    DO_CALL         reduce using rule 146 (empty -> .)
+    DO_DIRECTIVE    reduce using rule 146 (empty -> .)
+    META            reduce using rule 146 (empty -> .)
+    LINESKIP        reduce using rule 146 (empty -> .)
     DO_ACTION       shift and go to state 87
 
-    actionTypeStart                shift and go to state 215
+    actionTypeStart                shift and go to state 224
     maybeActionType                shift and go to state 84
     empty                          shift and go to state 85
     actionType                     shift and go to state 86
 
-state 182
+state 194
 
     (54) conditionalTerminator -> ELIF . functionType actionTypeStart nodeBody conditionalTerminator
     (68) functionType -> . registerType
@@ -2906,12 +3164,12 @@ state 182
     FUNCTION        shift and go to state 59
     FUNCTION_START  shift and go to state 60
 
-    functionType                   shift and go to state 216
+    functionType                   shift and go to state 225
     registerType                   shift and go to state 55
     functionLiteral                shift and go to state 56
     functionName                   shift and go to state 57
 
-state 183
+state 195
 
     (37) chance -> chanceHeader actionTypeStart nodeBody chanceBody . uncontrolledSegment nodeBody optionalChance
     (55) uncontrolledSegment -> . directiveName maybeMetaType skip
@@ -2921,7 +3179,7 @@ state 183
     (108) directiveName -> . RETURN
     (58) maybeFunctionType -> . empty
     (59) maybeFunctionType -> . functionType
-    (137) empty -> .
+    (146) empty -> .
     (68) functionType -> . registerType
     (69) functionType -> . functionLiteral
     (70) functionType -> . functionName
@@ -2933,16 +3191,16 @@ state 183
     REPEAT          shift and go to state 50
     RESET           shift and go to state 51
     RETURN          shift and go to state 52
-    DO_ACTION       reduce using rule 137 (empty -> .)
-    DO_CALL         reduce using rule 137 (empty -> .)
-    DO_DIRECTIVE    reduce using rule 137 (empty -> .)
-    META            reduce using rule 137 (empty -> .)
-    LINESKIP        reduce using rule 137 (empty -> .)
+    DO_ACTION       reduce using rule 146 (empty -> .)
+    DO_CALL         reduce using rule 146 (empty -> .)
+    DO_DIRECTIVE    reduce using rule 146 (empty -> .)
+    META            reduce using rule 146 (empty -> .)
+    LINESKIP        reduce using rule 146 (empty -> .)
     [               shift and go to state 58
     FUNCTION        shift and go to state 59
     FUNCTION_START  shift and go to state 60
 
-    uncontrolledSegment            shift and go to state 217
+    uncontrolledSegment            shift and go to state 226
     directiveName                  shift and go to state 46
     maybeFunctionType              shift and go to state 47
     empty                          shift and go to state 78
@@ -2951,26 +3209,26 @@ state 183
     functionLiteral                shift and go to state 56
     functionName                   shift and go to state 57
 
-state 184
+state 196
 
     (46) chanceBody -> elsechance . ( id )
     (47) chanceBody -> elsechance . ( numeric )
-    (               shift and go to state 218
+    (               shift and go to state 227
 
 
-state 185
+state 197
 
     (48) elsechance -> ELSER .
     (               reduce using rule 48 (elsechance -> ELSER .)
 
 
-state 186
+state 198
 
     (49) elsechance -> ELSERANDOM .
     (               reduce using rule 49 (elsechance -> ELSERANDOM .)
 
 
-state 187
+state 199
 
     (44) chanceHeader -> RANDOM ( id ) .
     DO_ACTION       reduce using rule 44 (chanceHeader -> RANDOM ( id ) .)
@@ -2980,7 +3238,7 @@ state 187
     LINESKIP        reduce using rule 44 (chanceHeader -> RANDOM ( id ) .)
 
 
-state 188
+state 200
 
     (45) chanceHeader -> RANDOM ( numeric ) .
     DO_ACTION       reduce using rule 45 (chanceHeader -> RANDOM ( numeric ) .)
@@ -2990,76 +3248,54 @@ state 188
     LINESKIP        reduce using rule 45 (chanceHeader -> RANDOM ( numeric ) .)
 
 
-state 189
+state 201
 
-    (113) registerContent -> regRef regComp regVal .
-    ]               reduce using rule 113 (registerContent -> regRef regComp regVal .)
-
-
-state 190
-
-    (125) regVal -> numericSymbol .
-    ]               reduce using rule 125 (regVal -> numericSymbol .)
+    (113) registerContent -> regRef regComp regRef .
+    ]               reduce using rule 113 (registerContent -> regRef regComp regRef .)
 
 
-state 191
-
-    (126) numericSymbol -> numeric .
-    ]               reduce using rule 126 (numericSymbol -> numeric .)
-    ,               reduce using rule 126 (numericSymbol -> numeric .)
-    LINESKIP        reduce using rule 126 (numericSymbol -> numeric .)
-
-
-state 192
-
-    (127) numericSymbol -> id .
-    ]               reduce using rule 127 (numericSymbol -> id .)
-    ,               reduce using rule 127 (numericSymbol -> id .)
-    LINESKIP        reduce using rule 127 (numericSymbol -> id .)
-
-
-state 193
+state 202
 
     (89) funcParens -> ( floatNumericSymbol commaPrefacedId . )
-    )               shift and go to state 219
+    )               shift and go to state 228
 
 
-state 194
+state 203
 
     (91) commaPrefacedId -> , . floatNumericSymbol commaPrefacedId
     (92) commaPrefacedId -> , . id . id commaPrefacedId
-    (128) floatNumericSymbol -> . float
-    (129) floatNumericSymbol -> . numeric
-    (130) floatNumericSymbol -> . id
-    (134) id -> . ID
-    (131) float -> . FLOAT
-    (132) numeric -> . HEXNUMBER
-    (133) numeric -> . NUMBER
+    (137) floatNumericSymbol -> . float
+    (138) floatNumericSymbol -> . numeric
+    (139) floatNumericSymbol -> . id
+    (143) id -> . ID
+    (140) float -> . FLOAT
+    (141) numeric -> . HEXNUMBER
+    (142) numeric -> . NUMBER
     ID              shift and go to state 13
-    FLOAT           shift and go to state 145
+    FLOAT           shift and go to state 157
     HEXNUMBER       shift and go to state 33
     NUMBER          shift and go to state 34
 
-    floatNumericSymbol             shift and go to state 220
-    id                             shift and go to state 221
-    float                          shift and go to state 143
-    numeric                        shift and go to state 144
+    floatNumericSymbol             shift and go to state 229
+    id                             shift and go to state 230
+    float                          shift and go to state 155
+    numeric                        shift and go to state 156
 
-state 195
+state 204
 
     (93) commaPrefacedId -> empty .
     )               reduce using rule 93 (commaPrefacedId -> empty .)
 
 
-state 196
+state 205
 
     (90) funcParens -> ( id . . id commaPrefacedId )
-    (134) id -> . ID
+    (143) id -> . ID
     ID              shift and go to state 13
 
-    id                             shift and go to state 222
+    id                             shift and go to state 231
 
-state 197
+state 206
 
     (76) functionName -> FUNCTION_START id maybeParens maybeSubFunction .
     DO_ACTION       reduce using rule 76 (functionName -> FUNCTION_START id maybeParens maybeSubFunction .)
@@ -3069,16 +3305,16 @@ state 197
     LINESKIP        reduce using rule 76 (functionName -> FUNCTION_START id maybeParens maybeSubFunction .)
 
 
-state 198
+state 207
 
     (79) maybeSubFunction -> . . id parens maybeSubFunction
     (80) maybeSubFunction -> . . id maybeParens
-    (134) id -> . ID
+    (143) id -> . ID
     ID              shift and go to state 13
 
-    id                             shift and go to state 223
+    id                             shift and go to state 232
 
-state 199
+state 208
 
     (84) parens -> ( ) .
     DO_ACTION       reduce using rule 84 (parens -> ( ) .)
@@ -3089,7 +3325,7 @@ state 199
     .               reduce using rule 84 (parens -> ( ) .)
 
 
-state 200
+state 209
 
     (19) defHeader -> DEF id nodeAlias nodeIndex skip .
     DO_NOTHING      reduce using rule 19 (defHeader -> DEF id nodeAlias nodeIndex skip .)
@@ -3113,21 +3349,21 @@ state 200
     LINESKIP        reduce using rule 19 (defHeader -> DEF id nodeAlias nodeIndex skip .)
 
 
-state 201
+state 210
 
     (23) nodeIndex -> META numeric .
     LINESKIP        reduce using rule 23 (nodeIndex -> META numeric .)
 
 
-state 202
+state 211
 
     (24) nodeIndex -> : numeric . META numeric
     (25) nodeIndex -> : numeric .
-    META            shift and go to state 224
+    META            shift and go to state 233
     LINESKIP        reduce using rule 25 (nodeIndex -> : numeric .)
 
 
-state 203
+state 212
 
     (21) nodeAlias -> & id nodeAlias .
     META            reduce using rule 21 (nodeAlias -> & id nodeAlias .)
@@ -3135,76 +3371,76 @@ state 203
     LINESKIP        reduce using rule 21 (nodeAlias -> & id nodeAlias .)
 
 
-state 204
+state 213
 
     (109) metaparams -> metaparamPair , metaparams .
     LINESKIP        reduce using rule 109 (metaparams -> metaparamPair , metaparams .)
 
 
-state 205
+state 214
 
     (111) metaparamPair -> id : numericSymbol .
     ,               reduce using rule 111 (metaparamPair -> id : numericSymbol .)
     LINESKIP        reduce using rule 111 (metaparamPair -> id : numericSymbol .)
 
 
-state 206
+state 215
 
     (57) actionTypeStart -> maybeActionType maybeCallType maybeDirectiveType maybeMetaType . skip
-    (135) skip -> . LINESKIP skip
-    (136) skip -> . LINESKIP
+    (144) skip -> . LINESKIP skip
+    (145) skip -> . LINESKIP
     LINESKIP        shift and go to state 4
 
-    skip                           shift and go to state 225
+    skip                           shift and go to state 234
 
-state 207
+state 216
 
     (74) directiveType -> DO_DIRECTIVE directiveName .
     META            reduce using rule 74 (directiveType -> DO_DIRECTIVE directiveName .)
     LINESKIP        reduce using rule 74 (directiveType -> DO_DIRECTIVE directiveName .)
 
 
-state 208
+state 217
 
     (104) callName -> id . . CALL
     (105) callName -> id . . id
-    (134) id -> . ID
-    CALL            shift and go to state 227
+    (143) id -> . ID
+    CALL            shift and go to state 236
     ID              shift and go to state 13
 
-    id                             shift and go to state 226
+    id                             shift and go to state 235
 
-state 209
+state 218
 
     (94) actionParens -> ( maybeActionParams . )
-    )               shift and go to state 228
+    )               shift and go to state 237
 
 
-state 210
+state 219
 
     (95) maybeActionParams -> numeric . maybeMoreActionParams
     (97) maybeMoreActionParams -> . , numeric maybeMoreActionParams
     (98) maybeMoreActionParams -> . empty
-    (137) empty -> .
-    ,               shift and go to state 230
-    )               reduce using rule 137 (empty -> .)
+    (146) empty -> .
+    ,               shift and go to state 239
+    )               reduce using rule 146 (empty -> .)
 
-    maybeMoreActionParams          shift and go to state 229
-    empty                          shift and go to state 231
+    maybeMoreActionParams          shift and go to state 238
+    empty                          shift and go to state 240
 
-state 211
+state 220
 
     (96) maybeActionParams -> empty .
     )               reduce using rule 96 (maybeActionParams -> empty .)
 
 
-state 212
+state 221
 
     (100) actionName -> id . id .
     (               reduce using rule 100 (actionName -> id . id .)
 
 
-state 213
+state 222
 
     (51) conditionalTerminator -> ENDWITH uncontrolledSegment .
     DO_NOTHING      reduce using rule 51 (conditionalTerminator -> ENDWITH uncontrolledSegment .)
@@ -3238,7 +3474,7 @@ state 213
     ENDR            reduce using rule 51 (conditionalTerminator -> ENDWITH uncontrolledSegment .)
 
 
-state 214
+state 223
 
     (52) conditionalTerminator -> ENDIF skip .
     DO_NOTHING      reduce using rule 52 (conditionalTerminator -> ENDIF skip .)
@@ -3272,12 +3508,12 @@ state 214
     ENDR            reduce using rule 52 (conditionalTerminator -> ENDIF skip .)
 
 
-state 215
+state 224
 
     (53) conditionalTerminator -> ELSE actionTypeStart . nodeBody conditionalTerminator
     (26) nodeBody -> . empty
     (27) nodeBody -> . segment nodeBody
-    (137) empty -> .
+    (146) empty -> .
     (31) segment -> . DO_NOTHING skip
     (32) segment -> . UNSAFE skip
     (33) segment -> . uncontrolledSegment
@@ -3303,15 +3539,15 @@ state 215
     (76) functionName -> . FUNCTION_START id maybeParens maybeSubFunction
     (77) functionName -> . FUNCTION_START id parens
     (78) functionName -> . FUNCTION_START id
-    ENDWITH         reduce using rule 137 (empty -> .)
-    ENDIF           reduce using rule 137 (empty -> .)
-    ELSE            reduce using rule 137 (empty -> .)
-    ELIF            reduce using rule 137 (empty -> .)
-    DO_ACTION       reduce using rule 137 (empty -> .)
-    DO_CALL         reduce using rule 137 (empty -> .)
-    DO_DIRECTIVE    reduce using rule 137 (empty -> .)
-    META            reduce using rule 137 (empty -> .)
-    LINESKIP        reduce using rule 137 (empty -> .)
+    ENDWITH         reduce using rule 146 (empty -> .)
+    ENDIF           reduce using rule 146 (empty -> .)
+    ELSE            reduce using rule 146 (empty -> .)
+    ELIF            reduce using rule 146 (empty -> .)
+    DO_ACTION       reduce using rule 146 (empty -> .)
+    DO_CALL         reduce using rule 146 (empty -> .)
+    DO_DIRECTIVE    reduce using rule 146 (empty -> .)
+    META            reduce using rule 146 (empty -> .)
+    LINESKIP        reduce using rule 146 (empty -> .)
     DO_NOTHING      shift and go to state 40
     UNSAFE          shift and go to state 41
     CONCLUDE        shift and go to state 43
@@ -3324,7 +3560,7 @@ state 215
     FUNCTION        shift and go to state 59
     FUNCTION_START  shift and go to state 60
 
-    nodeBody                       shift and go to state 232
+    nodeBody                       shift and go to state 241
     empty                          shift and go to state 38
     segment                        shift and go to state 39
     uncontrolledSegment            shift and go to state 42
@@ -3338,32 +3574,32 @@ state 215
     functionLiteral                shift and go to state 56
     functionName                   shift and go to state 57
 
-state 216
+state 225
 
     (54) conditionalTerminator -> ELIF functionType . actionTypeStart nodeBody conditionalTerminator
     (57) actionTypeStart -> . maybeActionType maybeCallType maybeDirectiveType maybeMetaType skip
     (60) maybeActionType -> . empty
     (61) maybeActionType -> . actionType
-    (137) empty -> .
+    (146) empty -> .
     (71) actionType -> . DO_ACTION actionLiteral actionParens
     (72) actionType -> . DO_ACTION actionName actionParens
-    DO_CALL         reduce using rule 137 (empty -> .)
-    DO_DIRECTIVE    reduce using rule 137 (empty -> .)
-    META            reduce using rule 137 (empty -> .)
-    LINESKIP        reduce using rule 137 (empty -> .)
+    DO_CALL         reduce using rule 146 (empty -> .)
+    DO_DIRECTIVE    reduce using rule 146 (empty -> .)
+    META            reduce using rule 146 (empty -> .)
+    LINESKIP        reduce using rule 146 (empty -> .)
     DO_ACTION       shift and go to state 87
 
-    actionTypeStart                shift and go to state 233
+    actionTypeStart                shift and go to state 242
     maybeActionType                shift and go to state 84
     empty                          shift and go to state 85
     actionType                     shift and go to state 86
 
-state 217
+state 226
 
     (37) chance -> chanceHeader actionTypeStart nodeBody chanceBody uncontrolledSegment . nodeBody optionalChance
     (26) nodeBody -> . empty
     (27) nodeBody -> . segment nodeBody
-    (137) empty -> .
+    (146) empty -> .
     (31) segment -> . DO_NOTHING skip
     (32) segment -> . UNSAFE skip
     (33) segment -> . uncontrolledSegment
@@ -3389,17 +3625,17 @@ state 217
     (76) functionName -> . FUNCTION_START id maybeParens maybeSubFunction
     (77) functionName -> . FUNCTION_START id parens
     (78) functionName -> . FUNCTION_START id
-    ENDRANDOMWITH   reduce using rule 137 (empty -> .)
-    ENDRWITH        reduce using rule 137 (empty -> .)
-    ENDRANDOM       reduce using rule 137 (empty -> .)
-    ENDR            reduce using rule 137 (empty -> .)
-    ELSER           reduce using rule 137 (empty -> .)
-    ELSERANDOM      reduce using rule 137 (empty -> .)
-    DO_ACTION       reduce using rule 137 (empty -> .)
-    DO_CALL         reduce using rule 137 (empty -> .)
-    DO_DIRECTIVE    reduce using rule 137 (empty -> .)
-    META            reduce using rule 137 (empty -> .)
-    LINESKIP        reduce using rule 137 (empty -> .)
+    ENDRANDOMWITH   reduce using rule 146 (empty -> .)
+    ENDRWITH        reduce using rule 146 (empty -> .)
+    ENDRANDOM       reduce using rule 146 (empty -> .)
+    ENDR            reduce using rule 146 (empty -> .)
+    ELSER           reduce using rule 146 (empty -> .)
+    ELSERANDOM      reduce using rule 146 (empty -> .)
+    DO_ACTION       reduce using rule 146 (empty -> .)
+    DO_CALL         reduce using rule 146 (empty -> .)
+    DO_DIRECTIVE    reduce using rule 146 (empty -> .)
+    META            reduce using rule 146 (empty -> .)
+    LINESKIP        reduce using rule 146 (empty -> .)
     DO_NOTHING      shift and go to state 40
     UNSAFE          shift and go to state 41
     CONCLUDE        shift and go to state 43
@@ -3413,7 +3649,7 @@ state 217
     FUNCTION_START  shift and go to state 60
 
     chanceHeader                   shift and go to state 49
-    nodeBody                       shift and go to state 234
+    nodeBody                       shift and go to state 243
     uncontrolledSegment            shift and go to state 42
     empty                          shift and go to state 38
     segment                        shift and go to state 39
@@ -3426,21 +3662,21 @@ state 217
     functionLiteral                shift and go to state 56
     functionName                   shift and go to state 57
 
-state 218
+state 227
 
     (46) chanceBody -> elsechance ( . id )
     (47) chanceBody -> elsechance ( . numeric )
-    (134) id -> . ID
-    (132) numeric -> . HEXNUMBER
-    (133) numeric -> . NUMBER
+    (143) id -> . ID
+    (141) numeric -> . HEXNUMBER
+    (142) numeric -> . NUMBER
     ID              shift and go to state 13
     HEXNUMBER       shift and go to state 33
     NUMBER          shift and go to state 34
 
-    id                             shift and go to state 235
-    numeric                        shift and go to state 236
+    id                             shift and go to state 244
+    numeric                        shift and go to state 245
 
-state 219
+state 228
 
     (89) funcParens -> ( floatNumericSymbol commaPrefacedId ) .
     DO_ACTION       reduce using rule 89 (funcParens -> ( floatNumericSymbol commaPrefacedId ) .)
@@ -3451,42 +3687,42 @@ state 219
     .               reduce using rule 89 (funcParens -> ( floatNumericSymbol commaPrefacedId ) .)
 
 
-state 220
+state 229
 
     (91) commaPrefacedId -> , floatNumericSymbol . commaPrefacedId
     (91) commaPrefacedId -> . , floatNumericSymbol commaPrefacedId
     (92) commaPrefacedId -> . , id . id commaPrefacedId
     (93) commaPrefacedId -> . empty
-    (137) empty -> .
-    ,               shift and go to state 194
-    )               reduce using rule 137 (empty -> .)
+    (146) empty -> .
+    ,               shift and go to state 203
+    )               reduce using rule 146 (empty -> .)
 
-    commaPrefacedId                shift and go to state 237
-    empty                          shift and go to state 195
+    commaPrefacedId                shift and go to state 246
+    empty                          shift and go to state 204
 
-state 221
+state 230
 
     (92) commaPrefacedId -> , id . . id commaPrefacedId
-    (130) floatNumericSymbol -> id .
-    .               shift and go to state 238
-    ,               reduce using rule 130 (floatNumericSymbol -> id .)
-    )               reduce using rule 130 (floatNumericSymbol -> id .)
+    (139) floatNumericSymbol -> id .
+    .               shift and go to state 247
+    ,               reduce using rule 139 (floatNumericSymbol -> id .)
+    )               reduce using rule 139 (floatNumericSymbol -> id .)
 
 
-state 222
+state 231
 
     (90) funcParens -> ( id . id . commaPrefacedId )
     (91) commaPrefacedId -> . , floatNumericSymbol commaPrefacedId
     (92) commaPrefacedId -> . , id . id commaPrefacedId
     (93) commaPrefacedId -> . empty
-    (137) empty -> .
-    ,               shift and go to state 194
-    )               reduce using rule 137 (empty -> .)
+    (146) empty -> .
+    ,               shift and go to state 203
+    )               reduce using rule 146 (empty -> .)
 
-    commaPrefacedId                shift and go to state 239
-    empty                          shift and go to state 195
+    commaPrefacedId                shift and go to state 248
+    empty                          shift and go to state 204
 
-state 223
+state 232
 
     (79) maybeSubFunction -> . id . parens maybeSubFunction
     (80) maybeSubFunction -> . id . maybeParens
@@ -3496,30 +3732,30 @@ state 223
     (82) maybeParens -> . parens
     (89) funcParens -> . ( floatNumericSymbol commaPrefacedId )
     (90) funcParens -> . ( id . id commaPrefacedId )
-    (137) empty -> .
-    (               shift and go to state 150
-    DO_ACTION       reduce using rule 137 (empty -> .)
-    DO_CALL         reduce using rule 137 (empty -> .)
-    DO_DIRECTIVE    reduce using rule 137 (empty -> .)
-    META            reduce using rule 137 (empty -> .)
-    LINESKIP        reduce using rule 137 (empty -> .)
+    (146) empty -> .
+    (               shift and go to state 162
+    DO_ACTION       reduce using rule 146 (empty -> .)
+    DO_CALL         reduce using rule 146 (empty -> .)
+    DO_DIRECTIVE    reduce using rule 146 (empty -> .)
+    META            reduce using rule 146 (empty -> .)
+    LINESKIP        reduce using rule 146 (empty -> .)
 
-    parens                         shift and go to state 240
-    maybeParens                    shift and go to state 241
-    funcParens                     shift and go to state 149
-    empty                          shift and go to state 148
+    parens                         shift and go to state 249
+    maybeParens                    shift and go to state 250
+    funcParens                     shift and go to state 161
+    empty                          shift and go to state 160
 
-state 224
+state 233
 
     (24) nodeIndex -> : numeric META . numeric
-    (132) numeric -> . HEXNUMBER
-    (133) numeric -> . NUMBER
+    (141) numeric -> . HEXNUMBER
+    (142) numeric -> . NUMBER
     HEXNUMBER       shift and go to state 33
     NUMBER          shift and go to state 34
 
-    numeric                        shift and go to state 242
+    numeric                        shift and go to state 251
 
-state 225
+state 234
 
     (57) actionTypeStart -> maybeActionType maybeCallType maybeDirectiveType maybeMetaType skip .
     DO_NOTHING      reduce using rule 57 (actionTypeStart -> maybeActionType maybeCallType maybeDirectiveType maybeMetaType skip .)
@@ -3553,7 +3789,7 @@ state 225
     ENDR            reduce using rule 57 (actionTypeStart -> maybeActionType maybeCallType maybeDirectiveType maybeMetaType skip .)
 
 
-state 226
+state 235
 
     (105) callName -> id . id .
     DO_DIRECTIVE    reduce using rule 105 (callName -> id . id .)
@@ -3561,7 +3797,7 @@ state 226
     LINESKIP        reduce using rule 105 (callName -> id . id .)
 
 
-state 227
+state 236
 
     (104) callName -> id . CALL .
     DO_DIRECTIVE    reduce using rule 104 (callName -> id . CALL .)
@@ -3569,7 +3805,7 @@ state 227
     LINESKIP        reduce using rule 104 (callName -> id . CALL .)
 
 
-state 228
+state 237
 
     (94) actionParens -> ( maybeActionParams ) .
     DO_CALL         reduce using rule 94 (actionParens -> ( maybeActionParams ) .)
@@ -3578,48 +3814,48 @@ state 228
     LINESKIP        reduce using rule 94 (actionParens -> ( maybeActionParams ) .)
 
 
-state 229
+state 238
 
     (95) maybeActionParams -> numeric maybeMoreActionParams .
     )               reduce using rule 95 (maybeActionParams -> numeric maybeMoreActionParams .)
 
 
-state 230
+state 239
 
     (97) maybeMoreActionParams -> , . numeric maybeMoreActionParams
-    (132) numeric -> . HEXNUMBER
-    (133) numeric -> . NUMBER
+    (141) numeric -> . HEXNUMBER
+    (142) numeric -> . NUMBER
     HEXNUMBER       shift and go to state 33
     NUMBER          shift and go to state 34
 
-    numeric                        shift and go to state 243
+    numeric                        shift and go to state 252
 
-state 231
+state 240
 
     (98) maybeMoreActionParams -> empty .
     )               reduce using rule 98 (maybeMoreActionParams -> empty .)
 
 
-state 232
+state 241
 
     (53) conditionalTerminator -> ELSE actionTypeStart nodeBody . conditionalTerminator
     (51) conditionalTerminator -> . ENDWITH uncontrolledSegment
     (52) conditionalTerminator -> . ENDIF skip
     (53) conditionalTerminator -> . ELSE actionTypeStart nodeBody conditionalTerminator
     (54) conditionalTerminator -> . ELIF functionType actionTypeStart nodeBody conditionalTerminator
-    ENDWITH         shift and go to state 179
-    ENDIF           shift and go to state 180
-    ELSE            shift and go to state 181
-    ELIF            shift and go to state 182
+    ENDWITH         shift and go to state 191
+    ENDIF           shift and go to state 192
+    ELSE            shift and go to state 193
+    ELIF            shift and go to state 194
 
-    conditionalTerminator          shift and go to state 244
+    conditionalTerminator          shift and go to state 253
 
-state 233
+state 242
 
     (54) conditionalTerminator -> ELIF functionType actionTypeStart . nodeBody conditionalTerminator
     (26) nodeBody -> . empty
     (27) nodeBody -> . segment nodeBody
-    (137) empty -> .
+    (146) empty -> .
     (31) segment -> . DO_NOTHING skip
     (32) segment -> . UNSAFE skip
     (33) segment -> . uncontrolledSegment
@@ -3645,15 +3881,15 @@ state 233
     (76) functionName -> . FUNCTION_START id maybeParens maybeSubFunction
     (77) functionName -> . FUNCTION_START id parens
     (78) functionName -> . FUNCTION_START id
-    ENDWITH         reduce using rule 137 (empty -> .)
-    ENDIF           reduce using rule 137 (empty -> .)
-    ELSE            reduce using rule 137 (empty -> .)
-    ELIF            reduce using rule 137 (empty -> .)
-    DO_ACTION       reduce using rule 137 (empty -> .)
-    DO_CALL         reduce using rule 137 (empty -> .)
-    DO_DIRECTIVE    reduce using rule 137 (empty -> .)
-    META            reduce using rule 137 (empty -> .)
-    LINESKIP        reduce using rule 137 (empty -> .)
+    ENDWITH         reduce using rule 146 (empty -> .)
+    ENDIF           reduce using rule 146 (empty -> .)
+    ELSE            reduce using rule 146 (empty -> .)
+    ELIF            reduce using rule 146 (empty -> .)
+    DO_ACTION       reduce using rule 146 (empty -> .)
+    DO_CALL         reduce using rule 146 (empty -> .)
+    DO_DIRECTIVE    reduce using rule 146 (empty -> .)
+    META            reduce using rule 146 (empty -> .)
+    LINESKIP        reduce using rule 146 (empty -> .)
     DO_NOTHING      shift and go to state 40
     UNSAFE          shift and go to state 41
     CONCLUDE        shift and go to state 43
@@ -3667,7 +3903,7 @@ state 233
     FUNCTION_START  shift and go to state 60
 
     functionType                   shift and go to state 53
-    nodeBody                       shift and go to state 245
+    nodeBody                       shift and go to state 254
     empty                          shift and go to state 38
     segment                        shift and go to state 39
     uncontrolledSegment            shift and go to state 42
@@ -3680,7 +3916,7 @@ state 233
     functionLiteral                shift and go to state 56
     functionName                   shift and go to state 57
 
-state 234
+state 243
 
     (37) chance -> chanceHeader actionTypeStart nodeBody chanceBody uncontrolledSegment nodeBody . optionalChance
     (38) optionalChance -> . optionalTerminator
@@ -3693,51 +3929,51 @@ state 234
     (47) chanceBody -> . elsechance ( numeric )
     (48) elsechance -> . ELSER
     (49) elsechance -> . ELSERANDOM
-    ENDRANDOMWITH   shift and go to state 249
-    ENDRWITH        shift and go to state 250
-    ENDRANDOM       shift and go to state 251
-    ENDR            shift and go to state 252
-    ELSER           shift and go to state 185
-    ELSERANDOM      shift and go to state 186
+    ENDRANDOMWITH   shift and go to state 258
+    ENDRWITH        shift and go to state 259
+    ENDRANDOM       shift and go to state 260
+    ENDR            shift and go to state 261
+    ELSER           shift and go to state 197
+    ELSERANDOM      shift and go to state 198
 
-    chanceBody                     shift and go to state 246
-    optionalChance                 shift and go to state 247
-    optionalTerminator             shift and go to state 248
-    elsechance                     shift and go to state 184
+    chanceBody                     shift and go to state 255
+    optionalChance                 shift and go to state 256
+    optionalTerminator             shift and go to state 257
+    elsechance                     shift and go to state 196
 
-state 235
+state 244
 
     (46) chanceBody -> elsechance ( id . )
-    )               shift and go to state 253
+    )               shift and go to state 262
 
 
-state 236
+state 245
 
     (47) chanceBody -> elsechance ( numeric . )
-    )               shift and go to state 254
+    )               shift and go to state 263
 
 
-state 237
+state 246
 
     (91) commaPrefacedId -> , floatNumericSymbol commaPrefacedId .
     )               reduce using rule 91 (commaPrefacedId -> , floatNumericSymbol commaPrefacedId .)
 
 
-state 238
+state 247
 
     (92) commaPrefacedId -> , id . . id commaPrefacedId
-    (134) id -> . ID
+    (143) id -> . ID
     ID              shift and go to state 13
 
-    id                             shift and go to state 255
+    id                             shift and go to state 264
 
-state 239
+state 248
 
     (90) funcParens -> ( id . id commaPrefacedId . )
-    )               shift and go to state 256
+    )               shift and go to state 265
 
 
-state 240
+state 249
 
     (79) maybeSubFunction -> . id parens . maybeSubFunction
     (82) maybeParens -> parens .
@@ -3748,11 +3984,11 @@ state 240
     DO_DIRECTIVE    reduce using rule 82 (maybeParens -> parens .)
     META            reduce using rule 82 (maybeParens -> parens .)
     LINESKIP        reduce using rule 82 (maybeParens -> parens .)
-    .               shift and go to state 198
+    .               shift and go to state 207
 
-    maybeSubFunction               shift and go to state 257
+    maybeSubFunction               shift and go to state 266
 
-state 241
+state 250
 
     (80) maybeSubFunction -> . id maybeParens .
     DO_ACTION       reduce using rule 80 (maybeSubFunction -> . id maybeParens .)
@@ -3762,25 +3998,25 @@ state 241
     LINESKIP        reduce using rule 80 (maybeSubFunction -> . id maybeParens .)
 
 
-state 242
+state 251
 
     (24) nodeIndex -> : numeric META numeric .
     LINESKIP        reduce using rule 24 (nodeIndex -> : numeric META numeric .)
 
 
-state 243
+state 252
 
     (97) maybeMoreActionParams -> , numeric . maybeMoreActionParams
     (97) maybeMoreActionParams -> . , numeric maybeMoreActionParams
     (98) maybeMoreActionParams -> . empty
-    (137) empty -> .
-    ,               shift and go to state 230
-    )               reduce using rule 137 (empty -> .)
+    (146) empty -> .
+    ,               shift and go to state 239
+    )               reduce using rule 146 (empty -> .)
 
-    maybeMoreActionParams          shift and go to state 258
-    empty                          shift and go to state 231
+    maybeMoreActionParams          shift and go to state 267
+    empty                          shift and go to state 240
 
-state 244
+state 253
 
     (53) conditionalTerminator -> ELSE actionTypeStart nodeBody conditionalTerminator .
     DO_NOTHING      reduce using rule 53 (conditionalTerminator -> ELSE actionTypeStart nodeBody conditionalTerminator .)
@@ -3814,41 +4050,41 @@ state 244
     ENDR            reduce using rule 53 (conditionalTerminator -> ELSE actionTypeStart nodeBody conditionalTerminator .)
 
 
-state 245
+state 254
 
     (54) conditionalTerminator -> ELIF functionType actionTypeStart nodeBody . conditionalTerminator
     (51) conditionalTerminator -> . ENDWITH uncontrolledSegment
     (52) conditionalTerminator -> . ENDIF skip
     (53) conditionalTerminator -> . ELSE actionTypeStart nodeBody conditionalTerminator
     (54) conditionalTerminator -> . ELIF functionType actionTypeStart nodeBody conditionalTerminator
-    ENDWITH         shift and go to state 179
-    ENDIF           shift and go to state 180
-    ELSE            shift and go to state 181
-    ELIF            shift and go to state 182
+    ENDWITH         shift and go to state 191
+    ENDIF           shift and go to state 192
+    ELSE            shift and go to state 193
+    ELIF            shift and go to state 194
 
-    conditionalTerminator          shift and go to state 259
+    conditionalTerminator          shift and go to state 268
 
-state 246
+state 255
 
     (39) optionalChance -> chanceBody . actionTypeStart nodeBody optionalChance
     (57) actionTypeStart -> . maybeActionType maybeCallType maybeDirectiveType maybeMetaType skip
     (60) maybeActionType -> . empty
     (61) maybeActionType -> . actionType
-    (137) empty -> .
+    (146) empty -> .
     (71) actionType -> . DO_ACTION actionLiteral actionParens
     (72) actionType -> . DO_ACTION actionName actionParens
-    DO_CALL         reduce using rule 137 (empty -> .)
-    DO_DIRECTIVE    reduce using rule 137 (empty -> .)
-    META            reduce using rule 137 (empty -> .)
-    LINESKIP        reduce using rule 137 (empty -> .)
+    DO_CALL         reduce using rule 146 (empty -> .)
+    DO_DIRECTIVE    reduce using rule 146 (empty -> .)
+    META            reduce using rule 146 (empty -> .)
+    LINESKIP        reduce using rule 146 (empty -> .)
     DO_ACTION       shift and go to state 87
 
-    actionTypeStart                shift and go to state 260
+    actionTypeStart                shift and go to state 269
     maybeActionType                shift and go to state 84
     empty                          shift and go to state 85
     actionType                     shift and go to state 86
 
-state 247
+state 256
 
     (37) chance -> chanceHeader actionTypeStart nodeBody chanceBody uncontrolledSegment nodeBody optionalChance .
     DO_NOTHING      reduce using rule 37 (chance -> chanceHeader actionTypeStart nodeBody chanceBody uncontrolledSegment nodeBody optionalChance .)
@@ -3882,7 +4118,7 @@ state 247
     ENDR            reduce using rule 37 (chance -> chanceHeader actionTypeStart nodeBody chanceBody uncontrolledSegment nodeBody optionalChance .)
 
 
-state 248
+state 257
 
     (38) optionalChance -> optionalTerminator .
     DO_NOTHING      reduce using rule 38 (optionalChance -> optionalTerminator .)
@@ -3916,7 +4152,7 @@ state 248
     ENDR            reduce using rule 38 (optionalChance -> optionalTerminator .)
 
 
-state 249
+state 258
 
     (40) optionalTerminator -> ENDRANDOMWITH . uncontrolledSegment
     (55) uncontrolledSegment -> . directiveName maybeMetaType skip
@@ -3926,7 +4162,7 @@ state 249
     (108) directiveName -> . RETURN
     (58) maybeFunctionType -> . empty
     (59) maybeFunctionType -> . functionType
-    (137) empty -> .
+    (146) empty -> .
     (68) functionType -> . registerType
     (69) functionType -> . functionLiteral
     (70) functionType -> . functionName
@@ -3938,16 +4174,16 @@ state 249
     REPEAT          shift and go to state 50
     RESET           shift and go to state 51
     RETURN          shift and go to state 52
-    DO_ACTION       reduce using rule 137 (empty -> .)
-    DO_CALL         reduce using rule 137 (empty -> .)
-    DO_DIRECTIVE    reduce using rule 137 (empty -> .)
-    META            reduce using rule 137 (empty -> .)
-    LINESKIP        reduce using rule 137 (empty -> .)
+    DO_ACTION       reduce using rule 146 (empty -> .)
+    DO_CALL         reduce using rule 146 (empty -> .)
+    DO_DIRECTIVE    reduce using rule 146 (empty -> .)
+    META            reduce using rule 146 (empty -> .)
+    LINESKIP        reduce using rule 146 (empty -> .)
     [               shift and go to state 58
     FUNCTION        shift and go to state 59
     FUNCTION_START  shift and go to state 60
 
-    uncontrolledSegment            shift and go to state 261
+    uncontrolledSegment            shift and go to state 270
     directiveName                  shift and go to state 46
     maybeFunctionType              shift and go to state 47
     empty                          shift and go to state 78
@@ -3956,7 +4192,7 @@ state 249
     functionLiteral                shift and go to state 56
     functionName                   shift and go to state 57
 
-state 250
+state 259
 
     (41) optionalTerminator -> ENDRWITH . uncontrolledSegment
     (55) uncontrolledSegment -> . directiveName maybeMetaType skip
@@ -3966,7 +4202,7 @@ state 250
     (108) directiveName -> . RETURN
     (58) maybeFunctionType -> . empty
     (59) maybeFunctionType -> . functionType
-    (137) empty -> .
+    (146) empty -> .
     (68) functionType -> . registerType
     (69) functionType -> . functionLiteral
     (70) functionType -> . functionName
@@ -3978,16 +4214,16 @@ state 250
     REPEAT          shift and go to state 50
     RESET           shift and go to state 51
     RETURN          shift and go to state 52
-    DO_ACTION       reduce using rule 137 (empty -> .)
-    DO_CALL         reduce using rule 137 (empty -> .)
-    DO_DIRECTIVE    reduce using rule 137 (empty -> .)
-    META            reduce using rule 137 (empty -> .)
-    LINESKIP        reduce using rule 137 (empty -> .)
+    DO_ACTION       reduce using rule 146 (empty -> .)
+    DO_CALL         reduce using rule 146 (empty -> .)
+    DO_DIRECTIVE    reduce using rule 146 (empty -> .)
+    META            reduce using rule 146 (empty -> .)
+    LINESKIP        reduce using rule 146 (empty -> .)
     [               shift and go to state 58
     FUNCTION        shift and go to state 59
     FUNCTION_START  shift and go to state 60
 
-    uncontrolledSegment            shift and go to state 262
+    uncontrolledSegment            shift and go to state 271
     directiveName                  shift and go to state 46
     maybeFunctionType              shift and go to state 47
     empty                          shift and go to state 78
@@ -3996,25 +4232,25 @@ state 250
     functionLiteral                shift and go to state 56
     functionName                   shift and go to state 57
 
-state 251
+state 260
 
     (42) optionalTerminator -> ENDRANDOM . skip
-    (135) skip -> . LINESKIP skip
-    (136) skip -> . LINESKIP
+    (144) skip -> . LINESKIP skip
+    (145) skip -> . LINESKIP
     LINESKIP        shift and go to state 4
 
-    skip                           shift and go to state 263
+    skip                           shift and go to state 272
 
-state 252
+state 261
 
     (43) optionalTerminator -> ENDR . skip
-    (135) skip -> . LINESKIP skip
-    (136) skip -> . LINESKIP
+    (144) skip -> . LINESKIP skip
+    (145) skip -> . LINESKIP
     LINESKIP        shift and go to state 4
 
-    skip                           shift and go to state 264
+    skip                           shift and go to state 273
 
-state 253
+state 262
 
     (46) chanceBody -> elsechance ( id ) .
     REPEAT          reduce using rule 46 (chanceBody -> elsechance ( id ) .)
@@ -4030,7 +4266,7 @@ state 253
     LINESKIP        reduce using rule 46 (chanceBody -> elsechance ( id ) .)
 
 
-state 254
+state 263
 
     (47) chanceBody -> elsechance ( numeric ) .
     REPEAT          reduce using rule 47 (chanceBody -> elsechance ( numeric ) .)
@@ -4046,20 +4282,20 @@ state 254
     LINESKIP        reduce using rule 47 (chanceBody -> elsechance ( numeric ) .)
 
 
-state 255
+state 264
 
     (92) commaPrefacedId -> , id . id . commaPrefacedId
     (91) commaPrefacedId -> . , floatNumericSymbol commaPrefacedId
     (92) commaPrefacedId -> . , id . id commaPrefacedId
     (93) commaPrefacedId -> . empty
-    (137) empty -> .
-    ,               shift and go to state 194
-    )               reduce using rule 137 (empty -> .)
+    (146) empty -> .
+    ,               shift and go to state 203
+    )               reduce using rule 146 (empty -> .)
 
-    commaPrefacedId                shift and go to state 265
-    empty                          shift and go to state 195
+    commaPrefacedId                shift and go to state 274
+    empty                          shift and go to state 204
 
-state 256
+state 265
 
     (90) funcParens -> ( id . id commaPrefacedId ) .
     DO_ACTION       reduce using rule 90 (funcParens -> ( id . id commaPrefacedId ) .)
@@ -4070,7 +4306,7 @@ state 256
     .               reduce using rule 90 (funcParens -> ( id . id commaPrefacedId ) .)
 
 
-state 257
+state 266
 
     (79) maybeSubFunction -> . id parens maybeSubFunction .
     DO_ACTION       reduce using rule 79 (maybeSubFunction -> . id parens maybeSubFunction .)
@@ -4080,13 +4316,13 @@ state 257
     LINESKIP        reduce using rule 79 (maybeSubFunction -> . id parens maybeSubFunction .)
 
 
-state 258
+state 267
 
     (97) maybeMoreActionParams -> , numeric maybeMoreActionParams .
     )               reduce using rule 97 (maybeMoreActionParams -> , numeric maybeMoreActionParams .)
 
 
-state 259
+state 268
 
     (54) conditionalTerminator -> ELIF functionType actionTypeStart nodeBody conditionalTerminator .
     DO_NOTHING      reduce using rule 54 (conditionalTerminator -> ELIF functionType actionTypeStart nodeBody conditionalTerminator .)
@@ -4120,12 +4356,12 @@ state 259
     ENDR            reduce using rule 54 (conditionalTerminator -> ELIF functionType actionTypeStart nodeBody conditionalTerminator .)
 
 
-state 260
+state 269
 
     (39) optionalChance -> chanceBody actionTypeStart . nodeBody optionalChance
     (26) nodeBody -> . empty
     (27) nodeBody -> . segment nodeBody
-    (137) empty -> .
+    (146) empty -> .
     (31) segment -> . DO_NOTHING skip
     (32) segment -> . UNSAFE skip
     (33) segment -> . uncontrolledSegment
@@ -4151,17 +4387,17 @@ state 260
     (76) functionName -> . FUNCTION_START id maybeParens maybeSubFunction
     (77) functionName -> . FUNCTION_START id parens
     (78) functionName -> . FUNCTION_START id
-    ENDRANDOMWITH   reduce using rule 137 (empty -> .)
-    ENDRWITH        reduce using rule 137 (empty -> .)
-    ENDRANDOM       reduce using rule 137 (empty -> .)
-    ENDR            reduce using rule 137 (empty -> .)
-    ELSER           reduce using rule 137 (empty -> .)
-    ELSERANDOM      reduce using rule 137 (empty -> .)
-    DO_ACTION       reduce using rule 137 (empty -> .)
-    DO_CALL         reduce using rule 137 (empty -> .)
-    DO_DIRECTIVE    reduce using rule 137 (empty -> .)
-    META            reduce using rule 137 (empty -> .)
-    LINESKIP        reduce using rule 137 (empty -> .)
+    ENDRANDOMWITH   reduce using rule 146 (empty -> .)
+    ENDRWITH        reduce using rule 146 (empty -> .)
+    ENDRANDOM       reduce using rule 146 (empty -> .)
+    ENDR            reduce using rule 146 (empty -> .)
+    ELSER           reduce using rule 146 (empty -> .)
+    ELSERANDOM      reduce using rule 146 (empty -> .)
+    DO_ACTION       reduce using rule 146 (empty -> .)
+    DO_CALL         reduce using rule 146 (empty -> .)
+    DO_DIRECTIVE    reduce using rule 146 (empty -> .)
+    META            reduce using rule 146 (empty -> .)
+    LINESKIP        reduce using rule 146 (empty -> .)
     DO_NOTHING      shift and go to state 40
     UNSAFE          shift and go to state 41
     CONCLUDE        shift and go to state 43
@@ -4174,7 +4410,7 @@ state 260
     FUNCTION        shift and go to state 59
     FUNCTION_START  shift and go to state 60
 
-    nodeBody                       shift and go to state 266
+    nodeBody                       shift and go to state 275
     empty                          shift and go to state 38
     segment                        shift and go to state 39
     uncontrolledSegment            shift and go to state 42
@@ -4188,7 +4424,7 @@ state 260
     functionLiteral                shift and go to state 56
     functionName                   shift and go to state 57
 
-state 261
+state 270
 
     (40) optionalTerminator -> ENDRANDOMWITH uncontrolledSegment .
     DO_NOTHING      reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment .)
@@ -4222,7 +4458,7 @@ state 261
     ENDR            reduce using rule 40 (optionalTerminator -> ENDRANDOMWITH uncontrolledSegment .)
 
 
-state 262
+state 271
 
     (41) optionalTerminator -> ENDRWITH uncontrolledSegment .
     DO_NOTHING      reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment .)
@@ -4256,7 +4492,7 @@ state 262
     ENDR            reduce using rule 41 (optionalTerminator -> ENDRWITH uncontrolledSegment .)
 
 
-state 263
+state 272
 
     (42) optionalTerminator -> ENDRANDOM skip .
     DO_NOTHING      reduce using rule 42 (optionalTerminator -> ENDRANDOM skip .)
@@ -4290,7 +4526,7 @@ state 263
     ENDR            reduce using rule 42 (optionalTerminator -> ENDRANDOM skip .)
 
 
-state 264
+state 273
 
     (43) optionalTerminator -> ENDR skip .
     DO_NOTHING      reduce using rule 43 (optionalTerminator -> ENDR skip .)
@@ -4324,13 +4560,13 @@ state 264
     ENDR            reduce using rule 43 (optionalTerminator -> ENDR skip .)
 
 
-state 265
+state 274
 
     (92) commaPrefacedId -> , id . id commaPrefacedId .
     )               reduce using rule 92 (commaPrefacedId -> , id . id commaPrefacedId .)
 
 
-state 266
+state 275
 
     (39) optionalChance -> chanceBody actionTypeStart nodeBody . optionalChance
     (38) optionalChance -> . optionalTerminator
@@ -4343,19 +4579,19 @@ state 266
     (47) chanceBody -> . elsechance ( numeric )
     (48) elsechance -> . ELSER
     (49) elsechance -> . ELSERANDOM
-    ENDRANDOMWITH   shift and go to state 249
-    ENDRWITH        shift and go to state 250
-    ENDRANDOM       shift and go to state 251
-    ENDR            shift and go to state 252
-    ELSER           shift and go to state 185
-    ELSERANDOM      shift and go to state 186
+    ENDRANDOMWITH   shift and go to state 258
+    ENDRWITH        shift and go to state 259
+    ENDRANDOM       shift and go to state 260
+    ENDR            shift and go to state 261
+    ELSER           shift and go to state 197
+    ELSERANDOM      shift and go to state 198
 
-    chanceBody                     shift and go to state 246
-    optionalChance                 shift and go to state 267
-    optionalTerminator             shift and go to state 248
-    elsechance                     shift and go to state 184
+    chanceBody                     shift and go to state 255
+    optionalChance                 shift and go to state 276
+    optionalTerminator             shift and go to state 257
+    elsechance                     shift and go to state 196
 
-state 267
+state 276
 
     (39) optionalChance -> chanceBody actionTypeStart nodeBody optionalChance .
     DO_NOTHING      reduce using rule 39 (optionalChance -> chanceBody actionTypeStart nodeBody optionalChance .)

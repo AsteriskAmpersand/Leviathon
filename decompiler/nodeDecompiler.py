@@ -56,7 +56,7 @@ class NodeDecompiler(Decompiler):
         placeholder = "*& " if self.settings.genPlaceholder else ""
         return '\t'*indentationDepth+placeholder +\
             "// -Illegal Context was commented out '" +\
-            segmentString.replace("\n", "") + "'\n"
+            segmentString.replace("\n", "").strip() + "'\n"
 
     def decompile(self, *args, position=False, **kwargs):
         missingLocalReferences = []

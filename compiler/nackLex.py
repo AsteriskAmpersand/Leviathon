@@ -38,7 +38,7 @@ def atomicCapture(regexp):
 def tokenEscape(token):
     return token  # regex.escape(token)
 
-    
+
 class NackLexer(Lexer):
 
     literals = {'(', ')', '{', '}', '[', ']', ":", ".", ",", "&"}
@@ -61,8 +61,8 @@ class NackLexer(Lexer):
               ASSIGN, DORRAH}
 
     @_('//.*')
-    def COMMENTS(self,t): return
-    
+    def COMMENTS(self, t): return
+
     FUNCTION_START = "self."
     LINECONTINUE = r'\\.*\n'
     DO_ACTION = key.DO_ACTION
@@ -70,10 +70,10 @@ class NackLexer(Lexer):
     DO_DIRECTIVE = key.DO_DIRECTIVE
     DO_NOTHING = key.DO_NOTHING
     META = key.META
-    
-    #explicit register
+
+    # explicit register
     @atomicCapture(r"\$([A-V])")
-    def REG(self,t): 
+    def REG(self, t):
         t.value = ord(t.value) - ord('A')
         return t
 
@@ -120,9 +120,9 @@ class NackLexer(Lexer):
         t.value = int(t.value, 10)
         return t
 
-    #Register Directives have to go here to not overshadwo the Calls
-    CLEAR = '\|\-'
+    # Register Directives have to go here to not overshadwo the Calls
     INCREMENT = '\+\+'
+    CLEAR = '\|\-'
     DECREMENT = '\-\-'
     TIME = '\#\#'
     ELAPSED = '\#\-'
@@ -132,6 +132,7 @@ class NackLexer(Lexer):
     GEQ = '>='
     GT = '>'
     NEQ = '!='
+    SET = ':='
     ADD = '\+='
     SUB = '\-='
     MUL = '\*='
@@ -139,7 +140,7 @@ class NackLexer(Lexer):
     MOD = '%='
     ELAPGT = '\#>'
     ELAPLT = '\#<'
-    
+
     ASSIGN = "="
 
     @_(r'".*"')

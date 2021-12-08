@@ -5,12 +5,14 @@ Created on Thu Nov 25 04:42:16 2021
 @author: Asterisk
 """
 from compiler.errorHandler import ErrorManaged, copy
-from common.registerOperations import sUnaryOperatorsMap,sBinaryOperatorsMap
-        
+from common.registerOperations import sUnaryOperatorsMap, sBinaryOperatorsMap,\
+                                        unaryIndex,binaryIndex
+
+
 class Register():
     def resolveLocal(self, symbolsTable):
         pass
-        
+
     def resolveCaller(self, namespace, assignments, typing):
         pass
 
@@ -27,10 +29,11 @@ class Register():
             return [self.raw_id]
         else:
             return [str(self.identifier)]
-        
+
     def __repr__(self):
         ide = repr(self.identifier)
-        return "<Reg> %s"%ide
+        return "<Reg> %s" % ide
+
 
 class RegisterID(Register, ErrorManaged):
     tag = "Register ID"
@@ -39,7 +42,7 @@ class RegisterID(Register, ErrorManaged):
     def __init__(self, id):
         self.tag = "Register ID [%s]" % (id)
         self.identifier = id
-        self.raw_id = None 
+        self.raw_id = None
 
     def copy(self):
         return RegisterID(copy(self.identifier))
@@ -76,6 +79,7 @@ class RegisterOp():
     def collectRegisters(self):
         return self.base.collectRegisters()
 
+
 class RegisterComparison(RegisterOp, ErrorManaged):
     subfields = ["base", "target", "comparison"]
 
@@ -94,13 +98,13 @@ class RegisterComparison(RegisterOp, ErrorManaged):
         getattr(self.target, operator)(*args, "var")
 
     def resolveLocal(self, symbolsTable):
-        self.resolveNames("resolveLocal",symbolsTable)
+        self.resolveNames("resolveLocal", symbolsTable)
 
     def resolveCaller(self, namespace, assignments):
-        self.resolveNames("resolveCaller",namespace,assignments)
+        self.resolveNames("resolveCaller", namespace, assignments)
 
     def resolveTerminal(self, symbolsTable):
-        self.resolveNames("resolveTerminal",symbolsTable)
+        self.resolveNames("resolveTerminal", symbolsTable)
 
     def resolveProperties(self, storage):
         if self.base.raw_id is None:
@@ -114,18 +118,56 @@ class RegisterComparison(RegisterOp, ErrorManaged):
         storage("parameter2", self.target.getRaw())
 
     def __repr__(self):
-        return "<RegComp> %s %s %s"%tuple(map(repr,(self.base,
-                                                    self.comparison,
-                                                    self.target)))
+        return "<RegComp> %s %s %s" % tuple(map(repr, (self.base,
+                                                       self.comparison,
+                                                       self.target)))
 
-#TODO - InterRegisterComparison
+
+class RegisterExtendedComparison(RegisterComparison, ErrorManaged):
+    subfields = ["base", "target", "comparison", "extended"]
+
+    def __init__(self, *args, **kwargs):
+        self.extended = False
+        super().__init__(*args, **kwargs)
+
+    def extendTarget(self):
+        self.extended = True
+        extended = RegisterID(self.target.id)
+        self.inheritChildren(extended)
+        self.target = extended
+
+    def collectRegisters(self):
+        if self.target.raw_id is None:
+            self.extendTarget()
+        return self.base.collectRegisters() + self.target.collectRegisters()
+
+    def resolveName(self, namespace):
+        if self.extended:
+            self.target.resolveName(namespace)
+        self.base.resolveName(namespace)
+
+    def resolveProperties(self, storage):
+        if self.base.raw_id is None:
+            self.errorHandler.unresolvedIdentifier(str(self.base))
+        if self.target.raw_id is None:
+            self.errorHandler.unresolvedIdentifier(str(self.target))
+        if self.extended:
+            param1Offset = len(sBinaryOperatorsMap)
+            target = binaryIndex(self.target.raw_id)
+        else:
+            param1Offset = 0
+            target = self.target.getRaw()
+        storage("functionType", binaryIndex(self.base.raw_id))
+        storage("parameter1", sBinaryOperatorsMap[self.comparison] + param1Offset)
+        storage("parameter2", target)
+
 
 class RegisterUnaryOp(RegisterOp, ErrorManaged):
     tag = "Register Unary Operator"
     subfields = ["base", "operator"]
 
     def __init__(self, ref, op):
-        self.tag = "Register Unary [%s %s]"%(ref,op)
+        self.tag = "Register Unary [%s %s]" % (ref, op)
         self.base = ref
         self.operator = op
 
@@ -136,13 +178,9 @@ class RegisterUnaryOp(RegisterOp, ErrorManaged):
         if self.base.raw_id is None:
             self.errorHandler.unresolvedIdentifier(str(self.base))
         else:
-            if self.base.raw_id > 19:
-                delta = self.base.raw_id-19
-                storage("functionType", 0x94+self.base.raw_id+2*(delta-1))
-            else:
-                storage("functionType", 0x80+self.base.raw_id)
+            storage("functionType", unaryIndex(self.base.raw_id))
             storage("parameter1", sUnaryOperatorsMap[self.operator])
 
     def __repr__(self):
-        return "<RegComp> %s %s"%tuple(map(repr,(self.base,
+        return "<RegComp> %s %s" % tuple(map(repr, (self.base,
                                                     self.operator,)))

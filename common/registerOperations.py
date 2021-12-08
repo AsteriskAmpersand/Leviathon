@@ -12,9 +12,9 @@ sUnaryOperatorsMap = {op:ix for ix,op in enumerate(sUnaryOperators)}
 sUnaryNames = ["INCREMENT","CLEAR","DECREMENT","TIME","ELAPSED"]
 
 sBasicBinaryOperators= ["==", "<=", "<", ">=", ">", "!="]
-sExtendedBinaryOperators = ["+=","-=","*=","/=","%="]
+sExtendedBinaryOperators = [":=", "+=","-=","*=","/=","%="]
 sTemporalBinaryOperators = ["#>","#<"]
-sBinaryNames = ["EQ","LEQ","LT","GEQ","GT","NEQ", "ADD","SUB","MUL","DIV","MOD","ELAPGT","ELAPLT"]
+sBinaryNames = ["EQ","LEQ","LT","GEQ","GT","NEQ","SET","ADD","SUB","MUL","DIV","MOD","ELAPGT","ELAPLT"]
 
 sBinaryOperators = sBasicBinaryOperators + sExtendedBinaryOperators + sTemporalBinaryOperators
 sBinaryOperatorsMap = {op:ix for ix,op in enumerate(sBinaryOperators)}
@@ -55,6 +55,17 @@ def isExternal(segment):
 def isRegister(segment):
     return 0x80 <= segment.functionType <= 0xab
 
+def unaryIndex(index):
+    if index > 19:
+        return 0xa8 + (index-20)*2
+    else:
+        return 0x80 + index
+
+def binaryIndex(index):
+    if index > 19:
+        return 0xa9 + (index-20)*2
+    else:
+        return 0x94 + index
 #sUnaryOperators[segment.parameter1]
 #sBinaryOperators[segment.parameter1]
 

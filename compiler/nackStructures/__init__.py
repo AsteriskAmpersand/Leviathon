@@ -9,5 +9,6 @@ from .nackFunction import FunctionLiteral,FunctionShell
 from .nackIdentifier import Identifier,IdentifierRaw,IdentifierScoped,TextID
 from .nackNode import Node,NodeHeader
 from .nackRegister import Register,RegisterComparison,RegisterID,\
-                            RegisterLiteral,RegisterOp,RegisterUnaryOp                            
+                            RegisterLiteral,RegisterOp,RegisterUnaryOp,\
+                            RegisterExtendedComparison
 from .nackSegment import Segment
