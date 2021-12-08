@@ -5,15 +5,18 @@ Created on Tue Dec  7 17:09:50 2021
 @author: Asterisk
 """
 
-sBasicUnaryOperators = ["|-","++"]
-sExtendedUnaryOperators = ["--","##"]
+sBasicUnaryOperators = ["++","|-"]
+sExtendedUnaryOperators = ["--","##","#-"]
 sUnaryOperators = sBasicUnaryOperators + sExtendedUnaryOperators
 sUnaryOperatorsMap = {op:ix for ix,op in enumerate(sUnaryOperators)}
+sUnaryNames = ["INCREMENT","CLEAR","DECREMENT","TIME","ELAPSED"]
 
 sBasicBinaryOperators= ["==", "<=", "<", ">=", ">", "!="]
 sExtendedBinaryOperators = ["+=","-=","*=","/=","%="]
+sTemporalBinaryOperators = ["#>","#<"]
+sBinaryNames = ["EQ","LEQ","LT","GEQ","GT","NEQ", "ADD","SUB","MUL","DIV","MOD","ELAPGT","ELAPLT"]
 
-sBinaryOperators = sBasicBinaryOperators + sExtendedBinaryOperators
+sBinaryOperators = sBasicBinaryOperators + sExtendedBinaryOperators + sTemporalBinaryOperators
 sBinaryOperatorsMap = {op:ix for ix,op in enumerate(sBinaryOperators)}
 
 monstersUnary = {0xa8:20,0xaa:21}
@@ -48,6 +51,9 @@ def isUnary(segment):
 
 def isExternal(segment):
     return segment.parameter1 >= len(sBinaryOperators)
+
+def isRegister(segment):
+    return 0x80 <= segment.functionType <= 0xab
 
 #sUnaryOperators[segment.parameter1]
 #sBinaryOperators[segment.parameter1]

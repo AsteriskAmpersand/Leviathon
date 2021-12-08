@@ -5,8 +5,8 @@ Created on Sun Dec  5 19:38:07 2021
 @author: Asterisk
 """
 
-from decompiler.decompiler import THKLDecompiler
-from decompiler.decomilerSettings import DecompilerSettings
+from decompiler import THKLDecompiler
+from decompiler import DecompilerSettings
 from pathlib import Path
 
 def void(*args,**kwargs):

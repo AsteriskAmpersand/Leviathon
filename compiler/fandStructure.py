@@ -152,7 +152,7 @@ class FandStructure(ErrorManaged):
         return registerNames
 
     def resolveRegisters(self):
-        registerNames = list(sorted(self.collectRegisters()))
+        registerNames = list(sorted(self.collectRegisters(),key=lambda x:str(x)))
         indexedRegisters = [r for r in registerNames if type(r) is int]
         namedRegisters = [r for r in registerNames if type(r) is str and
                           not (r in self.registerNames and self.registerNames[r] is not None)]
@@ -231,7 +231,9 @@ class FandStructure(ErrorManaged):
             entries.append(self.buildEntry(targetString))
         binaryData = thklist.ThkList.build(
             {"header": header, "data": data, "entries": entries})
-        with open(outRoot/(self.settings.thklistPath), 'wb') as outf:
+        outpath = outRoot/(self.settings.thklistPath)
+        outpath.parent.mkdir(parents=True, exist_ok=True)
+        with open(outpath, 'wb') as outf:
             outf.write(binaryData)
 
     def __repr__(self):

@@ -73,8 +73,6 @@ class THKDecompiler(Decompiler):
         return self.nodeListing
 
     def registerUsage(self):
-        # if hasattr(self,"registers"):
-        #    return self.registers
         segmentSet = set()
         for node in self.nodes:
             newRegs = set(sum(map(lambda x: x.registers, node.segments), []))

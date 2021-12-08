@@ -120,7 +120,9 @@ class THKModule(ErrorManaged):
     def compileProperties(self):pass
     def serialize(self,outputRoot,outputName):
         self.binfile = self.parsedStructure.serialize()
-        with open(outputRoot/outputName,"wb") as outf:
+        outputPath = outputRoot/outputName
+        outputPath.parent.mkdir(parents=True, exist_ok=True)
+        with open(outputPath,"wb") as outf:
             outf.write(self.binfile)
     def __hash__(self):
         return hash((self.path.absolute(),-1))
@@ -628,7 +630,7 @@ class NackParser(Parser):
     @_('regRef regComp regVal')
     def registerContent(self,p):
         return abc.RegisterComparison(p.regRef,p.regVal,p.regComp)
-    @_('INCREMENT','RESET')
+    @_('INCREMENT','CLEAR')
     def regOp(self,p):
         return p[0]
     @_('EQ','LEQ','LT','GEQ','GT','NEQ')
@@ -700,20 +702,14 @@ if __name__ == '__main__':
     with open(r'D:\Games SSD\MHW-AI-Analysis\InlineTest\endrTest.nack') as inf:
         data = inf.read()
     data = """
-    def node_373
-	if self.fatigued() 
-	elif function#2() 
-		[RegisterVar4 |-] 
+def node_044 : 547 @ 44
+	if [$V == 0] 
+		[$V |-] 
+		>> node_043 
 	else 
-		[RegisterVar4 ++] 
-		if [RegisterVar4 <= 18] 
-			[RegisterVar4 |-] 
-			>> node_374 
-		else 
-		endif 
 	endif 
 	return 
-endf
+endf 
     """
     lexer = NackLexer()
     tokenized = list(lexer.tokenize(data))

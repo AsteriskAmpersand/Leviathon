@@ -11,8 +11,8 @@ import networkx as nx
 
 from common.thk import Thk
 from common.thklist import ThkList
+from common.registerOperations import isRegister,getRegisterIndex,isUnary
 from common import thklSpecStr as thklStr
-
 from common import actionEnum as ae
 
 #Code Analysis
@@ -65,8 +65,8 @@ class THKNode():
     def getRegisterUsage(self):
         registers = set()
         for segment in self.node.segments:
-            if 0x80<=segment.functionType<=0xA7:
-                if segment.functionType <= 0x93:
+            if isRegister(segment):
+                if isUnary(segment):
                     getset = "Set"
                     offset = 0x80
                 else:

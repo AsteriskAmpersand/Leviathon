@@ -7,6 +7,7 @@ Created on Tue Dec  7 06:21:42 2021
 
 from decompiler.decompilerUtils import Decompiler, ENC_NODE, ENC_COND, ENC_RNG
 from decompiler.thkDecompileUtils import MissingCallID, CallResolver
+from common.registerOperations import getRegisterIndex, isRegister
 from common.thk import Segment
 from common import keywords as key
 
@@ -48,8 +49,8 @@ class SegmentDecompiler(Decompiler):
     def read(self, segment):
         self.segment = segment
         segment.log = self.log
-        if 0x80 <= self.segment.functionType <= 0xa7:
-            self.registers.append((self.segment.functionType - 0x80) % 20)
+        if isRegister(self.segment): #0x80 <= self.segment.functionType <= 0xab:
+            self.registers.append(getRegisterIndex(self.segment))
         return self
 
     def getActionParams(self, segment):
@@ -97,8 +98,7 @@ class SegmentDecompiler(Decompiler):
 
     def resolveFunctions(self, functionResolver, registerScheduler):
         if self.segment.functionType not in [0, 2]:
-            # TODO - Include the Monsters
-            if 0x80 <= self.segment.functionType <= 0xab:
+            if isRegister(self.segment):
                 self.functionName = functionResolver.registerResolve(
                     self.segment, registerScheduler)
                 self.function = self.functionName

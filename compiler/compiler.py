@@ -111,7 +111,7 @@ if __name__ in "__main__":
         settings.verbose = True
         settings.thklistPath = file.stem+".thklst"
         settings.outputRoot = folder
-        #settings.display = void
+        settings.display = void
         populateDefaultSettings(settings)
         fandCompile(str(file), settings)
         try:
@@ -129,7 +129,7 @@ if __name__ in "__main__":
     #ems_lst = []
     #lst = list(map(Path,em_lst + ems_lst))# ))#
     lst = list(inRoot.rglob("*.fand"))
-    lst = [Path(r'C:/Users/Asterisk/Downloads/Slos (1)/em/em002/82/data/em002.fand')]
+    #lst = [Path(r'C:/Users/Asterisk/Downloads/Slos (1)/em/em002/82/data/em002.fand')]
     for path in lst:
         print(path)
         s = path.parent.stem
