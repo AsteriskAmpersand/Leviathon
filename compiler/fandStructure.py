@@ -30,10 +30,12 @@ class FandStructure(ErrorManaged):
         self.indexedTargets = {}
         self.scopeNames = {}
         self.count = -1
+
     def verify(self):
         for project in self.modules.values():
             project.verify()
         #list(map(lambda x: x.verify(), project.modules.values()))
+
     def compilerInit(self, settings, errorLog):
         settings.root = self.root
         self.inherit(settings, errorLog)
@@ -160,7 +162,8 @@ class FandStructure(ErrorManaged):
         return registerNames
 
     def resolveRegisters(self):
-        registerNames = list(sorted(self.collectRegisters(),key=lambda x:str(x)))
+        registerNames = list(
+            sorted(self.collectRegisters(), key=lambda x: str(x)))
         indexedRegisters = [r for r in registerNames if type(r) is int]
         namedRegisters = [r for r in registerNames if type(r) is str and
                           not (r in self.registerNames and self.registerNames[r] is not None)]
@@ -225,7 +228,7 @@ class FandStructure(ErrorManaged):
                         tern in self.indexedTargets.items()}
         previousPaths, previousFiles = {}, {}
         for scopeName, module in \
-            sorted(self.parsedScopes.items(),key = lambda x: scopeToIndex[x[0]]):
+                sorted(self.parsedScopes.items(), key=lambda x: scopeToIndex[x[0]]):
             self.serializeModule(outRoot, scopeName, module, scopeToIndex,
                                  previousPaths, previousFiles)
         count = len(self.indexedTargets)

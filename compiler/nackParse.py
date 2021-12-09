@@ -156,10 +156,10 @@ class NackParser(Parser):
     tokens = NackLexer.tokens
     #debugfile = 'nackParser.out'
 
-    def __init__(self,*args,**kwargs):
+    def __init__(self, *args, **kwargs):
         self.log = CustomLogger()
         self.log.setLevel("error")
-        super().__init__(*args,**kwargs)
+        super().__init__(*args, **kwargs)
 
     def parse(self, iterableTokens):
         self.file = abc.NackFile()
@@ -335,7 +335,8 @@ class NackParser(Parser):
         p.uncontrolledSegment.addChance(p.chanceBody)
         p.nodeBody1.appendleft(p.uncontrolledSegment)
         result = p.nodeBody0 + p.nodeBody1 + p.optionalChance
-        next(r._chance for r in reversed(result) if type(r._chance) is abc.ChanceElse ).last()
+        next(r._chance for r in reversed(result)
+             if type(r._chance) is abc.ChanceElse).last()
         return result
 
     @_('chanceBody actionTypeStart nodeBody optionalChance')
@@ -772,7 +773,7 @@ class NackParser(Parser):
     @_('')
     def empty(self, p):
         pass
-    
+
     def error(self, token):
         '''
         Default error handling function.  This may be subclassed.
@@ -780,7 +781,8 @@ class NackParser(Parser):
         if token:
             lineno = getattr(token, 'lineno', 0)
             if lineno:
-                self.log.error(f'Line {lineno}: Syntax error token={token.type}')
+                self.log.error(
+                    f'Line {lineno}: Syntax error token={token.type}')
             else:
                 self.log.error(f'Syntax error, token={token.type}')
         else:
@@ -813,7 +815,7 @@ def parseNack(file, settings=None):
         output("Errors Found when parsing:")
         output(file)
         for error in log:
-            output("\t"+error.replace("sly: ",""))
+            output("\t"+error.replace("sly: ", ""))
     if log:
         raise CompilationError()
     return parsed

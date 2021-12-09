@@ -24,7 +24,7 @@ class TypeNub(ErrorManaged):
         return self.propName
 
     def __repr__(self):
-        return "<%s [%d]>"%(str(self),self.raw_id)
+        return "<%s [%d]>" % (str(self), self.raw_id)
 
 
 class SegmentInit():
@@ -117,7 +117,7 @@ class SegmentFinalResolution():
         if self._function and self._function.typing != "register":
             self._function.resolveFunctions(functionResolver)
 
-    def defaultValues(self,field):
+    def defaultValues(self, field):
         if field in {"extRefThkID", "extRefNodeID", "localRefNodeID"}:
             return -1
         else:
@@ -125,6 +125,7 @@ class SegmentFinalResolution():
 
     def compileProperties(self):
         dataSegment = {}
+
         def testAdd(propertyName, propertyValue):
             if type(propertyValue) is not int:
                 self.errorHandler.resolutionError(propertyName)
@@ -155,19 +156,19 @@ class SegmentFinalResolution():
             if name == "padding":
                 dataSegment["padding"] = [0]*12
         return dataSegment
-    
 
-def resolutionOp(resolveCall = True):
+
+def resolutionOp(resolveCall=True):
     def resolutionOpF(function):
-        def func(self,*args,**kwargs):
+        def func(self, *args, **kwargs):
             for elementName in ["function", "action", "chance"] + (["call"] if resolveCall else []):
                 # Functions, Actions and Chance are given full resolution
                 # Calls only resolve to a reference of the object not to a
                 # proper value
                 element = getattr(self, "_"+elementName)
                 if element is not None:
-                    getattr(element,function.__name__)(*args,**kwargs)
-            function(self,*args,**kwargs)
+                    getattr(element, function.__name__)(*args, **kwargs)
+            function(self, *args, **kwargs)
         return func
     return resolutionOpF
 
@@ -187,23 +188,23 @@ class Segment(SegmentInit, SegmentFinalResolution, ErrorManaged):
 
     def getNodeId(self):
         return self.parent.getId()
-    
+
     @resolutionOp()
     def resolveLocal(self, symbolsTable): pass
-    
-    @resolutionOp(resolveCall = False)
+
+    @resolutionOp(resolveCall=False)
     def resolveCaller(self, namespaces, var):
         if self._call is not None:
-            self._call = self._call.resolveCaller(namespaces,var)
+            self._call = self._call.resolveCaller(namespaces, var)
             self.inheritChildren(self._call)
 
-    @resolutionOp(resolveCall = False)
-    def resolveTerminal(self, symbolsTable): 
+    @resolutionOp(resolveCall=False)
+    def resolveTerminal(self, symbolsTable):
         if self._call is not None:
             self._call = self._call.resolveTerminal(symbolsTable)
             self.inheritChildren(self._call)
 
-    def reconnectChain(self,node_target):
+    def reconnectChain(self, node_target):
         self._call = self._call.reconnectChain(node_target)
         self.inheritChildren(self._call)
 
@@ -223,7 +224,5 @@ class Segment(SegmentInit, SegmentFinalResolution, ErrorManaged):
         self.errorHandler.missingCallTarget()
 
     def __repr__(self):
-        return ' '.join([repr(getattr(self,"_"+m)) for m in self.memberList
-                         if getattr(self,"_"+m) is not None])
-                
-
+        return ' '.join([repr(getattr(self, "_"+m)) for m in self.memberList
+                         if getattr(self, "_"+m) is not None])

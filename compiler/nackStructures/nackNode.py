@@ -141,8 +141,10 @@ class NodeHeader(ErrorManaged):
 
     def __repr__(self):
         add = ""
-        if self.id is not None: add+=" {%d}"%self.id
-        if self.index is not None: add+=" [%d]"%self.index
+        if self.id is not None:
+            add += " {%d}" % self.id
+        if self.index is not None:
+            add += " [%d]" % self.index
         return str(self)+add
 
     def __str__(self):

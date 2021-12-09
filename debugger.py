@@ -256,13 +256,15 @@ def comparePrograms(programs, output=print):
     ParallelControler(parallelList, output)
 
 
-root = r"D:\Games SSD\MHW\chunk"
-thklpath = r"D:\Games SSD\MHW\chunk\em\em001\00\data\em001.thklst"
+root = r"C:/Users/Asterisk/Downloads/SlosWork"
+thklpath = r'C:/Users/Asterisk/Downloads/SlosWork/em/em002/82/data/em002.thklst'
 table = loadFile(root, thklpath)
+pc = ParallelControler([table])
 
-root2 = r"D:\Games SSD\MHW-AI-Analysis\Leviathon\tests\ingameOutputs"
-thklpath2 = r"D:\Games SSD\MHW-AI-Analysis\Leviathon\tests\ingameOutputs\em\em001\00\data\em001.thklst"
-table2 = loadFile(root2, thklpath2)
+
+#root2 = r"D:\Games SSD\MHW-AI-Analysis\Leviathon\tests\ingameOutputs"
+#thklpath2 = r"D:\Games SSD\MHW-AI-Analysis\Leviathon\tests\ingameOutputs\em\em001\00\data\em001.thklst"
+#table2 = loadFile(root2, thklpath2)
 
 
 r"""

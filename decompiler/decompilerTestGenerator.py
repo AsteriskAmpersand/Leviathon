@@ -11,7 +11,7 @@ except:
     import sys
     sys.path.append("..")
     from decompiler import THKLDecompiler, DecompilerSettings
-    
+
 if __name__ in "__main__":
     def void(*args, **kwargs):
         pass
@@ -22,7 +22,7 @@ if __name__ in "__main__":
         ts = DecompilerSettings()
         ts.verbose = False
         ts.outputPath = folder
-        folder.mkdir(parents=True,exist_ok=True)
+        folder.mkdir(parents=True, exist_ok=True)
         ts.display = void
         ts.forceId = False
         ts.forceIndex = False

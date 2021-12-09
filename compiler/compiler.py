@@ -5,20 +5,18 @@ Created on Sun Oct 31 01:45:42 2021
 @author: Asterisk
 """
 
+from common.monsterEnum import loadEntities
+from common.actionEnum import loadActionMaps
+from common.fexLayer import buildCompiler
+from common.actionEnum import loadTHKMaps
+from compiler.compilerErrors import CompilationError
+from compiler.errorHandler import ErrorHandler
+from compiler.fandLexParse import parseFand
+from compiler.compilerSettings import CompilerSettings
 from pathlib import Path
 
 import sys
 sys.path.append("..")
-    
-from compiler.compilerSettings import CompilerSettings
-from compiler.fandLexParse import parseFand
-from compiler.errorHandler import ErrorHandler
-from compiler.compilerErrors import CompilationError
-
-from common.actionEnum import loadTHKMaps
-from common.fexLayer import buildCompiler
-from common.actionEnum import loadActionMaps
-from common.monsterEnum import loadEntities
 
 
 # class FandStructure():
@@ -54,15 +52,17 @@ def populateDefaultSettings(settings):
 def nackCompile(nack, settings, output=print):
     pass
 
-def parsePhase(fand,settings):
-    project,errors = parseFand(fand)
-    if errors: 
+
+def parsePhase(fand, settings):
+    project, errors = parseFand(fand)
+    if errors:
         settings.display("Errors found when parsing:")
         settings.display(fand)
         for error in errors:
-            settings.display("\t"+error.replace("sly: ",""))
+            settings.display("\t"+error.replace("sly: ", ""))
         raise CompilationError()
     return project
+
 
 def fandCompile(fand, settings, output=print):
     try:
@@ -77,7 +77,7 @@ def fandCompile(fand, settings, output=print):
                 errorHandler.report()
                 raise CompilationError()
             return outputs
-        project = parsePhase(fand,settings)
+        project = parsePhase(fand, settings)
         project.compilerInit(settings, errorHandler)
         thkMap = settings.thkMap
         report("Gathering and Initializing Project Files")
@@ -150,7 +150,8 @@ if __name__ in "__main__":
         testCompile(str(outRoot/s), (path))
 
     #fandCompile(r"D:\Games SSD\MHW-AI-Analysis\Leviathon\tests\ingameFiles\em007_00_data\em007.fand",settings)
-    lst = [Path(r'C:/Users/Asterisk/Downloads/Slos (1)/em/em002/82/data/em002.fand')]
+    lst = [
+        Path(r'C:/Users/Asterisk/Downloads/Slos (1)/em/em002/82/data/em002.fand')]
     for path in lst:
         print(path)
         s = path.parent
