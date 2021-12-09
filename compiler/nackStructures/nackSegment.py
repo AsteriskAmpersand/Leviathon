@@ -144,7 +144,7 @@ class SegmentFinalResolution():
             else:
                 val.erroHandler.unresolvedIdentifier()
         if "nodeEndingData" in dataSegment:
-            dataSegment["nodeEndingData"] += self.parent.getId()
+            dataSegment["nodeEndingData"] += self.parent.getIndex()
         if "functionType" not in dataSegment:
             default = 0 if "endChance" in dataSegment else 2
             dataSegment["functionType"] = default

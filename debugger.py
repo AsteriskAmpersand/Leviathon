@@ -263,6 +263,18 @@ table = loadFile(root, thklpath)
 root2 = r"D:\Games SSD\MHW-AI-Analysis\Leviathon\tests\ingameOutputs"
 thklpath2 = r"D:\Games SSD\MHW-AI-Analysis\Leviathon\tests\ingameOutputs\em\em001\00\data\em001.thklst"
 table2 = loadFile(root2, thklpath2)
+
+
+r"""
+root = r"C:\Users\Asterisk\Downloads\Slos (1)"
+thklpath = r"C:\Users\Asterisk\Downloads\Slos (1)\em\em002\82\data\em002.thklst"
+table = loadFile(root, thklpath)
+
+root2 = r"C:\Users\Asterisk\Downloads\slosCompile"
+thklpath2 = r"C:\Users\Asterisk\Downloads\slosCompile\em\em002\82\data\em000.thklst"
+table2 = loadFile(root2, thklpath2)
+
 pc = ParallelControler([table, table2])
 
 pc.run()
+"""

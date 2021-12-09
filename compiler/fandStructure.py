@@ -30,7 +30,10 @@ class FandStructure(ErrorManaged):
         self.indexedTargets = {}
         self.scopeNames = {}
         self.count = -1
-
+    def verify(self):
+        for project in self.modules.values():
+            project.verify()
+        #list(map(lambda x: x.verify(), project.modules.values()))
     def compilerInit(self, settings, errorLog):
         settings.root = self.root
         self.inherit(settings, errorLog)
@@ -103,6 +106,7 @@ class FandStructure(ErrorManaged):
                         if dependencyPath not in self.modules:
                             moduleParsingQueue.put(("", dependencyPath))
                 except CompilationError:
+                    self.modules[scope] = None
                     self.errorHandler.lexingFail(path)
 
     def createSymbolsTables(self, root):

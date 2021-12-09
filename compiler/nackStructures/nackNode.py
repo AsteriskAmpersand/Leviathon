@@ -140,7 +140,10 @@ class NodeHeader(ErrorManaged):
         self.tag = "Node Header [%s]" % self.names[0]
 
     def __repr__(self):
-        return str(self)
+        add = ""
+        if self.id is not None: add+=" {%d}"%self.id
+        if self.index is not None: add+=" [%d]"%self.index
+        return str(self)+add
 
     def __str__(self):
         return "def " + ' & '.join(map(str, self.names))

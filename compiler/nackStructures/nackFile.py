@@ -37,7 +37,7 @@ class SymbolsTable():
         for nodeName in nodeNames:
             self.nodes[nodeName] = nodeObject
         self.nodeIndices[nodeIndex] = nodeObject
-        self.nodeIndices[nodeId] = nodeObject
+        self.nodeIds[nodeId] = nodeObject
 
     def addVariable(self, key, val):
         self.vars[key] = val

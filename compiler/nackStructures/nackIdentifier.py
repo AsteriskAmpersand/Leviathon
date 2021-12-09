@@ -13,7 +13,7 @@ from compiler.errorHandler import ErrorManaged, copy
 #typing = var, node, action, register
 
 
-class IdClass():
+class IdClass(ErrorManaged):
     def getRaw(self):
         if self.raw_id is None:
             self.errorHandler.unresolvedIdentifier(self.id)
@@ -57,7 +57,7 @@ class IdClass():
             return self.id
 
 
-class Identifier(IdClass, ErrorManaged):
+class Identifier(IdClass):
     subfields = ["id"]
 
     def __init__(self, identifier):
@@ -75,7 +75,7 @@ class Identifier(IdClass, ErrorManaged):
         return False
 
 
-class IdentifierRaw(IdClass, ErrorManaged):
+class IdentifierRaw(IdClass):
     subfields = ["raw_id"]
 
     def __init__(self, identifier):
@@ -94,7 +94,7 @@ class IdentifierRaw(IdClass, ErrorManaged):
         return self.raw_id
 
 
-class IdentifierScoped(IdClass, ErrorManaged):
+class IdentifierScoped(IdClass):
     tag = "Function Scoped ID"
     subfields = ["target", "scope"]
 
@@ -183,7 +183,7 @@ class IdentifierScoped(IdClass, ErrorManaged):
             return self.scope + "." + self.target
 
 
-class TextID(str, IdClass, ErrorManaged):
+class TextID(str, IdClass):
     tag = "Text ID"
     subfields = []
 

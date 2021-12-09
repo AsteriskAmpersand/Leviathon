@@ -17,8 +17,9 @@ def Autonumber(reserved=set()):
 
 def loggerLevel(func):
     def loggy(self, string, arguments=[]):
-        if func.__name__ in self.level:
-            self.log.append(func.__name__.upper()+": "+string % arguments)
+        message = func.__name__.upper()+": "+string % arguments
+        f = self.log if func.__name__ in self.level else self.secondary
+        f.append(message)
     return loggy
 
 
@@ -27,6 +28,7 @@ class CustomLogger():
 
     def __init__(self):
         self.log = []
+        self.secondary = []
         self.setLevel("warning")
 
     def setLevel(self, level):
@@ -36,12 +38,12 @@ class CustomLogger():
             self.level = self.levels
 
     @loggerLevel
-    def debug(self, message): pass
+    def debug(self, message, arguments = []): pass
     @loggerLevel
-    def info(self, message): pass
+    def info(self, message, arguments = []): pass
     @loggerLevel
-    def warning(self, message): pass
+    def warning(self, message, arguments = []): pass
     @loggerLevel
-    def error(self, message): pass
+    def error(self, message, arguments = []): pass
     @loggerLevel
-    def critical(self, message): pass
+    def critical(self, message, arguments = []): pass

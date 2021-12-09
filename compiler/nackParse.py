@@ -151,10 +151,15 @@ class THKModule(ErrorManaged):
 
 class NackParser(Parser):
     log = CustomLogger()
-    log.setLevel("error")
+    log.setLevel("critical")
     # Get the token list from the lexer (required)
     tokens = NackLexer.tokens
     #debugfile = 'nackParser.out'
+
+    def __init__(self,*args,**kwargs):
+        self.log = CustomLogger()
+        self.log.setLevel("error")
+        super().__init__(*args,**kwargs)
 
     def parse(self, iterableTokens):
         self.file = abc.NackFile()
@@ -687,7 +692,7 @@ class NackParser(Parser):
 
     @_('id ":" numericSymbol')
     def metaparamPair(self, p):
-        return {abc.TextID(p.id): p.numericSymbol}
+        return {p.id.id: p.numericSymbol}
 
     # ===================
     # Registers
@@ -767,6 +772,19 @@ class NackParser(Parser):
     @_('')
     def empty(self, p):
         pass
+    
+    def error(self, token):
+        '''
+        Default error handling function.  This may be subclassed.
+        '''
+        if token:
+            lineno = getattr(token, 'lineno', 0)
+            if lineno:
+                self.log.error(f'Line {lineno}: Syntax error token={token.type}')
+            else:
+                self.log.error(f'Syntax error, token={token.type}')
+        else:
+            self.log.error('Parse error in input. EOF')
     # ===================================================
 
 
@@ -780,6 +798,7 @@ def outputTokenization(tokenized):
 
 def parseNack(file, settings=None):
     # print('parseNack',file)
+    output = settings.display if settings is not None else print
     with open(file, "r") as inf:
         data = inf.read() + "\n"
     if settings is not None and settings.preprocessor:
@@ -790,11 +809,11 @@ def parseNack(file, settings=None):
     parser = NackParser()
     parsed = parser.parse(tokenized)
     log = lexer.log.log + parser.log.log
-    for error in log:
-        if settings is not None:
-            settings.display(error)
-        else:
-            print(error)
+    if log:
+        output("Errors Found when parsing:")
+        output(file)
+        for error in log:
+            output("\t"+error.replace("sly: ",""))
     if log:
         raise CompilationError()
     return parsed

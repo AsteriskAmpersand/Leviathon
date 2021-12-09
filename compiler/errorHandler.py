@@ -5,10 +5,19 @@ Created on Mon Nov  8 21:50:22 2021
 @author: Asterisk
 """
 from collections.abc import Iterable
-from collections import defaultdict
+from collections import defaultdict,deque
 from compiler.compilerErrors import CompilationError
 
+def iterable(obj):
+    try:
+        iter(obj)
+    except:
+        return False
+    return True
+
 def copy(self):
+    if hasattr(self,copy):
+        return self.copy().copyMetadataFrom(self)
     if type(self) is int:
         return self
     elif type(self) is str:
@@ -19,6 +28,10 @@ def copy(self):
         return self
     elif type(self) is dict:
         return {copy(key): copy(val) for key, val in self.items()}
+    elif type(self) is list:
+        return [copy(obj) for obj in self]
+    elif type(self) is deque:
+        return deque([copy(obj) for obj in self])
     else:
         return self.copy().copyMetadataFrom(self)
 
@@ -36,11 +49,52 @@ class ErrorManaged():
             self.inheritChildren(getattr(self, subfield))
         return self
 
+    def verifyElement(self,element):
+        if not issubclass(type(element),ErrorManaged):
+            return
+        failed = False
+        try:
+            if element.errorHandler.parent != self.errorHandler:
+                self.settings.display("Missing Inheritance", self.tag,element.tag) 
+                self.settings.display(repr(self))
+                self.settings.display(repr(element))
+                failed = True
+        except:
+            self.settings.display("Missing Error Handler [", self.tag,"] -> ",element.tag) 
+            self.settings.display(repr(self))
+            self.settings.display(repr(element))
+            failed = True
+        if failed:
+            raise AttributeError
+        if self.errorHandler.mark:
+            self.errorHandler.report()
+            raise CompilationError()
+        element.verify()
+
+    def verify(self):
+        for subfield in self.subfields:
+            var = getattr(self,subfield)
+            if type(var) is dict:
+                for key,value in var.items():
+                    self.verifyElement(key)
+                    self.verifyElement(value)
+            elif iterable(var):
+                for element in var:
+                    self.verifyElement(element)
+            else:
+                self.verifyElement(var)
+            
+
     def inheritChildren(self, child):
-        if type(child) in [str, int, float, type(None), bool]:
+        if issubclass(type(child),ErrorManaged):
+            child.inherit(
+                self.settings, self.errorHandler.childInstance(self.tag))
+        elif type(child) in [str, int, float, type(None), bool]:
             pass
         elif isinstance(child, dict):
             for item in child.values():
+                self.inheritChildren(item)
+            for key in child.keys():
                 self.inheritChildren(item)
         elif isinstance(child, Iterable):
             for item in child:
@@ -61,6 +115,10 @@ class ErrorManaged():
     def __str__(self):
         return self.tag
 
+def unique(seq):
+    seen = set()
+    seen_add = seen.add
+    return [(x,y) for x,y in seq if not ((tuple(x),y) in seen or seen_add((tuple(x),y)))]
 
 class ErrorHandler():
     def __init__(self, settings):
@@ -100,7 +158,7 @@ class ErrorHandler():
         for level in perLevel:
             self.settings.display("="*40)
             self.settings.display(level)
-            for tags, entry in perLevel[level]:
+            for tags, entry in unique(perLevel[level]):
                 self.settings.display("  "+">".join(tags))
                 self.settings.display("  "+entry)
                 self.settings.display("-"*30)

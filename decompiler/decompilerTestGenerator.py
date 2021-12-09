@@ -5,8 +5,13 @@ Created on Mon Oct 11 18:25:32 2021
 @author: Asterisk
 """
 from pathlib import Path
-from decompiler import THKLDecompiler, DecompilerSettings
-
+try:
+    from decompiler import THKLDecompiler, DecompilerSettings
+except:
+    import sys
+    sys.path.append("..")
+    from decompiler import THKLDecompiler, DecompilerSettings
+    
 if __name__ in "__main__":
     def void(*args, **kwargs):
         pass
@@ -16,9 +21,12 @@ if __name__ in "__main__":
         # print(file)
         ts = DecompilerSettings()
         ts.verbose = False
-        ts.outputPath = "em"/folder
+        ts.outputPath = folder
+        folder.mkdir(parents=True,exist_ok=True)
         ts.display = void
         ts.forceId = False
+        ts.forceIndex = False
+        ts.keepVoid = False
         THKLDecompiler(ts).read(file).writeFile()
     root = r"D:\Games SSD\MHW\chunk\em"
     outRoot = Path(r"D:\Games SSD\MHW-AI-Analysis\Leviathon\tests\ingameFiles")
@@ -33,12 +41,7 @@ if __name__ in "__main__":
         s = path.stem
         (outRoot/p).mkdir(parents=True, exist_ok=True)
         try:
-            testDecompile(str(outRoot/p), str(path))
+            testDecompile(outRoot/"em"/p, str(path))
         except:
-            testDecompile(str(outRoot/p), str(path))
-            try:
-                testDecompile(str(outRoot/p), str(path))
-            except:
-                print("Errored", path)
-                errors.append(path)
-                # raise
+            print("Errored", path)
+            raise

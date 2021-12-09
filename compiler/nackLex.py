@@ -42,7 +42,12 @@ def tokenEscape(token):
 
 class NackLexer(Lexer):
     log = CustomLogger()
-    log.setLevel("error")
+    log.setLevel("critical")
+
+    def __init__(self,*args,**kwargs):
+        self.log = CustomLogger()
+        self.log.setLevel("error")
+        super().__init__(*args,**kwargs)
 
     literals = {'(', ')', '{', '}', '[', ']', ":", ".", ",", "&"}
 
@@ -165,7 +170,7 @@ class NackLexer(Lexer):
     # [RegisterName Comparison/Asignment Value/Variable]
 
     def error(self, t):
-        print('Line %d: Bad character %r' % (self.lineno, t.value[0]))
+        self.log.error('Line %d: Bad character %r' % (self.lineno, t.value[0]))
         self.index += 1
 
 

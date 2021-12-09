@@ -7,6 +7,9 @@ Created on Sun Oct 31 01:45:42 2021
 
 from pathlib import Path
 
+import sys
+sys.path.append("..")
+    
 from compiler.compilerSettings import CompilerSettings
 from compiler.fandLexParse import parseFand
 from compiler.errorHandler import ErrorHandler
@@ -51,6 +54,15 @@ def populateDefaultSettings(settings):
 def nackCompile(nack, settings, output=print):
     pass
 
+def parsePhase(fand,settings):
+    project,errors = parseFand(fand)
+    if errors: 
+        settings.display("Errors found when parsing:")
+        settings.display(fand)
+        for error in errors:
+            settings.display("\t"+error.replace("sly: ",""))
+        raise CompilationError()
+    return project
 
 def fandCompile(fand, settings, output=print):
     try:
@@ -65,11 +77,7 @@ def fandCompile(fand, settings, output=print):
                 errorHandler.report()
                 raise CompilationError()
             return outputs
-        project,errors = parseFand(fand)
-        if errors: 
-            for error in errors:
-                settings.display(error)
-            raise CompilationError()
+        project = parsePhase(fand,settings)
         project.compilerInit(settings, errorHandler)
         thkMap = settings.thkMap
         report("Gathering and Initializing Project Files")
@@ -93,10 +101,13 @@ def fandCompile(fand, settings, output=print):
         # if settings.verbose:
         #    settings.display(repr(project))
         wrapCall(project.compileProperties())
+        project.verify()
         wrapCall(project.serialize(Path(settings.outputRoot)))
         report("Project Compilation Complete")
     except CompilationError:
-        pass
+        if settings.display != print:
+            print("Compilation Failed")
+        settings.display("Compilation Failed")
     except:
         raise
     return
@@ -109,12 +120,12 @@ if __name__ in "__main__":
 
     def testCompile(folder, file):
         settings = CompilerSettings()
-        settings.verbose = True
+        settings.verbose = False
         settings.thklistPath = file.stem+".thklst"
         settings.outputRoot = folder
         settings.display = void
         populateDefaultSettings(settings)
-        fandCompile(str(file), settings)
+        #fandCompile(str(file), settings)
         try:
             fandCompile(str(file), settings)
         except:
@@ -130,7 +141,7 @@ if __name__ in "__main__":
     #ems_lst = []
     #lst = list(map(Path,em_lst + ems_lst))# ))#
     lst = list(inRoot.rglob("*.fand"))
-    #lst = [Path(r'C:/Users/Asterisk/Downloads/Slos (1)/em/em002/82/data/em002.fand')]
+    #lst = []
     for path in lst:
         print(path)
         s = path.relative_to(inRoot).parent
@@ -139,3 +150,9 @@ if __name__ in "__main__":
         testCompile(str(outRoot/s), (path))
 
     #fandCompile(r"D:\Games SSD\MHW-AI-Analysis\Leviathon\tests\ingameFiles\em007_00_data\em007.fand",settings)
+    lst = [Path(r'C:/Users/Asterisk/Downloads/Slos (1)/em/em002/82/data/em002.fand')]
+    for path in lst:
+        print(path)
+        s = path.parent
+        (outRoot/s).mkdir(parents=True, exist_ok=True)
+        testCompile(path.parent/"Compiled", path)
