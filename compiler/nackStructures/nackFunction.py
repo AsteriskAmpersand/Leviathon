@@ -9,29 +9,28 @@ from compiler.errorHandler import ErrorManaged, copy
 
 class FunctionLiteral(ErrorManaged):
     typing = "function"
-    subfields = ["function", "arguments"]
+    subfields = ["function", "params"]
 
     def __init__(self, function, arguments):
         self.tag = "Function Call Literal [%X]" % function
         self.function = function
         self.raw_id = function
-        self.arguments = arguments
+        self.params = arguments
 
     def copy(self):
-        return FunctionLiteral(copy(self.function), [copy(arg) for arg in self.arguments])
+        return FunctionLiteral(copy(self.function), copy(self.params))
 
     def resolveProperties(self, storage):
         storage("functionType", self.raw_id)
-        for field, parameterObj in zip(["parameter1", "parameter2"], self.arguments):
+        for field, parameterObj in zip(["parameter1", "parameter2"], self.params):
             storage(field, parameterObj.getRaw())
 
     def resolveFunctions(self, _):
         pass
 
     def resolveNames(self, operator, *args):
-        for paramGroup in self.params:
-            for param in paramGroup:
-                getattr(param, operator)(*args, "var")
+        for param in self.params:
+            getattr(param, operator)(*args, "var")
 
     def resolveLocal(self, symbolsTable):
         self.resolveNames("resolveLocal", symbolsTable )
@@ -43,7 +42,7 @@ class FunctionLiteral(ErrorManaged):
         self.resolveNames("resolveTerminal", symbolsTable)
         
     def __repr__(self):
-        return "<FuncL> %s (%s)"%(self.function,', '.join(map(repr,self.arguments)))
+        return "<FuncL> %s (%s)"%(self.function,', '.join(map(repr,self.params)))
 
 
 class FunctionShell(FunctionLiteral, ErrorManaged):
@@ -69,6 +68,11 @@ class FunctionShell(FunctionLiteral, ErrorManaged):
         shell.sections = [copy(id) for id in self.sections]
         shell.params = [[copy(p) for p in params] for params in self.params]
         return shell
+
+    def resolveNames(self, operator, *args):
+        for paramGroup in self.params:
+            for param in paramGroup:
+                getattr(param, operator)(*args, "var")
 
     def resolveProperties(self, storage):
         for field, parameterValue in self.functionParamPairs:

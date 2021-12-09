@@ -10,6 +10,7 @@ from pathlib import Path
 from compiler.compilerSettings import CompilerSettings
 from compiler.fandLexParse import parseFand
 from compiler.errorHandler import ErrorHandler
+from compiler.compilerErrors import CompilationError
 
 from common.actionEnum import loadTHKMaps
 from common.fexLayer import buildCompiler
@@ -47,10 +48,6 @@ def populateDefaultSettings(settings):
         settings.thkMap = loadTHKMaps().moduleToThk
 
 
-class CompilationError(Exception):
-    pass
-
-
 def nackCompile(nack, settings, output=print):
     pass
 
@@ -68,7 +65,11 @@ def fandCompile(fand, settings, output=print):
                 errorHandler.report()
                 raise CompilationError()
             return outputs
-        project = parseFand(fand)
+        project,errors = parseFand(fand)
+        if errors: 
+            for error in errors:
+                settings.display(error)
+            raise CompilationError()
         project.compilerInit(settings, errorHandler)
         thkMap = settings.thkMap
         report("Gathering and Initializing Project Files")
@@ -89,7 +90,7 @@ def fandCompile(fand, settings, output=print):
         report("Resolving Function Names")
         wrapCall(project.resolveFunctions(settings.functionResolver))
         report("Compiling to Binary")
-        #if settings.verbose:
+        # if settings.verbose:
         #    settings.display(repr(project))
         wrapCall(project.compileProperties())
         wrapCall(project.serialize(Path(settings.outputRoot)))
@@ -124,7 +125,7 @@ if __name__ in "__main__":
     outRoot = Path(
         r"D:\Games SSD\MHW-AI-Analysis\Leviathon\tests\ingameOutputs")
     errors = []
-    #em_lst = [r"D:\Games SSD\MHW-AI-Analysis\Leviathon\tests\ingameFiles\em045_00_data\em045.fand",
+    # em_lst = [r"D:\Games SSD\MHW-AI-Analysis\Leviathon\tests\ingameFiles\em045_00_data\em045.fand",
     #          r"D:\Games SSD\MHW-AI-Analysis\Leviathon\tests\ingameFiles\em114_00_data\em114.fand"]
     #ems_lst = []
     #lst = list(map(Path,em_lst + ems_lst))# ))#
@@ -132,9 +133,9 @@ if __name__ in "__main__":
     #lst = [Path(r'C:/Users/Asterisk/Downloads/Slos (1)/em/em002/82/data/em002.fand')]
     for path in lst:
         print(path)
-        s = path.parent.stem
+        s = path.relative_to(inRoot).parent
         (outRoot/s).mkdir(parents=True, exist_ok=True)
-        testCompile(path.parent/"Compiled",path)
-        #testCompile(str(outRoot/s), (path))
+        #testCompile(path.parent/"Compiled", path)
+        testCompile(str(outRoot/s), (path))
 
     #fandCompile(r"D:\Games SSD\MHW-AI-Analysis\Leviathon\tests\ingameFiles\em007_00_data\em007.fand",settings)

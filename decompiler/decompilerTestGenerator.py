@@ -16,7 +16,7 @@ if __name__ in "__main__":
         # print(file)
         ts = DecompilerSettings()
         ts.verbose = False
-        ts.outputPath = folder
+        ts.outputPath = "em"/folder
         ts.display = void
         ts.forceId = False
         THKLDecompiler(ts).read(file).writeFile()
@@ -24,6 +24,7 @@ if __name__ in "__main__":
     outRoot = Path(r"D:\Games SSD\MHW-AI-Analysis\Leviathon\tests\ingameFiles")
 
     def congealPaths(path):
+        return str(path.relative_to(root).parent)
         return str(path.relative_to(root).parent).replace("\\", "_")
     errors = []
     lst = list(Path(root).rglob("*.thklst"))

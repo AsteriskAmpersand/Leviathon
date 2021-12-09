@@ -9,6 +9,7 @@ import regex
 import common.keywords as key
 from common.registerOperations import (sUnaryOperators, sUnaryNames,
                                        sBinaryOperators, sBinaryNames)
+from compiler.compilerUtils import CustomLogger
 
 
 def slyRegex(pattern, *extra):
@@ -40,6 +41,8 @@ def tokenEscape(token):
 
 
 class NackLexer(Lexer):
+    log = CustomLogger()
+    log.setLevel("error")
 
     literals = {'(', ')', '{', '}', '[', ']', ":", ".", ",", "&"}
 

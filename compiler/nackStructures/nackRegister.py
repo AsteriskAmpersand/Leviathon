@@ -6,7 +6,7 @@ Created on Thu Nov 25 04:42:16 2021
 """
 from compiler.errorHandler import ErrorManaged, copy
 from common.registerOperations import sUnaryOperatorsMap, sBinaryOperatorsMap,\
-                                        unaryIndex,binaryIndex
+    unaryIndex, binaryIndex
 
 
 class Register():
@@ -139,7 +139,8 @@ class RegisterExtendedComparison(RegisterComparison, ErrorManaged):
     def collectRegisters(self):
         if self.target.raw_id is None:
             self.extendTarget()
-        return self.base.collectRegisters() + self.target.collectRegisters()
+            return self.base.collectRegisters() + self.target.collectRegisters()
+        return self.base.collectRegisters()
 
     def resolveName(self, namespace):
         if self.extended:
@@ -158,7 +159,8 @@ class RegisterExtendedComparison(RegisterComparison, ErrorManaged):
             param1Offset = 0
             target = self.target.getRaw()
         storage("functionType", binaryIndex(self.base.raw_id))
-        storage("parameter1", sBinaryOperatorsMap[self.comparison] + param1Offset)
+        storage("parameter1",
+                sBinaryOperatorsMap[self.comparison] + param1Offset)
         storage("parameter2", target)
 
 

@@ -11,6 +11,7 @@ import collections as col
 import logging
 import itertools
 import re
+from io import StringIO
 
 from common.registerOperations import sUnaryNames, sBinaryNames
 
@@ -18,7 +19,8 @@ from compiler import nackStructures as abc
 from compiler.macroParser import macroProcessor
 from compiler.nackLex import NackLexer
 from compiler.errorHandler import ErrorManaged
-from compiler.compilerErrors import SemanticError
+from compiler.compilerErrors import SemanticError, CompilationError
+from compiler.compilerUtils import CustomLogger
 
 
 def callPassing(method):
@@ -148,8 +150,8 @@ class THKModule(ErrorManaged):
 
 
 class NackParser(Parser):
-    log = logging.getLogger()
-    log.setLevel(logging.ERROR)
+    log = CustomLogger()
+    log.setLevel("error")
     # Get the token list from the lexer (required)
     tokens = NackLexer.tokens
     #debugfile = 'nackParser.out'
@@ -327,14 +329,14 @@ class NackParser(Parser):
         p.nodeBody0.appendleft(p.actionTypeStart)
         p.uncontrolledSegment.addChance(p.chanceBody)
         p.nodeBody1.appendleft(p.uncontrolledSegment)
-        return p.nodeBody0 + p.nodeBody1 + p.optionalChance
+        result = p.nodeBody0 + p.nodeBody1 + p.optionalChance
+        next(r._chance for r in reversed(result) if type(r._chance) is abc.ChanceElse ).last()
+        return result
 
     @_('chanceBody actionTypeStart nodeBody optionalChance')
     def optionalChance(self, p):
         s = p.actionTypeStart
         bd = p.chanceBody
-        if len(p.optionalChance) == 1:
-            bd = bd.last()
         s.addChance(bd)
         p.nodeBody.appendleft(s)
         return p.nodeBody + p.optionalChance
@@ -560,7 +562,7 @@ class NackParser(Parser):
 
     @_('FUNCTION maybeFuncLiteralParens')
     def functionLiteral(self, p):
-        abc.FunctionLiteral(p.FUNCTION, p.maybeFuncLiteralParens)
+        return abc.FunctionLiteral(p.FUNCTION, p.maybeFuncLiteralParens)
 
     @_('empty')
     def maybeFuncLiteralParens(self, p):
@@ -697,13 +699,10 @@ class NackParser(Parser):
     @_('regRef regOp')
     def registerContent(self, p):
         return abc.RegisterUnaryOp(p.regRef, p.regOp)
-    # @_('regRef regComp regVal')
-    # def registerContent(self,p):
-    #    return abc.RegisterComparison(p.regRef,p.regVal,p.regComp)
 
-    @_('regRef regComp regRef')
+    @_('regRef regComp extendedRegVal')
     def registerContent(self, p):
-        return abc.RegisterExtendedComparison(p.regRef0, p.regRef1, p.regComp)
+        return abc.RegisterExtendedComparison(p.regRef, p.extendedRegVal, p.regComp)
 
     @_(*sUnaryNames)
     def regOp(self, p):
@@ -713,19 +712,30 @@ class NackParser(Parser):
     def regComp(self, p):
         return p[0]
 
-    # @_('id')
-    # def regRef(self,p):
-    #    return abc.RegisterID(p[0].id)
     @_('REG')
-    def regRef(self, p):
+    def regLiteral(self, p):
         return abc.RegisterLiteral(p.REG)
 
-    @_('numericSymbol')
+    @_('regLiteral')
     def regRef(self, p):
+        return p
+
+    @_('id')
+    def regRef(self, p):
+        return abc.RegisterID(p[0].id)
+
+    @_('numericSymbol')
+    def regVal(self, p):
         return p.numericSymbol
-    # @_('numericSymbol')
-    # def regVal(self,p):
-    #    return p.numericSymbol
+
+    @_('regLiteral')
+    def extendedRegVal(self, p):
+        return p
+
+    @_('regVal')
+    def extendedRegVal(self, p):
+        return p[0]
+
     # ===================
 
     @_('id', 'numeric')
@@ -779,7 +789,14 @@ def parseNack(file, settings=None):
     tokenized = lexer.tokenize(data)
     parser = NackParser()
     parsed = parser.parse(tokenized)
-    parser.log.debug("")
+    log = lexer.log.log + parser.log.log
+    for error in log:
+        if settings is not None:
+            settings.display(error)
+        else:
+            print(error)
+    if log:
+        raise CompilationError()
     return parsed
 
 
@@ -794,12 +811,12 @@ if __name__ == '__main__':
         data = inf.read()
     data = """
 def node_044 : 547 @ 44
-	if [$V == 0] 
-		[$V |-] 
-		>> node_043 
-	else 
-	endif 
-	return 
+    if [$V == 0] 
+        [$V |-] 
+        >> node_043 
+    else 
+    endif 
+    return 
 endf 
     """
     lexer = NackLexer()

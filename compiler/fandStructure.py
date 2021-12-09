@@ -8,6 +8,7 @@ Created on Sun Oct 31 03:02:28 2021
 from compiler.nackParse import moduleParse
 from compiler.nackStructures import ActionTarget
 from compiler.errorHandler import ErrorManaged
+from compiler.compilerErrors import CompilationError
 from compiler.compilerUtils import Autonumber
 from common import thklist
 
@@ -95,11 +96,14 @@ class FandStructure(ErrorManaged):
                 self.errorHandler.compiledModule(scope, path)
             else:
                 path = Path(fand).parent / path
-                module = self.parseModule(path, scope, thkMap)
-                for dependency in module.externalDependencies():
-                    dependencyPath = str(self.rootFolder/dependency)
-                    if dependencyPath not in self.modules:
-                        moduleParsingQueue.put(("", dependencyPath))
+                try:
+                    module = self.parseModule(path, scope, thkMap)
+                    for dependency in module.externalDependencies():
+                        dependencyPath = str(self.rootFolder/dependency)
+                        if dependencyPath not in self.modules:
+                            moduleParsingQueue.put(("", dependencyPath))
+                except CompilationError:
+                    self.errorHandler.lexingFail(path)
 
     def createSymbolsTables(self, root):
         for module in self.modules.values():
@@ -216,7 +220,8 @@ class FandStructure(ErrorManaged):
         scopeToIndex = {tern[0]: index for index,
                         tern in self.indexedTargets.items()}
         previousPaths, previousFiles = {}, {}
-        for scopeName, module in self.parsedScopes.items():
+        for scopeName, module in \
+            sorted(self.parsedScopes.items(),key = lambda x: scopeToIndex[x[0]]):
             self.serializeModule(outRoot, scopeName, module, scopeToIndex,
                                  previousPaths, previousFiles)
         count = len(self.indexedTargets)

@@ -2,7 +2,7 @@
 
 from .nackAction import Action,ActionID,ActionLiteral,ScopedAction
 from .nackCall import Call,CallID,ScopedCall,ScopedCallID
-from .nackChance import Chance,ChanceElse,ChanceHead,ChanceLast
+from .nackChance import Chance,ChanceElse,ChanceHead
 from .nackDirective import Directive
 from .nackFile import NackFile,ActionTarget,ScopeTarget
 from .nackFunction import FunctionLiteral,FunctionShell

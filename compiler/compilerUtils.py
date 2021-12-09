@@ -5,10 +5,43 @@ Created on Tue Nov  9 06:52:03 2021
 @author: Asterisk
 """
 
-    
+
 def Autonumber(reserved=set()):
     i = 0
     while True:
-        while i in reserved: i+=1
+        while i in reserved:
+            i += 1
         yield i
-        i+=1
+        i += 1
+
+
+def loggerLevel(func):
+    def loggy(self, string, arguments=[]):
+        if func.__name__ in self.level:
+            self.log.append(func.__name__.upper()+": "+string % arguments)
+    return loggy
+
+
+class CustomLogger():
+    levels = ["critical", "error", "warning", "info", "debug"]
+
+    def __init__(self):
+        self.log = []
+        self.setLevel("warning")
+
+    def setLevel(self, level):
+        if level in self.levels:
+            self.level = self.levels[:self.levels.index(level)+1]
+        else:
+            self.level = self.levels
+
+    @loggerLevel
+    def debug(self, message): pass
+    @loggerLevel
+    def info(self, message): pass
+    @loggerLevel
+    def warning(self, message): pass
+    @loggerLevel
+    def error(self, message): pass
+    @loggerLevel
+    def critical(self, message): pass

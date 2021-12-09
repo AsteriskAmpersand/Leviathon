@@ -6,6 +6,7 @@ Created on Mon Nov  8 21:50:22 2021
 """
 from collections.abc import Iterable
 from collections import defaultdict
+from compiler.compilerErrors import CompilationError
 
 def copy(self):
     if type(self) is int:
@@ -61,10 +62,6 @@ class ErrorManaged():
         return self.tag
 
 
-class CompilationError():
-    pass
-
-
 class ErrorHandler():
     def __init__(self, settings):
         self.settings = settings
@@ -89,7 +86,7 @@ class ErrorHandler():
         if self.parent:
             self.parent.log(string, self.tags + tags)
         else:
-            self.errorlog.append((level,tags,string,))
+            self.errorlog.append((level, tags, string,))
             if level == "CriticalError":
                 self.report()
                 raise CompilationError()
@@ -98,12 +95,12 @@ class ErrorHandler():
 
     def report(self):
         perLevel = defaultdict(list)
-        for level,tags,entry in sorted(self.errorlog):
-            perLevel[level].append((tags,entry))
+        for level, tags, entry in sorted(self.errorlog):
+            perLevel[level].append((tags, entry))
         for level in perLevel:
             self.settings.display("="*40)
             self.settings.display(level)
-            for tags,entry in perLevel[level]:
+            for tags, entry in perLevel[level]:
                 self.settings.display("  "+">".join(tags))
                 self.settings.display("  "+entry)
                 self.settings.display("-"*30)
@@ -191,14 +188,18 @@ class ErrorHandler():
         level = self.warningLevel()
         self.log(
             level, "Node is trying to use already taken ID and will overwrite previous instance")
-    
+
     def repeatedIndex(self):
         level = self.warningLevel()
         self.log(
             level, "Node is trying to use pre-existing index and will overwrite previous instance")
-    
+
     def repeatedName(self):
         level = self.warningLevel()
         self.log(
             level, "Node name already exists and will overwrite previous instance.")
-    
+
+    def lexingFail(self, path=""):
+        level = self.errorLevel()
+        self.log(
+            level, "Failed to Parse File %s." % path)

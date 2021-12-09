@@ -10,6 +10,7 @@ import logging
 import regex as re
 from sly import Lexer,Parser
 from compiler.fandStructure import FandStructure
+from compiler.compilerUtils import CustomLogger
 
 T_COMMENTS = r'//.*'
 T_ROOT = "at"
@@ -118,8 +119,8 @@ class FandLexer(Lexer):
 
 class FandParser(Parser):
     tokens = FandLexer.tokens
-    log = logging.getLogger()
-    log.setLevel(logging.ERROR)
+    log = CustomLogger()
+    log.setLevel("error")
 
     def parse(self,*args,**kwargs):
         self.file = FandStructure()
@@ -209,7 +210,7 @@ def parseFand(file):
     tokenized = lexer.tokenize(data)
     parser = FandParser()
     parsed = parser.parse(tokenized)
-    return parsed
+    return parsed,parser.log.log
     
 
 if __name__ in "__main__":
