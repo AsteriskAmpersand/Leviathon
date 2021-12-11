@@ -28,6 +28,8 @@ def generateArgParse():
                         help='Preserve node Id in the file')
     # parser.add_argument('-xreferences', action='store_true',  # aliases=['xref'],
     #                    help='Adds a comment before each node listing all nodes that call it in the project')
+    parser.add_argument('-noActions', action='store_true',  # aliases=['sId'],
+                        help='Do not resolve actions to names')
     parser.add_argument('-raiseInvalidReferences', action='store_true',  # aliases=['iRef'],
                         help='Stop decompilation if an illegal call is found')
     parser.add_argument('-warningsHide', action='store_true',  # aliases=['w'],
@@ -53,6 +55,7 @@ def buildSettings(args):
     settingsRemap = {"nullShow": "keepVoid", "lastShow": "keepLast", "indexShow": "forceIndex",
                      "fixShow": "genPlaceholder",
                      "idShow": "forceId",  # "xreferences": "listCrossreferences",
+                     "noActions":"disableActionMapping",
                      "raiseInvalidReferences": "raiseInvalidReferences", "warningsHide": "supressWarnings",
                      "keepRegisters": "keepRegisters", "renameNackFiles": "functionAsThkName",
                      "analyze": "runCodeAnalysis", "outputPath": "outputPath",

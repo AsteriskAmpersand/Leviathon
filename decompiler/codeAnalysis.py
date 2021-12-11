@@ -77,13 +77,9 @@ class THKNode():
         registers = set()
         for segment in self.node.segments:
             if isRegister(segment):
-                if isUnary(segment):
-                    getset = "Set"
-                    offset = 0x80
-                else:
-                    getset = "Get"
-                    offset = 0x94
-                regvar = chr(ord('A') + segment.functionType-offset)
+                regIndex = getRegisterIndex(segment)
+                getset = "Set" if isUnary(segment) else "Get"
+                regvar = chr(ord('A') + regIndex)
                 registers.add((regvar, getset))
         return registers
 
@@ -255,9 +251,11 @@ class THKSummary():
                 continue
             visited = self.getConnectedNodes(file, globallyVisited)
             orphans[file.index] = set(
-                [node.index for node in file.nodes if not node.empty() and node.index not in visited])
-        orphans[55] = set([node.index for node in self.thklist.thkl[55].nodes if not node.empty(
-        ) and node not in globallyVisited])
+                [node.index for node in file.nodes if not node.empty() and 
+                 node.index not in visited and node.index != 0])
+        orphans[55] = set([node.index for node in self.thklist.thkl[55].nodes 
+                           if not node.empty() and node not in globallyVisited 
+                               and node.index != 0])
         self.result_cache[0] = orphans
         return orphans
 
@@ -377,6 +375,11 @@ class THKSummary():
         return result
 
 
+class fallthroughAction():
+    def __contains__(self, key):
+        return False
+
+
 defaultEnums = ae.DefaultDataEnum()
 
 
@@ -447,8 +450,11 @@ class THKProject(RawParser):
             self.traceGraph()
         summary = THKSummary(self.cache_trace, self)
         if self.monster is not None and self.type == "em":
-            am = ae.loadActionMaps()
-            summary.actionMapper = am[(self.monster, self.subspecies)][1]
+            am = {} if self.settings.disableActionMapping else ae.loadActionMaps()
+            try:
+                summary.actionMapper = am[(self.monster, self.subspecies)][1]
+            except:
+                summary.actionMapper = fallthroughAction()
         summary.fileMapper = ae.loadTHKMaps().thkToModule
         return summary
 
@@ -547,6 +553,6 @@ class THKParser():
 # print(thkp.dataSummary())
 if __name__ in "__main__":
     thkp = THKProject(
-        r'C:/Users/Asterisk/Downloads/SlosWork/em/em002/02/data/em002.thklst')
+        r'C:/Users/Asterisk/Downloads/SlosWork/em/em002/82/data/em002.thklst')
     print(thkp.dataSummary())
     #thkp.decompileFile(r"D:\Games SSD\MHW-AI-Analysis\em108.fand")

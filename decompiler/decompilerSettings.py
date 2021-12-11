@@ -14,6 +14,7 @@ class DecompilerSettings():
         self.forceIndex = False
         self.forceId = False
         self.listCrossreferences = False
+        self.disableActionMapping = False
 
         self.raiseInvalidReference = False
         self.suppressWarnings = False
