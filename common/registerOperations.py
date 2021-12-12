@@ -12,10 +12,10 @@ sUnaryOperatorsMap = {op: ix for ix, op in enumerate(sUnaryOperators)}
 sUnaryNames = ["INCREMENT", "CLEAR", "DECREMENT", "TIME", "ELAPSED"]
 
 sBasicBinaryOperators = ["==", "<=", "<", ">=", ">", "!="]
-sExtendedBinaryOperators = [":=", "+=", "-=", "*=", "/=", "%=","<:=","=:>"]
+sExtendedBinaryOperators = [":=", "+=", "-=", "*=", "/=", "%="]
 sTemporalBinaryOperators = ["#>", "#<"]
 sBinaryNames = ["EQ", "LEQ", "LT", "GEQ", "GT", "NEQ", "SET",
-                "ADD", "SUB", "MUL", "DIV", "MOD", "PTRGET", "PTRSET", "ELAPGT", "ELAPLT"]
+                "ADD", "SUB", "MUL", "DIV", "MOD", "ELAPGT", "ELAPLT"]
 
 sBinaryOperators = sBasicBinaryOperators + \
     sExtendedBinaryOperators + sTemporalBinaryOperators

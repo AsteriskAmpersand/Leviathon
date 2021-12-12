@@ -284,4 +284,36 @@ if __name__ in "__main__":
 
         def log(self, *args):
             pass
+        
+    def praseStringfield( field, dataType, dataIndex):
+        if dataType is None:
+            return "arg:"+str(field)
+        else:
+            if dataType == "CAST":
+                return "float:"+str(field)
+            elif dataType == "ENUM":
+                if dataIndex == "st_enum":
+                    return "st_enum:"+str(field)
+                elif dataIndex == "em_enum":
+                    return "em_enum:"+str(field)
+        
+    def stringifyTarget(self, consequence):
+        c = consequence
+        if type(consequence) is str:
+            return lambda x: consequence
+        else:
+            formatString = ""
+            fieldSets, dataTypesSets, dataIndicesSets, cumulatives, term = c.functionalStructure()
+            for fields, dataTypes, dataIndices, strCumul in zip(fieldSets, dataTypesSets, dataIndicesSets, cumulatives):
+                formatString += strCumul
+                formatString += "("
+                formatString += ','.join([praseStringfield(field,dtt,dti)
+                                          for field, dtt, dti in zip(fields, dataTypes, dataIndices)])
+                formatString += ")"
+            formatString += term
+            return formatString
+        
     resolver = buildResolver(str(currentFile/"default.fexty"))
+    for funcId,forkResolve in resolver.functionTable.items():
+        for entry in forkResolve.entries:
+            print("self."+stringifyTarget(entry,entry.target))
