@@ -14,6 +14,7 @@ import regex
 import argparse
 import json
 import sys
+import traceback
 sys.path.insert(0, '../Leviathon')
 
 
@@ -73,10 +74,19 @@ def getMode(inputFile):
 
 
 def main(arglist):
+    
     parser = generateArgParse()
     args = parser.parse_args(arglist)
     mode = getMode(args.input[0])
-    mode(arglist)
+    try:
+        mode(arglist)
+        print("Process Succeeded")
+    except Exception:
+        print(traceback.format_exc())
+        # or
+        print(sys.exc_info()[2])
+        print("Process Failed")
+    input ("Press Any Key to Close")
 
 
 if __name__ in "__main__":

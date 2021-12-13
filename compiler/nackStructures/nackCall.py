@@ -33,9 +33,12 @@ class Call(ErrorManaged):
 
     def resolveCalls(self):
         if self.raw_target is not None: return self.raw_target
-        self.raw_target = getattr(self.node_target,self.local_scope)()
-        self.external = -1
-        self.target.raw_id = self.raw_target
+        try:
+            self.raw_target = getattr(self.node_target,self.local_scope)()
+            self.external = -1
+            self.target.raw_id = self.raw_target
+        except AttributeError:
+           self.errorHandler.missingNodeName(str(self.target))
             
     def reconnectChain(self,target):
         self.node_target = target
