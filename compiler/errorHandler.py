@@ -243,6 +243,11 @@ class ErrorHandler():
         self.log(
             level, "Call is lacking a proper target (normally from inlining failure)")
 
+    def unmatchedFunctionSignature(self,signature):
+        level = self.errorLevel()
+        self.log(
+            level, "No Function Signature in the FEXTY File matches the one provided '%s'" % signature)
+
     def repeatedId(self):
         level = self.warningLevel()
         self.log(

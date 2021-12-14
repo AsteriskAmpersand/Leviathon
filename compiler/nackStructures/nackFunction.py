@@ -84,7 +84,11 @@ class FunctionShell(FunctionLiteral, ErrorManaged):
             if propertyName in parameters:
                 self.errorHandler.repeatedProperty(propertyName)
             parameters[propertyName] = propertyValue
-        functionResolver(self, testAdd)
+        try:
+            functionResolver(self, testAdd)
+        except:
+            self.errorHandler.unmatchedFunctionSignature(self.errorRepr())
+            return
         self.functionParamPairs = list(parameters.items())
 
     def signature(self):
@@ -97,6 +101,14 @@ class FunctionShell(FunctionLiteral, ErrorManaged):
 
     def literalSignature(self):
         return tuple(map(str, self.sections))
+    
+    def errorRepr(self):
+        result = "self."
+        result += ".".join([literal + "(" + arg + ")"
+         for literal,arg in zip(map(str,self.sections),
+                               map(lambda x: ','.join(map(str,x)),self.params))])
+            
+        return result
 
     def __repr__(self):
         return "<Func> %s (%s)" % (' || '.join(map(repr,self.sections)),
