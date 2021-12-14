@@ -68,7 +68,6 @@ F: vertical_distance_to_target().gt(parameter1)
 }
 2C{
    >hp_percent()
-   parameter1 == 0: leq(parameter2)
    parameter1 == 2: gt(parameter2)
 }
 2E{
@@ -97,6 +96,11 @@ F: vertical_distance_to_target().gt(parameter1)
 2F: target_is({em_enum:parameter1})
 37{
    parameter1 == 0: quest_id(parameter2)
+   parameter1 == 1: quest_id.geq(parameter2)
+   parameter1 == 2: quest_id.gt(parameter2)
+   parameter1 == 3: quest_id.leq(parameter2)
+   parameter1 == 4: quest_id.lt(parameter2)
+   parameter1 == 5: quest_id.neq(parameter2)
 }
 70: flying()
 76: part(parameter1).is_broken(parameter2)

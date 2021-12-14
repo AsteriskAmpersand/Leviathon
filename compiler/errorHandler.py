@@ -142,11 +142,12 @@ class ErrorHandler():
 
     def log(self, level, string, tags=[]):
         if self.parent:
-            self.parent.log(string, self.tags + tags)
+            self.parent.log(level, string, self.tags + tags)
         else:
             self.errorlog.append((level, tags, string,))
             if level == "CriticalError":
                 self.report()
+                self.mark = True
                 raise CompilationError()
             if level == "Error":
                 self.mark = True

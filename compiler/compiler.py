@@ -5,6 +5,9 @@ Created on Sun Oct 31 01:45:42 2021
 @author: Asterisk
 """
 
+import sys
+sys.path.append("..")
+
 from common.monsterEnum import loadEntities
 from common.actionEnum import loadActionMaps
 from common.fexLayer import buildCompiler
@@ -15,8 +18,6 @@ from compiler.fandLexParse import parseFand
 from compiler.compilerSettings import CompilerSettings
 from pathlib import Path
 
-import sys
-sys.path.append("..")
 
 
 # class FandStructure():
@@ -123,9 +124,9 @@ if __name__ in "__main__":
         settings.verbose = False
         settings.thklistPath = file.stem+".thklst"
         settings.outputRoot = folder
-        settings.display = void
+        #settings.display = void
         populateDefaultSettings(settings)
-        #fandCompile(str(file), settings)
+        fandCompile(str(file), settings)
         try:
             fandCompile(str(file), settings)
         except:
@@ -141,7 +142,7 @@ if __name__ in "__main__":
     #ems_lst = []
     #lst = list(map(Path,em_lst + ems_lst))# ))#
     lst = list(inRoot.rglob("*.fand"))
-    #lst = []
+    lst = []
     for path in lst:
         print(path)
         s = path.relative_to(inRoot).parent
@@ -151,7 +152,7 @@ if __name__ in "__main__":
 
     #fandCompile(r"D:\Games SSD\MHW-AI-Analysis\Leviathon\tests\ingameFiles\em007_00_data\em007.fand",settings)
     lst = [
-        Path(r'C:/Users/Asterisk/Downloads/Slos (1)/em/em002/82/data/em002.fand')]
+        Path(r'C:\Users\Asterisk\Downloads\testing\em\em024\00\data\em024.fand')]
     for path in lst:
         print(path)
         s = path.parent
