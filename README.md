@@ -1,6 +1,6 @@
 # Leviathon
 ![Project Logo](https://github.com/AsteriskAmpersand/Leviathon/blob/main/assets/Leviathon.fw.png?raw=true)
-A simple language and reference decompiler/compiler for MHW THK Files.
+A simple language and reference decompiler/compiler for MHW THK Files. The Language Reference can be found [here](https://github.com/Ezekial711/MonsterHunterWorldModding/wiki/Leviathon-Language-Reference).
 
 ## Project Goals
 The project aims to define a language specification for working with THK and THKLST files as code. In that sense it aims to be a mid-level language abstraction of the low-level language which the THK comprise, providing higher level features such as named functions, action name resolution, importable behavior libraries and behavior frameworks.
