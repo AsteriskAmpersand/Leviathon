@@ -50,7 +50,8 @@ def generateArgParse():
 
 def jsonParse(args):
     inputFile = args[0]
-    argDict = json.read(inputFile)
+    with open(inputFile) as inf:
+        argDict = json.load(inf)
     args = []
     for key, val in argDict.items():
         if key != "input":
@@ -58,7 +59,7 @@ def jsonParse(args):
             args.append(val)
         else:
             args = [val] + args
-    main(args)
+    main(args, False)
     return
 
 
@@ -73,21 +74,30 @@ def getMode(inputFile):
     return mapping[extension]
 
 
-def main(arglist):
-    
+def main(arglist, display = True):
+    if not arglist:
+        arglist.append("-h")
     parser = generateArgParse()
     args = parser.parse_args(arglist)
     mode = getMode(args.input[0])
     try:
         mode(arglist)
-        print("Process Succeeded")
+        if display: print("Process Succeeded")
     except Exception:
+        if not display:
+            return
         print(traceback.format_exc())
         # or
         print(sys.exc_info()[2])
         print("Process Failed")
-    input ("Press Any Key to Close")
 
 
 if __name__ in "__main__":
-    main(sys.argv[1:])
+    try:
+        main(sys.argv[1:])
+    except ValueError:
+        raise
+    except:
+        pass
+    finally:
+        input ("Press Any Key to Close")

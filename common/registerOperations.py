@@ -6,15 +6,15 @@ Created on Tue Dec  7 17:09:50 2021
 """
 
 sBasicUnaryOperators = ["++", "|-"]
-sExtendedUnaryOperators = ["--", "##", "#-"]
+sExtendedUnaryOperators = ["--", "##", "#-", "||"]
 sUnaryOperators = sBasicUnaryOperators + sExtendedUnaryOperators
 sUnaryOperatorsMap = {op: ix for ix, op in enumerate(sUnaryOperators)}
-sUnaryNames = ["INCREMENT", "CLEAR", "DECREMENT", "TIME", "ELAPSED"]
+sUnaryNames = ["INCREMENT", "CLEAR", "DECREMENT", "TIME", "ELAPSED", "ABS"]
 
-sBasicBinaryOperators = ["==", "<=", "<", ">=", ">", "!="]
+sBasicBinaryOperators = ["==", ">=", ">", "<=", "<", "!="]
 sExtendedBinaryOperators = [":=", "+=", "-=", "*=", "/=", "%="]
 sTemporalBinaryOperators = ["#>", "#<"]
-sBinaryNames = ["EQ", "LEQ", "LT", "GEQ", "GT", "NEQ", "SET",
+sBinaryNames = ["EQ", "GEQ", "GT", "LEQ", "LT", "NEQ", "SET",
                 "ADD", "SUB", "MUL", "DIV", "MOD", "ELAPGT", "ELAPLT"]
 
 sBinaryOperators = sBasicBinaryOperators + \

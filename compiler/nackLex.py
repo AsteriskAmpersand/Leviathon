@@ -134,6 +134,7 @@ class NackLexer(Lexer):
     DECREMENT = '\-\-'
     TIME = '\#\#'
     ELAPSED = '\#\-'
+    ABS = '\|\|'
     EQ = '=='
     LEQ = '<='
     LT = '<'
