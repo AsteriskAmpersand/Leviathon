@@ -198,7 +198,9 @@ class Target(deque):
         result = []
         args = [(typing, data) for typing, data in zip(
             self.types, self) if typing != "literal"]
-        for t, (typing, data) in zip(target.params, args):
+        if len(target.getParameters()) != len(args):
+            raise ValueError("Mismatch between target parameter length and argument structure")
+        for t, (typing, data) in zip(target.getParameters(), args):
             result += data.parse(t)
         return result
 

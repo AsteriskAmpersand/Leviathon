@@ -12,16 +12,19 @@ class FunctionLiteral(ErrorManaged):
     subfields = ["function", "params"]
 
     def __init__(self, function, arguments):
+        self.invert = False
         self.tag = "Function Call Literal [%X]" % function
         self.function = function
         self.raw_id = function
         self.params = arguments
 
     def copy(self):
-        return FunctionLiteral(copy(self.function), copy(self.params))
+        literal = FunctionLiteral(copy(self.function), copy(self.params))
+        literal.invert = self.invert
+        return literal
 
     def resolveProperties(self, storage):
-        storage("functionType", self.raw_id)
+        storage("functionType", self.raw_id if not self.invert else -self.raw_id)
         for field, parameterObj in zip(["parameter1", "parameter2"], self.params):
             storage(field, parameterObj.getRaw())
 
@@ -33,16 +36,16 @@ class FunctionLiteral(ErrorManaged):
             getattr(param, operator)(*args, "var")
 
     def resolveLocal(self, symbolsTable):
-        self.resolveNames("resolveLocal", symbolsTable )
+        self.resolveNames("resolveLocal", symbolsTable)
 
     def resolveCaller(self, namespaces, assignments):
-        self.resolveNames("resolveCaller", namespaces, assignments )
+        self.resolveNames("resolveCaller", namespaces, assignments)
 
     def resolveTerminal(self, symbolsTable):
         self.resolveNames("resolveTerminal", symbolsTable)
-        
+
     def __repr__(self):
-        return "<FuncL> %s (%s)"%(self.function,', '.join(map(repr,self.params)))
+        return "<FuncL> %s (%s)" % (self.function, ', '.join(map(repr, self.params)))
 
 
 class FunctionShell(FunctionLiteral, ErrorManaged):
@@ -50,6 +53,7 @@ class FunctionShell(FunctionLiteral, ErrorManaged):
     subfields = ["sections", "params"]
 
     def __init__(self, id=None, params=None):
+        self.invert = False
         if id is None:
             self.tag = "Function Call Name"
             self.sections = []
@@ -67,6 +71,7 @@ class FunctionShell(FunctionLiteral, ErrorManaged):
         shell = FunctionShell()
         shell.sections = [copy(id) for id in self.sections]
         shell.params = [[copy(p) for p in params] for params in self.params]
+        shell.invert = self.invert
         return shell
 
     def resolveNames(self, operator, *args):
@@ -76,10 +81,13 @@ class FunctionShell(FunctionLiteral, ErrorManaged):
 
     def resolveProperties(self, storage):
         for field, parameterValue in self.functionParamPairs:
+            if self.invert and field == "functionType":
+                parameterValue = -parameterValue
             storage(field, parameterValue)
 
     def resolveFunctions(self, functionResolver):
         parameters = {}
+
         def testAdd(propertyName, propertyValue):
             if propertyName in parameters:
                 self.errorHandler.repeatedProperty(propertyName)
@@ -91,6 +99,9 @@ class FunctionShell(FunctionLiteral, ErrorManaged):
             return
         self.functionParamPairs = list(parameters.items())
 
+    def getParameters(self):
+        return [param for param in self.params if type(param) is not str]
+
     def signature(self):
         sig = []
         for literal, param in zip(self.sections, self.params):
@@ -101,15 +112,19 @@ class FunctionShell(FunctionLiteral, ErrorManaged):
 
     def literalSignature(self):
         return tuple(map(str, self.sections))
-    
+
     def errorRepr(self):
         result = "self."
         result += ".".join([literal + "(" + arg + ")"
-         for literal,arg in zip(map(str,self.sections),
-                               map(lambda x: ','.join(map(str,x)),self.params))])
-            
+                            for literal, arg in zip(map(str, self.sections),
+                                                    map(lambda x: ','.join(map(str, x)), self.params))])
+
         return result
 
     def __repr__(self):
-        return "<Func> %s (%s)" % (' || '.join(map(repr,self.sections)),
-                                 ' || '.join(map(lambda x: ','.join(map(repr,x)),self.params)))
+        return "<Func> %s (%s)" % (' || '.join(map(repr, self.sections)),
+                                   ' || '.join(map(lambda x: ','.join(map(repr, x)), self.params)))
+
+def NegatedFunction(pureFunction):
+    pureFunction.invert = True
+    return pureFunction

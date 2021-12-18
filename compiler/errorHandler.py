@@ -16,8 +16,8 @@ def iterable(obj):
     return True
 
 def copy(self):
-    if hasattr(self,copy):
-        return self.copy().copyMetadataFrom(self)
+    #if hasattr(self,"copy"):
+    #    return self.copy().copyMetadataFrom(self)
     if type(self) is int:
         return self
     elif type(self) is str:

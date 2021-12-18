@@ -98,6 +98,10 @@ class SegmentDecompiler(Decompiler):
 
     def resolveFunctions(self, functionResolver, registerScheduler):
         if self.segment.functionType not in [0, 2]:
+            invert = False
+            if self.segment.functionType < 0:
+                invert = True
+                self.segment.functionType = - self.segment.functionType 
             if isRegister(self.segment):
                 self.functionName = functionResolver.registerResolve(
                     self.segment, registerScheduler)
@@ -105,7 +109,7 @@ class SegmentDecompiler(Decompiler):
             else:
                 self.functionName = functionResolver.resolve(self.segment)
                 self.function = self.functionName
-            return self.functionName
+            return ("not " if invert else "") + self.functionName
         return None
 
     def decompile(self, actionResolver, callResolver, scopeResolver, functionResolver, registerScheduler):

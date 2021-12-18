@@ -13,7 +13,7 @@ class Register():
     def resolveLocal(self, symbolsTable):
         pass
 
-    def resolveCaller(self, namespace, assignments, typing):
+    def resolveCaller(self, namespace, assignments):
         pass
 
     def resolveTerminal(self, symbolsTable):
@@ -67,7 +67,7 @@ class RegisterOp():
     def resolveLocal(self, varNames):
         pass
 
-    def resolveCaller(self, namespace, assignments, typing):
+    def resolveCaller(self, namespace, assignments):
         pass
 
     def resolveTerminal(self, symbolsTable):

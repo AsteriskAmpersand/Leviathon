@@ -114,3 +114,31 @@ B8{
    parameter1 == 3: (rank.AT)
 }
 BF: in_map({st_enum:parameter1}).in_area(parameter2)
+3000{
+   parameter1 == 0: heal(parameter2)
+   parameter1 == 1: heal_perdecmil(parameter2)
+   parameter1 == 2: damage(parameter2)
+   parameter1 == 3: damage_perdecmil(parameter2)
+   parameter1 == 10: hp.return_rax()
+   parameter1 == 11: max_hp.return_rax()
+}
+3001{
+   >stamina
+   parameter1 == 0: increase(parameter2)
+   parameter1 == 1: increase_perdecmil(parameter2)
+   parameter1 == 10: return_rax()
+}
+3002{
+   parameter1 == 0: enrage()
+   parameter1 == 1: refresh_enrage()
+}
+3003{
+   parameter1 == 0: corpseDuration(parameter2)
+   parameter1 == 1: corpseDuration.return_rax()
+}
+3004{
+    >size
+   parameter1 == 0: scale_perdecmil(parameter2)
+   parameter1 == 1: set_perdecmil(parameter2)
+   parameter1 == 2: return_rax_perdecmil()
+}

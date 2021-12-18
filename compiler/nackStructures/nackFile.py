@@ -86,11 +86,11 @@ class ScopeTarget(ErrorManaged):
             path = (root/self.target).absolute()
         elif self.type == "id":
             if self.target not in namedScopes:
-                settings.missingScope(self.target)
+                self.errorHandler.missingScope(self.target)
             path = namedScopes[self.target].path
         elif self.type == "ix":
             if self.target > len(indexedScopes):
-                settings.indexOverflow(self.target)
+                #self.errorHandler.indexOverflow(self.target)
                 self.errorHandler.thkIndexLimitExceeded(self.target)
             if indexedScopes[self.target][0] == "":
                 settings.emptyScope(self.target)

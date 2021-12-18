@@ -16,7 +16,7 @@ class Chance(ErrorManaged):
         self.code = self.codeClass
 
     def copy(self):
-        return Chance(self.chance)
+        return type(self)(self.chance)
 
     def resolveLocal(self, symbolsTable):
         self.chance.resolveLocal(symbolsTable, "var")

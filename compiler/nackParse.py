@@ -490,12 +490,20 @@ class NackParser(Parser):
     # ===================================================
     # Function
 
+    @_('NOT purefunctionType')
+    def functionType(self,p):
+        return abc.NegatedFunction(p[1])
+
+    @_('purefunctionType')
+    def functionType(self,p):
+        return p[0]
+
     @_('functionName', 'functionLiteral')
-    def functionType(self, p):
+    def purefunctionType(self, p):
         return p[0]
 
     @_('registerType')
-    def functionType(self, p):
+    def purefunctionType(self, p):
         return p[0]
 
     # Action

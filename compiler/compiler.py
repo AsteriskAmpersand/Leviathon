@@ -156,5 +156,5 @@ if __name__ in "__main__":
     for path in lst:
         print(path)
         s = path.parent
-        (outRoot/s).mkdir(parents=True, exist_ok=True)
+        (s/"compiled").mkdir(parents=True, exist_ok=True)
         testCompile(path.parent/"Compiled", path)

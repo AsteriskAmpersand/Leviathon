@@ -74,7 +74,7 @@ class FexLexer(Lexer):
         return t
 
     # Identifiers and keywords
-    @_(r'[a-zA-Z_0-9]+')
+    @_(r'[a-zA-Z\_0-9]+')
     def ID(self,t):
         t.type = self.id_keywords.get(t.value,'ID') 
         return t

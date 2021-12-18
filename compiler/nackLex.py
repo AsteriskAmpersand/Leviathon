@@ -58,15 +58,19 @@ class NackLexer(Lexer):
                        key.ENDR, key.ENDR2, key.ENDRW, key.ENDRW2]
     if_keywords = [key.IF, key.ELSE, key.ELIF, key.ENDIF, key.ENDIFW]
     init_keywords = [key.ENDALL]
+    function_keywords = ["not"]
     id_keywords = {keyword: keyword.upper()
-                   for keyword in sum([directives, control, node_keywords, chance_keywords, if_keywords, init_keywords], [])}
+                   for keyword in sum([directives, control, node_keywords, 
+                                       chance_keywords, if_keywords, init_keywords,
+                                       function_keywords], [])}
     reg_unary_keywords = {**{regex.escape(op): name for op, name in zip(sUnaryOperators, sUnaryNames)},
                           **{regex.escape(op): name for op, name in zip(sBinaryOperators, sBinaryNames)}}
     tokens = {*id_keywords.values(), *reg_unary_keywords.values(),
-              FUNCTION_START, LINECONTINUE, LINESKIP, COMMENTS, DO_ACTION, DO_CALL, DO_DIRECTIVE, DO_NOTHING,
+              FUNCTION_START, LINECONTINUE, LINESKIP, COMMENTS,
+              DO_ACTION, DO_CALL, DO_DIRECTIVE, DO_NOTHING,
               META, REG, PATH,
               UNSAFE, FLOAT, NUMBER, HEXNUMBER, ACTION, FUNCTION, CALL, ID,
-              ASSIGN, DORRAH}
+              ASSIGN}
 
     @_('//.*')
     def COMMENTS(self, t): return
