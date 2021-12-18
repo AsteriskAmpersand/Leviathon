@@ -307,6 +307,7 @@ class NackFile(ErrorManaged):
                 self.symbolsTable.addNode(
                     node.names(), node.getIndex(), node.getId(), node)
                 self.nodes.append(node)
+                self.inheritChildren(node)
                 node.resolveCaller(
                     {"Caller": self.symbolsTable.nodes}, self.symbolsTable.vars)
         return

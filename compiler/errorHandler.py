@@ -41,16 +41,17 @@ class ErrorManaged():
     tag = None
 
     def inherit(self, settings=None, errorHandler=None):
-        self.settings = self.settings if hasattr(
-            self, "settings") else settings
-        self.errorHandler = self.errorHandler if hasattr(
-            self, "errorHandler") else errorHandler
+        self.settings = self.settings if settings is None else settings
+        self.errorHandler = self.errorHandler \
+                                if errorHandler is None \
+                                else errorHandler
         for subfield in self.subfields:
             self.inheritChildren(getattr(self, subfield))
         return self
 
     def verifyElement(self,element):
-        if not issubclass(type(element),ErrorManaged):
+        if not hasattr(element,"verify"):
+        #if not issubclass(type(element),ErrorManaged):
             return
         failed = False
         try:

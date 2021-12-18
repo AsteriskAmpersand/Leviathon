@@ -114,10 +114,11 @@ class FunctionShell(FunctionLiteral, ErrorManaged):
         return tuple(map(str, self.sections))
 
     def errorRepr(self):
+        args = lambda x: '('+','.join(map(str, x))+')' if type(x) is not str else ''
         result = "self."
-        result += ".".join([literal + "(" + arg + ")"
-                            for literal, arg in zip(map(str, self.sections),
-                                                    map(lambda x: ','.join(map(str, x)), self.params))])
+        result += ".".join([literal + args
+                            for literal, args in zip(map(str, self.sections),
+                                                     map(args, self.params))])
 
         return result
 

@@ -121,7 +121,7 @@ if __name__ in "__main__":
 
     def testCompile(folder, file):
         settings = CompilerSettings()
-        settings.verbose = False
+        #settings.verbose = False
         settings.thklistPath = file.stem+".thklst"
         settings.outputRoot = folder
         #settings.display = void
@@ -152,7 +152,8 @@ if __name__ in "__main__":
 
     #fandCompile(r"D:\Games SSD\MHW-AI-Analysis\Leviathon\tests\ingameFiles\em007_00_data\em007.fand",settings)
     lst = [
-        Path(r'C:\Users\Asterisk\Downloads\testing\em\em024\00\data\em024.fand')]
+        Path(r'C:\Users\Asterisk\Documents\ICETest\AlexandermothProject\em\em121\00\data\em121.fand'),
+        ]
     for path in lst:
         print(path)
         s = path.parent

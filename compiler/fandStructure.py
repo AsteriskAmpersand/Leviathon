@@ -32,7 +32,7 @@ class FandStructure(ErrorManaged):
         self.count = -1
 
     def verify(self):
-        for project in self.modules.values():
+        for project in set(self.parsedScopes.values()):
             project.verify()
         #list(map(lambda x: x.verify(), project.modules.values()))
 
