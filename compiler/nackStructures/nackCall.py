@@ -114,11 +114,15 @@ class ScopedCallID(Call):
 
     def resolveCalls(self):
         if self.raw_target is not None: return self.raw_target
+        if self.target is None or self.target.module is None:
+            self.errorHandler.missingScope(repr(self.target.scope))
+            return
         try:
             self.raw_target = self.node_target.getId()
             self.target.raw_id = self.raw_target
         except:
             self.errorHandler.missingNodeName(self.target)
+            return
         self.external = self.target.module.id
         
     def retarget(self,name,target):

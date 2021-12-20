@@ -81,8 +81,12 @@ class Node(ErrorManaged):
             if segment.internalCall():
                 node = segment.callTarget()
                 if node not in chainMembers:
-                    copies += node.chainedCopy(chainMembers)
-                nsegment.reconnectChain(chainMembers[node])
+                    if node is None:
+                        segment.errorHandler.missingNodeName(str(segment._call.target))
+                    else:
+                        copies += node.chainedCopy(chainMembers)
+                if node in chainMembers:
+                    nsegment.reconnectChain(chainMembers[node])
         copies.append(copied)
         return copies
 

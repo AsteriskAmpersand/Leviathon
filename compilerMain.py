@@ -44,6 +44,8 @@ def generateArgParse():
     parser.add_argument('-preprocessor', type=bool, default = False,
                         help='[Non-Standard] Run the macro prepropcessor')
     
+    parser.add_argument('-skipVerify', action="store_false",                        
+                        help='Skip internal compiler state verification during compilation')
     parser.add_argument('-forceCritical', action="store_true",                        
                         help='Convert all errors into critical errors that automatically stop compilation')
     parser.add_argument('-forceError', action="store_true",
@@ -65,7 +67,7 @@ def buildSettings(args):
                      "fexty": "functionResolver" , 'thkNames':"thkMap", 
                      "directForeign":"inlineForeign", "inlineGlobal":"foreignGlobal" ,
                      "projectNames":"projectNames",#"deduplicate":"deduplicateModules",
-                     "preprocessor":"preprocessor" , 
+                     "preprocessor":"preprocessor" , "skipVerify":"verify",
                      "forceCritical":"forceCritical" , "forceError":"forceError" ,
                      "repeatedProperty": 'repeatedProperty', 
                      "outputName":"thklistPath" , "outputRoot":"outputRoot",

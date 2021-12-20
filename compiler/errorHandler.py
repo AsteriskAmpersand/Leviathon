@@ -55,8 +55,8 @@ class ErrorManaged():
             return
         failed = False
         try:
-            if element.errorHandler.parent != self.errorHandler:
-                self.settings.display("Missing Inheritance", self.tag,element.tag) 
+            if element.errorHandler.parent.fullTags() != self.errorHandler.fullTags():
+                self.settings.display("Missing Inheritance <", self.tag,"> <= <",element.tag,">") 
                 self.settings.display(repr(self))
                 self.settings.display(repr(element))
                 failed = True
@@ -66,6 +66,7 @@ class ErrorManaged():
             self.settings.display(repr(element))
             failed = True
         if failed:
+
             raise AttributeError
         if self.errorHandler.mark:
             self.errorHandler.report()
@@ -130,6 +131,9 @@ class ErrorHandler():
         self.errorlog = []
         self.tags = []
         self.parent = None
+
+    def fullTags(self):
+        return self.tags + self.parent.fullTags() if self.parent else []
 
     def childInstance(self, tag=None):
         eh = ErrorHandler(self.settings)

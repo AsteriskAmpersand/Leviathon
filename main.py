@@ -59,8 +59,8 @@ def jsonParse(args):
             args.append(val)
         else:
             args = [val] + args
-    main(args, False)
-    return
+    main(args)
+    return True
 
 
 def getMode(inputFile):
@@ -74,18 +74,18 @@ def getMode(inputFile):
     return mapping[extension]
 
 
-def main(arglist, display = True):
+def main(arglist):
     if not arglist:
         arglist.append("-h")
     parser = generateArgParse()
     args = parser.parse_args(arglist)
     mode = getMode(args.input[0])
     try:
-        mode(arglist)
-        if display: print("Process Succeeded")
+        skip = mode(arglist)
+        if skip: print("Process Succeeded")
     except Exception:
-        if not display:
-            return
+        #if skip:
+        #    return
         print(traceback.format_exc())
         # or
         print(sys.exc_info()[2])

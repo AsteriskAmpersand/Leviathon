@@ -270,7 +270,6 @@ class NackFile(ErrorManaged):
         for node in self.nodes:
             node.resolveInlines(self, self.symbolsTable)
         self.inlineCleanup()
-        pass
 
     def hasInlineCall(self, scope, name):
         if scope in self.inlineNamespace:
@@ -307,9 +306,9 @@ class NackFile(ErrorManaged):
                 self.symbolsTable.addNode(
                     node.names(), node.getIndex(), node.getId(), node)
                 self.nodes.append(node)
-                self.inheritChildren(node)
                 node.resolveCaller(
                     {"Caller": self.symbolsTable.nodes}, self.symbolsTable.vars)
+        self.inherit()
         return
 
     def resolveCalls(self):

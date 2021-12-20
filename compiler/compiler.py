@@ -5,9 +5,6 @@ Created on Sun Oct 31 01:45:42 2021
 @author: Asterisk
 """
 
-import sys
-sys.path.append("..")
-
 from common.monsterEnum import loadEntities
 from common.actionEnum import loadActionMaps
 from common.fexLayer import buildCompiler
@@ -102,7 +99,7 @@ def fandCompile(fand, settings, output=print):
         # if settings.verbose:
         #    settings.display(repr(project))
         wrapCall(project.compileProperties())
-        project.verify()
+        if settings.verify: project.verify()
         wrapCall(project.serialize(Path(settings.outputRoot)))
         report("Project Compilation Complete")
     except CompilationError:
@@ -152,7 +149,7 @@ if __name__ in "__main__":
 
     #fandCompile(r"D:\Games SSD\MHW-AI-Analysis\Leviathon\tests\ingameFiles\em007_00_data\em007.fand",settings)
     lst = [
-        Path(r'C:\Users\Asterisk\Documents\ICETest\AlexandermothProject\em\em121\00\data\em121.fand'),
+        Path(r'C:/Users/Asterisk/Downloads/testing/em/em024/00/data/em024.fand'),
         ]
     for path in lst:
         print(path)

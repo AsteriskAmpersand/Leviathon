@@ -14,6 +14,7 @@ class CompilerSettings():
         
         self.preprocessor = False
         
+        self.verify = True
         self.forceCritical = False
         self.forceError = False
         self.repeatedProperty = "Warning"

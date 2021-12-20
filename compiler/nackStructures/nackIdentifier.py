@@ -58,7 +58,7 @@ class IdClass(ErrorManaged):
 
 
 class Identifier(IdClass):
-    subfields = ["id"]
+    subfields = ["id","raw_id"]
 
     def __init__(self, identifier):
         self.tag = "Identifier [%s]" % str(identifier)
@@ -76,7 +76,7 @@ class Identifier(IdClass):
 
 
 class IdentifierRaw(IdClass):
-    subfields = ["raw_id"]
+    subfields = ["id","raw_id"]
 
     def __init__(self, identifier):
         self.tag = "Identifier Literal [%s]" % str(identifier)
@@ -96,7 +96,7 @@ class IdentifierRaw(IdClass):
 
 class IdentifierScoped(IdClass):
     tag = "Function Scoped ID"
-    subfields = ["target", "scope"]
+    subfields = ["target", "scope","raw_id"]
 
     def __init__(self, scope, target):
         self.scope = str(scope)
