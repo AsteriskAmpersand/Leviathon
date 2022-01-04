@@ -22,7 +22,7 @@ class MonsterActions():
         self.nameDict = nameDict
 
 def parseActionFile(filePath):
-    pattern = r".*Group:[0-9]* ID:([0-9]*) Name:ACTION::([^\s]*)"
+    pattern = r".*Group:[0-9]*,ID:([0-9]*),Name:ACTION::([^\s]*)"
     action = regex.compile(pattern)
     actionDict = {}
     nameDict = {}
@@ -38,15 +38,15 @@ def parseActionFile(filePath):
         return nameDict,actionDict
 
 def loadActionMaps(pathing = Path(currentFile/"ActionDumps")):
-    filenamePattern = r".*em([0-9]*)_([0-9]*).txt"
+    filenamePattern = r".*em([0-9]*).txt"
     monster = regex.compile(filenamePattern)
     monsterDB = {}
     for file in pathing.rglob("*.txt"):
         g = monster.match(str(file))
         if g:
-            monId,monSpecies = map(int,g.groups())
+            monId = int(g.groups()[0])
             nameDict,actionDict = parseActionFile(file)
-            monsterDB[(monId,monSpecies)] = nameDict,actionDict
+            monsterDB[monId] = nameDict,actionDict
     return monsterDB
 
 class THKContextResolver():

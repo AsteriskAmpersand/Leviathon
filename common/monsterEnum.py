@@ -81,8 +81,8 @@ def loadEntities(actionMapper = {}):
                 monsterKind,monsterID,speciesID,monsterBase,iconID,gameID,monsterName = match.groups()
                 monsterID,speciesID,iconID,gameID = map(int,[monsterID,speciesID,iconID,gameID])
                 aToN, nToA = {},{}
-                if (monsterID,speciesID) in actionMapper:
-                    aToN,nToA = actionMapper[(monsterID,speciesID)]
+                if gameID in actionMapper:
+                    aToN,nToA = actionMapper[gameID]
                 entity = EntityData(monsterKind,monsterID,speciesID,monsterBase,gameID,nToA,aToN)
                 entities.append(entity)
         #entities.append(EntityData("otomo",0,0,"Palico",0,{},{}))

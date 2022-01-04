@@ -1,4 +1,4 @@
-#!"d:\games ssd\mhw-ai-analysis\leviathon\scripts\python.exe"
+#!E:\IBProjects\Leviathon\Scripts\python.exe
 # EASY-INSTALL-ENTRY-SCRIPT: 'future==0.18.2','console_scripts','futurize'
 import re
 import sys
