@@ -38,12 +38,12 @@ class CustomLogger():
             self.level = self.levels
 
     @loggerLevel
-    def debug(self, message, arguments = []): pass
+    def debug(self, message, arguments=[]): pass
     @loggerLevel
-    def info(self, message, arguments = []): pass
+    def info(self, message, arguments=[]): pass
     @loggerLevel
-    def warning(self, message, arguments = []): pass
+    def warning(self, message, arguments=[]): pass
     @loggerLevel
-    def error(self, message, arguments = []): pass
+    def error(self, message, arguments=[]): pass
     @loggerLevel
-    def critical(self, message, arguments = []): pass
+    def critical(self, message, arguments=[]): pass

@@ -16,10 +16,14 @@ class Chance(ErrorManaged):
         self.code = self.codeClass
 
     def copy(self):
-        return type(self)(self.chance)
+        newChance = type(self)(copy(self.chance))
+        return newChance
 
     def resolveLocal(self, symbolsTable):
         self.chance.resolveLocal(symbolsTable, "var")
+
+    def resolveScopedAssignments(self, scope, assignments):
+        self.chance.resolveScopedAssignments(scope, assignments, "var")
 
     def resolveCaller(self, namespace, assignments):
         self.chance.resolveCaller(namespace, assignments, "var")
@@ -32,8 +36,8 @@ class Chance(ErrorManaged):
         storage("parameter1", self.chance.getRaw())
 
     def __repr__(self):
-        signum = {0x40:"H-",0xC0:"E-",0x80:"L-"}[self.code]
-        return "<%sChance> "%signum + repr(self.chance)
+        signum = {0x40: "H-", 0xC0: "E-", 0x80: "L-"}[self.code]
+        return "<%sRandom> " % signum + repr(self.chance)
 
 
 class ChanceHead(Chance):

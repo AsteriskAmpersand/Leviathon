@@ -68,6 +68,10 @@ class Node(ErrorManaged):
                 recipient = controller.retrieveInlineCall(scope, target.target)
                 segment.reconnectChain(recipient)
 
+    def resolveScopedAssignments(self, scope, assignments):
+        for segment in self.segments:
+            segment.resolveScopedAssignments(scope, assignments)
+
     def copy(self):
         header = copy(self.header)
         segments = [copy(segment) for segment in self.segments]
@@ -82,7 +86,8 @@ class Node(ErrorManaged):
                 node = segment.callTarget()
                 if node not in chainMembers:
                     if node is None:
-                        segment.errorHandler.missingNodeName(str(segment._call.target))
+                        segment.errorHandler.missingNodeName(
+                            str(segment._call.target))
                     else:
                         copies += node.chainedCopy(chainMembers)
                 if node in chainMembers:

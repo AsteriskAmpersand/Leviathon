@@ -31,6 +31,9 @@ class Action(ErrorManaged):
     def resolveLocal(self, symbolsTable):
         self.resolveNames("resolveLocal", symbolsTable)
 
+    def resolveScopedAssignments(self, scope, assignments):
+        self.resolveNames("resolveScopedAssignments", scope, assignments)
+
     def resolveCaller(self, namespaces, assignments):
         self.resolveNames("resolveCaller", namespaces, assignments)
 
@@ -51,15 +54,15 @@ class Action(ErrorManaged):
                 else:
                     param.errorHandler.unresolvedIdentifier()
 
-    def resolved(self,resolution):
+    def resolved(self, resolution):
         self.raw_id = resolution
         self.id.raw_id = resolution
         return resolution
 
     def __repr__(self):
         identifier = self.id if self.raw_id is None else self.raw_id
-        return "<Action> [%s]"%repr(identifier)+"("+\
-                ','.join(map(repr,self.parameters))+")"
+        return "<Action> [%s]" % repr(identifier)+"(" +\
+            ','.join(map(repr, self.parameters))+")"
 
 
 class ActionLiteral(Action):
@@ -93,12 +96,14 @@ class ActionID(Action):
     def copy(self):
         return super().copy(copy(self.id))
 
+
 class ScopedAction(ActionID):
     def resolveAction(self, actionScopes):
         if self.id.scope not in actionScopes:
             self.errorHandler.missingActionScope(self.id.scope)
             resolution = -1
         else:
-            resolution = actionScopes[self.id.scope].resolveAction(self.id.target)
+            resolution = actionScopes[self.id.scope].resolveAction(
+                self.id.target)
         super().resolved(resolution)
         return resolution

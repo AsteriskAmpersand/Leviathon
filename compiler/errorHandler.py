@@ -5,8 +5,9 @@ Created on Mon Nov  8 21:50:22 2021
 @author: Asterisk
 """
 from collections.abc import Iterable
-from collections import defaultdict,deque
+from collections import defaultdict, deque
 from compiler.compilerErrors import CompilationError
+
 
 def iterable(obj):
     try:
@@ -15,8 +16,9 @@ def iterable(obj):
         return False
     return True
 
+
 def copy(self):
-    #if hasattr(self,"copy"):
+    # if hasattr(self,"copy"):
     #    return self.copy().copyMetadataFrom(self)
     if type(self) is int:
         return self
@@ -43,25 +45,27 @@ class ErrorManaged():
     def inherit(self, settings=None, errorHandler=None):
         self.settings = self.settings if settings is None else settings
         self.errorHandler = self.errorHandler \
-                                if errorHandler is None \
-                                else errorHandler
+            if errorHandler is None \
+            else errorHandler
         for subfield in self.subfields:
             self.inheritChildren(getattr(self, subfield))
         return self
 
-    def verifyElement(self,element):
-        if not hasattr(element,"verify"):
-        #if not issubclass(type(element),ErrorManaged):
+    def verifyElement(self, element):
+        if not hasattr(element, "verify"):
+            # if not issubclass(type(element),ErrorManaged):
             return
         failed = False
         try:
             if element.errorHandler.parent.fullTags() != self.errorHandler.fullTags():
-                self.settings.display("Missing Inheritance <", self.tag,"> <= <",element.tag,">") 
+                self.settings.display(
+                    "Missing Inheritance <", self.tag, "> <= <", element.tag, ">")
                 self.settings.display(repr(self))
                 self.settings.display(repr(element))
                 failed = True
         except:
-            self.settings.display("Missing Error Handler [", self.tag,"] -> ",element.tag) 
+            self.settings.display(
+                "Missing Error Handler [", self.tag, "] -> ", element.tag)
             self.settings.display(repr(self))
             self.settings.display(repr(element))
             failed = True
@@ -75,9 +79,9 @@ class ErrorManaged():
 
     def verify(self):
         for subfield in self.subfields:
-            var = getattr(self,subfield)
+            var = getattr(self, subfield)
             if type(var) is dict:
-                for key,value in var.items():
+                for key, value in var.items():
                     self.verifyElement(key)
                     self.verifyElement(value)
             elif iterable(var):
@@ -85,10 +89,9 @@ class ErrorManaged():
                     self.verifyElement(element)
             else:
                 self.verifyElement(var)
-            
 
     def inheritChildren(self, child):
-        if issubclass(type(child),ErrorManaged):
+        if issubclass(type(child), ErrorManaged):
             child.inherit(
                 self.settings, self.errorHandler.childInstance(self.tag))
         elif type(child) in [str, int, float, type(None), bool]:
@@ -117,10 +120,12 @@ class ErrorManaged():
     def __str__(self):
         return self.tag
 
+
 def unique(seq):
     seen = set()
     seen_add = seen.add
-    return [(x,y) for x,y in seq if not ((tuple(x),y) in seen or seen_add((tuple(x),y)))]
+    return [(x, y) for x, y in seq if not ((tuple(x), y) in seen or seen_add((tuple(x), y)))]
+
 
 class ErrorHandler():
     def __init__(self, settings):
@@ -189,6 +194,11 @@ class ErrorHandler():
         level = self.errorLevel()
         self.log(level, "Unresolved Identifier %s" % str(identifier))
 
+    def unresolvedScopeInRegister(self, identifier=""):
+        level = self.errorLevel()
+        self.log(level, "Unresolved Scoped Identifier in Register %s" %
+                 str(identifier))
+
     def actionParameterCountExceeded(self, count):
         level = self.errorLevel()
         self.log(level, "Too many parameters passed to an action [%d/5]")
@@ -202,9 +212,19 @@ class ErrorHandler():
         self.log(
             level, "Call to %s cannot be resolved as no node has this name" % name)
 
+    def missingExternalNodeName(self, scope, name):
+        level = self.errorLevel()
+        self.log(
+            level, "Call to %s cannot be resolved as no node has this name in module %s" % (name, scope))
+
     def missingScope(self, scope):
         level = self.errorLevel()
         self.log(level, "Scope %s is not an import" % str(scope))
+
+    def missingScopeNode(self, scope, node):
+        level = self.errorLevel()
+        self.log(level, "Node %s is missing from Scope %s" %
+                 (str(node), str(scope)))
 
     def thkIndexLimitExceeded(self, index):
         level = self.errorLevel()
@@ -219,9 +239,10 @@ class ErrorHandler():
         level = self.errorLevel()
         self.log(level, "%s is not a valid monster action dump" % str(path))
 
-    def missingActionName(self, name):
+    def missingActionName(self, actionName, monsterName):
         level = self.errorLevel()
-        self.log(level, "%s is not a valid monster name" % str(name))
+        self.log(level, "%s is not a valid action name for monster %s" %
+                 (str(actionName), str(monsterName)))
 
     def missingAnyActionScope(self):
         level = self.errorLevel()
@@ -248,7 +269,7 @@ class ErrorHandler():
         self.log(
             level, "Call is lacking a proper target (normally from inlining failure)")
 
-    def unmatchedFunctionSignature(self,signature):
+    def unmatchedFunctionSignature(self, signature):
         level = self.errorLevel()
         self.log(
             level, "No Function Signature in the FEXTY File matches the one provided '%s'" % signature)
@@ -263,10 +284,10 @@ class ErrorHandler():
         self.log(
             level, "Node is trying to use pre-existing index and will overwrite previous instance")
 
-    def repeatedName(self):
+    def repeatedName(self, name):
         level = self.warningLevel()
         self.log(
-            level, "Node name already exists and will overwrite previous instance.")
+            level, "Node name %s already exists and will overwrite previous instance." % name)
 
     def lexingFail(self, path=""):
         level = self.errorLevel()

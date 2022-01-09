@@ -31,6 +31,9 @@ class IdClass(ErrorManaged):
             self.node_target = symbolsTable.resolve(self.id, typing)
             return self.node_target
 
+    def resolveScopedAssignments(self, scope, assignments, typing):
+        pass
+
     def resolveCaller(self, namespace, assignments, typing):
         return self.raw_id
 
@@ -58,7 +61,7 @@ class IdClass(ErrorManaged):
 
 
 class Identifier(IdClass):
-    subfields = ["id","raw_id"]
+    subfields = ["id", "raw_id"]
 
     def __init__(self, identifier):
         self.tag = "Identifier [%s]" % str(identifier)
@@ -76,7 +79,7 @@ class Identifier(IdClass):
 
 
 class IdentifierRaw(IdClass):
-    subfields = ["id","raw_id"]
+    subfields = ["id", "raw_id"]
 
     def __init__(self, identifier):
         self.tag = "Identifier Literal [%s]" % str(identifier)
@@ -96,7 +99,7 @@ class IdentifierRaw(IdClass):
 
 class IdentifierScoped(IdClass):
     tag = "Function Scoped ID"
-    subfields = ["target", "scope","raw_id"]
+    subfields = ["target", "scope", "raw_id"]
 
     def __init__(self, scope, target):
         self.scope = str(scope)
@@ -119,6 +122,12 @@ class IdentifierScoped(IdClass):
                 self.module = result
                 return self.resolveCall()
             return result
+
+    def resolveScopedAssignments(self, scope, assignments, typing):
+        if typing == "var":
+            if self.scope == scope:
+                if self.target in assignments:
+                    self.raw_id = assignments[self.target]
 
     def resolveCaller(self, namespaces, variables, typing):
         if typing != "node":

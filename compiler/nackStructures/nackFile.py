@@ -90,7 +90,7 @@ class ScopeTarget(ErrorManaged):
             path = namedScopes[self.target].path
         elif self.type == "ix":
             if self.target > len(indexedScopes):
-                #self.errorHandler.indexOverflow(self.target)
+                # self.errorHandler.indexOverflow(self.target)
                 self.errorHandler.thkIndexLimitExceeded(self.target)
             if indexedScopes[self.target][0] == "":
                 settings.emptyScope(self.target)
@@ -136,12 +136,15 @@ class ActionTarget(ErrorManaged):
                 self.nameToId, self.idToName = entityManager.actionsByName(
                     self.target)
                 self.monsterID = entityManager[self.target].gameID
+                self.monsterName = entityManager[self.target].name
             except:
                 self.errorHandler.invalidMonsterName(self.target)
                 self.nameToId, self.idToName = {}, {}
                 self.monsterID = -1
+                self.monsterName = ""
         elif self.typing == "path":
             self.monsterID = -1
+            self.monsterName = ""
             path = Path(self.target)
             if not path.is_absolute():
                 path = self.settings.root/path
@@ -156,7 +159,7 @@ class ActionTarget(ErrorManaged):
         if actionName in self.nameToId:
             return self.nameToId[actionName]
         else:
-            self.errorHandler.missingActionName(actionName)
+            self.errorHandler.missingActionName(actionName, self.monsterName)
             return -1
 
     def checkIndex(self, actionIndex):
@@ -187,10 +190,14 @@ class NackFile(ErrorManaged):
         result += '\n'.join(map(repr, self.nodes))
         return result
 
+    def resolveScopedAssignments(self, scope, assignments):
+        for node in self.nodes:
+            node.resolveScopedAssignments(scope, assignments)
+
     def dependencies(self):
-        return [self.symbolsTable.resolveScope(target)
+        return {target: self.symbolsTable.resolveScope(target)
                 for target in self.scopeNames
-                if self.scopeNames[target].isModule()]
+                if self.scopeNames[target].isModule()}
 
     def createSymbolsTable(self, root, scopeMappings, pathToModule, indexedScopes):
         self.symbolsTable = SymbolsTable(self)
@@ -250,7 +257,7 @@ class NackFile(ErrorManaged):
                 unindexedNodes.append(node)
             for name in node.names():
                 if name in names:
-                    errorlog.repeatedName()
+                    errorlog.repeatedName(name)
                 names[name] = node
             if node.hasId():
                 iD = node.getId()
@@ -268,7 +275,10 @@ class NackFile(ErrorManaged):
         self.inlineNamespace = defaultdict(dict)
         self.inlineAdditions = defaultdict(list)
         for node in self.nodes:
-            node.resolveInlines(self, self.symbolsTable)
+            try:
+                node.resolveInlines(self, self.symbolsTable)
+            except KeyError:
+                pass
         self.inlineCleanup()
 
     def hasInlineCall(self, scope, name):
@@ -281,15 +291,19 @@ class NackFile(ErrorManaged):
 
     def importInline(self, module, scopename, target):
         function = target.target
-        nodecopies = module.returnInline(function)
+        nodecopies = module.returnInline(
+            lambda x: self.errorHandler.missingExternalNodeName(scopename, x), function)
         for node in nodecopies:
             if not any((name in self.inlineNamespace[scopename] for name in node.names())):
                 for name in node.names():
                     self.inlineNamespace[scopename][name] = node
                 self.inlineAdditions[scopename].append(node)
 
-    def returnInline(self, functionName):
+    def returnInline(self, errorHandler, functionName):
         node = self.symbolsTable.resolve(functionName, "node")
+        if node is None:
+            errorHandler(functionName)
+            return []
         return node.chainedCopy(dict())
 
     def inlineCleanup(self):

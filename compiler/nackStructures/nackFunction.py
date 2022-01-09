@@ -38,6 +38,9 @@ class FunctionLiteral(ErrorManaged):
     def resolveLocal(self, symbolsTable):
         self.resolveNames("resolveLocal", symbolsTable)
 
+    def resolveScopedAssignments(self, scope, assignments):
+        self.resolveNames("resolveScopedAssignments", scope, assignments)
+
     def resolveCaller(self, namespaces, assignments):
         self.resolveNames("resolveCaller", namespaces, assignments)
 
@@ -70,7 +73,7 @@ class FunctionShell(FunctionLiteral, ErrorManaged):
     def copy(self):
         shell = FunctionShell()
         shell.sections = [copy(id) for id in self.sections]
-        shell.params = [[copy(p) for p in params] for params in self.params]
+        shell.params = [copy(params) for params in self.params]
         shell.invert = self.invert
         return shell
 
@@ -114,8 +117,9 @@ class FunctionShell(FunctionLiteral, ErrorManaged):
         return tuple(map(str, self.sections))
 
     def errorRepr(self):
-        args = lambda x: '('+','.join(map(str, x))+')' if type(x) is not str else ''
-        result = "self."
+        def args(x): return '('+','.join(map(str, x)) + \
+            ')' if type(x) is not str else ''
+        result = ("not " if self.invert else "") + "self."
         result += ".".join([literal + args
                             for literal, args in zip(map(str, self.sections),
                                                      map(args, self.params))])
@@ -125,6 +129,7 @@ class FunctionShell(FunctionLiteral, ErrorManaged):
     def __repr__(self):
         return "<Func> %s (%s)" % (' || '.join(map(repr, self.sections)),
                                    ' || '.join(map(lambda x: ','.join(map(repr, x)), self.params)))
+
 
 def NegatedFunction(pureFunction):
     pureFunction.invert = True

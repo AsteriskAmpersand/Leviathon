@@ -19,28 +19,30 @@ class Call(ErrorManaged):
         self.external = -1
 
     def resolveNames(self, operator, *args):
-        if self.node_target or self.raw_target: return
-        self.node_target = getattr(self.target,operator)(*args,"node")
+        if self.node_target or self.raw_target:
+            return
+        self.node_target = getattr(self.target, operator)(*args, "node")
 
     def resolveLocal(self, symbolsTable):
         self.resolveNames("resolveLocal", symbolsTable)
 
     def resolveCaller(self, namespace, assignments):
         return self
-    
+
     def resolveTerminal(self, symbolsTable):
         return self
 
     def resolveCalls(self):
-        if self.raw_target is not None: return self.raw_target
+        if self.raw_target is not None:
+            return self.raw_target
         try:
-            self.raw_target = getattr(self.node_target,self.local_scope)()
+            self.raw_target = getattr(self.node_target, self.local_scope)()
             self.external = -1
             self.target.raw_id = self.raw_target
         except AttributeError:
-           self.errorHandler.missingNodeName(str(self.target))
-            
-    def reconnectChain(self,target):
+            self.errorHandler.missingNodeName(str(self.target))
+
+    def reconnectChain(self, target):
         self.node_target = target
         self.target.node_target = target
         return self
@@ -113,9 +115,11 @@ class ScopedCallID(Call):
         return sc
 
     def resolveCalls(self):
-        if self.raw_target is not None: return self.raw_target
-        if self.target is None or self.target.module is None:
-            self.errorHandler.missingScope(repr(self.target.scope))
+        if self.raw_target is not None:
+            return self.raw_target
+        if self.target.module is None:
+            self.errorHandler.missingScopeNode(
+                self.target.scope, self.target.target)
             return
         try:
             self.raw_target = self.node_target.getId()
@@ -124,49 +128,53 @@ class ScopedCallID(Call):
             self.errorHandler.missingNodeName(self.target)
             return
         self.external = self.target.module.id
-        
-    def retarget(self,name,target):
+
+    def retarget(self, name, target):
         cnid = Call(name)
         cnid.target.node_target = target
         cnid.node_target = target
         cnid.external = -1
         cnid.raw_target = self.raw_target
         return cnid
-        
-    def reconnectChain(self,target):
-        return self.retarget(self.target.sequelize(),target)
-        
+
+    def reconnectChain(self, target):
+        return self.retarget(self.target.sequelize(), target)
+
     def resolveCaller(self, namespace, assignments):
-        if self.node_target or self.raw_target: return self
-        newTarget = self.target.resolveCaller(namespace,assignments,"node")
-        if self.target.scope in namespace and newTarget:
-            return self.retarget(self.target.sequelize(omit=True),newTarget)
-        else:
+        if self.node_target or self.raw_target:
             return self
-        
-    def resolveTerminal(self,symbolsTable):
-        namespace = {"Terminal":symbolsTable.nodes}
-        assignments = symbolsTable.vars
-        if self.node_target or self.raw_target: return self
-        newTarget = self.target.resolveCaller(namespace,assignments,"node")
+        newTarget = self.target.resolveCaller(namespace, assignments, "node")
         if self.target.scope in namespace and newTarget:
-            return self.retarget(self.target.sequelize(omit=True),newTarget)
+            return self.retarget(self.target.sequelize(omit=True), newTarget)
         else:
             return self
 
+    def resolveTerminal(self, symbolsTable):
+        namespace = {"Terminal": symbolsTable.nodes}
+        assignments = symbolsTable.vars
+        if self.node_target or self.raw_target:
+            return self
+        newTarget = self.target.resolveCaller(namespace, assignments, "node")
+        if self.target.scope in namespace and newTarget:
+            return self.retarget(self.target.sequelize(omit=True), newTarget)
+        else:
+            return self
+
+
 class ScopedCall(Call):
-    def __init__(self, scope,literalTarget):
-        self.tag = "Call Scoped Literal [%s.%d]"%(scope,literalTarget)
+    def __init__(self, scope, literalTarget):
+        self.tag = "Call Scoped Literal [%s.%d]" % (scope, literalTarget)
         self.target = scope
         self.node_target = None
         self.raw_target = literalTarget
         self.external = None
-        
-    def resolveLocal(self,symbolsTable):
+
+    def resolveLocal(self, symbolsTable):
         self.module = symbolsTable.resolveScope(self.target)
         if self.module is None:
-            self.errorHandler.missingScope(self.target)
+            self.errorHandler.missingScopeNode(
+                self.target.scope, self.target.target)
         self.external = self.module.id
 
     def __repr__(self):
-        return "<Call> " + repr(self.target) + " [%d]"%self.raw_target
+        return "<Call> " + repr(self.target) + " [%d]" % self.raw_target

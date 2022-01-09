@@ -44,10 +44,10 @@ class NackLexer(Lexer):
     log = CustomLogger()
     log.setLevel("critical")
 
-    def __init__(self,*args,**kwargs):
+    def __init__(self, *args, **kwargs):
         self.log = CustomLogger()
         self.log.setLevel("error")
-        super().__init__(*args,**kwargs)
+        super().__init__(*args, **kwargs)
 
     literals = {'(', ')', '{', '}', '[', ']', ":", ".", ",", "&"}
 
@@ -60,7 +60,7 @@ class NackLexer(Lexer):
     init_keywords = [key.ENDALL]
     function_keywords = ["not"]
     id_keywords = {keyword: keyword.upper()
-                   for keyword in sum([directives, control, node_keywords, 
+                   for keyword in sum([directives, control, node_keywords,
                                        chance_keywords, if_keywords, init_keywords,
                                        function_keywords], [])}
     reg_unary_keywords = {**{regex.escape(op): name for op, name in zip(sUnaryOperators, sUnaryNames)},

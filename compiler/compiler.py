@@ -16,7 +16,6 @@ from compiler.compilerSettings import CompilerSettings
 from pathlib import Path
 
 
-
 # class FandStructure():
 #     def __init__(self):
 #         self.root = None
@@ -86,6 +85,7 @@ def fandCompile(fand, settings, output=print):
         wrapCall(project.resolveLocal())
         report("Resolving Inline Invocations")
         wrapCall(project.resolveInlines())
+        project.inherit()
         wrapCall(project.resolveTerminal())
         report("Resolving Calls")
         wrapCall(project.resolveCalls())
@@ -99,7 +99,8 @@ def fandCompile(fand, settings, output=print):
         # if settings.verbose:
         #    settings.display(repr(project))
         wrapCall(project.compileProperties())
-        if settings.verify: project.verify()
+        if settings.verify:
+            project.verify()
         wrapCall(project.serialize(Path(settings.outputRoot)))
         report("Project Compilation Complete")
     except CompilationError:
@@ -150,7 +151,7 @@ if __name__ in "__main__":
     #fandCompile(r"D:\Games SSD\MHW-AI-Analysis\Leviathon\tests\ingameFiles\em007_00_data\em007.fand",settings)
     lst = [
         Path(r'C:/Users/Asterisk/Downloads/testing/em/em024/00/data/em024.fand'),
-        ]
+    ]
     for path in lst:
         print(path)
         s = path.parent

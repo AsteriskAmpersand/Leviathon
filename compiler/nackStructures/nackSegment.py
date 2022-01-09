@@ -193,6 +193,9 @@ class Segment(SegmentInit, SegmentFinalResolution, ErrorManaged):
     def resolveLocal(self, symbolsTable): pass
 
     @resolutionOp(resolveCall=False)
+    def resolveScopedAssignments(self, scope, assignments): pass
+
+    @resolutionOp(resolveCall=False)
     def resolveCaller(self, namespaces, var):
         if self._call is not None:
             self._call = self._call.resolveCaller(namespaces, var)

@@ -77,7 +77,7 @@ class THKModule(ErrorManaged):
     @callPassing
     def externalDependencies(self): pass
     @callPassing
-    def returnInline(self, functionName): pass
+    def returnInline(self, errorHandler, functionName): pass
     @callPassing
     def substituteScopes(self): pass
     @callPassing
@@ -86,13 +86,17 @@ class THKModule(ErrorManaged):
     def resolveLocal(self): pass
     @callPassing
     def dependencies(self): pass
+    def assignments(self): return self.parsedStructure.assignments
+    @callPassing
+    def resolveScopedAssignments(self, scope, assignments): pass
 
     def resolveInlines(self):
         if self.inlineResolved:
             return
-        for dependency in self.dependencies():
+        for scope, dependency in self.dependencies().items():
             if dependency.inlineCall:
                 dependency.resolveInlines()
+            self.resolveScopedAssignments(scope, dependency.assignments())
         if self.decompilable:
             self.parsedStructure.resolveInlines()
         else:
@@ -196,10 +200,6 @@ class NackParser(Parser):
     def nackHeader(self, p):
         pass  # handled by register declaration code
 
-    @_('assignment nackHeader')
-    def nackHeader(self, p):
-        pass  # handled by register declaration code
-
     @_('IMPORTLIBRARY PATH AS ID skip')
     def libraryImport(self, p):
         self.file.scopeNames[p.ID] = abc.ScopeTarget(p.PATH, "path")
@@ -231,6 +231,10 @@ class NackParser(Parser):
     @_('id ASSIGN numeric skip')
     def assignment(self, p):
         self.file.assignments[p.id.id] = p.numeric.id
+
+    @_('assignment nackBody')
+    def nackBody(self, p):
+        return p.nackBody  # handled by register declaration code
 
     @_('node nackBody')
     def nackBody(self, p):
@@ -491,11 +495,11 @@ class NackParser(Parser):
     # Function
 
     @_('NOT purefunctionType')
-    def functionType(self,p):
+    def functionType(self, p):
         return abc.NegatedFunction(p[1])
 
     @_('purefunctionType')
-    def functionType(self,p):
+    def functionType(self, p):
         return p[0]
 
     @_('functionName', 'functionLiteral')
@@ -738,6 +742,10 @@ class NackParser(Parser):
     def regRef(self, p):
         return abc.RegisterID(p[0].id)
 
+    @_('id "." id')
+    def regVal(self, p):
+        return abc.IdentifierScoped(p.id0.id, p.id1.id)
+
     @_('numericSymbol')
     def regVal(self, p):
         return p.numericSymbol
@@ -813,7 +821,7 @@ def parseNack(file, settings=None):
         data = inf.read() + "\n"
     if settings is not None and settings.preprocessor:
         display = settings.display
-        macroProcessor(data, display)
+        data = macroProcessor(data, display) + "\n"
     lexer = NackLexer()
     tokenized = lexer.tokenize(data)
     parser = NackParser()
@@ -836,15 +844,11 @@ def moduleParse(path, thkmap, scope, settings, parent=None, external=False):
 
 
 if __name__ == '__main__':
-    with open(r'D:\Games SSD\MHW-AI-Analysis\InlineTest\endrTest.nack') as inf:
-        data = inf.read()
+    # with open(r'D:\Games SSD\MHW-AI-Analysis\InlineTest\endrTest.nack') as inf:
+    #    data = inf.read()
     data = """
-def node_044 : 547 @ 44
-    if [$V == 0] 
-        [$V |-] 
-        >> node_043 
-    else 
-    endif 
+def node_044
+    [$V := Common.common] 
     return 
 endf 
     """

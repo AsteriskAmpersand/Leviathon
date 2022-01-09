@@ -41,7 +41,7 @@ def generateArgParse():
     #parser.add_argument('-deduplicate', action="store_true",
     #                    help='Export each scope as a separate file')
     
-    parser.add_argument('-preprocessor', type=bool, default = False,
+    parser.add_argument('-preprocessor', action='store_true',
                         help='[Non-Standard] Run the macro prepropcessor')
     
     parser.add_argument('-skipVerify', action="store_false",                        

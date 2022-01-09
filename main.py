@@ -56,7 +56,8 @@ def jsonParse(args):
     for key, val in argDict.items():
         if key != "input":
             args.append("-" + key)
-            args.append(val)
+            if val:
+                args.append(val)
         else:
             args = [val] + args
     main(args)
@@ -82,9 +83,9 @@ def main(arglist):
     mode = getMode(args.input[0])
     try:
         skip = mode(arglist)
-        if skip: print("Process Succeeded")
+        #if skip: print("Process Succeeded")
     except Exception:
-        #if skip:
+        # if skip:
         #    return
         print(traceback.format_exc())
         # or
@@ -94,10 +95,11 @@ def main(arglist):
 
 if __name__ in "__main__":
     try:
-        main(sys.argv[1:])
+        main([r'F:/ICE-CQ AI/AlexandermothProject/em/em121/00/data/compilerSettings.json'])
+        # main(sys.argv[1:])
     except ValueError:
         raise
     except:
         pass
     finally:
-        input ("Press Any Key to Close")
+        input("Press Any Key to Close")

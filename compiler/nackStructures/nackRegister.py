@@ -13,6 +13,9 @@ class Register():
     def resolveLocal(self, symbolsTable):
         pass
 
+    def resolveScopedAssignments(self, scope, assignments):
+        pass
+
     def resolveCaller(self, namespace, assignments):
         pass
 
@@ -67,6 +70,9 @@ class RegisterOp():
     def resolveLocal(self, varNames):
         pass
 
+    def resolveScopedAssignments(self, scope, namespace):
+        pass
+
     def resolveCaller(self, namespace, assignments):
         pass
 
@@ -90,15 +96,19 @@ class RegisterComparison(RegisterOp, ErrorManaged):
         self.comparison = comp
 
     def copy(self):
-        return RegisterComparison(copy(self.base),
-                                  copy(self.target),
-                                  copy(self.comparison))
+        newReg = type(self)(copy(self.base),
+                            copy(self.target),
+                            copy(self.comparison))
+        return newReg
 
     def resolveNames(self, operator, *args):
         getattr(self.target, operator)(*args, "var")
 
     def resolveLocal(self, symbolsTable):
         self.resolveNames("resolveLocal", symbolsTable)
+
+    def resolveScopedAssignments(self, scope, assignments):
+        self.resolveNames("resolveScopedAssignments", scope, assignments)
 
     def resolveCaller(self, namespace, assignments):
         self.resolveNames("resolveCaller", namespace, assignments)
@@ -123,22 +133,35 @@ class RegisterComparison(RegisterOp, ErrorManaged):
                                                        self.target)))
 
 
-class RegisterExtendedComparison(RegisterComparison, ErrorManaged):
+class RegisterExtendedComparison(RegisterComparison):
     subfields = ["base", "target", "comparison", "extended"]
 
     def __init__(self, *args, **kwargs):
         self.extended = False
         super().__init__(*args, **kwargs)
 
+    def copy(self):
+        new = super().copy()
+        new.extended = self.extended
+        return new
+
     def extendTarget(self):
-        self.extended = True
-        extended = RegisterID(self.target.id)
-        self.inheritChildren(extended)
-        self.target = extended
+        try:
+            extended = RegisterID(self.target.id)
+            self.inheritChildren(extended)
+            self.target = extended
+            self.extended = True
+        except AttributeError:
+            self.errorHandler.unresolvedScopeInRegister(
+                "%s.%s" % (self.target.scope, self.target.target))
+            raise
 
     def collectRegisters(self):
         if self.target.raw_id is None:
-            self.extendTarget()
+            try:
+                self.extendTarget()
+            except:
+                return []
             return self.base.collectRegisters() + self.target.collectRegisters()
         return self.base.collectRegisters()
 
