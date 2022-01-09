@@ -95,8 +95,7 @@ def main(arglist):
 
 if __name__ in "__main__":
     try:
-        main([r'F:/ICE-CQ AI/AlexandermothProject/em/em121/00/data/compilerSettings.json'])
-        # main(sys.argv[1:])
+        main(sys.argv[1:])
     except ValueError:
         raise
     except:
