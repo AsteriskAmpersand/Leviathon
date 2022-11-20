@@ -47,7 +47,7 @@ class THKDecompiler(Decompiler):
         thk = Thk.parse_file(self.globalPath)
         self.nodes = [NodeDecompiler(ix, self.settings).read(
             node) for ix, node in enumerate(thk.nodeList)]
-        self.monster = thk.header.monsterID
+        self.monster = thk.header.monsterID if not thk.header.isPalico else -1
         self.labelNodes()
         return self
 

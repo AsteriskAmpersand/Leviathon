@@ -32,7 +32,7 @@ class EntityData():
             return "%s#%02X"%(key.ACTION, actionIndex)
     def getId(self):
         return self.gameID
-    
+
 class EntityManager():
     kindmap = {"em":"Monster","ems":"Small Monster","otomo":"Otomo"}
     def __init__(self):
@@ -71,7 +71,7 @@ class EntityManager():
         return "em"
 
 def loadEntities(actionMapper = {}):
-    pattern = ("(ems|em)([0-9]{3})_([0-9]{2}),([^,]*),([0-9]*),([0-9]*),([^\s])")
+    pattern = ("(ems|em|otomo)([0-9]{3})_([0-9]{2}),([^,]*),(-?[0-9]*),(-?[0-9]*),([^\s])")
     nameFormatMapping = regex.compile(pattern)
     entities = EntityManager()
     with open(currentFile/"monIds.txt") as inf:

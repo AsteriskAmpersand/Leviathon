@@ -15,7 +15,7 @@ if "__file__" in locals():
     currentFile = Path(os.path.realpath(__file__)).parent
 else:
     currentFile = Path(".")
-    
+
 class MonsterActions():
     def __init__(self,monId,monPath,actionDict,nameDict):
         self.actionDict = actionDict
@@ -34,17 +34,21 @@ def parseActionFile(filePath):
                 name = name.lower()
                 actionDict[int(id)] = name
                 nameDict[name] = int(id)
-                #print(id,name)
         return nameDict,actionDict
 
 def loadActionMaps(pathing = Path(currentFile/"ActionDumps")):
     filenamePattern = r".*em([0-9]*).txt"
     monster = regex.compile(filenamePattern)
+    palico = regex.compile(r".*ot.txt")
     monsterDB = {}
     for file in pathing.rglob("*.txt"):
         g = monster.match(str(file))
         if g:
             monId = int(g.groups()[0])
+            nameDict,actionDict = parseActionFile(file)
+            monsterDB[monId] = nameDict,actionDict
+        elif palico.match(str(file)):
+            monId = -1
             nameDict,actionDict = parseActionFile(file)
             monsterDB[monId] = nameDict,actionDict
     return monsterDB
