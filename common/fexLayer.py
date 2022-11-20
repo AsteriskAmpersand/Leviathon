@@ -284,7 +284,7 @@ if __name__ in "__main__":
 
         def log(self, *args):
             pass
-        
+
     def praseStringfield( field, dataType, dataIndex):
         if dataType is None:
             return "arg:"+str(field)
@@ -296,7 +296,7 @@ if __name__ in "__main__":
                     return "st_enum:"+str(field)
                 elif dataIndex == "em_enum":
                     return "em_enum:"+str(field)
-        
+
     def stringifyTarget(self, consequence):
         c = consequence
         if type(consequence) is str:
@@ -312,7 +312,7 @@ if __name__ in "__main__":
                 formatString += ")"
             formatString += term
             return formatString
-        
+
     resolver = buildResolver(str(currentFile/"default.fexty"))
     for funcId,forkResolve in resolver.functionTable.items():
         for entry in forkResolve.entries:
