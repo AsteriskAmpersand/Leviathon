@@ -28,7 +28,7 @@ T_SPECIFIER = "@"
 T_NUMERIC = "\d+"
 T_HEXNUMERIC = "[0-9A-Fa-f]*"
 T_ID = r"[a-zA-Z_][a-zA-Z'_0-9]*"
-T_PATH = r"[^\s^@^\n][^@^\n]*[^\s^\n^@]"
+T_PATH = r"(?:[^\s^@^\n][^@^\n]*[^\s^\n^@])|(?:[^\s^@^\n])"
 
 
 def parens(x): return "("+x+")"
@@ -241,7 +241,7 @@ def parseFand(file):
 
 
 if __name__ in "__main__":
-    with open(r"F:\ICE-CQ AI\AlexandermothProject\em\em121\00\data\em121.fand") as inf:
+    with open(r"D:\ICE-CQ AI\AlexandermothProject\em\em121\00\data\em121.fand") as inf:
         data = inf.read()
     lexer = FandLexer()
     tokenized = list(lexer.tokenize(data))
