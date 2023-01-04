@@ -23,11 +23,11 @@ Use Hex
   parameter1 == 12 : (target_area.global_center)
   parameter1 == 25 : (target_area.area_center)
   parameter1 == 26 : (target_area.area_aerial_center)
-  parameter1 == 31 : (target_area.nearest_monster_area)  
+  parameter1 == 31 : (target_area.nearest_monster_area)
   parameter1 == 3D : (target_area.unknown_aerial)
   parameter1 == 3E : (target_area.unknown_ground)
   otherwise : (parameter1)
-}  
+}
 6: distance_3d_to_target().leq(parameter1)
 7: distance_3d_to_target().gt(parameter1)
 8: distance_2d_to_target().leq(parameter1)
@@ -74,7 +74,7 @@ F: vertical_distance_to_target().gt(parameter1)
 }
 2C{
    >hp_percent()
-   parameter1 == 2: geq(parameter2)
+   parameter1 == 2: leq(parameter2)
 }
 2E{
    >target
