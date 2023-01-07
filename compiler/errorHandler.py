@@ -185,10 +185,11 @@ class ErrorHandler():
         level = "CriticalError"
         self.log(level, "Compiling with Pre-Compiled Modules is not supported yet")
 
-    def registryCountExceeded(self, excess):
+    def registryCountExceeded(self, excess, regs):
         level = self.errorLevel()
         self.log(
-            level, "Registry Count Exceeded - Too Many Different Registers Used [%d]" % excess)
+            level, "Registry Count Exceeded - Too Many Different Registers Used [%d] [%s]"
+                        % (excess,','.join(map(str,regs))))
 
     def unresolvedIdentifier(self, identifier=""):
         level = self.errorLevel()

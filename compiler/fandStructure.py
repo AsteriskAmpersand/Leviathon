@@ -178,7 +178,8 @@ class FandStructure(ErrorManaged):
             self.registerNames[name] = ix
         mix = max(indices, default=0)
         if mix > 21 or ix > 21:
-            self.errorHandler.registryCountExceeded(max(mix, ix))
+            self.errorHandler.registryCountExceeded(max(mix, ix),
+                                                    registerNames)
             return
         for module in self.parsedScopes.values():
             module.resolveRegisters(self.registerNames)
