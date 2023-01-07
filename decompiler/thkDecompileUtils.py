@@ -59,12 +59,12 @@ class NodeListing():
         for name in node.names:
             self.conditionalAdd(self.nodeToIndex,name,index)
             self.conditionalAdd(self.nodeToId,name,node.id)
-    
+
 class MissingCallID(Exception):
     def __init__(self, scope, iD):
         self.scopeIndex = scope
         self.id = iD
-       
+
 class CallResolver(dict):
     def __init__(self,premade = None):
         self.localIndex = None
@@ -115,10 +115,13 @@ class RegisterScheduler():
     def label(self,index,name):
         self.mappings[index] = name
     def resolve(self,registerIndex):
+        if registerIndex > 22:
+            #raise
+            pass
         if registerIndex in self.mappings and not self.force:
             return self.mappings[registerIndex]
         else:
-            return self.defaultName(registerIndex) 
+            return self.defaultName(registerIndex)
     def declarations(self,keep = False):
         declarations = []
         for entry,name in self.mappings.items():
@@ -128,6 +131,8 @@ class RegisterScheduler():
             else:
                 declarations.append(thklSpec.register_str%(name,letter))
         return '\n'.join(declarations)+"\n\n" if declarations else ""
+
+
 class ScopeResolver():
     def __init__(self):
         self.importList = set()

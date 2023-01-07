@@ -90,6 +90,7 @@ class RegisterComparison(RegisterOp, ErrorManaged):
     subfields = ["base", "target", "comparison"]
 
     def __init__(self, ref, val, comp):
+        self.invert = False
         self.tag = "Register Comparison [%s %s %s]" % (ref, comp, val)
         self.base = ref
         self.target = val
@@ -99,6 +100,7 @@ class RegisterComparison(RegisterOp, ErrorManaged):
         newReg = type(self)(copy(self.base),
                             copy(self.target),
                             copy(self.comparison))
+        newReg.invert = self.invert
         return newReg
 
     def resolveNames(self, operator, *args):
@@ -119,11 +121,9 @@ class RegisterComparison(RegisterOp, ErrorManaged):
     def resolveProperties(self, storage):
         if self.base.raw_id is None:
             self.errorHandler.unresolvedIdentifier(str(self.base))
-        if self.base.raw_id > 19:
-            delta = self.base.raw_id-19
-            storage("functionType", 0x94+self.base.raw_id+2*delta-1)
-        else:
-            storage("functionType", 0x94+self.base.raw_id)
+        print(self.invert)
+        ft = [1,-1][self.invert]*binaryIndex(self.base.raw_id)
+        storage("functionType",ft)
         storage("parameter1", sBinaryOperatorsMap[self.comparison])
         storage("parameter2", self.target.getRaw())
 
@@ -177,11 +177,11 @@ class RegisterExtendedComparison(RegisterComparison):
             self.errorHandler.unresolvedIdentifier(str(self.target))
         if self.extended:
             param1Offset = len(sBinaryOperatorsMap)
-            target = binaryIndex(self.target.raw_id)
+            target =self.target.raw_id
         else:
             param1Offset = 0
             target = self.target.getRaw()
-        storage("functionType", binaryIndex(self.base.raw_id))
+        storage("functionType", [1,-1][self.invert]*(binaryIndex(self.base.raw_id)))
         storage("parameter1",
                 sBinaryOperatorsMap[self.comparison] + param1Offset)
         storage("parameter2", target)
@@ -192,6 +192,7 @@ class RegisterUnaryOp(RegisterOp, ErrorManaged):
     subfields = ["base", "operator"]
 
     def __init__(self, ref, op):
+        self.invert = False
         self.tag = "Register Unary [%s %s]" % (ref, op)
         self.base = ref
         self.operator = op
@@ -203,7 +204,7 @@ class RegisterUnaryOp(RegisterOp, ErrorManaged):
         if self.base.raw_id is None:
             self.errorHandler.unresolvedIdentifier(str(self.base))
         else:
-            storage("functionType", unaryIndex(self.base.raw_id))
+            storage("functionType", [1,-1][self.invert]*unaryIndex(self.base.raw_id))
             storage("parameter1", sUnaryOperatorsMap[self.operator])
 
     def __repr__(self):

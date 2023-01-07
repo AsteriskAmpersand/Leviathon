@@ -101,15 +101,15 @@ class SegmentDecompiler(Decompiler):
             invert = False
             if self.segment.functionType < 0:
                 invert = True
-                self.segment.functionType = - self.segment.functionType 
+                self.segment.functionType = - self.segment.functionType
             if isRegister(self.segment):
                 self.functionName = functionResolver.registerResolve(
                     self.segment, registerScheduler)
-                self.function = self.functionName
             else:
                 self.functionName = functionResolver.resolve(self.segment)
-                self.function = self.functionName
-            return ("not " if invert else "") + self.functionName
+            self.functionName = ("not " if invert else "") + self.functionName
+            self.function = self.functionName
+            return self.functionName
         return None
 
     def decompile(self, actionResolver, callResolver, scopeResolver, functionResolver, registerScheduler):
