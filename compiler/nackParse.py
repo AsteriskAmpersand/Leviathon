@@ -848,9 +848,9 @@ if __name__ == '__main__':
     #    data = inf.read()
     data = """
 def node_044
-    [$V := Common.common] 
-    return 
-endf 
+    [$V := Common.common]
+    return
+endf
     """
     lexer = NackLexer()
     tokenized = list(lexer.tokenize(data))

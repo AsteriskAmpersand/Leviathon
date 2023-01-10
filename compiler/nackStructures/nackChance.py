@@ -10,13 +10,13 @@ from compiler.errorHandler import ErrorManaged, copy
 class Chance(ErrorManaged):
     subfields = ["chance"]
 
-    def __init__(self, percentage):
+    def __init__(self, percentage, code = None):
         self.tag = "Stochastic Choice [%s]" % str(percentage)
         self.chance = percentage
-        self.code = self.codeClass
+        self.code = self.codeClass if code is None else code
 
     def copy(self):
-        newChance = type(self)(copy(self.chance))
+        newChance = type(self)(copy(self.chance),self.code)
         return newChance
 
     def resolveLocal(self, symbolsTable):
