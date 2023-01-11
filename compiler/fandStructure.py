@@ -14,6 +14,7 @@ from common import thklist
 
 from pathlib import Path
 import queue
+import json
 
 THK_Enumeration = {"THK_%02d" % ix: ix for ix in range(100)}
 
@@ -189,7 +190,7 @@ class FandStructure(ErrorManaged):
             module.resolveFunctions(functionResolver)
 
     def compileProperties(self):
-        for module in self.parsedScopes.values():
+        for name,module in self.parsedScopes.items():
             module.compileProperties()
 
     def buildEntry(self, moduleName):
@@ -248,6 +249,24 @@ class FandStructure(ErrorManaged):
         outpath.parent.mkdir(parents=True, exist_ok=True)
         with open(outpath, 'wb') as outf:
             outf.write(binaryData)
+
+    def exportSymbols(self, outRoot):
+        outpath = outRoot/(self.settings.symbolsPath)
+        fileIndices = {}
+        monster = self.monster
+        scopeToIndex = {tern[0]: index for index,
+                        tern in self.indexedTargets.items()}
+        for scopeName, module in \
+                sorted(self.parsedScopes.items(), key=lambda x: scopeToIndex[x[0]]):
+            index = scopeToIndex[scopeName]
+            fileIndices[index] = {"name":scopeName, "module":module.exportSymbols(),
+                                  "path":str(module.path), "monster":monster}
+
+        #self.parsedScopes.items()
+        obj = fileIndices
+        with open(outpath,"w") as outf:
+            json.dump(obj, outf)
+        return
 
     def __repr__(self):
         spacer = '\n======================================\n\n'

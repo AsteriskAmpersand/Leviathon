@@ -89,6 +89,8 @@ class THKModule(ErrorManaged):
     def assignments(self): return self.parsedStructure.assignments
     @callPassing
     def resolveScopedAssignments(self, scope, assignments): pass
+    @callPassing
+    def exportSymbols(self): pass
 
     def resolveInlines(self):
         if self.inlineResolved:

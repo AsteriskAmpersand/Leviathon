@@ -229,3 +229,6 @@ class Segment(SegmentInit, SegmentFinalResolution, ErrorManaged):
     def __repr__(self):
         return ' '.join([repr(getattr(self, "_"+m)) for m in self.memberList
                          if getattr(self, "_"+m) is not None])
+
+    def exportSymbols(self):
+        return {"repr":repr(self)}

@@ -138,6 +138,10 @@ class Node(ErrorManaged):
                                 "segments": segmentList}
         return self.binaryStructure
 
+    def exportSymbols(self):
+        return {**self.header.exportSymbols(),
+                "segments":[segment.exportSymbols() for segment in self.segments]}
+
 
 class NodeHeader(ErrorManaged):
     subfields = []
@@ -161,3 +165,6 @@ class NodeHeader(ErrorManaged):
 
     def copy(self):
         return NodeHeader(self.names, (self.id, self.index), self.lineno)
+
+    def exportSymbols(self):
+        return {varname:getattr(self,varname) for varname in ["names","id","lineno","index"]}

@@ -43,6 +43,8 @@ def generateArgParse():
 
     parser.add_argument('-preprocessor', action='store_true',
                         help='[Non-Standard] Run the macro prepropcessor')
+    parser.add_argument('-symbols', action='store_true',
+                        help='Export Debugging Symbols')
 
     parser.add_argument('-skipVerify', action="store_false",
                         help='Skip internal compiler state verification during compilation')
@@ -54,6 +56,8 @@ def generateArgParse():
                         help='Error level for repeated properties [Warning,Error,CriticalError]')
 
 
+    parser.add_argument('-symbolsName', type=str,  default = "symbols.mhpdb",
+                        help='Output Symbols File Name')
     parser.add_argument('-outputName', type=str,  default = "em000.thklst",
                         help='Output THKList Name')
     parser.add_argument('-outputRoot', type=str, default = None,
@@ -67,9 +71,10 @@ def buildSettings(args):
                      "fexty": "functionResolver" , 'thkNames':"thkMap",
                      "directForeign":"inlineForeign", "inlineGlobal":"foreignGlobal" ,
                      "projectNames":"projectNames",#"deduplicate":"deduplicateModules",
-                     "preprocessor":"preprocessor" , "skipVerify":"verify",
+                     "preprocessor":"preprocessor" , "symbols":"symbols",
+                     "skipVerify":"verify",
                      "forceCritical":"forceCritical" , "forceError":"forceError" ,
-                     "repeatedProperty": 'repeatedProperty',
+                     "repeatedProperty": 'repeatedProperty',"symbolsName":"symbolsPath",
                      "outputName":"thklistPath" , "outputRoot":"outputRoot",
                      }
     for setting in settingsRemap:

@@ -401,3 +401,6 @@ class NackFile(ErrorManaged):
 
     def serialize(self):
         return thk.Thk.build({"header": self.dataHeader, "nodeList": self.dataSerialNodes})+compilerSignature
+
+    def exportSymbols(self):
+        return [node.exportSymbols() for node in self.nodes]

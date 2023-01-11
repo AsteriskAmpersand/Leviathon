@@ -17,7 +17,9 @@ class CompilerSettings():
         self.verify = True
         self.forceCritical = False
         self.forceError = False
+        self.symbols = False
         self.repeatedProperty = "Warning"
 
         self.thklistPath = "em000.thklst"
+        self.symbolsPath = "symbols.mhpdb"
         self.outputRoot = ""

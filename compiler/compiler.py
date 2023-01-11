@@ -102,6 +102,9 @@ def fandCompile(fand, settings, output=print):
         if settings.verify:
             project.verify()
         wrapCall(project.serialize(Path(settings.outputRoot)))
+        if settings.symbols:
+            report("Exporting Debugging Symbols")
+            wrapCall(project.exportSymbols(Path(settings.outputRoot)))
         report("Project Compilation Complete")
     except CompilationError:
         if settings.display != print:
