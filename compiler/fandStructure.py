@@ -254,14 +254,17 @@ class FandStructure(ErrorManaged):
         outpath = outRoot/(self.settings.symbolsPath)
         fileIndices = {}
         monster = self.monster
+        monsterID = None
         scopeToIndex = {tern[0]: index for index,
                         tern in self.indexedTargets.items()}
         for scopeName, module in \
                 sorted(self.parsedScopes.items(), key=lambda x: scopeToIndex[x[0]]):
             index = scopeToIndex[scopeName]
+            monsterID = module.parsedStructure.monsterID
             fileIndices[index] = {"name":scopeName, "module":module.exportSymbols(),
-                                  "path":str(module.path), "monster":monster}
-
+                                  "path":str(module.path), "monster":monsterID}
+        project = {"monster":monsterID if monsterID is not None else -1,
+                   "files":fileIndices}
         #self.parsedScopes.items()
         obj = fileIndices
         with open(outpath,"w") as outf:

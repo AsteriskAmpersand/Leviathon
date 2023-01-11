@@ -7,6 +7,9 @@ Created on Thu Nov 25 04:46:27 2021
 from compiler.errorHandler import ErrorManaged, copy
 import common.thk as thk
 
+branchingNub = {0x1:"E-Random", 0x2: "If",0x4:"Else",0x8:"EndIf",0x10:"Conclude"}
+closeNub = {0x1:"EndNode"}
+knownNub = {"endRandom":closeNub,"branchingControl":branchingNub}
 
 class TypeNub(ErrorManaged):
     def __init__(self, propName, raw_id):
@@ -23,8 +26,18 @@ class TypeNub(ErrorManaged):
     def __str__(self):
         return self.propName
 
+    def resolveRepr(self,typing,iding):
+        if typing not in knownNub:
+            return "<%s [%d]>" % (typing,iding)
+        else:
+            mapping = knownNub[typing]
+            if iding not in mapping:
+                return "<%s [%d]>" % (typing,iding)
+            else:
+                return "<%s>"%(mapping[iding])
+
     def __repr__(self):
-        return "<%s [%d]>" % (str(self), self.raw_id)
+        return self.resolveRepr(str(self.propName),self.raw_id)
 
 
 class SegmentInit():
@@ -174,7 +187,7 @@ def resolutionOp(resolveCall=True):
 
 
 class Segment(SegmentInit, SegmentFinalResolution, ErrorManaged):
-    memberList = ["function", "call", "directive", "action", "branchingControl", "randomType",
+    memberList = ["directive", "branchingControl", "randomType", "function", "call", "action",
                   "terminator", "metaparams", "chance"]
     subfields = ["_"+m for m in memberList]
     tag = "Node Segment"
@@ -227,8 +240,11 @@ class Segment(SegmentInit, SegmentFinalResolution, ErrorManaged):
         self.errorHandler.missingCallTarget()
 
     def __repr__(self):
-        return ' '.join([repr(getattr(self, "_"+m)) for m in self.memberList
-                         if getattr(self, "_"+m) is not None])
+        return ' '.join(["<"+repr(getattr(self, "_"+m))+">" for m in self.memberList
+                         if getattr(self, "_"+m) is not None and
+                         (bool(getattr(self, "_"+m)) if type(getattr(self, "_"+m)) is dict else True)
+                         and m != "terminator"
+                         ])
 
     def exportSymbols(self):
         return {"repr":repr(self)}
