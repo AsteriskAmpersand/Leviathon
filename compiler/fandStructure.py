@@ -243,6 +243,7 @@ class FandStructure(ErrorManaged):
             else:
                 targetString = ""
             entries.append(self.buildEntry(targetString))
+        self.path_entries = entries
         binaryData = thklist.ThkList.build(
             {"header": header, "data": data, "entries": entries})
         outpath = outRoot/(self.settings.thklistPath)
@@ -262,7 +263,7 @@ class FandStructure(ErrorManaged):
             index = scopeToIndex[scopeName]
             monsterID = module.parsedStructure.monsterID
             fileIndices[index] = {"name":scopeName, "module":module.exportSymbols(),
-                                  "path":str(module.path), "monster":monsterID}
+                                  "path":self.path_entries[index], "monster":monsterID}
         project = {"monster":monsterID if monsterID is not None else -1,
                    "files":fileIndices}
         #self.parsedScopes.items()
