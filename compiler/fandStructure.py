@@ -266,7 +266,7 @@ class FandStructure(ErrorManaged):
         project = {"monster":monsterID if monsterID is not None else -1,
                    "files":fileIndices}
         #self.parsedScopes.items()
-        obj = fileIndices
+        obj = project
         with open(outpath,"w") as outf:
             json.dump(obj, outf)
         return
